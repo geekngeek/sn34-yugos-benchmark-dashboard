@@ -11,6 +11,7 @@ import { parentOf, readBenchmarkMap, readListRows, type ListRow, type MapRef } f
 import { METRIC_INFO } from "@/lib/metrics";
 import { readLayout } from "@/lib/uiLayout";
 import { readModelLinks, readState } from "@/lib/yugosModels";
+import { readChartColors } from "@/lib/chartColors";
 import "./detail.css";
 
 export const dynamic = "force-dynamic";
@@ -210,7 +211,7 @@ export default async function BenchmarkDetailPage({ params, searchParams }: { pa
         {points.length > 0 && (
           <TradeoffChart points={points} x={xAxis} y={yAxis} logX={logOf(one(sp.logx), xAxis)} logY={logOf(one(sp.logy), yAxis)}
                          colorBy={(["developer", "yugos", "effort", "none"].includes(one(sp.color)) ? one(sp.color) : "developer") as "developer"}
-                         grey={one(sp.grey) ? one(sp.grey).split(",") : []} />
+                         grey={one(sp.grey) ? one(sp.grey).split(",") : []} customColors={await readChartColors()} />
         )}
 
         {!ids.length ? (

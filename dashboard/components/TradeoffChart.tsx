@@ -66,8 +66,9 @@ function scale(dom: Dom, log: boolean, r0: number, r1: number) {
 /** zoom a domain by `f` (<1 = in) around the axis-space point `at` */
 const zoomDom = ([a, b]: Dom, at: number, f: number): Dom => [at - (at - a) * f, at + (b - at) * f];
 
-export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer", grey = [] }: {
+export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer", grey = [], customColors = {} }: {
   points: ChartPoint[]; x: MetricKey; y: MetricKey; logX: boolean; logY: boolean; colorBy?: ColorBy; grey?: string[];
+  customColors?: Record<string, string>;      // developer -> "#rrggbb", chosen in the colour key (shared, on the server)
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -77,6 +78,22 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
   const [W, setW] = useState(900);
   const [hover, setHover] = useState<{ group: string; p: ChartPoint; px: number; py: number } | null>(null);
   const [keyHover, setKeyHover] = useState<string | null>(null);     // a colour-key entry being hovered
+  const [custom, setCustom] = useState<Record<string, string>>(customColors);
+  const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  /** set a developer's colour (null = its default); saved on the server, so every page and visitor gets it */
+  const setDevColor = (dev: string, color: string | null) => {
+    setCustom((c) => { const n = { ...c }; if (color) n[dev] = color; else delete n[dev]; return n; });
+    if (saveTimer.current) clearTimeout(saveTimer.current);
+    saveTimer.current = setTimeout(() => {          // the picker fires while dragging: save once it settles
+      fetch("/api/chart-colors", { method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ developer: dev, color }) }).catch(() => undefined);
+    }, 350);
+  };
+  const resetColors = () => {
+    setCustom({});
+    fetch("/api/chart-colors", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ reset: true }) })
+      .catch(() => undefined);
+  };
   // full screen, whiteboard style: wheel zooms around the pointer, drag pans, Shift+wheel scrolls sideways
   const root = useRef<HTMLDivElement>(null);
   const [full, setFull] = useState(false);
@@ -136,14 +153,14 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
 
   /** which key entry a point belongs to */
   const keyOf = (p: ChartPoint): string => {
-    if (colorBy === "developer") return LAB_SLOT[p.provider] ? p.provider : "Other";
+    if (colorBy === "developer") return LAB_SLOT[p.provider] || custom[p.provider] ? p.provider : "Other";
     if (colorBy === "yugos") return p.yugos_providers.length ? "routable" : "not";
     if (colorBy === "effort") return p.effort_rank === null ? (p.reasoning_effort === "enabled" ? "enabled" : "default") : `r${p.effort_rank}`;
     return "all";
   };
   const colorOfKey = (k: string): string => {
     if (greySet.has(k)) return "var(--tc-other)";
-    if (colorBy === "developer") return LAB_SLOT[k] ? `var(--tc-c${LAB_SLOT[k]})` : "var(--tc-other)";
+    if (colorBy === "developer") return custom[k] ?? (LAB_SLOT[k] ? `var(--tc-c${LAB_SLOT[k]})` : "var(--tc-other)");
     if (colorBy === "yugos") return k === "routable" ? "var(--tc-c1)" : "var(--tc-other)";
     if (colorBy === "effort") return k.startsWith("r") ? `var(--tc-r${k.slice(1)})` : "var(--tc-other)";
     return "var(--tc-c1)";
@@ -156,7 +173,8 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
       count.set(k, (count.get(k) ?? 0) + 1);
       if (k === "Other") others.add(p.provider);
     }
-    const order = colorBy === "developer" ? [...LAB_ORDER, "Other"]
+    const order = colorBy === "developer"
+      ? [...LAB_ORDER, ...Object.keys(custom).filter((d) => !LAB_SLOT[d]).sort((a, b) => a.localeCompare(b)), "Other"]
       : colorBy === "yugos" ? ["routable", "not"]
       : colorBy === "effort" ? [...RANK_STEP.map((r) => `r${r}`), "enabled", "default"] : ["all"];
     const label = (k: string) => colorBy === "yugos" ? (k === "routable" ? "Yugos can route" : "Not on Yugos")
@@ -168,7 +186,18 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
       title: k === "Other" ? `Other developers: ${[...others].sort().join(", ")}` : undefined,
     }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [points, colorBy, greySet]);
+  }, [points, colorBy, greySet, custom]);
+  // developers that share the grey "Other" (they can be given a colour of their own)
+  const otherDevs = useMemo(() => colorBy !== "developer" ? [] :
+    [...new Set(points.map((p) => p.provider).filter((d) => !LAB_SLOT[d] && !custom[d]))].sort((a, b) => a.localeCompare(b)),
+  [points, colorBy, custom]);
+  /** the hex a picker starts from: the custom colour, else the default slot's current colour */
+  const hexOf = (k: string) => {
+    if (custom[k]) return custom[k];
+    const el = root.current;
+    const v = el && LAB_SLOT[k] ? getComputedStyle(el).getPropertyValue(`--tc-c${LAB_SLOT[k]}`).trim() : "";
+    return /^#[0-9a-f]{6}$/i.test(v) ? v : "#888888";
+  };
   const toggleGrey = (k: string) => {
     const next = greySet.has(k) ? grey.filter((g) => g !== k) : [...grey, k];
     setParam({ grey: next.length ? next.join(",") : null });
@@ -309,15 +338,38 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
       {/* the colour key: what each colour means; hover highlights, click greys out */}
       {colorBy !== "none" && (
         <div className="tc-key" role="group" aria-label="Colour key" onMouseLeave={() => setKeyHover(null)}>
-          {keys.map((k) => (
-            <button key={k.id} type="button" className={`tc-key-item${greySet.has(k.id) ? " off" : ""}`} title={k.title ?? (greySet.has(k.id) ? "Click to colour again" : "Hover to highlight · click to grey out")}
-                    aria-pressed={!greySet.has(k.id)} onMouseEnter={() => setKeyHover(k.id)} onFocus={() => setKeyHover(k.id)}
-                    onBlur={() => setKeyHover(null)} onClick={() => toggleGrey(k.id)}>
-              <span className="tc-swatch" style={{ background: k.color }} aria-hidden="true" />
-              {k.label} <span className="tc-key-n">{k.count}</span>
-            </button>
-          ))}
+          {keys.map((k) => {
+            const pickable = colorBy === "developer" && k.id !== "Other";
+            return (
+              <span key={k.id} className={`tc-key-item${greySet.has(k.id) ? " off" : ""}`}
+                    onMouseEnter={() => setKeyHover(k.id)} onMouseLeave={() => setKeyHover(null)}>
+                {pickable ? (
+                  <label className="tc-swatch-pick" title={`Change ${k.label}'s colour`}>
+                    <span className="tc-swatch" style={{ background: k.color }} />
+                    <input type="color" value={hexOf(k.id)} aria-label={`Colour for ${k.label}`}
+                           onChange={(e) => setDevColor(k.id, e.target.value)} />
+                  </label>
+                ) : <span className="tc-swatch" style={{ background: k.color }} aria-hidden="true" />}
+                <button type="button" className="tc-key-name" aria-pressed={!greySet.has(k.id)} onFocus={() => setKeyHover(k.id)}
+                        onBlur={() => setKeyHover(null)} onClick={() => toggleGrey(k.id)}
+                        title={k.title ?? (greySet.has(k.id) ? "Click to colour again" : "Hover to highlight · click to grey out")}>
+                  {k.label} <span className="tc-key-n">{k.count}</span>
+                </button>
+                {custom[k.id] && (
+                  <button type="button" className="tc-key-x" title={`Put ${k.label}'s default colour back`} onClick={() => setDevColor(k.id, null)}>↺</button>
+                )}
+              </span>
+            );
+          })}
+          {otherDevs.length > 0 && (
+            <select className="tc-key-add" value="" aria-label="Give a developer in Other its own colour"
+                    onChange={(e) => { if (e.target.value) setDevColor(e.target.value, "#7a5c3e"); }}>
+              <option value="">+ Add colour for…</option>
+              {otherDevs.map((d) => <option key={d} value={d}>{d}</option>)}
+            </select>
+          )}
           {grey.length > 0 && <button type="button" className="link tc-key-reset" onClick={() => setParam({ grey: null })}>Colour all</button>}
+          {Object.keys(custom).length > 0 && <button type="button" className="link tc-key-reset" onClick={resetColors}>Reset colours</button>}
         </div>
       )}
 
