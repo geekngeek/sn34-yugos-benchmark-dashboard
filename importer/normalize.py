@@ -142,6 +142,27 @@ _DEVELOPER_PATTERNS: list[tuple[str, str]] = [
     (r"^reka", "Reka"),
     (r"^kimi", "Moonshot AI"),
     (r"^olmo", "Allen Institute for AI"),
+    # older / open families whose developer is well known (sources such as LMArena list no developer)
+    (r"^pixtral", "Mistral"),
+    (r"^(vicuna|fastchat|longchat)", "LMSYS"),
+    (r"^zephyr", "Hugging Face"),
+    (r"^(dbrx|dolly|mpt-)", "Databricks"),
+    (r"^falcon", "TII"),
+    (r"^(flan-t5|gopher|chinchilla)", "Google"),
+    (r"^step-\d", "StepFun"),
+    (r"^minicpm", "OpenBMB"),
+    (r"^wizardlm", "Microsoft"),
+    (r"^(tulu|molmo)", "Allen Institute for AI"),
+    (r"^snowflake", "Snowflake"),
+    (r"^stablelm", "Stability AI"),
+    (r"^openchat", "OpenChat"),
+    (r"^athene", "Nexusflow"),
+    (r"^(nous-hermes|hermes-\d)", "Nous Research"),
+    (r"^rwkv", "RWKV"),
+    (r"^openassistant", "LAION"),
+    (r"^intellect-\d", "Prime Intellect"),
+    (r"^alpaca", "Stanford"),
+    (r"^koala", "UC Berkeley"),
 ]
 
 

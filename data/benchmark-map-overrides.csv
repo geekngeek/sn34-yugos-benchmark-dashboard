@@ -1,0 +1,9 @@
+no,source,benchmark_name,benchmark_version,reason
+13.1,Aider,Aider Polyglot,Official leaderboard,the polyglot coding leaderboard is the only Aider data in the database
+16.12,tau2-bench (Sierra),τ²-bench,Banking_Knowledge (voice),"τ³-Voice Banking is the banking_knowledge domain run with voice"
+21.5,RULER (NVIDIA),RULER,4K,the list says "RULER @ 4K context"; the database names it by length only
+21.6,RULER (NVIDIA),RULER,8K,the list says "RULER @ 8K context"; the database names it by length only
+21.7,RULER (NVIDIA),RULER,16K,the list says "RULER @ 16K context"; the database names it by length only
+21.8,RULER (NVIDIA),RULER,32K,the list says "RULER @ 32K context"; the database names it by length only
+21.9,RULER (NVIDIA),RULER,64K,the list says "RULER @ 64K context"; the database names it by length only
+21.10,RULER (NVIDIA),RULER,128K,the list says "RULER @ 128K context"; the database names it by length only

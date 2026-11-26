@@ -1,0 +1,25 @@
+/* Benchmark details page (/benchmarks/<No>). Classes start with "bd-". */
+.bd { display: flex; flex-direction: column; gap: 14px; }
+.bd-crumbs { color: var(--ink-2); display: flex; gap: 4px; flex-wrap: wrap; align-items: baseline; }
+.bd-crumbs a { color: var(--ink-2); }
+.bd-head h1 { margin-bottom: 6px; }
+.bd-no { color: var(--muted); font-weight: 500; margin-right: 4px; }
+.bd-tags { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 0; font-size: 13px; }
+
+.bd-section h2 { font-size: 16px; margin: 0; }
+.bd-details dl { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 10px 18px; margin: 0; }
+.bd-details dt { color: var(--ink-2); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; padding-top: 2px; }
+.bd-details dd { margin: 0; font-size: 14px; }
+.bd-details .pre { white-space: pre-line; }
+.bd-extra { display: contents; }
+.bd-params { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.bd-params .bl-tag { display: inline-block; min-width: 64px; text-align: center; }
+
+.bd-sets { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+.bd-sets .chip { font-size: 12px; }
+.bd-count { opacity: .6; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.bd-from { margin: 0 0 10px; }
+
+@media (max-width: 700px) {
+  .bd-details dl { grid-template-columns: 1fr; }
+}

@@ -7,6 +7,7 @@ const TABS = [
   { href: "/", label: "Results" },
   { href: "/benchmarks", label: "Benchmark list" },
   { href: "/yugos-models", label: "Yugos models" },
+  { href: "/router-benchmarks", label: "Router benchmarks" },
 ];
 
 /** top navigation between the app's pages */

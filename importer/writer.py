@@ -17,7 +17,11 @@ import psycopg
 from psycopg.rows import dict_row
 from psycopg.types.json import Jsonb
 
+from dataclasses import replace as dc_replace
+
+from .normalize import split_effort
 from .records import BenchmarkRec, ModelRec, ParsedFile, PriceRec, ResultRec
+from .resolve import Resolved, Resolver, default_resolver
 
 log = logging.getLogger(__name__)
 
@@ -27,6 +31,7 @@ RESULT_COLS = (
     "time_per_task_sec", "ttft_sec", "tokens_per_sec",
     "input_tokens_per_task", "output_tokens_per_task", "reasoning_tokens_per_task",
     "cost_per_task_usd", "source_url", "published_at", "additional_metrics",
+    "mode", "model_snapshot", "raw_model_name", "model_match", "config_id",
 )
 PRICE_COLS = ("input_token_price", "output_token_price", "cache_read_price", "cache_write_price")
 _NON_NEGATIVE = ("time_per_task_sec", "ttft_sec", "tokens_per_sec", "input_tokens_per_task",
@@ -43,12 +48,18 @@ class Stats:
     invalid: list[str] = field(default_factory=list)
     deleted: Counter = field(default_factory=Counter)
     warnings: list[str] = field(default_factory=list)
+    matches: Counter = field(default_factory=Counter)      # how model names were resolved
+    unlisted: set = field(default_factory=set)             # names not in data/models/aliases.csv
 
     def summary(self) -> str:
         fmt = lambda c: ", ".join(f"{k} {v}" for k, v in sorted(c.items())) or "none"
         lines = [f"[{self.source}] {self.items} records, {self.raw_new} new raw records",
                  f"  results: {fmt(self.results)}",
-                 f"  prices:  {fmt(self.prices)}"]
+                 f"  prices:  {fmt(self.prices)}",
+                 f"  model names: {fmt(self.matches)}"]
+        if self.unlisted:
+            lines.append(f"  {len(self.unlisted)} model names not in data/models/aliases.csv "
+                         f"(rebuild it: scripts/build_model_registry.py), e.g. {sorted(self.unlisted)[:3]}")
         if self.deleted:
             lines.append(f"  replaced (deleted first): {fmt(self.deleted)}")
         if self.invalid:
@@ -80,9 +91,11 @@ def validate(r: ResultRec) -> str | None:
 
 
 class Writer:
-    def __init__(self, conn: psycopg.Connection, stats: Stats):
+    def __init__(self, conn: psycopg.Connection, stats: Stats, resolver: Resolver | None = None):
         self.conn, self.stats = conn, stats
+        self.resolver = resolver or default_resolver()
         self._models: dict[str, UUID] = {}
+        self._configs: dict[tuple, UUID] = {}
         self._benchmarks: dict[tuple, UUID] = {}
         self._priced_models: set[UUID] = set()
 
@@ -105,14 +118,20 @@ class Writer:
         self.delete_orphans()
 
     def delete_orphans(self) -> None:
+        # configurations nothing points at any more (no results, no Yugos offer)
+        self.stats.deleted["model_configs"] += self.conn.execute(
+            """DELETE FROM model_configs c WHERE NOT EXISTS (SELECT 1 FROM benchmark_results r WHERE r.config_id = c.id)
+                 AND NOT EXISTS (SELECT 1 FROM yugos_offers o WHERE o.config_id = c.id)""").rowcount
         self.stats.deleted["models"] += self.conn.execute(
             """DELETE FROM models m WHERE NOT EXISTS (SELECT 1 FROM benchmark_results r WHERE r.model_id = m.id)
-                 AND NOT EXISTS (SELECT 1 FROM model_pricing p WHERE p.model_id = m.id)""").rowcount
+                 AND NOT EXISTS (SELECT 1 FROM model_pricing p WHERE p.model_id = m.id)
+                 AND NOT EXISTS (SELECT 1 FROM model_configs c WHERE c.model_id = m.id)""").rowcount
         self.stats.deleted["benchmarks"] += self.conn.execute(
             """DELETE FROM benchmarks b WHERE NOT EXISTS
                  (SELECT 1 FROM benchmark_results r WHERE r.benchmark_id = b.id)""").rowcount
         self._models.clear()
         self._benchmarks.clear()
+        self._configs.clear()
 
     def raw(self, source_id: UUID, source_url: str, payload: dict) -> UUID:
         h = hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":"),
@@ -129,8 +148,19 @@ class Writer:
                                  (source_id, h)).fetchone()["id"]
 
     # -- models / benchmarks ------------------------------------------------------------
-    def model(self, m: ModelRec) -> UUID:
-        key = m.key
+    def resolve(self, m: ModelRec) -> tuple[str, Resolved]:
+        """The source's own name for the model, and the model ID / run configuration it stands for."""
+        raw = (m.aliases or [m.model_name])[0]
+        res = self.resolver.resolve(self.stats.source, raw, m.provider)
+        self.stats.matches[res.match] += 1
+        if res.match == "unlisted":
+            self.stats.unlisted.add(raw)
+        return raw, res
+
+    def model(self, m: ModelRec, res: Resolved) -> UUID:
+        key = res.model_id
+        m = ModelRec(provider=res.vendor, model_name=res.display_name, model_version=m.model_version,
+                     release_date=m.release_date, aliases=m.aliases or [m.model_name])
         if key in self._models:
             mid = self._models[key]
             if m.aliases:
@@ -157,6 +187,21 @@ class Writer:
             "SELECT id FROM models WHERE canonical_key = %s", (key,)).fetchone()["id"]
         self._models[key] = mid
         return mid
+
+    def config(self, model_id: UUID, model_key: str, effort: str | None, mode: str | None) -> UUID:
+        """The model_configs row for this model + effort + mode (created on first use)."""
+        k = (model_id, effort, mode)
+        if k in self._configs:
+            return self._configs[k]
+        key = "~".join([model_key, effort or "", mode or ""]).rstrip("~")
+        row = self.conn.execute(
+            """INSERT INTO model_configs (model_id, effort, mode, config_key) VALUES (%s, %s, %s, %s)
+               ON CONFLICT DO NOTHING RETURNING id""", (model_id, effort, mode, key)).fetchone()
+        cid = row["id"] if row else self.conn.execute(
+            """SELECT id FROM model_configs WHERE model_id = %s AND effort IS NOT DISTINCT FROM %s
+               AND mode IS NOT DISTINCT FROM %s""", (model_id, effort, mode)).fetchone()["id"]
+        self._configs[k] = cid
+        return cid
 
     def benchmark(self, b: BenchmarkRec) -> UUID:
         if b.key in self._benchmarks:
@@ -187,6 +232,16 @@ class Writer:
             self.stats.invalid.append(f"{r.external_id} / {r.benchmark.benchmark_name} "
                                       f"{r.benchmark.benchmark_version or ''}: {problem}")
             return
+        raw, res = self.resolve(r.model)
+        # effort: a value the parser took from a structured field wins; one it read from the name with the
+        # old rule is replaced by the alias table's (e.g. "Kimi K2 Thinking" is its own model, not K2 + effort)
+        effort = r.reasoning_effort
+        if effort is None or effort == split_effort(raw)[1]:
+            effort = res.effort
+        mid = self.model(r.model, res)
+        r = dc_replace(r, reasoning_effort=effort, mode=res.mode, model_snapshot=res.snapshot,
+                       raw_model_name=raw, model_match=res.match,
+                       config_id=self.config(mid, res.model_id, effort, res.mode))
         values = [getattr(r, c) for c in RESULT_COLS]
         values[RESULT_COLS.index("additional_metrics")] = Jsonb(r.additional_metrics)
         changed = " OR ".join(f"t.{c} IS DISTINCT FROM EXCLUDED.{c}" for c in RESULT_COLS)
@@ -199,7 +254,7 @@ class Writer:
                     {", ".join(f"{c} = EXCLUDED.{c}" for c in RESULT_COLS)}
                 WHERE t.model_id IS DISTINCT FROM EXCLUDED.model_id OR {changed}
                 RETURNING (xmax = 0) AS inserted""",
-            (self.benchmark(r.benchmark), self.model(r.model), source_id, raw_id, r.external_id,
+            (self.benchmark(r.benchmark), mid, source_id, raw_id, r.external_id,
              collected_at, *values)).fetchone()
         self.stats.results["unchanged" if row is None else "inserted" if row["inserted"] else "updated"] += 1
 
@@ -207,13 +262,16 @@ class Writer:
     def price(self, p: PriceRec, source_id: UUID, raw_id: UUID) -> None:
         if all(getattr(p, c) is None for c in PRICE_COLS):
             return
-        mid = self.model(p.model)
+        raw, res = self.resolve(p.model)
+        mid = self.model(p.model, res)
         prices = [getattr(p, c) for c in PRICE_COLS]
-        # skip when the price in force on that date is already identical
+        # skip when the price in force on that date (same snapshot and mode) is already identical
         prev = self.conn.execute(
             f"""SELECT id, effective_from, {", ".join(PRICE_COLS)} FROM model_pricing
                 WHERE model_id = %s AND api_provider = %s AND effective_from <= %s
-                ORDER BY effective_from DESC LIMIT 1""", (mid, p.api_provider, p.effective_from)).fetchone()
+                  AND model_snapshot IS NOT DISTINCT FROM %s AND mode IS NOT DISTINCT FROM %s
+                ORDER BY effective_from DESC LIMIT 1""",
+            (mid, p.api_provider, p.effective_from, res.snapshot, res.mode)).fetchone()
         same = prev is not None and all(
             (prev[c] is None and v is None) or (prev[c] is not None and v is not None and abs(float(prev[c]) - v) < 1e-9)
             for c, v in zip(PRICE_COLS, prices))
@@ -222,15 +280,15 @@ class Writer:
             return
         row = self.conn.execute(
             f"""INSERT INTO model_pricing AS t (model_id, api_provider, effective_from, {", ".join(PRICE_COLS)},
-                    source_id, source_url, raw_data_id, additional_pricing)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    source_id, source_url, raw_data_id, additional_pricing, model_snapshot, mode, raw_model_name)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 ON CONFLICT ON CONSTRAINT model_pricing_uniq DO UPDATE SET
                     {", ".join(f"{c} = EXCLUDED.{c}" for c in PRICE_COLS)},
                     source_id = EXCLUDED.source_id, source_url = EXCLUDED.source_url,
                     raw_data_id = EXCLUDED.raw_data_id, additional_pricing = EXCLUDED.additional_pricing
                 RETURNING (xmax = 0) AS inserted""",
             (mid, p.api_provider, p.effective_from, *prices, source_id, p.source_url, raw_id,
-             Jsonb(p.additional_pricing))).fetchone()
+             Jsonb(p.additional_pricing), res.snapshot, res.mode, raw)).fetchone()
         self.stats.prices["inserted" if row["inserted"] else "updated"] += 1
         self._priced_models.add(mid)
 
@@ -240,7 +298,7 @@ class Writer:
             return
         self.conn.execute(
             """UPDATE model_pricing p SET effective_to = n.next_from - 1
-               FROM (SELECT id, LEAD(effective_from) OVER (PARTITION BY model_id, api_provider
+               FROM (SELECT id, LEAD(effective_from) OVER (PARTITION BY model_id, api_provider, model_snapshot, mode
                                                            ORDER BY effective_from) AS next_from
                        FROM model_pricing WHERE model_id = ANY(%s)) n
                WHERE p.id = n.id AND p.effective_to IS DISTINCT FROM n.next_from - 1""",
@@ -248,10 +306,10 @@ class Writer:
 
 
 def write(conn: psycopg.Connection, parsed: ParsedFile, *, replace: bool = False,
-          dry_run: bool = False) -> Stats:
+          dry_run: bool = False, resolver: Resolver | None = None) -> Stats:
     stats = Stats(parsed.source.name, items=len(parsed.items), warnings=list(parsed.warnings))
     with conn.transaction() as tx:
-        w = Writer(conn, stats)
+        w = Writer(conn, stats, resolver)
         src = parsed.source
         source_id = w.source(src.name, src.homepage_url, src.description)
         if replace:

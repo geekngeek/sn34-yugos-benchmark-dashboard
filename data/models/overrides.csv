@@ -1,0 +1,16 @@
+raw_name,model_id,effort,mode,reason
+Mistral Large 2,mistral/mistral-large-2407,,,Mistral Large 2 is mistral-large-2407 (July 2024 release)
+Mistral-Large-2,mistral/mistral-large-2407,,,Mistral Large 2 is mistral-large-2407 (July 2024 release)
+Mistral Large 2 2407,mistral/mistral-large-2407,,,same model: version number plus its date tag
+Mistral-Large-2407 123B,mistral/mistral-large-2407,,,size is informative; 2407 is the only Large 2407
+Mistral-Large-Instruct-2407,mistral/mistral-large-2407,,,the open-weight instruct release of mistral-large-2407
+Mistral Large 2411,mistral/mistral-large-2411,,,mistral-large-2411 (Large 2.1)
+Mistral-Large-2411 123B,mistral/mistral-large-2411,,,size is informative; 2411 is the only Large 2411
+Mistral-Large-Instruct-2411,mistral/mistral-large-2411,,,the open-weight instruct release of mistral-large-2411
+Mistral Small 3.1,mistral/mistral-small-3.1-24b-instruct,,,Mistral Small 3.1 is mistral-small-2503 (24B instruct)
+Mistral-3.1-Small,mistral/mistral-small-3.1-24b-instruct,,,Mistral Small 3.1 is mistral-small-2503 (24B instruct)
+Mistral Small 3.1 24B Instruct 2503,mistral/mistral-small-3.1-24b-instruct,,,Mistral Small 3.1 is mistral-small-2503 (24B instruct)
+Mistral Small 3.2 2506,mistral/mistral-small-3.2-24b-instruct,,,Mistral Small 3.2 is mistral-small-2506 (24B instruct)
+DeepSeek-V3-03-24,deepseek/deepseek-chat-v3-0324,,,"03-24 is the 0324 release of DeepSeek V3, written with a dash"
+Mistral Large 2 (Nov 2024),mistral/mistral-large-2411,,,"the November 2024 Mistral Large 2 is mistral-large-2411 (Large 2.1), not 2407"
+Qwen3-235B-A22B-Thinking (Jul 2025),alibaba/qwen3-235b-a22b-thinking-2507,-,,"the July 2025 Qwen3-235B-A22B-Thinking is the separately released Thinking-2507 model, not the hybrid with thinking on"

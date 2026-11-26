@@ -174,15 +174,27 @@ Every model the Yugos router may route to (the live world card), one row per mod
 - **Notes and watch list:** saved by the dashboard in `data/yugos/user-state.json` (via `POST /api/yugos-models`). The watch list stores the models left *out*, so models added in a rebuild start out watched.
 - **Selection = filter:** selected models have red names. "Show selected" (default) hides the rest; "Show all" shows everything. The choice is remembered per browser.
 - **View and Group by:** two separate settings. View is Table or Tree; Group by (None / Vendor / Product line) works in both. In Tree view a family is grouped by its newest model.
-- **Tree view:** each newest model (nothing names it as parent) at the top, its parents nested newest → oldest. A parent cheaper than that newest model (input or output) gets a green "cheaper · in −x% · out −y%" tag; the newest model at the top gets an amber "cheaper parent" tag when any of its parents is cheaper.
+- **Tree view:** each newest model (nothing names it as parent) at the top, its parents nested newest → oldest. A parent cheaper than that newest model (input or output) gets a green "cheaper · in −x% · out −y%" tag; the newest model at the top gets an amber "cheaper child" tag when any of its parents is cheaper.
 - **Edit selection:** ticks per row, shift-click ranges, per-group ticks, "Only newest in each line", "Keep only shown rows" (narrow with filters, then keep), Undo, then Save.
+
+## Router benchmarks page (`/router-benchmarks`)
+
+Every known LLM-router benchmark and router-relevant data source (32), one row each: type (A stored router benchmark, B live arena / audit, C single-model per-question data, D agentic tau2 and effort), creators, scale, model pool, what is stored, whether it has the newest models (GPT-6 / Claude 5.x / Gemini 4 era), how useful it is for the Yugos router, the key finding and links. Click a row (or press Enter) to open the full write-up for that benchmark.
+
+- **Data:** `data/router-benchmarks/benchmarks.json`, built from the router-benchmark research files (no fetching):
+  ```bash
+  python3 -I scripts/build_router_benchmarks.py /root/subnet_analysis/research
+  ```
+  It reads `router_benchmarks_complete_2026-11-26.md` (overview table), `router_benchmark_00_index_2026-11-26.md` (key findings) and `router_benchmark_NN_*_2026-11-26.md` (one write-up per benchmark). Re-run after the research changes.
+- **Filters:** search (also searches the full write-ups), type, "For Yugos" (High / Medium / Low–Medium / Low / No) and "Newest models" (Yes / Partly / Unknown / No) chips. Sorting by #, name, type, newest models or usefulness.
+- Code: `app/router-benchmarks/` (page + `router-benchmarks.css`, classes `rb-`), `components/RouterBenchmarksTable.tsx` (table + small markdown renderer), `lib/routerBenchmarks.ts` (reads the JSON).
 
 ## Movable and resizable columns (every table)
 
 Drag a column header onto another to move it, or drag the grip on a header's right edge to resize it (double-click the grip to reset that width). Columns always fit the table's box and follow it when the window or the Benchmark list's details pane changes size: short columns (numbers, dates, icons) keep a fixed px width; text columns share the rest in proportion to their saved weights, and resizing one trades width with its neighbour. No column goes below its minimum; if the box is too narrow the table scrolls sideways. Each table's layout is saved on the server in `data/ui-layout.json` (`POST /api/ui-layout`), shared by everyone, and read by the page on load. **Reset columns** next to a table puts it back to the defaults.
 
 - Shared code: `dashboard/lib/columnLayout.tsx` (hook), `dashboard/lib/uiLayout.ts` (storage), `dashboard/app/columns.css` (styles).
-- Tables: Results (`components/ResultsTable.tsx`, id `results`), Benchmark list tree (`components/BenchmarkTree.tsx`, id `benchmark-list`), Yugos models (`components/YugosModelsTable.tsx`, id `yugos-models`). The Benchmark list's Parameters matrix has no movable columns.
+- Tables: Results (`components/ResultsTable.tsx`, id `results`), Benchmark list tree (`components/BenchmarkTree.tsx`, id `benchmark-list`), Yugos models (`components/YugosModelsTable.tsx`, id `yugos-models`), Router benchmarks (`components/RouterBenchmarksTable.tsx`, id `router-benchmarks`). The Benchmark list's Parameters matrix has no movable columns.
 
 ## Benchmark list filters
 
@@ -195,5 +207,64 @@ Every page writes its view state into the address bar (in place, no reload or ex
 - **Results** `/`: `q`, `source_id`, `benchmark_id`, `provider`, `model_id`, `area`, `reasoning_effort`, `sort`, `order`, `limit`, `page`.
 - **Benchmark list** `/benchmarks`: `q`, `yugos=1`, `notes=1`, `cat` (repeatable), `param` (repeatable), `site=1`, `view=params`, and `expand=all` on load.
 - **Yugos models** `/yugos-models`: `q`, `vendor`, `newest=1`, `noutil=1`, `notes=1`, `show=all`, `view=table`, `group=none|line`, `sort`, `dir=asc|desc`.
+- **Router benchmarks** `/router-benchmarks`: `q`, `group=A|B|C|D`, `use` (repeatable), `new` (repeatable), `sort=name|group|newest|yugos`, `dir=desc`, `open=<#>`.
 
 Shared helper: `dashboard/lib/urlState.ts` (`useQuerySync`, `qOne` / `qMany` / `qFlag`).
+
+## Model IDs
+
+Every model has one ID across benchmarks, the Yugos world card and this project: `vendor/name` (e.g. `anthropic/claude-opus-4.5`). How it was run is kept apart: effort, mode (`search`, `thinking`, `fp8`, …) and dated snapshot are fields on each result, not part of the ID. Rules: `importer/model_ids.py`. Decisions: `data/models/` (`overrides.csv` is the hand-edited one). Full description: [docs/model-ids.md](docs/model-ids.md). Latest per-benchmark match check: [docs/model-id-match-report.md](docs/model-id-match-report.md).
+
+```bash
+.venv/bin/python -I scripts/build_model_registry.py   # rebuild data/models/ after new data or rule changes
+.venv/bin/python -I scripts/check_model_matches.py    # check every source's matches
+```
+
+## Benchmark details pages (`/benchmarks/<No>`)
+
+A benchmark's name in the Benchmark list (tree and Parameters views) opens its details page:
+- **Benchmark** (`/benchmarks/5`): every field from the list, its sub-benchmarks (each linked, with how many results the database has), and its overall table. Chips switch the table to any database benchmark of the same family (`?b=`).
+- **Sub-benchmark** (`/benchmarks/5.1`): every field and its own results table.
+
+Sort and page are in the URL. Both tables have movable and resizable columns. List rows link to database benchmarks through `data/benchmark-map.json`:
+
+```bash
+.venv/bin/python -I scripts/build_benchmark_map.py   # after the list or the data changes; report: docs/benchmark-map-report.md
+```
+
+- A sub-benchmark is linked only when every word of its name is in the database benchmark's name, and the database name has no other meaningful words.
+- `data/benchmark-map-overrides.csv` holds the links made by hand, each with a reason.
+- Sub-benchmarks the source publishes only inside another score have no table.
+
+### Choosing which models a table shows
+
+Like Artificial Analysis, each benchmark details page has a **"N of M models"** picker above its table.
+
+**What's in it:**
+- search, and filters for developer, effort level, reasoning and "In Yugos"
+- the selected models first, then every model with its effort variants
+- **Clear**, **Select all**, **Reset (to default)**, **Save** and **Load**
+
+**How it behaves:**
+- The selection applies to the page's tables and is kept in the URL: `?models=<model ID>~<effort>~<mode>,…`, or `all` / `none`.
+- The default is the models selected on the Yugos models page that have results there, otherwise the 30 best.
+- Saved selections are shared, in `data/model-selections.json`. API: `GET /api/v1/configs?benchmark_id=…` and `GET /api/v1/results?configs=…`.
+
+## Effort levels: configurations
+
+A model is run at different efforts. Each is a **configuration**: `model_configs` (model + effort + mode, key `<model ID>~<effort>~<mode>`). Every result points at one (`benchmark_results.config_id`).
+- `effort_levels` orders efforts within a model: none 0, minimal 1, low 2, medium 3, high 4, xhigh 5, max 6. Ranks are not compared across vendors.
+- No stated effort is the **Default** configuration. "enabled" means reasoning on, level not stated, and has no rank.
+- `yugos_offers` holds every Yugos world-card listing for each effort it accepts. Load it with `.venv/bin/python -I scripts/import_yugos_offers.py`.
+- Views: `v_model_configs`. API: `GET /api/v1/model-configs?model_key=…`.
+
+## Trade-off chart (benchmark details pages)
+
+Like Artificial Analysis: every configuration is a point, and the efforts of one model are joined low → max.
+- **Y axis** defaults to quality. **X axis** defaults to price per task; when a benchmark has none, the first available of time per task, time to first token, output tokens, output price per 1M tokens (current price when the result is older), speed, then date.
+- Both axes and log scale are selectable and kept in the URL (`?x=`, `?y=`, `?logx=`, `?logy=`).
+- A filled dot means Yugos can route that configuration; a hollow dot means it can't.
+- The chart follows the page's model selection. API: `GET /api/v1/chart-points`.
+- **Colours:** by developer by default, like Artificial Analysis. Each lab keeps a fixed colour; Google, Anthropic and OpenAI get the three colours every reader can tell apart, and developers outside the 8 colour slots are grey "Other". Other "Colour by" options: Yugos availability, effort level (one-hue ladder), one colour (`?color=`).
+- **Colour key** above the chart: hover an entry to highlight it, click to grey it out (`?grey=`).
+- **Full screen** (⛶): wheel or pinch zooms around the pointer, drag pans, Shift+wheel scrolls sideways, double-click or "Reset view" fits everything, Esc leaves. Zooming recalculates axes and labels.

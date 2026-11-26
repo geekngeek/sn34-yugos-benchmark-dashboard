@@ -13,6 +13,11 @@ export interface Result {
   model_name: string;
   model_version: string | null;
   reasoning_effort: string | null;
+  model_key?: string | null;       // project model ID, "vendor/name" (data/models/registry.csv)
+  mode?: string | null;            // search | codex-harness | fp8 | … ("+"-joined)
+  model_snapshot?: string | null;  // dated snapshot as the source wrote it
+  raw_model_name?: string | null;  // the source's own name for the model
+  model_match?: string | null;     // rule | yugos-exact | yugos-loose | yugos-same-model | override
   benchmark_score: number | null;
   score_unit: string | null;
   display_score: number | null;  // the score on a 0-100 scale when it was converted (api/scales.py)

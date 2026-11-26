@@ -1,25 +1,5 @@
 {
  "tables": {
-  "benchmark-list": {
-   "order": [
-    "no",
-    "name",
-    "yugos",
-    "category",
-    "focus",
-    "top",
-    "reports",
-    "link",
-    "notes"
-   ],
-   "widths": {
-    "name": 180,
-    "reports": 327,
-    "top": 356,
-    "category": 114,
-    "no": 32
-   }
-  },
   "results": {
    "order": [
     "model",
@@ -36,6 +16,69 @@
    ],
    "widths": {
     "benchmark": 227
+   }
+  },
+  "benchmark-list": {
+   "order": [
+    "no",
+    "name",
+    "yugos",
+    "difficulty",
+    "category",
+    "focus",
+    "top",
+    "reports",
+    "link",
+    "notes"
+   ],
+   "widths": {
+    "name": 299,
+    "reports": 252,
+    "top": 356,
+    "no": 32,
+    "focus": 152,
+    "category": 129
+   }
+  },
+  "yugos-models": {
+   "order": [
+    "model",
+    "notes",
+    "vendor",
+    "line",
+    "parent",
+    "results",
+    "released",
+    "in",
+    "out",
+    "cheapest",
+    "providers",
+    "efforts",
+    "expires",
+    "reference"
+   ],
+   "widths": {
+    "model": 541,
+    "notes": 89
+   }
+  },
+  "router-benchmarks": {
+   "order": [
+    "num",
+    "name",
+    "group",
+    "creators",
+    "scale",
+    "models",
+    "focus",
+    "newest",
+    "yugos",
+    "finding",
+    "link"
+   ],
+   "widths": {
+    "models": 349,
+    "focus": 131
    }
   }
  }

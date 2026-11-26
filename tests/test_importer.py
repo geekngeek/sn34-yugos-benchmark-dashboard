@@ -91,6 +91,16 @@ AA_DOC = {
 }
 
 
+@pytest.fixture(autouse=True)
+def rules_only_resolver(monkeypatch, tmp_path_factory):
+    """Resolve model names by the rules alone, not the project's data/models alias table,
+    so these tests do not depend on (or change with) the real registry."""
+    import importer.writer as writer_mod
+    from importer.resolve import Resolver
+    empty = Resolver(tmp_path_factory.mktemp("no-registry"))
+    monkeypatch.setattr(writer_mod, "default_resolver", lambda: empty)
+
+
 @pytest.fixture()
 def conn():
     try:
@@ -327,3 +337,33 @@ def test_generic_format_import(conn, tmp_path, capsys):
     f.write_text(json.dumps(GENERIC_DOC))
     assert main([str(f), "--database-url", TEST_URL, "--dry-run"]) == 0
     assert "unchanged 3" in capsys.readouterr().out
+
+
+def test_efforts_of_one_model_are_connected_configs(conn):
+    """Each result points at a configuration (model + effort + mode); one model's efforts share the model
+    and are ordered by the effort ladder; an effort the source does not state is the Default configuration."""
+    doc = copy.deepcopy(GENERIC_DOC)
+    doc["results"] = [
+        {"benchmark": "overall", "model": "GPT-9 (low)", "developer": "OpenAI", "score": 50.0, "external_id": "a"},
+        {"benchmark": "overall", "model": "GPT-9 (high)", "developer": "OpenAI", "score": 70.0, "external_id": "b"},
+        {"benchmark": "overall", "model": "GPT-9 (max)", "developer": "OpenAI", "score": 75.0, "external_id": "c"},
+        {"benchmark": "overall", "model": "GPT-9", "developer": "OpenAI", "score": 60.0, "external_id": "d"},
+        {"benchmark": "math", "model": "GPT-9 (high)", "developer": "OpenAI", "score": 72.0, "external_id": "e"},
+    ]
+    write(conn, generic.parse(doc))
+    rows = {r["s"]: r for r in conn.execute(
+        """SELECT benchmark_score::float AS s, model_key, config_key, effort_rank, config_id
+             FROM v_benchmark_records WHERE model_name = 'GPT-9'""").fetchall()}
+    assert all(r["config_id"] for r in rows.values())
+    assert {r["model_key"] for r in rows.values()} == {"openai/gpt-9"}            # one model ...
+    assert {s: r["config_key"] for s, r in rows.items()} == {                      # ... four configurations
+        50.0: "openai/gpt-9~low", 70.0: "openai/gpt-9~high", 75.0: "openai/gpt-9~max", 60.0: "openai/gpt-9",
+        72.0: "openai/gpt-9~high"}
+    assert {s: r["effort_rank"] for s, r in rows.items()} == {50.0: 2, 70.0: 4, 75.0: 6, 60.0: None, 72.0: 4}
+    assert rows[70.0]["config_id"] == rows[72.0]["config_id"]                      # same config on two benchmarks
+    cfg = conn.execute("""SELECT effort_label FROM v_model_configs WHERE config_key = 'openai/gpt-9'""").fetchone()
+    assert cfg["effort_label"] == "Default"
+    # re-importing changes nothing and creates no new configurations
+    before = conn.execute("SELECT count(*) AS n FROM model_configs").fetchone()["n"]
+    write(conn, generic.parse(doc))
+    assert conn.execute("SELECT count(*) AS n FROM model_configs").fetchone()["n"] == before

@@ -25,13 +25,24 @@ const DEFS: ColDef[] = [
 ];
 
 /** The results table: columns can be dragged into another order and resized; the layout is saved on the server. */
-export function ResultsTable({ items, columns, layout }: { items: Result[]; columns: ResultsColumn[]; layout?: SavedLayout }) {
-  const cl = useColumnLayout("results", DEFS, layout, 2);
+export function ResultsTable({ items, columns, layout, layoutId = "results" }: {
+  items: Result[];
+  columns: ResultsColumn[];
+  layout?: SavedLayout;
+  layoutId?: string;            // which saved column layout this table uses (each page can keep its own)
+}) {
+  const cl = useColumnLayout(layoutId, DEFS, layout, 2);
   const head = new Map(columns.map((c) => [c.key, c]));
 
   const cell = (key: string, r: Result) => {
     switch (key) {
-      case "model": return <td key={key} className="model clip" data-tip>{r.model_name}</td>;
+      case "model": return (
+        <td key={key} className="model clip" data-tip
+            title={[r.model_key && `Model ID: ${r.model_key}`, r.raw_model_name && `Source's name: ${r.raw_model_name}`].filter(Boolean).join("\n") || undefined}>
+          {r.model_name}
+          {r.model_snapshot && <span className="muted"> · {r.model_snapshot}</span>}
+        </td>
+      );
       case "developer": return <td key={key} className="clip" data-tip>{r.provider}</td>;
       case "benchmark": return (
         <td key={key} className="clip bench" data-tip>
@@ -40,7 +51,11 @@ export function ResultsTable({ items, columns, layout }: { items: Result[]; colu
         </td>
       );
       case "area": return <td key={key} className="subtle" data-tip>{r.area ?? "—"}</td>;
-      case "effort": return <td key={key} className="subtle" data-tip>{effortLabel(r.reasoning_effort)}</td>;
+      case "effort": return (
+        <td key={key} className="subtle" data-tip title={r.mode ? `Run mode: ${r.mode}` : undefined}>
+          {effortLabel(r.reasoning_effort)}{r.mode && <span className="muted"> · {r.mode}</span>}
+        </td>
+      );
       case "score": return <td key={key} className="num strong"><Score r={r} /></td>;
       case "accuracy": return <td key={key} className="num">{formatPercent(r.accuracy)}</td>;
       case "cost": return <td key={key} className="num">{formatUsd(r.cost_per_task_usd)}</td>;

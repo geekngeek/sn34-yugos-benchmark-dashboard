@@ -5,7 +5,7 @@ import type { YugosModel } from "@/lib/yugosModels";
 import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { qFlag, qOne, useQuerySync, type Query } from "@/lib/urlState";
 
-type SortKey = "model" | "vendor" | "line" | "released" | "in" | "out" | "cheapest" | "providers" | "expires";
+type SortKey = "model" | "vendor" | "line" | "released" | "in" | "out" | "cheapest" | "providers" | "expires" | "results";
 type View = "table" | "tree";
 type GroupBy = "none" | "vendor" | "line";
 
@@ -46,8 +46,9 @@ const trackNote = (m: YugosModel) => m.track.replace(/^(TRACK|drop):\s*/, "");
 
 // columns in their default order and width (px); the user can drag and resize them (saved on the server)
 const COLS: ColDef[] = [
-  { key: "model", width: 330, min: 140 }, { key: "notes", width: 170, min: 60 }, { key: "vendor", width: 110 },
-  { key: "line", width: 160 }, { key: "parent", width: 190 }, { key: "released", width: 125, min: 80, fixed: true },
+  { key: "model", width: 460, min: 240 }, { key: "notes", width: 170, min: 60 }, { key: "vendor", width: 110 },
+  { key: "line", width: 160 }, { key: "parent", width: 190 }, { key: "results", width: 120, min: 70, fixed: true },
+  { key: "released", width: 125, min: 80, fixed: true },
   { key: "in", width: 80, min: 50, fixed: true }, { key: "out", width: 85, min: 50, fixed: true }, { key: "cheapest", width: 115, min: 60, fixed: true },
   { key: "providers", width: 85, min: 50, fixed: true }, { key: "efforts", width: 150 }, { key: "expires", width: 100, min: 70, fixed: true },
   { key: "reference", width: 115, min: 50 },
@@ -55,6 +56,7 @@ const COLS: ColDef[] = [
 const HEADS: Record<string, { label: string; sort?: SortKey; cls?: string }> = {
   model: { label: "Model", sort: "model" }, notes: { label: "Notes", cls: "ym-notes-h" }, vendor: { label: "Vendor", sort: "vendor" },
   line: { label: "Product line", sort: "line" }, parent: { label: "Parent" }, released: { label: "Released", sort: "released" },
+  results: { label: "Results", sort: "results", cls: "num" },
   in: { label: "Input $/M", sort: "in", cls: "num" }, out: { label: "Output $/M", sort: "out", cls: "num" },
   cheapest: { label: "Cheapest out", sort: "cheapest", cls: "num" }, providers: { label: "Providers", sort: "providers", cls: "num" },
   efforts: { label: "Efforts" }, expires: { label: "Valid until", sort: "expires" }, reference: { label: "Reference" },
@@ -70,6 +72,7 @@ const SORTERS: Record<SortKey, (m: YugosModel) => string | number | null> = {
   cheapest: (m) => m.cheapest_out_usd_m,
   providers: (m) => m.offers.length,
   expires: (m) => m.valid_until,
+  results: (m) => m.results ?? 0,
 };
 
 /** a product line oldest → newest, following parent → successor links (date order as fallback) */
@@ -346,13 +349,18 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
     const cheaper = m.cheapest_out_usd_m !== null && m.out_usd_m !== null && m.cheapest_out_usd_m < m.out_usd_m * 0.95;
     const cells: Record<string, () => React.ReactNode> = {
       model: () => (
-              <td key="model" className="ym-model" title={trackNote(m)} style={t.depth ? { paddingLeft: 10 + t.depth * 18 } : undefined}>
-                {t.tree && (t.caret ?? <span className="ym-caret-space" aria-hidden="true">{t.depth ? "└" : ""}</span>)}
-                <span className={`ym-name${left ? "" : " sel"}`}>{m.model}</span>
-                {t.tags}
-                {isNewest(m) && <span className="ym-tag newest" title="Newest model in its product line">newest</span>}
-                {fresh && <span className="ym-tag new" title={`Released in the last ${NEW_DAYS} days`}>new</span>}
-                {m.kind !== "llm" && <span className="ym-tag util" title="Utility / vision model">{m.kind.split("/")[0]}</span>}
+              <td key="model" className="ym-model" title={[m.model_id && `Model ID: ${m.model_id}`, trackNote(m)].filter(Boolean).join("\n")} style={t.depth ? { paddingLeft: 10 + t.depth * 18 } : undefined}>
+                {/* the name shortens with "…" when the column is narrow; the tags always stay visible */}
+                <span className="ym-model-in">
+                  {t.tree && (t.caret ?? <span className="ym-caret-space" aria-hidden="true">{t.depth ? "└" : ""}</span>)}
+                  <span className={`ym-name${left ? "" : " sel"}`}>{m.model}</span>
+                  <span className="ym-tags">
+                    {t.tags}
+                    {isNewest(m) && <span className="ym-tag newest" title="Newest model in its product line">newest</span>}
+                    {fresh && <span className="ym-tag new" title={`Released in the last ${NEW_DAYS} days`}>new</span>}
+                    {m.kind !== "llm" && <span className="ym-tag util" title="Utility / vision model">{m.kind.split("/")[0]}</span>}
+                  </span>
+                </span>
               </td>
       ),
       notes: () => (
@@ -370,6 +378,21 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
                 {m.successor && <button type="button" className="link ym-succ" onClick={() => jumpTo(m.successor!.split(" ")[0])} title={`Newer in this line: ${m.successor.split(" ").join(", ")}`}>↓</button>}
               </td>
       ),
+      results: () => {
+        const how = m.model_link === "none" || !m.model_link ? "" : ` (name matched: ${m.model_link})`;
+        if (m.results && m.model_uuid) {
+          return (
+            <td key="results" className="num" title={`${m.model_id}: ${m.results} results in ${m.benchmarks} benchmarks${how}`}>
+              <a href={`/?model_id=${m.model_uuid}`}>{m.results.toLocaleString("en-US")}</a>
+              <span className="subtle"> · {m.benchmarks}b</span>
+            </td>
+          );
+        }
+        return (
+          <td key="results" className="num subtle"
+              title={m.model_id ? `${m.model_id}: no benchmark results yet${how}` : "Not found in any benchmark source"}>—</td>
+        );
+      },
       released: () => (
               <td key="released" className="ym-date" title={m.released ? "OpenRouter listing date (close to vendor launch)" : "No release date found (not listed on OpenRouter)"}>
                 {m.released ?? <span className="subtle">—</span>} <span className="subtle">{age(m.released)}</span>
@@ -579,8 +602,8 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
                       </button>
                     : undefined;
                   const topTags = cheaperKids.length > 0 && (
-                    <span className="ym-tag cheaper-parent" title={`Cheaper parent${cheaperKids.length > 1 ? "s" : ""}: ${cheaperKids.map((x) => x.a.model).join(", ")}`}>
-                      {cheaperKids.length > 1 ? `${cheaperKids.length} cheaper parents` : "cheaper parent"}
+                    <span className="ym-tag cheaper-parent" title={`Cheaper child${cheaperKids.length > 1 ? "ren" : ""}: ${cheaperKids.map((x) => x.a.model).join(", ")}`}>
+                      {cheaperKids.length > 1 ? `${cheaperKids.length} cheaper children` : "cheaper child"}
                     </span>
                   );
                   return (
@@ -608,7 +631,9 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
       </div>
       <ul className="ym-foot subtle small">
         {sourceNotes.map((n) => <li key={n}>{n}</li>)}
-        <li>Selected models have red names. “newest” marks the newest model in its product line. In Tree view each newest model opens to its parents; “cheaper” shows how much less a parent costs per input or output token, and “cheaper parent” marks a newest model that has a cheaper parent. ↑ goes to the parent model, ↓ to its successor. The Providers count opens every listing with its own price.</li>
+        <li>Selected models have red names. “newest” marks the newest model in its product line. In Tree view each newest model opens to its parents; “cheaper” shows how much less a parent costs per input or output token, and “cheaper child” marks a newest model that has a cheaper child (an older model nested under it). ↑ goes to the parent model, ↓ to its successor. The Providers count opens every listing with its own price.</li>
+        <li>Results: benchmark results for the model (and how many benchmarks), linked to the Results page. Each Yugos
+          name is matched to the project model ID by data/models (hover a model or its count to see the ID and how it matched).</li>
         <li>Notes and the selection are saved on the server and shared by everyone who opens this dashboard.</li>
       </ul>
     </div>

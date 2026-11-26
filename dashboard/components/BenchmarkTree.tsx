@@ -1,13 +1,17 @@
 "use client";
 
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
+import Link from "next/link";
 import { HoverTip } from "@/components/HoverTip";
+import { Stars } from "@/components/Stars";
+import { difficultyText, LEVEL_HELP, type Difficulty } from "@/lib/difficulty";
 import { MultiSelect } from "@/components/MultiSelect";
 import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
 import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { METRIC_INFO, METRIC_KEYS, reportedKeys, type MetricKey, type Metrics } from "@/lib/metrics";
 
 export interface TreeItem {
+  difficulty: Difficulty;   // level 1..5 (research), see lib/difficulty.ts
   no: string;
   name: string;
   yugos: string;
@@ -49,12 +53,13 @@ const yes = (v: string) => v.trim().toLowerCase() === "yes";
  */
 // tree columns: default order and widths (px); dragged and resized by the user, saved on the server
 const TREE_COLS: ColDef[] = [
-  { key: "no", width: 46, min: 30, fixed: true }, { key: "name", width: 270, min: 120 }, { key: "yugos", width: 60, min: 40, fixed: true },
+  { key: "no", width: 46, min: 30, fixed: true }, { key: "name", width: 270, min: 120 }, { key: "yugos", width: 60, min: 40, fixed: true }, { key: "difficulty", width: 92, min: 80, fixed: true },
   { key: "category", width: 110 }, { key: "focus", width: 220 }, { key: "top", width: 300 },
   { key: "reports", width: 300 }, { key: "link", width: 28, min: 22, fixed: true }, { key: "notes", width: 28, min: 22, fixed: true },
 ];
 const TREE_HEADS: Record<string, { label: string; cls?: string; title?: string; aria?: string }> = {
   no: { label: "No", cls: "c-no" }, name: { label: "Benchmark" }, yugos: { label: "Yugos", cls: "c-yug", title: "Used by Yugos" },
+  difficulty: { label: "Difficulty", title: "Difficulty level 1-5 from published scores (hover a row's stars for details)" },
   category: { label: "Category" }, focus: { label: "Focus" }, top: { label: "Top ranked" },
   reports: { label: "Reports", title: "Parameters the benchmark reports besides its score" },
   link: { label: "", cls: "c-ico", aria: "Link" }, notes: { label: "", cls: "c-ico", aria: "Notes" },
@@ -78,6 +83,12 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   const [panel, setPanelState] = useState(true);
   useEffect(() => { if (localStorage.getItem("bl-panel") === "closed") setPanelState(false); }, []);
   const setPanel = (on: boolean) => { setPanelState(on); localStorage.setItem("bl-panel", on ? "open" : "closed"); };
+  // details panel width: drag its left edge; remembered between visits
+  const [panelW, setPanelW] = useState(PANEL_DEFAULT);
+  useEffect(() => { const w = Number(localStorage.getItem("bl-panel-w")); if (w) setPanelW(clampPanel(w)); }, []);
+  const resizePanel = useCallback((w: number, save = false) => {
+    const c = clampPanel(w); setPanelW(c); if (save) localStorage.setItem("bl-panel-w", String(c));
+  }, []);
   const listRef = useRef<HTMLDivElement>(null);
   // the grid element is both the keyboard list and the box the columns share (stable, so the size observer isn't rebuilt each render)
   const gridRef = useCallback((el: HTMLDivElement | null) => { (listRef as React.MutableRefObject<HTMLDivElement | null>).current = el; cl.root(el); }, [cl.root]);
@@ -231,7 +242,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
         </>}
       </div>
 
-      <div className={`bl-body${panel ? "" : " full"}`}>
+      <div className={`bl-body${panel ? "" : " full"}`} style={{ "--bl-panel-w": `${panelW}px` } as React.CSSProperties}>
         {view === "params" ? (
           <ParamsGrid items={visible.filter((r) => r.depth === 0).map((r) => r.item)} selected={selected} onSelect={(no) => { setSelected(no); setPanel(true); }} onOpen={() => setPanel(true)} />
         ) : (
@@ -253,6 +264,11 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
             const isOpen = depth === 0 && (filtering ? shownKids > 0 : open.has(i.no));
             const ranked = parseTop(i.top);
             const cells: Record<string, () => React.ReactNode> = {
+              difficulty: () => (
+                  <span key="difficulty" className="c-diff" title={i.difficulty.kind === "none" ? "" : `${difficultyText(i.difficulty)}${depth === 0 && i.children.length ? " (range of its sub-benchmarks)" : ""}`}>
+                    <Stars d={i.difficulty} span={depth === 0 && i.children.length > 0} />
+                  </span>
+              ),
               no: () => (
                   <span key="no" className="c-no num">{i.no}</span>
               ),
@@ -264,7 +280,10 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
                                 onClick={(e) => { e.stopPropagation(); setSelected(i.no); toggle(i.no); }}>{isOpen ? "▾" : "▸"}</button>
                       ) : <span className="bl-caret" />
                     ) : <span className="bl-guide" aria-hidden="true" />}
-                    <span className="bl-label" data-tip>{i.name}</span>
+                    <span className="bl-label" data-tip>
+                      <Link href={`/benchmarks/${encodeURIComponent(i.no)}`} className="bl-name-link"
+                            onClick={(e) => e.stopPropagation()} title={`Open ${i.name}`}>{i.name}</Link>
+                    </span>
                     {depth === 0 && i.children.length > 0 && (
                       <span className="bl-count">{filtering && shownKids !== i.children.length ? `${shownKids}/` : ""}{i.children.length}</span>
                     )}
@@ -321,6 +340,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
         )}
 
         {panel && current && <Details key={current.item.no} item={current.item} parent={current.parent} onClose={() => setPanel(false)}
+                             width={panelW} onResize={resizePanel}
                              onSaved={(note) => updateNote(current.item.no, note)}
                              onPick={(no) => { setSelected(no); if (byNo.get(no)?.parent) toggle(byNo.get(no)!.parent!.no, true); }} />}
       </div>
@@ -328,7 +348,29 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   );
 }
 
-function Details({ item, parent, onSaved, onPick, onClose }: {
+const PANEL_DEFAULT = 360;
+const clampPanel = (w: number) =>
+  Math.round(Math.max(260, Math.min(w, typeof window === "undefined" ? 900 : Math.max(260, window.innerWidth * 0.6))));
+
+/** drag handle on the panel's left edge: drag, ←/→ keys, double-click resets */
+function PanelResizer({ width, onResize }: { width: number; onResize: (w: number, save?: boolean) => void }) {
+  const start = useRef<{ x: number; w: number } | null>(null);
+  return (
+    <div className="bl-resize" role="separator" aria-orientation="vertical" aria-label="Resize the details panel"
+         aria-valuenow={width} tabIndex={0} title="Drag to resize · double-click to reset"
+         onPointerDown={(e) => { start.current = { x: e.clientX, w: width }; e.currentTarget.setPointerCapture(e.pointerId); e.preventDefault(); }}
+         onPointerMove={(e) => { if (start.current) onResize(start.current.w + (start.current.x - e.clientX)); }}
+         onPointerUp={(e) => { if (start.current) { onResize(start.current.w + (start.current.x - e.clientX), true); start.current = null; } }}
+         onPointerCancel={() => { start.current = null; }}
+         onDoubleClick={() => onResize(PANEL_DEFAULT, true)}
+         onKeyDown={(e) => {
+           if (e.key === "ArrowLeft" || e.key === "ArrowRight") { e.preventDefault(); onResize(width + (e.key === "ArrowLeft" ? 24 : -24), true); }
+         }} />
+  );
+}
+
+function Details({ item, parent, onSaved, onPick, onClose, width, onResize }: {
+  width: number; onResize: (w: number, save?: boolean) => void;
   item: TreeItem; parent?: TreeItem; onSaved: (note: string) => void; onPick: (no: string) => void; onClose: () => void;
 }) {
   const ranked = parseTop(item.top);
@@ -353,6 +395,7 @@ function Details({ item, parent, onSaved, onPick, onClose }: {
 
   return (
     <aside className="bl-detail" aria-label={`Details: ${item.name}`}>
+      <PanelResizer width={width} onResize={onResize} />
       <button type="button" className="bl-close" onClick={onClose} aria-label="Close the details panel"
               title="Close (full-width table)">×</button>
       <div className="bl-crumb small muted">
@@ -368,6 +411,13 @@ function Details({ item, parent, onSaved, onPick, onClose }: {
         <a className="bl-url small" href={item.url} target="_blank" rel="noreferrer">{shortUrl(item.url)} ↗</a>
       )}
 
+      {item.difficulty.kind !== "none" && (
+        <Field label="Difficulty">
+          <p className="row"><Stars d={item.difficulty} span={item.children.length > 0} /> <b>{difficultyText(item.difficulty)}</b></p>
+          {item.difficulty.kind !== "na" && item.difficulty.lo === item.difficulty.hi && <p className="small subtle">{LEVEL_HELP[item.difficulty.lo]}</p>}
+          {item.difficulty.detail && <p className="pre small subtle">{item.difficulty.detail}</p>}
+        </Field>
+      )}
       {item.focus && <Field label="Focus"><p>{item.focus}</p></Field>}
       {item.top.trim() && (
         <Field label="Top ranked models">
@@ -476,7 +526,10 @@ function ParamsGrid({ items, selected, onSelect, onOpen }: { items: TreeItem[]; 
         return (
           <div key={i.no} role="row" data-no={i.no} className={`bl-mrow${selected === i.no ? " sel" : ""}`} onClick={() => onSelect(i.no)} onDoubleClick={onOpen}>
             <span className="c-no num">{i.no}</span>
-            <span className="m-name" data-tip>{i.name}</span>
+            <span className="m-name" data-tip>
+              <Link href={`/benchmarks/${encodeURIComponent(i.no)}`} className="bl-name-link"
+                    onClick={(e) => e.stopPropagation()} title={`Open ${i.name}`}>{i.name}</Link>
+            </span>
             {cols.map((k) => {
               const r = rk.get(k);
               const labels = i.metrics.params.filter((p) => p.key === k).map((p) => p.label).join("; ");

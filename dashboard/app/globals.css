@@ -203,7 +203,7 @@ table.grid.list tr.sub td.sub-name::before {
 .bl-search { max-width: 320px; height: 30px; }
 .bl-toggle { display: inline-flex; gap: 5px; align-items: center; font-size: 12px; color: var(--ink-2); cursor: pointer; }
 .bl-expand { margin-left: auto; }
-.bl-body { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 12px; align-items: start; }
+.bl-body { display: grid; grid-template-columns: minmax(0, 1fr) var(--bl-panel-w, 360px); gap: 12px; align-items: start; }
 
 .bl-grid {
   background: var(--surface); border: 1px solid var(--line); border-radius: 8px; font-size: 12.5px;
@@ -376,3 +376,27 @@ table.grid.results th.num .sort { justify-content: flex-end; }
 .bl-legend b { font-weight: 600; color: var(--ink); }
 .bl-legend .bl-tag { margin-right: 2px; }
 .bl-legsep { display: inline-block; width: 1px; height: 12px; background: var(--line); margin: 0 8px; }
+
+/* details panel resize handle (left edge) */
+.bl-resize {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 10px; cursor: col-resize; z-index: 3; touch-action: none;
+}
+.bl-resize::after {
+  content: ""; position: absolute; left: 3px; top: 50%; width: 3px; height: 36px; margin-top: -18px; border-radius: 2px;
+  background: var(--line); transition: background .15s;
+}
+.bl-resize:hover::after, .bl-resize:focus-visible::after, .bl-resize:active::after { background: var(--accent); height: 60px; margin-top: -30px; }
+.bl-resize:focus-visible { outline: none; }
+@media (max-width: 1100px) { .bl-resize { display: none; } }
+
+/* difficulty stars (components/Stars.tsx) */
+.c-diff { display: flex; align-items: center; }
+.stars { display: inline-flex; gap: 1px; font-size: 12.5px; line-height: 1; letter-spacing: 0; }
+.star.on { color: #e0a100; }
+.star.maybe { color: #e0a100; opacity: .35; }
+.star.off { color: var(--line); }
+.stars.span .star.on { color: #c98a00; opacity: .8; }
+.stars-na { color: var(--muted); font-size: 12px; }
+@media (prefers-color-scheme: dark) { .star.on, .star.maybe { color: #f2c14e; } .stars.span .star.on { color: #e6b33f; } }
+.stars-txt { margin-left: 4px; font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.stars.span .star.off { opacity: .6; }

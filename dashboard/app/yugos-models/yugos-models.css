@@ -186,3 +186,10 @@ tr.ym-top.ym-nested-open td { border-bottom-color: transparent; }
 }
 /* the open-family accent bar must not paint into the gap */
 .ym-table tbody tr.ym-gap > td:first-child { box-shadow: none !important; }
+
+/* model cell: name shortens, tags stay visible */
+.ym-model-in { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.ym-model-in .ym-name { flex: 0 1 auto; min-width: min(9.5em, 60%); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ym-tags { flex: 0 1 auto; min-width: 0; display: inline-flex; gap: 3px; overflow: hidden; }
+.ym-tags .ym-tag { flex: none; }
+.ym-tags:empty { display: none; }

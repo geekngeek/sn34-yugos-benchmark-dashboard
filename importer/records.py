@@ -69,6 +69,12 @@ class ResultRec:
     source_url: str | None = None
     published_at: datetime | None = None
     additional_metrics: dict[str, Any] = field(default_factory=dict)
+    # set by the writer from the model ID resolver (importer/resolve.py)
+    mode: str | None = None
+    model_snapshot: str | None = None
+    raw_model_name: str | None = None
+    model_match: str | None = None
+    config_id: Any = None               # model_configs row (model + effort + mode), set by the writer
 
 
 @dataclass

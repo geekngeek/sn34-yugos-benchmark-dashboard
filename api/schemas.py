@@ -52,8 +52,64 @@ class ModelRef(BaseModel):
     model_name: str
 
 
+class ModelConfig(BaseModel):
+    """A model as it was run on some benchmarks: model ID + effort + mode (GET /configs)."""
+    config: str                         # "<model ID>~<effort>~<mode>", empty trailing parts dropped
+    model_key: str
+    model_name: str
+    provider: str
+    reasoning_effort: str | None
+    mode: str | None
+    results: int
+    best_score: float | None            # its best score on the 0-100 scale (sort_score)
+    latest: date | None
+    effort_rank: int | None = None      # place on the effort ladder within the model (none 0 … max 6)
+    yugos_providers: list[str] = []     # world-card providers Yugos can route this configuration to
+
+
+class ChartPoint(BaseModel):
+    """One configuration's latest result on one benchmark from one source (GET /chart-points)."""
+    config: str
+    model_key: str
+    model_name: str
+    provider: str
+    reasoning_effort: str | None
+    mode: str | None
+    effort_rank: int | None
+    benchmark_name: str
+    benchmark_version: str | None
+    source_name: str
+    quality: float | None               # the 0-100 score when converted, else the published score
+    sort_score: float | None            # comparable 0-100 score (NULL when it cannot be compared)
+    accuracy: float | None
+    cost_per_task: float | None
+    time_per_task: float | None
+    ttft: float | None
+    tokens_per_sec: float | None
+    output_tokens: float | None
+    output_price: float | None          # USD per 1M output tokens
+    input_price: float | None
+    date: date | None
+    yugos_providers: list[str] = []
+
+
+class ModelConfigInfo(BaseModel):
+    """One configuration of a model on the effort ladder (GET /model-configs)."""
+    config: str
+    model_key: str
+    model_name: str
+    provider: str
+    reasoning_effort: str | None        # NULL = Default (not stated)
+    mode: str | None
+    effort_rank: int | None
+    effort_label: str
+    results: int
+    yugos_offers: int
+    yugos_providers: list[str]
+
+
 class Model(ModelRef):
-    canonical_key: str
+    canonical_key: str                  # the project model ID, "vendor/name" (data/models/registry.csv)
     model_version: str | None
     release_date: date | None
     aliases: list[str]
@@ -116,6 +172,14 @@ class Result(BaseModel):
     collected_at: datetime
     updated_at: datetime
     additional_metrics: dict[str, Any]
+    # model ID and run configuration (data/models/, importer/model_ids.py)
+    model_key: str | None = None        # project model ID, e.g. "anthropic/claude-opus-4.5"
+    mode: str | None = None             # search | codex-harness | fp8 | … ("+"-joined)
+    model_snapshot: str | None = None   # dated snapshot as the source wrote it
+    raw_model_name: str | None = None   # the source's own name for the model
+    model_match: str | None = None      # how that name was matched: rule | yugos-exact | yugos-loose | override
+    config_key: str | None = None       # model + effort + mode ("<model ID>~<effort>~<mode>")
+    effort_rank: int | None = None      # place on the effort ladder within the model
 
 
 class RawPayload(BaseModel):

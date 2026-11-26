@@ -1,6 +1,7 @@
 // Server-side only: the Yugos model catalog and the user's notes / watch list.
 import { readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { parseCsv } from "@/lib/csv";
 
 const DIR = path.join(process.cwd(), "..", "data", "yugos");
 const CATALOG = path.join(DIR, "models.json");      // built by scripts/build_yugos_models.py
@@ -36,6 +37,12 @@ export interface YugosModel {
   reference_url: string | null;
   reference_label: string;
   offers: Offer[];
+  // added by the page from the model registry + database (not in models.json)
+  model_id?: string;          // project model ID, "vendor/name"
+  model_link?: string;        // how the Yugos name was matched: exact | loose | same-model | override | none
+  model_uuid?: string;        // database id, for the Results page filter
+  results?: number;           // benchmark results for this model
+  benchmarks?: number;        // distinct benchmarks with results
 }
 
 export interface Catalog {
@@ -50,6 +57,23 @@ export interface UserState {
   /** models taken out of observation; everything else is watched, so new models start selected */
   excluded: string[];
   updated: string | null;
+}
+
+/** Yugos model -> project model ID, from the model registry build (data/models/yugos-links.csv) */
+export interface ModelLink { modelId: string; link: string; note: string }
+
+export async function readModelLinks(): Promise<Record<string, ModelLink>> {
+  const out: Record<string, ModelLink> = {};
+  try {
+    const text = await readFile(path.join(process.cwd(), "..", "data", "models", "yugos-links.csv"), "utf8");
+    const [head, ...lines] = parseCsv(text);
+    const col = (name: string) => head.indexOf(name);
+    for (const r of lines) {
+      if (!r[col("yugos_model")]) continue;
+      out[r[col("yugos_model")]] = { modelId: r[col("model_id")], link: r[col("link")], note: r[col("note")] ?? "" };
+    }
+  } catch { /* registry not built yet: no links */ }
+  return out;
 }
 
 export async function readCatalog(): Promise<Catalog> {

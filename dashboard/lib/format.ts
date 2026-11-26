@@ -33,7 +33,7 @@ export function formatDate(value: string | null): string {
 }
 
 export function effortLabel(effort: string | null): string {
-  if (!effort) return "—";
+  if (!effort) return "default";            // the source did not state one (the provider's default)
   if (effort === "enabled") return "reasoning on";
   if (effort === "none") return "no reasoning";
   return effort;

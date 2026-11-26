@@ -10,7 +10,8 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from ..db import Where, fetch_all, fetch_one, get_conn
 from ..queries import BENCHMARK_REF_COLS, get_benchmark, ranked_results, result_filters
 from ..scales import scored
-from ..schemas import Comparison, FilterOptions, GroupBy, Leaderboard, Page, Pick, RawPayload, Result
+from ..schemas import (ChartPoint, Comparison, FilterOptions, GroupBy, Leaderboard, ModelConfig, ModelConfigInfo, Page, Pick,
+                       RawPayload, Result)
 
 router = APIRouter(tags=["results"])
 Conn = Annotated[object, Depends(get_conn)]
@@ -40,6 +41,11 @@ SORTS = {
 }
 
 
+# a model configuration as one string: "<model ID>~<effort>~<mode>" with empty trailing parts dropped
+# ("anthropic/claude-opus-4.5~high", "openai/gpt-5.2~none~search", "openai/gpt-4o")
+CONFIG_SQL = "rtrim(model_key || '~' || COALESCE(reasoning_effort, '') || '~' || COALESCE(mode, ''), '~')"
+
+
 def any_of(where: Where, *conditions: tuple[str, str, list | None]) -> None:
     """Add "(cond1 OR cond2 ...)" for the conditions that have values; nothing if none do."""
     used = [(sql, name, value) for sql, name, value in conditions if value]
@@ -58,8 +64,11 @@ def list_results(
     provider: Annotated[list[str] | None, Query()] = None,
     area: Annotated[list[str] | None, Query()] = None,
     reasoning_effort: Annotated[list[str] | None, Query(description=EFFORT_DOC)] = None,
-    q: Annotated[str | None, Query(description="substring of model, developer or benchmark name")] = None,
+    q: Annotated[str | None, Query(description="substring of model, model ID, the source's model name, developer or benchmark")] = None,
     min_score: float | None = None,
+    configs: Annotated[str | None, Query(description=(
+        "only these model configurations, comma-separated '<model ID>~<effort>~<mode>' "
+        "(see /configs); 'none' matches nothing"))] = None,
     date_from: date | None = None,
     date_to: date | None = None,
     latest_only: Annotated[bool, Query(description=(
@@ -85,8 +94,12 @@ def list_results(
                 (["reasoning_effort IS NULL"] if "unspecified" in reasoning_effort else [])
         where.add("(" + " OR ".join(parts) + ")", efforts=levels)
     where.add_if(min_score, "sort_score >= %(min_score)s", "min_score")
+    if configs is not None:
+        wanted = [c.strip() for c in configs.split(",") if c.strip() and c.strip() != "none"]
+        where.add(f"{CONFIG_SQL} = ANY(%(configs)s)", configs=wanted)
     if q:
         where.add("(model_name ILIKE '%%' || %(q)s || '%%' OR provider ILIKE '%%' || %(q)s || '%%' "
+                  "OR model_key ILIKE '%%' || %(q)s || '%%' OR raw_model_name ILIKE '%%' || %(q)s || '%%' "
                   "OR (benchmark_name || ' ' || COALESCE(benchmark_version, '')) ILIKE '%%' || %(q)s || '%%')",
                   q=q.strip())
     result_filters(where, date_from=date_from, date_to=date_to)
@@ -101,6 +114,71 @@ def list_results(
          LIMIT %(limit)s OFFSET %(offset)s
     """, {**params, "limit": limit, "offset": offset})
     return {"items": items, "total": total, "limit": limit, "offset": offset}
+
+
+@router.get("/configs", response_model=list[ModelConfig],
+            summary="The model configurations (model + effort + mode) that have results on these benchmarks")
+def list_configs(conn: Conn, benchmark_id: Annotated[list[UUID] | None, Query()] = None):
+    where = Where()
+    where.add_if(benchmark_id, "benchmark_id = ANY(%(benchmark_ids)s)", "benchmark_ids")
+    table, scale_params = scored("v_benchmark_records")
+    return fetch_all(conn, f"""
+        SELECT t.*, COALESCE(o.providers, '{{}}') AS yugos_providers
+          FROM (SELECT config_id, {CONFIG_SQL} AS config, model_key, model_name, provider, reasoning_effort, mode,
+                       MIN(effort_rank) AS effort_rank, COUNT(*)::int AS results, MAX(sort_score)::float AS best_score,
+                       MAX(COALESCE(evaluation_date, collected_at::date)) AS latest
+                  FROM {table} {where.sql()}
+                 GROUP BY 1, 2, 3, 4, 5, 6, 7) t
+          LEFT JOIN (SELECT config_id, array_agg(DISTINCT provider ORDER BY provider) AS providers
+                       FROM yugos_offers GROUP BY 1) o ON o.config_id = t.config_id
+         ORDER BY t.best_score DESC NULLS LAST, t.model_name""", {**where.params, **scale_params})
+
+
+@router.get("/chart-points", response_model=list[ChartPoint],
+            summary="One point per configuration (latest result) per benchmark and source, with every chartable metric")
+def chart_points(
+    conn: Conn,
+    benchmark_id: Annotated[list[UUID], Query()],
+    configs: Annotated[str | None, Query(description="as in /results; omitted = every configuration")] = None,
+):
+    where = Where()
+    where.add("benchmark_id = ANY(%(benchmark_ids)s)", benchmark_ids=benchmark_id)
+    if configs is not None:
+        wanted = [c.strip() for c in configs.split(",") if c.strip() and c.strip() != "none"]
+        where.add(f"{CONFIG_SQL} = ANY(%(configs)s)", configs=wanted)
+    table, scale_params = scored("v_benchmark_records")
+    return fetch_all(conn, f"""
+        SELECT p.*, COALESCE(p.output_price_then, cp.output_token_price::float) AS output_price,
+               COALESCE(p.input_price_then, cp.input_token_price::float) AS input_price,
+               COALESCE(o.providers, '{{}}') AS yugos_providers
+          FROM (SELECT DISTINCT ON (config_id, benchmark_id, source_id)
+                       config_id, model_id, {CONFIG_SQL} AS config, model_key, model_name, provider, reasoning_effort, mode,
+                       effort_rank, benchmark_name, benchmark_version, source_name,
+                       COALESCE(display_score, benchmark_score)::float AS quality, sort_score::float AS sort_score,
+                       accuracy::float AS accuracy, cost_per_task_usd::float AS cost_per_task,
+                       time_per_task_sec::float AS time_per_task, ttft_sec::float AS ttft,
+                       tokens_per_sec::float AS tokens_per_sec, output_tokens_per_task::float AS output_tokens,
+                       output_token_price::float AS output_price_then, input_token_price::float AS input_price_then,
+                       COALESCE(evaluation_date, collected_at::date) AS date
+                  FROM {table} {where.sql()}
+                 ORDER BY config_id, benchmark_id, source_id, COALESCE(evaluation_date, collected_at::date) DESC, collected_at DESC) p
+          -- no price from the result's own date (older results): the model's current price, same mode first
+          LEFT JOIN LATERAL (SELECT mp.output_token_price, mp.input_token_price FROM model_pricing mp
+                              WHERE mp.model_id = p.model_id AND mp.effective_to IS NULL
+                              ORDER BY (mp.mode IS NOT DISTINCT FROM p.mode) DESC, (mp.model_snapshot IS NULL) DESC,
+                                       mp.effective_from DESC LIMIT 1) cp ON true
+          LEFT JOIN (SELECT config_id, array_agg(DISTINCT provider ORDER BY provider) AS providers
+                       FROM yugos_offers GROUP BY 1) o ON o.config_id = p.config_id""", {**where.params, **scale_params})
+
+
+@router.get("/model-configs", response_model=list[ModelConfigInfo],
+            summary="Every configuration of a model (effort ladder), with results and Yugos offers")
+def model_configs(conn: Conn, model_key: Annotated[str, Query(description="project model ID, e.g. anthropic/claude-opus-4.5")]):
+    return fetch_all(conn, """
+        SELECT config_key AS config, model_key, model_name, provider, effort AS reasoning_effort, mode,
+               effort_rank, effort_label, results, yugos_offers, COALESCE(yugos_providers, '{}') AS yugos_providers
+          FROM v_model_configs WHERE model_key = %(k)s
+         ORDER BY effort_rank NULLS FIRST, mode NULLS FIRST""", {"k": model_key})
 
 
 @router.get("/filters", response_model=FilterOptions,

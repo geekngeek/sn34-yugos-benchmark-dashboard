@@ -3,12 +3,13 @@ import { BenchmarkTree, type TreeItem } from "@/components/BenchmarkTree";
 import { readLayout } from "@/lib/uiLayout";
 import { LIST_FILE, MY_NOTES, readList } from "@/lib/benchmarkList";
 import { parseMetrics } from "@/lib/metrics";
+import { parseDifficulty, spanOf } from "@/lib/difficulty";
 
 export const metadata: Metadata = { title: "Benchmark list · LLM Benchmark Results" };
 export const dynamic = "force-dynamic";   // re-read the file on every visit, so edits show up at once
 
 // CSV columns the tree shows in fixed places; any other column appears in the details panel
-const KNOWN = ["No", "Yugos", "Name", "Category", "URL", "Focus", "Top Ranked Models", "Yugos use?", "Notes", MY_NOTES, "Metrics", "Metrics detail"];
+const KNOWN = ["No", "Yugos", "Name", "Category", "URL", "Focus", "Top Ranked Models", "Yugos use?", "Notes", MY_NOTES, "Metrics", "Metrics detail", "Difficulty", "Difficulty detail"];
 
 /**
  * The team's benchmark list, read from dashboard/public/benchmark-list.csv (also the download).
@@ -26,7 +27,7 @@ export default async function BenchmarkListPage({ searchParams }: { searchParams
   const toItem = (r: string[]): TreeItem => ({
     no: (r[0] ?? "").trim(), name: get(r, "Name"), yugos: get(r, "Yugos"), category: get(r, "Category"),
     url: get(r, "URL"), focus: get(r, "Focus"), top: get(r, "Top Ranked Models"), yugosUse: get(r, "Yugos use?"),
-    notes: get(r, "Notes"), myNotes: get(r, MY_NOTES), metrics: parseMetrics(get(r, "Metrics detail")), extra: extras.map((h) => [h, get(r, h)]), children: [],
+    notes: get(r, "Notes"), myNotes: get(r, MY_NOTES), metrics: parseMetrics(get(r, "Metrics detail")), difficulty: parseDifficulty(get(r, "Difficulty"), get(r, "Difficulty detail")), extra: extras.map((h) => [h, get(r, h)]), children: [],
   });
   const items: TreeItem[] = [];
   const byNo = new Map<string, TreeItem>();
@@ -36,6 +37,8 @@ export default async function BenchmarkListPage({ searchParams }: { searchParams
     if (parent) parent.children.push(item);
     else { items.push(item); byNo.set(item.no, item); }
   }
+  // a parent shows the span of levels its sub-benchmarks cover (its own level if it has no levelled subs)
+  for (const p of items) p.difficulty = spanOf(p.children.map((c) => c.difficulty), p.difficulty);
   const used = items.filter((i) => i.yugos.toLowerCase() === "yes").length;
 
   return (
