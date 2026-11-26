@@ -267,6 +267,8 @@ Like Artificial Analysis: every configuration is a point, and the efforts of one
 - Both axes and log scale are selectable and kept in the URL (`?x=`, `?y=`, `?logx=`, `?logy=`).
 - A filled dot means Yugos can route that configuration; a hollow dot means it can't.
 - The chart follows the page's model selection. API: `GET /api/v1/chart-points`.
+- **Model picker:** "Only Yugos models" selects just the configurations Yugos can route (a world-card listing for that exact model + effort).
+- **Effort lines** are thick, solid lines on a light halo, so they stay readable where they cross other lines.
 - **Colours:** by developer by default, like Artificial Analysis. Each lab keeps a fixed colour; Google, Anthropic and OpenAI get the three colours every reader can tell apart, and developers outside the 8 colour slots are grey "Other". Other "Colour by" options: Yugos availability, effort level (one-hue ladder), one colour (`?color=`).
 - **Colour key** above the chart: hover an entry to highlight it. While every entry is on, clicking one keeps only that one coloured; after that, clicks add or remove entries, and removing the last one brings all back (`?grey=`, `dashboard/lib/keyToggle.ts`). An entry that is on is a filled chip with a solid edge; one that is off is a dashed outline, struck through, with a hollow swatch.
 - **Hover** a dot to highlight that model (its other effort levels and line too); **click** it to open its details card (click again, elsewhere or Esc to close).

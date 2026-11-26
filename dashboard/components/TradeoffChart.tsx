@@ -332,7 +332,7 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
         <span className="tc-legend">
           <svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="4.5" className="tc-dot" style={{ ["--c" as string]: "var(--tc-ink2)" }} /></svg> Yugos can route
           <svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="4" className="tc-dot hollow" style={{ ["--c" as string]: "var(--tc-ink2)" }} /></svg> not on Yugos
-          <svg width="22" height="14" aria-hidden="true"><line x1="1" y1="7" x2="21" y2="7" className="tc-line" style={{ ["--c" as string]: "var(--tc-ink2)" }} /></svg> one model’s efforts, low → max
+          <svg width="22" height="14" aria-hidden="true"><line x1="1" y1="7" x2="21" y2="7" className="tc-line tc-effort" style={{ ["--c" as string]: "var(--tc-ink2)" }} /></svg> one model’s efforts, low → max
         </span>
       </div>
 
@@ -399,10 +399,16 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
 
             <g clipPath="url(#tc-clip)">
             {/* a model's efforts joined */}
-            {plot.lines.map((l) => (
-              <polyline key={l.k} className="tc-line" style={{ opacity: dim(l.k), ["--c" as string]: colorOfKey(keyOf(l.pts[0])) }}
-                points={l.pts.map((p) => `${plot.sx.map(value(p, x)!)},${plot.sy.map(value(p, y)!)}`).join(" ")} />
-            ))}
+            {/* a light halo under each line keeps it readable where lines cross */}
+            {plot.lines.map((l) => {
+              const pts = l.pts.map((p) => `${plot.sx.map(value(p, x)!)},${plot.sy.map(value(p, y)!)}`).join(" ");
+              return (
+                <g key={l.k} style={{ opacity: dim(l.k), ["--c" as string]: colorOfKey(keyOf(l.pts[0])) }}>
+                  <polyline className="tc-effort-halo" points={pts} />
+                  <polyline className="tc-line tc-effort" points={pts} />
+                </g>
+              );
+            })}
             {/* points: filled = Yugos can route it */}
             {[...plot.groups.entries()].map(([k, ps]) => ps.map((p) => (
               <circle key={`${k}${p.config}`} cx={plot.sx.map(value(p, x)!)} cy={plot.sy.map(value(p, y)!)} r={p.yugos_providers.length ? R : R - 0.5}

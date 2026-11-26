@@ -631,8 +631,12 @@ function Plot({ pts, W, Hh, m, id, dom, x, y, logX, logY, R, lines, seriesIdx, c
                                        style={{ ["--c" as string]: seriesColor(l.ps[0]), opacity: anyLit ? (l.ps.some(lit) && !hover ? 1 : 0.9 * LOW) : 0.9 }} />)}
           {spread.map((l) => <polyline key={`s${l.k}`} className="tc-line mc-spread" points={line(l.ps)}
                                        style={{ opacity: anyLit ? 0.45 * LOW : 0.45 }} />)}
-          {efforts.map((l) => <polyline key={`e${l.k}`} className="tc-line" points={line(l.ps)}
-                                        style={{ ["--c" as string]: colorOf(l.ps[0]), opacity: anyLit ? 0.7 * LOW : 0.7 }} />)}
+          {efforts.map((l) => (
+            <g key={`e${l.k}`} style={{ ["--c" as string]: colorOf(l.ps[0]), opacity: anyLit ? LOW : 1 }}>
+              <polyline className="tc-effort-halo" points={line(l.ps)} />
+              <polyline className="tc-line tc-effort" points={line(l.ps)} />
+            </g>
+          ))}
           {pts.map((p, i) => {
             const [px, py] = P(p);
             const front = onFrontier.has(p);       // dots on a benchmark frontier: a little bigger, with a dark ring

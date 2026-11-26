@@ -47,6 +47,7 @@ export function ModelPicker({ configs, selected, defaults, defaultNote, yugos, o
   const root = useRef<HTMLDivElement>(null);
   const yugosSet = useMemo(() => new Set(yugos), [yugos]);
   const all = useMemo(() => configs.map((c) => c.config), [configs]);
+  const routable = useMemo(() => configs.filter((c) => c.yugos_providers.length > 0).map((c) => c.config), [configs]);
 
   useEffect(() => { setSel(new Set(selected)); }, [selected]);   // the URL changed (back/forward, load)
 
@@ -211,6 +212,10 @@ export function ModelPicker({ configs, selected, defaults, defaultNote, yugos, o
               {filtered ? "Clear shown" : "Clear"}</button>
             <button type="button" onClick={() => apply(new Set([...sel, ...visible.map((c) => c.config)]))}>
               {filtered ? "Select shown" : "Select all"}</button>
+            {/* only the configurations Yugos can route (a world-card listing for that exact model + effort) */}
+            <button type="button" className="wide mp-yugos-only" disabled={!routable.length} onClick={() => apply(new Set(routable))}
+                    title="Select only the configurations Yugos can route (model + effort listed on the world card)">
+              Only Yugos models <span className="mp-meta">{routable.length}</span></button>
             <button type="button" className="wide" onClick={() => apply(new Set(defaults))} title={defaultNote}>Reset (to default)</button>
             {saveName === null
               ? <button type="button" onClick={() => setSaveName("")}>Save</button>

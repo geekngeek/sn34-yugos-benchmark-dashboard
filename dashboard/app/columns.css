@@ -285,3 +285,8 @@ table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
 .mc-key-stars { margin: 0 6px 0 6px; display: inline-flex; vertical-align: -1px; }
 .mc-key-stars .stars { font-size: 10.5px; }
 .tc-key-item.off .mc-key-stars, .tc-key-item.na .mc-key-stars { opacity: .5; }
+/* a model's effort levels joined: a thicker, solid line on a light halo, so it stands out where lines cross */
+.tc-effort { stroke-width: 2.75; opacity: 1; }
+.tc-effort-halo { fill: none; stroke: var(--surface); stroke-width: 6.5; stroke-linejoin: round; stroke-linecap: round; opacity: .9; }
+.tc-line.hl.tc-effort, .tc-hl .tc-line.hl { stroke-width: 3.75; }
+.mp-foot > button:disabled { opacity: .45; cursor: not-allowed; }
