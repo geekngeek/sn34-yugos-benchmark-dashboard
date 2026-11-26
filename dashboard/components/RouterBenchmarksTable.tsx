@@ -5,6 +5,7 @@ import type { Freshness, RouterBenchmark, Usefulness } from "@/lib/routerBenchma
 import { PUBLIC_FIELDS, type PublicStatus } from "@/lib/routerPublicFields";
 import { HoverTip } from "@/components/HoverTip";
 import { NoteCell } from "@/components/NoteCell";
+import { modelMatches, normText, textMatches, tokens } from "@/lib/modelSearch";
 import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
 
@@ -48,10 +49,12 @@ const NEWEST = /gpt-?6|(opus|sonnet|fable|haiku|mythos)[ -]?5|claude-(opus|sonne
 
 const SHOW_MODELS = 4;   // tags shown before the "+N" tag
 
-function ModelTags({ b }: { b: RouterBenchmark }) {
+function ModelTags({ b, hits = [] }: { b: RouterBenchmark; hits?: string[] }) {
   const pool = b.pool;
   if (!pool?.models.length) return <span className="subtle" title={b.models}>{b.models || "—"}</span>;
-  const shown = pool.models.slice(0, SHOW_MODELS);
+  // models matching the search come first and are highlighted
+  const order = hits.length ? [...hits, ...pool.models.filter((m) => !hits.includes(m))] : pool.models;
+  const shown = order.slice(0, Math.max(SHOW_MODELS, hits.length));
   const yugos = pool.yugos ?? {};
   const hiddenYugos = pool.models.filter((m) => yugos[m] && !shown.includes(m)).length;
   // models not shown: the rest of the pool when its size is known, else the rest of the list
@@ -62,7 +65,7 @@ function ModelTags({ b }: { b: RouterBenchmark }) {
   const tag = (m: string) => {
     const yid = yugos[m];
     const t = [m, NEWEST.test(m) ? "newest generation" : "", yid ? `Yugos uses it (${yid})` : ""].filter(Boolean).join(" — ");
-    return <span key={m} className={`rb-tag m-model${NEWEST.test(m) ? " m-newest" : ""}${yid ? " m-yugos" : ""}`} title={t}>{m}</span>;
+    return <span key={m} className={`rb-tag m-model${NEWEST.test(m) ? " m-newest" : ""}${yid ? " m-yugos" : ""}${hits.includes(m) ? " m-hit" : ""}`} title={t}>{m}</span>;
   };
   const unnamed = pool.total !== null ? pool.total - pool.models.length : 0;
   return (
@@ -320,6 +323,7 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
   const [showArch, setShowArch] = useState(() => qFlag(query, "archived"));   // also list archived benchmarks
   const [onlyNoted, setOnlyNoted] = useState(() => qFlag(query, "noted"));
   const [status, setStatus] = useState("");
+  const [textToo, setTextToo] = useState(false);   // model search: also list benchmarks that only mention the name in text
 
   useQuerySync({
     q, group, use: useLv, new: newLv, pub: pubF,
@@ -329,8 +333,20 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
 
   const cl = useColumnLayout("router-benchmarks", COLS, layout);
 
+  // search: when the words match model names in Model pool lists, only those benchmarks are found
+  // (write-ups often say "No GPT-6 …", so plain text matching finds the wrong ones); else plain text
+  const qTokens = useMemo(() => tokens(q), [q]);
+  const poolHits = useMemo(() => {
+    const m = new Map<number, string[]>();
+    if (qTokens.length) for (const b of benchmarks) {
+      const h = (b.pool?.models ?? []).filter((n) => modelMatches(qTokens, n) || (b.pool?.yugos?.[n] && modelMatches(qTokens, b.pool.yugos[n])));
+      if (h.length) m.set(b.num, h);
+    }
+    return m;
+  }, [benchmarks, qTokens]);
+  const modelMode = poolHits.size > 0;
+
   const filtered = useMemo(() => {
-    const words = q.toLowerCase().split(/\s+/).filter(Boolean);
     const rows = benchmarks.filter((b) => {
       if (group && b.group !== group) return false;
       if (useLv.length && !useLv.includes(b.yugos)) return false;
@@ -338,9 +354,10 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
       if (!showArch && archived.has(b.name)) return false;
       if (onlyNoted && !notes[b.name]) return false;
       if (pubF.length && !pubF.every((f) => b.public?.[f as keyof NonNullable<RouterBenchmark["public"]>]?.status === "Yes")) return false;
-      if (words.length) {
-        const hay = [b.name, b.creators, b.scale, b.models, b.focus, b.finding, b.yugos_raw, b.newest_raw, b.licence ?? "", notes[b.name] ?? "", b.detail_md].join(" ").toLowerCase();
-        if (!words.every((w) => hay.includes(w))) return false;
+      if (qTokens.length && !poolHits.has(b.num)) {
+        if (modelMode && !textToo) return false;
+        const hay = normText([b.name, b.creators, b.scale, b.models, b.focus, b.finding, b.yugos_raw, b.newest_raw, b.licence ?? "", notes[b.name] ?? "", b.detail_md].join(" "));
+        if (!textMatches(qTokens, hay)) return false;
       }
       return true;
     });
@@ -351,7 +368,7 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
       const x = val(a), y = val(b);
       return (x < y ? -1 : x > y ? 1 : a.num - b.num) * sort.dir;
     });
-  }, [benchmarks, q, group, useLv, newLv, pubF, sort, showArch, archived, onlyNoted, notes]);
+  }, [benchmarks, qTokens, poolHits, modelMode, textToo, group, useLv, newLv, pubF, sort, showArch, archived, onlyNoted, notes]);
 
   // --- feedback: notes and archive (optimistic; rolled back if the server refuses) ---
   const post = async (body: object) => {
@@ -420,7 +437,7 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
       case "public": return <td key={key} className="rb-public" data-tip><PublicTags b={b} /></td>;
       case "models": return (
         <td key={key} className="rb-models" data-tip={b.pool?.models.length ? "always" : ""}>
-          <ModelTags b={b} />
+          <ModelTags b={b} hits={poolHits.get(b.num)} />
         </td>
       );
       default: {
@@ -507,6 +524,14 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
         </span>
       </div>
 
+      {modelMode && (
+        <p className="small rb-searchnote">
+          “{q.trim()}” matches models in the Model pool of <strong>{poolHits.size}</strong> benchmark{poolHits.size === 1 ? "" : "s"} (highlighted).{" "}
+          <button type="button" className="link" onClick={() => setTextToo((v) => !v)}>
+            {textToo ? "Hide benchmarks that only mention it in their text" : "Also show benchmarks that only mention it in their text"}
+          </button>
+        </p>
+      )}
       <HoverTip>
       <div className="rb-scroll" ref={cl.root}>
         <table className="grid rb-table cl" style={{ width: cl.total }}>

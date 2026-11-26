@@ -181,3 +181,8 @@ table.cl > tbody > tr > td.rb-notecell:focus-within { overflow: visible; }
   margin-left: 6px; padding: 0 6px; border-radius: 999px; font-size: 11px; font-weight: 500; line-height: 17px;
   border: 1px dashed var(--line); color: var(--muted);
 }
+
+/* search: models matching the query */
+.rb-tag.m-hit { background: #fff3b0; color: #5c4400; font-weight: 600; }
+.rb-searchnote { margin: 0 0 8px; color: var(--ink-2); }
+@media (prefers-color-scheme: dark) { .rb-tag.m-hit { background: #4a3f10; color: #ffe58a; } }
