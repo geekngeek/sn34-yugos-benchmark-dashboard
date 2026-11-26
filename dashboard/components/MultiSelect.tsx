@@ -9,6 +9,7 @@ export interface Option {
   title?: string;    // full description, shown on hover
   group?: string;    // options with a group are listed under a heading (also searched)
   groupValue?: string;  // group-selection mode: the value reported when the whole group is chosen
+  short?: string;       // name used in the closed box when it lists every choice (listAll)
 }
 
 /** groups larger than this start collapsed (until a search finds something in them) */
@@ -31,7 +32,7 @@ function GroupCheckbox({ state, onChange, label }: { state: "all" | "some" | "no
  * itself (reported in `groups`, e.g. a whole source), and items can still be chosen one
  * by one (reported in `values`). A chosen group shows all its items as ticked.
  */
-export function MultiSelect({ id, label, allLabel, options, selected, selectedGroups, onChange }: {
+export function MultiSelect({ id, label, allLabel, options, selected, selectedGroups, onChange, listAll }: {
   id: string;
   label: string;
   allLabel: string;
@@ -39,6 +40,7 @@ export function MultiSelect({ id, label, allLabel, options, selected, selectedGr
   selected: string[];
   selectedGroups?: string[];
   onChange: (values: string[], groups: string[]) => void;
+  listAll?: boolean;   // the closed box names every choice ("1 Basic, 5 Unsolved"), not "2 selected"
 }) {
   const groupMode = selectedGroups !== undefined;
   const chosenGroups = useMemo(() => new Set(selectedGroups ?? []), [selectedGroups]);
@@ -71,7 +73,9 @@ export function MultiSelect({ id, label, allLabel, options, selected, selectedGr
   const groupName = useMemo(() => new Map(options.filter((o) => o.groupValue).map((o) => [o.groupValue!, o.group ?? ""])), [options]);
   const groupsNow = selectedGroups ?? [];
   const names = [...groupsNow.map((g) => groupName.get(g) ?? g), ...selected.map((v) => byValue.get(v)?.label ?? v)];
-  const summary = names.length === 0 ? allLabel : names.length === 1 ? names[0] : `${names.length} selected`;
+  const summary = names.length === 0 ? allLabel
+    : listAll ? options.filter((o) => chosen.has(o.value)).map((o) => o.short ?? o.label).join(", ")
+    : names.length === 1 ? names[0] : `${names.length} selected`;
 
   const emit = (values: string[], groups: string[] = groupsNow) => onChange(values, groups);
   const groupOn = (o: Option) => !!o.groupValue && chosenGroups.has(o.groupValue);

@@ -4,7 +4,7 @@ import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type Keybo
 import Link from "next/link";
 import { HoverTip } from "@/components/HoverTip";
 import { Stars } from "@/components/Stars";
-import { difficultyText, LEVEL_HELP, type Difficulty } from "@/lib/difficulty";
+import { difficultyText, LEVEL_HELP, LEVEL_NAMES, type Difficulty } from "@/lib/difficulty";
 import { MultiSelect } from "@/components/MultiSelect";
 import { TOPICS, TOPIC_LABEL, parentTopics, subTopics } from "@/lib/benchmarkTopics";
 import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
@@ -75,6 +75,8 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   const [onlyNoted, setOnlyNoted] = useState(() => qFlag(initialQuery, "notes"));
   // filters on the benchmark (parent) rows; a parent that passes keeps its sub-benchmarks
   const [cats, setCats] = useState<string[]>(() => qMany(initialQuery, "cat"));      // sub-benchmarks in any of these categories
+  // difficulty levels 1..5 (?diff=3&diff=4): sub-benchmarks whose level (or range of levels) includes a checked one
+  const [levels, setLevels] = useState<number[]>(() => qMany(initialQuery, "diff").map(Number).filter((n) => n >= 1 && n <= 5));
   const [params, setParams] = useState<string[]>(() => qMany(initialQuery, "param")); // benchmark must report all of these parameters
   const [onSiteOnly, setOnSiteOnly] = useState(() => qFlag(initialQuery, "site"));    // …shown on the benchmark's own page
   const [selected, setSelected] = useState<string>(items[0]?.no ?? "");
@@ -96,7 +98,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
 
   const q = query.trim().toLowerCase();
   const textFiltering = q !== "" || onlyNoted;
-  const filtering = textFiltering || cats.length > 0;   // filtered rows show their matching sub-benchmarks, open
+  const filtering = textFiltering || cats.length > 0 || levels.length > 0;   // filtered rows show their matching sub-benchmarks, open
   const text = (i: TreeItem) => [i.name, i.category, i.focus, i.top, i.yugosUse, i.notes, i.myNotes, i.url,
     ...i.metrics.params.map((m) => `${m.key} ${METRIC_INFO[m.key].title} ${m.label} ${m.detail}`)].join(" ").toLowerCase();
   const match = (i: TreeItem) => (!q || text(i).includes(q)) && (!onlyNoted || i.myNotes.trim() !== "");
@@ -107,14 +109,19 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     return m;
   }, [tree]);
   // Category filters sub-benchmarks by their own category; Reports filters the benchmark (parent) itself
-  const kidOk = (c: TreeItem) => !cats.length || (topicsOf.get(c.no) ?? []).some((t) => cats.includes(t));
+  const levelOk = (c: TreeItem) => !levels.length || ((c.difficulty.kind === "firm" || c.difficulty.kind === "range")
+    && levels.some((L) => L >= c.difficulty.lo && L <= c.difficulty.hi));      // "2-3" counts for 2 and for 3
+  const kidOk = (c: TreeItem) => (!cats.length || (topicsOf.get(c.no) ?? []).some((t) => cats.includes(t))) && levelOk(c);
+  const subFiltered = cats.length > 0 || levels.length > 0;
   const passes = (p: TreeItem) => {
     if (!params.length) return true;
     const got = reportedKeys(p.metrics);
     return params.every((k) => got.some((r) => r.key === k && (!onSiteOnly || r.where === "page")));
   };
-  const narrowed = cats.length > 0 || params.length > 0;
-  useQuerySync({ q: query.trim(), yugos: onlyYugos, notes: onlyNoted, cat: cats, param: params, site: onSiteOnly && params.length > 0,
+  const narrowed = cats.length > 0 || params.length > 0 || levels.length > 0;
+  const levelCounts = useMemo(() => [0, 1, 2, 3, 4, 5].map((L) => tree.reduce((n, p) => n + p.children.filter((c) =>
+    (c.difficulty.kind === "firm" || c.difficulty.kind === "range") && L >= c.difficulty.lo && L <= c.difficulty.hi).length, 0)), [tree]);
+  useQuerySync({ q: query.trim(), yugos: onlyYugos, notes: onlyNoted, cat: cats, diff: levels.map(String), param: params, site: onSiteOnly && params.length > 0,
                  view: view === "params" ? "params" : null });
 
   // visible rows in order; while filtering, parents with matching children are shown open
@@ -123,15 +130,15 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     for (const p of tree) {
       if (onlyYugos && !yes(p.yugos)) continue;
       if (!passes(p)) continue;
-      const base = cats.length ? p.children.filter(kidOk) : p.children;
-      if (cats.length && base.length === 0) continue;
+      const base = subFiltered ? p.children.filter(kidOk) : p.children;
+      if (subFiltered && base.length === 0) continue;
       const kids = textFiltering ? (match(p) && !onlyNoted && q ? base : base.filter(match)) : base;
       if (textFiltering && !match(p) && kids.length === 0) continue;
       rows.push({ item: p, depth: 0, shownKids: kids.length });
       if (filtering ? kids.length > 0 : open.has(p.no)) for (const c of kids) rows.push({ item: c, depth: 1, parent: p, shownKids: 0 });
     }
     return rows;
-  }, [tree, open, q, onlyYugos, onlyNoted, cats, params, onSiteOnly, topicsOf]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [tree, open, q, onlyYugos, onlyNoted, cats, levels, params, onSiteOnly, topicsOf]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const byNo = useMemo(() => {
     const m = new Map<string, { item: TreeItem; parent?: TreeItem }>();
@@ -242,9 +249,13 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
         <label className="bl-toggle" title="Count a parameter only when the benchmark's own page shows it (not just its data file or paper)">
           <input type="checkbox" checked={onSiteOnly} onChange={(e) => setOnSiteOnly(e.target.checked)} disabled={!params.length} /> Shown on the site only
         </label>
+        <MultiSelect id="bl-diff" label="Difficulty" allLabel="Any difficulty" listAll
+                     options={[1, 2, 3, 4, 5].map((L) => ({ value: String(L), label: `${L} · ${LEVEL_NAMES[L]}`, short: `${L} ${LEVEL_NAMES[L]}`,
+                       hint: `${levelCounts[L]}`, title: `${LEVEL_HELP[L]} (a range such as 2-3 counts for each level it covers)` }))}
+                     selected={levels.map(String)} onChange={(v) => setLevels(v.map(Number).sort())} />
         {narrowed && <>
           <span className="small">{shownParents} of {tree.length} benchmarks</span>
-          <button type="button" className="link" onClick={() => { setCats([]); setParams([]); setOnSiteOnly(false); }}>Clear filters</button>
+          <button type="button" className="link" onClick={() => { setCats([]); setParams([]); setOnSiteOnly(false); setLevels([]); }}>Clear filters</button>
         </>}
       </div>
 
