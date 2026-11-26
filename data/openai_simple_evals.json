@@ -1,0 +1,1199 @@
+{
+  "format": "benchmark-results/v1",
+  "source": {
+    "name": "OpenAI simple-evals",
+    "site": "https://github.com/openai/simple-evals",
+    "publisher": "OpenAI",
+    "description": "Results table published in OpenAI's simple-evals repository (SimpleQA, MMLU and HumanEval columns).",
+    "license": "MIT (https://github.com/openai/simple-evals/blob/main/LICENSE)",
+    "attribution": "OpenAI simple-evals (https://github.com/openai/simple-evals).",
+    "retrieved_from": [
+      "https://raw.githubusercontent.com/openai/simple-evals/main/README.md"
+    ],
+    "notes": [
+      "The repository stopped updating results in July 2025, so newer models are not listed.",
+      "Developers inferred from model names."
+    ],
+    "collected_at": "2026-11-25T19:16:47+00:00"
+  },
+  "benchmarks": [
+    {
+      "key": "simpleqa",
+      "name": "SimpleQA",
+      "version": "OpenAI simple-evals",
+      "area": "knowledge",
+      "sub_area": "short-form factuality",
+      "unit": "points",
+      "url": "https://github.com/openai/simple-evals",
+      "description": "SimpleQA accuracy (%) as reported by OpenAI.",
+      "metric": "accuracy"
+    },
+    {
+      "key": "mmlu",
+      "name": "MMLU",
+      "version": "OpenAI simple-evals",
+      "area": "knowledge",
+      "sub_area": "57-subject multiple choice",
+      "unit": "points",
+      "url": "https://github.com/openai/simple-evals",
+      "description": "MMLU accuracy (%) as reported in simple-evals.",
+      "metric": "accuracy"
+    },
+    {
+      "key": "humaneval",
+      "name": "HumanEval",
+      "version": "OpenAI simple-evals",
+      "area": "coding",
+      "sub_area": "Python function completion",
+      "unit": "points",
+      "url": "https://github.com/openai/simple-evals",
+      "description": "HumanEval pass@1 (%) as reported in simple-evals."
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "simpleqa",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 48.6,
+      "evaluation_method": "OpenAI simple-evals, prompt: n/a [^7]",
+      "external_id": "o3-high@48.6",
+      "extra": {
+        "listed_name": "o3-high"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 93.3,
+      "evaluation_method": "OpenAI simple-evals, prompt: n/a [^7]",
+      "external_id": "o3-high:mmlu@93.3",
+      "extra": {
+        "listed_name": "o3-high"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 88.4,
+      "evaluation_method": "OpenAI simple-evals, prompt: n/a [^7]",
+      "external_id": "o3-high:humaneval@88.4",
+      "extra": {
+        "listed_name": "o3-high"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 49.4,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3@49.4",
+      "extra": {
+        "listed_name": "o3"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 92.9,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3:mmlu@92.9",
+      "extra": {
+        "listed_name": "o3"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 87.4,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3:humaneval@87.4",
+      "extra": {
+        "listed_name": "o3"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 49.4,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-low@49.4",
+      "extra": {
+        "listed_name": "o3-low"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 92.8,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-low:mmlu@92.8",
+      "extra": {
+        "listed_name": "o3-low"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 87.3,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-low:humaneval@87.3",
+      "extra": {
+        "listed_name": "o3-low"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 19.3,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o4-mini-high@19.3",
+      "extra": {
+        "listed_name": "o4-mini-high"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 90.3,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o4-mini-high:mmlu@90.3",
+      "extra": {
+        "listed_name": "o4-mini-high"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 99.3,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o4-mini-high:humaneval@99.3",
+      "extra": {
+        "listed_name": "o4-mini-high"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 20.2,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o4-mini@20.2",
+      "extra": {
+        "listed_name": "o4-mini"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 90.0,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o4-mini:mmlu@90.0",
+      "extra": {
+        "listed_name": "o4-mini"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 97.3,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o4-mini:humaneval@97.3",
+      "extra": {
+        "listed_name": "o4-mini"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 20.2,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o4-mini-low@20.2",
+      "extra": {
+        "listed_name": "o4-mini-low"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 89.5,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o4-mini-low:mmlu@89.5",
+      "extra": {
+        "listed_name": "o4-mini-low"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 95.9,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o4-mini-low:humaneval@95.9",
+      "extra": {
+        "listed_name": "o4-mini-low"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 13.8,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-mini-high@13.8",
+      "extra": {
+        "listed_name": "o3-mini-high"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 86.9,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-mini-high:mmlu@86.9",
+      "extra": {
+        "listed_name": "o3-mini-high"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 97.6,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-mini-high:humaneval@97.6",
+      "extra": {
+        "listed_name": "o3-mini-high"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 13.4,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-mini@13.4",
+      "extra": {
+        "listed_name": "o3-mini"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 85.9,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-mini:mmlu@85.9",
+      "extra": {
+        "listed_name": "o3-mini"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 96.3,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-mini:humaneval@96.3",
+      "extra": {
+        "listed_name": "o3-mini"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 13.0,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-mini-low@13.0",
+      "extra": {
+        "listed_name": "o3-mini-low"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 84.9,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-mini-low:mmlu@84.9",
+      "extra": {
+        "listed_name": "o3-mini-low"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 94.5,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o3-mini-low:humaneval@94.5",
+      "extra": {
+        "listed_name": "o3-mini-low"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o1",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 42.6,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o1@42.6",
+      "extra": {
+        "listed_name": "o1"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o1",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 91.8,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o1:mmlu@91.8",
+      "extra": {
+        "listed_name": "o1"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o1-preview",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 42.4,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o1-preview@42.4",
+      "extra": {
+        "listed_name": "o1-preview"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o1-preview",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 90.8,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o1-preview:mmlu@90.8",
+      "extra": {
+        "listed_name": "o1-preview"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o1-preview",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 92.4,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o1-preview:humaneval@92.4",
+      "extra": {
+        "listed_name": "o1-preview"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "o1-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 7.6,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o1-mini@7.6",
+      "extra": {
+        "listed_name": "o1-mini"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "o1-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 85.2,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o1-mini:mmlu@85.2",
+      "extra": {
+        "listed_name": "o1-mini"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "o1-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 92.4,
+      "evaluation_method": "OpenAI simple-evals",
+      "external_id": "o1-mini:humaneval@92.4",
+      "extra": {
+        "listed_name": "o1-mini"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "gpt-4.1-2025-04-14",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 41.6,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant [^2]",
+      "external_id": "gpt-4.1-2025-04-14@41.6",
+      "extra": {
+        "listed_name": "gpt-4.1-2025-04-14"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4.1-2025-04-14",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 90.2,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant [^2]",
+      "external_id": "gpt-4.1-2025-04-14:mmlu@90.2",
+      "extra": {
+        "listed_name": "gpt-4.1-2025-04-14"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4.1-2025-04-14",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 94.5,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant [^2]",
+      "external_id": "gpt-4.1-2025-04-14:humaneval@94.5",
+      "extra": {
+        "listed_name": "gpt-4.1-2025-04-14"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 16.8,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4.1-mini-2025-04-14@16.8",
+      "extra": {
+        "listed_name": "gpt-4.1-mini-2025-04-14"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 87.5,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4.1-mini-2025-04-14:mmlu@87.5",
+      "extra": {
+        "listed_name": "gpt-4.1-mini-2025-04-14"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 93.8,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4.1-mini-2025-04-14:humaneval@93.8",
+      "extra": {
+        "listed_name": "gpt-4.1-mini-2025-04-14"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "gpt-4.1-nano-2025-04-14",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 7.6,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4.1-nano-2025-04-14@7.6",
+      "extra": {
+        "listed_name": "gpt-4.1-nano-2025-04-14"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4.1-nano-2025-04-14",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 80.1,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4.1-nano-2025-04-14:mmlu@80.1",
+      "extra": {
+        "listed_name": "gpt-4.1-nano-2025-04-14"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4.1-nano-2025-04-14",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 87.0,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4.1-nano-2025-04-14:humaneval@87.0",
+      "extra": {
+        "listed_name": "gpt-4.1-nano-2025-04-14"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "gpt-4o-2024-11-20",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 38.8,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-2024-11-20@38.8",
+      "extra": {
+        "listed_name": "gpt-4o-2024-11-20"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4o-2024-11-20",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 85.7,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-2024-11-20:mmlu@85.7",
+      "extra": {
+        "listed_name": "gpt-4o-2024-11-20"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4o-2024-11-20",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 90.2,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-2024-11-20:humaneval@90.2",
+      "extra": {
+        "listed_name": "gpt-4o-2024-11-20"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "gpt-4o-2024-08-06",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 40.1,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-2024-08-06@40.1",
+      "extra": {
+        "listed_name": "gpt-4o-2024-08-06"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4o-2024-08-06",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 88.7,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-2024-08-06:mmlu@88.7",
+      "extra": {
+        "listed_name": "gpt-4o-2024-08-06"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4o-2024-08-06",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 90.2,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-2024-08-06:humaneval@90.2",
+      "extra": {
+        "listed_name": "gpt-4o-2024-08-06"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "gpt-4o-2024-05-13",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 39.0,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-2024-05-13@39.0",
+      "extra": {
+        "listed_name": "gpt-4o-2024-05-13"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4o-2024-05-13",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 87.2,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-2024-05-13:mmlu@87.2",
+      "extra": {
+        "listed_name": "gpt-4o-2024-05-13"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4o-2024-05-13",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 91.0,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-2024-05-13:humaneval@91.0",
+      "extra": {
+        "listed_name": "gpt-4o-2024-05-13"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "gpt-4o-mini-2024-07-18",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 9.5,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-mini-2024-07-18@9.5",
+      "extra": {
+        "listed_name": "gpt-4o-mini-2024-07-18"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4o-mini-2024-07-18",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 82.0,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-mini-2024-07-18:mmlu@82.0",
+      "extra": {
+        "listed_name": "gpt-4o-mini-2024-07-18"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4o-mini-2024-07-18",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 87.2,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4o-mini-2024-07-18:humaneval@87.2",
+      "extra": {
+        "listed_name": "gpt-4o-mini-2024-07-18"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "gpt-4.5-preview-2025-02-27",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 62.5,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4.5-preview-2025-02-27@62.5",
+      "extra": {
+        "listed_name": "gpt-4.5-preview-2025-02-27"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4.5-preview-2025-02-27",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 90.8,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4.5-preview-2025-02-27:mmlu@90.8",
+      "extra": {
+        "listed_name": "gpt-4.5-preview-2025-02-27"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4.5-preview-2025-02-27",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 88.6,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4.5-preview-2025-02-27:humaneval@88.6",
+      "extra": {
+        "listed_name": "gpt-4.5-preview-2025-02-27"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "gpt-4-turbo-2024-04-09",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 24.2,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4-turbo-2024-04-09@24.2",
+      "extra": {
+        "listed_name": "gpt-4-turbo-2024-04-09"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4-turbo-2024-04-09",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 86.7,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4-turbo-2024-04-09:mmlu@86.7",
+      "extra": {
+        "listed_name": "gpt-4-turbo-2024-04-09"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4-turbo-2024-04-09",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 88.2,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4-turbo-2024-04-09:humaneval@88.2",
+      "extra": {
+        "listed_name": "gpt-4-turbo-2024-04-09"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4-0125-preview",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 85.4,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4-0125-preview:mmlu@85.4",
+      "extra": {
+        "listed_name": "gpt-4-0125-preview"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4-0125-preview",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 86.6,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4-0125-preview:humaneval@86.6",
+      "extra": {
+        "listed_name": "gpt-4-0125-preview"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "gpt-4-1106-preview",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 84.7,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4-1106-preview:mmlu@84.7",
+      "extra": {
+        "listed_name": "gpt-4-1106-preview"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "gpt-4-1106-preview",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 83.7,
+      "evaluation_method": "OpenAI simple-evals, prompt: assistant",
+      "external_id": "gpt-4-1106-preview:humaneval@83.7",
+      "extra": {
+        "listed_name": "gpt-4-1106-preview"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 28.9,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Claude 3.5 Sonnet@28.9",
+      "extra": {
+        "listed_name": "Claude 3.5 Sonnet"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 88.3,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Claude 3.5 Sonnet:mmlu@88.3",
+      "extra": {
+        "listed_name": "Claude 3.5 Sonnet"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 92.0,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Claude 3.5 Sonnet:humaneval@92.0",
+      "extra": {
+        "listed_name": "Claude 3.5 Sonnet"
+      }
+    },
+    {
+      "benchmark": "simpleqa",
+      "model": "Claude 3 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 23.5,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Claude 3 Opus@23.5",
+      "extra": {
+        "listed_name": "Claude 3 Opus"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Claude 3 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 86.8,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Claude 3 Opus:mmlu@86.8",
+      "extra": {
+        "listed_name": "Claude 3 Opus"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "Claude 3 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 84.9,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Claude 3 Opus:humaneval@84.9",
+      "extra": {
+        "listed_name": "Claude 3 Opus"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Llama 3.1 405b",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 88.6,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Llama 3.1 405b:mmlu@88.6",
+      "extra": {
+        "listed_name": "Llama 3.1 405b"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "Llama 3.1 405b",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 89.0,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Llama 3.1 405b:humaneval@89.0",
+      "extra": {
+        "listed_name": "Llama 3.1 405b"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Llama 3.1 70b",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 82.0,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Llama 3.1 70b:mmlu@82.0",
+      "extra": {
+        "listed_name": "Llama 3.1 70b"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "Llama 3.1 70b",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 80.5,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Llama 3.1 70b:humaneval@80.5",
+      "extra": {
+        "listed_name": "Llama 3.1 70b"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Llama 3.1 8b",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 68.4,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Llama 3.1 8b:mmlu@68.4",
+      "extra": {
+        "listed_name": "Llama 3.1 8b"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "Llama 3.1 8b",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 72.6,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Llama 3.1 8b:humaneval@72.6",
+      "extra": {
+        "listed_name": "Llama 3.1 8b"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Grok 2",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 87.5,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Grok 2:mmlu@87.5",
+      "extra": {
+        "listed_name": "Grok 2"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "Grok 2",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 88.4,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Grok 2:humaneval@88.4",
+      "extra": {
+        "listed_name": "Grok 2"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Grok 2 mini",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 86.2,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Grok 2 mini:mmlu@86.2",
+      "extra": {
+        "listed_name": "Grok 2 mini"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "Grok 2 mini",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 85.7,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Grok 2 mini:humaneval@85.7",
+      "extra": {
+        "listed_name": "Grok 2 mini"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Gemini 1.0 Ultra",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 83.7,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Gemini 1.0 Ultra:mmlu@83.7",
+      "extra": {
+        "listed_name": "Gemini 1.0 Ultra"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "Gemini 1.0 Ultra",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 74.4,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Gemini 1.0 Ultra:humaneval@74.4",
+      "extra": {
+        "listed_name": "Gemini 1.0 Ultra"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Gemini 1.5 Pro",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 81.9,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Gemini 1.5 Pro:mmlu@81.9",
+      "extra": {
+        "listed_name": "Gemini 1.5 Pro"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "Gemini 1.5 Pro",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 71.9,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Gemini 1.5 Pro:humaneval@71.9",
+      "extra": {
+        "listed_name": "Gemini 1.5 Pro"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Gemini 1.5 Flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 77.9,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Gemini 1.5 Flash:mmlu@77.9",
+      "extra": {
+        "listed_name": "Gemini 1.5 Flash"
+      }
+    },
+    {
+      "benchmark": "humaneval",
+      "model": "Gemini 1.5 Flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 71.5,
+      "evaluation_method": "OpenAI simple-evals, prompt: unknown",
+      "external_id": "Gemini 1.5 Flash:humaneval@71.5",
+      "extra": {
+        "listed_name": "Gemini 1.5 Flash"
+      }
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "format": "benchmark-results/v1",
+  "source": {
+    "name": "SWE-bench Pro (Scale AI open source)",
+    "site": "https://github.com/scaleapi/SWE-bench_Pro-os",
+    "publisher": "Scale AI",
+    "description": "Per-instance evaluation results published with SWE-bench Pro's open-source release.",
+    "license": "MIT (https://github.com/scaleapi/SWE-bench_Pro-os)",
+    "attribution": "SWE-bench Pro, Scale AI (https://github.com/scaleapi/SWE-bench_Pro-os).",
+    "retrieved_from": [
+      "https://github.com/scaleapi/SWE-bench_Pro-os/tree/main/traj"
+    ],
+    "notes": [
+      "Score = resolved / evaluated instances, computed here from each run's eval_results.json.",
+      "Runs evaluate different numbers of instances (see extra.instances), so compare with care.",
+      "Scale's live SWE-bench Pro leaderboard (scale.com) is not used: its site terms don't cover reuse."
+    ],
+    "collected_at": "2026-11-25T19:16:47+00:00"
+  },
+  "benchmarks": [
+    {
+      "key": "public",
+      "name": "SWE-bench Pro",
+      "version": "Scale open-source runs",
+      "area": "coding",
+      "sub_area": "issue resolution (long-horizon)",
+      "unit": "points",
+      "url": "https://github.com/scaleapi/SWE-bench_Pro-os",
+      "description": "SWE-bench Pro resolve rate from runs published in Scale AI's open-source repository."
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "public",
+      "model": "Claude Sonnet 4.5",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "score": 43.7,
+      "evaluation_date": "2025-10-13",
+      "external_id": "claude-45sonnet-10132025",
+      "evaluation_method": "SWE-bench Pro run published in scaleapi/SWE-bench_Pro-os (run 10132025)",
+      "extra": {
+        "run": "claude-45sonnet-10132025",
+        "instances": 730,
+        "resolved": 319
+      }
+    },
+    {
+      "benchmark": "public",
+      "model": "Claude Sonnet 4",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "score": 42.7,
+      "evaluation_date": "2025-10-13",
+      "external_id": "claude-4sonnet-10132025",
+      "evaluation_method": "SWE-bench Pro run published in scaleapi/SWE-bench_Pro-os (run 10132025)",
+      "extra": {
+        "run": "claude-4sonnet-10132025",
+        "instances": 562,
+        "resolved": 240
+      }
+    },
+    {
+      "benchmark": "public",
+      "model": "Claude Opus 4.1",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "score": 23.12,
+      "evaluation_date": null,
+      "external_id": "claude-opus-4-1-paper",
+      "evaluation_method": "SWE-bench Pro run published in scaleapi/SWE-bench_Pro-os (paper run)",
+      "extra": {
+        "run": "claude-opus-4-1-paper",
+        "instances": 891,
+        "resolved": 206
+      }
+    },
+    {
+      "benchmark": "public",
+      "model": "Claude Sonnet 4",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "score": 25.04,
+      "evaluation_date": null,
+      "external_id": "claude-sonnet-4-paper",
+      "evaluation_method": "SWE-bench Pro run published in scaleapi/SWE-bench_Pro-os (paper run)",
+      "extra": {
+        "run": "claude-sonnet-4-paper",
+        "instances": 663,
+        "resolved": 166
+      }
+    },
+    {
+      "benchmark": "public",
+      "model": "Gemini 2.5 Pro Preview",
+      "developer": "Google",
+      "developer_inferred": true,
+      "score": 10.99,
+      "evaluation_date": null,
+      "external_id": "gemini-2-5-pro-preview-paper",
+      "evaluation_method": "SWE-bench Pro run published in scaleapi/SWE-bench_Pro-os (paper run)",
+      "extra": {
+        "run": "gemini-2-5-pro-preview-paper",
+        "instances": 955,
+        "resolved": 105
+      }
+    },
+    {
+      "benchmark": "public",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 5.82,
+      "evaluation_date": null,
+      "external_id": "gpt-4o-paper",
+      "evaluation_method": "SWE-bench Pro run published in scaleapi/SWE-bench_Pro-os (paper run)",
+      "extra": {
+        "run": "gpt-4o-paper",
+        "instances": 619,
+        "resolved": 36
+      }
+    },
+    {
+      "benchmark": "public",
+      "model": "GPT-5",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 36.35,
+      "evaluation_date": "2025-10-13",
+      "external_id": "gpt-5-250-turns-10132025",
+      "evaluation_method": "SWE-bench Pro run published in scaleapi/SWE-bench_Pro-os (run 10132025)",
+      "extra": {
+        "run": "gpt-5-250-turns-10132025",
+        "instances": 729,
+        "resolved": 265
+      }
+    },
+    {
+      "benchmark": "public",
+      "model": "gpt-oss",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 16.21,
+      "evaluation_date": null,
+      "external_id": "gptoss-paper",
+      "evaluation_method": "SWE-bench Pro run published in scaleapi/SWE-bench_Pro-os (paper run)",
+      "extra": {
+        "run": "gptoss-paper",
+        "instances": 728,
+        "resolved": 118,
+        "model_note": "run name only says 'gptoss'; size not stated"
+      }
+    },
+    {
+      "benchmark": "public",
+      "model": "Kimi K2 Instruct",
+      "developer": "Moonshot AI",
+      "developer_inferred": true,
+      "score": 27.71,
+      "evaluation_date": "2025-10-13",
+      "external_id": "kimi-k2-instruct-10132025",
+      "evaluation_method": "SWE-bench Pro run published in scaleapi/SWE-bench_Pro-os (run 10132025)",
+      "extra": {
+        "run": "kimi-k2-instruct-10132025",
+        "instances": 729,
+        "resolved": 202
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+ "tables": {
+  "benchmark-list": {
+   "order": [
+    "no",
+    "name",
+    "yugos",
+    "category",
+    "focus",
+    "top",
+    "reports",
+    "link",
+    "notes"
+   ],
+   "widths": {
+    "name": 184,
+    "reports": 296,
+    "top": 387
+   }
+  },
+  "results": {
+   "order": [
+    "model",
+    "developer",
+    "benchmark",
+    "area",
+    "effort",
+    "score",
+    "accuracy",
+    "cost",
+    "speed",
+    "date",
+    "source"
+   ],
+   "widths": {
+    "benchmark": 227
+   }
+  }
+ }
+}

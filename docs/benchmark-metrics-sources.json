@@ -1,0 +1,2469 @@
+[
+ {
+  "parent_no": 1,
+  "parent": "LiveBench 2.0",
+  "sources": [
+   "https://livebench.ai/",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://livebench.ai/data/20261106/table.csv",
+   "https://livebench.ai/data/20261106/categories.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/data/20261106/llm_time.csv",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Overall / Suite score (Long Agentic, Reasoning, Coding, Browser Use, Data Analysis, Research, Design)",
+    "detail": "0-100 score; each cell = mean task score over the suite's tasks (Browser Use = share of tasks passed); Overall = mean of suites (categories.json carries _overall_weights: Long Agentic 2, Coding 1.5, Design 1.5)",
+    "evidence": "https://livebench.ai/data/20261106/table.csv",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Cost per task / Cost per successful task",
+    "detail": "USD; per-suite total cost and task counts in cost.csv; site shows cost per task and cost per successful task = (cost per task / score) x 100",
+    "evidence": "https://livebench.ai/data/20261106/cost.csv",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "$/1M out",
+    "detail": "USD output price per 1M tokens (also input_price_per_million in cost.csv), shown in the cost chart tooltip",
+    "evidence": "https://livebench.ai/static/js/main.099aad9b.js",
+    "where": "page"
+   },
+   {
+    "key": "time",
+    "label": "Inference time per task",
+    "detail": "mean seconds spent in LLM calls per task, per suite (llm_time.csv, with task counts n_/nq_)",
+    "evidence": "https://livebench.ai/data/20261106/llm_time.csv",
+    "where": "page"
+   },
+   {
+    "key": "tokens",
+    "label": "avg output tokens",
+    "detail": "average output tokens per task, overall and per suite (cost.csv: avg_input_tokens, avg_output_tokens, out_<suite>); output tokens shown in cost chart tooltip",
+    "evidence": "https://livebench.ai/data/20261106/cost.csv",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Effort:",
+    "detail": "one entry per model at its highest supported effort (max/xhigh/high), shown in model details and in the name when not max, e.g. 'Claude Fable 5.2 (xhigh)'; no separate rows per effort level in the current release",
+    "evidence": "https://livebench.ai/static/js/main.099aad9b.js",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "Suite columns + Subcategories",
+    "detail": "7 suite scores per model plus subcategory scores per suite (e.g. Long Agentic: Finance & Compliance Apps, Long-Run Operations, ...)",
+    "evidence": "https://livebench.ai/data/20261106/breakdown.json",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Open weights",
+    "detail": "open-weight flag (filter chip; openweight + Hugging Face link in model catalog)",
+    "evidence": "https://livebench.ai/static/js/main.099aad9b.js",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Organization / Finetune from / Base model",
+    "detail": "model organization column ('Show org') and finetune provenance",
+    "evidence": "https://livebench.ai/static/js/main.099aad9b.js",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Unmeasured tasks",
+    "detail": "nq_<suite> counts of measured tasks in cost/time files; unmeasured tasks score 0",
+    "evidence": "https://livebench.ai/data/20261106/llm_time.csv",
+    "where": "data"
+   }
+  ],
+  "not_reported": [
+   "speed",
+   "uncertainty",
+   "runs",
+   "date",
+   "votes"
+  ],
+  "checked": "Read the live 20261106 data files the JS page loads (table.csv, categories.json, cost.csv, llm_time.csv, breakdown.json, notes.json) and the column labels/model catalog in the site's JS bundle. No throughput, CI/error, per-model date, or vote fields exist.",
+  "note": "Site is JS-rendered; read via its data files and main JS bundle. Methodology states 'Single run: each suite is one run per model' (so no repeated-run data); only the release date ('Last updated') is shown, not a per-entry date. Cost/time/tokens are 2.0 (latest release) only."
+ },
+ {
+  "parent_no": 2,
+  "parent": "Artificial Analysis Intelligence Index",
+  "sources": [
+   "https://artificialanalysis.ai/leaderboards/models",
+   "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://artificialanalysis.ai/models/claude-fable-5-2",
+   "https://artificialanalysis.ai/evaluations/aa-briefcase"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Artificial Analysis Intelligence Index",
+    "detail": "composite score 0-100 (index points), v5.0.2: weighted average of 9 evaluations in 4 categories (Knowledge Work, Coding, Science, General, 25% each)",
+    "evidence": "https://artificialanalysis.ai/leaderboards/models",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Cost per Task (USD) / Cost per Intelligence Index Task",
+    "detail": "weighted average USD per Intelligence Index task, from input, cache hit, cache write, reasoning and answer token prices; stacked by token type",
+    "evidence": "https://artificialanalysis.ai/leaderboards/models",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Cost to Run Artificial Analysis Intelligence Index",
+    "detail": "total USD to run all index evaluations (excluding repeats)",
+    "evidence": "https://artificialanalysis.ai/models/claude-fable-5-2",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Blended Price / input & output price per 1M tokens",
+    "detail": "USD per 1M tokens (input, output, blended 7:2:1 cache hit/input/output)",
+    "evidence": "https://artificialanalysis.ai/models/claude-fable-5-2",
+    "where": "page"
+   },
+   {
+    "key": "time",
+    "label": "Time per Task (Minutes)",
+    "detail": "weighted average minutes per Intelligence Index task = output tokens per task / output speed (estimated, not measured end-to-end)",
+    "evidence": "https://artificialanalysis.ai/leaderboards/models",
+    "where": "page"
+   },
+   {
+    "key": "time",
+    "label": "First Answer Token (s) / Time to First Token",
+    "detail": "seconds to first answer token (includes thinking time) and to first token; averaged over past 5 days of runs every 6 hours",
+    "evidence": "https://artificialanalysis.ai/leaderboards/models",
+    "where": "page"
+   },
+   {
+    "key": "speed",
+    "label": "Output Speed / End-to-End Output Speed",
+    "detail": "output tokens per second (and output tokens / total request time incl. TTFT), from AA's API performance benchmark, past 5 days",
+    "evidence": "https://artificialanalysis.ai/models/claude-fable-5-2",
+    "where": "page"
+   },
+   {
+    "key": "tokens",
+    "label": "Output Tokens per Task / Output Tokens Used / Token Breakdown",
+    "detail": "weighted average output tokens per Intelligence Index task, split into reasoning and answer tokens; also total output tokens used to run the index",
+    "evidence": "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index",
+    "where": "page"
+   },
+   {
+    "key": "uncertainty",
+    "label": "CI",
+    "detail": "95% confidence interval relative to Elo (e.g. '-10 / +12') on Elo-scored component evaluations such as AA-Briefcase; NOT shown for the headline Intelligence Index",
+    "evidence": "https://artificialanalysis.ai/evaluations/aa-briefcase",
+    "where": "page"
+   },
+   {
+    "key": "runs",
+    "label": "Repeats",
+    "detail": "number of repeats per evaluation (methodology table, e.g. GDP.pdf 5, FrontierCode-AA 2.0 3, Terminal-Bench 4.1 3); scores are pass@1 averaged over repeats; per evaluation, not per model",
+    "evidence": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Model name suffix (e.g. 'Max, Default Fallback', 'Xhigh', 'High') / Default effort",
+    "detail": "separate leaderboard entries per reasoning effort setting (none/low/medium/high/xhigh/max)",
+    "evidence": "https://artificialanalysis.ai/leaderboards/models",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "Released / Score vs. Release Date",
+    "detail": "model release date (e.g. 'released on November 9, 2026'); index chart against release date",
+    "evidence": "https://artificialanalysis.ai/models/claude-fable-5-2",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "Capability Indexes / per-evaluation scores",
+    "detail": "capability indexes and per-evaluation scores (AA-Briefcase, Terminal-Bench 4.1, HLE-Diamond, ...) and domain indexes (Finance & Accounting, Legal, ...) on model and evaluation pages",
+    "evidence": "https://artificialanalysis.ai/models/claude-fable-5-2",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Context Window",
+    "detail": "token limit (e.g. 1M)",
+    "evidence": "https://artificialanalysis.ai/leaderboards/models",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Open Weights / Proprietary (Weights filter)",
+    "detail": "open-weights flag",
+    "evidence": "https://artificialanalysis.ai/models/claude-fable-5-2",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Parameters / Size",
+    "detail": "model size (size class Tiny/Small/Medium/Large for open-weights models)",
+    "evidence": "https://artificialanalysis.ai/models/claude-fable-5-2",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Status: Current",
+    "detail": "current vs deprecated model filter",
+    "evidence": "https://artificialanalysis.ai/leaderboards/models",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "votes"
+  ],
+  "checked": "Fetched server-rendered HTML of the models leaderboard, the Intelligence Index evaluation page, the methodology page, a model page and the AA-Briefcase evaluation page; read table headers, chart titles and embedded data. No human vote/battle data (Elo-based evals use LLM judges).",
+  "note": "Uncertainty (95% CI) exists only for Elo-scored component evaluations, not the headline index. Repeats are documented per evaluation in the methodology, not per model entry. Time per task is an estimate (tokens / output speed). Speed/latency come from AA's separate API performance benchmarking."
+ },
+ {
+  "parent_no": 3,
+  "parent": "BenchLM",
+  "sources": [
+   "https://benchlm.ai/",
+   "https://benchlm.ai/data/leaderboard.json",
+   "https://benchlm.ai/data/models.json",
+   "https://benchlm.ai/data/benchmarks.json",
+   "https://benchlm.ai/data/pricing.json",
+   "https://benchlm.ai/data/speed.json",
+   "https://benchlm.ai/models/claude-fable-5-2",
+   "https://benchlm.ai/md/models/claude-fable-5-2.md",
+   "https://benchlm.ai/methodology"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Score",
+    "detail": "BenchLM overall score 0-100 (displayScore, ranking mode bench-align-v5 in JSON / BenchAlign v6.0 on methodology page): item-response-model aggregate over many third-party and self-reported benchmark results",
+    "evidence": "https://benchlm.ai/",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Price",
+    "detail": "API price USD per 1M tokens, input / output (e.g. '$8.00 / $40.00'); cached-input price on model page and pricing.json",
+    "evidence": "https://benchlm.ai/",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Cost per task (Scores by reasoning effort)",
+    "detail": "USD per task/question/run as reported by the upstream publisher, for a few benchmarks only, on model pages",
+    "evidence": "https://benchlm.ai/md/models/claude-fable-5-2.md",
+    "where": "page"
+   },
+   {
+    "key": "time",
+    "label": "Latency",
+    "detail": "seconds to first answer token incl. thinking time; sourced from Artificial Analysis",
+    "evidence": "https://benchlm.ai/",
+    "where": "page"
+   },
+   {
+    "key": "speed",
+    "label": "Tok/s",
+    "detail": "output tokens per second (median tokens/s), sourced from Artificial Analysis",
+    "evidence": "https://benchlm.ai/data/speed.json",
+    "where": "page"
+   },
+   {
+    "key": "uncertainty",
+    "label": "90% interval",
+    "detail": "90% posterior interval on the overall score (scoreInterval90 lower/upper, e.g. 88.5-98.0)",
+    "evidence": "https://benchlm.ai/data/leaderboard.json",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Reasoning / Scores by reasoning effort",
+    "detail": "Reasoning type column (Reasoning / Non-Reasoning / Hybrid); some separate entries per mode (e.g. 'Grok 4 Fast (Reasoning)', 'Claude Sonnet 4.5 Thinking'); model pages list upstream results per effort level (Low..Max), but the overall score uses one setting per benchmark",
+    "evidence": "https://benchlm.ai/md/models/claude-fable-5-2.md",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "Released",
+    "detail": "model release date (releaseDate, e.g. 2026-11-09)",
+    "evidence": "https://benchlm.ai/models/claude-fable-5-2",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "AG, CO, RE, MM, KN, ML, IF, MA + per-benchmark scores",
+    "detail": "8 category scores (agentic, coding, reasoning, multimodal grounded, knowledge, multilingual, instruction following, math) and every per-benchmark score in its native unit, each with 'Who ran it' and source link",
+    "evidence": "https://benchlm.ai/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Elo",
+    "detail": "'Elo rating' column (e.g. 1502.18); the page does not state its source",
+    "evidence": "https://benchlm.ai/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Parameters (B)",
+    "detail": "model size in billions or 'Not disclosed'",
+    "evidence": "https://benchlm.ai/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Context",
+    "detail": "context window (e.g. 1M)",
+    "evidence": "https://benchlm.ai/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Open / closed, License",
+    "detail": "open-weights flag and license (e.g. Proprietary)",
+    "evidence": "https://benchlm.ai/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Status",
+    "detail": "Current / deprecated",
+    "evidence": "https://benchlm.ai/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Supported / Estimated (evidenceStatus)",
+    "detail": "evidence status of the overall score",
+    "evidence": "https://benchlm.ai/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Who ran it",
+    "detail": "per-score provenance: 'Reported by <lab>' (self-reported), 'Run by <evaluator>', 'Independent run', 'Carried from an upstream page'",
+    "evidence": "https://benchlm.ai/md/models/claude-fable-5-2.md",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "trustedBenchmarkCount / scoreConfidence",
+    "detail": "number of trusted benchmarks behind the score and a 1-3 confidence level",
+    "evidence": "https://benchlm.ai/data/leaderboard.json",
+    "where": "data"
+   }
+  ],
+  "not_reported": [
+   "tokens",
+   "runs",
+   "votes"
+  ],
+  "checked": "Read the leaderboard table headers/rows on benchlm.ai, a model page (HTML and markdown), the methodology page, and the official data files leaderboard.json, models.json, benchmarks.json, pricing.json and speed.json. No token-usage, repeated-run or vote-count fields per model.",
+  "note": "BenchLM mostly aggregates other publishers' results (self-reported lab numbers, Vals AI, Artificial Analysis etc.); speed and latency are Artificial Analysis data. Some per-benchmark formats mention pass@k, repeats or human-vote ratings (e.g. Pelican Arena), but those are upstream benchmark metrics, not BenchLM per-entry fields. The 'Elo' column's source is not stated, so it is not counted as votes."
+ },
+ {
+  "parent_no": 4,
+  "parent": "Humanity's Last Exam (HLE)",
+  "sources": [
+   "https://lastexam.ai/",
+   "https://labs.scale.com/leaderboard/humanitys_last_exam"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Accuracy (%) ↑",
+    "detail": "Accuracy in %, judged by o3-mini; lastexam.ai table (dataset updated 2025-04-03)",
+    "evidence": "https://lastexam.ai/",
+    "where": "page"
+   },
+   {
+    "key": "quality",
+    "label": "score (e.g. '54.80')",
+    "detail": "Accuracy (%) on 2,500-question HLE, o3-mini-2025-01-31 as extractor/judge; Scale SEAL list has no header row",
+    "evidence": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+    "where": "page"
+   },
+   {
+    "key": "uncertainty",
+    "label": "±  (e.g. '54.80±1.94')",
+    "detail": "95% confidence interval half-width on accuracy (data field confidenceInterval_upper); rank is 'Rank (UB)' = 1 + number of models whose lower CI bound exceeds this model's upper bound",
+    "evidence": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "model-name suffix, e.g. '(xhigh)', '(high)', 'thinking max', '(Non-Thinking)'",
+    "detail": "Separate entries per reasoning effort / thinking setting, encoded only in the model name; some entries note thinking budget or sampling tokens in a contamination/notes message",
+    "evidence": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "createdAt (embedded page data only)",
+    "detail": "ISO timestamp per entry in the page's embedded JSON (e.g. 2026-09-09T18:59:21Z), presumably when the result was added; not displayed as a column; a 'NEW' badge is displayed",
+    "evidence": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "Calibration Error (%) ↓",
+    "detail": "RMS calibration error (%) from model's stated confidence, lower is better",
+    "evidence": "https://lastexam.ai/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Calib Err: N (CE)",
+    "detail": "RMS calibration error per entry; missing for some entries",
+    "evidence": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "contaminationMessage (per-entry warning)",
+    "detail": "'Potential contamination warning: This model was evaluated after the public release of HLE...' plus run notes (e.g. 'Thinking budget: 16,000 tokens', 'Sampled at 32K Tokens'); in the page's embedded entry data; each row has a collapsed info button whose content was not confirmed",
+    "evidence": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "Rank (UB)",
+    "detail": "CI-based rank with ties",
+    "evidence": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "* (text-only subset flag)",
+    "detail": "lastexam.ai marks non-multimodal models (DeepSeek-R1*) as evaluated on the text-only subset",
+    "evidence": "https://lastexam.ai/",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "runs",
+   "breakdown",
+   "votes"
+  ],
+  "checked": "Read the lastexam.ai results table (3 columns: Model, Accuracy, Calibration Error) and the Scale SEAL HLE page HTML including its embedded entries JSON (fields: model, version, rank, score, confidenceInterval_upper, contaminationMessage, company, isNew, createdAt, deprecated, calibrationError, maxScore). No cost/latency/token/subject-breakdown fields on either.",
+  "note": "lastexam.ai table is small and older (o3-mini judge, dataset 2025-04-03, 10 models) and has no CI/effort/date. Scale SEAL carries the CI, effort-in-name and createdAt; a separate 'Humanity's Last Exam (Text Only)' SEAL leaderboard exists (marked deprecated in the site nav data, as is the main HLE entry), counted here as a sub-leaderboard rather than a per-entry breakdown. Token mentions in contaminationMessage are run settings (budget caps), not usage. Scale page notes HLE-Rolling (2026-09-17) but the board shown is the 2,500-question HLE."
+ },
+ {
+  "parent_no": 5,
+  "parent": "MMLU-Pro",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv",
+   "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro/blob/main/app.py"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Overall",
+    "detail": "Accuracy as a 0-1 fraction (e.g. 0.7255), 12,032 ten-option questions; Space table shows the results.csv columns (app.py base_columns 'Models','Model Size(B)','Data Source','Overall' + selectable subjects)",
+    "evidence": "https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv ; https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro/blob/main/app.py",
+    "where": "page"
+   },
+   {
+    "key": "quality",
+    "label": "Overall Accuracy",
+    "detail": "Accuracy (%) in README 'Mini-Leaderboard' (17 older models)",
+    "evidence": "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+    "where": "paper"
+   },
+   {
+    "key": "breakdown",
+    "label": "Biology, Business, Chemistry, Computer Science, Economics, Engineering, Health, History, Law, Math, Philosophy, Physics, Psychology, Other",
+    "detail": "Per-subject accuracy (0-1) for 14 subjects; subject columns selectable in the Space",
+    "evidence": "https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv ; https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro/blob/main/app.py",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "model-name suffix, e.g. 'GPT-5(high)', 'DeepSeek-V3.1-Thinking' / '-NonThinking', 'Athene-V2-Chat (0-shot)'",
+    "detail": "Separate rows for reasoning effort / thinking on-off / shot setting, encoded only in the Models name",
+    "evidence": "https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Data Source",
+    "detail": "'TIGER-Lab' (run by maintainers) vs 'Self-Reported' (verified/self-reported flag)",
+    "evidence": "https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Model Size(B)",
+    "detail": "Parameter count in billions, 'unk' for closed models",
+    "evidence": "https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "date",
+   "votes"
+  ],
+  "checked": "Downloaded results.csv (header: Models,Data Source,Model Size(B),Overall + 14 subjects) that the Space reads (utils.py CSV_DIR), read the Space app.py column logic, and the GitHub README Mini-Leaderboard. No cost/time/token/CI/date columns.",
+  "note": "The Space HTML is a Gradio app that WebFetch could not render; columns confirmed from its source code and the results.csv it loads. Evaluation is normally 5-shot CoT (README/about text) but shot setting is not a per-entry field except in a few model names."
+ },
+ {
+  "parent_no": 6,
+  "parent": "GPQA Diamond",
+  "sources": [
+   "https://github.com/idavidrein/gpqa",
+   "https://arxiv.org/html/2311.12022",
+   "https://github.com/idavidrein/gpqa/tree/main/baseline_results"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Accuracy by subset (%)",
+    "detail": "Accuracy % of baseline models (Llama-2-70B-chat, GPT-3.5-turbo-16k, GPT-4) in paper Table 5/6",
+    "evidence": "https://arxiv.org/abs/2311.12022 (HTML: https://arxiv.org/html/2311.12022)",
+    "where": "paper"
+   },
+   {
+    "key": "breakdown",
+    "label": "Extended Set / Main Set / Diamond Set",
+    "detail": "Accuracy per question subset (546 / 448 / 198 questions); per-domain (biology 58.1, physics 37.0, chemistry 31.8) only in text for GPT-4 few-shot CoT",
+    "evidence": "https://arxiv.org/abs/2311.12022 (HTML: https://arxiv.org/html/2311.12022)",
+    "where": "paper"
+   },
+   {
+    "key": "effort",
+    "label": "Evaluation Method (Zero-Shot, Few-Shot, Zero-Shot CoT, Few-Shot CoT, GPT-4 with search)",
+    "detail": "Separate rows per prompting method and with/without web search (open-book, with backoff to few-shot CoT on abstention)",
+    "evidence": "https://arxiv.org/abs/2311.12022 (HTML: https://arxiv.org/html/2311.12022)",
+    "where": "paper"
+   },
+   {
+    "key": "other",
+    "label": "Abstention rate (%)",
+    "detail": "Appendix Table 7: share of questions the model abstained on, per method and subset",
+    "evidence": "https://arxiv.org/abs/2311.12022 (HTML: https://arxiv.org/html/2311.12022)",
+    "where": "paper"
+   },
+   {
+    "key": "other",
+    "label": "Expert / Non-Expert Human Validator",
+    "detail": "Human baseline rows in the same table; ±4.0%/±2.3% intervals apply to humans only",
+    "evidence": "https://arxiv.org/abs/2311.12022 (HTML: https://arxiv.org/html/2311.12022)",
+    "where": "paper"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "date",
+   "votes"
+  ],
+  "checked": "Read the GitHub README (no results table, no leaderboard link) and the baseline_results/ file list, and the arXiv paper's result tables (Table 5, appendix Tables 6-7). No CI on model scores, no cost/time/tokens.",
+  "note": "No official leaderboard exists; only paper baselines from 2023. The repo baseline_results/ CSVs (per-question Correct flags, run timestamps in filenames such as 2023-10-16) cover a 564-question pre-release set, not Diamond, so their dates were not counted. Model scores for current models are only on third-party sites (not counted)."
+ },
+ {
+  "parent_no": 7,
+  "parent": "SimpleQA / FACTS",
+  "sources": [
+   "https://github.com/openai/simple-evals",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/README.md",
+   "https://www.kaggle.com/benchmarks/deepmind/simpleqa-verified",
+   "https://www.kaggle.com/benchmarks/google/facts"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "SimpleQA",
+    "detail": "Score column in simple-evals README results table, no unit stated (percent-style numbers, e.g. 48.6); other columns are other benchmarks (MMLU, GPQA, MATH, HumanEval, MGSM, DROP)",
+    "evidence": "https://github.com/openai/simple-evals",
+    "where": "paper"
+   },
+   {
+    "key": "effort",
+    "label": "model-name suffix, e.g. 'o3-high', 'o3', 'o3-low', 'o4-mini-high'",
+    "detail": "Separate rows per reasoning level; footnote [^10] 'no tools enabled for o3 or o4-mini'",
+    "evidence": "https://github.com/openai/simple-evals",
+    "where": "paper"
+   },
+   {
+    "key": "other",
+    "label": "Prompt",
+    "detail": "System prompt used per entry (e.g. 'assistant', 'chatgpt', 'n/a' for o-series)",
+    "evidence": "https://github.com/openai/simple-evals",
+    "where": "paper"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "date",
+   "breakdown",
+   "votes"
+  ],
+  "checked": "Read the simple-evals README results table and footnotes (stopped updating July 2025). The Kaggle SimpleQA Verified and FACTS leaderboards are JS-rendered: WebFetch returned only the page title and Chrome (Claude in Chrome) was unreachable, so their per-entry fields could NOT be confirmed.",
+  "note": "Params above cover only OpenAI simple-evals (SimpleQA). Kaggle boards (SimpleQA Verified by DeepMind; FACTS suite: Average, Grounding, Parametric, Search, Multimodal by Google) are unverified here; earlier research (docs/benchmark-list-sources.json, browser read 2026-11-26) recorded only a percentage score and for FACTS the metric 'Average (Avg 4 dimensions)' with sub-boards, so FACTS likely has per-dimension breakdown but this was not re-confirmed. Model names with dates (e.g. gpt-4.1-2025-04-14) are model snapshots, not evaluation dates."
+ },
+ {
+  "parent_no": 8,
+  "parent": "ARC-AGI-2 / ARC-AGI-3",
+  "sources": [
+   "https://arcprize.org/leaderboard",
+   "https://arcprize.org/results/openai-gpt-6-2-astra"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "ARC-AGI-1 / ARC-AGI-2 score",
+    "detail": "% of tasks solved on the Semi-Private set (data field score, 0-1, shown as %); datasets v1_Semi_Private, v2_Semi_Private",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "quality",
+    "label": "ARC-AGI-3 · Standard / ARC-AGI-3 · Provider adapter score",
+    "detail": "% score on ARC-AGI-3 Semi-Private games (v3_Semi_Private), shown separately for the Standard harness and the Provider adapter harness",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Cost/task (Cost per task)",
+    "detail": "USD per task for ARC-AGI-1 and ARC-AGI-2 (field costPerTask); also the x-axis of the score-vs-cost scatter",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Cost (ARC-AGI-3)",
+    "detail": "USD total cost of the ARC-AGI-3 run (field cost, e.g. $24.2K), per harness",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "$X input / $Y output per 1M tokens",
+    "detail": "model API price per 1M tokens shown on each model's results page header",
+    "evidence": "https://arcprize.org/results/openai-gpt-6-2-astra",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Effort",
+    "detail": "separate row per reasoning-effort / thinking-budget setting (e.g. None, Low, Medium, High, XHigh, Max, Thinking 16K, 32K)",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Standard harness vs Provider adapter harness",
+    "detail": "ARC-AGI-3 reported separately per agent harness (scaffold)",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "Date",
+    "detail": "model release date per entry (modelReleaseDate; some entries carry metadata.verified/verifiedAt/confidence/sourceUrl for the date)",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "Tasks & environments (Pass/fail per reasoning level)",
+    "detail": "per-task pass/fail (✓/✗) on ARC-AGI-1 Public Eval (400) and ARC-AGI-2 Public Eval (120), and per-game % on 25 ARC-AGI-3 Public Demo environments, per effort level and harness",
+    "evidence": "https://arcprize.org/results/openai-gpt-6-2-astra",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Model type",
+    "detail": "system type filter/field: CoT, Base LLM, Refinement, Diffusion, Custom, CoT + Synthesis",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Author / provider",
+    "detail": "provider/organization per entry",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "notes / tooltipNote",
+    "detail": "free-text evaluation notes per entry (effort, harness, context window, partial-dataset coverage, cost lower-bound caveats, 12-hour time-limit caps on ARC-AGI-3 games); read from the embedded data (tooltipNote is the hover text of the ARC-AGI-3 score, notes may not be visible)",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "Model card / Paper / Blog post links",
+    "detail": "modelCardUrl, paperUrl, codeUrl, dataUrl per entry",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Verified vs Community leaderboard",
+    "detail": "/leaderboard is the 'Verified' board (ARC Prize-tested); a separate /leaderboard/community board exists",
+    "evidence": "https://arcprize.org/leaderboard",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "votes"
+  ],
+  "checked": "Read the server-rendered HTML and embedded React flight data of arcprize.org/leaderboard (fields: score, costPerTask, cost, effort, modelType, modelReleaseDate, notes, tooltipNote) plus the table headers (AI System / Effort, Date, ARC-AGI-1, ARC-AGI-2, ARC-AGI-3 · Standard, ARC-AGI-3 · Provider adapter, Score, Cost), and one per-model results page. No latency/runtime, throughput, token counts, CIs/error bars, pass@k/attempt counts or vote data appear as fields.",
+  "note": "Next.js page; data read from embedded flight data (the 'Download Table (CSV)' button is client-side). Cost is per task for v1/v2 but total run cost for v3. Notes mention a 12-hour per-game limit on ARC-AGI-3 and that costs may be recorded-usage lower bounds; these are notes, not time/token columns. Human Panel row is a baseline. Kaggle ARC Prize competition boards are separate and not covered."
+ },
+ {
+  "parent_no": 9,
+  "parent": "FrontierMath",
+  "sources": [
+   "https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v2",
+   "https://epoch.ai/benchmarks",
+   "https://epoch.ai/data/benchmark_data.zip"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Best score (across scorers)",
+    "detail": "fraction correct 0-1 (shown as %; hub's score column per benchmark_metadata.csv); private set",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip (frontiermath_tiers_1_3_v2.csv, frontiermath_tier_4_v2.csv)",
+    "where": "data"
+   },
+   {
+    "key": "quality",
+    "label": "mean_score",
+    "detail": "mean accuracy 0-1 over the problem set",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip",
+    "where": "data"
+   },
+   {
+    "key": "uncertainty",
+    "label": "stderr",
+    "detail": "standard error of the mean score, per run",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip",
+    "where": "data"
+   },
+   {
+    "key": "effort",
+    "label": "Model version (effort suffix)",
+    "detail": "separate entries per reasoning-effort setting encoded in the model version id (e.g. qwen4-max_xhigh, claude-opus-4-8_max)",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip",
+    "where": "data"
+   },
+   {
+    "key": "date",
+    "label": "Release date",
+    "detail": "model release date",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip",
+    "where": "data"
+   },
+   {
+    "key": "date",
+    "label": "Started at",
+    "detail": "timestamp the evaluation run started",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "Organization",
+    "detail": "model developer",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "Country",
+    "detail": "developer's country",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "Training compute (FLOP)",
+    "detail": "training compute estimate with 'Training compute notes' (mostly empty for recent models)",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "Log viewer / Logs",
+    "detail": "link to Inspect eval logs per run (often empty)",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "id",
+    "detail": "run id",
+    "evidence": "https://epoch.ai/data/benchmark_data.zip",
+    "where": "data"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "runs",
+   "breakdown",
+   "votes"
+  ],
+  "checked": "Downloaded the official Epoch data zip (2026-11-26) and read the column headers of frontiermath.csv, frontiermath_tier_4.csv, frontiermath_tiers_1_3_v2.csv, frontiermath_tier_4_v2.csv, frontiermath_erdos.csv and benchmark_metadata.csv; opened the benchmark page (JS, loads from Epoch's internal API) and its JS bundles. No cost, time, throughput, token, pass@k/run-count, per-problem or vote columns.",
+  "note": "Benchmark page is JS-rendered (loads from Epoch's internal API); parameters taken from the official download fetched 2026-11-26. Tiers 1-3 (v2), Tier 4 (v2), Erdős and the old v1 sets are separate leaderboards/files rather than a per-entry breakdown. The methodology text states a 1M-token budget per question (a limit, not a reported value). All params marked 'data' because the JS page's displayed columns could not be confirmed without rendering."
+ },
+ {
+  "parent_no": 10,
+  "parent": "AIME (2025/2026)",
+  "sources": [
+   "https://matharena.ai/?comp=aime--aime_2026",
+   "https://matharena.ai/?comp=aime--aime_2025",
+   "https://matharena.ai/competition_tables/aime--aime_2026",
+   "https://matharena.ai/competition_tables/aime--aime_2025"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Accuracy (± 95% CI)",
+    "detail": "% of problems correct, averaged over runs (30 problems, AIME I+II)",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "uncertainty",
+    "label": "Accuracy (± 95% CI)",
+    "detail": "± 95% confidence interval, normal approximation (column tooltip)",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Cost",
+    "detail": "USD for one model run on one problem (tooltip); landing text: 'average cost of a single run on one problem'",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "tokens",
+    "label": "Output Tokens",
+    "detail": "average number of output tokens per answer",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "tokens",
+    "label": "Input Tokens",
+    "detail": "average number of input tokens per answer",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "time",
+    "label": "Average Time",
+    "detail": "average time taken per answer (e.g. '1m 50s')",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "runs",
+    "label": "Each model runs four times on each problem",
+    "detail": "4 runs per problem; accuracy and per-problem cells are averages over runs (stated in page text, not a column)",
+    "evidence": "https://matharena.ai/?comp=aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Model Name (effort suffix)",
+    "detail": "separate rows per reasoning setting, e.g. 'GPT-5.5 (xhigh)', 'GPT-5.2 (high)'; row attribute data-parameters",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "Problem table (columns 1-30)",
+    "detail": "per-problem result cells for each of the 30 problems (colour-coded, click to see raw model output), plus Accuracy/Cost/Tokens; JSON field problem_table",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Average Retries",
+    "detail": "average number of retries per request",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Open",
+    "detail": "whether model weights are openly accessible (✔️/❌)",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Parameters / Active Parameters",
+    "detail": "number of total / active parameters, if known",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "⚠️ contamination warning",
+    "detail": "'Model was released after competition release' flag per model",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Estimated accuracy (est.)",
+    "detail": "flag when the accuracy includes item-response-theory estimates for questions not run (data-predicted='yes', e.g. one AIME 2026 row)",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Provider",
+    "detail": "organization that trained the model",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Rank",
+    "detail": "rank among all models (ties shared)",
+    "evidence": "https://matharena.ai/competition_tables/aime--aime_2026",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "speed",
+   "date",
+   "votes"
+  ],
+  "checked": "Read the JSON the JS page loads (competition_tables/aime--aime_2025 and aime--aime_2026: 'table' and 'problem_table' HTML with column tooltips) and the landing page text; also opened one model page (/models/openai_gpt_55). No throughput, per-entry date or vote data.",
+  "note": "JS page; read via the competition_tables JSON, fetched 2026-11-26. Both AIME 2025 and 2026 tables have identical columns. Both competitions are listed as 'Deprecated' (no longer updated). Model pages show expected performance/cost across competitions but no dates."
+ },
+ {
+  "parent_no": 11,
+  "parent": "SWE-bench (Verified / Lite / Test / Multilingual / Multimodal) and SWE-bench Pro",
+  "sources": [
+   "https://www.swebench.com/",
+   "https://www.swebench.com/js/mainResults.js",
+   "https://raw.githubusercontent.com/swe-bench/swe-bench.github.io/master/data/leaderboards.json",
+   "https://labs.scale.com/leaderboard/swe_bench_pro"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "% Resolved",
+    "detail": "percent of task instances resolved; per sub-leaderboard (Verified 500, Lite, Test 2294, Multilingual 300, Multimodal)",
+    "evidence": "https://www.swebench.com/js/mainResults.js",
+    "where": "page"
+   },
+   {
+    "key": "quality",
+    "label": "Score (Resolve Rate) [SWE-Bench Pro]",
+    "detail": "% of tasks resolved (fail-to-pass and pass-to-pass tests); separate Public and Private leaderboards",
+    "evidence": "https://labs.scale.com/leaderboard/swe_bench_pro",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Avg. $",
+    "detail": "average USD cost per task instance; column shown only for mini-SWE-agent (Bash Only) views (Verified filtered to mini-SWE-agent, Multilingual). JSON also has 'cost' (total USD for the run) and per_instance_details[].cost",
+    "evidence": "https://www.swebench.com/js/mainResults.js",
+    "where": "page"
+   },
+   {
+    "key": "uncertainty",
+    "label": "± (confidence interval) [SWE-Bench Pro]",
+    "detail": "± half-width next to each score (e.g. 61.50 ± 3.10); 'Rank (UB)' = 1 + number of models whose lower CI bound exceeds this model's upper bound",
+    "evidence": "https://labs.scale.com/leaderboard/swe_bench_pro",
+    "where": "page"
+   },
+   {
+    "key": "runs",
+    "label": "tags 'System: Attempts - 1 / 2 / 2+'",
+    "detail": "attempts per task for each submission, a filter tag in the leaderboard JSON (not a table column); no pass@k or repeated-run counts",
+    "evidence": "https://www.swebench.com/ (embedded <script id=\"leaderboard-data\"> JSON; same as https://github.com/swe-bench/swe-bench.github.io/blob/master/data/leaderboards.json)",
+    "where": "data"
+   },
+   {
+    "key": "effort",
+    "label": "Agent column + reasoning_effort badge",
+    "detail": "each entry is agent scaffold + model (Agent column, e.g. mini-SWE-agent, OpenHands); reasoning effort ('high'/'medium') shown as a badge next to the model name for some Verified/Multilingual entries",
+    "evidence": "https://www.swebench.com/js/mainResults.js",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "effort in model name / '*Run with mini-swe-agent harness' [SWE-Bench Pro]",
+    "detail": "e.g. 'gpt-5.4 (xHigh)*', 'claude-opus-4-6 (thinking)*'; asterisk marks mini-swe-agent harness vs SWE-Agent; grayed rows = capped cost & 50-turn limit vs uncapped/250 turns",
+    "evidence": "https://labs.scale.com/leaderboard/swe_bench_pro",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "Date",
+    "detail": "submission/run date per entry (YYYY-MM-DD)",
+    "evidence": "https://www.swebench.com/js/mainResults.js",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "model_release_date",
+    "detail": "model release date in the JSON for mini-SWE-agent entries; used in 'Resolved vs model release date' chart, not a table column",
+    "evidence": "https://www.swebench.com/ (embedded <script id=\"leaderboard-data\"> JSON; same as https://github.com/swe-bench/swe-bench.github.io/blob/master/data/leaderboards.json)",
+    "where": "data"
+   },
+   {
+    "key": "date",
+    "label": "createdAt [SWE-Bench Pro]",
+    "detail": "timestamp per entry in the page's embedded data (drives the NEW badge); not displayed as a column",
+    "evidence": "https://labs.scale.com/leaderboard/swe_bench_pro",
+    "where": "data"
+   },
+   {
+    "key": "breakdown",
+    "label": "per_instance_details / 'Resolved by language' chart",
+    "detail": "per-instance resolved flag, cost and api_calls for mini-SWE-agent entries; Multilingual has resolved-by-language chart",
+    "evidence": "https://www.swebench.com/ (embedded <script id=\"leaderboard-data\"> JSON; same as https://github.com/swe-bench/swe-bench.github.io/blob/master/data/leaderboards.json)",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "instance_calls",
+    "detail": "average number of API calls (agent steps) per instance for mini-SWE-agent entries (not token counts); used in step-limit charts",
+    "evidence": "https://www.swebench.com/ (embedded <script id=\"leaderboard-data\"> JSON; same as https://github.com/swe-bench/swe-bench.github.io/blob/master/data/leaderboards.json)",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "Open-weights model icon (os_model) / os_system",
+    "detail": "lock-open icon for open-weights models; open-source system flag in JSON",
+    "evidence": "https://www.swebench.com/js/mainResults.js",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Checked (circle-check icon)",
+    "detail": "run performed or directly checked by the SWE-bench team",
+    "evidence": "https://www.swebench.com/js/mainResults.js",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Trajs / Site / Release / Org",
+    "detail": "link to trajectories (Docent), submitter site, mini-swe-agent version, org logo",
+    "evidence": "https://www.swebench.com/js/mainResults.js",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "warning",
+    "detail": "entries with a warning are hidden from the table",
+    "evidence": "https://www.swebench.com/js/mainResults.js",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "NEW / company / contaminationMessage [SWE-Bench Pro]",
+    "detail": "NEW badge, model company; contaminationMessage field present but empty",
+    "evidence": "https://labs.scale.com/leaderboard/swe_bench_pro",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "time",
+   "speed",
+   "tokens",
+   "votes"
+  ],
+  "checked": "Read swebench.com HTML (embedded leaderboard-data JSON, 5 leaderboards) and js/mainResults.js which renders the columns; fetched labs.scale.com SWE-Bench Pro page (server-rendered table + embedded entries JSON).",
+  "note": "instance_calls is an API-call count, not tokens. Cost (Avg. $) only exists for mini-SWE-agent (Bash Only) entries; other agent submissions report only % Resolved. SWE-bench Pro (Scale) reports score ± CI, no cost/date columns; Public vs Private sub-leaderboards."
+ },
+ {
+  "parent_no": 12,
+  "parent": "LiveCodeBench",
+  "sources": [
+   "https://livecodebench.github.io/",
+   "https://livecodebench.github.io/leaderboard.html",
+   "https://livecodebench.github.io/performances_generation.json"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Pass@1",
+    "detail": "mean pass@1 (%) over problems in the selected release-date window (code generation scenario)",
+    "evidence": "https://livecodebench.github.io/leaderboard.html",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "Easy / Medium / Hard",
+    "detail": "pass@1 per difficulty; JSON also gives per-problem pass@1 with platform (atcoder/leetcode/codeforces) and contest date",
+    "evidence": "https://livecodebench.github.io/performances_generation.json",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "model name variants",
+    "detail": "separate entries per reasoning setting, e.g. 'O3-Mini-2025-01-31 (Low/Med/High)', 'Claude-Opus-4 (Thinking)' vs 'Claude-Opus-4'",
+    "evidence": "https://livecodebench.github.io/performances_generation.json",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "release_date",
+    "detail": "model release date in performances_generation.json; not a displayed column, used to flag contamination against the date window",
+    "evidence": "https://livecodebench.github.io/performances_generation.json",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "Contaminated (red row, no rank)",
+    "detail": "row highlighted and unranked when model release_date >= window start",
+    "evidence": "https://livecodebench.github.io/leaderboard.html",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "model_style / link",
+    "detail": "API/prompt style and model link in JSON",
+    "evidence": "https://livecodebench.github.io/performances_generation.json",
+    "where": "data"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "votes"
+  ],
+  "checked": "Read leaderboard.html (table columns Rank/Model/Pass@1/Easy/Medium/Hard and its JS) and the performances_generation.json it loads (fields: question_id, model, date, difficulty, pass@1, platform; models: model_name, model_repr, model_style, release_date, link).",
+  "note": "JS-rendered page read via its JSON. Scores recomputed client-side for the chosen time window. Number of samples behind pass@1 not stated, so 'runs' not reported. Other scenarios (self-repair, test output prediction, execution) appear only as static images on the home page. A previous release_v5 leaderboard page exists."
+ },
+ {
+  "parent_no": 13,
+  "parent": "Aider Polyglot",
+  "sources": [
+   "https://aider.chat/docs/leaderboards/",
+   "https://github.com/Aider-AI/aider/blob/main/aider/website/_data/polyglot_leaderboard.yml"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Percent correct",
+    "detail": "% of 225 Exercism exercises solved within 2 attempts (= pass_rate_2)",
+    "evidence": "https://aider.chat/docs/leaderboards/",
+    "where": "page"
+   },
+   {
+    "key": "runs",
+    "label": "Pass rate 1 / Pass rate 2 (Pass num 1 / Pass num 2)",
+    "detail": "% and count solved on first attempt vs after second attempt (model sees test errors); in row detail and YAML",
+    "evidence": "https://aider.chat/docs/leaderboards/",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Cost / Total cost",
+    "detail": "USD total cost of the full benchmark run as reported by aider",
+    "evidence": "https://aider.chat/docs/leaderboards/",
+    "where": "page"
+   },
+   {
+    "key": "time",
+    "label": "Seconds per case",
+    "detail": "average wall-clock seconds per exercise (row detail / YAML seconds_per_case)",
+    "evidence": "https://aider.chat/docs/leaderboards/",
+    "where": "page"
+   },
+   {
+    "key": "tokens",
+    "label": "Prompt tokens / Completion tokens / thinking_tokens",
+    "detail": "total tokens for the run; present only for newer entries (23 of 69 have prompt/completion, 5 have thinking_tokens)",
+    "evidence": "https://github.com/Aider-AI/aider/blob/main/aider/website/_data/polyglot_leaderboard.yml",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Reasoning effort / model name suffix / Edit Format / Command",
+    "detail": "separate entries per reasoning effort (e.g. 'gpt-5 (high)', 'gpt-5 (medium)'), edit format (diff/whole/architect) and editor_model for architect mode",
+    "evidence": "https://aider.chat/docs/leaderboards/",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "Date",
+    "detail": "run date per entry (row detail / YAML)",
+    "evidence": "https://aider.chat/docs/leaderboards/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Correct edit format",
+    "detail": "% of responses using the edit format correctly (percent_cases_well_formed)",
+    "evidence": "https://aider.chat/docs/leaderboards/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Error outputs / Num malformed responses / User asks / Lazy comments / Syntax errors / Indentation errors / Exhausted context windows / Test timeouts",
+    "detail": "per-run diagnostic counts in row detail",
+    "evidence": "https://aider.chat/docs/leaderboards/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Commit hash / Versions / Dirname",
+    "detail": "aider version and commit used for the run",
+    "evidence": "https://aider.chat/docs/leaderboards/",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "speed",
+   "uncertainty",
+   "breakdown",
+   "votes"
+  ],
+  "checked": "Read the leaderboard page table headers (Model, Percent correct, Cost, Command, Correct edit format, Edit Format) and the expandable row details, and the polyglot_leaderboard.yml data file (69 entries) for field coverage.",
+  "note": "Main table shows only 5 columns; everything else is in the per-row expandable detail and YAML. No per-language breakdown per model. Page last updated November 20, 2025 (newest entries 2025-10). Tokens only for a subset of entries."
+ },
+ {
+  "parent_no": 14,
+  "parent": "Terminal-Bench",
+  "sources": [
+   "https://www.tbench.ai/",
+   "https://github.com/harbor-framework/terminal-bench/tree/main/leaderboard/submissions",
+   "https://github.com/harbor-framework/terminal-bench/blob/main/leaderboard/leaderboard.yaml"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Resolution rate (Accuracy)",
+    "detail": "% of trials resolved across all tasks of Terminal-Bench 4.1 (current site view); n_trials=330 per entry",
+    "evidence": "https://www.tbench.ai/",
+    "where": "page"
+   },
+   {
+    "key": "uncertainty",
+    "label": "± (95% confidence interval)",
+    "detail": "accuracy_ci95_half_width, shown as '71.2% ± 2.9%' and as whiskers in chart",
+    "evidence": "https://www.tbench.ai/",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Cost",
+    "detail": "total USD for the full run (total_cost_usd, displayed e.g. '$2.0k')",
+    "evidence": "https://www.tbench.ai/",
+    "where": "page"
+   },
+   {
+    "key": "tokens",
+    "label": "Tokens",
+    "detail": "total tokens for the run (e.g. '3.3B'); data also has output_tokens, cached_input_tokens, uncached_input_tokens",
+    "evidence": "https://www.tbench.ai/",
+    "where": "page"
+   },
+   {
+    "key": "time",
+    "label": "avg_trial_duration_sec",
+    "detail": "average seconds per trial; in the page's embedded data and submission JSON, not a displayed column",
+    "evidence": "https://www.tbench.ai/",
+    "where": "data"
+   },
+   {
+    "key": "runs",
+    "label": "n_trials / successes / pass_at_2..pass_at_5",
+    "detail": "number of trials (330 = multiple trials per task) and pass@2-5; in embedded data and submission files, not table columns",
+    "evidence": "https://www.tbench.ai/",
+    "where": "data"
+   },
+   {
+    "key": "effort",
+    "label": "Agent / Effort",
+    "detail": "each entry is agent harness + model; reasoning effort shown in parentheses after model (max, xhigh, high, none)",
+    "evidence": "https://www.tbench.ai/",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "Release Date",
+    "detail": "per-entry date (metadata.date), shown e.g. 'Nov 17, 2026'",
+    "evidence": "https://www.tbench.ai/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Agent Org / Model Org",
+    "detail": "organisation links",
+    "evidence": "https://www.tbench.ai/",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "disqualified_trials",
+    "detail": "list of disqualified trial IDs in each submission file",
+    "evidence": "https://github.com/harbor-framework/terminal-bench/tree/main/leaderboard/submissions",
+    "where": "data"
+   }
+  ],
+  "not_reported": [
+   "speed",
+   "breakdown",
+   "votes"
+  ],
+  "checked": "Fetched tbench.ai (server-rendered table: Rank, Model, Agent, Resolution rate, Release date, Tokens, Cost; plus embedded leaderboard JSON with column defs and metrics), and GitHub leaderboard/submissions JSON + leaderboard.yaml.",
+  "note": "Site currently shows Terminal-Bench 4.1 by default with a version switch (4.1/4.0); 4.0 is the version defined in GitHub leaderboard.yaml and the submissions there (same fields, different scores, e.g. Opus 5.5 64.8% in GitHub file vs 65.8% on the 4.1 site). 4.0 view on site is client-side and was not separately loaded; field set is identical in the 2026-11-25 snapshot for 4.0 and 4.1. Per-task results are not on the leaderboard (only trial IDs)."
+ },
+ {
+  "parent_no": 15,
+  "parent": "GAIA",
+  "sources": [
+   "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+   "https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py",
+   "https://huggingface.co/datasets/gaia-benchmark/results_public/resolve/main/2023/test-00000-of-00001.parquet"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Average score (%)",
+    "detail": "% of 301 test questions answered correctly (quasi-exact match), stored as fraction and shown x100, 2 decimals",
+    "evidence": "https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "Level 1 score (%) / Level 2 score (%) / Level 3 score (%)",
+    "detail": "accuracy per difficulty level (93 / 159 / 49 test questions)",
+    "evidence": "https://huggingface.co/datasets/gaia-benchmark/results_public/resolve/main/2023/test-00000-of-00001.parquet",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "Submission date",
+    "detail": "YYYY-MM-DD date the submission was scored",
+    "evidence": "https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Model family",
+    "detail": "free text naming the underlying LLM(s) of the agent, e.g. 'Deepseek, Kimi, Claude'",
+    "evidence": "https://huggingface.co/datasets/gaia-benchmark/results_public/resolve/main/2023/test-00000-of-00001.parquet",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Organisation",
+    "detail": "submitting organisation",
+    "evidence": "https://huggingface.co/datasets/gaia-benchmark/results_public/resolve/main/2023/test-00000-of-00001.parquet",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Agent name (hyperlinked to url)",
+    "detail": "entries are agent systems, name links to submitter's URL",
+    "evidence": "https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "effort",
+   "votes"
+  ],
+  "checked": "Read live app.py (columns kept/renamed for the test table: Agent name, Model family, Organisation, Average/Level 1-3 score, Submission date; system_prompt and url dropped) and the results_public 2023 test parquet it loads (columns: model, model_family, system_prompt, url, organisation, score, score_level1-3, date; 4241 rows, top 100 shown).",
+  "note": "Gradio page read via app.py and the dataset it loads. Validation table is no longer displayed. No separate effort/scaffold field: the agent name itself is the entry. Model family is free text."
+ },
+ {
+  "parent_no": 16,
+  "parent": "τ-bench / τ²-bench (taubench.com)",
+  "sources": [
+   "https://taubench.com/leaderboard",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/manifest.json (+ <dir>/submission.json)",
+   "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+   "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/public/submissions/schema.json",
+   "https://github.com/sierra-research/tau-bench (README.md)"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Pass^1",
+    "detail": "task success rate (%) averaged over trials; ranking column. Overall = mean of retail, airline, telecom",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "runs",
+    "label": "Pass^1 / Pass^2 / Pass^3 / Pass^4",
+    "detail": "pass^k (%) = success on all k of k trials (typically 4 trials per task); toggle in table header. Voice entries only report Pass^1 (1 trial)",
+    "evidence": "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/manifest.json (+ <dir>/submission.json)",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "Overall / Retail / Airline / Telecom / Banking",
+    "detail": "per-domain pass^k tabs; Banking (τ³-Banking knowledge) scored separately",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Avg Cost",
+    "detail": "average USD to run one trajectory in this domain, shown in submission details (optional, null for many entries)",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/public/submissions/schema.json",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Reasoning",
+    "detail": "reasoning_effort per entry (e.g. high, max, none); separate submissions per effort (e.g. gpt-5-2 vs gpt-5-2-none)",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Retrieval",
+    "detail": "retrieval config for Banking domain (e.g. alltools, mixedbread)",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Type (Standard / Custom)",
+    "detail": "standard scaffold vs custom agent submission; filter checkboxes",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "Released",
+    "detail": "model release date (model_release.release_date)",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "Submission Date / Evaluation Date",
+    "detail": "shown in submission details panel",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "time",
+    "label": "Latency",
+    "detail": "voice leaderboard only: mean seconds from end of user turn to start of agent response (interaction metrics)",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "User Sim",
+    "detail": "user simulator model used (e.g. gpt-5.2)",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Verified / unverified badge",
+    "detail": "derived from trajectories available, modified prompts, omitted questions",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Submitting Org / Model Organization",
+    "detail": "who submitted and who made the model",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Bench Version",
+    "detail": "tau2_bench_version used",
+    "evidence": "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/manifest.json (+ <dir>/submission.json)",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Responsiveness / Interrupts / Selectivity",
+    "detail": "voice leaderboard interaction-quality metrics (%)",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Trajectories",
+    "detail": "whether trajectory files are available",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Legacy (v1) badge",
+    "detail": "original τ-bench submissions, hidden by default",
+    "evidence": "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "speed",
+   "tokens",
+   "uncertainty",
+   "votes"
+  ],
+  "checked": "Read the live S3 manifest and several submission.json files (claude-opus-4-5, claude-opus-5, distyl-buttonagent, gpt-realtime-1.5 voice), the live Leaderboard.jsx that renders taubench.com, and schema.json; plus the original tau-bench README (Pass^1-4 tables only).",
+  "note": "taubench.com is JS-rendered; read via the S3 submission files and Leaderboard.jsx. Cost is only in the details panel and often null. Latency exists only for voice entries. Original tau-bench README reports Pass^1-Pass^4 per strategy (TC/Act/ReAct) and model only."
+ },
+ {
+  "parent_no": 17,
+  "parent": "Chatbot Arena (LMArena / arena.ai)",
+  "sources": [
+   "https://arena.ai/leaderboard (403 to automated fetch)",
+   "https://arena.ai/sitemap.xml",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/blob/main/README.md",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text/latest-00000-of-00001.parquet",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/webdev/latest-00000-of-00001.parquet",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/agent/latest-00000-of-00001.parquet",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/agent_tool_efficiency/latest-00000-of-00001.parquet",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text_factuality/latest-00000-of-00001.parquet"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "rating (Arena Score)",
+    "detail": "Bradley-Terry rating (Elo-scale) from pairwise human votes; text, vision, search, document, webdev, image/video arenas",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text/latest-00000-of-00001.parquet",
+    "where": "data"
+   },
+   {
+    "key": "quality",
+    "label": "score (IPS score τ̂)",
+    "detail": "Agent Arena aggregate uses IPS scores (fraction, e.g. 0.274) instead of Bradley-Terry",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/agent/latest-00000-of-00001.parquet",
+    "where": "data"
+   },
+   {
+    "key": "quality",
+    "label": "index_score / raw_score",
+    "detail": "Agent Arena per-signal subsets (e.g. agent_tool_efficiency): index score (~1200 scale) and raw rate (0-1)",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/agent_tool_efficiency/latest-00000-of-00001.parquet",
+    "where": "data"
+   },
+   {
+    "key": "uncertainty",
+    "label": "rating_lower / rating_upper",
+    "detail": "lower/upper confidence bound of the Arena Score",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/blob/main/README.md",
+    "where": "data"
+   },
+   {
+    "key": "uncertainty",
+    "label": "variance",
+    "detail": "rating variance",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/blob/main/README.md",
+    "where": "data"
+   },
+   {
+    "key": "uncertainty",
+    "label": "score_ci_lower / score_ci_upper",
+    "detail": "95% CI bounds for Agent Arena IPS score (index_score_ci_*/raw_score_ci_* in signal subsets)",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/agent/latest-00000-of-00001.parquet",
+    "where": "data"
+   },
+   {
+    "key": "votes",
+    "label": "vote_count",
+    "detail": "number of battles (human votes) for the model",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/blob/main/README.md",
+    "where": "data"
+   },
+   {
+    "key": "votes",
+    "label": "observation_count / session_count",
+    "detail": "Agent Arena: signal observations and distinct user sessions per model",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/agent/latest-00000-of-00001.parquet",
+    "where": "data"
+   },
+   {
+    "key": "cost",
+    "label": "cost_per_task_p50",
+    "detail": "Agent Arena aggregate only: median cost per task (USD, e.g. 9.15)",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/agent/latest-00000-of-00001.parquet",
+    "where": "data"
+   },
+   {
+    "key": "tokens",
+    "label": "output_tokens_per_task_p50",
+    "detail": "Agent Arena aggregate only: median output tokens per task",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/agent/latest-00000-of-00001.parquet",
+    "where": "data"
+   },
+   {
+    "key": "breakdown",
+    "label": "category",
+    "detail": "per-category ratings in addition to overall (text: coding, math, hard_prompts, creative_writing, languages, exclude_ties, expert, industry splits, etc.; agent signals: overall/chat/code/work); plus separate arenas (text, vision, webdev, search, document, image, video, agent)",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text/latest-00000-of-00001.parquet",
+    "where": "data"
+   },
+   {
+    "key": "effort",
+    "label": "model_name suffix, e.g. 'Gemini 4 Carbon (High)', 'Claude Opus 5.5 (Max)'",
+    "detail": "reasoning-effort variants listed as separate entries via the model name",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text/latest-00000-of-00001.parquet",
+    "where": "data"
+   },
+   {
+    "key": "date",
+    "label": "leaderboard_publish_date",
+    "detail": "date the leaderboard snapshot with this score was published (YYYY-MM-DD), not model release date",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/blob/main/README.md",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "license",
+    "detail": "model license (e.g. Proprietary, open licenses)",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/blob/main/README.md",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "organization",
+    "detail": "model creator",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/blob/main/README.md",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "rank",
+    "detail": "rank within the leaderboard",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/blob/main/README.md",
+    "where": "data"
+   },
+   {
+    "key": "other",
+    "label": "style control subsets (e.g. text_style_control)",
+    "detail": "separate rating tables with style control (site default for text/vision since 2025-05-16)",
+    "evidence": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/blob/main/README.md",
+    "where": "data"
+   }
+  ],
+  "not_reported": [
+   "time",
+   "speed",
+   "runs"
+  ],
+  "checked": "arena.ai (lmarena.ai redirects there) returns Cloudflare 403 for leaderboard pages, so read the official lmarena-ai/leaderboard-dataset README schema and live latest parquet files for text, webdev, text_factuality, agent and agent_tool_efficiency configs (publish dates 2026-11-22/23).",
+  "note": "Website itself could not be read; all fields are from the official HF dataset, so columns shown on arena.ai (and any extra site-only fields such as price or context) are not confirmed. Cost and tokens exist only for the Agent Arena aggregate subset. Score metric differs by arena (Bradley-Terry rating vs IPS score)."
+ },
+ {
+  "parent_no": 18,
+  "parent": "WildBench",
+  "sources": [
+   "https://huggingface.co/spaces/allenai/WildBench",
+   "https://huggingface.co/spaces/allenai/WildBench/raw/main/app.py",
+   "https://huggingface.co/spaces/allenai/WildBench/raw/main/constants.py",
+   "https://huggingface.co/spaces/allenai/WildBench/raw/main/data_dir/all_stat_wildbench.-1.jsonl",
+   "https://huggingface.co/spaces/allenai/WildBench/raw/main/model_info.json",
+   "https://github.com/allenai/WildBench"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "🌟 WB-Elo (LC)",
+    "detail": "Elo-format rating from WildBench eval results (initialized from LMSYS Elo), length-controlled (tie if length diff >1500 chars); default rank column",
+    "evidence": "https://huggingface.co/spaces/allenai/WildBench/raw/main/constants.py",
+    "where": "page"
+   },
+   {
+    "key": "quality",
+    "label": "🌟 WB-Elo (Raw)",
+    "detail": "same without length control",
+    "evidence": "https://huggingface.co/spaces/allenai/WildBench/raw/main/constants.py",
+    "where": "page"
+   },
+   {
+    "key": "quality",
+    "label": "💯 Score",
+    "detail": "WB-Score: checklist-based individual score by LLM judge (GPT-4o/4-Turbo), task-macro average (0-100 scale)",
+    "evidence": "https://huggingface.co/spaces/allenai/WildBench/raw/main/constants.py",
+    "where": "page"
+   },
+   {
+    "key": "quality",
+    "label": "🆚 Reward / 🆚 + 💯 Hybrid",
+    "detail": "WB-Reward: pairwise reward (+/-1, +/-0.5, 0) vs baseline models GPT-4-Turbo, Claude 3 Haiku, Llama-2-70B, task-macro averaged (x100); Hybrid = average of Reward and Score",
+    "evidence": "https://huggingface.co/spaces/allenai/WildBench/raw/main/constants.py",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "🆚 by Task Type / WB_score.<task>",
+    "detail": "per task category scores and rewards: Creative Tasks, Planning & Reasoning, Math & Data Analysis, Information/Advice seeking, Coding & Debugging (plus 11 original task types in data file); per-baseline rewards (haiku/llama/gpt4t)",
+    "evidence": "https://huggingface.co/spaces/allenai/WildBench/raw/main/data_dir/all_stat_wildbench.-1.jsonl",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Len",
+    "detail": "average response length of the model's outputs (unit not stated on the page)",
+    "evidence": "https://huggingface.co/spaces/allenai/WildBench/raw/main/constants.py",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "LMSYS Elo / Arena-Hard / AE2-LCWR",
+    "detail": "external benchmark scores (Chatbot Arena hard-en Elo, Arena-Hard v0.1, AlpacaEval 2.0 LC win rate) copied in for comparison",
+    "evidence": "https://huggingface.co/spaces/allenai/WildBench/raw/main/constants.py",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "🔒 / 🔑 / 💎 marker",
+    "detail": "closed / open-weights / fully open model flag on model name; 'Open Models' filter",
+    "evidence": "https://huggingface.co/spaces/allenai/WildBench/raw/main/app.py",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "🚨 marker",
+    "detail": "newly added model flag",
+    "evidence": "https://huggingface.co/spaces/allenai/WildBench/raw/main/app.py",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Length Margin for Ties (∞/1500/1000/500)",
+    "detail": "reward tables available at several length-penalty settings K (separate data files)",
+    "evidence": "https://huggingface.co/spaces/allenai/WildBench/raw/main/app.py",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "effort",
+   "date",
+   "votes"
+  ],
+  "checked": "Read the live space app.py, constants.py (column_names, ORDERED_COLUMN_NAMES), model_info.json and the data file the space loads (all_stat_wildbench.-1.jsonl, 57 fields per model: rewards, WB_score per task, Length, WB_Elo, WB_Elo_LC, external Arena/AE2 scores).",
+  "note": "Gradio space read via its source and data files. Board is frozen since mid-2024 (space last modified 2024-08-06, GitHub last commit 2024-08-01). No per-entry date; only a global 'Elo update: 2024-07-16' note. WB-Reward is pairwise vs reference models by an LLM judge, not human votes, so 'votes' is marked not reported. The LMSYS Elo column is third-party data shown on the board."
+ },
+ {
+  "parent_no": 19,
+  "parent": "MMMU-Pro",
+  "sources": [
+   "https://mmmu-benchmark.github.io/#leaderboard",
+   "https://mmmu-benchmark.github.io/leaderboard_data.json",
+   "https://mmmu-benchmark.github.io/static/js/index.js"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "MMMU-Pro Overall",
+    "detail": "Accuracy score on 0-100 scale (no unit printed in the table); the overall MMMU-Pro score per model (field pro.overall)",
+    "evidence": "https://mmmu-benchmark.github.io/leaderboard_data.json",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "Vision / Standard",
+    "detail": "MMMU-Pro sub-settings shown when the MMMU-Pro header is expanded: Vision (question in image) and Standard (10 options; JSON field 'original'); only 37 of 74 MMMU-Pro rows have them. Same table also gives MMMU(Val)/MMMU(Test) overall and 6 discipline scores, but those belong to MMMU, not MMMU-Pro",
+    "evidence": "https://mmmu-benchmark.github.io/leaderboard_data.json",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Name (e.g. 'w/ tools' / 'w/o tools', 'Thinking', 'w/ thinking' / 'w/o thinking')",
+    "detail": "No separate column; settings are encoded as separate rows via the model name, e.g. 'GPT-5.4 Thinking w/ tools' vs 'w/o tools', 'GPT-5 w/ thinking' vs 'w/o thinking', 'Gemini 3.1 Pro Thinking (High)'",
+    "evidence": "https://mmmu-benchmark.github.io/leaderboard_data.json",
+    "where": "page"
+   },
+   {
+    "key": "date",
+    "label": "Date",
+    "detail": "Date per entry (YYYY-MM-DD); page 'Last updated' is computed from the latest entry date",
+    "evidence": "https://mmmu-benchmark.github.io/static/js/index.js",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Size",
+    "detail": "Model parameter count (e.g. '72B'), '-' for proprietary/unknown",
+    "evidence": "https://mmmu-benchmark.github.io/leaderboard_data.json",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Row type (Human Expert / Open-Source / Proprietary)",
+    "detail": "Rows colour-coded by info.type: human_expert, open_source, proprietary, random_frequent",
+    "evidence": "https://mmmu-benchmark.github.io/#leaderboard",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "* (results provided by the authors)",
+    "detail": "Asterisk after the Overall score when pro.source = 'author' (self-reported by model authors); 49 of 74 MMMU-Pro rows",
+    "evidence": "https://mmmu-benchmark.github.io/static/js/index.js",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "votes"
+  ],
+  "checked": "Read leaderboard_data.json (all fields of all 213 rows, 74 with MMMU-Pro), the table header in the page HTML and the row-rendering code in static/js/index.js; only name, size, date, type, link and scores exist.",
+  "note": "JS-rendered table; read via leaderboard_data.json + index.js. MMMU-Pro is one column group of the combined MMMU leaderboard. Static HTML still says 'Last updated: 09/05/2025' but the JS overwrites it from the newest entry date."
+ },
+ {
+  "parent_no": 20,
+  "parent": "OCRBench v2",
+  "sources": [
+   "https://99franklin.github.io/ocrbench_v2/",
+   "https://github.com/Yuliang-Liu/MultimodalOCR",
+   "https://raw.githubusercontent.com/Yuliang-Liu/MultimodalOCR/main/OCRBench_v2/README.md"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Average",
+    "detail": "Average score (0-100, no unit printed) over the capability columns of the track; separate English and Chinese tables",
+    "evidence": "https://99franklin.github.io/ocrbench_v2/",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "Recognition, Referring, Spotting, Extraction, Parsing, Calculation, Understanding, Reasoning",
+    "detail": "Per-capability scores: 8 columns in the English table; Chinese table has 5 (Recognition, Extraction, Parsing, Understanding, Reasoning)",
+    "evidence": "https://99franklin.github.io/ocrbench_v2/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Rank",
+    "detail": "Rank within the track table (top 3 marked with medal emoji)",
+    "evidence": "https://99franklin.github.io/ocrbench_v2/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Venue",
+    "detail": "Where the model was published (e.g. 'Hugging Face', '-')",
+    "evidence": "https://99franklin.github.io/ocrbench_v2/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Open-source",
+    "detail": "Yes/No open-weights flag",
+    "evidence": "https://99franklin.github.io/ocrbench_v2/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "LLM Size",
+    "detail": "Parameter count of the LLM (e.g. '9B', '30B A 3B'), '-' if unknown",
+    "evidence": "https://99franklin.github.io/ocrbench_v2/",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "effort",
+   "date",
+   "votes"
+  ],
+  "checked": "Parsed all 10 static HTML tables (English/Chinese x periods 2026.09, 2026.06, 2026.03, 2025.09, 2025.06) on the official leaderboard; every table has the same columns Rank, Method, Venue, Open-source, LLM Size, Average + capability columns. GitHub READMEs only link to the leaderboard.",
+  "note": "No per-entry date: results are grouped by quarterly leaderboard period (Select Period tab), and some later periods carry over models from earlier ones. Settings like thinking are not a column (occasionally in the model name only). Leaderboard is on the private data; the older HF Space (public data) is stale."
+ },
+ {
+  "parent_no": 21,
+  "parent": "MRCR / RULER",
+  "sources": [
+   "https://github.com/NVIDIA/RULER",
+   "https://raw.githubusercontent.com/NVIDIA/RULER/main/README.md",
+   "https://huggingface.co/datasets/openai/mrcr",
+   "https://openai.com/index/gpt-4-1/"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Avg.",
+    "detail": "RULER: average score (0-100, % of 13 tasks solved; no unit in table) over 4K-128K context lengths",
+    "evidence": "https://github.com/NVIDIA/RULER",
+    "where": "page"
+   },
+   {
+    "key": "quality",
+    "label": "wAvg. (inc) / wAvg. (dec)",
+    "detail": "RULER: weighted averages over context lengths with weights increasing / decreasing linearly with length, each followed by the rank, e.g. '95.7 (1st)'; 'TBD' for newer rows",
+    "evidence": "https://github.com/NVIDIA/RULER",
+    "where": "page"
+   },
+   {
+    "key": "quality",
+    "label": "OpenAI-MRCR: 2 needle 128k / 2 needle 1M",
+    "detail": "OpenAI-MRCR: accuracy in %, in the 'Long context evals' appendix table of the GPT-4.1 post (the dataset card's 'Results' section points there); OpenAI models only",
+    "evidence": "https://openai.com/index/gpt-4-1/",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "4K, 8K, 16K, 32K, 64K, 128K",
+    "detail": "RULER: score per context length (values above the Llama-2-7B 4K threshold of 85.6 are underlined); no per-task or per-category scores",
+    "evidence": "https://github.com/NVIDIA/RULER",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "2 needle / 4 needle / 8 needle",
+    "detail": "OpenAI-MRCR: chart tabs on the GPT-4.1 post ('OpenAI MRCR accuracy, 2 needle', ...) give accuracy vs input length per needle count; the table gives only 2-needle at 128k and 1M",
+    "evidence": "https://openai.com/index/gpt-4-1/",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "o1 (high), o3-mini (high)",
+    "detail": "OpenAI-MRCR table: reasoning effort appears only in the model column header, one setting per model; RULER has none",
+    "evidence": "https://openai.com/index/gpt-4-1/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Claimed Length",
+    "detail": "RULER: context length claimed by the model developer (e.g. 128K, 1M)",
+    "evidence": "https://github.com/NVIDIA/RULER",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Effective Length",
+    "detail": "RULER: longest length where the score exceeds the 85.6 threshold (e.g. '>128K', '8K', '<4K')",
+    "evidence": "https://github.com/NVIDIA/RULER",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Models (size in parentheses)",
+    "detail": "RULER: parameter count after the model name, e.g. '(7B)', '(94B/398B)'",
+    "evidence": "https://github.com/NVIDIA/RULER",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "* after model name",
+    "detail": "RULER: results reported by the model authors (listed in 'Notes' under the table), not run by NVIDIA",
+    "evidence": "https://github.com/NVIDIA/RULER",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "date",
+   "votes"
+  ],
+  "checked": "Read the full RULER README results table and its notes; read the openai/mrcr dataset card (no results, points to the GPT-4.1 blog) and the GPT-4.1 post's MRCR table/charts. Neither has a leaderboard with cost/latency/tokens/CI/dates per entry.",
+  "note": "Two separate sources: RULER = README results table (open models, per-context-length); OpenAI-MRCR = no leaderboard, only results in OpenAI's GPT-4.1 announcement (Apr 14, 2025). The GPT-4.1 post mentions general latency (~15 s to first token at 128K) but not tied to MRCR entries, so time is not counted. 4/8-needle chart values were not visible as text."
+ },
+ {
+  "parent_no": 22,
+  "parent": "MASK",
+  "sources": [
+   "https://labs.scale.com/leaderboard/mask",
+   "https://www.mask-benchmark.ai/"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Honesty Score",
+    "detail": "1 - P(Lie) on a 0-100 scale (Honest + Evasive), on the 500-example private split; shown as e.g. '96.28' in the 'Performance Comparison' list",
+    "evidence": "https://labs.scale.com/leaderboard/mask",
+    "where": "page"
+   },
+   {
+    "key": "uncertainty",
+    "label": "± (95% confidence interval)",
+    "detail": "Half-width of the 95% CI shown after each score (e.g. '96.28 ± 0.41'; JSON field confidenceInterval_upper), also drawn as an error bar",
+    "evidence": "https://labs.scale.com/leaderboard/mask",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Model name (e.g. '(Non-Thinking)', '-thinking', '(Thinking)', '(xhigh thinking)', 'o3 (high)' / 'o3 (medium)')",
+    "detail": "No separate column; thinking / reasoning-effort settings are separate rows identified only by the model name (about 20 of 67 rows)",
+    "evidence": "https://labs.scale.com/leaderboard/mask",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Rank (UB)",
+    "detail": "1 + number of models whose lower CI bound exceeds this model's upper CI bound",
+    "evidence": "https://labs.scale.com/leaderboard/mask",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Contamination warning (alert icon)",
+    "detail": "Per-entry 'Potential contamination warning: This model was evaluated after the public release of MASK...' (contaminationMessage; set for all 67 entries in the current payload)",
+    "evidence": "https://labs.scale.com/leaderboard/mask",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "runs",
+   "date",
+   "breakdown",
+   "votes"
+  ],
+  "checked": "Read the server-rendered Scale leaderboard (rendered list + embedded 'entries' payload with fields model, version, rank, score, confidenceInterval_upper, contaminationMessage, company, isNew, createdAt, deprecated, maxScore) and the CAIS project site mask-benchmark.ai (paper links and two illustrative figures, no results).",
+  "note": "Only metric is Honesty Score; Accuracy and the 6 archetypes are defined on the page but not scored per model (only in the paper). The payload has a createdAt timestamp and company per entry, but they are not shown on the page, so date is counted as not reported; some model names carry a release month, e.g. 'o3 (high) (April 2025)'. scale.com/leaderboard/mask redirects to labs.scale.com."
+ },
+ {
+  "parent_no": 23,
+  "parent": "HealthBench",
+  "sources": [
+   "https://openai.com/index/healthbench/",
+   "https://github.com/openai/simple-evals"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Score / 'Overall: 0.xxx'",
+    "detail": "HealthBench score = rubric points met / max points (0-1 scale, graded by GPT-4.1), shown as 'Overall: ' label over each model in the 'HealthBench scores by theme' chart; 9 models (o3, Grok 3, Gemini 2.5 Pro, GPT-4.1, o1, Claude 3.7 Sonnet ext. thinking, GPT-4o, Llama 4 Maverick, GPT-3.5 Turbo)",
+    "evidence": "https://openai.com/index/healthbench/",
+    "where": "page"
+   },
+   {
+    "key": "breakdown",
+    "label": "HealthBench scores by theme / HealthBench scores by axis",
+    "detail": "Per-model score for 7 themes (e.g. Emergency referrals) and 5 axes (e.g. Communication quality), plus 'HealthBench Hard subset scores by axis' and 'HealthBench Consensus error rate by theme' (Error rate (1-score))",
+    "evidence": "https://openai.com/index/healthbench/",
+    "where": "page"
+   },
+   {
+    "key": "uncertainty",
+    "label": "error bars (success_rate_lower / success_rate_upper)",
+    "detail": "Theme/axis/Hard/Consensus charts are described as 'with error bars'; lower and upper bounds per model per category are in the embedded chart data",
+    "evidence": "https://openai.com/index/healthbench/",
+    "where": "page"
+   },
+   {
+    "key": "cost",
+    "label": "Inference cost per example ($)",
+    "detail": "'Score vs. cost by model family' scatter chart (image), log x-axis in USD per example, ~22 OpenAI model/effort points; values only as chart points",
+    "evidence": "https://images.ctfassets.net/kftzwdyauwt9/7GQa8OmJiBcmbul4Hls5zn/3d0c0f15f7feb1b219155e17a2d47d7b/oai_Cost_vs_score_Desktop_LightMode__2_.svg",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "o3-high / o3-medium / o3-low (also o1, o3-mini, o4-mini)",
+    "detail": "Separate points per reasoning effort (low/medium/high) in the cost-vs-score chart",
+    "evidence": "https://images.ctfassets.net/kftzwdyauwt9/7GQa8OmJiBcmbul4Hls5zn/3d0c0f15f7feb1b219155e17a2d47d7b/oai_Cost_vs_score_Desktop_LightMode__2_.svg",
+    "where": "page"
+   },
+   {
+    "key": "runs",
+    "label": "Worst-case HealthBench score at k samples",
+    "detail": "Worst-of-k reliability curve: score vs 'Number of samples (k)' up to k=16, for o3, gpt-4.1, o1, gpt-4o, gpt-3.5-turbo-0125",
+    "evidence": "https://openai.com/index/healthbench/",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Physician-written response and reference response HealthBench scores by axis",
+    "detail": "Human physician baselines (with/without model reference responses) scored on the same axes, with error bars",
+    "evidence": "https://openai.com/index/healthbench/",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "time",
+   "speed",
+   "tokens",
+   "date",
+   "votes"
+  ],
+  "checked": "Read the HealthBench announcement page incl. its embedded Vega-Lite chart specs (data values, titles, axis labels) and rendered the cost-vs-score SVG; simple-evals README results table has no HealthBench column (repo frozen July 2025).",
+  "note": "No leaderboard: all results are charts on the May 12, 2025 announcement page (interactive charts carry numeric data in the page; cost chart is a static SVG). Different charts cover different model sets. Some model labels carry a month, e.g. 'Gemini 2.5 Pro (Mar 2025)', 'GPT-4o (Aug 2024)', but there is no per-entry date field. The paper PDF was not checked."
+ },
+ {
+  "parent_no": 24,
+  "parent": "FinanceBench",
+  "sources": [
+   "https://github.com/patronus-ai/financebench",
+   "https://github.com/patronus-ai/financebench/tree/main/results",
+   "https://arxiv.org/pdf/2311.11944"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Correct answer",
+    "detail": "Count and % of the 150-question open-source sample judged correct by human review, e.g. '118 (79%)' (Table 2)",
+    "evidence": "https://arxiv.org/pdf/2311.11944",
+    "where": "paper"
+   },
+   {
+    "key": "breakdown",
+    "label": "Incorrect answer / Failed to answer",
+    "detail": "Count and % of incorrect answers and refusals per configuration (Table 2, Figure 3); Figure 4 breaks results down by question type (domain-relevant, novel-generated, metrics-generated), chart only",
+    "evidence": "https://arxiv.org/pdf/2311.11944",
+    "where": "paper"
+   },
+   {
+    "key": "effort",
+    "label": "Model Configuration (Closed Book, Shared Vector Store, Single Vector Store, Long Context, Oracle)",
+    "detail": "Separate entries per retrieval/context setup for the same model (8 configurations in the main table, 16 in total incl. appendix and Context-First vs Context-Last 'reverse' prompting ablation)",
+    "evidence": "https://arxiv.org/pdf/2311.11944",
+    "where": "paper"
+   },
+   {
+    "key": "other",
+    "label": "label (Correct / Incorrect / Refusal), temp",
+    "detail": "Per-question human labels and sampling temperature (0.01) for each model/configuration file, e.g. results/gpt-4_closedBook.jsonl (fields model_name, eval_mode, temp, model_answer, label)",
+    "evidence": "https://github.com/patronus-ai/financebench/tree/main/results",
+    "where": "data"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "date",
+   "votes"
+  ],
+  "checked": "Read the GitHub README (no results table or leaderboard), the list of /results/ files and one file's fields, and the paper's results text, Table 2 and figure captions.",
+  "note": "No official leaderboard: results exist only in the Nov 2023 paper (GPT-4-Turbo, GPT-4, Claude 2, Llama 2 configurations) plus human-labelled completions in /results/. The paper mentions latency only qualitatively (long-context is slower), with no per-entry number."
+ },
+ {
+  "parent_no": 25,
+  "parent": "LegalBench",
+  "sources": [
+   "https://github.com/HazyResearch/legalbench",
+   "https://hazyresearch.stanford.edu/legalbench/",
+   "https://hazyresearch.stanford.edu/legalbench/tasks/",
+   "https://arxiv.org/pdf/2308.11462"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Issue / Rule / Conclusion / Interpretation / Rhetorical",
+    "detail": "Average balanced accuracy (exact match; F1 for a few multi-label tasks), 0-100, per reasoning category for 20 LLMs (Table 2); no single overall score",
+    "evidence": "https://arxiv.org/pdf/2308.11462",
+    "where": "paper"
+   },
+   {
+    "key": "quality",
+    "label": "Correctness / Analysis",
+    "detail": "Rule-application tasks, graded by hand by a law-trained person, for GPT-4, GPT-3.5 and Claude-1 only (Table 3)",
+    "evidence": "https://arxiv.org/pdf/2308.11462",
+    "where": "paper"
+   },
+   {
+    "key": "breakdown",
+    "label": "Full results for each model on each task (Appendix G)",
+    "detail": "Per-task scores across the 162 tasks, plus per-slice accuracy for some tasks (e.g. hearsay, abercrombie in Tables 6-7)",
+    "evidence": "https://arxiv.org/pdf/2308.11462",
+    "where": "paper"
+   },
+   {
+    "key": "uncertainty",
+    "label": "Error bars measure standard error",
+    "detail": "Bootstrap standard error (1000 resamples), only in the prompt-ablation figures (Figures 1-2), not in the main results tables",
+    "evidence": "https://arxiv.org/pdf/2308.11462",
+    "where": "paper"
+   },
+   {
+    "key": "other",
+    "label": "Model size blocks (large commercial, 11B-13B, 6B-7B, 2B-3B)",
+    "detail": "Table 2 rows are grouped by parameter-count class",
+    "evidence": "https://arxiv.org/pdf/2308.11462",
+    "where": "paper"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "runs",
+   "effort",
+   "date",
+   "votes"
+  ],
+  "checked": "Read the GitHub README (no results), the LegalBench site home, Tasks and a sample task page (task descriptions only, no scores), and the paper's evaluation section, Tables 2-3 and figure captions.",
+  "note": "No official leaderboard on the site or repo; all per-model results are from the 2023 paper (temperature 0, one prompt setup per model). Per-task Appendix G was not read in full."
+ },
+ {
+  "parent_no": 26,
+  "parent": "MMLU (Original)",
+  "sources": [
+   "https://github.com/hendrycks/test",
+   "https://raw.githubusercontent.com/hendrycks/test/master/README.md"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Average",
+    "detail": "Average accuracy (%) over 57 tasks; README 'Test Leaderboard' table",
+    "evidence": "https://github.com/hendrycks/test",
+    "where": "paper"
+   },
+   {
+    "key": "breakdown",
+    "label": "Humanities, Social Sciences, STEM, Other",
+    "detail": "Accuracy (%) per subject group",
+    "evidence": "https://github.com/hendrycks/test",
+    "where": "paper"
+   },
+   {
+    "key": "effort",
+    "label": "setting in model name, e.g. '(175B, few-shot)' vs '(175B, fine-tuned)'",
+    "detail": "Separate rows for few-shot vs fine-tuned GPT-3",
+    "evidence": "https://github.com/hendrycks/test",
+    "where": "paper"
+   },
+   {
+    "key": "other",
+    "label": "Authors",
+    "detail": "Citation of the source paper with year (e.g. 'Hoffmann et al., 2022')",
+    "evidence": "https://github.com/hendrycks/test",
+    "where": "paper"
+   },
+   {
+    "key": "other",
+    "label": "model size in name, e.g. '(70B, few-shot)'",
+    "detail": "Parameter count in the model label for some entries",
+    "evidence": "https://github.com/hendrycks/test",
+    "where": "paper"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "date",
+   "votes"
+  ],
+  "checked": "Read the README 'Test Leaderboard' table (columns: Model, Authors, Humanities, Social Sciences, STEM, Other, Average; 11 models + random baseline).",
+  "note": "Historical table (models up to 2022); no separate web leaderboard or data file. 'where' = paper because the only table is in README text."
+ },
+ {
+  "parent_no": 27,
+  "parent": "GSM8K",
+  "sources": [
+   "https://github.com/openai/grade-school-math",
+   "https://arxiv.org/abs/2110.14168"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "Test Solve Rate (%)",
+    "detail": "% of test problems solved; results only as figures in the paper (no leaderboard)",
+    "evidence": "https://arxiv.org/abs/2110.14168",
+    "where": "paper"
+   },
+   {
+    "key": "runs",
+    "label": "test@1 / test@100",
+    "detail": "test@N = % of problems solved by at least one of N samples (T=0 for test@1, T=0.7 for test@100); verification ranks 100 sampled solutions per problem",
+    "evidence": "https://arxiv.org/abs/2110.14168",
+    "where": "paper"
+   },
+   {
+    "key": "runs",
+    "label": "3 runs",
+    "detail": "mean across 3 runs (175B verification: single run)",
+    "evidence": "https://arxiv.org/abs/2110.14168",
+    "where": "paper"
+   },
+   {
+    "key": "uncertainty",
+    "label": "standard deviation across 3 runs",
+    "detail": "shown in Figures 2 and 5",
+    "evidence": "https://arxiv.org/abs/2110.14168",
+    "where": "paper"
+   },
+   {
+    "key": "effort",
+    "label": "Finetuning vs Verification",
+    "detail": "separate results per method (finetuned generator vs verifier-reranked); Fig. 7 varies test-time compute (number of completions)",
+    "evidence": "https://arxiv.org/abs/2110.14168",
+    "where": "paper"
+   },
+   {
+    "key": "other",
+    "label": "Model size (6B / 175B; GPT-3 sizes)",
+    "detail": "results per GPT-3 model size",
+    "evidence": "https://arxiv.org/abs/2110.14168",
+    "where": "paper"
+   },
+   {
+    "key": "other",
+    "label": "Training set size",
+    "detail": "Fig. 2 varies number of training problems",
+    "evidence": "https://arxiv.org/abs/2110.14168",
+    "where": "paper"
+   },
+   {
+    "key": "other",
+    "label": "example_model_solutions.jsonl",
+    "detail": "per-question model solutions from 6B/175B finetuning and verification (raw outputs, not scores)",
+    "evidence": "https://github.com/openai/grade-school-math",
+    "where": "data"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "date",
+   "breakdown",
+   "votes"
+  ],
+  "checked": "Read the repo README (archived, no updates expected; dataset, Socratic variant, example model solutions) and the paper PDF (arXiv 2110.14168). There is no official leaderboard; the paper reports GPT-3 finetuning/verification results only in figures.",
+  "note": "No leaderboard: GSM8K results are only in the 2021 paper. Any GSM8K leaderboard elsewhere is third-party and was not counted."
+ },
+ {
+  "parent_no": 28,
+  "parent": "HumanEval",
+  "sources": [
+   "https://github.com/openai/human-eval",
+   "https://github.com/openai/simple-evals",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/README.md",
+   "https://arxiv.org/abs/2107.03374"
+  ],
+  "params": [
+   {
+    "key": "quality",
+    "label": "HumanEval",
+    "detail": "single score per model in the Benchmark Results table (e.g. 99.3); unit/metric not labelled in the table (zero-shot chain-of-thought setting per README)",
+    "evidence": "https://github.com/openai/simple-evals",
+    "where": "page"
+   },
+   {
+    "key": "effort",
+    "label": "Model (reasoning-effort variants)",
+    "detail": "separate rows per reasoning effort, e.g. o3-high / o3 / o3-low, o4-mini-high / o4-mini / o4-mini-low; footnote: results with no tools enabled for o3/o4-mini",
+    "evidence": "https://github.com/openai/simple-evals",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Prompt",
+    "detail": "system prompt used per row (assistant / n/a / unknown)",
+    "evidence": "https://github.com/openai/simple-evals",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Other Models (Reported)",
+    "detail": "section of rows with scores reported by the model developers (self-reported), linked to their announcements",
+    "evidence": "https://github.com/openai/simple-evals",
+    "where": "page"
+   },
+   {
+    "key": "other",
+    "label": "Other benchmark columns",
+    "detail": "same table also lists MMLU, GPQA, MATH, MGSM, DROP, SimpleQA per model",
+    "evidence": "https://github.com/openai/simple-evals",
+    "where": "page"
+   }
+  ],
+  "not_reported": [
+   "cost",
+   "time",
+   "speed",
+   "tokens",
+   "uncertainty",
+   "runs",
+   "date",
+   "breakdown",
+   "votes"
+  ],
+  "checked": "Read the human-eval repo README (harness only, 'Deprecated and unmaintained', no results table) and the simple-evals README Benchmark Results table (columns: Model, Prompt, MMLU, GPQA, MATH, HumanEval, MGSM, DROP, SimpleQA). No cost, time, tokens, CI, pass@k, date or per-problem columns.",
+  "note": "No leaderboard for HumanEval itself. simple-evals table is frozen (July 2025 deprecation notice) and mixes OpenAI-run and 'Other Models (Reported)' rows. Model snapshot dates appear only inside model names (e.g. gpt-4o-2024-11-20), not as a date field. The human-eval harness computes pass@1/10/100 and the 2021 Codex paper (Table 1) reports pass@k for k=1,10,100 at several temperatures, but that is the paper, not a per-model leaderboard. 'where'='page' here means the Benchmark Results table in the simple-evals GitHub README, which is the only official results table."
+ }
+]

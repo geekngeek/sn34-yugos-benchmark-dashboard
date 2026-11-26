@@ -1,0 +1,1413 @@
+{
+  "format": "benchmark-results/v1",
+  "source": {
+    "name": "Aider",
+    "site": "https://aider.chat/docs/leaderboards/",
+    "publisher": "Aider (Paul Gauthier)",
+    "description": "Aider polyglot coding leaderboard (225 Exercism exercises in C++, Go, Java, JavaScript, Python, Rust).",
+    "license": "Apache-2.0 (https://github.com/Aider-AI/aider)",
+    "attribution": "Aider LLM leaderboards (https://aider.chat/docs/leaderboards/).",
+    "retrieved_from": [
+      "https://github.com/Aider-AI/aider/blob/main/aider/website/_data/polyglot_leaderboard.yml"
+    ],
+    "notes": [
+      "Score = percent of exercises solved within two attempts (pass_rate_2).",
+      "total_cost_usd is the cost of the whole benchmark run as reported by aider."
+    ],
+    "collected_at": "2026-11-25T19:16:47+00:00"
+  },
+  "benchmarks": [
+    {
+      "key": "polyglot",
+      "name": "Aider Polyglot",
+      "version": "Official leaderboard",
+      "area": "coding",
+      "sub_area": "code editing (multi-language)",
+      "unit": "points",
+      "total_tasks": 225,
+      "description": "Percent of 225 Exercism exercises solved in two attempts.",
+      "url": "https://aider.chat/docs/leaderboards/"
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "polyglot",
+      "model": "Gemini 2.0 Pro exp-02-05",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 35.6,
+      "evaluation_date": "2025-02-25",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2025-02-25-20-23-07--gemini-pro@35.6",
+      "extra": {
+        "listed_name": "Gemini 2.0 Pro exp-02-05",
+        "pass_rate_1": 20.4,
+        "percent_cases_well_formed": 100.0,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 34.8,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-4o-mini-2024-07-18",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 3.6,
+      "evaluation_date": "2024-12-21",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2024-12-21-18-41-18--polyglot-gpt-4o-mini@3.6",
+      "extra": {
+        "listed_name": "gpt-4o-mini-2024-07-18",
+        "pass_rate_1": 0.9,
+        "percent_cases_well_formed": 100.0,
+        "total_cost_usd": 0.3236,
+        "seconds_per_case": 17.3,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "claude-3-5-sonnet-20241022",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 51.6,
+      "evaluation_date": "2025-01-17",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-01-17-19-44-33--sonnet-baseline-jan-17@51.6",
+      "extra": {
+        "listed_name": "claude-3-5-sonnet-20241022",
+        "pass_rate_1": 22.2,
+        "percent_cases_well_formed": 99.6,
+        "total_cost_usd": 14.4063,
+        "seconds_per_case": 21.4,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-4o-2024-11-20",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 18.2,
+      "evaluation_date": "2024-12-30",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2024-12-30-20-57-12--gpt-4o-2024-11-20-ex-as-sys@18.2",
+      "extra": {
+        "listed_name": "gpt-4o-2024-11-20",
+        "pass_rate_1": 4.9,
+        "percent_cases_well_formed": 95.1,
+        "total_cost_usd": 6.7351,
+        "seconds_per_case": 12.1,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-4o-2024-08-06",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 23.1,
+      "evaluation_date": "2024-12-30",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2024-12-30-20-44-54--gpt4o-ex-as-sys-clean-prompt@23.1",
+      "extra": {
+        "listed_name": "gpt-4o-2024-08-06",
+        "pass_rate_1": 4.9,
+        "percent_cases_well_formed": 94.2,
+        "total_cost_usd": 7.0286,
+        "seconds_per_case": 16.0,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "o1-2024-12-17",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 61.7,
+      "evaluation_date": "2024-12-21",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2024-12-21-19-23-03--polyglot-o1-hard-diff@61.7",
+      "extra": {
+        "listed_name": "o1-2024-12-17 (high)",
+        "pass_rate_1": 23.7,
+        "percent_cases_well_formed": 91.5,
+        "total_cost_usd": 186.4958,
+        "seconds_per_case": 133.2,
+        "test_cases": 224,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "DeepSeek Chat V2.5",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 17.8,
+      "evaluation_date": "2024-12-21",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2024-12-21-20-56-21--polyglot-deepseek-diff@17.8",
+      "extra": {
+        "listed_name": "DeepSeek Chat V2.5",
+        "pass_rate_1": 5.3,
+        "percent_cases_well_formed": 92.9,
+        "total_cost_usd": 0.5101,
+        "seconds_per_case": 184.0,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "claude-3-5-haiku-20241022",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 28.0,
+      "evaluation_date": "2024-12-21",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2024-12-21-21-46-27--polyglot-haiku-diff@28.0",
+      "extra": {
+        "listed_name": "claude-3-5-haiku-20241022",
+        "pass_rate_1": 7.1,
+        "percent_cases_well_formed": 91.1,
+        "total_cost_usd": 6.0583,
+        "seconds_per_case": 31.8,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Qwen2.5-Coder-32B-Instruct",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 8.0,
+      "evaluation_date": "2024-12-22",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2024-12-22-13-22-32--polyglot-qwen-diff@8.0",
+      "extra": {
+        "listed_name": "Qwen2.5-Coder-32B-Instruct",
+        "pass_rate_1": 4.4,
+        "percent_cases_well_formed": 71.6,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 84.4,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "o1-mini-2024-09-12",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 32.9,
+      "evaluation_date": "2024-12-22",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2024-12-22-21-26-35--polyglot-o1mini-whole@32.9",
+      "extra": {
+        "listed_name": "o1-mini-2024-09-12",
+        "pass_rate_1": 5.8,
+        "percent_cases_well_formed": 96.9,
+        "total_cost_usd": 18.577,
+        "seconds_per_case": 34.7,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gemini-exp-1206",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 38.2,
+      "evaluation_date": "2024-12-22",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2024-12-22-18-43-25--gemini-exp-1206-polyglot-whole-2@38.2",
+      "extra": {
+        "listed_name": "gemini-exp-1206",
+        "pass_rate_1": 19.6,
+        "percent_cases_well_formed": 98.2,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 45.5,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gemini-2.0-flash-exp",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 22.2,
+      "evaluation_date": "2024-12-22",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2024-12-22-20-08-13--gemini-2.0-flash-exp-polyglot-whole@22.2",
+      "extra": {
+        "listed_name": "gemini-2.0-flash-exp",
+        "pass_rate_1": 11.6,
+        "percent_cases_well_formed": 100.0,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 12.2,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "yi-lightning",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 12.9,
+      "evaluation_date": "2024-12-23",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2024-12-23-01-11-56--yi-test@12.9",
+      "extra": {
+        "listed_name": "yi-lightning",
+        "pass_rate_1": 5.8,
+        "percent_cases_well_formed": 92.9,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 146.7,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "DeepSeek Chat V3 (prev)",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 48.4,
+      "evaluation_date": "2024-12-25",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2024-12-25-13-31-51--deepseekv3preview-diff2@48.4",
+      "extra": {
+        "listed_name": "DeepSeek Chat V3 (prev)",
+        "pass_rate_1": 22.7,
+        "percent_cases_well_formed": 98.7,
+        "total_cost_usd": 0.3369,
+        "seconds_per_case": 34.8,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Qwen2.5-Coder-32B-Instruct",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 16.4,
+      "evaluation_date": "2024-12-26",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2024-12-26-00-55-20--Qwen2.5-Coder-32B-Instruct@16.4",
+      "extra": {
+        "listed_name": "Qwen2.5-Coder-32B-Instruct",
+        "pass_rate_1": 4.9,
+        "percent_cases_well_formed": 99.6,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 42.0,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Codestral 25.01",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 11.1,
+      "evaluation_date": "2025-01-13",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2025-01-13-18-17-25--codestral-whole2@11.1",
+      "extra": {
+        "listed_name": "Codestral 25.01",
+        "pass_rate_1": 4.0,
+        "percent_cases_well_formed": 100.0,
+        "total_cost_usd": 1.9834,
+        "seconds_per_case": 9.3,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "DeepSeek R1",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 56.9,
+      "evaluation_date": "2025-01-20",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-01-20-19-11-38--ds-turns-upd-cur-msgs-fix-with-summarizer@56.9",
+      "extra": {
+        "listed_name": "DeepSeek R1",
+        "pass_rate_1": 26.7,
+        "percent_cases_well_formed": 96.9,
+        "total_cost_usd": 5.4193,
+        "seconds_per_case": 113.7,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "DeepSeek R1 + claude-3-5-sonnet-20241022",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 64.0,
+      "evaluation_date": "2025-01-23",
+      "evaluation_method": "aider, edit format 'architect', 2 attempts",
+      "external_id": "2025-01-23-19-14-48--r1-architect-sonnet@64.0",
+      "extra": {
+        "listed_name": "DeepSeek R1 + claude-3-5-sonnet-20241022",
+        "pass_rate_1": 27.1,
+        "percent_cases_well_formed": 100.0,
+        "total_cost_usd": 13.2933,
+        "seconds_per_case": 251.6,
+        "test_cases": 225,
+        "edit_format": "architect"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "qwen-max-2025-01-25",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 21.8,
+      "evaluation_date": "2025-01-28",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-01-28-16-00-03--qwen-max-2025-01-25-polyglot-diff@21.8",
+      "extra": {
+        "listed_name": "qwen-max-2025-01-25",
+        "pass_rate_1": 9.3,
+        "percent_cases_well_formed": 90.2,
+        "seconds_per_case": 39.5,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "medium",
+      "score": 53.8,
+      "evaluation_date": "2025-01-31",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-01-31-20-27-46--o3-mini-diff2@53.8",
+      "extra": {
+        "listed_name": "o3-mini (medium)",
+        "pass_rate_1": 19.1,
+        "percent_cases_well_formed": 95.1,
+        "total_cost_usd": 8.8599,
+        "seconds_per_case": 47.2,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 60.4,
+      "evaluation_date": "2025-01-31",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-01-31-20-42-47--o3-mini-diff-high@60.4",
+      "extra": {
+        "listed_name": "o3-mini (high)",
+        "pass_rate_1": 21.0,
+        "percent_cases_well_formed": 93.3,
+        "total_cost_usd": 18.1584,
+        "seconds_per_case": 124.6,
+        "test_cases": 224,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gemini-2.0-flash-thinking-exp-01-21",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 18.2,
+      "evaluation_date": "2025-01-21",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-01-21-22-51-49--gemini-2.0-flash-thinking-exp-01-21-polyglot-diff@18.2",
+      "extra": {
+        "listed_name": "gemini-2.0-flash-thinking-exp-01-21",
+        "pass_rate_1": 5.8,
+        "percent_cases_well_formed": 77.8,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 24.2,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "chatgpt-4o-latest (2025-02-15)",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 27.1,
+      "evaluation_date": "2025-02-15",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-02-15-19-51-22--chatgpt4o-feb15-diff@27.1",
+      "extra": {
+        "listed_name": "chatgpt-4o-latest (2025-02-15)",
+        "pass_rate_1": 9.0,
+        "percent_cases_well_formed": 93.3,
+        "total_cost_usd": 14.3703,
+        "seconds_per_case": 12.4,
+        "test_cases": 223,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "claude-3-7-sonnet-20250219 (no thinking)",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 60.4,
+      "evaluation_date": "2025-02-24",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-02-24-19-54-07--sonnet37-diff@60.4",
+      "extra": {
+        "listed_name": "claude-3-7-sonnet-20250219 (no thinking)",
+        "pass_rate_1": 24.4,
+        "percent_cases_well_formed": 93.3,
+        "total_cost_usd": 17.7191,
+        "seconds_per_case": 28.3,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "claude-3-7-sonnet-20250219 (32k thinking tokens)",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 64.9,
+      "evaluation_date": "2025-02-24",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-02-24-21-47-23--sonnet37-diff-think-32k-64k@64.9",
+      "extra": {
+        "listed_name": "claude-3-7-sonnet-20250219 (32k thinking tokens)",
+        "pass_rate_1": 29.3,
+        "percent_cases_well_formed": 97.8,
+        "total_cost_usd": 36.8343,
+        "seconds_per_case": 105.2,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-4.5-preview",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 44.9,
+      "evaluation_date": "2025-02-27",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-02-27-20-26-15--gpt45-diff3@44.9",
+      "extra": {
+        "listed_name": "gpt-4.5-preview",
+        "pass_rate_1": 22.3,
+        "percent_cases_well_formed": 97.3,
+        "total_cost_usd": 183.1802,
+        "seconds_per_case": 113.5,
+        "test_cases": 224,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "QwQ-32B",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 20.9,
+      "evaluation_date": "2025-03-06",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-03-06-17-40-24--qwq32b-diff-temp-topp-ex-sys-remind-user-for-real@20.9",
+      "extra": {
+        "listed_name": "QwQ-32B",
+        "pass_rate_1": 8.0,
+        "percent_cases_well_formed": 67.6,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 228.6,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "QwQ-32B + Qwen 2.5 Coder Instruct",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 26.2,
+      "evaluation_date": "2025-03-07",
+      "evaluation_method": "aider, edit format 'architect', 2 attempts",
+      "external_id": "2025-03-07-15-11-27--qwq32b-arch-temp-topp-again@26.2",
+      "extra": {
+        "listed_name": "QwQ-32B + Qwen 2.5 Coder Instruct",
+        "pass_rate_1": 9.8,
+        "percent_cases_well_formed": 100.0,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 137.4,
+        "test_cases": 225,
+        "edit_format": "architect"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "command-a-03-2025-quality",
+      "developer": "Cohere",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 12.0,
+      "evaluation_date": "2025-03-14",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2025-03-14-23-40-00--cmda-quality-whole2@12.0",
+      "extra": {
+        "listed_name": "command-a-03-2025-quality",
+        "pass_rate_1": 2.2,
+        "percent_cases_well_formed": 99.6,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 85.1,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gemma-3-27b-it",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 4.9,
+      "evaluation_date": "2025-03-15",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2025-03-15-01-21-24--gemma3-27b-or@4.9",
+      "extra": {
+        "listed_name": "gemma-3-27b-it",
+        "pass_rate_1": 1.8,
+        "percent_cases_well_formed": 100.0,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 79.7,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "DeepSeek V3 (0324)",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 55.1,
+      "evaluation_date": "2025-03-24",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-03-24-15-41-33--deepseek-v3-0324-polyglot-diff@55.1",
+      "extra": {
+        "listed_name": "DeepSeek V3 (0324)",
+        "pass_rate_1": 28.0,
+        "percent_cases_well_formed": 99.6,
+        "total_cost_usd": 1.1164,
+        "seconds_per_case": 290.0,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Gemini 2.5 Pro Preview 03-25",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 72.9,
+      "evaluation_date": "2025-04-12",
+      "evaluation_method": "aider, edit format 'diff-fenced', 2 attempts",
+      "external_id": "2025-04-12-04-55-50--gemini-25-pro-diff-fenced@72.9",
+      "extra": {
+        "listed_name": "Gemini 2.5 Pro Preview 03-25",
+        "pass_rate_1": 40.9,
+        "percent_cases_well_formed": 92.4,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 45.3,
+        "test_cases": 225,
+        "edit_format": "diff-fenced"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "chatgpt-4o-latest (2025-03-29)",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 45.3,
+      "evaluation_date": "2025-03-29",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-03-29-05-24-55--chatgpt4o-mar28-diff@45.3",
+      "extra": {
+        "listed_name": "chatgpt-4o-latest (2025-03-29)",
+        "pass_rate_1": 16.4,
+        "percent_cases_well_formed": 64.4,
+        "total_cost_usd": 19.7416,
+        "seconds_per_case": 10.3,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Quasar Alpha",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 54.7,
+      "evaluation_date": "2025-04-04",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-04-04-02-57-25--qalpha-diff-exsys@54.7",
+      "extra": {
+        "listed_name": "Quasar Alpha",
+        "pass_rate_1": 21.8,
+        "percent_cases_well_formed": 98.2,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 14.8,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Llama 4 Maverick",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 15.6,
+      "evaluation_date": "2025-04-06",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2025-04-06-08-39-52--llama-4-maverick-17b-128e-instruct-polyglot-whole@15.6",
+      "extra": {
+        "listed_name": "Llama 4 Maverick",
+        "pass_rate_1": 4.4,
+        "percent_cases_well_formed": 99.1,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 20.5,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Grok 3 Beta",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 53.3,
+      "evaluation_date": "2025-04-10",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-04-10-04-21-31--grok3-diff-exuser@53.3",
+      "extra": {
+        "listed_name": "Grok 3 Beta",
+        "pass_rate_1": 22.2,
+        "percent_cases_well_formed": 99.6,
+        "total_cost_usd": 11.0338,
+        "seconds_per_case": 15.3,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Grok 3 Mini Beta",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 34.7,
+      "evaluation_date": "2025-04-10",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2025-04-10-18-47-24--grok3-mini-whole-exuser@34.7",
+      "extra": {
+        "listed_name": "Grok 3 Mini Beta (low)",
+        "pass_rate_1": 11.1,
+        "percent_cases_well_formed": 100.0,
+        "total_cost_usd": 0.7856,
+        "seconds_per_case": 35.1,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Grok 3 Mini Beta",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 49.3,
+      "evaluation_date": "2025-04-10",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2025-04-10-23-59-02--xai-grok3-mini-whole-high@49.3",
+      "extra": {
+        "listed_name": "Grok 3 Mini Beta (high)",
+        "pass_rate_1": 17.3,
+        "percent_cases_well_formed": 99.6,
+        "total_cost_usd": 0.7346,
+        "seconds_per_case": 79.1,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Optimus Alpha",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 52.9,
+      "evaluation_date": "2025-04-10",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-04-10-19-02-44--oalpha-diff-exsys@52.9",
+      "extra": {
+        "listed_name": "Optimus Alpha",
+        "pass_rate_1": 21.3,
+        "percent_cases_well_formed": 97.3,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 18.4,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-4.1",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 52.4,
+      "evaluation_date": "2025-04-14",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-04-14-21-05-54--gpt41-diff-exuser@52.4",
+      "extra": {
+        "listed_name": "gpt-4.1",
+        "pass_rate_1": 20.0,
+        "percent_cases_well_formed": 98.2,
+        "total_cost_usd": 9.8556,
+        "seconds_per_case": 20.5,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-4.1-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 32.4,
+      "evaluation_date": "2025-04-14",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-04-14-21-27-53--gpt41mini-diff@32.4",
+      "extra": {
+        "listed_name": "gpt-4.1-mini",
+        "pass_rate_1": 11.1,
+        "percent_cases_well_formed": 92.4,
+        "total_cost_usd": 1.9918,
+        "seconds_per_case": 19.5,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-4.1-nano",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 8.9,
+      "evaluation_date": "2025-04-14",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2025-04-14-22-46-01--gpt41nano-diff@8.9",
+      "extra": {
+        "listed_name": "gpt-4.1-nano",
+        "pass_rate_1": 3.1,
+        "percent_cases_well_formed": 94.2,
+        "total_cost_usd": 0.4281,
+        "seconds_per_case": 12.0,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 72.0,
+      "evaluation_date": "2025-04-16",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-04-16-22-01-58--o4-mini-high-diff-exsys@72.0",
+      "extra": {
+        "listed_name": "o4-mini (high)",
+        "pass_rate_1": 19.6,
+        "percent_cases_well_formed": 90.7,
+        "total_cost_usd": 19.6399,
+        "seconds_per_case": 176.5,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "openhands-lm-32b-v0.1",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 10.2,
+      "evaluation_date": "2025-04-19",
+      "evaluation_method": "aider, edit format 'whole', 2 attempts",
+      "external_id": "2025-04-19-14-43-04--o4-mini-patch@10.2",
+      "extra": {
+        "listed_name": "openhands-lm-32b-v0.1",
+        "pass_rate_1": 4.0,
+        "percent_cases_well_formed": 95.1,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 195.6,
+        "test_cases": 225,
+        "edit_format": "whole"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gemini-2.5-flash-preview-04-17 (default)",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 47.1,
+      "evaluation_date": "2025-04-20",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-04-20-19-54-31--flash25-diff-no-think@47.1",
+      "extra": {
+        "listed_name": "gemini-2.5-flash-preview-04-17 (default)",
+        "pass_rate_1": 21.8,
+        "percent_cases_well_formed": 85.3,
+        "total_cost_usd": 1.8451,
+        "seconds_per_case": 50.1,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Gemini 2.5 Pro Preview 05-06",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 76.9,
+      "evaluation_date": "2025-05-07",
+      "evaluation_method": "aider, edit format 'diff-fenced', 2 attempts",
+      "external_id": "2025-05-07-19-32-40--gemini0506-diff-fenced-completion_cost@76.9",
+      "extra": {
+        "listed_name": "Gemini 2.5 Pro Preview 05-06",
+        "pass_rate_1": 36.4,
+        "percent_cases_well_formed": 97.3,
+        "total_cost_usd": 37.4104,
+        "seconds_per_case": 165.3,
+        "test_cases": 225,
+        "edit_format": "diff-fenced"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Qwen3 32B",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 40.0,
+      "evaluation_date": "2025-05-08",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-05-08-03-20-24--qwen3-32b-default@40.0",
+      "extra": {
+        "listed_name": "Qwen3 32B",
+        "pass_rate_1": 14.2,
+        "percent_cases_well_formed": 83.6,
+        "total_cost_usd": 0.7603,
+        "seconds_per_case": 372.2,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Qwen3 235B A22B diff, no think, Alibaba API",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 59.6,
+      "evaluation_date": "2025-05-09",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-05-09-17-02-02--qwen3-235b-a22b.unthink_16k_diff@59.6",
+      "extra": {
+        "listed_name": "Qwen3 235B A22B diff, no think, Alibaba API",
+        "pass_rate_1": 28.9,
+        "percent_cases_well_formed": 92.9,
+        "total_cost_usd": 0.0,
+        "seconds_per_case": 45.4,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "claude-sonnet-4-20250514 (no thinking)",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 56.4,
+      "evaluation_date": "2025-05-24",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-05-24-21-17-54--sonnet4-diff-exuser@56.4",
+      "extra": {
+        "listed_name": "claude-sonnet-4-20250514 (no thinking)",
+        "pass_rate_1": 20.4,
+        "percent_cases_well_formed": 98.2,
+        "total_cost_usd": 15.8155,
+        "seconds_per_case": 29.8,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "claude-sonnet-4-20250514 (32k thinking)",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 61.3,
+      "evaluation_date": "2025-05-24",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-05-24-22-10-36--sonnet4-diff-exuser-think32k@61.3",
+      "extra": {
+        "listed_name": "claude-sonnet-4-20250514 (32k thinking)",
+        "pass_rate_1": 25.8,
+        "percent_cases_well_formed": 97.3,
+        "total_cost_usd": 26.5755,
+        "seconds_per_case": 79.9,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "claude-opus-4-20250514 (no think)",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 70.7,
+      "evaluation_date": "2025-05-25",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-05-25-19-57-20--opus4-diff-exuser@70.7",
+      "extra": {
+        "listed_name": "claude-opus-4-20250514 (no think)",
+        "pass_rate_1": 32.9,
+        "percent_cases_well_formed": 98.7,
+        "total_cost_usd": 68.6253,
+        "seconds_per_case": 42.5,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "claude-opus-4-20250514 (32k thinking)",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 72.0,
+      "evaluation_date": "2025-05-25",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-05-25-20-40-51--opus4-diff-exuser@72.0",
+      "extra": {
+        "listed_name": "claude-opus-4-20250514 (32k thinking)",
+        "pass_rate_1": 37.3,
+        "percent_cases_well_formed": 97.3,
+        "total_cost_usd": 65.7484,
+        "seconds_per_case": 44.1,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gemini-2.5-flash-preview-05-20 (no think)",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 44.0,
+      "evaluation_date": "2025-05-26",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-05-26-15-56-31--flash25-05-20-24k-think@44.0",
+      "extra": {
+        "listed_name": "gemini-2.5-flash-preview-05-20 (no think)",
+        "pass_rate_1": 20.9,
+        "percent_cases_well_formed": 93.8,
+        "total_cost_usd": 1.1354,
+        "seconds_per_case": 12.2,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gemini-2.5-flash-preview-05-20 (24k think)",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 55.1,
+      "evaluation_date": "2025-05-25",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-05-25-22-58-44--flash25-05-20-24k-think@55.1",
+      "extra": {
+        "listed_name": "gemini-2.5-flash-preview-05-20 (24k think)",
+        "pass_rate_1": 26.2,
+        "percent_cases_well_formed": 95.6,
+        "total_cost_usd": 8.5625,
+        "seconds_per_case": 53.9,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gemini-2.5-pro-preview-06-05 (default think)",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 79.1,
+      "evaluation_date": "2025-06-06",
+      "evaluation_method": "aider, edit format 'diff-fenced', 2 attempts",
+      "external_id": "2025-06-06-18-38-56--gemini0605-diff-fenced@79.1",
+      "extra": {
+        "listed_name": "gemini-2.5-pro-preview-06-05 (default think)",
+        "pass_rate_1": 44.9,
+        "percent_cases_well_formed": 100.0,
+        "total_cost_usd": 45.5961,
+        "seconds_per_case": 175.2,
+        "test_cases": 225,
+        "edit_format": "diff-fenced"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gemini-2.5-pro-preview-06-05 (32k think)",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 83.1,
+      "evaluation_date": "2025-06-06",
+      "evaluation_method": "aider, edit format 'diff-fenced', 2 attempts",
+      "external_id": "2025-06-06-16-36-21--gemini0605-32k-think-diff-fenced@83.1",
+      "extra": {
+        "listed_name": "gemini-2.5-pro-preview-06-05 (32k think)",
+        "pass_rate_1": 46.2,
+        "percent_cases_well_formed": 99.6,
+        "total_cost_usd": 49.8822,
+        "seconds_per_case": 200.3,
+        "test_cases": 225,
+        "edit_format": "diff-fenced"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "DeepSeek R1 (0528)",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 71.4,
+      "evaluation_date": "2025-06-06",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-06-06-16-47-07--r1-diff@71.4",
+      "extra": {
+        "listed_name": "DeepSeek R1 (0528)",
+        "pass_rate_1": 34.4,
+        "percent_cases_well_formed": 94.6,
+        "total_cost_usd": 4.8016,
+        "seconds_per_case": 716.6,
+        "test_cases": 224,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 81.3,
+      "evaluation_date": "2025-06-25",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-06-25-21-04-24--o3-price-reduction-high@81.3",
+      "extra": {
+        "listed_name": "o3 (high)",
+        "pass_rate_1": 40.0,
+        "percent_cases_well_formed": 94.7,
+        "total_cost_usd": 21.2259,
+        "seconds_per_case": 197.3,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 76.9,
+      "evaluation_date": "2025-06-25",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-06-25-20-30-16--o3-price-reduction@76.9",
+      "extra": {
+        "listed_name": "o3",
+        "pass_rate_1": 40.9,
+        "percent_cases_well_formed": 93.8,
+        "total_cost_usd": 13.7517,
+        "seconds_per_case": 101.7,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "o3 (high) + gpt-4.1",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 78.2,
+      "evaluation_date": "2025-06-27",
+      "evaluation_method": "aider, edit format 'architect', 2 attempts",
+      "external_id": "2025-06-27-23-53-57--o3-mini-high-diff-arch@78.2",
+      "extra": {
+        "listed_name": "o3 (high) + gpt-4.1",
+        "pass_rate_1": 34.8,
+        "percent_cases_well_formed": 100.0,
+        "total_cost_usd": 17.5518,
+        "seconds_per_case": 121.8,
+        "test_cases": 224,
+        "edit_format": "architect"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "o3-pro",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 84.9,
+      "evaluation_date": "2025-06-28",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-06-28-00-38-18--o3-pro-high@84.9",
+      "extra": {
+        "listed_name": "o3-pro (high)",
+        "pass_rate_1": 43.6,
+        "percent_cases_well_formed": 97.8,
+        "total_cost_usd": 146.3249,
+        "seconds_per_case": 449.0,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "grok-4",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 79.6,
+      "evaluation_date": "2025-07-11",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-07-11-19-37-40--xai-or-grok4-high@79.6",
+      "extra": {
+        "listed_name": "grok-4 (high)",
+        "pass_rate_1": 40.9,
+        "percent_cases_well_formed": 97.3,
+        "total_cost_usd": 59.6182,
+        "seconds_per_case": 403.2,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "Kimi K2",
+      "developer": "Moonshot AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 59.1,
+      "evaluation_date": "2025-07-17",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-07-17-17-41-54--kimi-k2-diff-or-pricing@59.1",
+      "extra": {
+        "listed_name": "Kimi K2",
+        "pass_rate_1": 20.4,
+        "percent_cases_well_formed": 92.9,
+        "total_cost_usd": 1.2357,
+        "seconds_per_case": 67.6,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-oss-120b",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 41.8,
+      "evaluation_date": "2025-08-06",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-08-06-04-54-48--gpt-oss-120b-high-polyglot@41.8",
+      "extra": {
+        "listed_name": "gpt-oss-120b (high)",
+        "pass_rate_1": 13.8,
+        "percent_cases_well_formed": 79.1,
+        "total_cost_usd": 0.7406,
+        "seconds_per_case": 35.5,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-5",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 88.0,
+      "evaluation_date": "2025-08-23",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-08-23-15-47-21--gpt-5-high@88.0",
+      "extra": {
+        "listed_name": "gpt-5 (high)",
+        "pass_rate_1": 52.0,
+        "percent_cases_well_formed": 91.6,
+        "total_cost_usd": 29.0829,
+        "seconds_per_case": 194.0,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-5",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "medium",
+      "score": 86.7,
+      "evaluation_date": "2025-08-25",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-08-25-13-23-27--gpt-5-medium@86.7",
+      "extra": {
+        "listed_name": "gpt-5 (medium)",
+        "pass_rate_1": 49.8,
+        "percent_cases_well_formed": 88.4,
+        "total_cost_usd": 17.693,
+        "seconds_per_case": 118.7,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "gpt-5",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 81.3,
+      "evaluation_date": "2025-08-25",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-08-25-14-16-37--gpt-5-low@81.3",
+      "extra": {
+        "listed_name": "gpt-5 (low)",
+        "pass_rate_1": 43.1,
+        "percent_cases_well_formed": 86.7,
+        "total_cost_usd": 10.3713,
+        "seconds_per_case": 62.4,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "DeepSeek-V3.2-Exp (Reasoner)",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 74.2,
+      "evaluation_date": "2025-10-03",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-10-03-09-45-34--deepseek-v3.2-reasoner@74.2",
+      "extra": {
+        "listed_name": "DeepSeek-V3.2-Exp (Reasoner)",
+        "pass_rate_1": 39.6,
+        "percent_cases_well_formed": 97.3,
+        "total_cost_usd": 1.3045,
+        "seconds_per_case": 291.2,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    },
+    {
+      "benchmark": "polyglot",
+      "model": "DeepSeek-V3.2-Exp (Chat)",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 70.2,
+      "evaluation_date": "2025-10-03",
+      "evaluation_method": "aider, edit format 'diff', 2 attempts",
+      "external_id": "2025-10-03-09-21-36--deepseek-v3.2-chat@70.2",
+      "extra": {
+        "listed_name": "DeepSeek-V3.2-Exp (Chat)",
+        "pass_rate_1": 38.7,
+        "percent_cases_well_formed": 98.2,
+        "total_cost_usd": 0.8756,
+        "seconds_per_case": 104.0,
+        "test_cases": 225,
+        "edit_format": "diff"
+      }
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "format": "benchmark-results/v1",
+  "source": {
+    "name": "Humanity's Last Exam (official)",
+    "site": "https://lastexam.ai/",
+    "publisher": "Center for AI Safety and Scale AI",
+    "description": "Official results table on lastexam.ai. Dataset (cais/hle) licensed MIT.",
+    "license": "Dataset: MIT (https://huggingface.co/datasets/cais/hle). The results table carries no separate license.",
+    "attribution": "Humanity's Last Exam, Center for AI Safety & Scale AI (https://lastexam.ai/).",
+    "retrieved_from": [
+      "https://lastexam.ai/"
+    ],
+    "collected_at": "2026-11-25T18:49:17+00:00",
+    "notes": [
+      "Judge model: o3-mini. Dataset updated 2025-04-03.",
+      "Calibration error (lower is better) is kept in each result's extra.",
+      "Developers are inferred from model names (developer_inferred)."
+    ]
+  },
+  "benchmarks": [
+    {
+      "key": "hle",
+      "name": "Humanity's Last Exam",
+      "version": "Official (lastexam.ai)",
+      "area": "knowledge",
+      "sub_area": "expert multi-discipline QA",
+      "unit": "points",
+      "description": "Accuracy (%) on HLE's expert-written questions across science, humanities and math.",
+      "url": "https://lastexam.ai/",
+      "metric": "accuracy"
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "hle",
+      "model": "Gemini 3 Pro",
+      "developer": "Google",
+      "developer_inferred": true,
+      "score": 38.3,
+      "external_id": "Gemini 3 Pro@38.3",
+      "evaluation_method": "Official HLE evaluation, judge model o3-mini",
+      "extra": {
+        "calibration_error_pct": 57.2,
+        "calibration_error_lower_is_better": true,
+        "text_only_subset": false,
+        "judge_model": "o3-mini",
+        "dataset_updated": "2025-04-03"
+      }
+    },
+    {
+      "benchmark": "hle",
+      "model": "GPT-5",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 25.3,
+      "external_id": "GPT-5@25.3",
+      "evaluation_method": "Official HLE evaluation, judge model o3-mini",
+      "extra": {
+        "calibration_error_pct": 50.0,
+        "calibration_error_lower_is_better": true,
+        "text_only_subset": false,
+        "judge_model": "o3-mini",
+        "dataset_updated": "2025-04-03"
+      }
+    },
+    {
+      "benchmark": "hle",
+      "model": "Grok 4",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "score": 24.5,
+      "external_id": "Grok 4@24.5",
+      "evaluation_method": "Official HLE evaluation, judge model o3-mini",
+      "extra": {
+        "calibration_error_pct": 56.4,
+        "calibration_error_lower_is_better": true,
+        "text_only_subset": false,
+        "judge_model": "o3-mini",
+        "dataset_updated": "2025-04-03"
+      }
+    },
+    {
+      "benchmark": "hle",
+      "model": "Gemini 2.5 Pro",
+      "developer": "Google",
+      "developer_inferred": true,
+      "score": 21.6,
+      "external_id": "Gemini 2.5 Pro@21.6",
+      "evaluation_method": "Official HLE evaluation, judge model o3-mini",
+      "extra": {
+        "calibration_error_pct": 72.0,
+        "calibration_error_lower_is_better": true,
+        "text_only_subset": false,
+        "judge_model": "o3-mini",
+        "dataset_updated": "2025-04-03"
+      }
+    },
+    {
+      "benchmark": "hle",
+      "model": "GPT-5-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 19.4,
+      "external_id": "GPT-5-mini@19.4",
+      "evaluation_method": "Official HLE evaluation, judge model o3-mini",
+      "extra": {
+        "calibration_error_pct": 65.0,
+        "calibration_error_lower_is_better": true,
+        "text_only_subset": false,
+        "judge_model": "o3-mini",
+        "dataset_updated": "2025-04-03"
+      }
+    },
+    {
+      "benchmark": "hle",
+      "model": "Claude 4.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "score": 13.7,
+      "external_id": "Claude 4.5 Sonnet@13.7",
+      "evaluation_method": "Official HLE evaluation, judge model o3-mini",
+      "extra": {
+        "calibration_error_pct": 65.0,
+        "calibration_error_lower_is_better": true,
+        "text_only_subset": false,
+        "judge_model": "o3-mini",
+        "dataset_updated": "2025-04-03"
+      }
+    },
+    {
+      "benchmark": "hle",
+      "model": "Gemini 2.5 Flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "score": 12.1,
+      "external_id": "Gemini 2.5 Flash@12.1",
+      "evaluation_method": "Official HLE evaluation, judge model o3-mini",
+      "extra": {
+        "calibration_error_pct": 80.0,
+        "calibration_error_lower_is_better": true,
+        "text_only_subset": false,
+        "judge_model": "o3-mini",
+        "dataset_updated": "2025-04-03"
+      }
+    },
+    {
+      "benchmark": "hle",
+      "model": "DeepSeek-R1",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "score": 8.5,
+      "external_id": "DeepSeek-R1@8.5",
+      "evaluation_method": "Official HLE evaluation, judge model o3-mini; text-only subset",
+      "extra": {
+        "calibration_error_pct": 73.0,
+        "calibration_error_lower_is_better": true,
+        "text_only_subset": true,
+        "judge_model": "o3-mini",
+        "dataset_updated": "2025-04-03"
+      }
+    },
+    {
+      "benchmark": "hle",
+      "model": "o1",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 8.0,
+      "external_id": "o1@8.0",
+      "evaluation_method": "Official HLE evaluation, judge model o3-mini",
+      "extra": {
+        "calibration_error_pct": 83.0,
+        "calibration_error_lower_is_better": true,
+        "text_only_subset": false,
+        "judge_model": "o3-mini",
+        "dataset_updated": "2025-04-03"
+      }
+    },
+    {
+      "benchmark": "hle",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 2.7,
+      "external_id": "GPT-4o@2.7",
+      "evaluation_method": "Official HLE evaluation, judge model o3-mini",
+      "extra": {
+        "calibration_error_pct": 89.0,
+        "calibration_error_lower_is_better": true,
+        "text_only_subset": false,
+        "judge_model": "o3-mini",
+        "dataset_updated": "2025-04-03"
+      }
+    }
+  ]
+}

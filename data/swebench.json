@@ -1,0 +1,4637 @@
+{
+  "format": "benchmark-results/v1",
+  "source": {
+    "name": "SWE-bench (official)",
+    "site": "https://www.swebench.com/",
+    "publisher": "SWE-bench team (Princeton & Stanford)",
+    "description": "Official SWE-bench leaderboards (Verified, Lite, Test, Multilingual, Multimodal).",
+    "license": "CC BY-NC 4.0 (https://github.com/swe-bench/swe-bench.github.io/blob/master/LICENSE)",
+    "attribution": "SWE-bench leaderboards (https://www.swebench.com/), CC BY-NC 4.0.",
+    "retrieved_from": [
+      "https://github.com/swe-bench/swe-bench.github.io/blob/master/data/leaderboards.json"
+    ],
+    "notes": [
+      "Score = percent of issues resolved. Each entry is an agent system + model.",
+      "Skipped entries whose model is not a single model: {'Multiple': 33, 'Undisclosed': 50, 'Mixed Models': 1}."
+    ],
+    "collected_at": "2026-11-25T19:16:47+00:00"
+  },
+  "benchmarks": [
+    {
+      "key": "multilingual",
+      "name": "SWE-bench",
+      "version": "Multilingual (official)",
+      "area": "coding",
+      "sub_area": "issue resolution",
+      "unit": "points",
+      "total_tasks": 300,
+      "url": "https://www.swebench.com/",
+      "description": "SWE-bench Multilingual: percent of GitHub issues resolved."
+    },
+    {
+      "key": "test",
+      "name": "SWE-bench",
+      "version": "Test (official)",
+      "area": "coding",
+      "sub_area": "issue resolution",
+      "unit": "points",
+      "total_tasks": 2294,
+      "url": "https://www.swebench.com/",
+      "description": "SWE-bench Test: percent of GitHub issues resolved."
+    },
+    {
+      "key": "verified",
+      "name": "SWE-bench",
+      "version": "Verified (official)",
+      "area": "coding",
+      "sub_area": "issue resolution",
+      "unit": "points",
+      "total_tasks": 500,
+      "url": "https://www.swebench.com/",
+      "description": "SWE-bench Verified: percent of GitHub issues resolved."
+    },
+    {
+      "key": "lite",
+      "name": "SWE-bench",
+      "version": "Lite (official)",
+      "area": "coding",
+      "sub_area": "issue resolution",
+      "unit": "points",
+      "total_tasks": 300,
+      "url": "https://www.swebench.com/",
+      "description": "SWE-bench Lite: percent of GitHub issues resolved."
+    },
+    {
+      "key": "multimodal",
+      "name": "SWE-bench",
+      "version": "Multimodal (official)",
+      "area": "coding",
+      "sub_area": "issue resolution",
+      "unit": "points",
+      "url": "https://www.swebench.com/",
+      "description": "SWE-bench Multimodal: percent of GitHub issues resolved."
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "multilingual",
+      "model": "Gemini 3 Flash",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 72.7,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_gemini-3-flash",
+      "extra": {
+        "system_name": "Gemini 3 Flash",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.3518355868333333,
+        "total_cost_usd": 105.55067604999999,
+        "site": "https://ai.google.dev/gemini-api/docs/models",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "Claude 4.6 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 72.0,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_claude-4-6-opus",
+      "extra": {
+        "system_name": "Claude 4.6 Opus",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.6629735766666667,
+        "total_cost_usd": 198.892073,
+        "site": "https://www.anthropic.com/news/claude-opus-4-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "Claude 4.5 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 70.7,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_claude-4-5-opus",
+      "extra": {
+        "system_name": "Claude 4.5 Opus",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.8335529758333333,
+        "total_cost_usd": 250.06589275,
+        "site": "https://www.anthropic.com/news/claude-opus-4-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "GLM 5",
+      "developer": "Z.ai",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 69.7,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_glm-5",
+      "extra": {
+        "system_name": "GLM 5",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.6424743668666667,
+        "total_cost_usd": 192.74231006,
+        "site": "https://z.ai",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "Gemini 3 Pro",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 68.7,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_gemini-3-pro",
+      "extra": {
+        "system_name": "Gemini 3 Pro",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 1.0210855846666667,
+        "total_cost_usd": 306.3256754,
+        "site": "https://ai.google.dev/gemini-api/docs/models",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "MiniMax M2.5",
+      "developer": "Minimax",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 68.3,
+      "evaluation_date": "2026-02-16",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260216_mini-v2.0.0a0_minimax-2-5",
+      "extra": {
+        "system_name": "MiniMax M2.5",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.10121049956228956,
+        "total_cost_usd": 30.05951837,
+        "site": "https://www.minimax.io",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "Kimi K2.5",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 67.3,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_kimi-k2-5",
+      "extra": {
+        "system_name": "Kimi K2.5",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.6928368501333334,
+        "total_cost_usd": 207.85105504,
+        "site": "https://moonshotai.github.io/Kimi-K2/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "Claude 4.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 67.0,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_claude-4-5-sonnet",
+      "extra": {
+        "system_name": "Claude 4.5 Sonnet",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.669532236,
+        "total_cost_usd": 200.8596708,
+        "site": "https://www.anthropic.com/news/claude-opus-4-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "GPT 5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 66.7,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_gpt-5-2-high",
+      "extra": {
+        "system_name": "GPT 5.2 (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.5364109905,
+        "total_cost_usd": 160.92329715,
+        "site": "https://platform.openai.com",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "GPT 5.2 Codex",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 66.3,
+      "evaluation_date": "2026-02-20",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260220_mini-v2.0.0_gpt-5-2-codex",
+      "extra": {
+        "system_name": "GPT 5.2 Codex",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.6621715578333333,
+        "total_cost_usd": 198.65146735,
+        "site": "https://platform.openai.com/docs/models/gpt-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "Claude 4.5 Haiku",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 64.7,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_claude-4-5-haiku",
+      "extra": {
+        "system_name": "Claude 4.5 Haiku",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.3794902823333333,
+        "total_cost_usd": 113.8470847,
+        "site": "https://www.anthropic.com/news/claude-opus-4-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "DeepSeek V3.2",
+      "developer": "DeepSeek",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 59.0,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_deepseek-3-2",
+      "extra": {
+        "system_name": "DeepSeek V3.2",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.3838255249,
+        "total_cost_usd": 115.14765747,
+        "site": "https://api-docs.deepseek.com",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multilingual",
+      "model": "GPT 5 mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 39.7,
+      "evaluation_date": "2026-02-13",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20260213_mini-v2.0.0a0_gpt-5-mini",
+      "extra": {
+        "system_name": "GPT 5 mini",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.051632880333333325,
+        "total_cost_usd": 15.489864099999998,
+        "site": "https://platform.openai.com",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "Claude 4.5 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 52.62,
+      "evaluation_date": "2025-12-19",
+      "evaluation_method": "agent: Sonar Foundation Agent; attempts: 1; self-reported",
+      "external_id": "20251219_sonar-foundation-agent_claude-opus-4-5",
+      "extra": {
+        "system_name": "Sonar Foundation Agent + Claude 4.5 Opus",
+        "agent": "Sonar Foundation Agent",
+        "agent_org": "Sonar",
+        "checked": false,
+        "site": "https://www.sonarsource.com",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "Claude 3.7 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 33.83,
+      "evaluation_date": "2025-02-27",
+      "evaluation_method": "agent: SWE-agent 1.0; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250227_sweagent-claude-3-7-20250219",
+      "extra": {
+        "system_name": "SWE-agent 1.0 (Claude 3.7 Sonnet)",
+        "agent": "SWE-agent 1.0",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/swe-agent/swe-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "CodeAct v2.1 (claude-3-5-sonnet-20241022)",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 29.38,
+      "evaluation_date": "2024-11-03",
+      "evaluation_method": "agent: OpenHands; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241103_OpenHands-CodeAct-2.1-sonnet-20241022",
+      "extra": {
+        "system_name": "OpenHands + CodeAct v2.1 (claude-3-5-sonnet-20241022)",
+        "agent": "OpenHands",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://docs.all-hands.dev/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "Claude 3.5-Sonnet-20241022",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 24.89,
+      "evaluation_date": "2024-11-21",
+      "evaluation_method": "agent: AutoCodeRover-v2.0; attempts: 1; self-reported",
+      "external_id": "20241121_autocoderover-v2.0-claude-3-5-sonnet-20241022",
+      "extra": {
+        "system_name": "AutoCodeRover-v2.0 (Claude-3.5-Sonnet-20241022)",
+        "agent": "AutoCodeRover-v2.0",
+        "checked": false,
+        "site": "https://www.autocoderover.net/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 18.83,
+      "evaluation_date": "2024-06-28",
+      "evaluation_method": "agent: AutoCodeRover; attempts: 1; self-reported",
+      "external_id": "20240628_autocoderover-v20240620",
+      "extra": {
+        "system_name": "AutoCodeRover (v20240620) + GPT 4o (2024-05-13)",
+        "agent": "AutoCodeRover",
+        "checked": false,
+        "site": "https://autocoderover.dev/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 18.13,
+      "evaluation_date": "2024-06-20",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240620_sweagent_claude3.5sonnet",
+      "extra": {
+        "system_name": "SWE-agent + Claude 3.5 Sonnet",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 14.6,
+      "evaluation_date": "2024-06-15",
+      "evaluation_method": "agent: AppMap Navie; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240615_appmap-navie_gpt4o",
+      "extra": {
+        "system_name": "AppMap Navie + GPT 4o (2024-05-13)",
+        "agent": "AppMap Navie",
+        "checked": true,
+        "site": "https://appmap.io/navie",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "GPT-4 (1106)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 12.47,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240402_sweagent_gpt4",
+      "extra": {
+        "system_name": "SWE-agent + GPT 4 (1106)",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 11.99,
+      "evaluation_date": "2024-07-28",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240728_sweagent_gpt4o",
+      "extra": {
+        "system_name": "SWE-agent + GPT 4o (2024-05-13)",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "Claude 3 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 10.51,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240402_sweagent_claude3opus",
+      "extra": {
+        "system_name": "SWE-agent + Claude 3 Opus",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "Claude 3 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 3.79,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: RAG baseline; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240402_rag_claude3opus",
+      "extra": {
+        "system_name": "RAG + Claude 3 Opus",
+        "agent": "RAG baseline",
+        "checked": true,
+        "site": "https://github.com/SWE-bench/SWE-bench/tree/main/swebench/inference",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "Claude 2",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1.96,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; attempts: 1; verified by SWE-bench team",
+      "external_id": "20231010_rag_claude2",
+      "extra": {
+        "system_name": "RAG + Claude 2",
+        "agent": "RAG baseline",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "GPT-4 (1106)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1.31,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: RAG baseline; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240402_rag_gpt4",
+      "extra": {
+        "system_name": "RAG + GPT 4 (1106)",
+        "agent": "RAG baseline",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "SWE-Llama 13B",
+      "developer": "Meta",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 0.7,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; attempts: 1; verified by SWE-bench team",
+      "external_id": "20231010_rag_swellama13b",
+      "extra": {
+        "system_name": "RAG + SWE-Llama 13B",
+        "agent": "RAG baseline",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "SWE-Llama 7B",
+      "developer": "Meta",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 0.7,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; attempts: 1; verified by SWE-bench team",
+      "external_id": "20231010_rag_swellama7b",
+      "extra": {
+        "system_name": "RAG + SWE-Llama 7B",
+        "agent": "RAG baseline",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "test",
+      "model": "GPT-3.5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 0.17,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; attempts: 1; verified by SWE-bench team",
+      "external_id": "20231010_rag_gpt35",
+      "extra": {
+        "system_name": "RAG + ChatGPT 3.5",
+        "agent": "RAG baseline",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4.5 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 79.2,
+      "evaluation_date": "2025-12-05",
+      "evaluation_method": "agent: Sonar Foundation Agent; attempts: 1; self-reported",
+      "external_id": "20251205_sonar-foundation-agent_claude-opus-4-5",
+      "extra": {
+        "system_name": "Sonar Foundation Agent + Claude 4.5 Opus",
+        "agent": "Sonar Foundation Agent",
+        "agent_org": "Sonar",
+        "checked": false,
+        "site": "https://www.sonarsource.com",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4.5 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": "medium",
+      "score": 79.2,
+      "evaluation_date": "2025-12-15",
+      "evaluation_method": "agent: live-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20251215_livesweagent_claude-opus-4-5",
+      "extra": {
+        "system_name": "live-SWE-agent + Claude 4.5 Opus medium (20251101)",
+        "agent": "live-SWE-agent",
+        "agent_org": "UIUC",
+        "checked": false,
+        "site": "https://github.com/OpenAutoCoder/live-swe-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Doubao-Seed-Code",
+      "developer": "ByteDance",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 78.8,
+      "evaluation_date": "2025-09-28",
+      "evaluation_method": "agent: TRAE; attempts: 2+; self-reported",
+      "external_id": "20250928_trae_doubao_seed_code",
+      "extra": {
+        "system_name": "TRAE + Doubao-Seed-Code",
+        "agent": "TRAE",
+        "agent_org": "ByteDance",
+        "checked": false,
+        "site": [
+          "https://github.com/bytedance/trae-agent",
+          "https://seed.bytedance.com/"
+        ],
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Gemini 3 Pro Preview",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 77.4,
+      "evaluation_date": "2025-11-20",
+      "evaluation_method": "agent: live-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251120_livesweagent_gemini-3-pro-preview",
+      "extra": {
+        "system_name": "live-SWE-agent + Gemini 3 Pro Preview (2025-11-18)",
+        "agent": "live-SWE-agent",
+        "agent_org": "UIUC",
+        "checked": "false (See README.md for info on how to get your results verified)",
+        "site": "https://github.com/OpenAutoCoder/live-swe-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 76.8,
+      "evaluation_date": "2025-08-04",
+      "evaluation_method": "agent: EPAM AI/Run Developer Agent; attempts: 2+; self-reported",
+      "external_id": "20250804_epam-ai-run-claude-4-sonnet",
+      "extra": {
+        "system_name": "EPAM AI/Run Developer Agent v20250719 + Claude 4 Sonnet",
+        "agent": "EPAM AI/Run Developer Agent",
+        "agent_org": "EPAM Systems, Inc.",
+        "checked": false,
+        "site": "https://www.epam.com/services/artificial-intelligence",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4.5 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 76.8,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_claude-4-5-opus-high",
+      "extra": {
+        "system_name": "Claude 4.5 Opus (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.753907997,
+        "total_cost_usd": 376.9539985,
+        "site": "https://www.anthropic.com/claude",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Gemini 3 Flash",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 75.8,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_gemini-3-flash-high",
+      "extra": {
+        "system_name": "Gemini 3 Flash (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.35596413079999994,
+        "total_cost_usd": 177.98206539999998,
+        "site": "https://ai.google.dev/gemini-api/docs/models",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "MiniMax M2.5",
+      "developer": "Minimax",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 75.8,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_minimax-2-5-high",
+      "extra": {
+        "system_name": "MiniMax M2.5 (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.073289987844,
+        "total_cost_usd": 36.644993922,
+        "site": "https://www.minimax.io",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4.6 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 75.6,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_claude-4-6-opus",
+      "extra": {
+        "system_name": "Claude 4.6 Opus",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.5515226445,
+        "total_cost_usd": 275.76132225,
+        "site": "https://www.anthropic.com/claude",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude Sonnet 4",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 74.8,
+      "evaluation_date": "2025-07-31",
+      "evaluation_method": "agent: Harness AI; attempts: 1; self-reported",
+      "external_id": "20250731_harness_ai",
+      "extra": {
+        "system_name": "Harness AI",
+        "agent": "Harness AI",
+        "agent_org": "Harness",
+        "checked": false,
+        "site": "https://www.harness.io/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 74.8,
+      "evaluation_date": "2025-11-03",
+      "evaluation_method": "agent: Sonar Foundation Agent; attempts: 1; self-reported",
+      "external_id": "20251103_sonar-foundation-agent_claude-sonnet-4-5",
+      "extra": {
+        "system_name": "Sonar Foundation Agent + Claude 4.5 Sonnet",
+        "agent": "Sonar Foundation Agent",
+        "agent_org": "Sonar",
+        "checked": false,
+        "site": "https://www.sonarsource.com",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 74.6,
+      "evaluation_date": "2025-07-20",
+      "evaluation_method": "agent: Lingxi-v1.5; attempts: 1; self-reported",
+      "external_id": "20250720_Lingxi-v1.5_claude-4-sonnet-20250514",
+      "extra": {
+        "system_name": "Lingxi-v1.5_claude-4-sonnet-20250514",
+        "agent": "Lingxi-v1.5",
+        "agent_org": "Lingxi",
+        "checked": false,
+        "site": "https://github.com/nimasteryang/Lingxi",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 74.4,
+      "evaluation_date": "2025-10-15",
+      "evaluation_method": "agent: Prometheus-v1.2.1; attempts: 2+; self-reported",
+      "external_id": "20251015_Prometheus_v1.2.1_gpt5",
+      "extra": {
+        "system_name": "Prometheus-v1.2.1 + GPT-5",
+        "agent": "Prometheus-v1.2.1",
+        "agent_org": "EuniAI",
+        "checked": false,
+        "site": "https://euni.ai/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4.5 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": "medium",
+      "score": 74.4,
+      "evaluation_date": "2025-11-24",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251124_mini-v1.16.0_claude-opus-4-5-20251101",
+      "extra": {
+        "system_name": "Claude 4.5 Opus (20251101) (medium)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.721244997,
+        "total_cost_usd": 360.6224985,
+        "site": "https://www.anthropic.com/news/claude-opus-4-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Gemini 3 Pro Preview",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 74.2,
+      "evaluation_date": "2025-11-18",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251118_mini-v1.15.0_gemini-3-pro-preview-20251118",
+      "extra": {
+        "system_name": "Gemini 3 Pro Preview (2025-11-18)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.45995751895000003,
+        "total_cost_usd": 229.978759475,
+        "site": "https://ai.google.dev/gemini-api/docs/models",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 73.2,
+      "evaluation_date": "2025-05-22",
+      "evaluation_method": "agent: Tools; attempts: 1; self-reported",
+      "external_id": "20250522_tools_claude-4-opus",
+      "extra": {
+        "system_name": "Tools + Claude 4 Opus (2025-05-22)",
+        "agent": "Tools",
+        "checked": false,
+        "site": "https://www.anthropic.com/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GLM 5",
+      "developer": "Z-AI",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 72.8,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_glm-5-high",
+      "extra": {
+        "system_name": "GLM 5 (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.53438913622,
+        "total_cost_usd": 267.19456811,
+        "site": "https://z.ai",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 72.8,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_gpt-5-2-high",
+      "extra": {
+        "system_name": "GPT 5.2 (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.4735670177,
+        "total_cost_usd": 236.78350885,
+        "site": "https://platform.openai.com",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 5.2 Codex",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 72.8,
+      "evaluation_date": "2026-02-19",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260219_mini-v2.0.0_gpt-5-2-codex",
+      "extra": {
+        "system_name": "GPT 5.2 Codex",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.4494238987,
+        "total_cost_usd": 224.71194935,
+        "site": "https://platform.openai.com/docs/models/gpt-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 72.4,
+      "evaluation_date": "2025-05-22",
+      "evaluation_method": "agent: Tools; attempts: 1; self-reported",
+      "external_id": "20250522_tools_claude-4-sonnet",
+      "extra": {
+        "system_name": "Tools + Claude 4 Sonnet (2025-05-22)",
+        "agent": "Tools",
+        "checked": false,
+        "site": "https://www.anthropic.com/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 71.8,
+      "evaluation_date": "2025-08-07",
+      "evaluation_method": "agent: OpenHands; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250807_openhands_gpt5",
+      "extra": {
+        "system_name": "OpenHands + GPT-5",
+        "agent": "OpenHands",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://all-hands.dev/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 71.8,
+      "evaluation_date": "2025-12-11",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20251211_mini-v1.17.2_gpt-5.2-2025-12-11-high",
+      "extra": {
+        "system_name": "GPT 5.2 (2025-12-11) (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.5202590036,
+        "total_cost_usd": 260.1295018,
+        "site": "https://platform.openai.com/docs/models/gpt-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 71.4,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_claude-4-5-sonnet-high",
+      "extra": {
+        "system_name": "Claude 4.5 Sonnet (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.6578964984000001,
+        "total_cost_usd": 328.9482492,
+        "site": "https://www.anthropic.com/claude",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 71.2,
+      "evaluation_date": "2025-07-10",
+      "evaluation_method": "agent: Bloop; attempts: 1; self-reported",
+      "external_id": "20250710_bloop",
+      "extra": {
+        "system_name": "Bloop",
+        "agent": "Bloop",
+        "agent_org": "Bloop AI",
+        "checked": false,
+        "site": "https://bloop.ai/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 71.2,
+      "evaluation_date": "2025-09-29",
+      "evaluation_method": "agent: Prometheus-v1.2; attempts: 1; self-reported",
+      "external_id": "20250929_Prometheus_v1.2_gpt5",
+      "extra": {
+        "system_name": "Prometheus-v1.2 + GPT-5",
+        "agent": "Prometheus-v1.2",
+        "agent_org": "EuniAI",
+        "checked": false,
+        "site": "https://euni.ai/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Kimi K2",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 71.2,
+      "evaluation_date": "2025-10-14",
+      "evaluation_method": "agent: Lingxi v1.5; attempts: 1; self-reported",
+      "external_id": "20251014_Lingxi_kimi_k2",
+      "extra": {
+        "system_name": "Lingxi v1.5 x Kimi K2",
+        "agent": "Lingxi v1.5",
+        "agent_org": "Huawei",
+        "checked": false,
+        "site": "https://github.com/lingxi-agent/Lingxi/tree/master",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 70.8,
+      "evaluation_date": "2025-06-11",
+      "evaluation_method": "agent: Moatless Tools; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250611_moatless_claude-4-sonnet-20250514",
+      "extra": {
+        "system_name": "Moatless Tools + Claude 4 Sonnet",
+        "agent": "Moatless Tools",
+        "agent_org": "Moatless AI",
+        "checked": true,
+        "site": "https://github.com/aorwall/moatless-tools",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Kimi K2.5",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 70.8,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_kimi-k2-5-high",
+      "extra": {
+        "system_name": "Kimi K2.5 (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.14655374074400002,
+        "total_cost_usd": 73.276870372,
+        "site": "https://moonshotai.github.io/Kimi-K2/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 70.6,
+      "evaluation_date": "2025-09-29",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250929_mini-v1.13.3_sonnet-4-5-20250929",
+      "extra": {
+        "system_name": "Claude 4.5 Sonnet (20250929)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.5583347409,
+        "total_cost_usd": 279.16737045,
+        "site": "https://www.anthropic.com/news/claude-sonnet-4-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 70.4,
+      "evaluation_date": "2025-05-24",
+      "evaluation_method": "agent: OpenHands; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250524_openhands_claude_4_sonnet",
+      "extra": {
+        "system_name": "OpenHands + Claude 4 Sonnet",
+        "agent": "OpenHands",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://all-hands.dev/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "DeepSeek V3.2",
+      "developer": "DeepSeek",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 70.0,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_deepseek-3-2-high",
+      "extra": {
+        "system_name": "DeepSeek V3.2 (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.4478464965,
+        "total_cost_usd": 223.92324825,
+        "site": "https://api-docs.deepseek.com",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Qwen3-Coder-480B-A35B-Instruct",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 69.6,
+      "evaluation_date": "2025-08-05",
+      "evaluation_method": "agent: OpenHands; attempts: 1; self-reported",
+      "external_id": "20250805_openhands-Qwen3-Coder-480B-A35B-Instruct",
+      "extra": {
+        "system_name": "OpenHands + Qwen3-Coder-480B-A35B-Instruct",
+        "agent": "OpenHands",
+        "agent_org": "Qwen",
+        "checked": false,
+        "site": "https://qwenlm.github.io/blog/qwen3-coder/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Gemini 3 Pro",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 69.6,
+      "evaluation_date": "2026-02-26",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260226_mini-v2.0.0_gemini-3-pro-high",
+      "extra": {
+        "system_name": "Gemini 3 Pro",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.9600198564,
+        "total_cost_usd": 480.0099282,
+        "site": "https://ai.google.dev/gemini-api/docs/models",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 69.0,
+      "evaluation_date": "2025-12-11",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20251211_mini-v1.17.2_gpt-5.2-2025-12-11",
+      "extra": {
+        "system_name": "GPT 5.2 (2025-12-11)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.2696674974,
+        "total_cost_usd": 134.8337487,
+        "site": "https://platform.openai.com/docs/models/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GLM-4.6",
+      "developer": "Z.ai",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 68.2,
+      "evaluation_date": "2025-09-30",
+      "evaluation_method": "agent: Undisclosed; attempts: 1; self-reported",
+      "external_id": "20250930_zai_glm4-6",
+      "extra": {
+        "system_name": "GLM-4.6",
+        "agent": "Undisclosed",
+        "agent_org": "Z.ai",
+        "checked": false,
+        "site": "https://chat.z.ai/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 67.6,
+      "evaluation_date": "2025-08-02",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250802_mini-v1.0.0_claude-4-opus-20250514",
+      "extra": {
+        "system_name": "Claude 4 Opus (20250514)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 1.131270447,
+        "total_cost_usd": 565.6352234999999,
+        "site": "https://www.anthropic.com/news/claude-4",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 66.6,
+      "evaluation_date": "2025-05-22",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250522_sweagent_claude-4-sonnet-20250514",
+      "extra": {
+        "system_name": "SWE-agent + Claude 4 Sonnet",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4.5 Haiku",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": "high",
+      "score": 66.6,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_claude-4-5-haiku-high",
+      "extra": {
+        "system_name": "Claude 4.5 Haiku (high)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.33092443610000005,
+        "total_cost_usd": 165.46221805000002,
+        "site": "https://www.anthropic.com/claude",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.7 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 66.4,
+      "evaluation_date": "2025-05-14",
+      "evaluation_method": "agent: Aime-coder v1; attempts: 2+; self-reported",
+      "external_id": "20250514_aime_coder",
+      "extra": {
+        "system_name": "Aime-coder v1 + Anthopic Claude 3.7 Sonnet",
+        "agent": "Aime-coder v1",
+        "agent_org": "ByteDance DevInfra",
+        "checked": false,
+        "site": "https://github.com/SWE-bench/experiments/blob/main/evaluation/verified/20250514_aime_coder/README.md",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 5.1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": "medium",
+      "score": 66.0,
+      "evaluation_date": "2025-11-20",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20251120_mini-v1.15.0_gpt-5.1-2025-11-13",
+      "extra": {
+        "system_name": "GPT 5.1 (2025-11-13) (medium)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.3061554725,
+        "total_cost_usd": 153.07773625000002,
+        "site": "https://platform.openai.com/docs/models/gpt-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 5.1 Codex",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": "medium",
+      "score": 66.0,
+      "evaluation_date": "2025-11-24",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20251124_mini-v1.16.0_gpt-5.1-codex",
+      "extra": {
+        "system_name": "GPT 5.1 Codex (medium)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.5888823500000001,
+        "total_cost_usd": 294.44117500000004,
+        "site": "https://platform.openai.com/docs/models/gpt-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Kimi K2",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 65.4,
+      "evaluation_date": "2025-07-16",
+      "evaluation_method": "agent: OpenHands; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250716_openhands_kimi_k2",
+      "extra": {
+        "system_name": "OpenHands + Kimi K2",
+        "agent": "OpenHands",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://all-hands.dev/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": "medium",
+      "score": 65.0,
+      "evaluation_date": "2025-08-07",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250807_mini-v1.7.0_gpt-5",
+      "extra": {
+        "system_name": "GPT 5 (2025-08-07) (medium)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.2803830175,
+        "total_cost_usd": 140.19150875,
+        "site": "https://platform.openai.com/docs/models/gpt-5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 64.93,
+      "evaluation_date": "2025-07-26",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+      "extra": {
+        "system_name": "Claude 4 Sonnet (20250514)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.37145316780000004,
+        "total_cost_usd": 185.7265839,
+        "site": "https://www.anthropic.com/news/claude-4",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "o1-preview",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 64.6,
+      "evaluation_date": "2025-01-17",
+      "evaluation_method": "agent: W&B Programmer O1 crosscheck5; attempts: 2+; self-reported",
+      "external_id": "20250117_wandb_programmer_o1_crosscheck5",
+      "extra": {
+        "system_name": "W&B Programmer O1 crosscheck5",
+        "agent": "W&B Programmer O1 crosscheck5",
+        "checked": false,
+        "site": "https://wandb.ai",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 64.6,
+      "evaluation_date": "2025-05-03",
+      "evaluation_method": "agent: PatchPilot-v1.1; attempts: 2+; self-reported",
+      "external_id": "20250503_patchpilot-v1.1-o4-mini",
+      "extra": {
+        "system_name": "PatchPilot-v1.1",
+        "agent": "PatchPilot-v1.1",
+        "checked": false,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GLM-4.5",
+      "developer": "Z.ai",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 64.2,
+      "evaluation_date": "2025-07-28",
+      "evaluation_method": "agent: Undisclosed; attempts: 1; self-reported",
+      "external_id": "20250728_zai_glm4-5",
+      "extra": {
+        "system_name": "GLM-4.5",
+        "agent": "Undisclosed",
+        "agent_org": "Z.ai",
+        "checked": false,
+        "site": "https://chat.z.ai/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 63.4,
+      "evaluation_date": "2025-02-06",
+      "evaluation_method": "agent: AgentScope; attempts: 2+; self-reported",
+      "external_id": "20250206_agentscope",
+      "extra": {
+        "system_name": "AgentScope",
+        "agent": "AgentScope",
+        "agent_org": "Alibaba",
+        "checked": false,
+        "site": "https://github.com/modelscope/agentscope",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Kimi K2",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": "enabled",
+      "score": 63.4,
+      "evaluation_date": "2025-12-10",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251210_mini-v1.17.2_kimi-k2-thinking",
+      "extra": {
+        "system_name": "Kimi K2 Thinking",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.4383072354,
+        "total_cost_usd": 219.15361769999998,
+        "site": "https://moonshotai.github.io/Kimi-K2/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.7 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 63.2,
+      "evaluation_date": "2025-02-24",
+      "evaluation_method": "agent: Tools; attempts: 2+; self-reported",
+      "external_id": "20250224_tools_claude-3-7-sonnet",
+      "extra": {
+        "system_name": "Tools + Claude 3.7 Sonnet (2025-02-24)",
+        "agent": "Tools",
+        "agent_org": "Anthropic",
+        "checked": false,
+        "site": "https://www.anthropic.com/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 62.8,
+      "evaluation_date": "2025-02-28",
+      "evaluation_method": "agent: EPAM AI/Run Developer Agent; attempts: 2+; self-reported",
+      "external_id": "20250228_epam-ai-run-claude-3-5-sonnet",
+      "extra": {
+        "system_name": "EPAM AI/Run Developer Agent v20250219 + Anthopic Claude 3.5 Sonnet",
+        "agent": "EPAM AI/Run Developer Agent",
+        "checked": false,
+        "site": "https://www.epam.com/services/artificial-intelligence",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.7 Sonnet w/ Review Heavy",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 62.4,
+      "evaluation_date": "2025-02-25",
+      "evaluation_method": "agent: SWE-agent; attempts: 2+; verified by SWE-bench team",
+      "external_id": "20250225_sweagent_claude-3-7-sonnet",
+      "extra": {
+        "system_name": "SWE-agent + Claude 3.7 Sonnet w/ Review Heavy",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "swe-search",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 62.2,
+      "evaluation_date": "2024-12-21",
+      "evaluation_method": "agent: CodeStory Midwit Agent; attempts: 2+; self-reported",
+      "external_id": "20241221_codestory_midwit_claude-3-5-sonnet_swe-search",
+      "extra": {
+        "system_name": "CodeStory Midwit Agent + swe-search",
+        "agent": "CodeStory Midwit Agent",
+        "checked": false,
+        "site": "https://aide.dev/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "MiniMax M2",
+      "developer": "Minimax",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 61.0,
+      "evaluation_date": "2025-11-24",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251124_mini-v1.17.0_minimax-m2",
+      "extra": {
+        "system_name": "MiniMax M2",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.42825617729,
+        "total_cost_usd": 214.128088645,
+        "site": "https://www.minimax.io",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "4x Scaled",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 60.8,
+      "evaluation_date": "2025-02-03",
+      "evaluation_method": "agent: OpenHands; attempts: 2+; verified by SWE-bench team",
+      "external_id": "20250203_openhands_4x_scaled",
+      "extra": {
+        "system_name": "OpenHands + 4x Scaled (2024-02-03)",
+        "agent": "OpenHands",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://all-hands.dev/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Qwen3-Coder-30B-A3B-Instruct",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 60.4,
+      "evaluation_date": "2025-09-01",
+      "evaluation_method": "agent: EntroPO + R2E; attempts: 2+; verified by SWE-bench team",
+      "external_id": "20250901_entroPO_R2E_QwenCoder30BA3B_tts",
+      "extra": {
+        "system_name": "EntroPO + R2E + Qwen3-Coder-30B-A3B-Instruct",
+        "agent": "EntroPO + R2E",
+        "agent_org": "42-b3yond-6ug",
+        "checked": "false (See README.md for info on how to get your results verified)",
+        "site": "https://github.com/sherdencooper/R2E-Gym",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 60.2,
+      "evaluation_date": "2025-01-10",
+      "evaluation_method": "agent: Learn-by-interact; attempts: 2+; self-reported",
+      "external_id": "20250110_learn_by_interact_claude3.5",
+      "extra": {
+        "system_name": "Learn-by-interact",
+        "agent": "Learn-by-interact",
+        "agent_org": "Google",
+        "checked": false,
+        "site": "https://arxiv.org/pdf/2501.10893",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "DeepSeek V3.2 Reasoner",
+      "developer": "deepseek",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 60.0,
+      "evaluation_date": "2025-12-01",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+      "extra": {
+        "system_name": "DeepSeek V3.2 Reasoner",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.0280763028,
+        "total_cost_usd": 14.0381514,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 5 mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": "medium",
+      "score": 59.8,
+      "evaluation_date": "2025-08-07",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250807_mini-v1.7.0_gpt-5-mini",
+      "extra": {
+        "system_name": "GPT 5 mini (2025-08-07) (medium)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.035477067300000005,
+        "total_cost_usd": 17.73853365,
+        "site": "https://platform.openai.com/docs/models/gpt-5-mini",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "TTS(Bo16)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 58.8,
+      "evaluation_date": "2025-06-29",
+      "evaluation_method": "agent: DeepSWE-Preview; attempts: 2+; self-reported",
+      "external_id": "20250629_deepswerl_r2eagent_tts",
+      "extra": {
+        "system_name": "DeepSWE-Preview + TTS(Bo16)",
+        "agent": "DeepSWE-Preview",
+        "agent_org": "Agentica",
+        "checked": false,
+        "site": "agentica-project.com/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 58.4,
+      "evaluation_date": "2025-07-26",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250726_mini-v1.0.0_o3-2025-04-16",
+      "extra": {
+        "system_name": "o3 (2025-04-16)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.333652748,
+        "total_cost_usd": 166.826374,
+        "site": "https://platform.openai.com/docs/models/o3",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude Sonnet 4",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 57.0,
+      "evaluation_date": "2025-09-24",
+      "evaluation_method": "agent: Artemis Agent v2; attempts: 1; self-reported",
+      "external_id": "20250924_artemis_agent_v2",
+      "extra": {
+        "system_name": "Artemis Agent v2 (2025-09-24)",
+        "agent": "Artemis Agent v2",
+        "agent_org": "Turintech",
+        "checked": false,
+        "site": "https://www.turintech.ai/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Devstral Small (2512)",
+      "developer": "mistral",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 56.4,
+      "evaluation_date": "2025-12-09",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251209_mini-v1.17.2_devstral-small-2512",
+      "extra": {
+        "system_name": "Devstral Small (2512)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 5 mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 56.2,
+      "evaluation_date": "2026-02-17",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; self-reported",
+      "external_id": "20260217_mini-v2.0.0_gpt-5-mini",
+      "extra": {
+        "system_name": "GPT 5 mini",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "cost_per_task_usd": 0.0472012191,
+        "total_cost_usd": 23.600609549999998,
+        "site": "https://platform.openai.com",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 55.4,
+      "evaluation_date": "2024-12-12",
+      "evaluation_method": "agent: EPAM AI/Run Developer Agent; attempts: 2+; self-reported",
+      "external_id": "20241212_epam-ai-run-claude-3-5-sonnet",
+      "extra": {
+        "system_name": "EPAM AI/Run Developer Agent v20241212 + Anthopic Claude 3.5 Sonnet",
+        "agent": "EPAM AI/Run Developer Agent",
+        "checked": false,
+        "site": "https://www.epam.com/services/artificial-intelligence",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Qwen3-Coder 480B/A35B Instruct",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 55.4,
+      "evaluation_date": "2025-08-02",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+      "extra": {
+        "system_name": "Qwen3-Coder 480B/A35B Instruct",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.247927108,
+        "total_cost_usd": 123.963554,
+        "site": "https://qwenlm.github.io/blog/qwen3-coder/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GLM 4.6",
+      "developer": "Z.ai",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 55.4,
+      "evaluation_date": "2025-12-01",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251201_mini-v1.17.1_glm-4.6",
+      "extra": {
+        "system_name": "GLM 4.6 (T=1)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.09661007519999999,
+        "total_cost_usd": 48.3050376,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 54.2,
+      "evaluation_date": "2024-11-08",
+      "evaluation_method": "agent: devlo; attempts: 2+; self-reported",
+      "external_id": "20241108_devlo",
+      "extra": {
+        "system_name": "devlo",
+        "agent": "devlo",
+        "checked": false,
+        "site": "https://devlo.ai/?utm_source=swe-bench",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GLM 4.5",
+      "developer": "Z.ai",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 54.2,
+      "evaluation_date": "2025-08-22",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250822_mini-v1.9.1_glm-4.5",
+      "extra": {
+        "system_name": "GLM 4.5 (2025-08-22)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.2971903488,
+        "total_cost_usd": 148.5951744,
+        "site": "https://z.ai/blog/glm-4.5",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Devstral (2512)",
+      "developer": "mistral",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 53.8,
+      "evaluation_date": "2025-12-09",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251209_mini-v1.17.2_devstral-2512",
+      "extra": {
+        "system_name": "Devstral (2512)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Frogboss 32B 2510",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 53.6,
+      "evaluation_date": "2025-11-10",
+      "evaluation_method": "agent: FrogBoss-32B-2510; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251110_frogboss-32b",
+      "extra": {
+        "system_name": "FrogBoss-32B-2510",
+        "agent": "FrogBoss-32B-2510",
+        "agent_org": "Microsoft",
+        "checked": "false (See README.md for info on how to get your results verified)",
+        "site": "https://microsoft.github.io/debug-gym/blog/2025/10/bug-pilot/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Gemini 2.5 Pro",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 53.6,
+      "evaluation_date": "2025-07-26",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250726_mini-v1.0.0_gemini-2.5-pro",
+      "extra": {
+        "system_name": "Gemini 2.5 Pro (2025-05-06)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.28837209562500005,
+        "total_cost_usd": 144.18604781250002,
+        "site": "https://ai.google.dev/gemini-api/docs/models",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Kimi K2 Instruct",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 53.4,
+      "evaluation_date": "2025-08-04",
+      "evaluation_method": "agent: CodeSweep - SWE-agent; attempts: 1; self-reported",
+      "external_id": "20250804_codesweep_sweagent_kimi_k2_instruct",
+      "extra": {
+        "system_name": "CodeSweep - SWE-agent - Kimi K2 Instruct",
+        "agent": "CodeSweep - SWE-agent",
+        "agent_org": "CodeSweep Inc.",
+        "checked": false,
+        "site": "https://codesweep.ai/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "CodeAct v2.1 (claude-3-5-sonnet-20241022)",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 53.0,
+      "evaluation_date": "2024-10-29",
+      "evaluation_method": "agent: OpenHands; attempts: 2+; verified by SWE-bench team",
+      "external_id": "20241029_OpenHands-CodeAct-2.1-sonnet-20241022",
+      "extra": {
+        "system_name": "OpenHands + CodeAct v2.1 (claude-3-5-sonnet-20241022)",
+        "agent": "OpenHands",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://docs.all-hands.dev/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.7 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 52.8,
+      "evaluation_date": "2025-07-20",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250720_mini-v0.0.0-claude-3-7-sonnet-20250219",
+      "extra": {
+        "system_name": "Claude 3.7 Sonnet (20250219)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.3546154482,
+        "total_cost_usd": 177.3077241,
+        "site": "https://www.anthropic.com/news/claude-3-7-sonnet",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Gemini 2.0 Flash (v20241212-experimental)",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 52.2,
+      "evaluation_date": "2024-12-12",
+      "evaluation_method": "agent: Google Jules; attempts: 2+; self-reported",
+      "external_id": "20241212_google_jules_gemini_2.0_flash_experimental",
+      "extra": {
+        "system_name": "Google Jules + Gemini 2.0 Flash (v20241212-experimental)",
+        "agent": "Google Jules",
+        "agent_org": "Google",
+        "checked": false,
+        "site": "https://developers.googleblog.com/en/the-next-chapter-of-the-gemini-era-for-developers/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Qwen3-Coder-30B-A3B-Instruct",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 52.2,
+      "evaluation_date": "2025-09-01",
+      "evaluation_method": "agent: EntroPO + R2E; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250901_entroPO_R2E_QwenCoder30BA3B",
+      "extra": {
+        "system_name": "EntroPO + R2E + Qwen3-Coder-30B-A3B-Instruct",
+        "agent": "EntroPO + R2E",
+        "agent_org": "42-b3yond-6ug",
+        "checked": "false (See README.md for info on how to get your results verified)",
+        "site": "https://github.com/sherdencooper/R2E-Gym",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 51.8,
+      "evaluation_date": "2024-11-25",
+      "evaluation_method": "agent: Engine Labs; attempts: 1; self-reported",
+      "external_id": "20241125_enginelabs",
+      "extra": {
+        "system_name": "Engine Labs (2024-11-25)",
+        "agent": "Engine Labs",
+        "agent_org": "Engine Labs",
+        "checked": false,
+        "site": "https://www.enginelabs.ai/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5-Sonnet-20241022",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 51.6,
+      "evaluation_date": "2025-01-22",
+      "evaluation_method": "agent: AutoCodeRover-v2.1; attempts: 2+; self-reported",
+      "external_id": "20250122_autocoderover-v2.1-claude-3-5-sonnet-20241022",
+      "extra": {
+        "system_name": "AutoCodeRover-v2.1 (Claude-3.5-Sonnet-20241022)",
+        "agent": "AutoCodeRover-v2.1",
+        "checked": false,
+        "site": "https://www.autocoderover.net/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Qwen3-Coder-30B-A3B-Instruct",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 51.6,
+      "evaluation_date": "2025-08-05",
+      "evaluation_method": "agent: OpenHands; attempts: 1; self-reported",
+      "external_id": "20250805_openhands-Qwen3-Coder-30B-A3B-Instruct",
+      "extra": {
+        "system_name": "OpenHands + Qwen3-Coder-30B-A3B-Instruct",
+        "agent": "OpenHands",
+        "agent_org": "Qwen",
+        "checked": false,
+        "site": "https://qwenlm.github.io/blog/qwen3-coder/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 50.8,
+      "evaluation_date": "2024-12-02",
+      "evaluation_method": "agent: Agentless-1.5; attempts: 2+; self-reported",
+      "external_id": "20241202_agentless-1.5_claude-3.5-sonnet-20241022",
+      "extra": {
+        "system_name": "Agentless-1.5 + Claude-3.5 Sonnet (20241022)",
+        "agent": "Agentless-1.5",
+        "agent_org": "Agentless",
+        "checked": false,
+        "site": "https://github.com/OpenAutoCoder/Agentless",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 49.0,
+      "evaluation_date": "2024-10-22",
+      "evaluation_method": "agent: Tools; attempts: 2+; self-reported",
+      "external_id": "20241022_tools_claude-3-5-sonnet-updated",
+      "extra": {
+        "system_name": "Tools + Claude 3.5 Sonnet (2024-10-22)",
+        "agent": "Tools",
+        "agent_org": "Anthropic",
+        "checked": false,
+        "site": "https://www.anthropic.com/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "TTS(Bo8)",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 47.0,
+      "evaluation_date": "2025-06-16",
+      "evaluation_method": "agent: Skywork-SWE-32B; attempts: 2+; verified by SWE-bench team",
+      "external_id": "20250616_Skywork-SWE-32B+TTS_Bo8",
+      "extra": {
+        "system_name": "Skywork-SWE-32B + TTS(Bo8)",
+        "agent": "Skywork-SWE-32B",
+        "agent_org": "Skywork AI",
+        "checked": true,
+        "site": "https://quixotic-sting-239.notion.site/eb17f379610040ceb54da5d5d24065bd",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "DevStral Small 2505",
+      "developer": "Mistral",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 46.8,
+      "evaluation_date": "2025-05-20",
+      "evaluation_method": "agent: OpenHands; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250520_openhands_devstral_small",
+      "extra": {
+        "system_name": "OpenHands + DevStral Small 2505",
+        "agent": "OpenHands",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://all-hands.dev/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5-Sonnet-20241022",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 46.2,
+      "evaluation_date": "2024-11-08",
+      "evaluation_method": "agent: AutoCodeRover-v2.0; attempts: 2+; self-reported",
+      "external_id": "20241108_autocoderover-v2.0-claude-3-5-sonnet-20241022",
+      "extra": {
+        "system_name": "AutoCodeRover-v2.0 (Claude-3.5-Sonnet-20241022)",
+        "agent": "AutoCodeRover-v2.0",
+        "checked": false,
+        "site": "https://www.autocoderover.net/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Co-PatcheR",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 46.0,
+      "evaluation_date": "2025-05-28",
+      "evaluation_method": "agent: PatchPilot; attempts: 2+; self-reported",
+      "external_id": "20250528_patchpilot_Co-PatcheR",
+      "extra": {
+        "system_name": "PatchPilot + Co-PatcheR",
+        "agent": "PatchPilot",
+        "checked": false,
+        "site": "https://github.com/ucsb-mlsec/Co-PatcheR",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Frogmini 14B 2510",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 45.0,
+      "evaluation_date": "2025-11-10",
+      "evaluation_method": "agent: FrogMini-14B-2510; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251110_frogmini-14b",
+      "extra": {
+        "system_name": "FrogMini-14B-2510",
+        "agent": "FrogMini-14B-2510",
+        "agent_org": "Microsoft",
+        "checked": "false (See README.md for info on how to get your results verified)",
+        "site": "https://microsoft.github.io/debug-gym/blog/2025/10/bug-pilot/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 45.0,
+      "evaluation_date": "2025-07-26",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+      "extra": {
+        "system_name": "o4-mini (2025-04-16)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.2099733328,
+        "total_cost_usd": 104.9866664,
+        "site": "https://platform.openai.com/docs/models/o4-mini",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Gemini 2.0 Flash (Experimental)",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 44.2,
+      "evaluation_date": "2025-01-18",
+      "evaluation_method": "agent: CodeShellAgent; attempts: 2+; self-reported",
+      "external_id": "20250118_codeshellagent_gemini_2.0_flash_experimental",
+      "extra": {
+        "system_name": "CodeShellAgent + Gemini 2.0 Flash (Experimental)",
+        "agent": "CodeShellAgent",
+        "checked": false,
+        "site": "https://github.com/WisdomShell/codeshell",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Kimi K2 Instruct",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 43.8,
+      "evaluation_date": "2025-08-07",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250807_mini-v1.7.0_kimi-k2-instruct",
+      "extra": {
+        "system_name": "Kimi K2 Instruct",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.531593366,
+        "total_cost_usd": 265.796683,
+        "site": "https://moonshotai.github.io/Kimi-K2/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "O3 Mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 42.4,
+      "evaluation_date": "2025-02-14",
+      "evaluation_method": "agent: Agentless Lite; attempts: 2+; verified by SWE-bench team",
+      "external_id": "20250214_agentless_lite_o3_mini",
+      "extra": {
+        "system_name": "Agentless Lite + O3 Mini (20250214)",
+        "agent": "Agentless Lite",
+        "agent_org": "Agentless",
+        "checked": true,
+        "site": "https://github.com/sorendunn/Agentless-Lite",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Amazon.nova Premier v1:0",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 42.4,
+      "evaluation_date": "2025-05-27",
+      "evaluation_method": "agent: Amazon Nova Premier 1.0; attempts: 2+; self-reported",
+      "external_id": "20250527_amazon.nova-premier-v1.0",
+      "extra": {
+        "system_name": "Amazon Nova Premier 1.0 (2025-04-30)",
+        "agent": "Amazon Nova Premier 1.0",
+        "agent_org": "Amazon Nova",
+        "checked": false,
+        "site": "aws.amazon.com/nova",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "DeepSWE-Preview",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 42.2,
+      "evaluation_date": "2025-06-29",
+      "evaluation_method": "agent: R2E-Gym; attempts: 1; self-reported",
+      "external_id": "20250629_deepswerl_r2eagent",
+      "extra": {
+        "system_name": "DeepSWE-Preview",
+        "agent": "R2E-Gym",
+        "agent_org": "Agentica",
+        "checked": false,
+        "site": "agentica-project.com/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "DeepSeek V3 0324",
+      "developer": "DeepSeek",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 42.0,
+      "evaluation_date": "2025-08-06",
+      "evaluation_method": "agent: SWE-Exp; attempts: 2; verified by SWE-bench team",
+      "external_id": "20250806_SWE-Exp_DeepSeek-V3",
+      "extra": {
+        "system_name": "SWE-Exp",
+        "agent": "SWE-Exp",
+        "agent_org": "SWE-Exp",
+        "checked": "false (See README.md for info on how to get your results verified)",
+        "site": "https://github.com/YerbaPage/SWE-Exp",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Llama3-SWE-RL-70B",
+      "developer": "Meta",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 41.2,
+      "evaluation_date": "2025-02-26",
+      "evaluation_method": "agent: Agentless Mini; attempts: 2+; self-reported",
+      "external_id": "20250226_swerl_llama3_70b",
+      "extra": {
+        "system_name": "SWE-RL (Llama3-SWE-RL-70B + Agentless Mini) (20250226)",
+        "agent": "Agentless Mini",
+        "agent_org": "Agentless",
+        "checked": false,
+        "site": "https://github.com/facebookresearch/swe-rl",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 40.6,
+      "evaluation_date": "2024-10-16",
+      "evaluation_method": "agent: Composio SWEkit; attempts: 2+; self-reported",
+      "external_id": "20241016_composio_swekit",
+      "extra": {
+        "system_name": "Composio SWEkit + Claude 3.5 Sonnet (2024-10-16)",
+        "agent": "Composio SWEkit",
+        "checked": false,
+        "site": "https://github.com/ComposioHQ/composio/tree/master/python/swe/agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Haiku",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 40.6,
+      "evaluation_date": "2024-10-22",
+      "evaluation_method": "agent: Tools; attempts: 2+; self-reported",
+      "external_id": "20241022_tools_claude-3-5-haiku",
+      "extra": {
+        "system_name": "Tools + Claude 3.5 Haiku",
+        "agent": "Tools",
+        "agent_org": "Anthropic",
+        "checked": false,
+        "site": "https://www.anthropic.com/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "SWE-agent-LM-32B",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 40.2,
+      "evaluation_date": "2025-05-11",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250511_sweagent_lm_32b",
+      "extra": {
+        "system_name": "SWE-agent + SWE-agent-LM-32B",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://swesmith.com/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 39.6,
+      "evaluation_date": "2024-10-29",
+      "evaluation_method": "agent: EPAM AI/Run Developer Agent; attempts: 2+; self-reported",
+      "external_id": "20241029_epam-ai-run-claude-3-5-sonnet",
+      "extra": {
+        "system_name": "EPAM AI/Run Developer Agent v20241029 + Anthopic Claude 3.5 Sonnet",
+        "agent": "EPAM AI/Run Developer Agent",
+        "checked": false,
+        "site": "https://www.epam.com/services/artificial-intelligence",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 4.1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 39.58,
+      "evaluation_date": "2025-07-26",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+      "extra": {
+        "system_name": "GPT 4.1 (2025-04-14)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.146313124,
+        "total_cost_usd": 73.156562,
+        "site": "https://platform.openai.com/docs/models/gpt-4.1",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 38.8,
+      "evaluation_date": "2024-10-28",
+      "evaluation_method": "agent: Agentless-1.5; attempts: 1; self-reported",
+      "external_id": "20241028_agentless-1.5_gpt4o",
+      "extra": {
+        "system_name": "Agentless-1.5 + GPT 4o (2024-05-13)",
+        "agent": "Agentless-1.5",
+        "agent_org": "Agentless",
+        "checked": false,
+        "site": "https://github.com/OpenAutoCoder/Agentless",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 38.4,
+      "evaluation_date": "2024-06-28",
+      "evaluation_method": "agent: AutoCodeRover; attempts: 2+; self-reported",
+      "external_id": "20240628_autocoderover-v20240620",
+      "extra": {
+        "system_name": "AutoCodeRover (v20240620) + GPT 4o (2024-05-13)",
+        "agent": "AutoCodeRover",
+        "checked": false,
+        "site": "https://autocoderover.dev/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Qwen2.5 Coder 32B Instruct",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 38.0,
+      "evaluation_date": "2025-06-16",
+      "evaluation_method": "agent: Skywork-SWE-32B; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250616_Skywork-SWE-32B",
+      "extra": {
+        "system_name": "Skywork-SWE-32B",
+        "agent": "Skywork-SWE-32B",
+        "agent_org": "Skywork AI",
+        "checked": true,
+        "site": "https://quixotic-sting-239.notion.site/eb17f379610040ceb54da5d5d24065bd",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "DevStral Small 2507",
+      "developer": "Mistral",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 38.0,
+      "evaluation_date": "2025-07-25",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250725_sweagent_devstral_small_2507",
+      "extra": {
+        "system_name": "SWE-agent + DevStral Small 2507",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://swe-agent.com/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 5 nano",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": "medium",
+      "score": 34.8,
+      "evaluation_date": "2025-08-07",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250807_mini-v1.7.0_gpt-5-nano",
+      "extra": {
+        "system_name": "GPT 5 nano (2025-08-07) (medium)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.03807518078,
+        "total_cost_usd": 19.037590390000002,
+        "site": "https://platform.openai.com/docs/models/gpt-5-nano",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 33.6,
+      "evaluation_date": "2024-06-20",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240620_sweagent_claude3.5sonnet",
+      "extra": {
+        "system_name": "SWE-agent + Claude 3.5 Sonnet",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Qwen2.5 (7B + 72B)",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 32.8,
+      "evaluation_date": "2025-03-06",
+      "evaluation_method": "agent: SWE-Fixer; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250306_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor",
+      "extra": {
+        "system_name": "SWE-Fixer (Qwen2.5-7b retriever + Qwen2.5-72b editor)",
+        "agent": "SWE-Fixer",
+        "checked": true,
+        "site": "https://github.com/InternLM/SWE-Fixer",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 32.6,
+      "evaluation_date": "2024-06-12",
+      "evaluation_method": "agent: MASAI; attempts: 2+; self-reported",
+      "external_id": "20240612_MASAI_gpt4o",
+      "extra": {
+        "system_name": "MASAI + GPT 4o (2024-06-12)",
+        "agent": "MASAI",
+        "checked": false,
+        "site": "https://masai-dev-agent.github.io/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Qwen2.5 (7B + 72B)",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 30.2,
+      "evaluation_date": "2024-11-28",
+      "evaluation_method": "agent: SWE-Fixer; attempts: 2+; self-reported",
+      "external_id": "20241128_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor_20241128",
+      "extra": {
+        "system_name": "SWE-Fixer (Qwen2.5-7b retriever + Qwen2.5-72b editor) 20241128",
+        "agent": "SWE-Fixer",
+        "checked": false,
+        "site": "https://github.com/InternLM/SWE-Fixer",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Lingma SWE-GPT 72b (v0925)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 28.8,
+      "evaluation_date": "2024-10-02",
+      "evaluation_method": "agent: Lingma Agent; attempts: 2+; self-reported",
+      "external_id": "20241002_lingma-agent_lingma-swe-gpt-72b",
+      "extra": {
+        "system_name": "Lingma Agent + Lingma SWE-GPT 72b (v0925)",
+        "agent": "Lingma Agent",
+        "agent_org": "Alibaba",
+        "checked": false,
+        "site": "https://www.modelscope.cn/models/yingwei/Lingma-SWE-GPT (https://www.modelscope.cn/models/yingwei/Lingma-SWE-GPT-v20240925)",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Gemini 2.5 Flash",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 28.73,
+      "evaluation_date": "2025-07-26",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250726_mini-v1.0.0_gemini-2.5-flash",
+      "extra": {
+        "system_name": "Gemini 2.5 Flash (2025-04-17)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.13388571835,
+        "total_cost_usd": 66.942859175,
+        "site": "https://ai.google.dev/gemini-api/docs/models",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 27.0,
+      "evaluation_date": "2024-10-16",
+      "evaluation_method": "agent: EPAM AI/Run Developer Agent; attempts: 2+; self-reported",
+      "external_id": "20241016_epam-ai-run-gpt-4o",
+      "extra": {
+        "system_name": "EPAM AI/Run Developer Agent + GPT4o",
+        "agent": "EPAM AI/Run Developer Agent",
+        "checked": false,
+        "site": "https://www.epam.com/services/artificial-intelligence",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 26.2,
+      "evaluation_date": "2024-06-15",
+      "evaluation_method": "agent: AppMap Navie; attempts: 2+; verified by SWE-bench team",
+      "external_id": "20240615_appmap-navie_gpt4o",
+      "extra": {
+        "system_name": "AppMap Navie + GPT 4o (2024-05-13)",
+        "agent": "AppMap Navie",
+        "checked": true,
+        "site": "https://appmap.io/navie",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "gpt-oss-120b",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 26.0,
+      "evaluation_date": "2025-08-07",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250807_mini-v1.7.0_gpt-oss-120b",
+      "extra": {
+        "system_name": "gpt-oss-120b",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.05711905579999999,
+        "total_cost_usd": 28.559527899999996,
+        "site": "https://platform.openai.com/docs/models/gpt-oss-120b",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Lingma SWE-GPT 72b (v0918)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 25.0,
+      "evaluation_date": "2024-09-18",
+      "evaluation_method": "agent: Lingma Agent; attempts: 2+; self-reported",
+      "external_id": "20240918_lingma-agent_lingma-swe-gpt-72b",
+      "extra": {
+        "system_name": "Lingma Agent + Lingma SWE-GPT 72b (v0918)",
+        "agent": "Lingma Agent",
+        "agent_org": "Alibaba",
+        "checked": false,
+        "site": "https://www.modelscope.cn/models/yingwei/Lingma-SWE-GPT",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 24.0,
+      "evaluation_date": "2024-08-20",
+      "evaluation_method": "agent: EPAM AI/Run Developer Agent; attempts: 2+; self-reported",
+      "external_id": "20240820_epam-ai-run-gpt-4o",
+      "extra": {
+        "system_name": "EPAM AI/Run Developer Agent + GPT4o",
+        "agent": "EPAM AI/Run Developer Agent",
+        "checked": false,
+        "site": "https://www.epam.com/services/artificial-intelligence",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 4.1 mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 23.94,
+      "evaluation_date": "2025-07-20",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250720_mini-v0.0.0_gpt-4.1-mini-2025-04-14",
+      "extra": {
+        "system_name": "GPT 4.1 mini (2025-04-14)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.43515415279999997,
+        "total_cost_usd": 217.57707639999998,
+        "site": "https://platform.openai.com/docs/models/gpt-4.1-mini",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 23.2,
+      "evaluation_date": "2024-07-28",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240728_sweagent_gpt4o",
+      "extra": {
+        "system_name": "SWE-agent + GPT 4o (2024-05-13)",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "MCTS Refine 7B",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 23.2,
+      "evaluation_date": "2025-06-27",
+      "evaluation_method": "agent: MCTS-Refine-7B; attempts: 1; self-reported",
+      "external_id": "20250627_agentless_MCTS-Refine-7B",
+      "extra": {
+        "system_name": "MCTS-Refine-7B",
+        "agent": "MCTS-Refine-7B",
+        "checked": false,
+        "site": "https://mcts-refine.github.io/MCTS-Refine",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-4 (1106)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 22.4,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240402_sweagent_gpt4",
+      "extra": {
+        "system_name": "SWE-agent + GPT 4 (1106)",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT 4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 21.62,
+      "evaluation_date": "2025-07-20",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250720_mini-v0.0.0-gpt-4o-2024-11-20",
+      "extra": {
+        "system_name": "GPT 4o (2024-11-20)",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 1.531148125,
+        "total_cost_usd": 765.5740625000001,
+        "site": "https://platform.openai.com/docs/models/gpt-4o",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Llama 4 Maverick Instruct",
+      "developer": "Meta",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 21.04,
+      "evaluation_date": "2025-07-20",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250720_mini-v0.0.0-Llama-4-Maverick-17B-Instruct",
+      "extra": {
+        "system_name": "Llama 4 Maverick Instruct",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.31370609759999996,
+        "total_cost_usd": 156.85304879999998,
+        "site": "https://www.together.ai/models/llama-4-maverick",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Lingma SWE-GPT 7b (v0925)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 18.2,
+      "evaluation_date": "2024-10-02",
+      "evaluation_method": "agent: Lingma Agent; attempts: 2+; self-reported",
+      "external_id": "20241002_lingma-agent_lingma-swe-gpt-7b",
+      "extra": {
+        "system_name": "Lingma Agent + Lingma SWE-GPT 7b (v0925)",
+        "agent": "Lingma Agent",
+        "agent_org": "Alibaba",
+        "checked": false,
+        "site": "https://www.modelscope.cn/models/yingwei/Lingma-SWE-GPT (https://www.modelscope.cn/models/yingwei/Lingma-SWE-GPT-v20240925)",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 15.8,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20240402_sweagent_claude3opus",
+      "extra": {
+        "system_name": "SWE-agent + Claude 3 Opus",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Gemini 2.0 Flash",
+      "developer": "Google DeepMind",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 13.52,
+      "evaluation_date": "2025-07-26",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250726_mini-v1.0.0_gemini-2.0-flash",
+      "extra": {
+        "system_name": "Gemini 2.0 Flash",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.0,
+        "total_cost_usd": 0.0,
+        "site": "https://ai.google.dev/gemini-api/docs/models",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Lingma SWE-GPT 7b (v0918)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 10.2,
+      "evaluation_date": "2024-09-18",
+      "evaluation_method": "agent: Lingma Agent; attempts: 2+; self-reported",
+      "external_id": "20240918_lingma-agent_lingma-swe-gpt-7b",
+      "extra": {
+        "system_name": "Lingma Agent + Lingma SWE-GPT 7b (v0918)",
+        "agent": "Lingma Agent",
+        "agent_org": "Alibaba",
+        "checked": false,
+        "site": "https://www.modelscope.cn/models/yingwei/Lingma-SWE-GPT",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Llama 4 Scout Instruct",
+      "developer": "Meta",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 9.06,
+      "evaluation_date": "2025-07-20",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250720_mini-v0.0.0-Llama-4-Scout-17B-Instruct",
+      "extra": {
+        "system_name": "Llama 4 Scout Instruct",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.115631523,
+        "total_cost_usd": 57.8157615,
+        "site": "https://www.together.ai/models/llama-4-scout",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Qwen2.5-Coder 32B Instruct",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 9.0,
+      "evaluation_date": "2025-08-03",
+      "evaluation_method": "agent: mini-SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250803_mini-v1.0.0_qwen2-5-coder-32b-instruct",
+      "extra": {
+        "system_name": "Qwen2.5-Coder 32B Instruct",
+        "agent": "mini-SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "cost_per_task_usd": 0.06811614065999999,
+        "total_cost_usd": 34.05807032999999,
+        "site": "https://qwenlm.github.io/blog/qwen2.5-coder/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 3 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 7.0,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: RAG baseline; attempts: 2+; verified by SWE-bench team",
+      "external_id": "20240402_rag_claude3opus",
+      "extra": {
+        "system_name": "RAG + Claude 3 Opus",
+        "agent": "RAG baseline",
+        "checked": true,
+        "site": "https://github.com/SWE-bench/SWE-bench/tree/main/swebench/inference",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "Claude 2",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 4.4,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; attempts: 1; verified by SWE-bench team",
+      "external_id": "20231010_rag_claude2",
+      "extra": {
+        "system_name": "RAG + Claude 2",
+        "agent": "RAG baseline",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-4 (1106)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 2.8,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: RAG baseline; attempts: 2+; verified by SWE-bench team",
+      "external_id": "20240402_rag_gpt4",
+      "extra": {
+        "system_name": "RAG + GPT 4 (1106)",
+        "agent": "RAG baseline",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "SWE-Llama 7B",
+      "developer": "Meta",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1.4,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; attempts: 1; verified by SWE-bench team",
+      "external_id": "20231010_rag_swellama7b",
+      "extra": {
+        "system_name": "RAG + SWE-Llama 7B",
+        "agent": "RAG baseline",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "SWE-Llama 13B",
+      "developer": "Meta",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1.2,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; attempts: 1; verified by SWE-bench team",
+      "external_id": "20231010_rag_swellama13b",
+      "extra": {
+        "system_name": "RAG + SWE-Llama 13B",
+        "agent": "RAG baseline",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "verified",
+      "model": "GPT-3.5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 0.4,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; attempts: 1; verified by SWE-bench team",
+      "external_id": "20231010_rag_gpt35",
+      "extra": {
+        "system_name": "RAG + ChatGPT 3.5",
+        "agent": "RAG baseline",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 60.33,
+      "evaluation_date": "2025-06-25",
+      "evaluation_method": "agent: ExpeRepair-v1.0; attempts: 2+; self-reported",
+      "external_id": "20250625_ExpeRepair-v1_claude-4-sonnet-20250514",
+      "extra": {
+        "system_name": "ExpeRepair-v1.0 + Claude 4 Sonnet",
+        "agent": "ExpeRepair-v1.0",
+        "checked": false,
+        "site": "https://github.com/ExpeRepair/ExpeRepair",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 58.33,
+      "evaluation_date": "2025-09-06",
+      "evaluation_method": "agent: KGCompass; attempts: 2+; self-reported",
+      "external_id": "20250906_KGCompass_claude-4-sonnet-20250514",
+      "extra": {
+        "system_name": "KGCompass + Claude 4 Sonnet (20250514)",
+        "agent": "KGCompass",
+        "agent_org": "GLEAM-Lab",
+        "checked": false,
+        "site": "https://github.com/GLEAM-Lab/KGCompass",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 56.67,
+      "evaluation_date": "2025-05-26",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250526_sweagent_claude-4-sonnet-20250514",
+      "extra": {
+        "system_name": "SWE-agent + Claude 4 Sonnet",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 51.33,
+      "evaluation_date": "2025-09-11",
+      "evaluation_method": "agent: Isea; attempts: 2+; self-reported",
+      "external_id": "20250911_isea_claude-3.5-sonnet-20241022",
+      "extra": {
+        "system_name": "Isea",
+        "agent": "Isea",
+        "checked": false,
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Qwen3-Coder-30B-A3B-Instruct",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 49.67,
+      "evaluation_date": "2025-09-01",
+      "evaluation_method": "agent: EntroPO + R2E; attempts: 2+; verified by SWE-bench team",
+      "external_id": "20250901_entroPO_R2E_QwenCoder30BA3B_tts",
+      "extra": {
+        "system_name": "EntroPO + R2E + Qwen3-Coder-30B-A3B-Instruct",
+        "agent": "EntroPO + R2E",
+        "agent_org": "42-b3yond-6ug",
+        "checked": "false (See README.md for info on how to get your results verified)",
+        "site": "https://github.com/sherdencooper/R2E-Gym",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.7 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 48.0,
+      "evaluation_date": "2025-02-26",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250226_sweagent_claude-3-7-sonnet-20250219",
+      "extra": {
+        "system_name": "SWE-agent + Claude 3.7 Sonnet",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 47.33,
+      "evaluation_date": "2024-11-22",
+      "evaluation_method": "agent: devlo; self-reported",
+      "external_id": "20241122_devlo",
+      "extra": {
+        "system_name": "devlo",
+        "agent": "devlo",
+        "checked": false,
+        "site": "https://devlo.ai/?utm_source=swe-bench",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 46.0,
+      "evaluation_date": "2025-06-19",
+      "evaluation_method": "agent: KGCompass; attempts: 2+; self-reported",
+      "external_id": "20250619_KGCompass_claude-3.5-sonnet-20241022",
+      "extra": {
+        "system_name": "KGCompass + Claude 3.5 Sonnet (20241022)",
+        "agent": "KGCompass",
+        "agent_org": "GLEAM-Lab",
+        "checked": false,
+        "site": "https://github.com/GLEAM-Lab/KGCompass",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Qwen3-Coder-30B-A3B-Instruct",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 45.0,
+      "evaluation_date": "2025-09-01",
+      "evaluation_method": "agent: EntroPO + R2E; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250901_entroPO_R2E_QwenCoder30BA3B",
+      "extra": {
+        "system_name": "EntroPO + R2E + Qwen3-Coder-30B-A3B-Instruct",
+        "agent": "EntroPO + R2E",
+        "agent_org": "42-b3yond-6ug",
+        "checked": "false (See README.md for info on how to get your results verified)",
+        "site": "https://github.com/sherdencooper/R2E-Gym",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 44.67,
+      "evaluation_date": "2024-12-07",
+      "evaluation_method": "agent: Kodu-v1; self-reported",
+      "external_id": "20241207_kodu_sonnet_v1",
+      "extra": {
+        "system_name": "Kodu-v1 + Claude-3.5 Sonnet (20241022)",
+        "agent": "Kodu-v1",
+        "checked": false,
+        "site": "https://www.kodu.ai/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 42.67,
+      "evaluation_date": "2025-05-09",
+      "evaluation_method": "agent: Lingxi; self-reported",
+      "external_id": "20250509_Lingxi_claude-3-5-sonnet-20241022",
+      "extra": {
+        "system_name": "Lingxi",
+        "agent": "Lingxi",
+        "checked": false,
+        "site": "https://github.com/nimasteryang/Lingxi",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "CodeAct v2.1 (claude-3-5-sonnet-20241022)",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 41.67,
+      "evaluation_date": "2024-10-25",
+      "evaluation_method": "agent: OpenHands; verified by SWE-bench team",
+      "external_id": "20241025_OpenHands-CodeAct-2.1-sonnet-20241022",
+      "extra": {
+        "system_name": "OpenHands + CodeAct v2.1 (claude-3-5-sonnet-20241022)",
+        "agent": "OpenHands",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://docs.all-hands.dev/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 41.33,
+      "evaluation_date": "2024-12-20",
+      "evaluation_method": "agent: PatchKitty-0.9; self-reported",
+      "external_id": "20241220_PatchKitty-0.9_claude-3.5-sonnet-20241022",
+      "extra": {
+        "system_name": "PatchKitty-0.9 + Claude-3.5 Sonnet (20241022)",
+        "agent": "PatchKitty-0.9",
+        "checked": false,
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 41.0,
+      "evaluation_date": "2025-01-13",
+      "evaluation_method": "agent: OrcaLoca + Agentless-1.5; self-reported",
+      "external_id": "20250113_OrcaLoca",
+      "extra": {
+        "system_name": "OrcaLoca + Agentless-1.5 + Claude-3.5 Sonnet (20241022)",
+        "agent": "OrcaLoca + Agentless-1.5",
+        "agent_org": "Agentless",
+        "checked": false,
+        "site": "https://github.com/fishmingyu/OrcarLLM",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 40.67,
+      "evaluation_date": "2024-12-02",
+      "evaluation_method": "agent: Agentless-1.5; self-reported",
+      "external_id": "20241202_agentless-1.5_claude-3.5-sonnet-20241022",
+      "extra": {
+        "system_name": "Agentless-1.5 + Claude-3.5 Sonnet (20241022)",
+        "agent": "Agentless-1.5",
+        "agent_org": "Agentless",
+        "checked": false,
+        "site": "https://github.com/OpenAutoCoder/Agentless",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4 (0806)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 39.67,
+      "evaluation_date": "2025-01-13",
+      "evaluation_method": "agent: OpenCSG Starship Agentic Coder; self-reported",
+      "external_id": "20250113_OpenCSG-Starship-Agentic-Coder_gpt4o",
+      "extra": {
+        "system_name": "OpenCSG Starship Agentic Coder + GPT 4 (0806)",
+        "agent": "OpenCSG Starship Agentic Coder",
+        "checked": false,
+        "site": "https://opencsg.com/starship",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 39.0,
+      "evaluation_date": "2025-01-14",
+      "evaluation_method": "agent: Moatless Tools; verified by SWE-bench team",
+      "external_id": "20250114_moatless_claude-3.5-sonnet-20241022",
+      "extra": {
+        "system_name": "Moatless Tools + Claude 3.5 Sonnet (20241022)",
+        "agent": "Moatless Tools",
+        "agent_org": "Moatless Tools",
+        "checked": true,
+        "site": "https://github.com/aorwall/moatless-tools",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 38.33,
+      "evaluation_date": "2024-11-17",
+      "evaluation_method": "agent: Moatless Tools; verified by SWE-bench team",
+      "external_id": "20241117_moatless_claude-3.5-sonnet-20241022",
+      "extra": {
+        "system_name": "Moatless Tools + Claude 3.5 Sonnet (20241022)",
+        "agent": "Moatless Tools",
+        "agent_org": "Moatless Tools",
+        "checked": true,
+        "site": "https://github.com/aorwall/moatless-tools",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 38.0,
+      "evaluation_date": "2024-06-27",
+      "evaluation_method": "agent: AbanteAI MentatBot; self-reported",
+      "external_id": "20240627_abanteai_mentatbot_gpt4o",
+      "extra": {
+        "system_name": "AbanteAI MentatBot + GPT 4o (2024-05-13)",
+        "agent": "AbanteAI MentatBot",
+        "checked": false,
+        "site": "https://mentat.ai/blog/mentatbot-sota-coding-agent",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 37.0,
+      "evaluation_date": "2025-01-04",
+      "evaluation_method": "agent: Patched.Codes Patchwork; self-reported",
+      "external_id": "20250104_patched_codes_claude-3.5-sonnet-20241022",
+      "extra": {
+        "system_name": "Patched.Codes Patchwork",
+        "agent": "Patched.Codes Patchwork",
+        "checked": false,
+        "site": "https://github.com/patched-codes/patchwork",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "DeepSeek V3",
+      "developer": "DeepSeek",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 36.67,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "agent: KGCompass; attempts: 2+; self-reported",
+      "external_id": "20250609_KGCompass_deepseek-v3",
+      "extra": {
+        "system_name": "KGCompass + DeepSeek V3",
+        "agent": "KGCompass",
+        "agent_org": "GLEAM-Lab",
+        "checked": false,
+        "site": "https://github.com/GLEAM-Lab/KGCompass",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 34.0,
+      "evaluation_date": "2024-07-23",
+      "evaluation_method": "agent: Bytedance MarsCode Agent; self-reported",
+      "external_id": "20240723_marscode-agent-dev",
+      "extra": {
+        "system_name": "Bytedance MarsCode Agent + GPT 4o (2024-05-13)",
+        "agent": "Bytedance MarsCode Agent",
+        "agent_org": "Bytedance",
+        "checked": false,
+        "site": "https://www.marscode.com/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "O3 Mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 32.33,
+      "evaluation_date": "2025-02-14",
+      "evaluation_method": "agent: Agentless Lite; verified by SWE-bench team",
+      "external_id": "20250214_agentless_lite_o3_mini",
+      "extra": {
+        "system_name": "Agentless Lite + O3 Mini (20250214)",
+        "agent": "Agentless Lite",
+        "agent_org": "Agentless",
+        "checked": true,
+        "site": "https://github.com/sorendunn/Agentless-Lite",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 32.0,
+      "evaluation_date": "2024-10-28",
+      "evaluation_method": "agent: Agentless-1.5; self-reported",
+      "external_id": "20241028_agentless-1.5_gpt4o",
+      "extra": {
+        "system_name": "Agentless-1.5 + GPT 4o (2024-05-13)",
+        "agent": "Agentless-1.5",
+        "agent_org": "Agentless",
+        "checked": false,
+        "site": "https://github.com/OpenAutoCoder/Agentless",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 31.33,
+      "evaluation_date": "2024-11-11",
+      "evaluation_method": "agent: CodeShellTester; self-reported",
+      "external_id": "20241111_codeshelltester_gpt4o",
+      "extra": {
+        "system_name": "CodeShellTester + GPT 4o (2024-05-13)",
+        "agent": "CodeShellTester",
+        "checked": false,
+        "site": "https://github.com/WisdomShell/codeshell",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 30.67,
+      "evaluation_date": "2024-06-21",
+      "evaluation_method": "agent: AutoCodeRover; self-reported",
+      "external_id": "20240621_autocoderover-v20240620",
+      "extra": {
+        "system_name": "AutoCodeRover (v20240620) + GPT 4o (2024-05-13)",
+        "agent": "AutoCodeRover",
+        "checked": false,
+        "site": "https://autocoderover.dev/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Deepseek V3",
+      "developer": "DeepSeek",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 30.67,
+      "evaluation_date": "2025-01-11",
+      "evaluation_method": "agent: Moatless Tools; verified by SWE-bench team",
+      "external_id": "20250111_moatless_deepseek_v3",
+      "extra": {
+        "system_name": "Moatless Tools + Deepseek V3",
+        "agent": "Moatless Tools",
+        "agent_org": "Moatless Tools",
+        "checked": true,
+        "site": "https://github.com/aorwall/moatless-tools",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "o3-mini_1.0",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 30.33,
+      "evaluation_date": "2025-02-07",
+      "evaluation_method": "agent: Aegis; self-reported",
+      "external_id": "20250207_aegis_o3mini",
+      "extra": {
+        "system_name": "Aegis - o3-mini_1.0",
+        "agent": "Aegis",
+        "checked": false,
+        "site": "https://github.com/evandiewald/aegis",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "claude-3-5-sonnet-20241022",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 30.0,
+      "evaluation_date": "2024-12-03",
+      "evaluation_method": "agent: Kortix AI; verified by SWE-bench team",
+      "external_id": "20241203_KortixAI-AgentPress-sonnet-20241022",
+      "extra": {
+        "system_name": "Kortix AI (claude-3-5-sonnet-20241022)",
+        "agent": "Kortix AI",
+        "checked": true,
+        "site": "https://www.kortix.ai/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 29.67,
+      "evaluation_date": "2024-08-08",
+      "evaluation_method": "agent: Agentless + RepoGraph; self-reported",
+      "external_id": "20240808_RepoGraph_gpt4o",
+      "extra": {
+        "system_name": "Agentless + RepoGraph + GPT-4o",
+        "agent": "Agentless + RepoGraph",
+        "agent_org": "Agentless",
+        "checked": false,
+        "site": "https://github.com/ozyyshr/RepoGraph",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4 (1106)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 28.33,
+      "evaluation_date": "2024-06-04",
+      "evaluation_method": "agent: CodeR; self-reported",
+      "external_id": "20240604_CodeR",
+      "extra": {
+        "system_name": "CodeR + GPT 4 (1106)",
+        "agent": "CodeR",
+        "checked": false,
+        "site": "https://github.com/NL2Code/CodeR",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 28.0,
+      "evaluation_date": "2024-11-17",
+      "evaluation_method": "agent: reproducedRG; self-reported",
+      "external_id": "20241117_reproducedRG_gpt4o",
+      "extra": {
+        "system_name": "reproducedRG",
+        "agent": "reproducedRG",
+        "checked": false,
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 27.67,
+      "evaluation_date": "2024-07-06",
+      "evaluation_method": "agent: SIMA; self-reported",
+      "external_id": "20240706_sima_gpt4o",
+      "extra": {
+        "system_name": "SIMA + GPT 4o (2024-05-13)",
+        "agent": "SIMA",
+        "checked": false,
+        "site": "https://github.com/swe-bench/experiments/tree/main/evaluation/lite/20240706_sima_gpt4o",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 27.33,
+      "evaluation_date": "2024-06-12",
+      "evaluation_method": "agent: MASAI; self-reported",
+      "external_id": "20240612_MASAI_gpt4o",
+      "extra": {
+        "system_name": "MASAI + GPT 4o (2024-05-13)",
+        "agent": "MASAI",
+        "checked": false,
+        "site": "https://masai-dev-agent.github.io/",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 27.33,
+      "evaluation_date": "2024-06-30",
+      "evaluation_method": "agent: Agentless; self-reported",
+      "external_id": "20240630_agentless_gpt4o",
+      "extra": {
+        "system_name": "Agentless + GPT 4o (2024-05-13)",
+        "agent": "Agentless",
+        "agent_org": "Agentless",
+        "checked": false,
+        "site": "https://github.com/OpenAutoCoder/Agentless",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 26.67,
+      "evaluation_date": "2024-06-23",
+      "evaluation_method": "agent: Moatless Tools; verified by SWE-bench team",
+      "external_id": "20240623_moatless_claude35sonnet",
+      "extra": {
+        "system_name": "Moatless Tools + Claude 3.5 Sonnet",
+        "agent": "Moatless Tools",
+        "agent_org": "Moatless Tools",
+        "checked": true,
+        "site": "https://github.com/aorwall/moatless-tools",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "CodeAct v1.8",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 26.67,
+      "evaluation_date": "2024-07-25",
+      "evaluation_method": "agent: OpenHands; verified by SWE-bench team",
+      "external_id": "20240725_opendevin_codeact_v1.8_claude35sonnet",
+      "extra": {
+        "system_name": "OpenHands + CodeAct v1.8",
+        "agent": "OpenHands",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://docs.all-hands.dev/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o & Claude 3 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 26.33,
+      "evaluation_date": "2024-05-23",
+      "evaluation_method": "agent: Aider; self-reported",
+      "external_id": "20240523_aider",
+      "extra": {
+        "system_name": "Aider + GPT 4o & Claude 3 Opus",
+        "agent": "Aider",
+        "checked": false,
+        "site": "https://github.com/paul-gauthier/aider",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 25.33,
+      "evaluation_date": "2024-09-25",
+      "evaluation_method": "agent: HyperAgent; self-reported",
+      "external_id": "20240925_hyperagent_lite1",
+      "extra": {
+        "system_name": "HyperAgent",
+        "agent": "HyperAgent",
+        "checked": false,
+        "site": "https://arxiv.org/abs/2409.16299",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 24.67,
+      "evaluation_date": "2024-06-17",
+      "evaluation_method": "agent: Moatless Tools; verified by SWE-bench team",
+      "external_id": "20240617_moatless_gpt4o",
+      "extra": {
+        "system_name": "Moatless Tools + GPT 4o (2024-05-13)",
+        "agent": "Moatless Tools",
+        "agent_org": "Moatless Tools",
+        "checked": true,
+        "site": "https://github.com/aorwall/moatless-tools",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Qwen2.5 (7B + 72B)",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 24.67,
+      "evaluation_date": "2025-03-06",
+      "evaluation_method": "agent: SWE-Fixer; verified by SWE-bench team",
+      "external_id": "20250306_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor",
+      "extra": {
+        "system_name": "SWE-Fixer (Qwen2.5-7b retriever + Qwen2.5-72b editor)",
+        "agent": "SWE-Fixer",
+        "checked": true,
+        "site": "https://github.com/InternLM/SWE-Fixer",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4 (0613)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 23.67,
+      "evaluation_date": "2024-05-24",
+      "evaluation_method": "agent: OpenCSG StarShip CodeGenAgent; self-reported",
+      "external_id": "20240524_opencsg_starship_gpt4",
+      "extra": {
+        "system_name": "OpenCSG StarShip CodeGenAgent + GPT 4 (0613)",
+        "agent": "OpenCSG StarShip CodeGenAgent",
+        "checked": false,
+        "site": "https://opencsg.com/product?class=StarShip",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Qwen2.5 (7B + 72B)",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 23.33,
+      "evaluation_date": "2024-11-28",
+      "evaluation_method": "agent: SWE-Fixer; self-reported",
+      "external_id": "20241128_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor_20241128",
+      "extra": {
+        "system_name": "SWE-Fixer (Qwen2.5-7b retriever + Qwen2.5-72b editor) 20241128",
+        "agent": "SWE-Fixer",
+        "checked": false,
+        "site": "https://github.com/InternLM/SWE-Fixer",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 23.0,
+      "evaluation_date": "2024-06-20",
+      "evaluation_method": "agent: SWE-agent; verified by SWE-bench team",
+      "external_id": "20240620_sweagent_claude3.5sonnet",
+      "extra": {
+        "system_name": "SWE-agent + Claude 3.5 Sonnet",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 21.67,
+      "evaluation_date": "2024-06-15",
+      "evaluation_method": "agent: AppMap Navie; verified by SWE-bench team",
+      "external_id": "20240615_appmap-navie_gpt4o",
+      "extra": {
+        "system_name": "AppMap Navie + GPT 4o (2024-05-13)",
+        "agent": "AppMap Navie",
+        "checked": true,
+        "site": "https://appmap.io/navie",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4 (0125)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 19.0,
+      "evaluation_date": "2024-05-30",
+      "evaluation_method": "agent: AutoCodeRover; self-reported",
+      "external_id": "20240530_autocoderover-v20240408",
+      "extra": {
+        "system_name": "AutoCodeRover (v20240408) + GPT 4 (0125)",
+        "agent": "AutoCodeRover",
+        "checked": false,
+        "site": "https://github.com/nus-apr/auto-code-rover",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 18.33,
+      "evaluation_date": "2024-07-28",
+      "evaluation_method": "agent: SWE-agent; verified by SWE-bench team",
+      "external_id": "20240728_sweagent_gpt4o",
+      "extra": {
+        "system_name": "SWE-agent + GPT 4o (2024-05-13)",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4 (1106)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 18.0,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: SWE-agent; verified by SWE-bench team",
+      "external_id": "20240402_sweagent_gpt4",
+      "extra": {
+        "system_name": "SWE-agent + GPT 4 (1106)",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "MCTS Refine 7B",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 16.33,
+      "evaluation_date": "2025-06-27",
+      "evaluation_method": "agent: MCTS-Refine-7B; attempts: 1; self-reported",
+      "external_id": "20250627_agentless_MCTS-Refine-7B",
+      "extra": {
+        "system_name": "MCTS-Refine-7B",
+        "agent": "MCTS-Refine-7B",
+        "checked": false,
+        "site": "https://mcts-refine.github.io/MCTS-Refine",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 11.67,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: SWE-agent; verified by SWE-bench team",
+      "external_id": "20240402_sweagent_claude3opus",
+      "extra": {
+        "system_name": "SWE-agent + Claude 3 Opus",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 3 Opus",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 4.33,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: RAG baseline; verified by SWE-bench team",
+      "external_id": "20240402_rag_claude3opus",
+      "extra": {
+        "system_name": "RAG + Claude 3 Opus",
+        "agent": "RAG baseline",
+        "checked": true,
+        "site": "https://swebench.com/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "Claude 2",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 3.0,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; verified by SWE-bench team",
+      "external_id": "20231010_rag_claude2",
+      "extra": {
+        "system_name": "RAG + Claude 2",
+        "agent": "RAG baseline",
+        "checked": true,
+        "site": "https://swebench.com/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-4 (1106)",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 2.67,
+      "evaluation_date": "2024-04-02",
+      "evaluation_method": "agent: RAG baseline; verified by SWE-bench team",
+      "external_id": "20240402_rag_gpt4",
+      "extra": {
+        "system_name": "RAG + GPT 4 (1106)",
+        "agent": "RAG baseline",
+        "checked": true,
+        "site": "https://swebench.com/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "SWE-Llama 7B",
+      "developer": "Meta",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1.33,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; verified by SWE-bench team",
+      "external_id": "20231010_rag_swellama7b",
+      "extra": {
+        "system_name": "RAG + SWE-Llama 7B",
+        "agent": "RAG baseline",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://swebench.com/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "SWE-Llama 13B",
+      "developer": "Meta",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1.0,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; verified by SWE-bench team",
+      "external_id": "20231010_rag_swellama13b",
+      "extra": {
+        "system_name": "RAG + SWE-Llama 13B",
+        "agent": "RAG baseline",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://swebench.com/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "lite",
+      "model": "GPT-3.5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 0.33,
+      "evaluation_date": "2023-10-10",
+      "evaluation_method": "agent: RAG baseline; verified by SWE-bench team",
+      "external_id": "20231010_rag_gpt35",
+      "extra": {
+        "system_name": "RAG + ChatGPT 3.5",
+        "agent": "RAG baseline",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://swebench.com/",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 35.98,
+      "evaluation_date": "2025-07-01",
+      "evaluation_method": "agent: GUIRepair; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250701_GUIRepair_o3",
+      "extra": {
+        "system_name": "GUIRepair + o3 (2025-04-16)",
+        "agent": "GUIRepair",
+        "agent_org": "GUIRepair",
+        "checked": true,
+        "site": "https://sites.google.com/view/guirepair",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 35.98,
+      "evaluation_date": "2025-11-17",
+      "evaluation_method": "agent: Codefuse_Pycfuse_SVR; attempts: 1; verified by SWE-bench team",
+      "external_id": "20251117_codefuse_pycfuse_svr",
+      "extra": {
+        "system_name": "Codefuse_Pycfuse_SVR",
+        "agent": "Codefuse_Pycfuse_SVR",
+        "agent_org": "Codefuse",
+        "checked": true,
+        "site": "https://github.com/codefuse-ai/codefuse-svr?tab=readme-ov-file",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "Claude 4 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 35.59,
+      "evaluation_date": "2025-06-11",
+      "evaluation_method": "agent: Refact.ai Agent; attempts: 1; self-reported",
+      "external_id": "20250611_Refact_Agent_claude-4-sonnet",
+      "extra": {
+        "system_name": "Refact.ai Agent",
+        "agent": "Refact.ai Agent",
+        "agent_org": "Refact.ai",
+        "checked": false,
+        "site": "https://refact.ai",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "Claude Sonnet 4",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 34.43,
+      "evaluation_date": "2025-05-28",
+      "evaluation_method": "agent: OpenHands-Versa; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250528_OpenHands-Versa-claude4",
+      "extra": {
+        "system_name": "OpenHands-Versa (Claude-Sonnet 4)",
+        "agent": "OpenHands-Versa",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://github.com/adityasoni9998/OpenHands-Versa",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 33.85,
+      "evaluation_date": "2025-05-31",
+      "evaluation_method": "agent: GUIRepair; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250531_GUIRepair_o4mini",
+      "extra": {
+        "system_name": "GUIRepair + o4-mini (2025-04-16)",
+        "agent": "GUIRepair",
+        "agent_org": "GUIRepair",
+        "checked": true,
+        "site": "https://sites.google.com/view/guirepair",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "Claude 3.7 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 31.33,
+      "evaluation_date": "2025-05-09",
+      "evaluation_method": "agent: OpenHands-Versa; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250509_OpenHands-Versa_claude3.7",
+      "extra": {
+        "system_name": "OpenHands-Versa (Claude-3.7 Sonnet)",
+        "agent": "OpenHands-Versa",
+        "agent_org": "OpenHands",
+        "checked": true,
+        "site": "https://github.com/adityasoni9998/OpenHands-Versa",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "GPT-4.1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 31.14,
+      "evaluation_date": "2025-05-31",
+      "evaluation_method": "agent: GUIRepair; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250531_GUIRepair_gpt41",
+      "extra": {
+        "system_name": "GUIRepair + GPT 4.1 (2025-04-14)",
+        "agent": "GUIRepair",
+        "agent_org": "GUIRepair",
+        "checked": true,
+        "site": "https://sites.google.com/view/guirepair",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "Claude 3.7 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 30.56,
+      "evaluation_date": "2025-04-01",
+      "evaluation_method": "agent: Zencoder; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250401_zencoder",
+      "extra": {
+        "system_name": "Zencoder (2025-04-01)",
+        "agent": "Zencoder",
+        "checked": true,
+        "site": "https://zencoder.ai",
+        "open_source_system": false
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 30.37,
+      "evaluation_date": "2025-05-31",
+      "evaluation_method": "agent: GUIRepair; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250531_GUIRepair_gpt4o",
+      "extra": {
+        "system_name": "GUIRepair + GPT 4o (2024-08-06)",
+        "agent": "GUIRepair",
+        "agent_org": "GUIRepair",
+        "checked": true,
+        "site": "https://sites.google.com/view/guirepair",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 25.34,
+      "evaluation_date": "2025-02-26",
+      "evaluation_method": "agent: Agentless Lite; attempts: 1; verified by SWE-bench team",
+      "external_id": "20250226_agentless_lite_claude3.5",
+      "extra": {
+        "system_name": "Agentless Lite + Claude-3.5 Sonnet",
+        "agent": "Agentless Lite",
+        "agent_org": "Agentless",
+        "checked": true,
+        "site": "https://github.com/sorendunn/Agentless-Lite",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 12.19,
+      "evaluation_date": "2024-10-06",
+      "evaluation_method": "agent: SWE-agent Multimodal; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241006_SWE-agent_M_gpt4o",
+      "extra": {
+        "system_name": "SWE-agent Multimodal + GPT 4o (2024-08-06)",
+        "agent": "SWE-agent Multimodal",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "Claude Sonnet 3.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 12.19,
+      "evaluation_date": "2024-10-06",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241006_SWE-agent_claude3.5",
+      "extra": {
+        "system_name": "SWE-agent + Claude Sonnet 3.5",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "Claude Sonnet 3.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 11.99,
+      "evaluation_date": "2024-10-06",
+      "evaluation_method": "agent: SWE-agent JavaScript; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241006_SWE-agent_JS_claude3.5",
+      "extra": {
+        "system_name": "SWE-agent JavaScript + Claude Sonnet 3.5",
+        "agent": "SWE-agent JavaScript",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 11.99,
+      "evaluation_date": "2024-10-06",
+      "evaluation_method": "agent: SWE-agent; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241006_SWE-agent_gpt4o",
+      "extra": {
+        "system_name": "SWE-agent + GPT 4o (2024-08-06)",
+        "agent": "SWE-agent",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 11.41,
+      "evaluation_date": "2024-10-06",
+      "evaluation_method": "agent: SWE-agent Multimodal; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241006_SWE-agent_M_claude3.5",
+      "extra": {
+        "system_name": "SWE-agent Multimodal + Claude 3.5 Sonnet",
+        "agent": "SWE-agent Multimodal",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 9.28,
+      "evaluation_date": "2024-10-06",
+      "evaluation_method": "agent: SWE-agent JavaScript; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241006_SWE-agent_JS_gpt4o",
+      "extra": {
+        "system_name": "SWE-agent JavaScript + GPT 4o (2024-08-06)",
+        "agent": "SWE-agent JavaScript",
+        "agent_org": "SWE-agent",
+        "checked": true,
+        "site": "https://github.com/SWE-agent/SWE-agent",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 6.19,
+      "evaluation_date": "2024-10-06",
+      "evaluation_method": "agent: Agentless; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241006_Agentless_claude3.5",
+      "extra": {
+        "system_name": "Agentless + Claude 3.5 Sonnet",
+        "agent": "Agentless",
+        "agent_org": "Agentless",
+        "checked": true,
+        "site": "https://github.com/OpenAutoCoder/Agentless",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 6.0,
+      "evaluation_date": "2024-10-06",
+      "evaluation_method": "agent: RAG; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241006_RAG_gpt4o",
+      "extra": {
+        "system_name": "RAG + GPT 4o (2024-08-06)",
+        "agent": "RAG",
+        "checked": true,
+        "site": "https://github.com/SWE-bench/SWE-bench",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "Claude 3.5 Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 5.03,
+      "evaluation_date": "2024-10-06",
+      "evaluation_method": "agent: RAG; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241006_RAG_claude3.5",
+      "extra": {
+        "system_name": "RAG + Claude 3.5 Sonnet",
+        "agent": "RAG",
+        "checked": true,
+        "site": "https://github.com/SWE-bench/SWE-bench",
+        "open_source_system": true
+      }
+    },
+    {
+      "benchmark": "multimodal",
+      "model": "GPT-4o",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 3.09,
+      "evaluation_date": "2024-10-06",
+      "evaluation_method": "agent: Agentless; attempts: 1; verified by SWE-bench team",
+      "external_id": "20241006_Agentless_gpt4o",
+      "extra": {
+        "system_name": "Agentless + GPT 4o (2024-08-06)",
+        "agent": "Agentless",
+        "agent_org": "Agentless",
+        "checked": true,
+        "site": "https://github.com/OpenAutoCoder/Agentless",
+        "open_source_system": true
+      }
+    }
+  ]
+}

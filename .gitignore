@@ -1,0 +1,22 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# environments, builds, caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+dashboard/node_modules/
+dashboard/.next/
+dashboard/next-env.d.ts
+*.tsbuildinfo
+*.tmp
+
+# local runtime output
+backups/
+logs/
+
+# scraped Artificial Analysis pages: never imported (AA terms), keep out of the repo
+data/artificial-analysis/

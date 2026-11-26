@@ -1,0 +1,3484 @@
+{
+  "format": "benchmark-results/v1",
+  "source": {
+    "name": "tau2-bench (Sierra)",
+    "site": "https://www.taubench.com",
+    "publisher": "Sierra Research",
+    "description": "Official tau2-bench leaderboard submissions: customer-service agents following domain policies.",
+    "license": "MIT (https://github.com/sierra-research/tau2-bench)",
+    "attribution": "tau2-bench, Sierra Research (https://github.com/sierra-research/tau2-bench).",
+    "retrieved_from": [
+      "https://github.com/sierra-research/tau2-bench/tree/main/web/leaderboard/public/submissions"
+    ],
+    "notes": [
+      "Score = pass^1 (%) per domain. Voice submissions are separate benchmarks ('<Domain> (voice)').",
+      "submission_type distinguishes standard from custom setups."
+    ],
+    "collected_at": "2026-11-25T19:16:47+00:00"
+  },
+  "benchmarks": [
+    {
+      "key": "airline",
+      "name": "τ²-bench",
+      "version": "Airline",
+      "area": "agentic",
+      "sub_area": "tool use (customer service)",
+      "unit": "points",
+      "description": "tau2-bench airline domain: pass^1 (%).",
+      "url": "https://www.taubench.com"
+    },
+    {
+      "key": "airline_voice",
+      "name": "τ²-bench",
+      "version": "Airline (voice)",
+      "area": "agentic",
+      "sub_area": "tool use (customer service)",
+      "unit": "points",
+      "description": "tau2-bench airline domain, voice modality: pass^1 (%).",
+      "url": "https://www.taubench.com"
+    },
+    {
+      "key": "banking_knowledge",
+      "name": "τ²-bench",
+      "version": "Banking_Knowledge",
+      "area": "agentic",
+      "sub_area": "tool use (customer service)",
+      "unit": "points",
+      "description": "tau2-bench banking_knowledge domain: pass^1 (%).",
+      "url": "https://www.taubench.com"
+    },
+    {
+      "key": "banking_knowledge_voice",
+      "name": "τ²-bench",
+      "version": "Banking_Knowledge (voice)",
+      "area": "agentic",
+      "sub_area": "tool use (customer service)",
+      "unit": "points",
+      "description": "tau2-bench banking_knowledge domain, voice modality: pass^1 (%).",
+      "url": "https://www.taubench.com"
+    },
+    {
+      "key": "retail",
+      "name": "τ²-bench",
+      "version": "Retail",
+      "area": "agentic",
+      "sub_area": "tool use (customer service)",
+      "unit": "points",
+      "description": "tau2-bench retail domain: pass^1 (%).",
+      "url": "https://www.taubench.com"
+    },
+    {
+      "key": "retail_voice",
+      "name": "τ²-bench",
+      "version": "Retail (voice)",
+      "area": "agentic",
+      "sub_area": "tool use (customer service)",
+      "unit": "points",
+      "description": "tau2-bench retail domain, voice modality: pass^1 (%).",
+      "url": "https://www.taubench.com"
+    },
+    {
+      "key": "telecom",
+      "name": "τ²-bench",
+      "version": "Telecom",
+      "area": "agentic",
+      "sub_area": "tool use (customer service)",
+      "unit": "points",
+      "description": "tau2-bench telecom domain: pass^1 (%).",
+      "url": "https://www.taubench.com"
+    },
+    {
+      "key": "telecom_voice",
+      "name": "τ²-bench",
+      "version": "Telecom (voice)",
+      "area": "agentic",
+      "sub_area": "tool use (customer service)",
+      "unit": "points",
+      "description": "tau2-bench telecom domain, voice modality: pass^1 (%).",
+      "url": "https://www.taubench.com"
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "retail_voice",
+      "model": "Ava Zero",
+      "developer": "Avartha",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 83.33333333333334,
+      "evaluation_date": "2026-11-18",
+      "evaluation_method": "tau2-bench 2.0.0 (standard submission by Avartha)",
+      "external_id": "ava-zero-user-sim-v1-1_avartha_2026-11-18:retail",
+      "extra": {
+        "listed_name": "Ava Zero",
+        "submission_type": "standard",
+        "submitting_organization": "Avartha",
+        "modality": "voice",
+        "notes": "Standard Ava Zero evaluation through the avartha_pipecat adapter against a hosted Ava Zero agent on the Avartha Platform over WebRTC. We use GLM 5.3 as the anchor and DeepSeek v4.1 Flash 1017 as the backend worker at Max reasoning. Voice user simulator v1.1 (gpt-5.5, low reasoning). Regular speech complexity, seed 300, and the default Opus 4.5 hallucination reviewer. One trial was scheduled for every task: airline 50, retail 114, and telecom 114."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "Ava Zero",
+      "developer": "Avartha",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 94.0,
+      "evaluation_date": "2026-11-18",
+      "evaluation_method": "tau2-bench 2.0.0 (standard submission by Avartha)",
+      "external_id": "ava-zero-user-sim-v1-1_avartha_2026-11-18:airline",
+      "extra": {
+        "listed_name": "Ava Zero",
+        "submission_type": "standard",
+        "submitting_organization": "Avartha",
+        "modality": "voice",
+        "notes": "Standard Ava Zero evaluation through the avartha_pipecat adapter against a hosted Ava Zero agent on the Avartha Platform over WebRTC. We use GLM 5.3 as the anchor and DeepSeek v4.1 Flash 1017 as the backend worker at Max reasoning. Voice user simulator v1.1 (gpt-5.5, low reasoning). Regular speech complexity, seed 300, and the default Opus 4.5 hallucination reviewer. One trial was scheduled for every task: airline 50, retail 114, and telecom 114."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "Ava Zero",
+      "developer": "Avartha",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 95.6140350877193,
+      "evaluation_date": "2026-11-18",
+      "evaluation_method": "tau2-bench 2.0.0 (standard submission by Avartha)",
+      "external_id": "ava-zero-user-sim-v1-1_avartha_2026-11-18:telecom",
+      "extra": {
+        "listed_name": "Ava Zero",
+        "submission_type": "standard",
+        "submitting_organization": "Avartha",
+        "modality": "voice",
+        "notes": "Standard Ava Zero evaluation through the avartha_pipecat adapter against a hosted Ava Zero agent on the Avartha Platform over WebRTC. We use GLM 5.3 as the anchor and DeepSeek v4.1 Flash 1017 as the backend worker at Max reasoning. Voice user simulator v1.1 (gpt-5.5, low reasoning). Regular speech complexity, seed 300, and the default Opus 4.5 hallucination reviewer. One trial was scheduled for every task: airline 50, retail 114, and telecom 114."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "Ava Zero",
+      "developer": "Avartha",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 75.43859649122807,
+      "evaluation_date": "2026-10-22",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Avartha)",
+      "external_id": "ava-zero_avartha_2026-10-22:retail",
+      "extra": {
+        "listed_name": "Ava Zero",
+        "submission_type": "standard",
+        "submitting_organization": "Avartha",
+        "modality": "voice",
+        "notes": "Standard Ava Zero evaluation through the avartha_pipecat adapter against a hosted Ava Zero agent on the Avartha Platform over WebRTC. We use GLM 5.3 Anchor and Deepseek v4.1 Flash 1017 as the backend worker at Max reasoning. Regular speech complexity, realtime user generation, seed 300, and the default Opus 4.5 hallucination reviewer. One trial was scheduled for every task: airline 50, retail 114, and telecom 114."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "Ava Zero",
+      "developer": "Avartha",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 86.0,
+      "evaluation_date": "2026-10-22",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Avartha)",
+      "external_id": "ava-zero_avartha_2026-10-22:airline",
+      "extra": {
+        "listed_name": "Ava Zero",
+        "submission_type": "standard",
+        "submitting_organization": "Avartha",
+        "modality": "voice",
+        "notes": "Standard Ava Zero evaluation through the avartha_pipecat adapter against a hosted Ava Zero agent on the Avartha Platform over WebRTC. We use GLM 5.3 Anchor and Deepseek v4.1 Flash 1017 as the backend worker at Max reasoning. Regular speech complexity, realtime user generation, seed 300, and the default Opus 4.5 hallucination reviewer. One trial was scheduled for every task: airline 50, retail 114, and telecom 114."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "Ava Zero",
+      "developer": "Avartha",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 79.82456140350878,
+      "evaluation_date": "2026-10-22",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Avartha)",
+      "external_id": "ava-zero_avartha_2026-10-22:telecom",
+      "extra": {
+        "listed_name": "Ava Zero",
+        "submission_type": "standard",
+        "submitting_organization": "Avartha",
+        "modality": "voice",
+        "notes": "Standard Ava Zero evaluation through the avartha_pipecat adapter against a hosted Ava Zero agent on the Avartha Platform over WebRTC. We use GLM 5.3 Anchor and Deepseek v4.1 Flash 1017 as the backend worker at Max reasoning. Regular speech complexity, realtime user generation, seed 300, and the default Opus 4.5 hallucination reviewer. One trial was scheduled for every task: airline 50, retail 114, and telecom 114."
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Claude-3.7-Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 72.1,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "claude-3-7-sonnet_anthropic_2024-06-20:retail",
+      "extra": {
+        "listed_name": "Claude-3.7-Sonnet",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 66.8,
+        "pass_3": 63.2,
+        "pass_4": 59.7
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Claude-3.7-Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 64.2,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "claude-3-7-sonnet_anthropic_2024-06-20:airline",
+      "extra": {
+        "listed_name": "Claude-3.7-Sonnet",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 58.9,
+        "pass_3": 55.4,
+        "pass_4": 52.1
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Claude-3.7-Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 49.0,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "claude-3-7-sonnet_anthropic_2024-06-20:telecom",
+      "extra": {
+        "listed_name": "Claude-3.7-Sonnet",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 43.7,
+        "pass_3": 40.1,
+        "pass_4": 37.2
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Claude Fable 5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 39.69072164948454,
+      "evaluation_date": "2026-07-23",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-fable-5_sierra_2026-08-04:banking_knowledge",
+      "extra": {
+        "listed_name": "Claude Fable 5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 32.817869415807564,
+        "pass_3": 30.15463917525773,
+        "pass_4": 28.865979381443296
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Claude Opus 4.1",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 82.4,
+      "evaluation_date": "2025-08-05",
+      "evaluation_method": "tau2-bench original tau-bench (None submission by Anthropic)",
+      "external_id": "claude-opus-4-1_anthropic_2025-01-15:retail",
+      "extra": {
+        "listed_name": "Claude Opus 4.1",
+        "submitting_organization": "Anthropic",
+        "notes": "Scores were achieved with a prompt addendum to both the Airline and Retail Agent Policy instructing Claude to better leverage its reasoning abilities while using extended thinking with tool use. The model is encouraged to write down its thoughts as it solves the problem distinct from our usual thinking mode, during the multi-turn trajectories to best leverage its reasoning abilities. To accommodate the additional steps Claude incurs by utilizing more thinking, the maximum number of steps (counted by model completions) was increased from 30 to 100 (most trajectories completed under 30 steps with only one trajectory reaching above 50 steps)."
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Claude Opus 4.1",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 56.0,
+      "evaluation_date": "2025-08-05",
+      "evaluation_method": "tau2-bench original tau-bench (None submission by Anthropic)",
+      "external_id": "claude-opus-4-1_anthropic_2025-01-15:airline",
+      "extra": {
+        "listed_name": "Claude Opus 4.1",
+        "submitting_organization": "Anthropic",
+        "notes": "Scores were achieved with a prompt addendum to both the Airline and Retail Agent Policy instructing Claude to better leverage its reasoning abilities while using extended thinking with tool use. The model is encouraged to write down its thoughts as it solves the problem distinct from our usual thinking mode, during the multi-turn trajectories to best leverage its reasoning abilities. To accommodate the additional steps Claude incurs by utilizing more thinking, the maximum number of steps (counted by model completions) was increased from 30 to 100 (most trajectories completed under 30 steps with only one trajectory reaching above 50 steps)."
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Claude Opus 4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 84.0,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-opus-4-5_sierra_2026-02-26:airline",
+      "extra": {
+        "listed_name": "Claude Opus 4.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 77.67,
+        "pass_3": 73.5,
+        "pass_4": 70.0,
+        "cost": 0.39919
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Claude Opus 4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 79.61,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-opus-4-5_sierra_2026-02-26:retail",
+      "extra": {
+        "listed_name": "Claude Opus 4.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 67.4,
+        "pass_3": 58.77,
+        "pass_4": 51.75,
+        "cost": 0.38695
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Claude Opus 4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 92.32,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-opus-4-5_sierra_2026-02-26:telecom",
+      "extra": {
+        "listed_name": "Claude Opus 4.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 86.11,
+        "pass_3": 81.36,
+        "pass_4": 78.07,
+        "cost": 0.71992
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Claude Opus 4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 24.74,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-opus-4-5_sierra_2026-02-26:banking_knowledge",
+      "extra": {
+        "listed_name": "Claude Opus 4.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 17.18,
+        "pass_3": 13.66,
+        "pass_4": 11.34
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Claude Opus 4.6",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 27.32,
+      "evaluation_date": "2026-05-06",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-opus-4-6_sierra_2026-05-05:banking_knowledge",
+      "extra": {
+        "listed_name": "Claude Opus 4.6",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated with reasoning_effort 'max' (the highest effort level this model supports). Retrieval: AllTools (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 18.73,
+        "pass_3": 14.18,
+        "pass_4": 11.34
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Claude Opus 4.7",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 40.20618556701031,
+      "evaluation_date": "2026-07-23",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-opus-4-7_sierra_2026-05-05:banking_knowledge",
+      "extra": {
+        "listed_name": "Claude Opus 4.7",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 31.099656357388323,
+        "pass_3": 27.061855670103093,
+        "pass_4": 24.742268041237114
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Claude Opus 4.8",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 39.69072164948454,
+      "evaluation_date": "2026-07-23",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-opus-4-8_sierra_2026-08-04:banking_knowledge",
+      "extra": {
+        "listed_name": "Claude Opus 4.8",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 31.271477663230247,
+        "pass_3": 26.288659793814436,
+        "pass_4": 22.68041237113402
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Claude Opus 4",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 81.4,
+      "evaluation_date": "2025-05-22",
+      "evaluation_method": "tau2-bench original tau-bench (None submission by Anthropic)",
+      "external_id": "claude-opus-4_anthropic_2025-05-22:retail",
+      "extra": {
+        "listed_name": "Claude Opus 4",
+        "submitting_organization": "Anthropic",
+        "notes": "Scores were achieved with a prompt addendum to both the Airline and Retail Agent Policy instructing Claude to better leverage its reasoning abilities while using extended thinking with tool use. The model is encouraged to write down its thoughts as it solves the problem distinct from our usual thinking mode, during the multi-turn trajectories to best leverage its reasoning abilities. To accommodate the additional steps Claude incurs by utilizing more thinking, the maximum number of steps (counted by model completions) was increased from 30 to 100 (most trajectories completed under 30 steps with only one trajectory reaching above 50 steps)."
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Claude Opus 4",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 59.6,
+      "evaluation_date": "2025-05-22",
+      "evaluation_method": "tau2-bench original tau-bench (None submission by Anthropic)",
+      "external_id": "claude-opus-4_anthropic_2025-05-22:airline",
+      "extra": {
+        "listed_name": "Claude Opus 4",
+        "submitting_organization": "Anthropic",
+        "notes": "Scores were achieved with a prompt addendum to both the Airline and Retail Agent Policy instructing Claude to better leverage its reasoning abilities while using extended thinking with tool use. The model is encouraged to write down its thoughts as it solves the problem distinct from our usual thinking mode, during the multi-turn trajectories to best leverage its reasoning abilities. To accommodate the additional steps Claude incurs by utilizing more thinking, the maximum number of steps (counted by model completions) was increased from 30 to 100 (most trajectories completed under 30 steps with only one trajectory reaching above 50 steps)."
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Claude Opus 5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 48.71134020618557,
+      "evaluation_date": "2026-08-03",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-opus-5_sierra_2026-08-04:banking_knowledge",
+      "extra": {
+        "listed_name": "Claude Opus 5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 39.175257731958766,
+        "pass_3": 34.5360824742268,
+        "pass_4": 31.958762886597935
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Claude-Sonnet-4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 86.2,
+      "evaluation_date": "2025-09-29",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Anthropic)",
+      "external_id": "claude-sonnet-4-5_anthropic_2025-10-02:retail",
+      "extra": {
+        "listed_name": "Claude-Sonnet-4.5",
+        "submitting_organization": "Anthropic",
+        "notes": "Scores were achieved using extended thinking with tool use and a prompt addendum to the Airline and Telecom Agent Policy instructing Claude to better target its known failure modes when using the vanilla prompt. A prompt addendum was also added to the Telecom User prompt to avoid failure modes from the user ending the interaction incorrectly."
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Claude-Sonnet-4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 70.0,
+      "evaluation_date": "2025-09-29",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Anthropic)",
+      "external_id": "claude-sonnet-4-5_anthropic_2025-10-02:airline",
+      "extra": {
+        "listed_name": "Claude-Sonnet-4.5",
+        "submitting_organization": "Anthropic",
+        "notes": "Scores were achieved using extended thinking with tool use and a prompt addendum to the Airline and Telecom Agent Policy instructing Claude to better target its known failure modes when using the vanilla prompt. A prompt addendum was also added to the Telecom User prompt to avoid failure modes from the user ending the interaction incorrectly."
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Claude-Sonnet-4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 98.0,
+      "evaluation_date": "2025-09-29",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Anthropic)",
+      "external_id": "claude-sonnet-4-5_anthropic_2025-10-02:telecom",
+      "extra": {
+        "listed_name": "Claude-Sonnet-4.5",
+        "submitting_organization": "Anthropic",
+        "notes": "Scores were achieved using extended thinking with tool use and a prompt addendum to the Airline and Telecom Agent Policy instructing Claude to better target its known failure modes when using the vanilla prompt. A prompt addendum was also added to the Telecom User prompt to avoid failure modes from the user ending the interaction incorrectly."
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Claude Sonnet 4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 72.0,
+      "evaluation_date": "2026-02-24",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-sonnet-4-5_sierra_2026-02-26:airline",
+      "extra": {
+        "listed_name": "Claude Sonnet 4.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) with extended thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking domain evaluated with terminal-based agentic search retrieval. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 62.0,
+        "pass_3": 54.5,
+        "pass_4": 48.0,
+        "cost": 0.29646
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Claude Sonnet 4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 72.37,
+      "evaluation_date": "2026-02-24",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-sonnet-4-5_sierra_2026-02-26:retail",
+      "extra": {
+        "listed_name": "Claude Sonnet 4.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) with extended thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking domain evaluated with terminal-based agentic search retrieval. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 57.46,
+        "pass_3": 47.37,
+        "pass_4": 39.47,
+        "cost": 0.25494
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Claude Sonnet 4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 84.87,
+      "evaluation_date": "2026-02-24",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-sonnet-4-5_sierra_2026-02-26:telecom",
+      "extra": {
+        "listed_name": "Claude Sonnet 4.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) with extended thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking domain evaluated with terminal-based agentic search retrieval. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 75.44,
+        "pass_3": 68.86,
+        "pass_4": 64.04,
+        "cost": 0.48769
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Claude Sonnet 4.5",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 25.26,
+      "evaluation_date": "2026-02-24",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "claude-sonnet-4-5_sierra_2026-02-26:banking_knowledge",
+      "extra": {
+        "listed_name": "Claude Sonnet 4.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) with extended thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking domain evaluated with terminal-based agentic search retrieval. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 15.81,
+        "pass_3": 12.63,
+        "pass_4": 10.31,
+        "cost": 4.04814
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Claude Sonnet 4",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 80.5,
+      "evaluation_date": "2025-05-22",
+      "evaluation_method": "tau2-bench original tau-bench (None submission by Anthropic)",
+      "external_id": "claude-sonnet-4_anthropic_2025-05-22:retail",
+      "extra": {
+        "listed_name": "Claude Sonnet 4",
+        "submitting_organization": "Anthropic",
+        "notes": "Scores were achieved with a prompt addendum to both the Airline and Retail Agent Policy instructing Claude to better leverage its reasoning abilities while using extended thinking with tool use. The model is encouraged to write down its thoughts as it solves the problem distinct from our usual thinking mode, during the multi-turn trajectories to best leverage its reasoning abilities. To accommodate the additional steps Claude incurs by utilizing more thinking, the maximum number of steps (counted by model completions) was increased from 30 to 100 (most trajectories completed under 30 steps with only one trajectory reaching above 50 steps)."
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Claude Sonnet 4",
+      "developer": "Anthropic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 60.0,
+      "evaluation_date": "2025-05-22",
+      "evaluation_method": "tau2-bench original tau-bench (None submission by Anthropic)",
+      "external_id": "claude-sonnet-4_anthropic_2025-05-22:airline",
+      "extra": {
+        "listed_name": "Claude Sonnet 4",
+        "submitting_organization": "Anthropic",
+        "notes": "Scores were achieved with a prompt addendum to both the Airline and Retail Agent Policy instructing Claude to better leverage its reasoning abilities while using extended thinking with tool use. The model is encouraged to write down its thoughts as it solves the problem distinct from our usual thinking mode, during the multi-turn trajectories to best leverage its reasoning abilities. To accommodate the additional steps Claude incurs by utilizing more thinking, the maximum number of steps (counted by model completions) was increased from 30 to 100 (most trajectories completed under 30 steps with only one trajectory reaching above 50 steps)."
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "PrincipledMachines Cortex 0.1",
+      "developer": "Principled Machines",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 73.19587628865979,
+      "evaluation_date": "2026-11-03",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Principled Machines)",
+      "external_id": "cortex-0-1_principledmachines_2026-10-20:banking_knowledge",
+      "extra": {
+        "listed_name": "PrincipledMachines Cortex 0.1",
+        "submission_type": "custom",
+        "submitting_organization": "Principled Machines",
+        "modality": "text",
+        "notes": "Cortex 0.1 is a cognitive architecture from Principled Machines. A cognitive core directs the work; a language model is one kind of compute it uses, for semantic judgement, and other parts of a task go to retrieval, programs and other specialized components. We attribute the result to two mechanisms: enhanced retrieval for multi-hop questions over the knowledge base, and process-calculus abstractions for the policy workflows. Submitted as custom because Cortex replaces the standard single-model scaffold. No task-specific fine-tuning, no prompt tuning against the grader, no post-training on labels, and no autoresearch loop. Cost is the average agent spend per trajectory, excluding the user simulator. Write-up: https://principledmachines.com/research/tau3-banking/",
+        "cost": 0.5955274784149485
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "DeepSeek-V3.2",
+      "developer": "DeepSeek",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 81.1,
+      "evaluation_date": "2025-12-01",
+      "evaluation_method": "tau2-bench v0.1.3 (None submission by DeepSeek)",
+      "external_id": "deepseek-v3.2_deepseek_2025-12-01:retail",
+      "extra": {
+        "listed_name": "DeepSeek-V3.2",
+        "submitting_organization": "DeepSeek",
+        "notes": ""
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "DeepSeek-V3.2",
+      "developer": "DeepSeek",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 63.8,
+      "evaluation_date": "2025-12-01",
+      "evaluation_method": "tau2-bench v0.1.3 (None submission by DeepSeek)",
+      "external_id": "deepseek-v3.2_deepseek_2025-12-01:airline",
+      "extra": {
+        "listed_name": "DeepSeek-V3.2",
+        "submitting_organization": "DeepSeek",
+        "notes": ""
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "DeepSeek-V3.2",
+      "developer": "DeepSeek",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 96.2,
+      "evaluation_date": "2025-12-01",
+      "evaluation_method": "tau2-bench v0.1.3 (None submission by DeepSeek)",
+      "external_id": "deepseek-v3.2_deepseek_2025-12-01:telecom",
+      "extra": {
+        "listed_name": "DeepSeek-V3.2",
+        "submitting_organization": "DeepSeek",
+        "notes": ""
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Distyl ButtonAgent",
+      "developer": "Distyl AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 31.19,
+      "evaluation_date": "2026-03-25",
+      "evaluation_method": "tau2-bench 0.2.1-dev (custom submission by Distyl AI)",
+      "external_id": "distyl-buttonagent_distyl_2026-03-25:banking_knowledge",
+      "extra": {
+        "listed_name": "Distyl ButtonAgent",
+        "submission_type": "custom",
+        "submitting_organization": "Distyl AI",
+        "notes": "Distyl ButtonAgent uses GPT-5.4 with high reasoning effort and a custom agentic retrieval pipeline powered by Mixedbread semantic search (mxbai-wholembed-v3). The 698 banking knowledge documents are indexed in a hosted Mixedbread vector store and retrieved dynamically during conversation. 4 trials. Seed: 300.",
+        "pass_2": 21.47,
+        "pass_3": 16.19,
+        "pass_4": 13.4
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Gemini 2.5 Pro",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 13.66,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gemini-2-5-pro_sierra_2026-05-05:banking_knowledge",
+      "extra": {
+        "listed_name": "Gemini 2.5 Pro",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 6.01,
+        "pass_3": 2.58,
+        "pass_4": 1.03
+      }
+    },
+    {
+      "benchmark": "banking_knowledge_voice",
+      "model": "gemini-3.1-flash-live-preview-thinking-high",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 11.34020618556701,
+      "evaluation_date": "2026-07-13",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Sierra)",
+      "external_id": "gemini-3-1-flash-live-preview-thinking-high-banking_google_2026-07-13:banking_knowledge",
+      "extra": {
+        "listed_name": "gemini-3.1-flash-live-preview-thinking-high",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Custom submission: first voice-banking (voice + knowledge) entry. Identical to the standard voice evaluation pipeline (audio-native, regular speech complexity, ElevenLabs eleven_v3 TTS, Gemini thinking level HIGH) but run on the banking_knowledge domain with retrieval-config=alltools, and the user simulator LLM is gpt-5.5-2026-04-23 at reasoning_effort=xhigh instead of the leaderboard-standard v1.0 (gpt-4.1). Not comparable to standard-user-simulator leaderboard entries. Re-evaluated under tau2-bench v1.0.1 (banking_knowledge grading/task fixes #329/#388/#397/#402/#403): all 97 trajectories re-graded with the fixed evaluate-trajs path, and the 27 calls whose agents were exposed to the pre-fix environment (transaction ordering, Platinum Rewards doc title) re-run live under the fixed environment regardless of prior outcome (2 gained, 4 previously-passing re-runs lost to run variance)."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "gemini-3.1-flash-live-preview-thinking-high",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 45.614035087719294,
+      "evaluation_date": "2026-04-02",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gemini-3-1-flash-live-preview-thinking-high_google_2026-04-02:retail",
+      "extra": {
+        "listed_name": "gemini-3.1-flash-live-preview-thinking-high",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Evaluated using Gemini 3.1 Flash Live Preview with thinking = HIGH."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "gemini-3.1-flash-live-preview-thinking-high",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 64.0,
+      "evaluation_date": "2026-04-02",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gemini-3-1-flash-live-preview-thinking-high_google_2026-04-02:airline",
+      "extra": {
+        "listed_name": "gemini-3.1-flash-live-preview-thinking-high",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Evaluated using Gemini 3.1 Flash Live Preview with thinking = HIGH."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "gemini-3.1-flash-live-preview-thinking-high",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 21.929824561403507,
+      "evaluation_date": "2026-04-02",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gemini-3-1-flash-live-preview-thinking-high_google_2026-04-02:telecom",
+      "extra": {
+        "listed_name": "gemini-3.1-flash-live-preview-thinking-high",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Evaluated using Gemini 3.1 Flash Live Preview with thinking = HIGH."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "gemini-3.1-flash-live-preview-thinking-minimal",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 26.31578947368421,
+      "evaluation_date": "2026-04-13",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gemini-3-1-flash-live-preview-thinking-minimal_google_2026-04-13:retail",
+      "extra": {
+        "listed_name": "gemini-3.1-flash-live-preview-thinking-minimal",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Evaluated using Gemini 3.1 Flash Live Preview with thinking = MINIMAL."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "gemini-3.1-flash-live-preview-thinking-minimal",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 42.0,
+      "evaluation_date": "2026-04-13",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gemini-3-1-flash-live-preview-thinking-minimal_google_2026-04-13:airline",
+      "extra": {
+        "listed_name": "gemini-3.1-flash-live-preview-thinking-minimal",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Evaluated using Gemini 3.1 Flash Live Preview with thinking = MINIMAL."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "gemini-3.1-flash-live-preview-thinking-minimal",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 17.543859649122805,
+      "evaluation_date": "2026-04-13",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gemini-3-1-flash-live-preview-thinking-minimal_google_2026-04-13:telecom",
+      "extra": {
+        "listed_name": "gemini-3.1-flash-live-preview-thinking-minimal",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Evaluated using Gemini 3.1 Flash Live Preview with thinking = MINIMAL."
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Gemini 3.1 Pro Preview",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 26.03,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gemini-3-1-pro-preview_sierra_2026-05-05:banking_knowledge",
+      "extra": {
+        "listed_name": "Gemini 3.1 Pro Preview",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 15.12,
+        "pass_3": 11.08,
+        "pass_4": 9.28
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Gemini 3 Flash",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 82.5,
+      "evaluation_date": "2026-03-02",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gemini-3-flash_sierra_2026-03-02:airline",
+      "extra": {
+        "listed_name": "Gemini 3 Flash",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using vertex_ai/gemini-3-flash-preview with reasoning_effort: high. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 123. Telecom domain had 20 simulations terminated due to too_many_errors (all scored as 0). Banking domain had 52 simulations terminated due to max_steps (all scored as 0). Banking domain evaluated with terminal-based agentic search retrieval (terminal_use). banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 76.33,
+        "pass_3": 72.0,
+        "pass_4": 68.0
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Gemini 3 Flash",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 76.75,
+      "evaluation_date": "2026-03-02",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gemini-3-flash_sierra_2026-03-02:retail",
+      "extra": {
+        "listed_name": "Gemini 3 Flash",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using vertex_ai/gemini-3-flash-preview with reasoning_effort: high. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 123. Telecom domain had 20 simulations terminated due to too_many_errors (all scored as 0). Banking domain had 52 simulations terminated due to max_steps (all scored as 0). Banking domain evaluated with terminal-based agentic search retrieval (terminal_use). banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 65.94,
+        "pass_3": 57.89,
+        "pass_4": 51.75
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Gemini 3 Flash",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 91.23,
+      "evaluation_date": "2026-03-02",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gemini-3-flash_sierra_2026-03-02:telecom",
+      "extra": {
+        "listed_name": "Gemini 3 Flash",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using vertex_ai/gemini-3-flash-preview with reasoning_effort: high. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 123. Telecom domain had 20 simulations terminated due to too_many_errors (all scored as 0). Banking domain had 52 simulations terminated due to max_steps (all scored as 0). Banking domain evaluated with terminal-based agentic search retrieval (terminal_use). banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 83.48,
+        "pass_3": 76.54,
+        "pass_4": 70.18
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Gemini 3 Flash",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 27.32,
+      "evaluation_date": "2026-03-02",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gemini-3-flash_sierra_2026-03-02:banking_knowledge",
+      "extra": {
+        "listed_name": "Gemini 3 Flash",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using vertex_ai/gemini-3-flash-preview with reasoning_effort: high. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 123. Telecom domain had 20 simulations terminated due to too_many_errors (all scored as 0). Banking domain had 52 simulations terminated due to max_steps (all scored as 0). Banking domain evaluated with terminal-based agentic search retrieval (terminal_use). banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 15.46,
+        "pass_3": 10.31,
+        "pass_4": 7.22
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Gemini 3.0 Pro",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 85.3,
+      "evaluation_date": "2025-11-18",
+      "evaluation_method": "tau2-bench v0.1.3 (None submission by Sierra)",
+      "external_id": "gemini-3-pro_google_2025-11-18:retail",
+      "extra": {
+        "listed_name": "Gemini 3.0 Pro",
+        "submitting_organization": "Sierra",
+        "notes": "τ2-bench results for Gemini use standard sierra framework with a prompt adjustment to provide instructions relevant to each environment. The user model uses Gemini with a system instruction. "
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Gemini 3.0 Pro",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 73.0,
+      "evaluation_date": "2025-11-18",
+      "evaluation_method": "tau2-bench v0.1.3 (None submission by Sierra)",
+      "external_id": "gemini-3-pro_google_2025-11-18:airline",
+      "extra": {
+        "listed_name": "Gemini 3.0 Pro",
+        "submitting_organization": "Sierra",
+        "notes": "τ2-bench results for Gemini use standard sierra framework with a prompt adjustment to provide instructions relevant to each environment. The user model uses Gemini with a system instruction. "
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Gemini 3.0 Pro",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 98.0,
+      "evaluation_date": "2025-11-18",
+      "evaluation_method": "tau2-bench v0.1.3 (None submission by Sierra)",
+      "external_id": "gemini-3-pro_google_2025-11-18:telecom",
+      "extra": {
+        "listed_name": "Gemini 3.0 Pro",
+        "submitting_organization": "Sierra",
+        "notes": "τ2-bench results for Gemini use standard sierra framework with a prompt adjustment to provide instructions relevant to each environment. The user model uses Gemini with a system instruction. "
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Gemini 3 Pro",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 80.5,
+      "evaluation_date": "2026-03-02",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gemini-3-pro_sierra_2026-03-02:airline",
+      "extra": {
+        "listed_name": "Gemini 3 Pro",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using vertex_ai/gemini-3-pro-preview with reasoning_effort: high. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Infrastructure errors treated as failures (reward 0): 3 in airline, 20 in retail, 2 in telecom. Banking domain had 42 simulations terminated due to max_steps (all scored as 0). Banking domain evaluated with terminal-based agentic search retrieval (terminal_use). banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 74.67,
+        "pass_3": 70.0,
+        "pass_4": 66.0
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Gemini 3 Pro",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 75.88,
+      "evaluation_date": "2026-03-02",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gemini-3-pro_sierra_2026-03-02:retail",
+      "extra": {
+        "listed_name": "Gemini 3 Pro",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using vertex_ai/gemini-3-pro-preview with reasoning_effort: high. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Infrastructure errors treated as failures (reward 0): 3 in airline, 20 in retail, 2 in telecom. Banking domain had 42 simulations terminated due to max_steps (all scored as 0). Banking domain evaluated with terminal-based agentic search retrieval (terminal_use). banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 63.45,
+        "pass_3": 54.39,
+        "pass_4": 47.37
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Gemini 3 Pro",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 91.01,
+      "evaluation_date": "2026-03-02",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gemini-3-pro_sierra_2026-03-02:telecom",
+      "extra": {
+        "listed_name": "Gemini 3 Pro",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using vertex_ai/gemini-3-pro-preview with reasoning_effort: high. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Infrastructure errors treated as failures (reward 0): 3 in airline, 20 in retail, 2 in telecom. Banking domain had 42 simulations terminated due to max_steps (all scored as 0). Banking domain evaluated with terminal-based agentic search retrieval (terminal_use). banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 84.5,
+        "pass_3": 79.17,
+        "pass_4": 74.56
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Gemini 3 Pro",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 18.04,
+      "evaluation_date": "2026-03-02",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gemini-3-pro_sierra_2026-03-02:banking_knowledge",
+      "extra": {
+        "listed_name": "Gemini 3 Pro",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using vertex_ai/gemini-3-pro-preview with reasoning_effort: high. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Infrastructure errors treated as failures (reward 0): 3 in airline, 20 in retail, 2 in telecom. Banking domain had 42 simulations terminated due to max_steps (all scored as 0). Banking domain evaluated with terminal-based agentic search retrieval (terminal_use). banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 9.28,
+        "pass_3": 5.67,
+        "pass_4": 4.12
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "gemini-live-2.5-flash-native-audio",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 30.0,
+      "evaluation_date": "2026-03-03",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gemini-live-2.5-flash_sierra_2026-03-03:airline",
+      "extra": {
+        "listed_name": "gemini-live-2.5-flash-native-audio",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "gemini-live-2.5-flash-native-audio",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 29.8,
+      "evaluation_date": "2026-03-03",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gemini-live-2.5-flash_sierra_2026-03-03:retail",
+      "extra": {
+        "listed_name": "gemini-live-2.5-flash-native-audio",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "gemini-live-2.5-flash-native-audio",
+      "developer": "Google",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 17.5,
+      "evaluation_date": "2026-03-03",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gemini-live-2.5-flash_sierra_2026-03-03:telecom",
+      "extra": {
+        "listed_name": "gemini-live-2.5-flash-native-audio",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "GLM-5.2",
+      "developer": "Z.ai",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 37.11340206185567,
+      "evaluation_date": "2026-07-24",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "glm-5-2_sierra_2026-08-04:banking_knowledge",
+      "extra": {
+        "listed_name": "GLM-5.2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 25.257731958762886,
+        "pass_3": 18.298969072164947,
+        "pass_4": 13.402061855670103
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "GLM-5",
+      "developer": "Zhipu AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 82.5,
+      "evaluation_date": "2026-02-27",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "glm-5-think_sierra_2026-03-02:airline",
+      "extra": {
+        "listed_name": "GLM-5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using GLM-5 with thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Temperature: 1.0, top_p: 0.95. Infrastructure errors treated as failures. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 76.0,
+        "pass_3": 72.0,
+        "pass_4": 70.0
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "GLM-5",
+      "developer": "Zhipu AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 73.68,
+      "evaluation_date": "2026-02-27",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "glm-5-think_sierra_2026-03-02:retail",
+      "extra": {
+        "listed_name": "GLM-5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using GLM-5 with thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Temperature: 1.0, top_p: 0.95. Infrastructure errors treated as failures. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 60.38,
+        "pass_3": 51.1,
+        "pass_4": 43.86
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "GLM-5",
+      "developer": "Zhipu AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 86.84,
+      "evaluation_date": "2026-02-27",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "glm-5-think_sierra_2026-03-02:telecom",
+      "extra": {
+        "listed_name": "GLM-5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using GLM-5 with thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Temperature: 1.0, top_p: 0.95. Infrastructure errors treated as failures. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 76.32,
+        "pass_3": 68.2,
+        "pass_4": 62.28
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "GLM-5",
+      "developer": "Zhipu AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 9.79,
+      "evaluation_date": "2026-02-27",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "glm-5-think_sierra_2026-03-02:banking_knowledge",
+      "extra": {
+        "listed_name": "GLM-5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using GLM-5 with thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Temperature: 1.0, top_p: 0.95. Infrastructure errors treated as failures. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 7.22,
+        "pass_3": 5.67,
+        "pass_4": 3.09
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "GPT-4.1-mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 61.4,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "gpt-4-1-mini_openai_2024-06-20:retail",
+      "extra": {
+        "listed_name": "GPT-4.1-mini",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 49.8,
+        "pass_3": 42.3,
+        "pass_4": 36.9
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "GPT-4.1-mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 48.7,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "gpt-4-1-mini_openai_2024-06-20:airline",
+      "extra": {
+        "listed_name": "GPT-4.1-mini",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 38.9,
+        "pass_3": 32.1,
+        "pass_4": 27.8
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "GPT-4.1-mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 48.9,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "gpt-4-1-mini_openai_2024-06-20:telecom",
+      "extra": {
+        "listed_name": "GPT-4.1-mini",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 38.7,
+        "pass_3": 31.2,
+        "pass_4": 26.1
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "GPT-4.1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 74.0,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "gpt-4-1_openai_2024-06-20:retail",
+      "extra": {
+        "listed_name": "GPT-4.1",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 64.2,
+        "pass_3": 58.1,
+        "pass_4": 52.3
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "GPT-4.1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 56.0,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "gpt-4-1_openai_2024-06-20:airline",
+      "extra": {
+        "listed_name": "GPT-4.1",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 47.8,
+        "pass_3": 42.4,
+        "pass_4": 38.1
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "GPT-4.1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 34.0,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "gpt-4-1_openai_2024-06-20:telecom",
+      "extra": {
+        "listed_name": "GPT-4.1",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 27.6,
+        "pass_3": 23.8,
+        "pass_4": 20.4
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 52.5,
+      "evaluation_date": "2026-05-26",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-2-none_sierra_2026-02-26:airline",
+      "extra": {
+        "listed_name": "GPT-5.2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using GPT-5.2 with reasoning_effort: none. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking domain evaluated with retrieval_config: qwen_embeddings. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 35.66666666666667,
+        "pass_3": 27.0,
+        "pass_4": 22.0,
+        "cost": 0.053692803500000004
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 75.0,
+      "evaluation_date": "2026-05-26",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-2-none_sierra_2026-02-26:retail",
+      "extra": {
+        "listed_name": "GPT-5.2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using GPT-5.2 with reasoning_effort: none. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking domain evaluated with retrieval_config: qwen_embeddings. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 62.13450292397662,
+        "pass_3": 53.07017543859649,
+        "pass_4": 45.614035087719294,
+        "cost": 0.048219267434210525
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 57.23684210526315,
+      "evaluation_date": "2026-05-26",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-2-none_sierra_2026-02-26:telecom",
+      "extra": {
+        "listed_name": "GPT-5.2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using GPT-5.2 with reasoning_effort: none. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking domain evaluated with retrieval_config: qwen_embeddings. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 42.83625730994152,
+        "pass_3": 35.526315789473685,
+        "pass_4": 30.701754385964914,
+        "cost": 0.04937742280701755
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 12.63,
+      "evaluation_date": "2026-05-26",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-2-none_sierra_2026-02-26:banking_knowledge",
+      "extra": {
+        "listed_name": "GPT-5.2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using GPT-5.2 with reasoning_effort: none. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking domain evaluated with retrieval_config: qwen_embeddings. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 7.22,
+        "pass_3": 5.15,
+        "pass_4": 4.12,
+        "cost": 0.2433424974226804
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 83.0,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-2_sierra_2026-02-26:airline",
+      "extra": {
+        "listed_name": "GPT-5.2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 78.33,
+        "pass_3": 75.0,
+        "pass_4": 72.0,
+        "cost": 0.11379
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 81.58,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-2_sierra_2026-02-26:retail",
+      "extra": {
+        "listed_name": "GPT-5.2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 69.59,
+        "pass_3": 59.87,
+        "pass_4": 51.75,
+        "cost": 0.07156
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 89.69,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-2_sierra_2026-02-26:telecom",
+      "extra": {
+        "listed_name": "GPT-5.2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 82.46,
+        "pass_3": 76.75,
+        "pass_4": 71.93,
+        "cost": 0.09312
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 32.22,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-2_sierra_2026-02-26:banking_knowledge",
+      "extra": {
+        "listed_name": "GPT-5.2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 23.88,
+        "pass_3": 20.62,
+        "pass_4": 18.56
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "GPT-5.4",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 39.43,
+      "evaluation_date": "2026-05-06",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-4_sierra_2026-03-25:banking_knowledge",
+      "extra": {
+        "listed_name": "GPT-5.4",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated with reasoning_effort 'xhigh' (the highest effort level this model supports). Retrieval: AllTools (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 29.55,
+        "pass_3": 24.48,
+        "pass_4": 21.65,
+        "cost": 1.8423
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "GPT-5.5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 44.58762886597938,
+      "evaluation_date": "2026-07-22",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-5_sierra_2026-05-05:banking_knowledge",
+      "extra": {
+        "listed_name": "GPT-5.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 37.62886597938145,
+        "pass_3": 33.24742268041237,
+        "pass_4": 29.896907216494846
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "GPT-5.6-sol",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 46.90721649484536,
+      "evaluation_date": "2026-07-22",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-5-6-sol_sierra_2026-08-04:banking_knowledge",
+      "extra": {
+        "listed_name": "GPT-5.6-sol",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 37.28522336769759,
+        "pass_3": 31.958762886597935,
+        "pass_4": 27.835051546391753
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "GPT-5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 81.57894736842105,
+      "evaluation_date": "2025-08-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "gpt-5_sierra_2025-08-09:retail",
+      "extra": {
+        "listed_name": "GPT-5",
+        "submitting_organization": "Sierra",
+        "pass_2": 71.78362573099416,
+        "pass_3": 64.69298245614036,
+        "pass_4": 58.77192982456141,
+        "cost": 0.10552710142543861
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "GPT-5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 62.5,
+      "evaluation_date": "2025-08-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "gpt-5_sierra_2025-08-09:airline",
+      "extra": {
+        "listed_name": "GPT-5",
+        "submitting_organization": "Sierra",
+        "pass_2": 55.33333333333332,
+        "pass_3": 51.0,
+        "pass_4": 48.0,
+        "cost": 0.13399991125
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "GPT-5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 95.83333333333334,
+      "evaluation_date": "2025-08-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "gpt-5_sierra_2025-08-09:telecom",
+      "extra": {
+        "listed_name": "GPT-5",
+        "submitting_organization": "Sierra",
+        "pass_2": 91.95906432748538,
+        "pass_3": 88.37719298245614,
+        "pass_4": 85.08771929824562,
+        "cost": 0.16471152192982458
+      }
+    },
+    {
+      "benchmark": "banking_knowledge_voice",
+      "model": "gpt-live-1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 37.11340206185567,
+      "evaluation_date": "2026-09-16",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by OpenAI)",
+      "external_id": "gpt-live-1-astra-high-banking_openai_2026-09-16:banking_knowledge",
+      "extra": {
+        "listed_name": "gpt-live-1",
+        "submission_type": "custom",
+        "submitting_organization": "OpenAI",
+        "modality": "voice",
+        "notes": "Custom voice evaluation on all 97 banking_knowledge base tasks, regular speech, alltools retrieval, one trial. Run seed 300; trial 0 seed 626729. Agent openai_live:gpt-live-1 delegates to gpt-6-astra at high effort, with marin voice and priority service. Caller openai/responses/gpt-5.5 uses xhigh effort and ElevenLabs eleven_v3 with native persona voices; full reviewer openai/gpt-5.5. Native error and hallucination retry limits are three; one 15-worker controller. Sierra tau2-bench 1.0.1, base 2174a603f6d014ef94473ffa95957f6ce27100db, with local execution/resource changes; task definitions, policies, prompts and native grading logic unchanged. The entire high run was selected from two complete ElevenLabs candidates (high and xhigh), with no per-task best-of mixing. Includes all 97 canonical histories, combined both.wav recordings, native label files, and original rewards and reviews. Differs from the 2026-09-09 GPT Live custom entry (medium backend effort, default Anthropic hallucination reviewer, 31.96% banking) in backend effort, service tier, and hallucination reviewer; task definitions, seed, voices and personas are identical. Sierra verification: checksums verified; 36/97 recounted; re-graded on main with embedded and fresh task definitions (0 flips); interaction_metrics recomputed (exact match). The run's results.json recorded audio_native_config.live_config.service_tier='priority', a field not in the public tau2-bench LiveConfig schema; it was removed from the hosted results.json so the trajectories load with public tooling, and no other trajectory content was modified."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "gpt-live-1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 84.21052631578947,
+      "evaluation_date": "2026-09-09",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Sierra)",
+      "external_id": "gpt-live-1-diamond-alpha-user-sim-gpt-5-5_openai_2026-09-09:retail",
+      "extra": {
+        "listed_name": "gpt-live-1",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Custom GPT Live evaluation using the same agent, tools, prompts, policies, regular speech complexity, realtime generation, marin voice, seed 300, alltools banking retrieval, and default Anthropic hallucination reviewer as the standard submission; only the benchmark user-simulator LLM changes from GPT-4.1 temperature 0 to gpt-5.5-2026-04-23 at xhigh reasoning effort."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "gpt-live-1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 78.0,
+      "evaluation_date": "2026-09-09",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Sierra)",
+      "external_id": "gpt-live-1-diamond-alpha-user-sim-gpt-5-5_openai_2026-09-09:airline",
+      "extra": {
+        "listed_name": "gpt-live-1",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Custom GPT Live evaluation using the same agent, tools, prompts, policies, regular speech complexity, realtime generation, marin voice, seed 300, alltools banking retrieval, and default Anthropic hallucination reviewer as the standard submission; only the benchmark user-simulator LLM changes from GPT-4.1 temperature 0 to gpt-5.5-2026-04-23 at xhigh reasoning effort."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "gpt-live-1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 96.49122807017544,
+      "evaluation_date": "2026-09-09",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Sierra)",
+      "external_id": "gpt-live-1-diamond-alpha-user-sim-gpt-5-5_openai_2026-09-09:telecom",
+      "extra": {
+        "listed_name": "gpt-live-1",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Custom GPT Live evaluation using the same agent, tools, prompts, policies, regular speech complexity, realtime generation, marin voice, seed 300, alltools banking retrieval, and default Anthropic hallucination reviewer as the standard submission; only the benchmark user-simulator LLM changes from GPT-4.1 temperature 0 to gpt-5.5-2026-04-23 at xhigh reasoning effort."
+      }
+    },
+    {
+      "benchmark": "banking_knowledge_voice",
+      "model": "gpt-live-1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 31.958762886597935,
+      "evaluation_date": "2026-09-09",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Sierra)",
+      "external_id": "gpt-live-1-diamond-alpha-user-sim-gpt-5-5_openai_2026-09-09:banking_knowledge",
+      "extra": {
+        "listed_name": "gpt-live-1",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Custom GPT Live evaluation using the same agent, tools, prompts, policies, regular speech complexity, realtime generation, marin voice, seed 300, alltools banking retrieval, and default Anthropic hallucination reviewer as the standard submission; only the benchmark user-simulator LLM changes from GPT-4.1 temperature 0 to gpt-5.5-2026-04-23 at xhigh reasoning effort."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "gpt-live-1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 78.94736842105263,
+      "evaluation_date": "2026-09-09",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-live-1-diamond-alpha_openai_2026-09-09:retail",
+      "extra": {
+        "listed_name": "gpt-live-1",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Standard GPT Live evaluation using the provider-owned frontend/backend prompt templates, gpt-live-1-diamond-alpha frontend, gpt-6-astra backend at medium reasoning effort, marin agent voice, regular speech complexity, realtime user generation, seed 300, and the default Anthropic hallucination reviewer. One trial was scheduled for every task: airline 50, retail 114, and telecom 114."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "gpt-live-1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 82.0,
+      "evaluation_date": "2026-09-09",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-live-1-diamond-alpha_openai_2026-09-09:airline",
+      "extra": {
+        "listed_name": "gpt-live-1",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Standard GPT Live evaluation using the provider-owned frontend/backend prompt templates, gpt-live-1-diamond-alpha frontend, gpt-6-astra backend at medium reasoning effort, marin agent voice, regular speech complexity, realtime user generation, seed 300, and the default Anthropic hallucination reviewer. One trial was scheduled for every task: airline 50, retail 114, and telecom 114."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "gpt-live-1",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 84.21052631578947,
+      "evaluation_date": "2026-09-09",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "gpt-live-1-diamond-alpha_openai_2026-09-09:telecom",
+      "extra": {
+        "listed_name": "gpt-live-1",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Standard GPT Live evaluation using the provider-owned frontend/backend prompt templates, gpt-live-1-diamond-alpha frontend, gpt-6-astra backend at medium reasoning effort, marin agent voice, regular speech complexity, realtime user generation, seed 300, and the default Anthropic hallucination reviewer. One trial was scheduled for every task: airline 50, retail 114, and telecom 114."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "gpt-realtime-1.0",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 35.96491228070175,
+      "evaluation_date": "2026-03-27",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-1-0_openai_2026-04-13:retail",
+      "extra": {
+        "listed_name": "gpt-realtime-1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "gpt-realtime-1.0",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 36.0,
+      "evaluation_date": "2026-03-27",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-1-0_openai_2026-04-13:airline",
+      "extra": {
+        "listed_name": "gpt-realtime-1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "gpt-realtime-1.0",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 19.298245614035086,
+      "evaluation_date": "2026-03-27",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-1-0_openai_2026-04-13:telecom",
+      "extra": {
+        "listed_name": "gpt-realtime-1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "gpt-realtime-1.5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 40.0,
+      "evaluation_date": "2026-03-03",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-1.5_sierra_2026-03-03:airline",
+      "extra": {
+        "listed_name": "gpt-realtime-1.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "gpt-realtime-1.5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 44.7,
+      "evaluation_date": "2026-03-03",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-1.5_sierra_2026-03-03:retail",
+      "extra": {
+        "listed_name": "gpt-realtime-1.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "gpt-realtime-1.5",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 21.1,
+      "evaluation_date": "2026-03-03",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-1.5_sierra_2026-03-03:telecom",
+      "extra": {
+        "listed_name": "gpt-realtime-1.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "banking_knowledge_voice",
+      "model": "gpt-realtime-2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 10.309278350515463,
+      "evaluation_date": "2026-07-12",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Sierra)",
+      "external_id": "gpt-realtime-2-banking_openai_2026-07-12:banking_knowledge",
+      "extra": {
+        "listed_name": "gpt-realtime-2",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Custom submission: first voice-banking (voice + knowledge) entry. Identical to the standard voice evaluation pipeline (audio-native, regular speech complexity, ElevenLabs eleven_v3 TTS, agent reasoning_effort=xhigh) but run on the banking_knowledge domain with retrieval-config=alltools, and the user simulator LLM is gpt-5.5-2026-04-23 at reasoning_effort=xhigh instead of the leaderboard-standard v1.0 (gpt-4.1). Not comparable to standard-user-simulator leaderboard entries. Re-evaluated under tau2-bench v1.0.1 (banking_knowledge grading/task fixes #329/#388/#397/#402/#403): all 97 trajectories re-graded with the fixed evaluate-trajs path, and the 15 calls whose agents were exposed to the pre-fix environment (transaction ordering, Platinum Rewards doc title) re-run live under the fixed environment regardless of prior outcome. task_007 flipped to pass on re-run."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "gpt-realtime-2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 39.473684210526315,
+      "evaluation_date": "2026-07-01",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-2-minimal_openai_2026-07-01:retail",
+      "extra": {
+        "listed_name": "gpt-realtime-2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "gpt-realtime-2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 56.00000000000001,
+      "evaluation_date": "2026-07-01",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-2-minimal_openai_2026-07-01:airline",
+      "extra": {
+        "listed_name": "gpt-realtime-2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "gpt-realtime-2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 20.175438596491226,
+      "evaluation_date": "2026-07-01",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-2-minimal_openai_2026-07-01:telecom",
+      "extra": {
+        "listed_name": "gpt-realtime-2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "gpt-realtime-2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 50.0,
+      "evaluation_date": "2026-06-29",
+      "evaluation_method": "tau2-bench 1.0.0 (custom submission by Sierra)",
+      "external_id": "gpt-realtime-2_openai_2026-06-24:retail",
+      "extra": {
+        "listed_name": "gpt-realtime-2",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Custom submission: identical to the standard gpt-realtime-2 voice evaluation (audio-native, regular speech complexity, ElevenLabs eleven_v3 TTS, agent reasoning_effort=xhigh) EXCEPT the user simulator LLM is gpt-5.5-2026-04-23 run at reasoning_effort=xhigh instead of the leaderboard-standard v1.0 (gpt-4.1). Because telecom's user simulator uses function tools, gpt-5.5 rejects reasoning_effort=none with tools, so all domains use xhigh for consistency. Not comparable to standard-user-simulator leaderboard entries."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "gpt-realtime-2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 66.0,
+      "evaluation_date": "2026-06-29",
+      "evaluation_method": "tau2-bench 1.0.0 (custom submission by Sierra)",
+      "external_id": "gpt-realtime-2_openai_2026-06-24:airline",
+      "extra": {
+        "listed_name": "gpt-realtime-2",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Custom submission: identical to the standard gpt-realtime-2 voice evaluation (audio-native, regular speech complexity, ElevenLabs eleven_v3 TTS, agent reasoning_effort=xhigh) EXCEPT the user simulator LLM is gpt-5.5-2026-04-23 run at reasoning_effort=xhigh instead of the leaderboard-standard v1.0 (gpt-4.1). Because telecom's user simulator uses function tools, gpt-5.5 rejects reasoning_effort=none with tools, so all domains use xhigh for consistency. Not comparable to standard-user-simulator leaderboard entries."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "gpt-realtime-2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 37.719298245614034,
+      "evaluation_date": "2026-06-29",
+      "evaluation_method": "tau2-bench 1.0.0 (custom submission by Sierra)",
+      "external_id": "gpt-realtime-2_openai_2026-06-24:telecom",
+      "extra": {
+        "listed_name": "gpt-realtime-2",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Custom submission: identical to the standard gpt-realtime-2 voice evaluation (audio-native, regular speech complexity, ElevenLabs eleven_v3 TTS, agent reasoning_effort=xhigh) EXCEPT the user simulator LLM is gpt-5.5-2026-04-23 run at reasoning_effort=xhigh instead of the leaderboard-standard v1.0 (gpt-4.1). Because telecom's user simulator uses function tools, gpt-5.5 rejects reasoning_effort=none with tools, so all domains use xhigh for consistency. Not comparable to standard-user-simulator leaderboard entries."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "gpt-realtime-2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 47.368421052631575,
+      "evaluation_date": "2026-06-24",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-2_openai_2026-06-29:retail",
+      "extra": {
+        "listed_name": "gpt-realtime-2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "gpt-realtime-2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 57.99999999999999,
+      "evaluation_date": "2026-06-24",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-2_openai_2026-06-29:airline",
+      "extra": {
+        "listed_name": "gpt-realtime-2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "gpt-realtime-2",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 21.929824561403507,
+      "evaluation_date": "2026-06-24",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "gpt-realtime-2_openai_2026-06-29:telecom",
+      "extra": {
+        "listed_name": "gpt-realtime-2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Grok 4.1 fast",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 13.14,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "grok-4-1-fast_sierra_2026-05-05:banking_knowledge",
+      "extra": {
+        "listed_name": "Grok 4.1 fast",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. xAI's `-reasoning` model variant (always-on chain-of-thought); launched with `temperature: 0.0` since reasoning is gated by model name on this provider, not by an `effort` parameter. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 7.73,
+        "pass_3": 5.67,
+        "pass_4": 5.15
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Grok 4.2",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 18.04,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "grok-4-2_sierra_2026-05-05:banking_knowledge",
+      "extra": {
+        "listed_name": "Grok 4.2",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. xAI's `-reasoning` model variant (always-on chain-of-thought); launched with `temperature: 0.0` since reasoning is gated by model name on this provider, not by an `effort` parameter. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 12.37,
+        "pass_3": 10.05,
+        "pass_4": 8.25
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Grok 4.5",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 47.93814432989691,
+      "evaluation_date": "2026-07-24",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "grok-4-5_sierra_2026-08-04:banking_knowledge",
+      "extra": {
+        "listed_name": "Grok 4.5",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 39.51890034364261,
+        "pass_3": 35.30927835051546,
+        "pass_4": 31.958762886597935
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Grok 4 fast",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 15.72,
+      "evaluation_date": "2026-05-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "grok-4-fast_sierra_2026-05-05:banking_knowledge",
+      "extra": {
+        "listed_name": "Grok 4 fast",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using AllTools retrieval (BM25 + dense OpenAI text-embedding-3-large + sandboxed shell). User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Banking_knowledge domain only — other domains intentionally excluded from this comparison; the AllTools setting standardizes retrieval across models. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 8.42,
+        "pass_3": 5.67,
+        "pass_4": 4.12
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "Grok Voice 3.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 76.31578947368422,
+      "evaluation_date": "2026-10-08",
+      "evaluation_method": "tau2-bench 4ce7c0397c1eb65c9bbe59aeacfe1ca44a1cd699 (custom submission by Sierra)",
+      "external_id": "grok-voice-3-0_xai_2026-10-14:retail",
+      "extra": {
+        "listed_name": "Grok Voice 3.0",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Sierra evaluation of an early-access Grok Voice 3.0 model before its public release. The public API model name is grok-voice-3.0. Standard full-duplex xAI adapter, base airline/retail/telecom task sets, regular speech complexity, seed 300, 0.2-second ticks, 1200-second simulated limit, and one scored trial per task. The voice user simulator v1.0 pipeline used gpt-5.5 with xhigh reasoning effort as its customer LLM; the remaining simulator components, benchmark prompts, policies, tools, and evaluator were unchanged. This non-default customer LLM makes the result a custom submission. Published trajectory metadata replaces an internal early-access model identifier with the public API model name; scored task content, rewards, timestamps, and audio are unchanged."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "Grok Voice 3.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 80.0,
+      "evaluation_date": "2026-10-08",
+      "evaluation_method": "tau2-bench 4ce7c0397c1eb65c9bbe59aeacfe1ca44a1cd699 (custom submission by Sierra)",
+      "external_id": "grok-voice-3-0_xai_2026-10-14:airline",
+      "extra": {
+        "listed_name": "Grok Voice 3.0",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Sierra evaluation of an early-access Grok Voice 3.0 model before its public release. The public API model name is grok-voice-3.0. Standard full-duplex xAI adapter, base airline/retail/telecom task sets, regular speech complexity, seed 300, 0.2-second ticks, 1200-second simulated limit, and one scored trial per task. The voice user simulator v1.0 pipeline used gpt-5.5 with xhigh reasoning effort as its customer LLM; the remaining simulator components, benchmark prompts, policies, tools, and evaluator were unchanged. This non-default customer LLM makes the result a custom submission. Published trajectory metadata replaces an internal early-access model identifier with the public API model name; scored task content, rewards, timestamps, and audio are unchanged."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "Grok Voice 3.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 82.45614035087719,
+      "evaluation_date": "2026-10-08",
+      "evaluation_method": "tau2-bench 4ce7c0397c1eb65c9bbe59aeacfe1ca44a1cd699 (custom submission by Sierra)",
+      "external_id": "grok-voice-3-0_xai_2026-10-14:telecom",
+      "extra": {
+        "listed_name": "Grok Voice 3.0",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Sierra evaluation of an early-access Grok Voice 3.0 model before its public release. The public API model name is grok-voice-3.0. Standard full-duplex xAI adapter, base airline/retail/telecom task sets, regular speech complexity, seed 300, 0.2-second ticks, 1200-second simulated limit, and one scored trial per task. The voice user simulator v1.0 pipeline used gpt-5.5 with xhigh reasoning effort as its customer LLM; the remaining simulator components, benchmark prompts, policies, tools, and evaluator were unchanged. This non-default customer LLM makes the result a custom submission. Published trajectory metadata replaces an internal early-access model identifier with the public API model name; scored task content, rewards, timestamps, and audio are unchanged."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "grok-voice-think-fast-1.0 + tool-mentor",
+      "developer": "Pickle",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 76.31578947368422,
+      "evaluation_date": "2026-07-06",
+      "evaluation_method": "tau2-bench 1.0.0 (custom submission by Pickle)",
+      "external_id": "grok-voice-think-fast-1-0-tool-mentor_pickle_2026-07-07:retail",
+      "extra": {
+        "listed_name": "grok-voice-think-fast-1.0 + tool-mentor",
+        "submission_type": "custom",
+        "submitting_organization": "Pickle",
+        "modality": "voice",
+        "notes": "Custom submission: base model is xAI grok-voice-think-fast-1.0 (audio-native, regular speech complexity, single trial on the full base splits) with an added tool-boundary mentor — a separate LLM (gemini-3.5-flash, reasoning_effort=high, read/write deadlines 10s/15s, fail-open) that reviews the voice agent's tool calls at runtime: pre-execution gates on state-mutating and escalation calls (transfer_to_human_agents), guidance notes appended to read results, and stop-interception so a blocked hand-off proposal continues the conversation. The mentor receives only agent-visible inputs (agent-heard STT transcript, official tool results, the same domain policy the agent receives, agent tool names and descriptions); its prompt contains no benchmark-derived facts and is published verbatim in the referenced fork together with its content policy. Standard tau2 agent and user-simulator prompts are byte-unmodified; the mentor is an additional component with its own prompt. Explicit xAI server-VAD settings (threshold 0.1, silence 1200ms, prefix padding 600ms) and 2.0x input gain restore a working audio pipeline on the July 2026 xAI serving stack (in our environment, server-default VAD frequently failed to detect user speech, and we were unable to reproduce the April 2026 official score with default settings). All non-mentor behavioral differences from upstream are enumerated in the referenced methodology document; submitted runs used the upstream-compatible voice-seed behavior (TAU2_OFFICIAL_PYTHON_HASH_VOICE_SEED=1). The voice user-simulator pipeline is the standard v1.0 lineage with only its LLM swapped: gpt-5.5-2026-04-23 at reasoning_effort=xhigh — not comparable to standard-user-simulator leaderboard entries. Voices are local ElevenLabs personas, not Sierra-managed submission voices."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "grok-voice-think-fast-1.0 + tool-mentor",
+      "developer": "Pickle",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 70.0,
+      "evaluation_date": "2026-07-06",
+      "evaluation_method": "tau2-bench 1.0.0 (custom submission by Pickle)",
+      "external_id": "grok-voice-think-fast-1-0-tool-mentor_pickle_2026-07-07:airline",
+      "extra": {
+        "listed_name": "grok-voice-think-fast-1.0 + tool-mentor",
+        "submission_type": "custom",
+        "submitting_organization": "Pickle",
+        "modality": "voice",
+        "notes": "Custom submission: base model is xAI grok-voice-think-fast-1.0 (audio-native, regular speech complexity, single trial on the full base splits) with an added tool-boundary mentor — a separate LLM (gemini-3.5-flash, reasoning_effort=high, read/write deadlines 10s/15s, fail-open) that reviews the voice agent's tool calls at runtime: pre-execution gates on state-mutating and escalation calls (transfer_to_human_agents), guidance notes appended to read results, and stop-interception so a blocked hand-off proposal continues the conversation. The mentor receives only agent-visible inputs (agent-heard STT transcript, official tool results, the same domain policy the agent receives, agent tool names and descriptions); its prompt contains no benchmark-derived facts and is published verbatim in the referenced fork together with its content policy. Standard tau2 agent and user-simulator prompts are byte-unmodified; the mentor is an additional component with its own prompt. Explicit xAI server-VAD settings (threshold 0.1, silence 1200ms, prefix padding 600ms) and 2.0x input gain restore a working audio pipeline on the July 2026 xAI serving stack (in our environment, server-default VAD frequently failed to detect user speech, and we were unable to reproduce the April 2026 official score with default settings). All non-mentor behavioral differences from upstream are enumerated in the referenced methodology document; submitted runs used the upstream-compatible voice-seed behavior (TAU2_OFFICIAL_PYTHON_HASH_VOICE_SEED=1). The voice user-simulator pipeline is the standard v1.0 lineage with only its LLM swapped: gpt-5.5-2026-04-23 at reasoning_effort=xhigh — not comparable to standard-user-simulator leaderboard entries. Voices are local ElevenLabs personas, not Sierra-managed submission voices."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "grok-voice-think-fast-1.0 + tool-mentor",
+      "developer": "Pickle",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 78.0701754385965,
+      "evaluation_date": "2026-07-06",
+      "evaluation_method": "tau2-bench 1.0.0 (custom submission by Pickle)",
+      "external_id": "grok-voice-think-fast-1-0-tool-mentor_pickle_2026-07-07:telecom",
+      "extra": {
+        "listed_name": "grok-voice-think-fast-1.0 + tool-mentor",
+        "submission_type": "custom",
+        "submitting_organization": "Pickle",
+        "modality": "voice",
+        "notes": "Custom submission: base model is xAI grok-voice-think-fast-1.0 (audio-native, regular speech complexity, single trial on the full base splits) with an added tool-boundary mentor — a separate LLM (gemini-3.5-flash, reasoning_effort=high, read/write deadlines 10s/15s, fail-open) that reviews the voice agent's tool calls at runtime: pre-execution gates on state-mutating and escalation calls (transfer_to_human_agents), guidance notes appended to read results, and stop-interception so a blocked hand-off proposal continues the conversation. The mentor receives only agent-visible inputs (agent-heard STT transcript, official tool results, the same domain policy the agent receives, agent tool names and descriptions); its prompt contains no benchmark-derived facts and is published verbatim in the referenced fork together with its content policy. Standard tau2 agent and user-simulator prompts are byte-unmodified; the mentor is an additional component with its own prompt. Explicit xAI server-VAD settings (threshold 0.1, silence 1200ms, prefix padding 600ms) and 2.0x input gain restore a working audio pipeline on the July 2026 xAI serving stack (in our environment, server-default VAD frequently failed to detect user speech, and we were unable to reproduce the April 2026 official score with default settings). All non-mentor behavioral differences from upstream are enumerated in the referenced methodology document; submitted runs used the upstream-compatible voice-seed behavior (TAU2_OFFICIAL_PYTHON_HASH_VOICE_SEED=1). The voice user-simulator pipeline is the standard v1.0 lineage with only its LLM swapped: gpt-5.5-2026-04-23 at reasoning_effort=xhigh — not comparable to standard-user-simulator leaderboard entries. Voices are local ElevenLabs personas, not Sierra-managed submission voices."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "grok-voice-think-fast-1.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 62.28070175438597,
+      "evaluation_date": "2026-04-21",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "grok-voice-think-fast-1-0_xai_2026-04-21:retail",
+      "extra": {
+        "listed_name": "grok-voice-think-fast-1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "grok-voice-think-fast-1.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 66.0,
+      "evaluation_date": "2026-04-21",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "grok-voice-think-fast-1-0_xai_2026-04-21:airline",
+      "extra": {
+        "listed_name": "grok-voice-think-fast-1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "grok-voice-think-fast-1.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 73.68421052631578,
+      "evaluation_date": "2026-04-21",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "grok-voice-think-fast-1-0_xai_2026-04-21:telecom",
+      "extra": {
+        "listed_name": "grok-voice-think-fast-1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice"
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "grok-voice-think-fast-2.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 59.64912280701754,
+      "evaluation_date": "2026-08-06",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "grok-voice-think-fast-2-0_xai_2026-08-06:retail",
+      "extra": {
+        "listed_name": "grok-voice-think-fast-2.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task.",
+        "cost": 0.23825263157894733
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "grok-voice-think-fast-2.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 56.00000000000001,
+      "evaluation_date": "2026-08-06",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "grok-voice-think-fast-2-0_xai_2026-08-06:airline",
+      "extra": {
+        "listed_name": "grok-voice-think-fast-2.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task.",
+        "cost": 0.20933333333333337
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "grok-voice-think-fast-2.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 71.9298245614035,
+      "evaluation_date": "2026-08-06",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "grok-voice-think-fast-2-0_xai_2026-08-06:telecom",
+      "extra": {
+        "listed_name": "grok-voice-think-fast-2.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task.",
+        "cost": 0.38721871345029246
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Inkling",
+      "developer": "Thinking Machines Lab",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 25.0,
+      "evaluation_date": "2026-07-24",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "inkling_sierra_2026-08-04:banking_knowledge",
+      "extra": {
+        "listed_name": "Inkling",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 16.666666666666664,
+        "pass_3": 13.402061855670103,
+        "pass_4": 11.34020618556701
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Kimi-k2",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 70.6,
+      "evaluation_date": "2025-07-28",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Moonshot AI)",
+      "external_id": "kimi-k2_moonshot-ai_2025-07-11:retail",
+      "extra": {
+        "listed_name": "Kimi-k2",
+        "submitting_organization": "Moonshot AI",
+        "notes": "Evaluation limited to Pass^1 scores only"
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Kimi-k2",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 56.5,
+      "evaluation_date": "2025-07-28",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Moonshot AI)",
+      "external_id": "kimi-k2_moonshot-ai_2025-07-11:airline",
+      "extra": {
+        "listed_name": "Kimi-k2",
+        "submitting_organization": "Moonshot AI",
+        "notes": "Evaluation limited to Pass^1 scores only"
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Kimi-k2",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 65.8,
+      "evaluation_date": "2025-07-28",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Moonshot AI)",
+      "external_id": "kimi-k2_moonshot-ai_2025-07-11:telecom",
+      "extra": {
+        "listed_name": "Kimi-k2",
+        "submitting_organization": "Moonshot AI",
+        "notes": "Evaluation limited to Pass^1 scores only"
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Kimi K3",
+      "developer": "Moonshot AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 37.11340206185567,
+      "evaluation_date": "2026-07-24",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "kimi-k3_sierra_2026-08-04:banking_knowledge",
+      "extra": {
+        "listed_name": "Kimi K3",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 25.257731958762886,
+        "pass_3": 20.103092783505154,
+        "pass_4": 17.525773195876287
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "Cascaded baseline",
+      "developer": "Multiple providers",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 28.947368421052634,
+      "evaluation_date": "2026-04-20",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "livekit-cascaded_livekit_2026-05-19:retail",
+      "extra": {
+        "listed_name": "Cascaded baseline",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Cascaded STT-LLM-TTS pipeline using Deepgram nova-3 STT, OpenAI gpt-4.1 LLM, and Deepgram aura-asteria-en TTS. Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "Cascaded baseline",
+      "developer": "Multiple providers",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 48.0,
+      "evaluation_date": "2026-04-20",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "livekit-cascaded_livekit_2026-05-19:airline",
+      "extra": {
+        "listed_name": "Cascaded baseline",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Cascaded STT-LLM-TTS pipeline using Deepgram nova-3 STT, OpenAI gpt-4.1 LLM, and Deepgram aura-asteria-en TTS. Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "Cascaded baseline",
+      "developer": "Multiple providers",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 16.666666666666664,
+      "evaluation_date": "2026-04-20",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "livekit-cascaded_livekit_2026-05-19:telecom",
+      "extra": {
+        "listed_name": "Cascaded baseline",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Cascaded STT-LLM-TTS pipeline using Deepgram nova-3 STT, OpenAI gpt-4.1 LLM, and Deepgram aura-asteria-en TTS. Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Muse Spark 1.1",
+      "developer": "Meta",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 40.4639175257732,
+      "evaluation_date": "2026-07-23",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "muse-spark-1-1_sierra_2026-08-04:banking_knowledge",
+      "extra": {
+        "listed_name": "Muse Spark 1.1",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 29.55326460481099,
+        "pass_3": 23.969072164948454,
+        "pass_4": 20.618556701030926
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 73.9,
+      "evaluation_date": "2025-04-16",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by OpenAI)",
+      "external_id": "o3_openai_2025-01-15:retail",
+      "extra": {
+        "listed_name": "o3",
+        "submitting_organization": "OpenAI",
+        "notes": "Evaluation limited to Pass^1 scores only"
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 52.0,
+      "evaluation_date": "2025-04-16",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by OpenAI)",
+      "external_id": "o3_openai_2025-01-15:airline",
+      "extra": {
+        "listed_name": "o3",
+        "submitting_organization": "OpenAI",
+        "notes": "Evaluation limited to Pass^1 scores only"
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 68.3,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "o4-mini_openai_2024-06-20:retail",
+      "extra": {
+        "listed_name": "o4-mini",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 58.7,
+        "pass_3": 52.1,
+        "pass_4": 46.8
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 52.1,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "o4-mini_openai_2024-06-20:airline",
+      "extra": {
+        "listed_name": "o4-mini",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 44.2,
+        "pass_3": 38.9,
+        "pass_4": 34.7
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 50.2,
+      "evaluation_date": "2025-06-09",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Sierra)",
+      "external_id": "o4-mini_openai_2024-06-20:telecom",
+      "extra": {
+        "listed_name": "o4-mini",
+        "submitting_organization": "Sierra",
+        "notes": "Original evaluation from tau2-bench paper",
+        "pass_2": 42.1,
+        "pass_3": 36.8,
+        "pass_4": 32.4
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "phonic-1",
+      "developer": "Phonic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 79.82456140350878,
+      "evaluation_date": "2026-10-22",
+      "evaluation_method": "tau2-bench 2.0.0 (custom submission by Phonic)",
+      "external_id": "phonic-1-user-sim-gpt-5-5_phonic_2026-10-22:retail",
+      "extra": {
+        "listed_name": "phonic-1",
+        "submission_type": "custom",
+        "submitting_organization": "Phonic",
+        "modality": "voice",
+        "notes": "Phonic phonic-1 (intelligence level: high), full-duplex audio-native evaluation on the base airline/retail/telecom task sets, regular speech complexity, 1 trial per task. The voice user simulator used gpt-5.5-2026-04-23 with xhigh reasoning effort as its customer LLM; the remaining simulator components, benchmark prompts, policies, tools, and evaluator were unchanged. This non-default customer LLM makes the result a custom submission. User-side voices are our own ElevenLabs voices, created with the same settings as tau2's setup_voices script; not Sierra-managed submission voices.",
+        "cost": 0.24241754385964912
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "phonic-1",
+      "developer": "Phonic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 90.0,
+      "evaluation_date": "2026-10-22",
+      "evaluation_method": "tau2-bench 2.0.0 (custom submission by Phonic)",
+      "external_id": "phonic-1-user-sim-gpt-5-5_phonic_2026-10-22:airline",
+      "extra": {
+        "listed_name": "phonic-1",
+        "submission_type": "custom",
+        "submitting_organization": "Phonic",
+        "modality": "voice",
+        "notes": "Phonic phonic-1 (intelligence level: high), full-duplex audio-native evaluation on the base airline/retail/telecom task sets, regular speech complexity, 1 trial per task. The voice user simulator used gpt-5.5-2026-04-23 with xhigh reasoning effort as its customer LLM; the remaining simulator components, benchmark prompts, policies, tools, and evaluator were unchanged. This non-default customer LLM makes the result a custom submission. User-side voices are our own ElevenLabs voices, created with the same settings as tau2's setup_voices script; not Sierra-managed submission voices.",
+        "cost": 0.22087600000000002
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "phonic-1",
+      "developer": "Phonic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 98.24561403508771,
+      "evaluation_date": "2026-10-22",
+      "evaluation_method": "tau2-bench 2.0.0 (custom submission by Phonic)",
+      "external_id": "phonic-1-user-sim-gpt-5-5_phonic_2026-10-22:telecom",
+      "extra": {
+        "listed_name": "phonic-1",
+        "submission_type": "custom",
+        "submitting_organization": "Phonic",
+        "modality": "voice",
+        "notes": "Phonic phonic-1 (intelligence level: high), full-duplex audio-native evaluation on the base airline/retail/telecom task sets, regular speech complexity, 1 trial per task. The voice user simulator used gpt-5.5-2026-04-23 with xhigh reasoning effort as its customer LLM; the remaining simulator components, benchmark prompts, policies, tools, and evaluator were unchanged. This non-default customer LLM makes the result a custom submission. User-side voices are our own ElevenLabs voices, created with the same settings as tau2's setup_voices script; not Sierra-managed submission voices.",
+        "cost": 0.4432649122807017
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "phonic-1",
+      "developer": "Phonic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 76.31578947368422,
+      "evaluation_date": "2026-10-22",
+      "evaluation_method": "tau2-bench 2.0.0 (standard submission by Phonic)",
+      "external_id": "phonic-1_phonic_2026-10-22:retail",
+      "extra": {
+        "listed_name": "phonic-1",
+        "submission_type": "standard",
+        "submitting_organization": "Phonic",
+        "modality": "voice",
+        "notes": "Phonic phonic-1 (intelligence level: high), full-duplex audio-native evaluation on the base airline/retail/telecom task sets, regular speech complexity, 1 trial per task. User simulator is the standard v1.0 pipeline (gpt-4.1, temperature 0). User-side voices are our own ElevenLabs voices, created with the same settings as tau2's setup_voices script; not Sierra-managed submission voices.",
+        "cost": 0.227959649122807
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "phonic-1",
+      "developer": "Phonic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 80.0,
+      "evaluation_date": "2026-10-22",
+      "evaluation_method": "tau2-bench 2.0.0 (standard submission by Phonic)",
+      "external_id": "phonic-1_phonic_2026-10-22:airline",
+      "extra": {
+        "listed_name": "phonic-1",
+        "submission_type": "standard",
+        "submitting_organization": "Phonic",
+        "modality": "voice",
+        "notes": "Phonic phonic-1 (intelligence level: high), full-duplex audio-native evaluation on the base airline/retail/telecom task sets, regular speech complexity, 1 trial per task. User simulator is the standard v1.0 pipeline (gpt-4.1, temperature 0). User-side voices are our own ElevenLabs voices, created with the same settings as tau2's setup_voices script; not Sierra-managed submission voices.",
+        "cost": 0.21767599999999998
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "phonic-1",
+      "developer": "Phonic",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 94.73684210526315,
+      "evaluation_date": "2026-10-22",
+      "evaluation_method": "tau2-bench 2.0.0 (standard submission by Phonic)",
+      "external_id": "phonic-1_phonic_2026-10-22:telecom",
+      "extra": {
+        "listed_name": "phonic-1",
+        "submission_type": "standard",
+        "submitting_organization": "Phonic",
+        "modality": "voice",
+        "notes": "Phonic phonic-1 (intelligence level: high), full-duplex audio-native evaluation on the base airline/retail/telecom task sets, regular speech complexity, 1 trial per task. User simulator is the standard v1.0 pipeline (gpt-4.1, temperature 0). User-side voices are our own ElevenLabs voices, created with the same settings as tau2's setup_voices script; not Sierra-managed submission voices.",
+        "cost": 0.38132280701754384
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "Pine Voice 1.0",
+      "developer": "Pine AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 78.76106194690266,
+      "evaluation_date": "2026-10-26",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Pine AI)",
+      "external_id": "pine-voice-1-0_pineai_2026-10-27:retail",
+      "extra": {
+        "listed_name": "Pine Voice 1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Pine AI",
+        "modality": "voice",
+        "notes": "Standard submission from Pine AI. The agent is a two-agent system: (1) a voice agent handling real-time speech via a customized ASR -> LLM -> TTS pipeline coordinated by a custom interaction model that governs turn-taking, backchanneling, and other conversational dynamics; (2) a background agent (gemini-4-argon, reasoning_effort=high) that issues the tool calls for the operational task. The two agents share context.\nAll voice-side models are the same production models serving 19pine.ai -- not benchmark-trained. No files in this tau-voice repo are modified. On top of the standard tau-voice agent system prompt, we prepend an additional scaffold system message that defines each agent's identity and role (the real-time voice agent vs. the background tool-calling agent), the responsibilities each one owns, and how the two coordinate and share context.\nFull base splits evaluated on all three domains (retail 114, airline 50, telecom 114), 1 trial per task, --speech-complexity regular. User simulator is the standard v1.0 pipeline (gpt-4.1). User-side voices are local ElevenLabs personas created via the standard setup_voices script; not Sierra-managed submission voices.\nCompared with our earlier Pine Voice Preview, this release includes many model updates and engineering improvements, including the background agent now running gemini-4-argon at reasoning_effort=high."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "Pine Voice 1.0",
+      "developer": "Pine AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 92.0,
+      "evaluation_date": "2026-10-26",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Pine AI)",
+      "external_id": "pine-voice-1-0_pineai_2026-10-27:airline",
+      "extra": {
+        "listed_name": "Pine Voice 1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Pine AI",
+        "modality": "voice",
+        "notes": "Standard submission from Pine AI. The agent is a two-agent system: (1) a voice agent handling real-time speech via a customized ASR -> LLM -> TTS pipeline coordinated by a custom interaction model that governs turn-taking, backchanneling, and other conversational dynamics; (2) a background agent (gemini-4-argon, reasoning_effort=high) that issues the tool calls for the operational task. The two agents share context.\nAll voice-side models are the same production models serving 19pine.ai -- not benchmark-trained. No files in this tau-voice repo are modified. On top of the standard tau-voice agent system prompt, we prepend an additional scaffold system message that defines each agent's identity and role (the real-time voice agent vs. the background tool-calling agent), the responsibilities each one owns, and how the two coordinate and share context.\nFull base splits evaluated on all three domains (retail 114, airline 50, telecom 114), 1 trial per task, --speech-complexity regular. User simulator is the standard v1.0 pipeline (gpt-4.1). User-side voices are local ElevenLabs personas created via the standard setup_voices script; not Sierra-managed submission voices.\nCompared with our earlier Pine Voice Preview, this release includes many model updates and engineering improvements, including the background agent now running gemini-4-argon at reasoning_effort=high."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "Pine Voice 1.0",
+      "developer": "Pine AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 91.22807017543859,
+      "evaluation_date": "2026-10-26",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Pine AI)",
+      "external_id": "pine-voice-1-0_pineai_2026-10-27:telecom",
+      "extra": {
+        "listed_name": "Pine Voice 1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Pine AI",
+        "modality": "voice",
+        "notes": "Standard submission from Pine AI. The agent is a two-agent system: (1) a voice agent handling real-time speech via a customized ASR -> LLM -> TTS pipeline coordinated by a custom interaction model that governs turn-taking, backchanneling, and other conversational dynamics; (2) a background agent (gemini-4-argon, reasoning_effort=high) that issues the tool calls for the operational task. The two agents share context.\nAll voice-side models are the same production models serving 19pine.ai -- not benchmark-trained. No files in this tau-voice repo are modified. On top of the standard tau-voice agent system prompt, we prepend an additional scaffold system message that defines each agent's identity and role (the real-time voice agent vs. the background tool-calling agent), the responsibilities each one owns, and how the two coordinate and share context.\nFull base splits evaluated on all three domains (retail 114, airline 50, telecom 114), 1 trial per task, --speech-complexity regular. User simulator is the standard v1.0 pipeline (gpt-4.1). User-side voices are local ElevenLabs personas created via the standard setup_voices script; not Sierra-managed submission voices.\nCompared with our earlier Pine Voice Preview, this release includes many model updates and engineering improvements, including the background agent now running gemini-4-argon at reasoning_effort=high."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "Pine Voice Preview",
+      "developer": "Pine AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 85.08771929824562,
+      "evaluation_date": "2026-08-15",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Pine AI)",
+      "external_id": "pine-voice-preview-user-sim-gpt-5-5_pineai_2026-08-17:retail",
+      "extra": {
+        "listed_name": "Pine Voice Preview",
+        "submission_type": "custom",
+        "submitting_organization": "Pine AI",
+        "modality": "voice",
+        "notes": "Custom submission from Pine AI, independently evaluated by Sierra. The agent is a two-agent system: (1) a voice agent handling real-time speech via a customized ASR -> LLM -> TTS pipeline coordinated by a custom interaction model that governs turn-taking, backchanneling, and other conversational dynamics; (2) a background agent (gemini-3.5-flash) that issues the tool calls for the operational task. The two agents share context.\nAll voice-side models are the same production models serving 19pine.ai -- not benchmark-trained. No files in this tau-voice repo are modified. On top of the standard tau-voice agent system prompt, Pine prepends an additional scaffold system message that defines each agent's identity and role (the real-time voice agent vs. the background tool-calling agent), the responsibilities each one owns, and how the two coordinate and share context.\nSierra independently evaluated the full base splits on all three domains (retail 114, airline 50, telecom 114), 1 trial per task, --speech-complexity regular. User simulator is the standard v1.0 pipeline with only its LLM swapped to gpt-5.5-2026-04-23 at reasoning_effort=xhigh; all other simulator components (TTS, transcription, decision models, audio pipeline) are unchanged. The four telecom infrastructure errors are counted as non-passes, so the denominator remains 114. Not directly comparable to standard-user-simulator leaderboard entries. A matched-simulator companion result under v1.0 (gpt-4.1) is submitted separately. User-side voices are local ElevenLabs personas created via the standard setup_voices script; not Sierra-managed submission voices."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "Pine Voice Preview",
+      "developer": "Pine AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 80.0,
+      "evaluation_date": "2026-08-15",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Pine AI)",
+      "external_id": "pine-voice-preview-user-sim-gpt-5-5_pineai_2026-08-17:airline",
+      "extra": {
+        "listed_name": "Pine Voice Preview",
+        "submission_type": "custom",
+        "submitting_organization": "Pine AI",
+        "modality": "voice",
+        "notes": "Custom submission from Pine AI, independently evaluated by Sierra. The agent is a two-agent system: (1) a voice agent handling real-time speech via a customized ASR -> LLM -> TTS pipeline coordinated by a custom interaction model that governs turn-taking, backchanneling, and other conversational dynamics; (2) a background agent (gemini-3.5-flash) that issues the tool calls for the operational task. The two agents share context.\nAll voice-side models are the same production models serving 19pine.ai -- not benchmark-trained. No files in this tau-voice repo are modified. On top of the standard tau-voice agent system prompt, Pine prepends an additional scaffold system message that defines each agent's identity and role (the real-time voice agent vs. the background tool-calling agent), the responsibilities each one owns, and how the two coordinate and share context.\nSierra independently evaluated the full base splits on all three domains (retail 114, airline 50, telecom 114), 1 trial per task, --speech-complexity regular. User simulator is the standard v1.0 pipeline with only its LLM swapped to gpt-5.5-2026-04-23 at reasoning_effort=xhigh; all other simulator components (TTS, transcription, decision models, audio pipeline) are unchanged. The four telecom infrastructure errors are counted as non-passes, so the denominator remains 114. Not directly comparable to standard-user-simulator leaderboard entries. A matched-simulator companion result under v1.0 (gpt-4.1) is submitted separately. User-side voices are local ElevenLabs personas created via the standard setup_voices script; not Sierra-managed submission voices."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "Pine Voice Preview",
+      "developer": "Pine AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 75.43859649122807,
+      "evaluation_date": "2026-08-15",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Pine AI)",
+      "external_id": "pine-voice-preview-user-sim-gpt-5-5_pineai_2026-08-17:telecom",
+      "extra": {
+        "listed_name": "Pine Voice Preview",
+        "submission_type": "custom",
+        "submitting_organization": "Pine AI",
+        "modality": "voice",
+        "notes": "Custom submission from Pine AI, independently evaluated by Sierra. The agent is a two-agent system: (1) a voice agent handling real-time speech via a customized ASR -> LLM -> TTS pipeline coordinated by a custom interaction model that governs turn-taking, backchanneling, and other conversational dynamics; (2) a background agent (gemini-3.5-flash) that issues the tool calls for the operational task. The two agents share context.\nAll voice-side models are the same production models serving 19pine.ai -- not benchmark-trained. No files in this tau-voice repo are modified. On top of the standard tau-voice agent system prompt, Pine prepends an additional scaffold system message that defines each agent's identity and role (the real-time voice agent vs. the background tool-calling agent), the responsibilities each one owns, and how the two coordinate and share context.\nSierra independently evaluated the full base splits on all three domains (retail 114, airline 50, telecom 114), 1 trial per task, --speech-complexity regular. User simulator is the standard v1.0 pipeline with only its LLM swapped to gpt-5.5-2026-04-23 at reasoning_effort=xhigh; all other simulator components (TTS, transcription, decision models, audio pipeline) are unchanged. The four telecom infrastructure errors are counted as non-passes, so the denominator remains 114. Not directly comparable to standard-user-simulator leaderboard entries. A matched-simulator companion result under v1.0 (gpt-4.1) is submitted separately. User-side voices are local ElevenLabs personas created via the standard setup_voices script; not Sierra-managed submission voices."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "Pine Voice Preview",
+      "developer": "Pine AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 70.17543859649122,
+      "evaluation_date": "2026-08-12",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Pine AI)",
+      "external_id": "pine-voice-preview-user-sim-v1-0_pineai_2026-08-17:retail",
+      "extra": {
+        "listed_name": "Pine Voice Preview",
+        "submission_type": "standard",
+        "submitting_organization": "Pine AI",
+        "modality": "voice",
+        "notes": "Standard submission from Pine AI, independently evaluated by Sierra. The system uses two agents: (1) a voice agent handling real-time speech via a customized ASR -> LLM -> TTS pipeline coordinated by a custom interaction model that governs turn-taking, backchanneling, and other conversational dynamics; (2) a background agent (gemini-3.5-flash) that issues the tool calls for the operational task. The two agents share context.\nAll voice-side models are the same production models serving 19pine.ai -- not benchmark-trained. No files in the tau-voice repository are modified. Pine prepends a scaffold system message that defines its internal agents' identities, responsibilities, and coordination.\nSierra independently evaluated the full base splits on all three domains (retail 114, airline 50, telecom 114), 1 trial per task, --speech-complexity regular. User simulator is the standard v1.0 pipeline (gpt-4.1). The single telecom infrastructure error is counted as a non-pass, so the denominator remains 114. User-side voices are local ElevenLabs personas created via the standard setup_voices script; not Sierra-managed submission voices.\nA companion custom result uses gpt-5.5-2026-04-23 at reasoning_effort=xhigh as the user-simulator LLM."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "Pine Voice Preview",
+      "developer": "Pine AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 70.0,
+      "evaluation_date": "2026-08-12",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Pine AI)",
+      "external_id": "pine-voice-preview-user-sim-v1-0_pineai_2026-08-17:airline",
+      "extra": {
+        "listed_name": "Pine Voice Preview",
+        "submission_type": "standard",
+        "submitting_organization": "Pine AI",
+        "modality": "voice",
+        "notes": "Standard submission from Pine AI, independently evaluated by Sierra. The system uses two agents: (1) a voice agent handling real-time speech via a customized ASR -> LLM -> TTS pipeline coordinated by a custom interaction model that governs turn-taking, backchanneling, and other conversational dynamics; (2) a background agent (gemini-3.5-flash) that issues the tool calls for the operational task. The two agents share context.\nAll voice-side models are the same production models serving 19pine.ai -- not benchmark-trained. No files in the tau-voice repository are modified. Pine prepends a scaffold system message that defines its internal agents' identities, responsibilities, and coordination.\nSierra independently evaluated the full base splits on all three domains (retail 114, airline 50, telecom 114), 1 trial per task, --speech-complexity regular. User simulator is the standard v1.0 pipeline (gpt-4.1). The single telecom infrastructure error is counted as a non-pass, so the denominator remains 114. User-side voices are local ElevenLabs personas created via the standard setup_voices script; not Sierra-managed submission voices.\nA companion custom result uses gpt-5.5-2026-04-23 at reasoning_effort=xhigh as the user-simulator LLM."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "Pine Voice Preview",
+      "developer": "Pine AI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 85.96491228070175,
+      "evaluation_date": "2026-08-12",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Pine AI)",
+      "external_id": "pine-voice-preview-user-sim-v1-0_pineai_2026-08-17:telecom",
+      "extra": {
+        "listed_name": "Pine Voice Preview",
+        "submission_type": "standard",
+        "submitting_organization": "Pine AI",
+        "modality": "voice",
+        "notes": "Standard submission from Pine AI, independently evaluated by Sierra. The system uses two agents: (1) a voice agent handling real-time speech via a customized ASR -> LLM -> TTS pipeline coordinated by a custom interaction model that governs turn-taking, backchanneling, and other conversational dynamics; (2) a background agent (gemini-3.5-flash) that issues the tool calls for the operational task. The two agents share context.\nAll voice-side models are the same production models serving 19pine.ai -- not benchmark-trained. No files in the tau-voice repository are modified. Pine prepends a scaffold system message that defines its internal agents' identities, responsibilities, and coordination.\nSierra independently evaluated the full base splits on all three domains (retail 114, airline 50, telecom 114), 1 trial per task, --speech-complexity regular. User simulator is the standard v1.0 pipeline (gpt-4.1). The single telecom infrastructure error is counted as a non-pass, so the denominator remains 114. User-side voices are local ElevenLabs personas created via the standard setup_voices script; not Sierra-managed submission voices.\nA companion custom result uses gpt-5.5-2026-04-23 at reasoning_effort=xhigh as the user-simulator LLM."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "qwen3.5-omni-plus-realtime",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 46.49122807017544,
+      "evaluation_date": "2026-08-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "qwen3-5-omni-plus-realtime_qwen_2026-08-06:retail",
+      "extra": {
+        "listed_name": "qwen3.5-omni-plus-realtime",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task.",
+        "cost": 0.580765906741573
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "qwen3.5-omni-plus-realtime",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 54.0,
+      "evaluation_date": "2026-08-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "qwen3-5-omni-plus-realtime_qwen_2026-08-06:airline",
+      "extra": {
+        "listed_name": "qwen3.5-omni-plus-realtime",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task.",
+        "cost": 0.5397773999999999
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "qwen3.5-omni-plus-realtime",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 60.526315789473685,
+      "evaluation_date": "2026-08-05",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "qwen3-5-omni-plus-realtime_qwen_2026-08-06:telecom",
+      "extra": {
+        "listed_name": "qwen3.5-omni-plus-realtime",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task.",
+        "cost": 1.467414694736842
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Qwen 3.8 Max",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 55.154639175257735,
+      "evaluation_date": "2026-08-03",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "qwen3-8-max_sierra_2026-08-04:banking_knowledge",
+      "extra": {
+        "listed_name": "Qwen 3.8 Max",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "text",
+        "notes": "Banking_knowledge evaluation with AllTools retrieval, GPT-5.2 low-reasoning user simulation, four trials, and seed 300.",
+        "pass_2": 45.18900343642611,
+        "pass_3": 39.69072164948454,
+        "pass_4": 35.051546391752574
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Qwen3-Max",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 72.2,
+      "evaluation_date": "2024-09-23",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Alibaba)",
+      "external_id": "qwen3-max_qwen_2024_09_23:retail",
+      "extra": {
+        "listed_name": "Qwen3-Max",
+        "submitting_organization": "Alibaba",
+        "notes": "Only average results are in the blog post. Evaluation limited to Pass^1, Pass^2 and Pass^4 scores only",
+        "pass_2": 67.5,
+        "pass_4": 57.0
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Qwen3-Max",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 59.5,
+      "evaluation_date": "2024-09-23",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Alibaba)",
+      "external_id": "qwen3-max_qwen_2024_09_23:airline",
+      "extra": {
+        "listed_name": "Qwen3-Max",
+        "submitting_organization": "Alibaba",
+        "notes": "Only average results are in the blog post. Evaluation limited to Pass^1, Pass^2 and Pass^4 scores only",
+        "pass_2": 55.0,
+        "pass_4": 46.0
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Qwen3-Max",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 84.2,
+      "evaluation_date": "2024-09-23",
+      "evaluation_method": "tau2-bench 0.1.3 (None submission by Alibaba)",
+      "external_id": "qwen3-max_qwen_2024_09_23:telecom",
+      "extra": {
+        "listed_name": "Qwen3-Max",
+        "submitting_organization": "Alibaba",
+        "notes": "Only average results are in the blog post. Evaluation limited to Pass^1, Pass^2 and Pass^4 scores only",
+        "pass_2": 77.6,
+        "pass_4": 61.4
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Qwen3-Max-Thinking-Preview",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 75.44,
+      "evaluation_date": "2025-10-30",
+      "evaluation_method": "tau2-bench v0.1.3 (standard submission by Qwen)",
+      "external_id": "qwen3-max_qwen_2025-10-30:retail",
+      "extra": {
+        "listed_name": "Qwen3-Max-Thinking-Preview",
+        "submission_type": "standard",
+        "submitting_organization": "Qwen",
+        "notes": "Evaluation conducted using standard tau2-bench protocol",
+        "pass_2": 66.23,
+        "pass_3": 60.09,
+        "pass_4": 55.26,
+        "cost": 0.0
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Qwen3-Max-Thinking-Preview",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 71.0,
+      "evaluation_date": "2025-10-30",
+      "evaluation_method": "tau2-bench v0.1.3 (standard submission by Qwen)",
+      "external_id": "qwen3-max_qwen_2025-10-30:airline",
+      "extra": {
+        "listed_name": "Qwen3-Max-Thinking-Preview",
+        "submission_type": "standard",
+        "submitting_organization": "Qwen",
+        "notes": "Evaluation conducted using standard tau2-bench protocol",
+        "pass_2": 65.33333333333334,
+        "pass_3": 62.5,
+        "pass_4": 60.0,
+        "cost": 0.0
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Qwen3-Max-Thinking-Preview",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 95.83333333333334,
+      "evaluation_date": "2025-10-30",
+      "evaluation_method": "tau2-bench v0.1.3 (standard submission by Qwen)",
+      "external_id": "qwen3-max_qwen_2025-10-30:telecom",
+      "extra": {
+        "listed_name": "Qwen3-Max-Thinking-Preview",
+        "submission_type": "standard",
+        "submitting_organization": "Qwen",
+        "notes": "Evaluation conducted using standard tau2-bench protocol",
+        "pass_2": 91.95906432748538,
+        "pass_3": 88.37719298245614,
+        "pass_4": 85.08771929824562,
+        "cost": 0.0
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Qwen3-Max-Thinking",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 79.3859649122807,
+      "evaluation_date": "2026-01-23",
+      "evaluation_method": "tau2-bench v0.1.3 (standard submission by Qwen)",
+      "external_id": "qwen3-max_qwen_2026-01-23:retail",
+      "extra": {
+        "listed_name": "Qwen3-Max-Thinking",
+        "submission_type": "standard",
+        "submitting_organization": "Qwen",
+        "notes": "Evaluation conducted using standard tau2-bench protocol",
+        "pass_2": 69.44444444444446,
+        "pass_3": 62.71929824561403,
+        "pass_4": 57.89473684210527
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Qwen3-Max-Thinking",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 69.0,
+      "evaluation_date": "2026-01-23",
+      "evaluation_method": "tau2-bench v0.1.3 (standard submission by Qwen)",
+      "external_id": "qwen3-max_qwen_2026-01-23:airline",
+      "extra": {
+        "listed_name": "Qwen3-Max-Thinking",
+        "submission_type": "standard",
+        "submitting_organization": "Qwen",
+        "notes": "Evaluation conducted using standard tau2-bench protocol",
+        "pass_2": 65.33333333333333,
+        "pass_3": 63.5,
+        "pass_4": 62.0
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Qwen3-Max-Thinking",
+      "developer": "Qwen",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 98.24561403508771,
+      "evaluation_date": "2026-01-23",
+      "evaluation_method": "tau2-bench v0.1.3 (standard submission by Qwen)",
+      "external_id": "qwen3-max_qwen_2026-01-23:telecom",
+      "extra": {
+        "listed_name": "Qwen3-Max-Thinking",
+        "submission_type": "standard",
+        "submitting_organization": "Qwen",
+        "notes": "Evaluation conducted using standard tau2-bench protocol",
+        "pass_2": 96.63742690058479,
+        "pass_3": 95.17543859649122,
+        "pass_4": 93.85964912280701
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Qwen3.5-397B-A17B",
+      "developer": "Alibaba Cloud",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 81.5,
+      "evaluation_date": "2026-02-27",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "qwen3.5-397b-a17b-think_sierra_2026-03-02:airline",
+      "extra": {
+        "listed_name": "Qwen3.5-397B-A17B",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using Qwen3.5-397B-A17B with thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Temperature: 1.0, top_p: 0.95. Self-hosted via vLLM. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 75.67,
+        "pass_3": 71.5,
+        "pass_4": 68.0
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Qwen3.5-397B-A17B",
+      "developer": "Alibaba Cloud",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 84.43,
+      "evaluation_date": "2026-02-27",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "qwen3.5-397b-a17b-think_sierra_2026-03-02:retail",
+      "extra": {
+        "listed_name": "Qwen3.5-397B-A17B",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using Qwen3.5-397B-A17B with thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Temperature: 1.0, top_p: 0.95. Self-hosted via vLLM. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 74.42,
+        "pass_3": 66.45,
+        "pass_4": 59.65
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Qwen3.5-397B-A17B",
+      "developer": "Alibaba Cloud",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 97.81,
+      "evaluation_date": "2026-02-27",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "qwen3.5-397b-a17b-think_sierra_2026-03-02:telecom",
+      "extra": {
+        "listed_name": "Qwen3.5-397B-A17B",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using Qwen3.5-397B-A17B with thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Temperature: 1.0, top_p: 0.95. Self-hosted via vLLM. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 95.76,
+        "pass_3": 93.86,
+        "pass_4": 92.11
+      }
+    },
+    {
+      "benchmark": "banking_knowledge",
+      "model": "Qwen3.5-397B-A17B",
+      "developer": "Alibaba Cloud",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 9.79,
+      "evaluation_date": "2026-02-27",
+      "evaluation_method": "tau2-bench 1.0.1 (standard submission by Sierra)",
+      "external_id": "qwen3.5-397b-a17b-think_sierra_2026-03-02:banking_knowledge",
+      "extra": {
+        "listed_name": "Qwen3.5-397B-A17B",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "notes": "Evaluated using Qwen3.5-397B-A17B with thinking enabled. User simulator: gpt-5.2 with reasoning_effort: low. 4 trials. Seed: 300. Temperature: 1.0, top_p: 0.95. Self-hosted via vLLM. banking_knowledge re-graded under tau2-bench v1.0.1 grading fixes on 2026-07-15 (extra-read logging #329, numeric-argument normalization #397, T077-T086 gold trajectories #402); scores prior to v1.0.1 are not comparable.",
+        "pass_2": 6.36,
+        "pass_3": 5.41,
+        "pass_4": 5.15
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "RAFT-30B-A3B",
+      "developer": "Northeastern University HAI Lab",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 82.45614035087719,
+      "evaluation_date": "2026-04-30",
+      "evaluation_method": "tau2-bench  (custom submission by Northeastern University HAI Lab)",
+      "external_id": "raft-30b-a3b_neu_2026-04-29:retail",
+      "extra": {
+        "listed_name": "RAFT-30B-A3B",
+        "submission_type": "custom",
+        "submitting_organization": "Northeastern University HAI Lab",
+        "modality": "text",
+        "notes": "RAFT-30B-A3B is Qwen3-30B-A3B-Thinking-2507 fine-tuned on synthetic retail-domain data. Training data was collected on a fully synthetic retail database whose entities (users, products, orders) are disjoint from the tau-bench evaluation database.",
+        "pass_2": 72.95321637426902,
+        "pass_3": 66.22807017543859,
+        "pass_4": 61.40350877192983,
+        "cost": 0.0
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "Salesforce Launa v1",
+      "developer": "Salesforce",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 71.9298245614035,
+      "evaluation_date": "2026-10-03",
+      "evaluation_method": "tau2-bench b7ea9074c1cba482b30687fecdb5c8425fd6f619 (custom submission by Salesforce)",
+      "external_id": "salesforce-launa-v1_salesforce_2026-10-06:retail",
+      "extra": {
+        "listed_name": "Salesforce Launa v1",
+        "submission_type": "custom",
+        "submitting_organization": "Salesforce",
+        "modality": "voice",
+        "notes": "Custom Salesforce Launa v1 full-duplex voice evaluation using standard benchmark prompts, tools and domain policies, regular speech complexity, seed 300, and the Claude Opus 4.5 hallucination reviewer. The customer simulator uses gpt-5.2-2025-12-11 at temperature 0. The scored run used a 16,384-token agent context window except retail tasks 98 and 104, which used 32,768 tokens; task 98 was retried after ungraded context-overflow errors. The current endpoint uses 32,768 tokens for every session, so it does not exactly reproduce the submitted run."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "Salesforce Launa v1",
+      "developer": "Salesforce",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 66.0,
+      "evaluation_date": "2026-10-03",
+      "evaluation_method": "tau2-bench b7ea9074c1cba482b30687fecdb5c8425fd6f619 (custom submission by Salesforce)",
+      "external_id": "salesforce-launa-v1_salesforce_2026-10-06:airline",
+      "extra": {
+        "listed_name": "Salesforce Launa v1",
+        "submission_type": "custom",
+        "submitting_organization": "Salesforce",
+        "modality": "voice",
+        "notes": "Custom Salesforce Launa v1 full-duplex voice evaluation using standard benchmark prompts, tools and domain policies, regular speech complexity, seed 300, and the Claude Opus 4.5 hallucination reviewer. The customer simulator uses gpt-5.2-2025-12-11 at temperature 0. The scored run used a 16,384-token agent context window except retail tasks 98 and 104, which used 32,768 tokens; task 98 was retried after ungraded context-overflow errors. The current endpoint uses 32,768 tokens for every session, so it does not exactly reproduce the submitted run."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "Salesforce Launa v1",
+      "developer": "Salesforce",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 80.7017543859649,
+      "evaluation_date": "2026-10-03",
+      "evaluation_method": "tau2-bench b7ea9074c1cba482b30687fecdb5c8425fd6f619 (custom submission by Salesforce)",
+      "external_id": "salesforce-launa-v1_salesforce_2026-10-06:telecom",
+      "extra": {
+        "listed_name": "Salesforce Launa v1",
+        "submission_type": "custom",
+        "submitting_organization": "Salesforce",
+        "modality": "voice",
+        "notes": "Custom Salesforce Launa v1 full-duplex voice evaluation using standard benchmark prompts, tools and domain policies, regular speech complexity, seed 300, and the Claude Opus 4.5 hallucination reviewer. The customer simulator uses gpt-5.2-2025-12-11 at temperature 0. The scored run used a 16,384-token agent context window except retail tasks 98 and 104, which used 32,768 tokens; task 98 was retried after ungraded context-overflow errors. The current endpoint uses 32,768 tokens for every session, so it does not exactly reproduce the submitted run."
+      }
+    },
+    {
+      "benchmark": "retail",
+      "model": "Nemotron-Orchestrator-8B",
+      "developer": "NVIDIA",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 84.2,
+      "evaluation_date": "2025-09-15",
+      "evaluation_method": "tau2-bench 0.1.3 (custom submission by NVIDIA)",
+      "external_id": "toolorchestra_nvidia_2025-12-02:retail",
+      "extra": {
+        "listed_name": "Nemotron-Orchestrator-8B",
+        "submission_type": "custom",
+        "submitting_organization": "NVIDIA",
+        "notes": "This submission uses an orchestrator that selects between strong and weak models based on task complexity. See our GitHub repo for full implementation details."
+      }
+    },
+    {
+      "benchmark": "airline",
+      "model": "Nemotron-Orchestrator-8B",
+      "developer": "NVIDIA",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 56.0,
+      "evaluation_date": "2025-09-15",
+      "evaluation_method": "tau2-bench 0.1.3 (custom submission by NVIDIA)",
+      "external_id": "toolorchestra_nvidia_2025-12-02:airline",
+      "extra": {
+        "listed_name": "Nemotron-Orchestrator-8B",
+        "submission_type": "custom",
+        "submitting_organization": "NVIDIA",
+        "notes": "This submission uses an orchestrator that selects between strong and weak models based on task complexity. See our GitHub repo for full implementation details."
+      }
+    },
+    {
+      "benchmark": "telecom",
+      "model": "Nemotron-Orchestrator-8B",
+      "developer": "NVIDIA",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 88.6,
+      "evaluation_date": "2025-09-15",
+      "evaluation_method": "tau2-bench 0.1.3 (custom submission by NVIDIA)",
+      "external_id": "toolorchestra_nvidia_2025-12-02:telecom",
+      "extra": {
+        "listed_name": "Nemotron-Orchestrator-8B",
+        "submission_type": "custom",
+        "submitting_organization": "NVIDIA",
+        "notes": "This submission uses an orchestrator that selects between strong and weak models based on task complexity. See our GitHub repo for full implementation details."
+      }
+    },
+    {
+      "benchmark": "banking_knowledge_voice",
+      "model": "xai-realtime",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 16.49484536082474,
+      "evaluation_date": "2026-07-13",
+      "evaluation_method": "tau2-bench 1.0.1 (custom submission by Sierra)",
+      "external_id": "xai-realtime-banking_xai_2026-07-13:banking_knowledge",
+      "extra": {
+        "listed_name": "xai-realtime",
+        "submission_type": "custom",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Combined voice+knowledge track: banking_knowledge domain run through the audio-native voice pipeline (regular speech complexity, alltools retrieval). Custom user simulator gpt-5.5-2026-04-23 (reasoning_effort=xhigh). Evaluated via xAI's 'xai-realtime' endpoint, which does not disclose the served Grok voice model version; Released is recorded from xAI's Grok Voice Think Fast 1.0 announcement (2026-04-23), the voice model line behind the endpoint. The endpoint exposes no reasoning-effort level, so Reasoning is recorded as enabled without a level. 1 trial per task. Re-evaluated under tau2-bench v1.0.1 (banking_knowledge grading/task fixes #329/#388/#397/#402/#403): all 97 trajectories re-graded with the fixed evaluate-trajs path (zero flips), and the 34 calls whose agents were exposed to the pre-fix environment (transaction ordering, Platinum Rewards doc title) re-run live under the fixed environment regardless of prior outcome (+6 passes: task_001/023/025/057 via the doc fix, task_093/095 via the ordering fix; -1: previously-passing task_058 lost on re-run)."
+      }
+    },
+    {
+      "benchmark": "airline_voice",
+      "model": "grok-voice-fast-1.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 36.0,
+      "evaluation_date": "2026-03-03",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "xai-realtime_sierra_2026-03-03:airline",
+      "extra": {
+        "listed_name": "grok-voice-fast-1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "retail_voice",
+      "model": "grok-voice-fast-1.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 38.6,
+      "evaluation_date": "2026-03-03",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "xai-realtime_sierra_2026-03-03:retail",
+      "extra": {
+        "listed_name": "grok-voice-fast-1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    },
+    {
+      "benchmark": "telecom_voice",
+      "model": "grok-voice-fast-1.0",
+      "developer": "xAI",
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 40.4,
+      "evaluation_date": "2026-03-03",
+      "evaluation_method": "tau2-bench 1.0.0 (standard submission by Sierra)",
+      "external_id": "xai-realtime_sierra_2026-03-03:telecom",
+      "extra": {
+        "listed_name": "grok-voice-fast-1.0",
+        "submission_type": "standard",
+        "submitting_organization": "Sierra",
+        "modality": "voice",
+        "notes": "Full-duplex audio-native evaluation using regular speech complexity (realistic audio conditions). 1 trial per task."
+      }
+    }
+  ]
+}

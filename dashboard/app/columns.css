@@ -1,0 +1,33 @@
+/* Movable + resizable columns (lib/columnLayout.tsx), shared by every table in the app. */
+.col-head { position: relative; cursor: grab; user-select: none; }
+.col-head:active { cursor: grabbing; }
+.col-head.col-dragging { opacity: 0.45; }
+/* where the dragged column will land */
+.col-head.col-drop-before { box-shadow: inset 3px 0 0 var(--accent); }
+.col-head.col-drop-after { box-shadow: inset -3px 0 0 var(--accent); }
+
+.col-grip {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 8px; z-index: 3;
+  cursor: col-resize; touch-action: none;
+}
+.col-grip::after {
+  content: ""; position: absolute; top: 20%; bottom: 20%; right: 0; width: 1px;
+  background: var(--line); transition: background 0.1s;
+}
+.col-head:hover .col-grip::after { background: var(--muted); }
+.col-grip:hover::after, body.col-resizing .col-grip::after { background: var(--accent); width: 3px; }
+body.col-resizing, body.col-resizing * { cursor: col-resize !important; user-select: none !important; }
+
+/* tables sized by their <colgroup>: cells keep to their column and cut long text with "…" */
+table.cl { table-layout: fixed; min-width: 100%; }
+table.cl > thead > tr > th, table.cl > tbody > tr > td { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.col-reset { font-size: 12px; }
+
+/* Results page: the reset link sits above the table, on the right */
+.results-cols { display: flex; justify-content: flex-end; min-height: 0; }
+.results-cols:empty { display: none; }
+
+/* Benchmark list (CSS-grid rows): column widths come from the saved layout */
+.bl-grid .bl-row { grid-template-columns: var(--bl-cols); width: max-content; min-width: 100%; }
+.bl-grid .bl-head > .col-head { overflow: visible; }

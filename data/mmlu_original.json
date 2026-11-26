@@ -1,0 +1,237 @@
+{
+  "format": "benchmark-results/v1",
+  "source": {
+    "name": "MMLU (Hendrycks et al.)",
+    "site": "https://github.com/hendrycks/test",
+    "publisher": "Dan Hendrycks et al.",
+    "description": "The leaderboard table in the original MMLU repository.",
+    "license": "MIT (https://github.com/hendrycks/test)",
+    "attribution": "Measuring Massive Multitask Language Understanding, Hendrycks et al. (https://github.com/hendrycks/test).",
+    "retrieved_from": [
+      "https://github.com/hendrycks/test/blob/master/README.md"
+    ],
+    "notes": [
+      "Historical table (models up to 2023); MMLU is saturated for current frontier models."
+    ],
+    "collected_at": "2026-11-25T19:16:47+00:00"
+  },
+  "benchmarks": [
+    {
+      "key": "mmlu",
+      "name": "MMLU",
+      "version": "Original leaderboard",
+      "area": "knowledge",
+      "sub_area": "57-subject multiple choice",
+      "unit": "points",
+      "url": "https://github.com/hendrycks/test",
+      "description": "Average MMLU accuracy (%), original repository table.",
+      "metric": "accuracy"
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "mmlu",
+      "model": "Chinchilla (70B, few-shot)",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 67.5,
+      "evaluation_method": "MMLU original leaderboard (Hoffmann et al., 2022)",
+      "external_id": "Chinchilla (70B, few-shot)@67.5",
+      "extra": {
+        "humanities": 63.6,
+        "social_sciences": 79.3,
+        "stem": 54.9,
+        "other": 73.9,
+        "source_paper": "Hoffmann et al., 2022"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Gopher (280B, few-shot)",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 60.0,
+      "evaluation_method": "MMLU original leaderboard (Rae et al., 2021)",
+      "external_id": "Gopher (280B, few-shot)@60.0",
+      "extra": {
+        "humanities": 56.2,
+        "social_sciences": 71.9,
+        "stem": 47.4,
+        "other": 66.1,
+        "source_paper": "Rae et al., 2021"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "GPT-3 (175B, fine-tuned)",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 53.9,
+      "evaluation_method": "MMLU original leaderboard (Brown et al., 2020)",
+      "external_id": "GPT-3 (175B, fine-tuned)@53.9",
+      "extra": {
+        "humanities": 52.5,
+        "social_sciences": 63.9,
+        "stem": 41.4,
+        "other": 57.9,
+        "source_paper": "Brown et al., 2020"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "flan-T5-xl",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 49.3,
+      "evaluation_method": "MMLU original leaderboard (Chung et al., 2022)",
+      "external_id": "flan-T5-xl@49.3",
+      "extra": {
+        "humanities": 46.3,
+        "social_sciences": 57.7,
+        "stem": 39.0,
+        "other": 55.1,
+        "source_paper": "Chung et al., 2022"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "UnifiedQA",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 48.9,
+      "evaluation_method": "MMLU original leaderboard (Khashabi et al., 2020)",
+      "external_id": "UnifiedQA@48.9",
+      "extra": {
+        "humanities": 45.6,
+        "social_sciences": 56.6,
+        "stem": 40.2,
+        "other": 54.6,
+        "source_paper": "Khashabi et al., 2020"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "GPT-3 (175B, few-shot)",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 43.9,
+      "evaluation_method": "MMLU original leaderboard (Brown et al., 2020)",
+      "external_id": "GPT-3 (175B, few-shot)@43.9",
+      "extra": {
+        "humanities": 40.8,
+        "social_sciences": 50.4,
+        "stem": 36.7,
+        "other": 48.8,
+        "source_paper": "Brown et al., 2020"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "GPT-3 (6.7B, fine-tuned)",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 43.2,
+      "evaluation_method": "MMLU original leaderboard (Brown et al., 2020)",
+      "external_id": "GPT-3 (6.7B, fine-tuned)@43.2",
+      "extra": {
+        "humanities": 42.1,
+        "social_sciences": 49.2,
+        "stem": 35.1,
+        "other": 46.9,
+        "source_paper": "Brown et al., 2020"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "flan-T5-large",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 41.9,
+      "evaluation_method": "MMLU original leaderboard (Chung et al., 2022)",
+      "external_id": "flan-T5-large@41.9",
+      "extra": {
+        "humanities": 39.1,
+        "social_sciences": 49.1,
+        "stem": 33.2,
+        "other": 47.4,
+        "source_paper": "Chung et al., 2022"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "flan-T5-base",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 34.2,
+      "evaluation_method": "MMLU original leaderboard (Chung et al., 2022)",
+      "external_id": "flan-T5-base@34.2",
+      "extra": {
+        "humanities": 34.0,
+        "social_sciences": 38.1,
+        "stem": 27.6,
+        "other": 37.0,
+        "source_paper": "Chung et al., 2022"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "GPT-2",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 32.4,
+      "evaluation_method": "MMLU original leaderboard (Radford et al., 2019)",
+      "external_id": "GPT-2@32.4",
+      "extra": {
+        "humanities": 32.8,
+        "social_sciences": 33.3,
+        "stem": 30.2,
+        "other": 33.1,
+        "source_paper": "Radford et al., 2019"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "flan-T5-small",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 29.5,
+      "evaluation_method": "MMLU original leaderboard (Chung et al., 2022)",
+      "external_id": "flan-T5-small@29.5",
+      "extra": {
+        "humanities": 29.9,
+        "social_sciences": 30.9,
+        "stem": 27.5,
+        "other": 29.7,
+        "source_paper": "Chung et al., 2022"
+      }
+    },
+    {
+      "benchmark": "mmlu",
+      "model": "Random Baseline",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 25.0,
+      "evaluation_method": "MMLU original leaderboard (N/A)",
+      "external_id": "Random Baseline@25.0",
+      "extra": {
+        "humanities": 25.0,
+        "social_sciences": 25.0,
+        "stem": 25.0,
+        "other": 25.0,
+        "source_paper": "N/A"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+/root/sjh/yugos/step1-benchmark/logs/*.log {
+    weekly
+    maxsize 50M
+    rotate 8
+    compress
+    delaycompress
+    missingok
+    notifempty
+    copytruncate
+}

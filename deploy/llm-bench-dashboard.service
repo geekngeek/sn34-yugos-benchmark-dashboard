@@ -1,0 +1,16 @@
+[Unit]
+Description=LLM benchmark dashboard (Next.js dev server, port 23533)
+After=network-online.target llm-bench-api.service
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/root/sjh/yugos/step1-benchmark/dashboard
+ExecStart=/root/sjh/yugos/step1-benchmark/deploy/run-logged.sh /root/sjh/yugos/step1-benchmark/logs/dashboard.log \
+          /usr/bin/npm run dev
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=NEXT_TELEMETRY_DISABLED=1
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

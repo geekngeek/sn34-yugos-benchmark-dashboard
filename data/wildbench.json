@@ -1,0 +1,2483 @@
+{
+  "format": "benchmark-results/v1",
+  "source": {
+    "name": "WildBench (AI2)",
+    "site": "https://huggingface.co/spaces/allenai/WildBench",
+    "publisher": "Allen Institute for AI",
+    "description": "WildBench leaderboard data: real user tasks judged with checklists.",
+    "license": "Apache-2.0 (https://github.com/allenai/WildBench)",
+    "attribution": "WildBench, Allen Institute for AI (https://github.com/allenai/WildBench).",
+    "retrieved_from": [
+      "https://github.com/allenai/WildBench/blob/main/leaderboard/data_dir/all_stat_wildbench.-1.json"
+    ],
+    "notes": [
+      "The leaderboard data was last updated in 2024; newer models are not included.",
+      "WB-Score is a checklist score rescaled to -100..100 (unit 'score'); WB-Elo is an Elo-style rating."
+    ],
+    "collected_at": "2026-11-25T19:16:47+00:00"
+  },
+  "benchmarks": [
+    {
+      "key": "wb_score",
+      "name": "WildBench",
+      "version": "WB-Score",
+      "area": "human preference",
+      "sub_area": "real user tasks (LLM judge)",
+      "unit": "score",
+      "description": "WildBench checklist-based score (WB_score).",
+      "url": "https://huggingface.co/spaces/allenai/WildBench"
+    },
+    {
+      "key": "wb_elo",
+      "name": "WildBench",
+      "version": "WB-Elo",
+      "area": "human preference",
+      "sub_area": "real user tasks (LLM judge)",
+      "unit": "elo",
+      "description": "WildBench Elo-style rating (WB_Elo).",
+      "url": "https://huggingface.co/spaces/allenai/WildBench"
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "wb_score",
+      "model": "gpt-4o-2024-05-13",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 58.807,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gpt-4o-2024-05-13:WB_score@58.80742913000978",
+      "extra": {
+        "listed_name": "gpt-4o-2024-05-13",
+        "length": 3723.516129032258,
+        "task_macro": 59.298178803519555,
+        "score_Creative Tasks": 59.12144702842377,
+        "score_Planning & Reasoning": 60.20958083832337,
+        "score_Math & Data Analysis": 57.29083665338646,
+        "score_Information/Advice seeking": 58.61386138613861,
+        "score_Coding & Debugging": 60.473933649289116
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gpt-4o-2024-05-13",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1239.473,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gpt-4o-2024-05-13:WB_Elo@1239.4730859477231",
+      "extra": {
+        "listed_name": "gpt-4o-2024-05-13",
+        "length": 3723.516129032258,
+        "task_macro": 59.298178803519555,
+        "score_Creative Tasks": 59.12144702842377,
+        "score_Planning & Reasoning": 60.20958083832337,
+        "score_Math & Data Analysis": 57.29083665338646,
+        "score_Information/Advice seeking": 58.61386138613861,
+        "score_Coding & Debugging": 60.473933649289116
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gpt-4-turbo-2024-04-09",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 56.09,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gpt-4-turbo-2024-04-09:WB_score@56.089931573802545",
+      "extra": {
+        "listed_name": "gpt-4-turbo-2024-04-09",
+        "length": 3093.1700879765394,
+        "task_macro": 55.22122481039269,
+        "score_Creative Tasks": 58.65633074935401,
+        "score_Planning & Reasoning": 56.203288490284,
+        "score_Math & Data Analysis": 50.99601593625499,
+        "score_Information/Advice seeking": 57.178217821782184,
+        "score_Coding & Debugging": 55.071090047393355
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gpt-4-turbo-2024-04-09",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1222.69,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gpt-4-turbo-2024-04-09:WB_Elo@1222.6896973319426",
+      "extra": {
+        "listed_name": "gpt-4-turbo-2024-04-09",
+        "length": 3093.1700879765394,
+        "task_macro": 55.22122481039269,
+        "score_Creative Tasks": 58.65633074935401,
+        "score_Planning & Reasoning": 56.203288490284,
+        "score_Math & Data Analysis": 50.99601593625499,
+        "score_Information/Advice seeking": 57.178217821782184,
+        "score_Coding & Debugging": 55.071090047393355
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gpt-4-0125-preview",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 53.281,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gpt-4-0125-preview:WB_score@53.28125",
+      "extra": {
+        "listed_name": "gpt-4-0125-preview",
+        "length": 3335.638671875,
+        "task_macro": 52.27753918256898,
+        "score_Creative Tasks": 57.571059431524546,
+        "score_Planning & Reasoning": 53.45291479820627,
+        "score_Math & Data Analysis": 45.79365079365079,
+        "score_Information/Advice seeking": 54.35643564356436,
+        "score_Coding & Debugging": 52.924528301886795
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gpt-4-0125-preview",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1208.303,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gpt-4-0125-preview:WB_Elo@1208.302900834726",
+      "extra": {
+        "listed_name": "gpt-4-0125-preview",
+        "length": 3335.638671875,
+        "task_macro": 52.27753918256898,
+        "score_Creative Tasks": 57.571059431524546,
+        "score_Planning & Reasoning": 53.45291479820627,
+        "score_Math & Data Analysis": 45.79365079365079,
+        "score_Information/Advice seeking": 54.35643564356436,
+        "score_Coding & Debugging": 52.924528301886795
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "claude-3-opus-20240229",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 52.109,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "claude-3-opus-20240229:WB_score@52.109375",
+      "extra": {
+        "listed_name": "claude-3-opus-20240229",
+        "length": 2685.9794921875,
+        "task_macro": 51.714047600287536,
+        "score_Creative Tasks": 53.0232558139535,
+        "score_Planning & Reasoning": 52.526158445440956,
+        "score_Math & Data Analysis": 46.74603174603174,
+        "score_Information/Advice seeking": 53.46534653465346,
+        "score_Coding & Debugging": 53.301886792452834
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "claude-3-opus-20240229",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1207.475,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "claude-3-opus-20240229:WB_Elo@1207.4751834070414",
+      "extra": {
+        "listed_name": "claude-3-opus-20240229",
+        "length": 2685.9794921875,
+        "task_macro": 51.714047600287536,
+        "score_Creative Tasks": 53.0232558139535,
+        "score_Planning & Reasoning": 52.526158445440956,
+        "score_Math & Data Analysis": 46.74603174603174,
+        "score_Information/Advice seeking": 53.46534653465346,
+        "score_Coding & Debugging": 53.301886792452834
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Meta-Llama-3-70B-Instruct",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 49.58,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Meta-Llama-3-70B-Instruct:WB_score@49.579667644183765",
+      "extra": {
+        "listed_name": "Meta-Llama-3-70B-Instruct",
+        "length": 3046.6383186705766,
+        "task_macro": 47.770804496306326,
+        "score_Creative Tasks": 54.30051813471502,
+        "score_Planning & Reasoning": 50.07473841554558,
+        "score_Math & Data Analysis": 42.063492063492056,
+        "score_Information/Advice seeking": 52.27722772277227,
+        "score_Coding & Debugging": 44.71698113207546
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Meta-Llama-3-70B-Instruct",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1194.649,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Meta-Llama-3-70B-Instruct:WB_Elo@1194.6486448820997",
+      "extra": {
+        "listed_name": "Meta-Llama-3-70B-Instruct",
+        "length": 3046.6383186705766,
+        "task_macro": 47.770804496306326,
+        "score_Creative Tasks": 54.30051813471502,
+        "score_Planning & Reasoning": 50.07473841554558,
+        "score_Math & Data Analysis": 42.063492063492056,
+        "score_Information/Advice seeking": 52.27722772277227,
+        "score_Coding & Debugging": 44.71698113207546
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Qwen1.5-72B-Chat-greedy",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 43.467,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Qwen1.5-72B-Chat-greedy:WB_score@43.46718903036239",
+      "extra": {
+        "listed_name": "Qwen1.5-72B-Chat-greedy",
+        "length": 2392.364348677767,
+        "task_macro": 39.927713665824655,
+        "score_Creative Tasks": 50.362694300518136,
+        "score_Planning & Reasoning": 43.45345345345345,
+        "score_Math & Data Analysis": 29.800796812748995,
+        "score_Information/Advice seeking": 48.21782178217822,
+        "score_Coding & Debugging": 35.35545023696683
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Qwen1.5-72B-Chat-greedy",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1150.137,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Qwen1.5-72B-Chat-greedy:WB_Elo@1150.1365337277027",
+      "extra": {
+        "listed_name": "Qwen1.5-72B-Chat-greedy",
+        "length": 2392.364348677767,
+        "task_macro": 39.927713665824655,
+        "score_Creative Tasks": 50.362694300518136,
+        "score_Planning & Reasoning": 43.45345345345345,
+        "score_Math & Data Analysis": 29.800796812748995,
+        "score_Information/Advice seeking": 48.21782178217822,
+        "score_Coding & Debugging": 35.35545023696683
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "claude-3-sonnet-20240229",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 45.245,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "claude-3-sonnet-20240229:WB_score@45.24461839530332",
+      "extra": {
+        "listed_name": "claude-3-sonnet-20240229",
+        "length": 2670.243639921722,
+        "task_macro": 45.48145776375293,
+        "score_Creative Tasks": 46.304909560723516,
+        "score_Planning & Reasoning": 47.425149700598794,
+        "score_Math & Data Analysis": 40.63745019920319,
+        "score_Information/Advice seeking": 47.128712871287135,
+        "score_Coding & Debugging": 46.09523809523809
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "claude-3-sonnet-20240229",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1180.904,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "claude-3-sonnet-20240229:WB_Elo@1180.9039586012009",
+      "extra": {
+        "listed_name": "claude-3-sonnet-20240229",
+        "length": 2670.243639921722,
+        "task_macro": 45.48145776375293,
+        "score_Creative Tasks": 46.304909560723516,
+        "score_Planning & Reasoning": 47.425149700598794,
+        "score_Math & Data Analysis": 40.63745019920319,
+        "score_Information/Advice seeking": 47.128712871287135,
+        "score_Coding & Debugging": 46.09523809523809
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "mistral-large-2402",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 42.287,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "mistral-large-2402:WB_score@42.28739002932551",
+      "extra": {
+        "listed_name": "mistral-large-2402",
+        "length": 2514.9814090019568,
+        "task_macro": 38.89367833445423,
+        "score_Creative Tasks": 49.66408268733851,
+        "score_Planning & Reasoning": 41.79910044977511,
+        "score_Math & Data Analysis": 30.879999999999992,
+        "score_Information/Advice seeking": 46.13861386138615,
+        "score_Coding & Debugging": 33.74407582938389
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "mistral-large-2402",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1158.021,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "mistral-large-2402:WB_Elo@1158.021169549111",
+      "extra": {
+        "listed_name": "mistral-large-2402",
+        "length": 2514.9814090019568,
+        "task_macro": 38.89367833445423,
+        "score_Creative Tasks": 49.66408268733851,
+        "score_Planning & Reasoning": 41.79910044977511,
+        "score_Math & Data Analysis": 30.879999999999992,
+        "score_Information/Advice seeking": 46.13861386138615,
+        "score_Coding & Debugging": 33.74407582938389
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "claude-3-haiku-20240307",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 40.254,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "claude-3-haiku-20240307:WB_score@40.25390625",
+      "extra": {
+        "listed_name": "claude-3-haiku-20240307",
+        "length": 2601.029296875,
+        "task_macro": 38.893606666167265,
+        "score_Creative Tasks": 42.94573643410853,
+        "score_Planning & Reasoning": 41.28550074738415,
+        "score_Math & Data Analysis": 31.428571428571423,
+        "score_Information/Advice seeking": 45.346534653465355,
+        "score_Coding & Debugging": 36.9811320754717
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "claude-3-haiku-20240307",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1159.82,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "claude-3-haiku-20240307:WB_Elo@1159.819595320082",
+      "extra": {
+        "listed_name": "claude-3-haiku-20240307",
+        "length": 2601.029296875,
+        "task_macro": 38.893606666167265,
+        "score_Creative Tasks": 42.94573643410853,
+        "score_Planning & Reasoning": 41.28550074738415,
+        "score_Math & Data Analysis": 31.428571428571423,
+        "score_Information/Advice seeking": 45.346534653465355,
+        "score_Coding & Debugging": 36.9811320754717
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "dbrx-instruct@together",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 35.543,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "dbrx-instruct@together:WB_score@35.5425219941349",
+      "extra": {
+        "listed_name": "dbrx-instruct@together",
+        "length": 2576.5190615835777,
+        "task_macro": 32.598891595850844,
+        "score_Creative Tasks": 42.32558139534884,
+        "score_Planning & Reasoning": 36.227544910179645,
+        "score_Math & Data Analysis": 24.523809523809526,
+        "score_Information/Advice seeking": 41.089108910891085,
+        "score_Coding & Debugging": 26.445497630331758
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "dbrx-instruct@together",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1123.335,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "dbrx-instruct@together:WB_Elo@1123.3353568518312",
+      "extra": {
+        "listed_name": "dbrx-instruct@together",
+        "length": 2576.5190615835777,
+        "task_macro": 32.598891595850844,
+        "score_Creative Tasks": 42.32558139534884,
+        "score_Planning & Reasoning": 36.227544910179645,
+        "score_Math & Data Analysis": 24.523809523809526,
+        "score_Information/Advice seeking": 41.089108910891085,
+        "score_Coding & Debugging": 26.445497630331758
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Mixtral-8x7B-Instruct-v0.1",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 35.029,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Mixtral-8x7B-Instruct-v0.1:WB_score@35.0293542074364",
+      "extra": {
+        "listed_name": "Mixtral-8x7B-Instruct-v0.1",
+        "length": 2653.5813725490198,
+        "task_macro": 31.47027304895869,
+        "score_Creative Tasks": 42.753246753246756,
+        "score_Planning & Reasoning": 34.586466165413526,
+        "score_Math & Data Analysis": 22.142857142857135,
+        "score_Information/Advice seeking": 41.935483870967744,
+        "score_Coding & Debugging": 25.023696682464447
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Mixtral-8x7B-Instruct-v0.1",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1122.783,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Mixtral-8x7B-Instruct-v0.1:WB_Elo@1122.7834564499847",
+      "extra": {
+        "listed_name": "Mixtral-8x7B-Instruct-v0.1",
+        "length": 2653.5813725490198,
+        "task_macro": 31.47027304895869,
+        "score_Creative Tasks": 42.753246753246756,
+        "score_Planning & Reasoning": 34.586466165413526,
+        "score_Math & Data Analysis": 22.142857142857135,
+        "score_Information/Advice seeking": 41.935483870967744,
+        "score_Coding & Debugging": 25.023696682464447
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Starling-LM-7B-beta",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 34.174,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Starling-LM-7B-beta:WB_score@34.17399804496579",
+      "extra": {
+        "listed_name": "Starling-LM-7B-beta",
+        "length": 2797.807240704501,
+        "task_macro": 30.16944980829014,
+        "score_Creative Tasks": 43.79220779220779,
+        "score_Planning & Reasoning": 34.050822122571006,
+        "score_Math & Data Analysis": 16.984126984126977,
+        "score_Information/Advice seeking": 41.88118811881188,
+        "score_Coding & Debugging": 24.36018957345972
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Starling-LM-7B-beta",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1119.333,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Starling-LM-7B-beta:WB_Elo@1119.3332864397855",
+      "extra": {
+        "listed_name": "Starling-LM-7B-beta",
+        "length": 2797.807240704501,
+        "task_macro": 30.16944980829014,
+        "score_Creative Tasks": 43.79220779220779,
+        "score_Planning & Reasoning": 34.050822122571006,
+        "score_Math & Data Analysis": 16.984126984126977,
+        "score_Information/Advice seeking": 41.88118811881188,
+        "score_Coding & Debugging": 24.36018957345972
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "command-r",
+      "developer": "Cohere",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 35.059,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "command-r:WB_score@35.05859375",
+      "extra": {
+        "listed_name": "command-r",
+        "length": 2919.423828125,
+        "task_macro": 29.533143228506248,
+        "score_Creative Tasks": 47.44186046511628,
+        "score_Planning & Reasoning": 34.61883408071749,
+        "score_Math & Data Analysis": 16.031746031746028,
+        "score_Information/Advice seeking": 44.10891089108912,
+        "score_Coding & Debugging": 19.33962264150944
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "command-r",
+      "developer": "Cohere",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1119.85,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "command-r:WB_Elo@1119.8497539885705",
+      "extra": {
+        "listed_name": "command-r",
+        "length": 2919.423828125,
+        "task_macro": 29.533143228506248,
+        "score_Creative Tasks": 47.44186046511628,
+        "score_Planning & Reasoning": 34.61883408071749,
+        "score_Math & Data Analysis": 16.031746031746028,
+        "score_Information/Advice seeking": 44.10891089108912,
+        "score_Coding & Debugging": 19.33962264150944
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "command-r-plus",
+      "developer": "Cohere",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 41.566,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "command-r-plus:WB_score@41.565557729941304",
+      "extra": {
+        "listed_name": "command-r-plus",
+        "length": 3293.812133072407,
+        "task_macro": 36.76236856767293,
+        "score_Creative Tasks": 52.55813953488372,
+        "score_Planning & Reasoning": 41.949025487256364,
+        "score_Math & Data Analysis": 23.492063492063497,
+        "score_Information/Advice seeking": 49.15841584158416,
+        "score_Coding & Debugging": 28.436018957345972
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "command-r-plus",
+      "developer": "Cohere",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1151.206,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "command-r-plus:WB_Elo@1151.2063636170662",
+      "extra": {
+        "listed_name": "command-r-plus",
+        "length": 3293.812133072407,
+        "task_macro": 36.76236856767293,
+        "score_Creative Tasks": 52.55813953488372,
+        "score_Planning & Reasoning": 41.949025487256364,
+        "score_Math & Data Analysis": 23.492063492063497,
+        "score_Information/Advice seeking": 49.15841584158416,
+        "score_Coding & Debugging": 28.436018957345972
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Meta-Llama-3-8B-Instruct",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 33.177,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Meta-Llama-3-8B-Instruct:WB_score@33.176930596285445",
+      "extra": {
+        "listed_name": "Meta-Llama-3-8B-Instruct",
+        "length": 2975.1876832844573,
+        "task_macro": 29.20277208638918,
+        "score_Creative Tasks": 43.56589147286822,
+        "score_Planning & Reasoning": 34.401197604790426,
+        "score_Math & Data Analysis": 16.972111553784863,
+        "score_Information/Advice seeking": 39.30693069306932,
+        "score_Coding & Debugging": 21.9811320754717
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Meta-Llama-3-8B-Instruct",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1134.236,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Meta-Llama-3-8B-Instruct:WB_Elo@1134.2361846879544",
+      "extra": {
+        "listed_name": "Meta-Llama-3-8B-Instruct",
+        "length": 2975.1876832844573,
+        "task_macro": 29.20277208638918,
+        "score_Creative Tasks": 43.56589147286822,
+        "score_Planning & Reasoning": 34.401197604790426,
+        "score_Math & Data Analysis": 16.972111553784863,
+        "score_Information/Advice seeking": 39.30693069306932,
+        "score_Coding & Debugging": 21.9811320754717
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "tulu-2-dpo-70b",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 32.825,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "tulu-2-dpo-70b:WB_score@32.82502443792767",
+      "extra": {
+        "listed_name": "tulu-2-dpo-70b",
+        "length": 2908.0714285714284,
+        "task_macro": 27.983756123225106,
+        "score_Creative Tasks": 42.7012987012987,
+        "score_Planning & Reasoning": 32.30538922155688,
+        "score_Math & Data Analysis": 14.841269841269842,
+        "score_Information/Advice seeking": 40.69306930693068,
+        "score_Coding & Debugging": 20.663507109004744
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "tulu-2-dpo-70b",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1114.003,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "tulu-2-dpo-70b:WB_Elo@1114.0029936423298",
+      "extra": {
+        "listed_name": "tulu-2-dpo-70b",
+        "length": 2908.0714285714284,
+        "task_macro": 27.983756123225106,
+        "score_Creative Tasks": 42.7012987012987,
+        "score_Planning & Reasoning": 32.30538922155688,
+        "score_Math & Data Analysis": 14.841269841269842,
+        "score_Information/Advice seeking": 40.69306930693068,
+        "score_Coding & Debugging": 20.663507109004744
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Nous-Hermes-2-Mixtral-8x7B-DPO",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 33.222,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Nous-Hermes-2-Mixtral-8x7B-DPO:WB_score@33.22233104799217",
+      "extra": {
+        "listed_name": "Nous-Hermes-2-Mixtral-8x7B-DPO",
+        "length": 2874.541625857003,
+        "task_macro": 30.711400306676122,
+        "score_Creative Tasks": 37.92207792207792,
+        "score_Planning & Reasoning": 34.24287856071963,
+        "score_Math & Data Analysis": 21.752988047808763,
+        "score_Information/Advice seeking": 39.75247524752476,
+        "score_Coding & Debugging": 26.037735849056602
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Nous-Hermes-2-Mixtral-8x7B-DPO",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1080.536,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Nous-Hermes-2-Mixtral-8x7B-DPO:WB_Elo@1080.5355552806532",
+      "extra": {
+        "listed_name": "Nous-Hermes-2-Mixtral-8x7B-DPO",
+        "length": 2874.541625857003,
+        "task_macro": 30.711400306676122,
+        "score_Creative Tasks": 37.92207792207792,
+        "score_Planning & Reasoning": 34.24287856071963,
+        "score_Math & Data Analysis": 21.752988047808763,
+        "score_Information/Advice seeking": 39.75247524752476,
+        "score_Coding & Debugging": 26.037735849056602
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Mistral-7B-Instruct-v0.2",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 30.694,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Mistral-7B-Instruct-v0.2:WB_score@30.694037145650057",
+      "extra": {
+        "listed_name": "Mistral-7B-Instruct-v0.2",
+        "length": 2832.3440860215055,
+        "task_macro": 25.633728318953878,
+        "score_Creative Tasks": 42.072538860103634,
+        "score_Planning & Reasoning": 30.059880239520957,
+        "score_Math & Data Analysis": 10.079365079365079,
+        "score_Information/Advice seeking": 40.099255583126556,
+        "score_Coding & Debugging": 18.396226415094343
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Mistral-7B-Instruct-v0.2",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1095.81,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Mistral-7B-Instruct-v0.2:WB_Elo@1095.8096850594482",
+      "extra": {
+        "listed_name": "Mistral-7B-Instruct-v0.2",
+        "length": 2832.3440860215055,
+        "task_macro": 25.633728318953878,
+        "score_Creative Tasks": 42.072538860103634,
+        "score_Planning & Reasoning": 30.059880239520957,
+        "score_Math & Data Analysis": 10.079365079365079,
+        "score_Information/Advice seeking": 40.099255583126556,
+        "score_Coding & Debugging": 18.396226415094343
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gpt-3.5-turbo-0125",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 32.278,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gpt-3.5-turbo-0125:WB_score@32.27761485826002",
+      "extra": {
+        "listed_name": "gpt-3.5-turbo-0125",
+        "length": 1844.13880742913,
+        "task_macro": 30.01598607195931,
+        "score_Creative Tasks": 37.41602067183463,
+        "score_Planning & Reasoning": 33.3931240657698,
+        "score_Math & Data Analysis": 21.58730158730158,
+        "score_Information/Advice seeking": 36.485148514851474,
+        "score_Coding & Debugging": 26.54028436018958
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gpt-3.5-turbo-0125",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1124.509,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gpt-3.5-turbo-0125:WB_Elo@1124.5088476993683",
+      "extra": {
+        "listed_name": "gpt-3.5-turbo-0125",
+        "length": 1844.13880742913,
+        "task_macro": 30.01598607195931,
+        "score_Creative Tasks": 37.41602067183463,
+        "score_Planning & Reasoning": 33.3931240657698,
+        "score_Math & Data Analysis": 21.58730158730158,
+        "score_Information/Advice seeking": 36.485148514851474,
+        "score_Coding & Debugging": 26.54028436018958
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Qwen1.5-7B-Chat@together",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 27.37,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Qwen1.5-7B-Chat@together:WB_score@27.370478983382203",
+      "extra": {
+        "listed_name": "Qwen1.5-7B-Chat@together",
+        "length": 2519.4203323558163,
+        "task_macro": 23.42316313940188,
+        "score_Creative Tasks": 38.29457364341085,
+        "score_Planning & Reasoning": 28.878923766816147,
+        "score_Math & Data Analysis": 11.904761904761898,
+        "score_Information/Advice seeking": 34.00990099009901,
+        "score_Coding & Debugging": 14.88151658767773
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Qwen1.5-7B-Chat@together",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1080.635,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Qwen1.5-7B-Chat@together:WB_Elo@1080.6354917293063",
+      "extra": {
+        "listed_name": "Qwen1.5-7B-Chat@together",
+        "length": 2519.4203323558163,
+        "task_macro": 23.42316313940188,
+        "score_Creative Tasks": 38.29457364341085,
+        "score_Planning & Reasoning": 28.878923766816147,
+        "score_Math & Data Analysis": 11.904761904761898,
+        "score_Information/Advice seeking": 34.00990099009901,
+        "score_Coding & Debugging": 14.88151658767773
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Llama-2-70b-chat-hf",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 26.914,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-2-70b-chat-hf:WB_score@26.9140625",
+      "extra": {
+        "listed_name": "Llama-2-70b-chat-hf",
+        "length": 3138.3179587831205,
+        "task_macro": 20.659636912866645,
+        "score_Creative Tasks": 40.0,
+        "score_Planning & Reasoning": 26.846846846846848,
+        "score_Math & Data Analysis": 4.176706827309236,
+        "score_Information/Advice seeking": 38.30845771144279,
+        "score_Coding & Debugging": 9.333333333333336
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Llama-2-70b-chat-hf",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1088.135,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-2-70b-chat-hf:WB_Elo@1088.1354760938955",
+      "extra": {
+        "listed_name": "Llama-2-70b-chat-hf",
+        "length": 3138.3179587831205,
+        "task_macro": 20.659636912866645,
+        "score_Creative Tasks": 40.0,
+        "score_Planning & Reasoning": 26.846846846846848,
+        "score_Math & Data Analysis": 4.176706827309236,
+        "score_Information/Advice seeking": 38.30845771144279,
+        "score_Coding & Debugging": 9.333333333333336
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Llama-2-7b-chat-hf",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 15.225,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-2-7b-chat-hf:WB_score@15.225048923679054",
+      "extra": {
+        "listed_name": "Llama-2-7b-chat-hf",
+        "length": 2985.1052114060963,
+        "task_macro": 8.262075264042464,
+        "score_Creative Tasks": 29.76623376623376,
+        "score_Planning & Reasoning": 15.428571428571427,
+        "score_Math & Data Analysis": -7.177419354838701,
+        "score_Information/Advice seeking": 27.66169154228855,
+        "score_Coding & Debugging": -6.794258373205739
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Llama-2-7b-chat-hf",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1033.369,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-2-7b-chat-hf:WB_Elo@1033.3690594246566",
+      "extra": {
+        "listed_name": "Llama-2-7b-chat-hf",
+        "length": 2985.1052114060963,
+        "task_macro": 8.262075264042464,
+        "score_Creative Tasks": 29.76623376623376,
+        "score_Planning & Reasoning": 15.428571428571427,
+        "score_Math & Data Analysis": -7.177419354838701,
+        "score_Information/Advice seeking": 27.66169154228855,
+        "score_Coding & Debugging": -6.794258373205739
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gemma-7b-it",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 10.176,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-7b-it:WB_score@10.17578125",
+      "extra": {
+        "listed_name": "gemma-7b-it",
+        "length": 1726.3440860215053,
+        "task_macro": 6.61975914869064,
+        "score_Creative Tasks": 21.19170984455959,
+        "score_Planning & Reasoning": 10.164424514200299,
+        "score_Math & Data Analysis": -3.6507936507936556,
+        "score_Information/Advice seeking": 12.72277227722773,
+        "score_Coding & Debugging": 1.8009478672985857
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gemma-7b-it",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1058.182,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-7b-it:WB_Elo@1058.181990260453",
+      "extra": {
+        "listed_name": "gemma-7b-it",
+        "length": 1726.3440860215053,
+        "task_macro": 6.61975914869064,
+        "score_Creative Tasks": 21.19170984455959,
+        "score_Planning & Reasoning": 10.164424514200299,
+        "score_Math & Data Analysis": -3.6507936507936556,
+        "score_Information/Advice seeking": 12.72277227722773,
+        "score_Coding & Debugging": 1.8009478672985857
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gemma-2b-it",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": -5.25,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2b-it:WB_score@-5.249755142017634",
+      "extra": {
+        "listed_name": "gemma-2b-it",
+        "length": 1590.0833333333333,
+        "task_macro": -9.691930072258819,
+        "score_Creative Tasks": 7.220779220779221,
+        "score_Planning & Reasoning": -5.795795795795797,
+        "score_Math & Data Analysis": -18.64541832669323,
+        "score_Information/Advice seeking": -2.133995037220835,
+        "score_Coding & Debugging": -17.725118483412317
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gemma-2b-it",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 996.565,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2b-it:WB_Elo@996.5652530810216",
+      "extra": {
+        "listed_name": "gemma-2b-it",
+        "length": 1590.0833333333333,
+        "task_macro": -9.691930072258819,
+        "score_Creative Tasks": 7.220779220779221,
+        "score_Planning & Reasoning": -5.795795795795797,
+        "score_Math & Data Analysis": -18.64541832669323,
+        "score_Information/Advice seeking": -2.133995037220835,
+        "score_Coding & Debugging": -17.725118483412317
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Llama-3-Instruct-8B-SimPO",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 41.173,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-3-Instruct-8B-SimPO:WB_score@41.17302052785924",
+      "extra": {
+        "listed_name": "Llama-3-Instruct-8B-SimPO",
+        "length": 2541.9257086999023,
+        "task_macro": 37.049721402304925,
+        "score_Creative Tasks": 50.64599483204134,
+        "score_Planning & Reasoning": 40.86696562032884,
+        "score_Math & Data Analysis": 23.984063745019917,
+        "score_Information/Advice seeking": 47.871287128712865,
+        "score_Coding & Debugging": 31.753554502369674
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Llama-3-Instruct-8B-SimPO",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1147.275,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-3-Instruct-8B-SimPO:WB_Elo@1147.2753876490617",
+      "extra": {
+        "listed_name": "Llama-3-Instruct-8B-SimPO",
+        "length": 2541.9257086999023,
+        "task_macro": 37.049721402304925,
+        "score_Creative Tasks": 50.64599483204134,
+        "score_Planning & Reasoning": 40.86696562032884,
+        "score_Math & Data Analysis": 23.984063745019917,
+        "score_Information/Advice seeking": 47.871287128712865,
+        "score_Coding & Debugging": 31.753554502369674
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "SELM-Zephyr-7B-iter-3",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 31.523,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "SELM-Zephyr-7B-iter-3:WB_score@31.5234375",
+      "extra": {
+        "listed_name": "SELM-Zephyr-7B-iter-3",
+        "length": 2823.7800586510266,
+        "task_macro": 25.061899136983598,
+        "score_Creative Tasks": 44.70284237726098,
+        "score_Planning & Reasoning": 31.58682634730539,
+        "score_Math & Data Analysis": 12.669322709163353,
+        "score_Information/Advice seeking": 40.99009900990099,
+        "score_Coding & Debugging": 11.037735849056602
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "SELM-Zephyr-7B-iter-3",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1122.688,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "SELM-Zephyr-7B-iter-3:WB_Elo@1122.6875139363128",
+      "extra": {
+        "listed_name": "SELM-Zephyr-7B-iter-3",
+        "length": 2823.7800586510266,
+        "task_macro": 25.061899136983598,
+        "score_Creative Tasks": 44.70284237726098,
+        "score_Planning & Reasoning": 31.58682634730539,
+        "score_Math & Data Analysis": 12.669322709163353,
+        "score_Information/Advice seeking": 40.99009900990099,
+        "score_Coding & Debugging": 11.037735849056602
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Qwen2-72B-Instruct",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 46.406,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Qwen2-72B-Instruct:WB_score@46.40625",
+      "extra": {
+        "listed_name": "Qwen2-72B-Instruct",
+        "length": 2856.4482421875,
+        "task_macro": 44.497691296234095,
+        "score_Creative Tasks": 49.92248062015504,
+        "score_Planning & Reasoning": 46.84603886397609,
+        "score_Math & Data Analysis": 40.95238095238095,
+        "score_Information/Advice seeking": 49.50495049504951,
+        "score_Coding & Debugging": 39.81132075471699
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Qwen2-72B-Instruct",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1176.367,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Qwen2-72B-Instruct:WB_Elo@1176.3672811642498",
+      "extra": {
+        "listed_name": "Qwen2-72B-Instruct",
+        "length": 2856.4482421875,
+        "task_macro": 44.497691296234095,
+        "score_Creative Tasks": 49.92248062015504,
+        "score_Planning & Reasoning": 46.84603886397609,
+        "score_Math & Data Analysis": 40.95238095238095,
+        "score_Information/Advice seeking": 49.50495049504951,
+        "score_Coding & Debugging": 39.81132075471699
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Hermes-2-Theta-Llama-3-8B",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 32.942,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Hermes-2-Theta-Llama-3-8B:WB_score@32.9423264907136",
+      "extra": {
+        "listed_name": "Hermes-2-Theta-Llama-3-8B",
+        "length": 2742.169110459433,
+        "task_macro": 29.635207776375477,
+        "score_Creative Tasks": 39.79328165374676,
+        "score_Planning & Reasoning": 33.65269461077844,
+        "score_Math & Data Analysis": 18.725099601593627,
+        "score_Information/Advice seeking": 41.584158415841586,
+        "score_Coding & Debugging": 23.113207547169807
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Hermes-2-Theta-Llama-3-8B",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1123.12,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Hermes-2-Theta-Llama-3-8B:WB_Elo@1123.1201291077534",
+      "extra": {
+        "listed_name": "Hermes-2-Theta-Llama-3-8B",
+        "length": 2742.169110459433,
+        "task_macro": 29.635207776375477,
+        "score_Creative Tasks": 39.79328165374676,
+        "score_Planning & Reasoning": 33.65269461077844,
+        "score_Math & Data Analysis": 18.725099601593627,
+        "score_Information/Advice seeking": 41.584158415841586,
+        "score_Coding & Debugging": 23.113207547169807
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "yi-large",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 48.935,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "yi-large:WB_score@48.93450635386118",
+      "extra": {
+        "listed_name": "yi-large",
+        "length": 3095.335952848723,
+        "task_macro": 48.92726960200772,
+        "score_Creative Tasks": 51.80156657963445,
+        "score_Planning & Reasoning": 51.33834586466165,
+        "score_Math & Data Analysis": 44.46215139442231,
+        "score_Information/Advice seeking": 50.96774193548388,
+        "score_Coding & Debugging": 47.71428571428572
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "yi-large",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1189.453,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "yi-large:WB_Elo@1189.4528661631805",
+      "extra": {
+        "listed_name": "yi-large",
+        "length": 3095.335952848723,
+        "task_macro": 48.92726960200772,
+        "score_Creative Tasks": 51.80156657963445,
+        "score_Planning & Reasoning": 51.33834586466165,
+        "score_Math & Data Analysis": 44.46215139442231,
+        "score_Information/Advice seeking": 50.96774193548388,
+        "score_Coding & Debugging": 47.71428571428572
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Yi-1.5-34B-Chat",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 47.351,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Yi-1.5-34B-Chat:WB_score@47.350928641251215",
+      "extra": {
+        "listed_name": "Yi-1.5-34B-Chat",
+        "length": 3523.557843137255,
+        "task_macro": 45.613463477590955,
+        "score_Creative Tasks": 53.523316062176164,
+        "score_Planning & Reasoning": 48.108108108108105,
+        "score_Math & Data Analysis": 39.43775100401606,
+        "score_Information/Advice seeking": 50.29702970297029,
+        "score_Coding & Debugging": 42.08530805687204
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Yi-1.5-34B-Chat",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1162.792,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Yi-1.5-34B-Chat:WB_Elo@1162.7919494137102",
+      "extra": {
+        "listed_name": "Yi-1.5-34B-Chat",
+        "length": 3523.557843137255,
+        "task_macro": 45.613463477590955,
+        "score_Creative Tasks": 53.523316062176164,
+        "score_Planning & Reasoning": 48.108108108108105,
+        "score_Math & Data Analysis": 39.43775100401606,
+        "score_Information/Advice seeking": 50.29702970297029,
+        "score_Coding & Debugging": 42.08530805687204
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "reka-flash-20240226",
+      "developer": "Reka",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 34.604,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "reka-flash-20240226:WB_score@34.60410557184751",
+      "extra": {
+        "listed_name": "reka-flash-20240226",
+        "length": 2103.0098039215686,
+        "task_macro": 30.363615402031144,
+        "score_Creative Tasks": 42.44155844155845,
+        "score_Planning & Reasoning": 35.01501501501501,
+        "score_Math & Data Analysis": 20.48,
+        "score_Information/Advice seeking": 41.53465346534654,
+        "score_Coding & Debugging": 22.085308056872037
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "reka-flash-20240226",
+      "developer": "Reka",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1130.743,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "reka-flash-20240226:WB_Elo@1130.7430402344874",
+      "extra": {
+        "listed_name": "reka-flash-20240226",
+        "length": 2103.0098039215686,
+        "task_macro": 30.363615402031144,
+        "score_Creative Tasks": 42.44155844155845,
+        "score_Planning & Reasoning": 35.01501501501501,
+        "score_Math & Data Analysis": 20.48,
+        "score_Information/Advice seeking": 41.53465346534654,
+        "score_Coding & Debugging": 22.085308056872037
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gemini-1.5-pro",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 47.383,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemini-1.5-pro:WB_score@47.3828125",
+      "extra": {
+        "listed_name": "gemini-1.5-pro",
+        "length": 3247.9673135852913,
+        "task_macro": 52.95184246265066,
+        "score_Creative Tasks": 55.124653739612185,
+        "score_Planning & Reasoning": 53.73271889400922,
+        "score_Math & Data Analysis": 48.59437751004016,
+        "score_Information/Advice seeking": 52.22506393861893,
+        "score_Coding & Debugging": 55.223880597014926
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gemini-1.5-pro",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1221.131,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemini-1.5-pro:WB_Elo@1221.1308875018053",
+      "extra": {
+        "listed_name": "gemini-1.5-pro",
+        "length": 3247.9673135852913,
+        "task_macro": 52.95184246265066,
+        "score_Creative Tasks": 55.124653739612185,
+        "score_Planning & Reasoning": 53.73271889400922,
+        "score_Math & Data Analysis": 48.59437751004016,
+        "score_Information/Advice seeking": 52.22506393861893,
+        "score_Coding & Debugging": 55.223880597014926
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gemini-1.5-flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 44.149,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemini-1.5-flash:WB_score@44.14872798434443",
+      "extra": {
+        "listed_name": "gemini-1.5-flash",
+        "length": 3654.3993871297243,
+        "task_macro": 48.85062170599164,
+        "score_Creative Tasks": 51.65745856353592,
+        "score_Planning & Reasoning": 50.78582434514638,
+        "score_Math & Data Analysis": 45.322580645161295,
+        "score_Information/Advice seeking": 48.66666666666667,
+        "score_Coding & Debugging": 48.72549019607844
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gemini-1.5-flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1196.804,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemini-1.5-flash:WB_Elo@1196.8042835473223",
+      "extra": {
+        "listed_name": "gemini-1.5-flash",
+        "length": 3654.3993871297243,
+        "task_macro": 48.85062170599164,
+        "score_Creative Tasks": 51.65745856353592,
+        "score_Planning & Reasoning": 50.78582434514638,
+        "score_Math & Data Analysis": 45.322580645161295,
+        "score_Information/Advice seeking": 48.66666666666667,
+        "score_Coding & Debugging": 48.72549019607844
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "reka-core-20240501",
+      "developer": "Reka",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 41.035,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "reka-core-20240501:WB_score@41.03515625",
+      "extra": {
+        "listed_name": "reka-core-20240501",
+        "length": 2592.589397089397,
+        "task_macro": 45.90279465292558,
+        "score_Creative Tasks": 55.4874651810585,
+        "score_Planning & Reasoning": 48.00632911392405,
+        "score_Math & Data Analysis": 40.34188034188034,
+        "score_Information/Advice seeking": 52.254641909814325,
+        "score_Coding & Debugging": 40.60301507537689
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "reka-core-20240501",
+      "developer": "Reka",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1174.663,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "reka-core-20240501:WB_Elo@1174.6634120985846",
+      "extra": {
+        "listed_name": "reka-core-20240501",
+        "length": 2592.589397089397,
+        "task_macro": 45.90279465292558,
+        "score_Creative Tasks": 55.4874651810585,
+        "score_Planning & Reasoning": 48.00632911392405,
+        "score_Math & Data Analysis": 40.34188034188034,
+        "score_Information/Advice seeking": 52.254641909814325,
+        "score_Coding & Debugging": 40.60301507537689
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "yi-large-preview",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 54.839,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "yi-large-preview:WB_score@54.83870967741936",
+      "extra": {
+        "listed_name": "yi-large-preview",
+        "length": 3512.678149606299,
+        "task_macro": 55.294625232024785,
+        "score_Creative Tasks": 57.64397905759162,
+        "score_Planning & Reasoning": 56.606606606606604,
+        "score_Math & Data Analysis": 51.92,
+        "score_Information/Advice seeking": 57.72277227722773,
+        "score_Coding & Debugging": 54.28571428571429
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "yi-large-preview",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1216.479,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "yi-large-preview:WB_Elo@1216.4791603920064",
+      "extra": {
+        "listed_name": "yi-large-preview",
+        "length": 3512.678149606299,
+        "task_macro": 55.294625232024785,
+        "score_Creative Tasks": 57.64397905759162,
+        "score_Planning & Reasoning": 56.606606606606604,
+        "score_Math & Data Analysis": 51.92,
+        "score_Information/Advice seeking": 57.72277227722773,
+        "score_Coding & Debugging": 54.28571428571429
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "nemotron-4-340b-instruct",
+      "developer": "NVIDIA",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 48.848,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "nemotron-4-340b-instruct:WB_score@48.84765625",
+      "extra": {
+        "listed_name": "nemotron-4-340b-instruct",
+        "length": 2754.0098039215686,
+        "task_macro": 47.67250981186394,
+        "score_Creative Tasks": 53.3160621761658,
+        "score_Planning & Reasoning": 49.12912912912914,
+        "score_Math & Data Analysis": 40.80321285140562,
+        "score_Information/Advice seeking": 53.00248138957816,
+        "score_Coding & Debugging": 46.25592417061611
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "nemotron-4-340b-instruct",
+      "developer": "NVIDIA",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1184.377,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "nemotron-4-340b-instruct:WB_Elo@1184.3773976027633",
+      "extra": {
+        "listed_name": "nemotron-4-340b-instruct",
+        "length": 2754.0098039215686,
+        "task_macro": 47.67250981186394,
+        "score_Creative Tasks": 53.3160621761658,
+        "score_Planning & Reasoning": 49.12912912912914,
+        "score_Math & Data Analysis": 40.80321285140562,
+        "score_Information/Advice seeking": 53.00248138957816,
+        "score_Coding & Debugging": 46.25592417061611
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "claude-3-5-sonnet-20240620",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 54.531,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "claude-3-5-sonnet-20240620:WB_score@54.53125",
+      "extra": {
+        "listed_name": "claude-3-5-sonnet-20240620",
+        "length": 2911.845703125,
+        "task_macro": 54.69508456618439,
+        "score_Creative Tasks": 55.60723514211887,
+        "score_Planning & Reasoning": 55.635276532137524,
+        "score_Math & Data Analysis": 50.15873015873016,
+        "score_Information/Advice seeking": 55.54455445544555,
+        "score_Coding & Debugging": 56.509433962264154
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "claude-3-5-sonnet-20240620",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1226.313,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "claude-3-5-sonnet-20240620:WB_Elo@1226.3132607594066",
+      "extra": {
+        "listed_name": "claude-3-5-sonnet-20240620",
+        "length": 2911.845703125,
+        "task_macro": 54.69508456618439,
+        "score_Creative Tasks": 55.60723514211887,
+        "score_Planning & Reasoning": 55.635276532137524,
+        "score_Math & Data Analysis": 50.15873015873016,
+        "score_Information/Advice seeking": 55.54455445544555,
+        "score_Coding & Debugging": 56.509433962264154
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "deepseek-coder-v2",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 48.895,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "deepseek-coder-v2:WB_score@48.895405669599214",
+      "extra": {
+        "listed_name": "deepseek-coder-v2",
+        "length": 2795.3091265947005,
+        "task_macro": 47.39521235239142,
+        "score_Creative Tasks": 54.49350649350649,
+        "score_Planning & Reasoning": 49.24698795180723,
+        "score_Math & Data Analysis": 41.59362549800797,
+        "score_Information/Advice seeking": 51.54228855721392,
+        "score_Coding & Debugging": 44.85714285714286
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "deepseek-coder-v2",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1183.53,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "deepseek-coder-v2:WB_Elo@1183.530275223054",
+      "extra": {
+        "listed_name": "deepseek-coder-v2",
+        "length": 2795.3091265947005,
+        "task_macro": 47.39521235239142,
+        "score_Creative Tasks": 54.49350649350649,
+        "score_Planning & Reasoning": 49.24698795180723,
+        "score_Math & Data Analysis": 41.59362549800797,
+        "score_Information/Advice seeking": 51.54228855721392,
+        "score_Coding & Debugging": 44.85714285714286
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gemma-2-9b-it",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 45.362,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2-9b-it:WB_score@45.36203522504893",
+      "extra": {
+        "listed_name": "gemma-2-9b-it",
+        "length": 2802.8923679060667,
+        "task_macro": 42.696193124381026,
+        "score_Creative Tasks": 51.007751937984494,
+        "score_Planning & Reasoning": 46.65667166416792,
+        "score_Math & Data Analysis": 36.42857142857142,
+        "score_Information/Advice seeking": 48.960396039603964,
+        "score_Coding & Debugging": 36.66666666666666
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gemma-2-9b-it",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1159.347,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2-9b-it:WB_Elo@1159.347071190945",
+      "extra": {
+        "listed_name": "gemma-2-9b-it",
+        "length": 2802.8923679060667,
+        "task_macro": 42.696193124381026,
+        "score_Creative Tasks": 51.007751937984494,
+        "score_Planning & Reasoning": 46.65667166416792,
+        "score_Math & Data Analysis": 36.42857142857142,
+        "score_Information/Advice seeking": 48.960396039603964,
+        "score_Coding & Debugging": 36.66666666666666
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "deepseek-v2-chat-0628",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 53.809,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "deepseek-v2-chat-0628:WB_score@53.80859375",
+      "extra": {
+        "listed_name": "deepseek-v2-chat-0628",
+        "length": 3252.376953125,
+        "task_macro": 53.994280411655694,
+        "score_Creative Tasks": 56.43410852713178,
+        "score_Planning & Reasoning": 54.82810164424514,
+        "score_Math & Data Analysis": 51.42857142857142,
+        "score_Information/Advice seeking": 52.72277227722773,
+        "score_Coding & Debugging": 55.0
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "deepseek-v2-chat-0628",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1210.0,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "deepseek-v2-chat-0628:WB_Elo@1209.9997081626336",
+      "extra": {
+        "listed_name": "deepseek-v2-chat-0628",
+        "length": 3252.376953125,
+        "task_macro": 53.994280411655694,
+        "score_Creative Tasks": 56.43410852713178,
+        "score_Planning & Reasoning": 54.82810164424514,
+        "score_Math & Data Analysis": 51.42857142857142,
+        "score_Information/Advice seeking": 52.72277227722773,
+        "score_Coding & Debugging": 55.0
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "deepseek-v2-coder-0628",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 43.438,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "deepseek-v2-coder-0628:WB_score@43.4375",
+      "extra": {
+        "listed_name": "deepseek-v2-coder-0628",
+        "length": 2580.181640625,
+        "task_macro": 45.66459211926647,
+        "score_Creative Tasks": 40.775193798449614,
+        "score_Planning & Reasoning": 47.17488789237669,
+        "score_Math & Data Analysis": 46.42857142857142,
+        "score_Information/Advice seeking": 40.04950495049505,
+        "score_Coding & Debugging": 48.86792452830189
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "deepseek-v2-coder-0628",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1194.305,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "deepseek-v2-coder-0628:WB_Elo@1194.3052888237632",
+      "extra": {
+        "listed_name": "deepseek-v2-coder-0628",
+        "length": 2580.181640625,
+        "task_macro": 45.66459211926647,
+        "score_Creative Tasks": 40.775193798449614,
+        "score_Planning & Reasoning": 47.17488789237669,
+        "score_Math & Data Analysis": 46.42857142857142,
+        "score_Information/Advice seeking": 40.04950495049505,
+        "score_Coding & Debugging": 48.86792452830189
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Athene-70B",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 59.413,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Athene-70B:WB_score@59.41291585127202",
+      "extra": {
+        "listed_name": "Athene-70B",
+        "length": 3175.1438356164385,
+        "task_macro": 59.53736733195851,
+        "score_Creative Tasks": 60.36175710594314,
+        "score_Planning & Reasoning": 60.95952023988005,
+        "score_Math & Data Analysis": 57.13147410358566,
+        "score_Information/Advice seeking": 60.79207920792079,
+        "score_Coding & Debugging": 58.95734597156398
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Athene-70B",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1204.593,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Athene-70B:WB_Elo@1204.5925588524296",
+      "extra": {
+        "listed_name": "Athene-70B",
+        "length": 3175.1438356164385,
+        "task_macro": 59.53736733195851,
+        "score_Creative Tasks": 60.36175710594314,
+        "score_Planning & Reasoning": 60.95952023988005,
+        "score_Math & Data Analysis": 57.13147410358566,
+        "score_Information/Advice seeking": 60.79207920792079,
+        "score_Coding & Debugging": 58.95734597156398
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gpt-4o-mini-2024-07-18",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 57.266,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gpt-4o-mini-2024-07-18:WB_score@57.265625",
+      "extra": {
+        "listed_name": "gpt-4o-mini-2024-07-18",
+        "length": 3648.126953125,
+        "task_macro": 57.13689403451416,
+        "score_Creative Tasks": 60.051679586563296,
+        "score_Planning & Reasoning": 58.23617339312406,
+        "score_Math & Data Analysis": 54.04761904761905,
+        "score_Information/Advice seeking": 57.42574257425743,
+        "score_Coding & Debugging": 57.16981132075471
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gpt-4o-mini-2024-07-18",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1191.679,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gpt-4o-mini-2024-07-18:WB_Elo@1191.6787570765769",
+      "extra": {
+        "listed_name": "gpt-4o-mini-2024-07-18",
+        "length": 3648.126953125,
+        "task_macro": 57.13689403451416,
+        "score_Creative Tasks": 60.051679586563296,
+        "score_Planning & Reasoning": 58.23617339312406,
+        "score_Math & Data Analysis": 54.04761904761905,
+        "score_Information/Advice seeking": 57.42574257425743,
+        "score_Coding & Debugging": 57.16981132075471
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Mistral-Large-2",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 55.801,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Mistral-Large-2:WB_score@55.80078125",
+      "extra": {
+        "listed_name": "Mistral-Large-2",
+        "length": 3503.6262230919765,
+        "task_macro": 55.56833516154802,
+        "score_Creative Tasks": 58.860103626943,
+        "score_Planning & Reasoning": 57.21556886227545,
+        "score_Math & Data Analysis": 52.66932270916335,
+        "score_Information/Advice seeking": 57.37623762376238,
+        "score_Coding & Debugging": 53.83886255924171
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Mistral-Large-2",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1197.711,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Mistral-Large-2:WB_Elo@1197.7105795590762",
+      "extra": {
+        "listed_name": "Mistral-Large-2",
+        "length": 3503.6262230919765,
+        "task_macro": 55.56833516154802,
+        "score_Creative Tasks": 58.860103626943,
+        "score_Planning & Reasoning": 57.21556886227545,
+        "score_Math & Data Analysis": 52.66932270916335,
+        "score_Information/Advice seeking": 57.37623762376238,
+        "score_Coding & Debugging": 53.83886255924171
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gemma-2-9b-it-DPO",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 54.258,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2-9b-it-DPO:WB_score@54.2578125",
+      "extra": {
+        "listed_name": "gemma-2-9b-it-DPO",
+        "length": 3982.628795298727,
+        "task_macro": 53.22295446230848,
+        "score_Creative Tasks": 59.067357512953365,
+        "score_Planning & Reasoning": 55.47226386806596,
+        "score_Math & Data Analysis": 47.12,
+        "score_Information/Advice seeking": 58.21782178217822,
+        "score_Coding & Debugging": 50.52132701421801
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gemma-2-9b-it-DPO",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1181.074,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2-9b-it-DPO:WB_Elo@1181.0736048785952",
+      "extra": {
+        "listed_name": "gemma-2-9b-it-DPO",
+        "length": 3982.628795298727,
+        "task_macro": 53.22295446230848,
+        "score_Creative Tasks": 59.067357512953365,
+        "score_Planning & Reasoning": 55.47226386806596,
+        "score_Math & Data Analysis": 47.12,
+        "score_Information/Advice seeking": 58.21782178217822,
+        "score_Coding & Debugging": 50.52132701421801
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gemma-2-9b-it-SimPO",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 54.076,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2-9b-it-SimPO:WB_score@54.07624633431085",
+      "extra": {
+        "listed_name": "gemma-2-9b-it-SimPO",
+        "length": 4277.667647058824,
+        "task_macro": 53.27923406955029,
+        "score_Creative Tasks": 57.97927461139896,
+        "score_Planning & Reasoning": 55.645645645645644,
+        "score_Math & Data Analysis": 48.59437751004016,
+        "score_Information/Advice seeking": 56.485148514851474,
+        "score_Coding & Debugging": 50.857142857142854
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gemma-2-9b-it-SimPO",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1180.499,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2-9b-it-SimPO:WB_Elo@1180.4986055478087",
+      "extra": {
+        "listed_name": "gemma-2-9b-it-SimPO",
+        "length": 4277.667647058824,
+        "task_macro": 53.27923406955029,
+        "score_Creative Tasks": 57.97927461139896,
+        "score_Planning & Reasoning": 55.645645645645644,
+        "score_Math & Data Analysis": 48.59437751004016,
+        "score_Information/Advice seeking": 56.485148514851474,
+        "score_Coding & Debugging": 50.857142857142854
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "deepseekv2-chat",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 50.049,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "deepseekv2-chat:WB_score@50.04887585532748",
+      "extra": {
+        "listed_name": "deepseekv2-chat",
+        "length": 2896.965786901271,
+        "task_macro": 48.21191935259587,
+        "score_Creative Tasks": 53.59173126614987,
+        "score_Planning & Reasoning": 50.62874251497006,
+        "score_Math & Data Analysis": 44.523809523809526,
+        "score_Information/Advice seeking": 51.811414392059554,
+        "score_Coding & Debugging": 44.43396226415095
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "deepseekv2-chat",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1184.025,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "deepseekv2-chat:WB_Elo@1184.0251150954687",
+      "extra": {
+        "listed_name": "deepseekv2-chat",
+        "length": 2896.965786901271,
+        "task_macro": 48.21191935259587,
+        "score_Creative Tasks": 53.59173126614987,
+        "score_Planning & Reasoning": 50.62874251497006,
+        "score_Math & Data Analysis": 44.523809523809526,
+        "score_Information/Advice seeking": 51.811414392059554,
+        "score_Coding & Debugging": 44.43396226415095
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gemma-2-27b-it@together",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 49.395,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2-27b-it@together:WB_score@49.39453125",
+      "extra": {
+        "listed_name": "gemma-2-27b-it@together",
+        "length": 2924.5455435847207,
+        "task_macro": 48.54019672452688,
+        "score_Creative Tasks": 53.626943005181346,
+        "score_Planning & Reasoning": 50.55472263868065,
+        "score_Math & Data Analysis": 43.919999999999995,
+        "score_Information/Advice seeking": 50.49504950495049,
+        "score_Coding & Debugging": 47.01421800947868
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gemma-2-27b-it@together",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1182.174,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2-27b-it@together:WB_Elo@1182.173597976001",
+      "extra": {
+        "listed_name": "gemma-2-27b-it@together",
+        "length": 2924.5455435847207,
+        "task_macro": 48.54019672452688,
+        "score_Creative Tasks": 53.626943005181346,
+        "score_Planning & Reasoning": 50.55472263868065,
+        "score_Math & Data Analysis": 43.919999999999995,
+        "score_Information/Advice seeking": 50.49504950495049,
+        "score_Coding & Debugging": 47.01421800947868
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Mistral-Nemo-Instruct-2407",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 46.862,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Mistral-Nemo-Instruct-2407:WB_score@46.86217008797654",
+      "extra": {
+        "listed_name": "Mistral-Nemo-Instruct-2407",
+        "length": 3318.2130987292276,
+        "task_macro": 44.37513167010813,
+        "score_Creative Tasks": 54.573643410852725,
+        "score_Planning & Reasoning": 47.41405082212257,
+        "score_Math & Data Analysis": 35.63492063492063,
+        "score_Information/Advice seeking": 51.93069306930694,
+        "score_Coding & Debugging": 39.71563981042655
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Mistral-Nemo-Instruct-2407",
+      "developer": "Mistral",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1166.805,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Mistral-Nemo-Instruct-2407:WB_Elo@1166.8049601578437",
+      "extra": {
+        "listed_name": "Mistral-Nemo-Instruct-2407",
+        "length": 3318.2130987292276,
+        "task_macro": 44.37513167010813,
+        "score_Creative Tasks": 54.573643410852725,
+        "score_Planning & Reasoning": 47.41405082212257,
+        "score_Math & Data Analysis": 35.63492063492063,
+        "score_Information/Advice seeking": 51.93069306930694,
+        "score_Coding & Debugging": 39.71563981042655
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Llama-3-8B-Magpie-Align-v0.1",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 42.446,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-3-8B-Magpie-Align-v0.1:WB_score@42.44618395303327",
+      "extra": {
+        "listed_name": "Llama-3-8B-Magpie-Align-v0.1",
+        "length": 3107.77397260274,
+        "task_macro": 39.290196827463255,
+        "score_Creative Tasks": 49.19896640826874,
+        "score_Planning & Reasoning": 42.7245508982036,
+        "score_Math & Data Analysis": 29.76000000000001,
+        "score_Information/Advice seeking": 48.910891089108915,
+        "score_Coding & Debugging": 33.74407582938389
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Llama-3-8B-Magpie-Align-v0.1",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1151.402,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-3-8B-Magpie-Align-v0.1:WB_Elo@1151.402258570742",
+      "extra": {
+        "listed_name": "Llama-3-8B-Magpie-Align-v0.1",
+        "length": 3107.77397260274,
+        "task_macro": 39.290196827463255,
+        "score_Creative Tasks": 49.19896640826874,
+        "score_Planning & Reasoning": 42.7245508982036,
+        "score_Math & Data Analysis": 29.76000000000001,
+        "score_Information/Advice seeking": 48.910891089108915,
+        "score_Coding & Debugging": 33.74407582938389
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Llama-3-Instruct-8B-SimPO-v0.2",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 41.505,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-3-Instruct-8B-SimPO-v0.2:WB_score@41.50537634408602",
+      "extra": {
+        "listed_name": "Llama-3-Instruct-8B-SimPO-v0.2",
+        "length": 2533.764418377322,
+        "task_macro": 37.1554198259368,
+        "score_Creative Tasks": 51.83462532299741,
+        "score_Planning & Reasoning": 40.71856287425149,
+        "score_Math & Data Analysis": 24.38247011952191,
+        "score_Information/Advice seeking": 47.871287128712865,
+        "score_Coding & Debugging": 31.50943396226415
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Llama-3-Instruct-8B-SimPO-v0.2",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1148.088,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-3-Instruct-8B-SimPO-v0.2:WB_Elo@1148.0879185900626",
+      "extra": {
+        "listed_name": "Llama-3-Instruct-8B-SimPO-v0.2",
+        "length": 2533.764418377322,
+        "task_macro": 37.1554198259368,
+        "score_Creative Tasks": 51.83462532299741,
+        "score_Planning & Reasoning": 40.71856287425149,
+        "score_Math & Data Analysis": 24.38247011952191,
+        "score_Information/Advice seeking": 47.871287128712865,
+        "score_Coding & Debugging": 31.50943396226415
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "glm-4-9b-chat",
+      "developer": "Z.ai",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 41.173,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "glm-4-9b-chat:WB_score@41.17302052785924",
+      "extra": {
+        "listed_name": "glm-4-9b-chat",
+        "length": 3692.043010752688,
+        "task_macro": 39.09896797431742,
+        "score_Creative Tasks": 47.751937984496124,
+        "score_Planning & Reasoning": 42.48502994011975,
+        "score_Math & Data Analysis": 29.800796812748995,
+        "score_Information/Advice seeking": 46.28712871287128,
+        "score_Coding & Debugging": 35.37735849056604
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "glm-4-9b-chat",
+      "developer": "Z.ai",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1146.686,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "glm-4-9b-chat:WB_Elo@1146.685826739111",
+      "extra": {
+        "listed_name": "glm-4-9b-chat",
+        "length": 3692.043010752688,
+        "task_macro": 39.09896797431742,
+        "score_Creative Tasks": 47.751937984496124,
+        "score_Planning & Reasoning": 42.48502994011975,
+        "score_Math & Data Analysis": 29.800796812748995,
+        "score_Information/Advice seeking": 46.28712871287128,
+        "score_Coding & Debugging": 35.37735849056604
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "SELM-Llama-3-8B-Instruct-iter-3",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 39.961,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "SELM-Llama-3-8B-Instruct-iter-3:WB_score@39.96078431372549",
+      "extra": {
+        "listed_name": "SELM-Llama-3-8B-Instruct-iter-3",
+        "length": 2913.1470588235293,
+        "task_macro": 35.25906077680738,
+        "score_Creative Tasks": 51.05943152454781,
+        "score_Planning & Reasoning": 39.78978978978979,
+        "score_Math & Data Analysis": 23.505976095617527,
+        "score_Information/Advice seeking": 46.05459057071961,
+        "score_Coding & Debugging": 27.333333333333325
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "SELM-Llama-3-8B-Instruct-iter-3",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1141.298,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "SELM-Llama-3-8B-Instruct-iter-3:WB_Elo@1141.2979653779491",
+      "extra": {
+        "listed_name": "SELM-Llama-3-8B-Instruct-iter-3",
+        "length": 2913.1470588235293,
+        "task_macro": 35.25906077680738,
+        "score_Creative Tasks": 51.05943152454781,
+        "score_Planning & Reasoning": 39.78978978978979,
+        "score_Math & Data Analysis": 23.505976095617527,
+        "score_Information/Advice seeking": 46.05459057071961,
+        "score_Coding & Debugging": 27.333333333333325
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Yi-1.5-9B-Chat",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 39.844,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Yi-1.5-9B-Chat:WB_score@39.8435972629521",
+      "extra": {
+        "listed_name": "Yi-1.5-9B-Chat",
+        "length": 3468.23431372549,
+        "task_macro": 38.66535351517231,
+        "score_Creative Tasks": 45.5958549222798,
+        "score_Planning & Reasoning": 42.37237237237237,
+        "score_Math & Data Analysis": 32.20883534136546,
+        "score_Information/Advice seeking": 42.62376237623762,
+        "score_Coding & Debugging": 34.97630331753555
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Yi-1.5-9B-Chat",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1140.023,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Yi-1.5-9B-Chat:WB_Elo@1140.0225599844637",
+      "extra": {
+        "listed_name": "Yi-1.5-9B-Chat",
+        "length": 3468.23431372549,
+        "task_macro": 38.66535351517231,
+        "score_Creative Tasks": 45.5958549222798,
+        "score_Planning & Reasoning": 42.37237237237237,
+        "score_Math & Data Analysis": 32.20883534136546,
+        "score_Information/Advice seeking": 42.62376237623762,
+        "score_Coding & Debugging": 34.97630331753555
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Llama-3-Instruct-8B-SimPO-ExPO",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 39.687,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-3-Instruct-8B-SimPO-ExPO:WB_score@39.687194525904204",
+      "extra": {
+        "listed_name": "Llama-3-Instruct-8B-SimPO-ExPO",
+        "length": 2480.6490713587486,
+        "task_macro": 35.01502977266739,
+        "score_Creative Tasks": 49.14728682170542,
+        "score_Planning & Reasoning": 39.46107784431138,
+        "score_Math & Data Analysis": 21.195219123505975,
+        "score_Information/Advice seeking": 47.32673267326733,
+        "score_Coding & Debugging": 28.584905660377355
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Llama-3-Instruct-8B-SimPO-ExPO",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1144.98,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Llama-3-Instruct-8B-SimPO-ExPO:WB_Elo@1144.9796209560836",
+      "extra": {
+        "listed_name": "Llama-3-Instruct-8B-SimPO-ExPO",
+        "length": 2480.6490713587486,
+        "task_macro": 35.01502977266739,
+        "score_Creative Tasks": 49.14728682170542,
+        "score_Planning & Reasoning": 39.46107784431138,
+        "score_Math & Data Analysis": 21.195219123505975,
+        "score_Information/Advice seeking": 47.32673267326733,
+        "score_Coding & Debugging": 28.584905660377355
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Starling-LM-7B-beta-ExPO",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 35.015,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Starling-LM-7B-beta-ExPO:WB_score@35.01466275659824",
+      "extra": {
+        "listed_name": "Starling-LM-7B-beta-ExPO",
+        "length": 2835.826810176125,
+        "task_macro": 31.559353823619887,
+        "score_Creative Tasks": 44.30051813471502,
+        "score_Planning & Reasoning": 36.31736526946108,
+        "score_Math & Data Analysis": 18.571428571428577,
+        "score_Information/Advice seeking": 42.871287128712865,
+        "score_Coding & Debugging": 25.308056872037916
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Starling-LM-7B-beta-ExPO",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1125.607,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Starling-LM-7B-beta-ExPO:WB_Elo@1125.6065314200982",
+      "extra": {
+        "listed_name": "Starling-LM-7B-beta-ExPO",
+        "length": 2835.826810176125,
+        "task_macro": 31.559353823619887,
+        "score_Creative Tasks": 44.30051813471502,
+        "score_Planning & Reasoning": 36.31736526946108,
+        "score_Math & Data Analysis": 18.571428571428577,
+        "score_Information/Advice seeking": 42.871287128712865,
+        "score_Coding & Debugging": 25.308056872037916
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "gemma-2-2b-it",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 32.72,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2-2b-it:WB_score@32.72015655577299",
+      "extra": {
+        "listed_name": "gemma-2-2b-it",
+        "length": 3589.3894324853227,
+        "task_macro": 27.826043214654263,
+        "score_Creative Tasks": 43.61757105943152,
+        "score_Planning & Reasoning": 33.811659192825104,
+        "score_Math & Data Analysis": 15.79365079365079,
+        "score_Information/Advice seeking": 39.90099009900991,
+        "score_Coding & Debugging": 17.904761904761912
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "gemma-2-2b-it",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1114.971,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "gemma-2-2b-it:WB_Elo@1114.9711016640829",
+      "extra": {
+        "listed_name": "gemma-2-2b-it",
+        "length": 3589.3894324853227,
+        "task_macro": 27.826043214654263,
+        "score_Creative Tasks": 43.61757105943152,
+        "score_Planning & Reasoning": 33.811659192825104,
+        "score_Math & Data Analysis": 15.79365079365079,
+        "score_Information/Advice seeking": 39.90099009900991,
+        "score_Coding & Debugging": 17.904761904761912
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "neo_7b_instruct_v0.1",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 29.199,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "neo_7b_instruct_v0.1:WB_score@29.19921875",
+      "extra": {
+        "listed_name": "neo_7b_instruct_v0.1",
+        "length": 3735.800586510264,
+        "task_macro": 25.019233576987165,
+        "score_Creative Tasks": 39.48186528497409,
+        "score_Planning & Reasoning": 31.44992526158445,
+        "score_Math & Data Analysis": 15.0,
+        "score_Information/Advice seeking": 36.33663366336634,
+        "score_Coding & Debugging": 14.02843601895734
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "neo_7b_instruct_v0.1",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1104.284,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "neo_7b_instruct_v0.1:WB_Elo@1104.2844374018302",
+      "extra": {
+        "listed_name": "neo_7b_instruct_v0.1",
+        "length": 3735.800586510264,
+        "task_macro": 25.019233576987165,
+        "score_Creative Tasks": 39.48186528497409,
+        "score_Planning & Reasoning": 31.44992526158445,
+        "score_Math & Data Analysis": 15.0,
+        "score_Information/Advice seeking": 36.33663366336634,
+        "score_Coding & Debugging": 14.02843601895734
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "neo_7b_instruct_v0.1-ExPO",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 27.625,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "neo_7b_instruct_v0.1-ExPO:WB_score@27.624633431085037",
+      "extra": {
+        "listed_name": "neo_7b_instruct_v0.1-ExPO",
+        "length": 4107.917808219178,
+        "task_macro": 23.114172189706185,
+        "score_Creative Tasks": 38.549222797927456,
+        "score_Planning & Reasoning": 28.669656203288483,
+        "score_Math & Data Analysis": 12.589641434262955,
+        "score_Information/Advice seeking": 34.85148514851485,
+        "score_Coding & Debugging": 12.76190476190477
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "neo_7b_instruct_v0.1-ExPO",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 1104.517,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "neo_7b_instruct_v0.1-ExPO:WB_Elo@1104.5166529743904",
+      "extra": {
+        "listed_name": "neo_7b_instruct_v0.1-ExPO",
+        "length": 4107.917808219178,
+        "task_macro": 23.114172189706185,
+        "score_Creative Tasks": 38.549222797927456,
+        "score_Planning & Reasoning": 28.669656203288483,
+        "score_Math & Data Analysis": 12.589641434262955,
+        "score_Information/Advice seeking": 34.85148514851485,
+        "score_Coding & Debugging": 12.76190476190477
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "Yi-1.5-6B-Chat",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 25.279,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Yi-1.5-6B-Chat:WB_score@25.278592375366564",
+      "extra": {
+        "listed_name": "Yi-1.5-6B-Chat",
+        "length": 3899.4686274509804,
+        "task_macro": 23.318116689149882,
+        "score_Creative Tasks": 31.088082901554408,
+        "score_Planning & Reasoning": 27.2972972972973,
+        "score_Math & Data Analysis": 16.799999999999997,
+        "score_Information/Advice seeking": 31.414392059553347,
+        "score_Coding & Debugging": 16.587677725118475
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "Yi-1.5-6B-Chat",
+      "developer": "01.AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1099.495,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "Yi-1.5-6B-Chat:WB_Elo@1099.4947697983446",
+      "extra": {
+        "listed_name": "Yi-1.5-6B-Chat",
+        "length": 3899.4686274509804,
+        "task_macro": 23.318116689149882,
+        "score_Creative Tasks": 31.088082901554408,
+        "score_Planning & Reasoning": 27.2972972972973,
+        "score_Math & Data Analysis": 16.799999999999997,
+        "score_Information/Advice seeking": 31.414392059553347,
+        "score_Coding & Debugging": 16.587677725118475
+      }
+    },
+    {
+      "benchmark": "wb_score",
+      "model": "reka-edge",
+      "developer": "Reka",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 23.187,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "reka-edge:WB_score@23.186705767350926",
+      "extra": {
+        "listed_name": "reka-edge",
+        "length": 2417.351106639839,
+        "task_macro": 21.252257932999665,
+        "score_Creative Tasks": 36.180371352785144,
+        "score_Planning & Reasoning": 25.007727975270484,
+        "score_Math & Data Analysis": 8.89795918367346,
+        "score_Information/Advice seeking": 34.3896103896104,
+        "score_Coding & Debugging": 13.526570048309186
+      }
+    },
+    {
+      "benchmark": "wb_elo",
+      "model": "reka-edge",
+      "developer": "Reka",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 1098.498,
+      "evaluation_method": "WildBench v2, GPT-4o judge",
+      "external_id": "reka-edge:WB_Elo@1098.4979869242243",
+      "extra": {
+        "listed_name": "reka-edge",
+        "length": 2417.351106639839,
+        "task_macro": 21.252257932999665,
+        "score_Creative Tasks": 36.180371352785144,
+        "score_Planning & Reasoning": 25.007727975270484,
+        "score_Math & Data Analysis": 8.89795918367346,
+        "score_Information/Advice seeking": 34.3896103896104,
+        "score_Coding & Debugging": 13.526570048309186
+      }
+    }
+  ]
+}

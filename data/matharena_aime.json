@@ -1,0 +1,1795 @@
+{
+  "format": "benchmark-results/v1",
+  "source": {
+    "name": "MathArena (ETH Zurich)",
+    "site": "https://matharena.ai/",
+    "publisher": "SRI Lab, ETH Zurich",
+    "description": "MathArena model outputs for AIME 2025 and AIME 2026; accuracy computed per model configuration.",
+    "license": "CC BY-NC-SA 4.0 (https://huggingface.co/MathArena)",
+    "attribution": "MathArena, SRI Lab ETH Zurich (https://matharena.ai/), CC BY-NC-SA 4.0.",
+    "retrieved_from": [
+      "https://huggingface.co/datasets/MathArena/aime_2025_outputs",
+      "https://huggingface.co/datasets/MathArena/aime_2026_outputs"
+    ],
+    "notes": [
+      "Score = percent correct over all answers (30 problems x runs).",
+      "Configurations that did not answer every problem are left out: AIME 2025: Grok 4 Fast (Reasoning) (Selfcheck Agent) (1/30 problems); AIME 2026: Qwen3.5-4B (24/30 problems)",
+      "ShareAlike: derived data must keep CC BY-NC-SA 4.0."
+    ],
+    "collected_at": "2026-11-25T19:16:47+00:00"
+  },
+  "benchmarks": [
+    {
+      "key": "aime_2025",
+      "name": "AIME",
+      "version": "2025 (MathArena)",
+      "area": "math",
+      "sub_area": "competition math (olympiad qualifier)",
+      "unit": "points",
+      "total_tasks": 30,
+      "url": "https://matharena.ai/",
+      "description": "AIME 2025 I+II (30 problems), accuracy as evaluated by MathArena.",
+      "metric": "accuracy"
+    },
+    {
+      "key": "aime_2026",
+      "name": "AIME",
+      "version": "2026 (MathArena)",
+      "area": "math",
+      "sub_area": "competition math (olympiad qualifier)",
+      "unit": "points",
+      "total_tasks": 30,
+      "url": "https://matharena.ai/",
+      "description": "AIME 2026 I+II (30 problems), accuracy as evaluated by MathArena.",
+      "metric": "accuracy"
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "aime_2025",
+      "model": "Kimi K2",
+      "developer": "Moonshot AI",
+      "developer_inferred": true,
+      "reasoning_effort": "enabled",
+      "score": 92.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:moonshot/k2-thinking@92.5",
+      "extra": {
+        "listed_name": "Kimi K2 Thinking",
+        "model_config": "moonshot/k2-thinking",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 1.8066,
+        "avg_output_tokens_per_answer": 24036
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Kimi K2.5 (Think)",
+      "developer": "Moonshot AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 95.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:moonshot/k25@95.83",
+      "extra": {
+        "listed_name": "Kimi K2.5 (Think)",
+        "model_config": "moonshot/k25",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 2.0482,
+        "avg_output_tokens_per_answer": 22716
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Claude-Opus-4.0 (Think)",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 70.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:anthropic/claude-opus-4@70.0",
+      "extra": {
+        "listed_name": "Claude-Opus-4.0 (Think)",
+        "model_config": "anthropic/claude-opus-4",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 33.9734,
+        "avg_output_tokens_per_answer": 15044
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Claude-3.7-Sonnet (Think)",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 49.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:anthropic/claude-37@49.17",
+      "extra": {
+        "listed_name": "Claude-3.7-Sonnet (Think)",
+        "model_config": "anthropic/claude-37",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 11.0955,
+        "avg_output_tokens_per_answer": 24602
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Claude-Sonnet-4.5 (Think)",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 84.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:anthropic/claude-sonnet-45@84.17",
+      "extra": {
+        "listed_name": "Claude-Sonnet-4.5 (Think)",
+        "model_config": "anthropic/claude-sonnet-45",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 7.7876,
+        "avg_output_tokens_per_answer": 17251
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Claude-3.5-Sonnet",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 3.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:anthropic/claude-35@3.33",
+      "extra": {
+        "listed_name": "Claude-3.5-Sonnet",
+        "model_config": "anthropic/claude-35",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.2718,
+        "avg_output_tokens_per_answer": 555
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-v3.2-Speciale",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 95.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_v32_special@95.83",
+      "extra": {
+        "listed_name": "DeepSeek-v3.2-Speciale",
+        "model_config": "deepseek/deepseek_v32_special",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.2784,
+        "avg_output_tokens_per_answer": 21957
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-R1-Distill-14B",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 49.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_distill_14b@49.17",
+      "extra": {
+        "listed_name": "DeepSeek-R1-Distill-14B",
+        "model_config": "deepseek/deepseek_distill_14b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1112,
+        "avg_output_tokens_per_answer": 12352
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-R1-Distill-32B",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 60.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_distill_32b@60.0",
+      "extra": {
+        "listed_name": "DeepSeek-R1-Distill-32B",
+        "model_config": "deepseek/deepseek_distill_32b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.2295,
+        "avg_output_tokens_per_answer": 12749
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-v3.1 (Think)",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 90.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_v31@90.83",
+      "extra": {
+        "listed_name": "DeepSeek-v3.1 (Think)",
+        "model_config": "deepseek/deepseek_v31",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.9865,
+        "avg_output_tokens_per_answer": 14961
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-R1-Distill-1.5B",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 20.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_distill_1.5b@20.0",
+      "extra": {
+        "listed_name": "DeepSeek-R1-Distill-1.5B",
+        "model_config": "deepseek/deepseek_distill_1.5b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0935,
+        "avg_output_tokens_per_answer": 17102
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-R1-0528",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 89.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_r1_0528@89.17",
+      "extra": {
+        "listed_name": "DeepSeek-R1-0528",
+        "model_config": "deepseek/deepseek_r1_0528",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 1.4439,
+        "avg_output_tokens_per_answer": 21923
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-V3",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 25.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_v3@25.0",
+      "extra": {
+        "listed_name": "DeepSeek-V3",
+        "model_config": "deepseek/deepseek_v3",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1006,
+        "avg_output_tokens_per_answer": 2471
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-R1-Distill-70B",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 55.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_distill_70b@55.0",
+      "extra": {
+        "listed_name": "DeepSeek-R1-Distill-70B",
+        "model_config": "deepseek/deepseek_distill_70b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1901,
+        "avg_output_tokens_per_answer": 10488
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-V3-03-24",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 50.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_v3_03_24@50.0",
+      "extra": {
+        "listed_name": "DeepSeek-V3-03-24",
+        "model_config": "deepseek/deepseek_v3_03_24",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1152,
+        "avg_output_tokens_per_answer": 3440
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-R1",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 70.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_r1@70.0",
+      "extra": {
+        "listed_name": "DeepSeek-R1",
+        "model_config": "deepseek/deepseek_r1",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.7364,
+        "avg_output_tokens_per_answer": 11211
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-v3.2 (Think)",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 94.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_v32_dec@94.17",
+      "extra": {
+        "listed_name": "DeepSeek-v3.2 (Think)",
+        "model_config": "deepseek/deepseek_v32_dec",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1896,
+        "avg_output_tokens_per_answer": 14908
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "DeepSeek-v3.2-Exp (Think)",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 91.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:deepseek/deepseek_v32@91.67",
+      "extra": {
+        "listed_name": "DeepSeek-v3.2-Exp (Think)",
+        "model_config": "deepseek/deepseek_v32",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1785,
+        "avg_output_tokens_per_answer": 14024
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Llama-4-Maverick",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 22.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:llama4/maverick@22.5",
+      "extra": {
+        "listed_name": "Llama-4-Maverick",
+        "model_config": "llama4/maverick",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0351,
+        "avg_output_tokens_per_answer": 1274
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Gemini 3 Pro (preview)",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 95.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:gemini/riftrunner@95.0",
+      "extra": {
+        "listed_name": "Gemini 3 Pro (preview)",
+        "model_config": "gemini/riftrunner",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 5.3409,
+        "avg_output_tokens_per_answer": 14799
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Gemini 2.5 Flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": "enabled",
+      "score": 70.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:gemini/gemini-flash-2.5@70.83",
+      "extra": {
+        "listed_name": "Gemini 2.5 Flash (Thinking)",
+        "model_config": "gemini/gemini-flash-2.5",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 2.5075,
+        "avg_output_tokens_per_answer": 23871
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Gemini 2.5 Pro (05-06)",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 83.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:gemini/gemini-pro-2.5-05-06@83.33",
+      "extra": {
+        "listed_name": "Gemini 2.5 Pro (05-06)",
+        "model_config": "gemini/gemini-pro-2.5-05-06",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0,
+        "avg_output_tokens_per_answer": 4369
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "gemini-2.0-pro",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 27.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:gemini/gemini-pro-2.0@27.5",
+      "extra": {
+        "listed_name": "gemini-2.0-pro",
+        "model_config": "gemini/gemini-pro-2.0",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.4635,
+        "avg_output_tokens_per_answer": 3037
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Gemini 3 Flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 97.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:gemini/gemini-3-flash@97.5",
+      "extra": {
+        "listed_name": "Gemini 3 Flash",
+        "model_config": "gemini/gemini-3-flash",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 1.6617,
+        "avg_output_tokens_per_answer": 18430
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "gemini-2.0-flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 27.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:gemini/gemini-flash-2.0@27.5",
+      "extra": {
+        "listed_name": "gemini-2.0-flash",
+        "model_config": "gemini/gemini-flash-2.0",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0339,
+        "avg_output_tokens_per_answer": 2769
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "gemini-2.0-flash-thinking",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 53.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:gemini/gemini-flash-thinking-2.0@53.33",
+      "extra": {
+        "listed_name": "gemini-2.0-flash-thinking",
+        "model_config": "gemini/gemini-flash-thinking-2.0",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0,
+        "avg_output_tokens_per_answer": 569
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Gemini 2.5 Pro",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 88.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:gemini/gemini-pro-2.5@88.33",
+      "extra": {
+        "listed_name": "Gemini 2.5 Pro",
+        "model_config": "gemini/gemini-pro-2.5",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 4.0275,
+        "avg_output_tokens_per_answer": 13397
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GPT OSS 20B",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 89.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/oss-20b@89.17",
+      "extra": {
+        "listed_name": "GPT OSS 20B (high)",
+        "model_config": "openai/oss-20b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.2417,
+        "avg_output_tokens_per_answer": 40223
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GPT-5",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 95.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/gpt-5@95.0",
+      "extra": {
+        "listed_name": "GPT-5 (high)",
+        "model_config": "openai/gpt-5",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 4.0809,
+        "avg_output_tokens_per_answer": 13475
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GPT-5-nano",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 46.15,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/gpt-5-nano-low@46.15",
+      "extra": {
+        "listed_name": "GPT-5-nano (low)",
+        "model_config": "openai/gpt-5-nano-low",
+        "runs": 4,
+        "answers": 117,
+        "avg_cost_per_run_usd": 0.0257,
+        "avg_output_tokens_per_answer": 2172
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "o3",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 89.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/o3@89.17",
+      "extra": {
+        "listed_name": "o3 (high)",
+        "model_config": "openai/o3",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 2.9258,
+        "avg_output_tokens_per_answer": 11885
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "xhigh",
+      "score": 100.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/gpt-52@100.0",
+      "extra": {
+        "listed_name": "GPT-5.2 (xhigh)",
+        "model_config": "openai/gpt-52",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 5.4221,
+        "avg_output_tokens_per_answer": 12811
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 48.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/o3-mini--low@48.33",
+      "extra": {
+        "listed_name": "o3-mini (low)",
+        "model_config": "openai/o3-mini--low",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.3188,
+        "avg_output_tokens_per_answer": 2361
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GPT OSS 120B",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 90.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/oss-120b@90.0",
+      "extra": {
+        "listed_name": "GPT OSS 120B (high)",
+        "model_config": "openai/oss-120b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.3826,
+        "avg_output_tokens_per_answer": 21204
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 100.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/gpt-52-high@100.0",
+      "extra": {
+        "listed_name": "GPT-5.2 (high)",
+        "model_config": "openai/gpt-52-high",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 3.27,
+        "avg_output_tokens_per_answer": 7758
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "medium",
+      "score": 76.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/o3-mini--medium@76.67",
+      "extra": {
+        "listed_name": "o3-mini (medium)",
+        "model_config": "openai/o3-mini--medium",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.8232,
+        "avg_output_tokens_per_answer": 6182
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "medium",
+      "score": 84.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/o4-mini--medium@84.17",
+      "extra": {
+        "listed_name": "o4-mini (medium)",
+        "model_config": "openai/o4-mini--medium",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.8284,
+        "avg_output_tokens_per_answer": 6221
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 91.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/o4-mini--high@91.67",
+      "extra": {
+        "listed_name": "o4-mini (high)",
+        "model_config": "openai/o4-mini--high",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 1.8685,
+        "avg_output_tokens_per_answer": 13982
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "o4-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 61.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/o4-mini--low@61.67",
+      "extra": {
+        "listed_name": "o4-mini (low)",
+        "model_config": "openai/o4-mini--low",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.351,
+        "avg_output_tokens_per_answer": 2605
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "o1",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "medium",
+      "score": 81.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/o1@81.67",
+      "extra": {
+        "listed_name": "o1 (medium)",
+        "model_config": "openai/o1",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 21.361,
+        "avg_output_tokens_per_answer": 11813
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GPT-5-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 87.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/gpt-5-mini@87.5",
+      "extra": {
+        "listed_name": "GPT-5-mini (high)",
+        "model_config": "openai/gpt-5-mini",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.9875,
+        "avg_output_tokens_per_answer": 16431
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GPT-5.1",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 94.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/gpt-51@94.17",
+      "extra": {
+        "listed_name": "GPT-5.1 (high)",
+        "model_config": "openai/gpt-51",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 5.3817,
+        "avg_output_tokens_per_answer": 17912
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GPT-5-nano",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 85.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/gpt-5-nano@85.0",
+      "extra": {
+        "listed_name": "GPT-5-nano (high)",
+        "model_config": "openai/gpt-5-nano",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.3255,
+        "avg_output_tokens_per_answer": 27091
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "gpt-4o",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 11.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/gpt-4o@11.67",
+      "extra": {
+        "listed_name": "gpt-4o",
+        "model_config": "openai/gpt-4o",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.2746,
+        "avg_output_tokens_per_answer": 860
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "o3-mini",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 86.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:openai/o3-mini@86.67",
+      "extra": {
+        "listed_name": "o3-mini (high)",
+        "model_config": "openai/o3-mini",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 1.5108,
+        "avg_output_tokens_per_answer": 11392
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GLM 4.6",
+      "developer": "Z.ai",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 91.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:glm/glm-46@91.67",
+      "extra": {
+        "listed_name": "GLM 4.6",
+        "model_config": "glm/glm-46",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 1.0924,
+        "avg_output_tokens_per_answer": 16491
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GLM 4.7",
+      "developer": "Z.ai",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 98.29,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:glm/glm-47@98.29",
+      "extra": {
+        "listed_name": "GLM 4.7",
+        "model_config": "glm/glm-47",
+        "runs": 4,
+        "answers": 117,
+        "avg_cost_per_run_usd": 1.2048,
+        "avg_output_tokens_per_answer": 18662
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GLM 5",
+      "developer": "Z.ai",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 96.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:glm/glm-5@96.67",
+      "extra": {
+        "listed_name": "GLM 5",
+        "model_config": "glm/glm-5",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 2.4312,
+        "avg_output_tokens_per_answer": 25259
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GLM 4.5 Air",
+      "developer": "Z.ai",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 83.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:glm/glm-45-air@83.33",
+      "extra": {
+        "listed_name": "GLM 4.5 Air",
+        "model_config": "glm/glm-45-air",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.794,
+        "avg_output_tokens_per_answer": 24021
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "GLM 4.5",
+      "developer": "Z.ai",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 93.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:glm/glm-45@93.33",
+      "extra": {
+        "listed_name": "GLM 4.5",
+        "model_config": "glm/glm-45",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 1.4536,
+        "avg_output_tokens_per_answer": 21965
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "QED-Nano",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 77.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:other/qed-nano@77.5",
+      "extra": {
+        "listed_name": "QED-Nano",
+        "model_config": "other/qed-nano",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0,
+        "avg_output_tokens_per_answer": 39431
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "LIMO",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 49.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:other/limo@49.17",
+      "extra": {
+        "listed_name": "LIMO",
+        "model_config": "other/limo",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0,
+        "avg_output_tokens_per_answer": 14371
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "s1.1-32B",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 50.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:other/s1@50.0",
+      "extra": {
+        "listed_name": "s1.1-32B",
+        "model_config": "other/s1",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0,
+        "avg_output_tokens_per_answer": 15227
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "K2-Think",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 83.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:other/k2-think@83.33",
+      "extra": {
+        "listed_name": "K2-Think",
+        "model_config": "other/k2-think",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0,
+        "avg_output_tokens_per_answer": 0
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "OpenThinker-32B",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 56.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:other/open-thoughts@56.67",
+      "extra": {
+        "listed_name": "OpenThinker-32B",
+        "model_config": "other/open-thoughts",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0,
+        "avg_output_tokens_per_answer": 12023
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Phi-4-reasoning-plus",
+      "developer": "Microsoft",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 74.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:phi4/14b-reasoning-plus@74.17",
+      "extra": {
+        "listed_name": "Phi-4-reasoning-plus",
+        "model_config": "phi4/14b-reasoning-plus",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1666,
+        "avg_output_tokens_per_answer": 15783
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Qwen3-235B-A22B",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 80.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:qwen/qwen3_235b_a22b@80.83",
+      "extra": {
+        "listed_name": "Qwen3-235B-A22B",
+        "model_config": "qwen/qwen3_235b_a22b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.2697,
+        "avg_output_tokens_per_answer": 14907
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "QwQ-32B-Preview",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 33.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:qwen/qwq-preview@33.33",
+      "extra": {
+        "listed_name": "QwQ-32B-Preview",
+        "model_config": "qwen/qwq-preview",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.2997,
+        "avg_output_tokens_per_answer": 8085
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Qwen3-30B-A3B",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 70.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:qwen/qwen3_30b_a3b@70.0",
+      "extra": {
+        "listed_name": "Qwen3-30B-A3B",
+        "model_config": "qwen/qwen3_30b_a3b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1624,
+        "avg_output_tokens_per_answer": 17970
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "QwQ-32B",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 65.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:qwen/qwq@65.83",
+      "extra": {
+        "listed_name": "QwQ-32B",
+        "model_config": "qwen/qwq",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.5894,
+        "avg_output_tokens_per_answer": 16133
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Step 3.5 Flash",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 98.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:stepfun/3.5-flash@98.33",
+      "extra": {
+        "listed_name": "Step 3.5 Flash",
+        "model_config": "stepfun/3.5-flash",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.3407,
+        "avg_output_tokens_per_answer": 37760
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Grok 3 Mini",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": "low",
+      "score": 65.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:xai/grok-3-mini-low@65.0",
+      "extra": {
+        "listed_name": "Grok 3 Mini (low)",
+        "model_config": "xai/grok-3-mini-low",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0875,
+        "avg_output_tokens_per_answer": 5707
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Grok 4 Fast R",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 90.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:xai/grok-4-fast-reasoning@90.83",
+      "extra": {
+        "listed_name": "Grok 4 Fast R",
+        "model_config": "xai/grok-4-fast-reasoning",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1393,
+        "avg_output_tokens_per_answer": 9160
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Grok 4.1 Fast",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": "enabled",
+      "score": 89.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:xai/grok-41-fast-reasoning@89.17",
+      "extra": {
+        "listed_name": "Grok 4.1 Fast (Reasoning)",
+        "model_config": "xai/grok-41-fast-reasoning",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1523,
+        "avg_output_tokens_per_answer": 10009
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Grok 4",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 92.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:xai/grok-4@92.5",
+      "extra": {
+        "listed_name": "Grok 4",
+        "model_config": "xai/grok-4",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 5.8132,
+        "avg_output_tokens_per_answer": 12873
+      }
+    },
+    {
+      "benchmark": "aime_2025",
+      "model": "Grok 3 Mini",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 81.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2025:xai/grok-3-mini-high@81.67",
+      "extra": {
+        "listed_name": "Grok 3 Mini (high)",
+        "model_config": "xai/grok-3-mini-high",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.2788,
+        "avg_output_tokens_per_answer": 18460
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Kimi K3 (Think)",
+      "developer": "Moonshot AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 96.67,
+      "evaluation_method": "MathArena, 2 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:moonshot/k3@96.67",
+      "extra": {
+        "listed_name": "Kimi K3 (Think)",
+        "model_config": "moonshot/k3",
+        "runs": 2,
+        "answers": 60,
+        "avg_cost_per_run_usd": 3.176,
+        "avg_output_tokens_per_answer": 7031
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Kimi K2.6 (Think)",
+      "developer": "Moonshot AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 95.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:moonshot/k26@95.83",
+      "extra": {
+        "listed_name": "Kimi K2.6 (Think)",
+        "model_config": "moonshot/k26",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 2.7291,
+        "avg_output_tokens_per_answer": 22722
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Kimi K2.5 (Think)",
+      "developer": "Moonshot AI",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 95.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:moonshot/k25@95.83",
+      "extra": {
+        "listed_name": "Kimi K2.5 (Think)",
+        "model_config": "moonshot/k25",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 2.0591,
+        "avg_output_tokens_per_answer": 22849
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Claude-Opus-4.6",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 96.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:anthropic/opus_46@96.67",
+      "extra": {
+        "listed_name": "Claude-Opus-4.6 (High)",
+        "model_config": "anthropic/opus_46",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 10.0256,
+        "avg_output_tokens_per_answer": 13329
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Claude-Opus-4.7",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": "xhigh",
+      "score": 95.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:anthropic/opus_47@95.83",
+      "extra": {
+        "listed_name": "Claude-Opus-4.7 (xhigh)",
+        "model_config": "anthropic/opus_47",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 8.0769,
+        "avg_output_tokens_per_answer": 10728
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Claude-Opus-4.8",
+      "developer": "Anthropic",
+      "developer_inferred": true,
+      "reasoning_effort": "max",
+      "score": 100.0,
+      "evaluation_method": "MathArena, 2 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:anthropic/opus_48_max@100.0",
+      "extra": {
+        "listed_name": "Claude-Opus-4.8 (max)",
+        "model_config": "anthropic/opus_48_max",
+        "runs": 2,
+        "answers": 60,
+        "avg_cost_per_run_usd": 16.0519,
+        "avg_output_tokens_per_answer": 21360
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "DeepSeek-v4-Pro",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": "max",
+      "score": 96.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:deepseek/deepseek_v4_pro@96.67",
+      "extra": {
+        "listed_name": "DeepSeek-v4-Pro (Max)",
+        "model_config": "deepseek/deepseek_v4_pro",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 2.4695,
+        "avg_output_tokens_per_answer": 23567
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "DeepSeek-v4-Flash",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": "max",
+      "score": 95.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:deepseek/deepseek_v4_flash@95.83",
+      "extra": {
+        "listed_name": "DeepSeek-v4-Flash (Max)",
+        "model_config": "deepseek/deepseek_v4_flash",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.2828,
+        "avg_output_tokens_per_answer": 33588
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "DeepSeek-v3.2 (Think)",
+      "developer": "DeepSeek",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 94.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:deepseek/deepseek_v32_dec@94.17",
+      "extra": {
+        "listed_name": "DeepSeek-v3.2 (Think)",
+        "model_config": "deepseek/deepseek_v32_dec",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1884,
+        "avg_output_tokens_per_answer": 14854
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "NVIDIA-Nemotron-3-Super",
+      "developer": "NVIDIA",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 91.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:nvidia/nemotron-3-super@91.67",
+      "extra": {
+        "listed_name": "NVIDIA-Nemotron-3-Super",
+        "model_config": "nvidia/nemotron-3-super",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0,
+        "avg_output_tokens_per_answer": 24114
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Gemini 3.1 Pro Preview",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 98.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:gemini/gemini-31-pro@98.33",
+      "extra": {
+        "listed_name": "Gemini 3.1 Pro Preview",
+        "model_config": "gemini/gemini-31-pro",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 5.1801,
+        "avg_output_tokens_per_answer": 14364
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Gemini 3 Pro (preview)",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 91.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:gemini/riftrunner@91.67",
+      "extra": {
+        "listed_name": "Gemini 3 Pro (preview)",
+        "model_config": "gemini/riftrunner",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 5.3054,
+        "avg_output_tokens_per_answer": 14712
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Gemini 3.5 Flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 95.0,
+      "evaluation_method": "MathArena, 2 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:gemini/gemini-35-flash@95.0",
+      "extra": {
+        "listed_name": "Gemini 3.5 Flash",
+        "model_config": "gemini/gemini-35-flash",
+        "runs": 2,
+        "answers": 60,
+        "avg_cost_per_run_usd": 3.7845,
+        "avg_output_tokens_per_answer": 13992
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Gemini 3 Flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 96.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:gemini/gemini-3-flash@96.67",
+      "extra": {
+        "listed_name": "Gemini 3 Flash",
+        "model_config": "gemini/gemini-3-flash",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 1.8476,
+        "avg_output_tokens_per_answer": 20504
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Gemini 3.6 Flash",
+      "developer": "Google",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 96.67,
+      "evaluation_method": "MathArena, 2 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:gemini/gemini-36-flash@96.67",
+      "extra": {
+        "listed_name": "Gemini 3.6 Flash",
+        "model_config": "gemini/gemini-36-flash",
+        "runs": 2,
+        "answers": 60,
+        "avg_cost_per_run_usd": 2.4708,
+        "avg_output_tokens_per_answer": 10951
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "GPT-5.5",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "xhigh",
+      "score": 100.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:openai/gpt-55@100.0",
+      "extra": {
+        "listed_name": "GPT-5.5 (xhigh)",
+        "model_config": "openai/gpt-55",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 4.7197,
+        "avg_output_tokens_per_answer": 5219
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "GPT-5.2",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "high",
+      "score": 98.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:openai/gpt-52-high@98.33",
+      "extra": {
+        "listed_name": "GPT-5.2 (high)",
+        "model_config": "openai/gpt-52-high",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 3.5371,
+        "avg_output_tokens_per_answer": 8403
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "GPT-5.4",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "reasoning_effort": "xhigh",
+      "score": 99.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:openai/gpt-54@99.17",
+      "extra": {
+        "listed_name": "GPT-5.4 (xhigh)",
+        "model_config": "openai/gpt-54",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 4.8454,
+        "avg_output_tokens_per_answer": 10743
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "GLM 5.1",
+      "developer": "Z.ai",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 95.83,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:glm/glm-51@95.83",
+      "extra": {
+        "listed_name": "GLM 5.1",
+        "model_config": "glm/glm-51",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 2.5529,
+        "avg_output_tokens_per_answer": 26546
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "GLM 5",
+      "developer": "Z.ai",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 96.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:glm/glm-5@96.67",
+      "extra": {
+        "listed_name": "GLM 5",
+        "model_config": "glm/glm-5",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 2.2645,
+        "avg_output_tokens_per_answer": 23541
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "GLM 5.2",
+      "developer": "Z.ai",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 90.0,
+      "evaluation_method": "MathArena, 2 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:glm/glm-52@90.0",
+      "extra": {
+        "listed_name": "GLM 5.2",
+        "model_config": "glm/glm-52",
+        "runs": 2,
+        "answers": 60,
+        "avg_cost_per_run_usd": 2.2726,
+        "avg_output_tokens_per_answer": 18424
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "QED-Nano",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 82.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:other/qed-nano@82.5",
+      "extra": {
+        "listed_name": "QED-Nano",
+        "model_config": "other/qed-nano",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.0,
+        "avg_output_tokens_per_answer": 35191
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Qwen3-30B-A3B-2507-Think",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 88.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:qwen/qwen3_30b_a3b_2507@88.33",
+      "extra": {
+        "listed_name": "Qwen3-30B-A3B-2507-Think",
+        "model_config": "qwen/qwen3_30b_a3b_2507",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1619,
+        "avg_output_tokens_per_answer": 17939
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Qwen3-4B-2507-Think",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 82.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:qwen/qwen3_4b_2507@82.5",
+      "extra": {
+        "listed_name": "Qwen3-4B-2507-Think",
+        "model_config": "qwen/qwen3_4b_2507",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1913,
+        "avg_output_tokens_per_answer": 21206
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Qwen3.5-27B",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 91.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:qwen/qwen3.5_27b@91.67",
+      "extra": {
+        "listed_name": "Qwen3.5-27B",
+        "model_config": "qwen/qwen3.5_27b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 1.4104,
+        "avg_output_tokens_per_answer": 29363
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Qwen3.5-35B-A3B",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 93.33,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:qwen/qwen3.5_35b_a3b@93.33",
+      "extra": {
+        "listed_name": "Qwen3.5-35B-A3B",
+        "model_config": "qwen/qwen3.5_35b_a3b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 1.2431,
+        "avg_output_tokens_per_answer": 31856
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Qwen3.5-9B",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 92.5,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:qwen/qwen3.5_9b@92.5",
+      "extra": {
+        "listed_name": "Qwen3.5-9B",
+        "model_config": "qwen/qwen3.5_9b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.1408,
+        "avg_output_tokens_per_answer": 31184
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Qwen3.5-397b-a17b",
+      "developer": "Alibaba",
+      "developer_inferred": true,
+      "reasoning_effort": null,
+      "score": 94.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:qwen/qwen3.5_397b@94.17",
+      "extra": {
+        "listed_name": "Qwen3.5-397b-a17b",
+        "model_config": "qwen/qwen3.5_397b",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 2.2517,
+        "avg_output_tokens_per_answer": 20797
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Step 3.7 Flash",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 95.0,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:stepfun/3.7-flash@95.0",
+      "extra": {
+        "listed_name": "Step 3.7 Flash",
+        "model_config": "stepfun/3.7-flash",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.4538,
+        "avg_output_tokens_per_answer": 50365
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Step 3.5 Flash",
+      "developer": null,
+      "developer_inferred": false,
+      "reasoning_effort": null,
+      "score": 96.67,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:stepfun/3.5-flash@96.67",
+      "extra": {
+        "listed_name": "Step 3.5 Flash",
+        "model_config": "stepfun/3.5-flash",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.3792,
+        "avg_output_tokens_per_answer": 42072
+      }
+    },
+    {
+      "benchmark": "aime_2026",
+      "model": "Grok 4.1 Fast",
+      "developer": "xAI",
+      "developer_inferred": true,
+      "reasoning_effort": "enabled",
+      "score": 94.17,
+      "evaluation_method": "MathArena, 4 run(s) per problem, final answer checked against the official answer",
+      "external_id": "2026:xai/grok-41-fast-reasoning@94.17",
+      "extra": {
+        "listed_name": "Grok 4.1 Fast (Reasoning)",
+        "model_config": "xai/grok-41-fast-reasoning",
+        "runs": 4,
+        "answers": 120,
+        "avg_cost_per_run_usd": 0.146,
+        "avg_output_tokens_per_answer": 9618
+      }
+    }
+  ]
+}

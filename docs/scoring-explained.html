@@ -1,0 +1,521 @@
+<title>How Benchmark Scores Work</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: one readable column (~44rem) with wider figures; six colour-coded score families,
+   each family's colour is used only on the mark in its picture that carries the meaning. */
+:root {
+  --bg: #f6f7f9;
+  --paper: #ffffff;
+  --ink: #16202b;
+  --ink-2: #4a5866;
+  --muted: #7c8794;
+  --line: #dde2e8;
+  --soft: #eef1f5;
+  /* one hue per score family */
+  --f1: #1f8a4c;   /* right or wrong */
+  --f2: #2563c9;   /* finished the job */
+  --f3: #c27a0a;   /* partial points */
+  --f4: #7a4fc9;   /* mix of many tests */
+  --f5: #d0453a;   /* head-to-head votes */
+  --f6: #0f8a86;   /* judge's checklist */
+  --bad: #c0392b;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f141a; --paper: #161d25; --ink: #e8edf2; --ink-2: #b3bfcb; --muted: #8592a0;
+    --line: #2a3440; --soft: #1d2630;
+    --f1: #4cc27f; --f2: #6b9cf0; --f3: #e3a23c; --f4: #a886ec; --f5: #f0776d; --f6: #3cc2bc; --bad: #ec7063;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f141a; --paper: #161d25; --ink: #e8edf2; --ink-2: #b3bfcb; --muted: #8592a0;
+  --line: #2a3440; --soft: #1d2630;
+  --f1: #4cc27f; --f2: #6b9cf0; --f3: #e3a23c; --f4: #a886ec; --f5: #f0776d; --f6: #3cc2bc; --bad: #ec7063;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 4rem;
+}
+main { max-width: 52rem; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.5rem, 3.4vw, 1.9rem); font-weight: 800; }
+h3 { font-size: 1.1rem; font-weight: 600; }
+p { margin: 0; max-width: 42rem; }
+.num, td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--f2); outline-offset: 2px; }
+
+/* header */
+header { padding-top: 3rem; display: flex; flex-direction: column; gap: 1rem; }
+.kicker { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 1.2rem; color: var(--ink-2); }
+
+/* the big rule */
+.rule {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem;
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.rule strong { font-family: var(--display); font-size: 1.25rem; }
+
+/* family map */
+.map { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.75rem; }
+.fam {
+  display: flex; flex-direction: column; gap: 0.35rem; padding: 1rem 1.1rem; border-radius: 12px;
+  background: var(--paper); border: 1px solid var(--line); text-decoration: none; min-width: 0;
+}
+.fam:hover { border-color: var(--ink-2); }
+.fam .tag { font-family: var(--mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.fam b { font-family: var(--display); font-size: 1.15rem; }
+.fam span.who { font-size: 0.85rem; color: var(--muted); }
+.c1 { color: var(--f1); } .c2 { color: var(--f2); } .c3 { color: var(--f3); }
+.c4 { color: var(--f4); } .c5 { color: var(--f5); } .c6 { color: var(--f6); }
+
+/* family sections */
+section.family { display: flex; flex-direction: column; gap: 1.1rem; scroll-margin-top: 1rem; }
+.fhead { display: flex; flex-direction: column; gap: 0.3rem; }
+.fhead .tag { font-family: var(--mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.sources { font-size: 0.9rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1rem 0.9rem; overflow-x: auto; }
+figure svg { display: block; width: 100%; height: auto; min-width: 30rem; color: var(--ink); }
+figcaption { font-size: 0.9rem; color: var(--ink-2); margin-top: 0.6rem; }
+.example {
+  border-left: 4px solid var(--line); padding: 0.2rem 0 0.2rem 1rem; display: flex; flex-direction: column; gap: 0.3rem;
+}
+.example .label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.e1 { border-color: var(--f1); } .e2 { border-color: var(--f2); } .e3 { border-color: var(--f3); }
+.e4 { border-color: var(--f4); } .e5 { border-color: var(--f5); } .e6 { border-color: var(--f6); }
+ul.tips { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.35rem; max-width: 42rem; }
+.note {
+  background: var(--soft); border-radius: 10px; padding: 0.9rem 1rem; font-size: 0.95rem;
+  display: flex; flex-direction: column; gap: 0.3rem;
+}
+.note b { font-family: var(--display); }
+
+/* cheat sheet */
+.table-wrap { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; min-width: 40rem; }
+th, td { text-align: left; padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+tbody tr:last-child td { border-bottom: none; }
+.dot { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 50%; margin-right: 0.4rem; vertical-align: 0.05rem; }
+.d1 { background: var(--f1); } .d2 { background: var(--f2); } .d3 { background: var(--f3); }
+.d4 { background: var(--f4); } .d5 { background: var(--f5); } .d6 { background: var(--f6); }
+footer { color: var(--muted); font-size: 0.85rem; max-width: 42rem; }
+
+@media (max-width: 480px) { body { font-size: 16px; } .rule, figure { padding: 0.9rem; } }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<main>
+  <header>
+    <span class="kicker">LLM benchmark dashboard · reading guide</span>
+    <h1>How benchmark scores work</h1>
+    <p class="lede">The dashboard has data from 19 sources. They do not all count points the same way.
+      There are six kinds of score. This page explains each one with a picture and a real example from the dashboard.</p>
+  </header>
+
+  <!-- the big rule -->
+  <section class="rule" aria-labelledby="rule-h">
+    <strong id="rule-h">The one big rule: compare scores only inside the same benchmark.</strong>
+    <p>A score is like a measurement with a ruler. Different benchmarks use different rulers.
+      "80" on one ruler and "1500" on another ruler do not mean the same thing, so you cannot put them side by side.</p>
+    <figure>
+      <svg viewBox="0 0 680 190" role="img" aria-label="Two different rulers: a percent ruler from 0 to 100 and a rating ruler from 1000 to 1800. The same model can be 80 on one and 1500 on the other.">
+        <text x="20" y="28" font-size="13" font-weight="700" fill="currentColor">Percent ruler (most benchmarks)</text>
+        <line x1="40" y1="62" x2="640" y2="62" stroke="currentColor" stroke-width="2"/>
+        <g font-size="12" fill="currentColor" text-anchor="middle">
+          <line x1="40" y1="56" x2="40" y2="68" stroke="currentColor"/><text x="40" y="86">0%</text>
+          <line x1="190" y1="56" x2="190" y2="68" stroke="currentColor"/><text x="190" y="86">25%</text>
+          <line x1="340" y1="56" x2="340" y2="68" stroke="currentColor"/><text x="340" y="86">50%</text>
+          <line x1="490" y1="56" x2="490" y2="68" stroke="currentColor"/><text x="490" y="86">75%</text>
+          <line x1="640" y1="56" x2="640" y2="68" stroke="currentColor"/><text x="640" y="86">100%</text>
+        </g>
+        <circle cx="520" cy="62" r="8" fill="var(--f1)"/>
+        <text x="520" y="44" font-size="12" text-anchor="middle" fill="currentColor">80% = 8 of 10 right</text>
+
+        <text x="20" y="122" font-size="13" font-weight="700" fill="currentColor">Rating ruler (LMArena, WB-Elo)</text>
+        <line x1="40" y1="156" x2="640" y2="156" stroke="currentColor" stroke-width="2"/>
+        <g font-size="12" fill="currentColor" text-anchor="middle">
+          <line x1="40" y1="150" x2="40" y2="162" stroke="currentColor"/><text x="40" y="180">1000</text>
+          <line x1="190" y1="150" x2="190" y2="162" stroke="currentColor"/><text x="190" y="180">1200</text>
+          <line x1="340" y1="150" x2="340" y2="162" stroke="currentColor"/><text x="340" y="180">1400</text>
+          <line x1="490" y1="150" x2="490" y2="162" stroke="currentColor"/><text x="490" y="180">1600</text>
+          <line x1="640" y1="150" x2="640" y2="162" stroke="currentColor"/><text x="640" y="180">1800</text>
+        </g>
+        <circle cx="415" cy="156" r="8" fill="var(--f5)"/>
+        <text x="415" y="138" font-size="12" text-anchor="middle" fill="currentColor">1500 = strength from votes</text>
+      </svg>
+      <figcaption>Two rulers with different numbers. Always check which ruler a benchmark uses before you read its score.</figcaption>
+    </figure>
+  </section>
+
+  <!-- map -->
+  <section aria-labelledby="map-h" style="display:flex;flex-direction:column;gap:1rem">
+    <h2 id="map-h">The six kinds of score</h2>
+    <div class="map">
+      <a class="fam" href="#right-or-wrong"><span class="tag c1">Kind 1</span><b>Right or wrong</b><span>Percent of questions answered correctly.</span><span class="who">HLE, MMLU-Pro, GPQA, SimpleQA, FrontierMath, AIME, MMLU</span></a>
+      <a class="fam" href="#finished-the-job"><span class="tag c2">Kind 2</span><b>Finished the job</b><span>Percent of real tasks done fully.</span><span class="who">SWE-bench, SWE-bench Pro, Terminal-Bench, Aider, τ²-bench, HumanEval</span></a>
+      <a class="fam" href="#partial-points"><span class="tag c3">Kind 3</span><b>Partial points</b><span>Each task can earn part of the points.</span><span class="who">LiveBench categories, OCRBench v2, RULER</span></a>
+      <a class="fam" href="#mix-of-tests"><span class="tag c4">Kind 4</span><b>Mix of many tests</b><span>One number made from many benchmarks.</span><span class="who">Artificial Analysis, BenchLM, LiveBench Overall</span></a>
+      <a class="fam" href="#head-to-head"><span class="tag c5">Kind 5</span><b>Head-to-head votes</b><span>A rating from "A or B?" choices.</span><span class="who">LMArena, WildBench WB-Elo</span></a>
+      <a class="fam" href="#judge-checklist"><span class="tag c6">Kind 6</span><b>Judge's checklist</b><span>An AI judge grades each answer.</span><span class="who">WildBench WB-Score</span></a>
+    </div>
+  </section>
+
+  <!-- 1 -->
+  <section class="family" id="right-or-wrong" aria-labelledby="h1x">
+    <div class="fhead"><span class="tag c1">Kind 1 · Higher is better · 0–100%</span><h2 id="h1x">Right or wrong</h2>
+      <span class="sources">Humanity's Last Exam, MMLU-Pro, GPQA, MMLU, SimpleQA (OpenAI), SimpleQA Verified and FrontierMath (Epoch AI), AIME (MathArena)</span></div>
+    <p>This is the simplest kind. The model answers many questions. Each answer is right or wrong. The score is the percent of right answers.
+      This percent is also called <b>accuracy</b>.</p>
+    <figure>
+      <svg viewBox="0 0 680 150" role="img" aria-label="Ten questions: eight right and two wrong. The score is 80 percent.">
+        <g font-size="12" fill="currentColor" text-anchor="middle">
+          <text x="250" y="20">10 questions</text>
+        </g>
+        <!-- 8 right -->
+        <g>
+          <rect x="20" y="34" width="40" height="40" rx="6" fill="var(--f1)"/><rect x="68" y="34" width="40" height="40" rx="6" fill="var(--f1)"/>
+          <rect x="116" y="34" width="40" height="40" rx="6" fill="var(--f1)"/><rect x="164" y="34" width="40" height="40" rx="6" fill="var(--f1)"/>
+          <rect x="212" y="34" width="40" height="40" rx="6" fill="var(--f1)"/><rect x="260" y="34" width="40" height="40" rx="6" fill="var(--f1)"/>
+          <rect x="308" y="34" width="40" height="40" rx="6" fill="var(--f1)"/><rect x="356" y="34" width="40" height="40" rx="6" fill="var(--f1)"/>
+          <rect x="404" y="34" width="40" height="40" rx="6" fill="none" stroke="var(--bad)" stroke-width="2"/>
+          <rect x="452" y="34" width="40" height="40" rx="6" fill="none" stroke="var(--bad)" stroke-width="2"/>
+        </g>
+        <g fill="none" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="30,54 37,61 50,46"/><polyline points="78,54 85,61 98,46"/><polyline points="126,54 133,61 146,46"/>
+          <polyline points="174,54 181,61 194,46"/><polyline points="222,54 229,61 242,46"/><polyline points="270,54 277,61 290,46"/>
+          <polyline points="318,54 325,61 338,46"/><polyline points="366,54 373,61 386,46"/>
+        </g>
+        <g stroke="var(--bad)" stroke-width="3" stroke-linecap="round">
+          <line x1="416" y1="46" x2="432" y2="62"/><line x1="432" y1="46" x2="416" y2="62"/>
+          <line x1="464" y1="46" x2="480" y2="62"/><line x1="480" y1="46" x2="464" y2="62"/>
+        </g>
+        <g font-size="12" fill="currentColor" text-anchor="middle">
+          <text x="208" y="96">8 right</text><text x="448" y="96">2 wrong</text>
+        </g>
+        <line x1="512" y1="54" x2="560" y2="54" stroke="currentColor" stroke-width="2"/>
+        <polygon points="560,48 572,54 560,60" fill="currentColor"/>
+        <text x="620" y="64" font-size="30" font-weight="700" text-anchor="middle" fill="var(--f1)">80%</text>
+        <text x="340" y="136" font-size="12.5" text-anchor="middle" fill="currentColor">8 ÷ 10 = 0.8 → 80%</text>
+      </svg>
+      <figcaption>Ten questions, eight right: the score is 80%.</figcaption>
+    </figure>
+    <div class="example e1"><span class="label">Real example</span>
+      <p>On <b>MMLU-Pro</b>, Gemini 3.1 Pro scores <span class="num">91.2%</span>. It answered about 91 of every 100 questions correctly.</p>
+      <p>On <b>Humanity's Last Exam</b>, the best model (Gemini 3 Pro) scores only <span class="num">38.3%</span>. This test is very hard.</p>
+    </div>
+    <div class="note"><b>Good to know</b>
+      <ul class="tips">
+        <li><b>Guessing gives free points.</b> MMLU-Pro has 10 choices per question, so random guessing already gets about 10%. GPQA has 4 choices, so guessing gets about 25%. A 39% on GPQA is only a little better than luck.</li>
+        <li><b>Some tests repeat each question.</b> MathArena asks every AIME problem 2–4 times and averages. Epoch AI shows a small "±" error (FrontierMath: <span class="num">95.1% ± 1.3</span>). Two scores closer than this are basically tied.</li>
+        <li><b>The "Accuracy" column</b> in the dashboard is filled only for this kind. Here it is the same number as the score.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="family" id="finished-the-job" aria-labelledby="h2x">
+    <div class="fhead"><span class="tag c2">Kind 2 · Higher is better · 0–100%</span><h2 id="h2x">Finished the job</h2>
+      <span class="sources">SWE-bench, SWE-bench Pro, Terminal-Bench, Aider Polyglot, τ²-bench, HumanEval</span></div>
+    <p>Here the model does real work, like fixing a bug in a big program. Nobody checks the answer by hand.
+      Instead, hidden tests run. If all tests pass, the task counts as done. The score is the percent of tasks done.</p>
+    <figure>
+      <svg viewBox="0 0 680 210" role="img" aria-label="A task goes to the AI, the AI changes code, hidden tests run, and the task counts as done only if the tests pass.">
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g font-size="12.5" fill="currentColor" text-anchor="middle">
+          <rect x="10" y="20" width="140" height="56" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="80" y="44" font-weight="700">1. A real task</text><text x="80" y="63">"Fix this bug"</text>
+          <rect x="190" y="20" width="140" height="56" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="260" y="44" font-weight="700">2. AI works</text><text x="260" y="63">changes the code</text>
+          <rect x="370" y="20" width="140" height="56" rx="10" fill="none" stroke="var(--f2)" stroke-width="2.5"/>
+          <text x="440" y="44" font-weight="700">3. Hidden tests</text><text x="440" y="63">run automatically</text>
+          <rect x="550" y="10" width="120" height="34" rx="8" fill="var(--f2)"/>
+          <text x="610" y="32" fill="var(--paper)" font-weight="700">all pass → done</text>
+          <rect x="550" y="52" width="120" height="34" rx="8" fill="none" stroke="var(--bad)" stroke-width="2"/>
+          <text x="610" y="74" fill="var(--bad)" font-weight="700">any fail → 0</text>
+        </g>
+        <g stroke="currentColor" stroke-width="1.5" fill="none">
+          <line x1="150" y1="48" x2="186" y2="48" marker-end="url(#arr2)"/>
+          <line x1="330" y1="48" x2="366" y2="48" marker-end="url(#arr2)"/>
+          <line x1="510" y1="40" x2="546" y2="28" marker-end="url(#arr2)"/>
+          <line x1="510" y1="56" x2="546" y2="68" marker-end="url(#arr2)"/>
+        </g>
+        <text x="20" y="122" font-size="12.5" fill="currentColor">SWE-bench Verified: 500 real GitHub bugs</text>
+        <rect x="20" y="134" width="640" height="26" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="20" y="134" width="507" height="26" rx="6" fill="var(--f2)"/>
+        <text x="273" y="152" font-size="12.5" text-anchor="middle" fill="var(--paper)" font-weight="700">396 fixed</text>
+        <text x="594" y="152" font-size="12.5" text-anchor="middle" fill="currentColor">104 not</text>
+        <text x="340" y="190" font-size="12.5" text-anchor="middle" fill="currentColor">396 ÷ 500 = 79.2%  (Claude 4.5 Opus)</text>
+      </svg>
+      <figcaption>A task only counts when every hidden test passes. Half-fixed counts as zero.</figcaption>
+    </figure>
+    <div class="example e2"><span class="label">Real example</span>
+      <p>On <b>SWE-bench Verified</b>, Claude 4.5 Opus scores <span class="num">79.2%</span>: about 396 of the 500 bugs were fixed.</p>
+    </div>
+    <p>The benchmarks in this group differ in small rules. These rules change the number:</p>
+    <figure>
+      <svg viewBox="0 0 680 120" role="img" aria-label="Aider gives two tries. GPT-5 solves 52 percent on the first try and 88 percent after the second try.">
+        <text x="20" y="22" font-size="12.5" font-weight="700" fill="currentColor">Aider Polyglot gives 2 tries (GPT-5, high effort)</text>
+        <text x="20" y="56" font-size="12.5" fill="currentColor">after try 1</text>
+        <rect x="120" y="40" width="520" height="24" rx="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <rect x="120" y="40" width="270" height="24" rx="5" fill="var(--f2)" fill-opacity="0.55"/>
+        <text x="400" y="57" font-size="12.5" fill="currentColor">52%</text>
+        <text x="20" y="98" font-size="12.5" fill="currentColor">after try 2</text>
+        <rect x="120" y="82" width="520" height="24" rx="5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <rect x="120" y="82" width="458" height="24" rx="5" fill="var(--f2)"/>
+        <text x="586" y="99" font-size="12.5" fill="currentColor" font-weight="700">88%</text>
+      </svg>
+      <figcaption>The same model scores 52% or 88% depending on how many tries the rules allow. The official score uses 2 tries.</figcaption>
+    </figure>
+    <div class="note"><b>The rules of each benchmark</b>
+      <ul class="tips">
+        <li><b>SWE-bench / SWE-bench Pro:</b> fix a real bug in a real project. One try.</li>
+        <li><b>Terminal-Bench:</b> work in a Linux terminal. Every task runs 5 times, so the score is an average with a "±" (Fusion: <span class="num">71.2% ± 2.9</span>).</li>
+        <li><b>Aider Polyglot:</b> coding exercises in 6 languages. The model gets a second try after seeing the test errors.</li>
+        <li><b>τ²-bench:</b> act as a customer-service agent in a whole conversation. The task counts only if the full conversation ends correctly (Claude Sonnet 4.5, Retail: <span class="num">86.2%</span>).</li>
+        <li><b>HumanEval:</b> write one short Python function. "pass@1" means the first answer must pass.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="family" id="partial-points" aria-labelledby="h3x">
+    <div class="fhead"><span class="tag c3">Kind 3 · Higher is better · 0–100</span><h2 id="h3x">Partial points</h2>
+      <span class="sources">LiveBench categories, OCRBench v2, RULER</span></div>
+    <p>Some tasks are not simply right or wrong. A task can be half done. Then the task earns part of its points.
+      The score is the average of all the task points, shown from 0 to 100.</p>
+    <figure>
+      <svg viewBox="0 0 680 210" role="img" aria-label="Four tasks earn 100, 50, 25 and 100 percent of their points. The average is 69.">
+        <g font-size="12.5" fill="currentColor">
+          <text x="20" y="34">Task A</text><text x="20" y="74">Task B</text><text x="20" y="114">Task C</text><text x="20" y="154">Task D</text>
+        </g>
+        <g fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="90" y="18" width="400" height="24" rx="5"/><rect x="90" y="58" width="400" height="24" rx="5"/>
+          <rect x="90" y="98" width="400" height="24" rx="5"/><rect x="90" y="138" width="400" height="24" rx="5"/>
+        </g>
+        <g fill="var(--f3)">
+          <rect x="90" y="18" width="400" height="24" rx="5"/><rect x="90" y="58" width="200" height="24" rx="5"/>
+          <rect x="90" y="98" width="100" height="24" rx="5"/><rect x="90" y="138" width="400" height="24" rx="5"/>
+        </g>
+        <g font-size="12.5" fill="currentColor">
+          <text x="500" y="35">100 — all done</text><text x="500" y="75">50 — half done</text>
+          <text x="500" y="115">25 — a little</text><text x="500" y="155">100 — all done</text>
+        </g>
+        <text x="340" y="196" font-size="13" text-anchor="middle" fill="currentColor">(100 + 50 + 25 + 100) ÷ 4 = <tspan font-weight="700" fill="var(--f3)">69</tspan></text>
+      </svg>
+      <figcaption>Four tasks, some only partly done. The score is their average: 69 out of 100.</figcaption>
+    </figure>
+    <div class="example e3"><span class="label">Real example</span>
+      <p>In <b>LiveBench 2.0</b>, Gemini 4 Neon scores <span class="num">95.6</span> in Browser and <span class="num">81.5</span> in Design.
+        Each category is the average task score of that category.</p>
+      <p><b>OCRBench v2</b> averages 8 reading skills (text recognition, math in images, and more). <b>RULER</b> scores long texts at 4K to 128K words-pieces (tokens) and averages them.</p>
+    </div>
+    <div class="note"><b>Good to know</b>
+      <p>A "69" here does not mean "69% of tasks were done". It means "on average, 69% of the points were earned". Partial credit makes these scores a bit higher than pass-or-fail scores would be.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="family" id="mix-of-tests" aria-labelledby="h4x">
+    <div class="fhead"><span class="tag c4">Kind 4 · Higher is better · index points</span><h2 id="h4x">Mix of many tests</h2>
+      <span class="sources">Artificial Analysis Intelligence Index and its 6 capability indexes, BenchLM Overall and categories, LiveBench Overall</span></div>
+    <p>Some sites combine many benchmarks into one number. This is called an <b>index</b>. It is easy to read, but it hides the details.
+      Some parts can count more than others. This is called <b>weighting</b>.</p>
+    <figure>
+      <svg viewBox="0 0 680 330" role="img" aria-label="LiveBench Overall for Gemini 4 Neon: seven category scores, with Long Agentic counting double and Coding and Design counting one and a half times, combine into 87.4.">
+        <text x="20" y="22" font-size="12.5" font-weight="700" fill="currentColor">LiveBench 2.0 Overall — Gemini 4 Neon</text>
+        <g font-size="12" fill="currentColor">
+          <text x="20" y="54">Long Agentic</text><text x="20" y="84">Coding</text><text x="20" y="114">Design</text>
+          <text x="20" y="144">Reasoning</text><text x="20" y="174">Browser</text><text x="20" y="204">Data Analysis</text><text x="20" y="234">Research</text>
+        </g>
+        <g font-family="JetBrains Mono, monospace" font-size="12" fill="var(--f4)" font-weight="700" text-anchor="end">
+          <text x="160" y="54">× 2</text><text x="160" y="84">× 1.5</text><text x="160" y="114">× 1.5</text>
+        </g>
+        <g font-family="JetBrains Mono, monospace" font-size="12" fill="currentColor" text-anchor="end">
+          <text x="160" y="144">× 1</text><text x="160" y="174">× 1</text><text x="160" y="204">× 1</text><text x="160" y="234">× 1</text>
+        </g>
+        <!-- bars: 0..100 mapped to 180..560 (width 380) -->
+        <g>
+          <rect x="180" y="40" width="314" height="20" rx="4" fill="var(--f4)"/>
+          <rect x="180" y="70" width="341" height="20" rx="4" fill="var(--f4)"/>
+          <rect x="180" y="100" width="310" height="20" rx="4" fill="var(--f4)"/>
+          <rect x="180" y="130" width="340" height="20" rx="4" fill="var(--f4)" fill-opacity="0.5"/>
+          <rect x="180" y="160" width="363" height="20" rx="4" fill="var(--f4)" fill-opacity="0.5"/>
+          <rect x="180" y="190" width="324" height="20" rx="4" fill="var(--f4)" fill-opacity="0.5"/>
+          <rect x="180" y="220" width="359" height="20" rx="4" fill="var(--f4)" fill-opacity="0.5"/>
+        </g>
+        <g font-family="JetBrains Mono, monospace" font-size="12" fill="currentColor">
+          <text x="500" y="55">82.6</text><text x="527" y="85">89.7</text><text x="496" y="115">81.5</text>
+          <text x="526" y="145">89.6</text><text x="549" y="175">95.6</text><text x="510" y="205">85.3</text><text x="545" y="235">94.5</text>
+        </g>
+        <line x1="20" y1="256" x2="660" y2="256" stroke="currentColor" stroke-width="1"/>
+        <text x="20" y="282" font-size="12.5" fill="currentColor">Bigger weight = counts more. Add (score × weight), then divide by the total weight 9:</text>
+        <text x="20" y="310" font-size="13" fill="currentColor">787.0 ÷ 9 = <tspan font-weight="700" fill="var(--f4)" font-size="16">87.4</tspan></text>
+      </svg>
+      <figcaption>Seven category scores become one number. Long Agentic counts twice as much as Reasoning.</figcaption>
+    </figure>
+    <div class="example e4"><span class="label">Real examples</span>
+      <p><b>Artificial Analysis Intelligence Index:</b> Claude Fable 5.2 scores <span class="num">64.8</span>. This is not a percent. It is points on the index scale (version 5). Compare it only with other version-5 scores.</p>
+      <p><b>BenchLM Overall:</b> Claude Fable 5.2 scores <span class="num">93.3</span>, with a likely range of <span class="num">88.5–98.0</span>. BenchLM gives a range because not every model has results on every benchmark.</p>
+    </div>
+    <figure>
+      <svg viewBox="0 0 680 100" role="img" aria-label="BenchLM Overall for Claude Fable 5.2 is 93.3 with a likely range from 88.5 to 98.0.">
+        <line x1="40" y1="54" x2="640" y2="54" stroke="currentColor" stroke-width="1.5"/>
+        <g font-size="12" fill="currentColor" text-anchor="middle">
+          <line x1="40" y1="49" x2="40" y2="59" stroke="currentColor"/><text x="40" y="80">80</text>
+          <line x1="190" y1="49" x2="190" y2="59" stroke="currentColor"/><text x="190" y="80">85</text>
+          <line x1="340" y1="49" x2="340" y2="59" stroke="currentColor"/><text x="340" y="80">90</text>
+          <line x1="490" y1="49" x2="490" y2="59" stroke="currentColor"/><text x="490" y="80">95</text>
+          <line x1="640" y1="49" x2="640" y2="59" stroke="currentColor"/><text x="640" y="80">100</text>
+        </g>
+        <!-- 88.5..98.0 → x = 40 + (v-80)*30 -->
+        <rect x="295" y="44" width="285" height="20" rx="10" fill="var(--f4)" fill-opacity="0.25"/>
+        <circle cx="439" cy="54" r="8" fill="var(--f4)"/>
+        <text x="439" y="32" font-size="12.5" text-anchor="middle" fill="currentColor" font-weight="700">93.3</text>
+        <text x="295" y="32" font-size="11.5" text-anchor="middle" fill="currentColor">88.5</text>
+        <text x="580" y="32" font-size="11.5" text-anchor="middle" fill="currentColor">98.0</text>
+      </svg>
+      <figcaption>The dot is the score. The shaded band is where the true score probably is. Models whose bands overlap a lot are close to equal.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 5 -->
+  <section class="family" id="head-to-head" aria-labelledby="h5x">
+    <div class="fhead"><span class="tag c5">Kind 5 · Higher is better · rating, about 1000–1800</span><h2 id="h5x">Head-to-head votes</h2>
+      <span class="sources">LMArena (Text, WebDev, Vision, Agent, Document, Search), WildBench WB-Elo</span></div>
+    <p>A person asks a question. Two hidden models answer. The person picks the better answer.
+      After many thousands of votes, each model gets a <b>rating</b>, like a chess rating. There is no top score; only the gap between two ratings matters.</p>
+    <figure>
+      <svg viewBox="0 0 680 230" role="img" aria-label="A person sees answers A and B from two hidden models and votes. The winner's rating goes up and the loser's goes down. LMArena Text ratings: Gemini 4 Carbon 1539, Gemini 4 Argon 1528, Gemini 4 Neon 1523.">
+        <defs>
+          <marker id="arr5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g font-size="12.5" fill="currentColor" text-anchor="middle">
+          <rect x="10" y="70" width="110" height="44" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="65" y="97">A question</text>
+          <rect x="170" y="22" width="130" height="44" rx="10" fill="none" stroke="var(--f5)" stroke-width="2.5"/>
+          <text x="235" y="49" font-weight="700">Answer A</text>
+          <rect x="170" y="118" width="130" height="44" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="235" y="145">Answer B</text>
+          <text x="355" y="48" fill="var(--f5)" font-weight="700">✓ voted better</text>
+          <text x="235" y="190">model names are hidden</text>
+        </g>
+        <g stroke="currentColor" stroke-width="1.5" fill="none">
+          <line x1="120" y1="84" x2="166" y2="50" marker-end="url(#arr5)"/>
+          <line x1="120" y1="100" x2="166" y2="136" marker-end="url(#arr5)"/>
+        </g>
+        <g font-size="12.5" fill="currentColor">
+          <text x="440" y="96">A's rating goes up ▲</text>
+          <text x="440" y="120">B's rating goes down ▼</text>
+        </g>
+        <text x="20" y="220" font-size="12.5" fill="currentColor">LMArena Text today:  Gemini 4 Carbon <tspan font-weight="700" fill="var(--f5)">1539</tspan>  ·  Gemini 4 Argon 1528  ·  Gemini 4 Neon 1523</text>
+      </svg>
+      <figcaption>Every vote moves two ratings a little. The rating is the total effect of all the votes.</figcaption>
+    </figure>
+    <div class="example e5"><span class="label">What the gap means</span>
+      <p>Gemini 4 Carbon (<span class="num">1539</span>) is <span class="num">11</span> points above Gemini 4 Argon (<span class="num">1528</span>). That means people prefer Carbon's answer only about <span class="num">52%</span> of the time. They are almost equal.</p>
+      <p>A <span class="num">100</span>-point gap means the higher model wins about <span class="num">64%</span> of the votes. A <span class="num">400</span>-point gap means about <span class="num">91%</span>.</p>
+    </div>
+    <div class="note"><b>Good to know</b>
+      <p>Ratings come from people's taste: style, length and friendliness matter too, not only correctness. Each arena (Text, WebDev, Vision…) has its own ratings, so do not compare a Text rating with a WebDev rating.</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="family" id="judge-checklist" aria-labelledby="h6x">
+    <div class="fhead"><span class="tag c6">Kind 6 · Higher is better · −80 to 100</span><h2 id="h6x">Judge's checklist</h2>
+      <span class="sources">WildBench WB-Score</span></div>
+    <p>Real user questions are answered by the model. An AI judge (GPT-4o) checks each answer against a checklist and gives a grade from 1 to 10.
+      Then WildBench shifts the scale so that an "OK" grade of 5 becomes 0:</p>
+    <p class="num" style="font-size:1.05rem">WB-Score = (average grade − 5) × 20</p>
+    <figure>
+      <svg viewBox="0 0 680 120" role="img" aria-label="WB-Score scale from minus 80 to 100, with 0 meaning an OK answer. Gemma 2B IT is at minus 5.3 and Athene-70B is at 59.4.">
+        <!-- -80..100 → x = 40 + (v+80)*600/180 -->
+        <line x1="40" y1="62" x2="640" y2="62" stroke="currentColor" stroke-width="1.5"/>
+        <g font-size="12" fill="currentColor" text-anchor="middle">
+          <line x1="40" y1="56" x2="40" y2="68" stroke="currentColor"/><text x="40" y="88">−80</text><text x="40" y="104">grade 1</text>
+          <line x1="307" y1="52" x2="307" y2="72" stroke="currentColor" stroke-width="2"/><text x="307" y="88">0</text><text x="307" y="104">grade 5 = OK</text>
+          <line x1="640" y1="56" x2="640" y2="68" stroke="currentColor"/><text x="640" y="88">100</text><text x="640" y="104">grade 10</text>
+        </g>
+        <circle cx="289" cy="62" r="8" fill="none" stroke="var(--f6)" stroke-width="2.5"/>
+        <text x="289" y="38" font-size="12" text-anchor="middle" fill="currentColor">Gemma 2B IT −5.3</text>
+        <circle cx="505" cy="62" r="8" fill="var(--f6)"/>
+        <text x="505" y="38" font-size="12" text-anchor="middle" fill="currentColor">Athene-70B 59.4</text>
+      </svg>
+      <figcaption>0 means "OK on average". Below 0 means the answers were usually below OK.</figcaption>
+    </figure>
+    <div class="example e6"><span class="label">Real example</span>
+      <p>Athene-70B scores <span class="num">59.4</span>: its average grade was about 8 out of 10. Gemma 2B IT scores <span class="num">−5.3</span>: its average grade was a little under 5.</p>
+      <p>WildBench data is from 2024, so newer models are not in it.</p>
+    </div>
+  </section>
+
+  <!-- lower is better -->
+  <section class="note" aria-labelledby="low-h" style="padding:1.2rem 1.3rem">
+    <b id="low-h" style="font-size:1.15rem">Watch out: a few scores are "lower is better"</b>
+    <p>A few BenchLM benchmarks measure mistakes, for example a <b>hallucination rate</b> (how often the model makes things up) or a <b>word error rate</b>.
+      For these, a small number is good. The dashboard always sorts highest first, so read these the other way round.</p>
+  </section>
+
+  <!-- cheat sheet -->
+  <section aria-labelledby="cs-h" style="display:flex;flex-direction:column;gap:1rem">
+    <h2 id="cs-h">Cheat sheet: all 19 sources</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Source</th><th>Kind of score</th><th>What the number means</th></tr></thead>
+        <tbody>
+          <tr><td>LiveBench</td><td><span class="dot d3"></span>Partial points · <span class="dot d4"></span>Overall is a mix</td><td>Average task points 0–100; Overall = weighted average of categories</td></tr>
+          <tr><td>Artificial Analysis</td><td><span class="dot d4"></span>Mix of many tests</td><td>Index points (version 5), not a percent</td></tr>
+          <tr><td>BenchLM</td><td><span class="dot d4"></span>Mix (BenchLM Overall) · all kinds</td><td>Overall with a likely range; its 533 single benchmarks keep their own scales</td></tr>
+          <tr><td>Humanity's Last Exam</td><td><span class="dot d1"></span>Right or wrong</td><td>% of very hard questions answered correctly</td></tr>
+          <tr><td>MMLU-Pro</td><td><span class="dot d1"></span>Right or wrong</td><td>% correct, 10 choices per question</td></tr>
+          <tr><td>GPQA</td><td><span class="dot d1"></span>Right or wrong</td><td>% correct, 4 choices (luck ≈ 25%)</td></tr>
+          <tr><td>OpenAI simple-evals</td><td><span class="dot d1"></span>Right or wrong · <span class="dot d2"></span>HumanEval</td><td>SimpleQA and MMLU % correct; HumanEval % of functions that pass</td></tr>
+          <tr><td>Epoch AI</td><td><span class="dot d1"></span>Right or wrong</td><td>FrontierMath and SimpleQA Verified % correct, with ±</td></tr>
+          <tr><td>MathArena (AIME)</td><td><span class="dot d1"></span>Right or wrong</td><td>% correct over 30 problems, each asked 2–4 times</td></tr>
+          <tr><td>SWE-bench Pro</td><td><span class="dot d2"></span>Finished the job</td><td>% of hard real bugs fixed (tests pass)</td></tr>
+          <tr><td>SWE-bench</td><td><span class="dot d2"></span>Finished the job</td><td>% of real GitHub bugs fixed (tests pass)</td></tr>
+          <tr><td>Aider</td><td><span class="dot d2"></span>Finished the job</td><td>% of coding exercises solved within 2 tries</td></tr>
+          <tr><td>Terminal-Bench</td><td><span class="dot d2"></span>Finished the job</td><td>% of terminal tasks done, averaged over 5 runs, with ±</td></tr>
+          <tr><td>τ²-bench</td><td><span class="dot d2"></span>Finished the job</td><td>% of customer-service conversations completed fully</td></tr>
+          <tr><td>LMArena</td><td><span class="dot d5"></span>Head-to-head votes</td><td>Rating from human votes; only the gap matters</td></tr>
+          <tr><td>WildBench</td><td><span class="dot d6"></span>Judge's checklist · <span class="dot d5"></span>WB-Elo</td><td>WB-Score −80 to 100 (0 = OK); WB-Elo is a rating</td></tr>
+          <tr><td>OCRBench v2</td><td><span class="dot d3"></span>Partial points</td><td>Average of 8 reading-in-images skills, 0–100</td></tr>
+          <tr><td>RULER</td><td><span class="dot d3"></span>Partial points</td><td>Long-text score per length (4K–128K tokens) and their average</td></tr>
+          <tr><td>MMLU (original)</td><td><span class="dot d1"></span>Right or wrong</td><td>% correct, 4 choices (old table, up to 2023)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="note" aria-labelledby="tips-h" style="padding:1.2rem 1.3rem">
+    <b id="tips-h" style="font-size:1.15rem">Three tips for reading the dashboard</b>
+    <ul class="tips">
+      <li>Pick <b>one benchmark</b> in the Source / Benchmark filter before you compare models.</li>
+      <li>Small gaps can be noise. Look for a "±" or a range before you call one model better.</li>
+      <li>Check the <b>Effort</b> column. The same model can score very differently at "low" and "max" effort.</li>
+    </ul>
+  </section>
+
+  <footer>Numbers are from the dashboard's database (LiveBench, Artificial Analysis, BenchLM, the official benchmark sites, Epoch AI, LMArena and others), as collected on 25 November 2026.</footer>
+</main>

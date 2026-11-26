@@ -1,0 +1,261 @@
+{
+  "format": "benchmark-results/v1",
+  "source": {
+    "name": "GPQA (official repository)",
+    "site": "https://github.com/idavidrein/gpqa",
+    "publisher": "David Rein et al. (NYU)",
+    "description": "Baseline runs published with the GPQA paper (repository baseline_results/).",
+    "license": "MIT (https://github.com/idavidrein/gpqa/blob/main/LICENSE)",
+    "attribution": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark, Rein et al. 2023 (https://github.com/idavidrein/gpqa).",
+    "retrieved_from": [
+      "https://github.com/idavidrein/gpqa/tree/main/baseline_results"
+    ],
+    "collected_at": "2026-11-25T18:49:17+00:00",
+    "notes": [
+      "Accuracy computed here from each published run file (share of rows with Correct = True).",
+      "All runs cover the same 564 questions: a 2023 pre-release question set, not the published Diamond (198), Main (448) or Extended (546) subsets. Do not compare with GPQA Diamond scores.",
+      "No question text is stored; the GPQA authors ask that questions not be published in plain text."
+    ]
+  },
+  "benchmarks": [
+    {
+      "key": "gpqa_2023",
+      "name": "GPQA",
+      "version": "2023 baselines (564 questions)",
+      "area": "reasoning",
+      "sub_area": "graduate science QA",
+      "unit": "points",
+      "total_tasks": 564,
+      "description": "Accuracy (%) of the GPQA paper's baseline runs on its 2023 564-question set.",
+      "url": "https://github.com/idavidrein/gpqa",
+      "metric": "accuracy"
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "gpqa_2023",
+      "model": "GPT-3.5 Turbo",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 29.79,
+      "evaluation_date": "2023-10-16",
+      "evaluation_method": "GPQA paper baseline, few-shot (5 examples)",
+      "external_id": "5_shot_gpt-3.5-turbo-16k-0613_2023-10-16_00-06-35",
+      "model_version": "gpt-3.5-turbo-16k-0613",
+      "extra": {
+        "method": "few-shot (5 examples)",
+        "questions": 564,
+        "correct": 168,
+        "result_file": "5_shot_gpt-3.5-turbo-16k-0613_2023-10-16_00-06-35.csv"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "GPT-4",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 37.94,
+      "evaluation_date": "2023-11-08",
+      "evaluation_method": "GPQA paper baseline, few-shot (5 examples)",
+      "external_id": "5_shot_gpt-4_2023-11-08_19-55-25",
+      "model_version": "gpt-4",
+      "extra": {
+        "method": "few-shot (5 examples)",
+        "questions": 564,
+        "correct": 214,
+        "result_file": "5_shot_gpt-4_2023-11-08_19-55-25.csv"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "GPT-3.5 Turbo",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 28.01,
+      "evaluation_date": "2023-11-08",
+      "evaluation_method": "GPQA paper baseline, few-shot chain-of-thought",
+      "external_id": "chain_of_thought_gpt-3.5-turbo-16k-0613_2023-11-08_17-29-40",
+      "model_version": "gpt-3.5-turbo-16k-0613",
+      "extra": {
+        "method": "few-shot chain-of-thought",
+        "questions": 564,
+        "correct": 158,
+        "result_file": "chain_of_thought_gpt-3.5-turbo-16k-0613_2023-11-08_17-29-40.csv"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "GPT-4",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 39.01,
+      "evaluation_date": "2023-11-08",
+      "evaluation_method": "GPQA paper baseline, few-shot chain-of-thought",
+      "external_id": "chain_of_thought_gpt-4_2023-11-08_19-55-27",
+      "model_version": "gpt-4",
+      "extra": {
+        "method": "few-shot chain-of-thought",
+        "questions": 564,
+        "correct": 220,
+        "result_file": "chain_of_thought_gpt-4_2023-11-08_19-55-27.csv"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "Llama 2 70B Chat",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "score": 29.96,
+      "evaluation_date": "2023-11-08",
+      "evaluation_method": "GPQA paper baseline, few-shot chain-of-thought",
+      "external_id": "few_shot_cot_3_llama_20231108",
+      "model_version": null,
+      "extra": {
+        "method": "few-shot chain-of-thought",
+        "questions": 564,
+        "correct": 169,
+        "result_file": "few_shot_cot_3_llama_20231108.csv",
+        "model_note": "files only say 'llama'; the GPQA paper's Llama baseline is Llama-2-70B-chat"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "Llama 2 70B Chat",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "score": 28.01,
+      "evaluation_date": "2023-10-16",
+      "evaluation_method": "GPQA paper baseline, few-shot",
+      "external_id": "few_shot_llama_20231016",
+      "model_version": null,
+      "extra": {
+        "method": "few-shot",
+        "questions": 564,
+        "correct": 158,
+        "result_file": "few_shot_llama_20231016.csv",
+        "model_note": "files only say 'llama'; the GPQA paper's Llama baseline is Llama-2-70B-chat"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "GPT-4",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 28.19,
+      "evaluation_date": "2023-10-27",
+      "evaluation_method": "GPQA paper baseline, open-book (retrieval, search results in context)",
+      "external_id": "retrieval_content_gpt-4_2023-10-27_16-33-29",
+      "model_version": "gpt-4",
+      "extra": {
+        "method": "open-book (retrieval, search results in context)",
+        "questions": 564,
+        "correct": 159,
+        "result_file": "retrieval_content_gpt-4_2023-10-27_16-33-29.csv"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "GPT-3.5 Turbo",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 28.37,
+      "evaluation_date": "2023-10-16",
+      "evaluation_method": "GPQA paper baseline, zero-shot chain-of-thought",
+      "external_id": "zero_shot_chain_of_thought_gpt-3.5-turbo-16k-0613_2023-10-16_00-06-36",
+      "model_version": "gpt-3.5-turbo-16k-0613",
+      "extra": {
+        "method": "zero-shot chain-of-thought",
+        "questions": 564,
+        "correct": 160,
+        "result_file": "zero_shot_chain_of_thought_gpt-3.5-turbo-16k-0613_2023-10-16_00-06-36.csv"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "GPT-4",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 38.65,
+      "evaluation_date": "2023-10-15",
+      "evaluation_method": "GPQA paper baseline, zero-shot chain-of-thought",
+      "external_id": "zero_shot_chain_of_thought_gpt-4_2023-10-15_19-29-35",
+      "model_version": "gpt-4",
+      "extra": {
+        "method": "zero-shot chain-of-thought",
+        "questions": 564,
+        "correct": 218,
+        "result_file": "zero_shot_chain_of_thought_gpt-4_2023-10-15_19-29-35.csv"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "Llama 2 70B Chat",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "score": 28.72,
+      "evaluation_date": "2023-10-16",
+      "evaluation_method": "GPQA paper baseline, zero-shot chain-of-thought",
+      "external_id": "zero_shot_cot_llama_20231016",
+      "model_version": null,
+      "extra": {
+        "method": "zero-shot chain-of-thought",
+        "questions": 564,
+        "correct": 162,
+        "result_file": "zero_shot_cot_llama_20231016.csv",
+        "model_note": "files only say 'llama'; the GPQA paper's Llama baseline is Llama-2-70B-chat"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "GPT-3.5 Turbo",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 29.79,
+      "evaluation_date": "2023-10-16",
+      "evaluation_method": "GPQA paper baseline, zero-shot",
+      "external_id": "zero_shot_gpt-3.5-turbo-16k-0613_2023-10-16_00-06-35",
+      "model_version": "gpt-3.5-turbo-16k-0613",
+      "extra": {
+        "method": "zero-shot",
+        "questions": 564,
+        "correct": 168,
+        "result_file": "zero_shot_gpt-3.5-turbo-16k-0613_2023-10-16_00-06-35.csv"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "GPT-4",
+      "developer": "OpenAI",
+      "developer_inferred": true,
+      "score": 31.56,
+      "evaluation_date": "2023-10-15",
+      "evaluation_method": "GPQA paper baseline, zero-shot",
+      "external_id": "zero_shot_gpt-4_2023-10-15_11-29-56",
+      "model_version": "gpt-4",
+      "extra": {
+        "method": "zero-shot",
+        "questions": 564,
+        "correct": 178,
+        "result_file": "zero_shot_gpt-4_2023-10-15_11-29-56.csv"
+      }
+    },
+    {
+      "benchmark": "gpqa_2023",
+      "model": "Llama 2 70B Chat",
+      "developer": "Meta",
+      "developer_inferred": true,
+      "score": 28.37,
+      "evaluation_date": "2023-10-16",
+      "evaluation_method": "GPQA paper baseline, zero-shot",
+      "external_id": "zero_shot_llama_20231016",
+      "model_version": null,
+      "extra": {
+        "method": "zero-shot",
+        "questions": 564,
+        "correct": 160,
+        "result_file": "zero_shot_llama_20231016.csv",
+        "model_note": "files only say 'llama'; the GPQA paper's Llama baseline is Llama-2-70B-chat"
+      }
+    }
+  ]
+}

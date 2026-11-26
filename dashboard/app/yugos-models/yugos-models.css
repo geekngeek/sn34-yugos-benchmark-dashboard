@@ -1,0 +1,175 @@
+/* Yugos models page (app/yugos-models). Kept apart from globals.css; every class starts with "ym-". */
+.ym-header { margin-bottom: 14px; }
+.ym-header p { margin: 2px 0 0; }
+
+.ym-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.ym-count { display: flex; align-items: baseline; gap: 14px; font-size: 14px; }
+.ym-count strong { font-size: 18px; }
+.ym-actions { display: flex; align-items: center; gap: 8px; }
+.ym-status { font-size: 12px; color: var(--ink-2); }
+.ym-actions button:disabled { opacity: 0.4; cursor: default; }
+
+.ym-editbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+  padding: 7px 10px; margin-bottom: 8px; border-radius: var(--radius);
+  background: var(--accent-wash); border: 1px solid var(--accent); font-size: 12.5px;
+}
+.ym-edit-tools { display: flex; gap: 14px; flex-wrap: wrap; }
+.ym-edit-hint { color: var(--ink); }
+
+.ym-filters { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.ym-filters input.ym-search { width: 320px; max-width: 100%; height: 30px; flex: 0 1 auto; }
+.ym-filters select { width: auto; height: 30px; flex: 0 0 auto; }
+.ym-toggle { display: inline-flex; gap: 5px; align-items: center; font-size: 12px; color: var(--ink-2); cursor: pointer; }
+.ym-group { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--ink-2); }
+.ym-chip {
+  padding: 2px 9px; font-size: 12px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink-2); cursor: pointer; height: auto;
+}
+.ym-chip.on { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+
+.ym-scroll { overflow-x: auto; border-radius: var(--radius); }
+.ym-table { width: 100%; }
+.ym-table td, .ym-table th { white-space: nowrap; }
+.ym-table td.num, .ym-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.ym-table td.clip { max-width: 160px; }
+button.ym-sort { all: unset; cursor: pointer; }
+button.ym-sort:hover { color: var(--ink); }
+button.ym-sort:focus-visible { outline: 2px solid var(--accent); }
+
+.ym-model { max-width: 300px; overflow: hidden; text-overflow: ellipsis; }
+.ym-name { font-weight: 600; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; }
+.ym-tag {
+  display: inline-block; margin-left: 5px; padding: 0 5px; border-radius: 4px; font-size: 10.5px; line-height: 16px;
+  border: 1px solid var(--line); color: var(--ink-2); vertical-align: 1px;
+}
+.ym-tag.newest { color: var(--accent); border-color: var(--accent); background: var(--accent-wash); }
+.ym-tag.new { color: #1a7f37; border-color: #1a7f37; background: rgba(26, 127, 55, 0.1); }
+.ym-tag.util { color: var(--muted); }
+@media (prefers-color-scheme: dark) {
+  .ym-tag.new { color: #4cc26b; border-color: #4cc26b; background: rgba(76, 194, 107, 0.14); }
+}
+
+.ym-parent { max-width: 210px; overflow: hidden; text-overflow: ellipsis; }
+.ym-parent button.link { font-size: 12.5px; }
+.ym-succ { margin-left: 6px; }
+.ym-date .subtle { font-size: 11px; margin-left: 3px; }
+.ym-cheaper { color: #1a7f37; }
+@media (prefers-color-scheme: dark) { .ym-cheaper { color: #4cc26b; } }
+.ym-cheaper .subtle { color: inherit; opacity: 0.75; }
+.ym-efforts { font-size: 12px; color: var(--ink-2); max-width: 170px; }
+.ym-expiring { color: #b35900; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .ym-expiring { color: #f0a040; } }
+
+.ym-notes-h { min-width: 160px; }
+.ym-notes { min-width: 160px; max-width: 260px; white-space: normal !important; }
+button.ym-note {
+  all: unset; display: block; width: 100%; cursor: text; font-size: 12.5px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+button.ym-note.empty { color: var(--muted); opacity: 0.35; }
+.ym-table td.clip { max-width: 130px; }
+.ym-table .ym-efforts { max-width: 140px; }
+tr:hover button.ym-note.empty, button.ym-note.empty:focus-visible { opacity: 1; }
+button.ym-note:focus-visible { outline: 2px solid var(--accent); }
+.ym-note-input { width: 100%; min-width: 220px; font: inherit; font-size: 12.5px; padding: 4px 6px; border: 1px solid var(--accent); border-radius: 6px; background: var(--surface); color: var(--ink); resize: vertical; }
+
+.ym-grouprow td { background: var(--surface-2) !important; font-size: 12.5px; }
+.ym-lineage { margin-left: 12px; color: var(--ink-2); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; }
+
+.ym-check { width: 28px; text-align: center; }
+.ym-check input { cursor: pointer; }
+tr.ym-pick { cursor: pointer; user-select: none; }
+tr.ym-out td { opacity: 0.45; }
+tr.ym-out td.ym-check { opacity: 1; }
+.editing tr.ym-out td:not(.ym-check) { text-decoration: line-through; text-decoration-color: var(--muted); }
+tr.ym-flash td { animation: ym-flash 1.6s ease-out; }
+@keyframes ym-flash { from { background: var(--accent-wash); box-shadow: inset 0 0 0 999px var(--accent-wash); } to { box-shadow: none; } }
+@media (prefers-reduced-motion: reduce) { tr.ym-flash td { animation: none; background: var(--accent-wash); } }
+
+.ym-offers > td { background: var(--page) !important; padding: 6px 10px 10px 34px !important; }
+.ym-offer-table { font-size: 12px; border-collapse: collapse; }
+.ym-offer-table th, .ym-offer-table td { padding: 2px 10px 2px 0; border: 0 !important; background: none !important; position: static; }
+.ym-offer-table .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.ym-empty { text-align: center; padding: 24px !important; color: var(--ink-2); white-space: normal !important; }
+.ym-foot { margin: 10px 0 0; padding-left: 18px; }
+.ym-foot li { margin: 2px 0; }
+
+/* selection: selected models show their name in red */
+.ym-name.sel { color: #c8102e; }
+@media (prefers-color-scheme: dark) { .ym-name.sel { color: #ff6b6b; } }
+.ym-seg { display: inline-flex; gap: 4px; }
+/* outside edit mode an unselected row is not dimmed (the red name tells them apart) */
+.ym:not(.editing) tr.ym-out td { opacity: 1; }
+
+/* tree view */
+button.ym-caret {
+  all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 2px; min-width: 30px;
+  font-size: 11px; color: var(--ink-2); margin-right: 4px;
+}
+button.ym-caret:hover { color: var(--ink); }
+button.ym-caret:focus-visible { outline: 2px solid var(--accent); }
+.ym-caret-n { font-size: 10.5px; color: var(--muted); }
+.ym-caret-space { display: inline-block; min-width: 30px; margin-right: 4px; color: var(--muted); font-size: 11px; }
+tr.ym-nested td { font-size: 12.5px; }
+tr.ym-nested .ym-caret-space { min-width: 14px; }
+tr.ym-top.ym-nested-open td { border-bottom-color: transparent; }
+.ym-tag.cheaper { color: #1a7f37; border-color: #1a7f37; background: rgba(26, 127, 55, 0.1); }
+.ym-tag.cheaper-parent { color: #9a6700; border-color: #d4a72c; background: rgba(212, 167, 44, 0.14); }
+@media (prefers-color-scheme: dark) {
+  .ym-tag.cheaper { color: #4cc26b; border-color: #4cc26b; background: rgba(76, 194, 107, 0.14); }
+  .ym-tag.cheaper-parent { color: #e3b341; border-color: #e3b341; background: rgba(227, 179, 65, 0.14); }
+}
+.ym-table td.ym-model { max-width: none; }
+
+/* ---- odd / even bands --------------------------------------------------------------------
+   Replaces the shared grid's nth-child striping, which miscounts once nested or
+   provider-listing rows are inserted. Table views alternate per row; the tree alternates per
+   family, so a newest model and all its opened parents read as one block. */
+.ym-table { --ym-band-0: var(--surface); --ym-band-1: color-mix(in srgb, var(--ink) 6%, var(--surface)); }
+@media (prefers-color-scheme: dark) {
+  .ym-table { --ym-band-1: color-mix(in srgb, var(--ink) 9%, var(--surface)); }
+}
+.ym-table tbody tr:nth-child(even) { background: none; }
+.ym-table tbody tr.ym-band-0 > td { background: var(--ym-band-0); }
+.ym-table tbody tr.ym-band-1 > td { background: var(--ym-band-1); }
+/* nested parents: same band, a touch deeper, so they sit visibly "inside" their newest model */
+.ym-table tbody tr.ym-nested > td { background: color-mix(in srgb, var(--ink) 3%, var(--ym-band-0)); }
+.ym-table tbody tr.ym-nested.ym-band-1 > td { background: color-mix(in srgb, var(--ink) 3%, var(--ym-band-1)); }
+.ym-table tbody tr.ym-offers > td { background: color-mix(in srgb, var(--ink) 2%, var(--page)) !important; }
+
+/* an opened family: accent bar down the left, a line above its newest row and below its last parent */
+.ym-table tbody tr.ym-fam > td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+.ym-table tbody tr.ym-fam-head > td { border-top: 2px solid var(--accent); }
+.ym-table tbody tr.ym-fam-end > td { border-bottom: 2px solid var(--accent); }
+.ym-table tbody tr.ym-fam-head > td.ym-model { font-weight: 600; }
+
+/* hover and the jump highlight still win over the bands */
+/* every row, newest or nested parent, highlights the same way on hover */
+.ym-table tbody tr:not(.ym-offers):not(.ym-grouprow):hover > td { background: color-mix(in srgb, var(--accent) 14%, var(--surface)) !important; }
+.ym-table tbody tr.ym-flash > td { background: var(--accent-wash); }
+
+/* ---- space between groups ---------------------------------------------------------------- */
+/* an empty, borderless row opens a gap before each group (table rows can't take margins) */
+.ym-table tbody tr.ym-gap > td {
+  height: 18px; padding: 0 !important; background: var(--page) !important;
+  border-left: 0 !important; border-right: 0 !important; box-shadow: none !important;
+}
+.ym-table tbody tr.ym-gap:hover > td { background: var(--page) !important; }
+/* the group header reads as a heading, not as another row */
+.ym-table tbody tr.ym-grouprow > td {
+  background: color-mix(in srgb, var(--ink) 12%, var(--surface)) !important;
+  border-top: 2px solid color-mix(in srgb, var(--ink) 45%, transparent);
+  padding-top: 7px; padding-bottom: 7px; font-size: 13px;
+}
+.ym-table tbody tr.ym-grouprow strong { font-size: 13.5px; }
+@media (prefers-color-scheme: dark) {
+  .ym-table tbody tr.ym-grouprow > td { background: color-mix(in srgb, var(--ink) 16%, var(--surface)) !important; }
+}
+
+/* columns are sized by the movable/resizable layout (app/columns.css): drop the old fixed caps */
+.ym-table.cl td, .ym-table.cl th { max-width: none; min-width: 0; }
+.ym-table.cl td.ym-notes { white-space: nowrap !important; }
+.ym-table.cl .ym-note-input { min-width: 0; }
+.ym-table.cl th.ym-check, .ym-table.cl td.ym-check { overflow: visible; }

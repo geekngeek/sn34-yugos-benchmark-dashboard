@@ -1,0 +1,15 @@
+[Unit]
+Description=LLM benchmark API (FastAPI, port 8010)
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/root/sjh/yugos/step1-benchmark
+ExecStart=/root/sjh/yugos/step1-benchmark/deploy/run-logged.sh /root/sjh/yugos/step1-benchmark/logs/api.log \
+          /root/sjh/yugos/step1-benchmark/.venv/bin/uvicorn api.main:app --host 127.0.0.1 --port 8010
+Environment=PYTHONUNBUFFERED=1
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
