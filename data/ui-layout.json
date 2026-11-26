@@ -71,19 +71,21 @@
    "order": [
     "num",
     "name",
-    "group",
+    "public",
     "creators",
     "scale",
     "models",
     "focus",
     "newest",
     "yugos",
-    "finding",
-    "link"
+    "finding"
    ],
    "widths": {
-    "models": 349,
-    "focus": 131
+    "creators": 297,
+    "scale": 180,
+    "models": 150,
+    "focus": 150,
+    "num": 46
    }
   }
  }

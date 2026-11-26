@@ -6,6 +6,7 @@ import { useCallback, useLayoutEffect, useRef, useState, type ReactNode } from "
  * Spreadsheet-style cell expansion: when the pointer is over a cell marked `data-tip` whose
  * content is cut off ("…"), the same content is shown in full right on top of the cell —
  * same font, colours and look, just wide enough (wrapping only past ~520px). Nothing extra.
+ * `data-tip="always"` expands the cell even when nothing is cut (its full form can hold more).
  */
 export function HoverTip({ children, className }: { children: ReactNode; className?: string }) {
   const [tip, setTip] = useState<{ html: string; cls: string; left: number; top: number; width: number; height: number;
@@ -19,7 +20,8 @@ export function HoverTip({ children, className }: { children: ReactNode; classNa
     const el = (e.target as Element).closest?.("[data-tip]") as HTMLElement | null;
     if (el === current.current) return;
     current.current = el;
-    if (!el || el.scrollWidth <= el.clientWidth + 1) { setTip(null); return; }
+    // data-tip="always": the cell has more to show than fits (e.g. a "+N" list), so expand it even when nothing is cut
+    if (!el || (el.dataset.tip !== "always" && el.scrollWidth <= el.clientWidth + 1)) { setTip(null); return; }
     const r = el.getBoundingClientRect();
     const cs = getComputedStyle(el);
     // the cell's own background, or the nearest ancestor's (so it looks like the cell grew)

@@ -34,7 +34,20 @@ button.rb-sort:focus-visible { outline: 2px solid var(--accent); }
 .rb-name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
 .rb-caret { display: inline-block; width: 12px; color: var(--ink-2); font-weight: 400; }
 .rb-none { text-align: center; padding: 18px; color: var(--ink-2); }
-.rb-grouprow td { font-size: 12px; font-weight: 600; color: var(--ink-2); background: var(--surface); padding-top: 12px; text-transform: none; }
+/* group headings look like the Yugos models table's: a heading band, not another row */
+.rb-table tbody tr.rb-grouprow > td {
+  background: color-mix(in srgb, var(--ink) 12%, var(--surface)) !important;
+  border-top: 2px solid color-mix(in srgb, var(--ink) 45%, transparent);
+  padding-top: 7px; padding-bottom: 7px; font-size: 13px; color: var(--ink); text-transform: none;
+}
+.rb-table tbody tr.rb-grouprow strong { font-size: 13.5px; }
+.rb-table tbody tr.rb-gap > td {
+  height: 18px; padding: 0 !important; background: var(--page) !important;
+  border-left: 0 !important; border-right: 0 !important; box-shadow: none !important;
+}
+@media (prefers-color-scheme: dark) {
+  .rb-table tbody tr.rb-grouprow > td { background: color-mix(in srgb, var(--ink) 16%, var(--surface)) !important; }
+}
 
 .rb-links { overflow: hidden; text-overflow: ellipsis; }
 .rb-links a { margin-right: 8px; }
@@ -55,6 +68,9 @@ button.rb-sort:focus-visible { outline: 2px solid var(--accent); }
 .rb-badge.n-no, .rb-badge.n-unknown { background: #f2f1ee; color: #5c5a55; }
 
 .rb-detail td { white-space: normal; background: var(--surface); padding: 0; }
+/* the detail panel is normal wrapping text: undo the one-line rule of table.cl (columns.css) for this row */
+table.cl > tbody > tr.rb-detail > td { white-space: normal; overflow: visible; }
+.rb-detail .rb-pubd-table th, .rb-detail .rb-pubd-table td { white-space: normal; }
 .rb-detail-inner { padding: 14px 18px 20px; max-width: 1100px; }
 .rb-detail-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 6px; }
 
@@ -83,7 +99,6 @@ button.rb-sort:focus-visible { outline: 2px solid var(--accent); }
 }
 
 /* public-per-question tags (✓ yes, ◐ partly, ✕ no, ? not stated) and licence */
-.rb-public { overflow: hidden; }
 .rb-tags { display: inline-flex; gap: 4px; flex-wrap: nowrap; }
 .rb-tag {
   display: inline-block; padding: 0 7px; border-radius: 999px; font-size: 11.5px; line-height: 19px;
@@ -108,14 +123,61 @@ button.rb-sort:focus-visible { outline: 2px solid var(--accent); }
 }
 
 /* model pool tags: one per model (newest generation in blue), then "+N" for the rest of the pool (click to list all) */
-.rb-table td.rb-models { white-space: normal; }
-.rb-tags.wrap { flex-wrap: wrap; row-gap: 3px; align-items: center; }
 .rb-tag.m-model { background: var(--surface-2); color: var(--ink); }
 .rb-tag.m-newest { background: #e6f0fb; color: #164a85; border-color: #a9c8ec; font-weight: 600; }
-button.rb-tag.m-rest { font: inherit; font-size: 11.5px; line-height: 19px; height: auto; padding: 0 7px; cursor: pointer; font-weight: 600; color: var(--ink-2); border-style: dashed; }
-button.rb-tag.m-rest:hover { border-color: var(--accent); color: var(--accent); }
-.rb-tag.m-rest.static { border-style: dashed; color: var(--muted); }
+/* one line: the tag strip clips at the cell edge, the "+N" tag always shows after it */
+.rb-pool { display: flex; gap: 4px; }
+.rb-pool-strip { display: flex; gap: 4px; overflow: hidden; min-width: 0; flex: 0 1 auto; }
+.rb-pool-strip > .rb-tag { flex: none; }
+.rb-pool-full { display: none; }
+/* hover expansion (components/HoverTip.tsx): tag cells show all their tags, wrapped */
+.hovertip .rb-tags, .hovertip .rb-pool-full { display: flex; flex-wrap: wrap; gap: 4px; row-gap: 3px; }
+.hovertip .rb-pool { display: none; }
+.hovertip .rb-tag { white-space: nowrap; }
+.rb-pool > .rb-tag { flex: none; }
+.rb-tag.m-rest { flex: none; font-weight: 600; color: var(--ink-2); border-style: dashed; background: var(--surface); cursor: help; }
+/* models the Yugos router uses (data/yugos/models.json): red outline, on top of the other tag colours */
+.rb-tag.m-yugos, .rb-tag.m-rest.m-yugos { border: 1px solid #eab3b3; }   /* same red as the "no licence" tag */
 .rb-detail-links { display: inline-flex; gap: 12px; flex-wrap: wrap; align-items: baseline; }
 @media (prefers-color-scheme: dark) {
   .rb-tag.m-newest { background: #172e4a; color: #a9cbf2; border-color: #2c4f7a; }
+  .rb-tag.m-yugos, .rb-tag.m-rest.m-yugos { border-color: #6e3030; }
+}
+
+/* detail panel: what the Public tags mean for this benchmark, with example values;
+   a section of the write-up (after its models section), styled like the other sections */
+.rb-pubd { white-space: normal; }
+.rb-pubd p { max-width: 900px; }
+.rb-pubd-table { border-collapse: collapse; font-size: 12.5px; margin: 8px 0; width: 100%; }
+.rb-pubd-table th, .rb-pubd-table td { border: 1px solid var(--line); padding: 4px 8px; text-align: left; vertical-align: top; white-space: normal; }
+.rb-pubd-table thead th { background: var(--accent-wash); font-weight: 600; color: var(--ink); font-size: 12.5px; }
+.rb-pubd-table tbody th { font-weight: 600; white-space: nowrap; }
+.rb-pubd-table td:nth-child(2) { width: 34%; }
+.rb-pubd-note { display: block; margin-top: 2px; color: var(--ink-2); }
+.rb-pubd-ex { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--ink-2); }
+
+/* collapsible group headings (A–D) */
+button.rb-group-toggle { all: unset; cursor: pointer; display: inline-flex; align-items: baseline; gap: 5px; }
+button.rb-group-toggle:hover strong { text-decoration: underline; text-underline-offset: 2px; }
+button.rb-group-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.rb-bar-right { display: inline-flex; align-items: center; gap: 16px; }
+
+/* feedback note (components/NoteCell.tsx with cls="rb") */
+/* the cell clips a long note with "…"; hovering it shows the whole note (components/HoverTip.tsx) */
+button.rb-note { all: unset; display: inline; cursor: text; font-size: 12.5px; color: var(--ink); white-space: nowrap; }
+.hovertip button.rb-note { white-space: pre-wrap; }
+button.rb-note.empty { color: var(--muted); opacity: 0.35; }
+tr:hover button.rb-note.empty, button.rb-note.empty:focus-visible { opacity: 1; }
+button.rb-note:focus-visible { outline: 2px solid var(--accent); }
+.rb-note-input {
+  width: 100%; font: inherit; font-size: 12.5px; padding: 4px 6px; border: 1px solid var(--accent); border-radius: 6px;
+  background: var(--surface); color: var(--ink); resize: vertical; white-space: pre-wrap;
+}
+table.cl > tbody > tr > td.rb-notecell:focus-within { overflow: visible; }
+/* archived benchmarks: hidden unless "Show archived"; then faded with a tag */
+.rb-row.rb-is-archived > td { opacity: 0.55; }
+.rb-row.rb-is-archived > td.rb-notecell { opacity: 1; }
+.rb-archived-tag {
+  margin-left: 6px; padding: 0 6px; border-radius: 999px; font-size: 11px; font-weight: 500; line-height: 17px;
+  border: 1px dashed var(--line); color: var(--muted);
 }

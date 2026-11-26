@@ -23,6 +23,34 @@ from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "data" / "router-benchmarks" / "benchmarks.json"
 POOLS = OUT.with_name("model_pools.json")
+YUGOS = OUT.parent.parent / "yugos" / "models.json"   # every model the Yugos router can pick (scripts/build_yugos_models.py)
+
+# words that don't change which model it is: packaging, release stage, effort in brackets
+_DROP = {"instruct", "it", "chat", "preview", "latest"}
+
+
+def model_key(name: str) -> str:
+    """one key for the spellings of a model name:
+    "Claude Opus 4.7" = "claude-opus-4-7" = "anthropic/claude-opus-4.7";  "GPT-5.2 (medium)" = "gpt-5.2"."""
+    n = name.lower().split("/")[-1]
+    n = re.sub(r"\([^)]*\)", " ", n)                      # "(medium)", "(+ fine-tunes)"
+    n = re.sub(r"(?<![\d.])(\d)-(\d)(?![\d])", r"\1.\2", n)   # "4-7" -> "4.7", but not "3-235b"
+    n = re.sub(r"(?<![\d.])(\d)-(\d)(?![\d])", r"\1.\2", n)   # again for "3-1-pro"-style chains
+    # "chat" is packaging in deepseek-chat-v3-0324 or llama-2-70b-chat, but gpt-5-chat is its own model
+    drop = _DROP - {"chat"} if "gpt" in n else _DROP
+    words = [w for w in re.split(r"[\s\-_:]+", n) if w and w not in drop]
+    return " ".join(sorted(words))
+
+
+def yugos_keys() -> dict[str, str]:
+    """model key -> Yugos model id, for every Yugos model and its world-card ids"""
+    if not YUGOS.exists():
+        return {}
+    keys: dict[str, str] = {}
+    for m in json.loads(YUGOS.read_text())["models"]:
+        for name in [m["model"], *(m.get("card_ids") or [])]:
+            keys.setdefault(model_key(name), m["model"])
+    return keys
 DATE = "2026-11-26"
 
 GROUPS = {
@@ -162,6 +190,7 @@ def main(research: str) -> None:
     rows = parse_overview(root / f"router_benchmarks_complete_{DATE}.md")
     findings = parse_index(root / f"router_benchmark_00_index_{DATE}.md")
     pools = json.loads(POOLS.read_text())["pools"] if POOLS.exists() else {}
+    yugos = yugos_keys()
     public = parse_public(root / f"router_benchmark_public_fields_{DATE}.md")
     files = {int(p.name[17:19]): p for p in root.glob(f"router_benchmark_[0-9][0-9]_*_{DATE}.md") if p.name[17:19] != "00"}
 
@@ -171,6 +200,9 @@ def main(research: str) -> None:
         r["file"] = f.name if f else None
         r["detail_md"] = f.read_text() if f else ""
         r["pool"] = pools.get(str(r["num"]))
+        if r["pool"]:
+            # pool name -> the Yugos model id it is (only names Yugos can pick)
+            r["pool"]["yugos"] = {m: yugos[model_key(m)] for m in r["pool"]["models"] if model_key(m) in yugos}
         pub = public.get(r["num"])
         r["public"] = pub["fields"] if pub else None
         r["licence"] = pub["licence"] if pub else None

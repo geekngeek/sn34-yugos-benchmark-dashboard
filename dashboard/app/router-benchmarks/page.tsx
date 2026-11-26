@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { RouterBenchmarksTable } from "@/components/RouterBenchmarksTable";
-import { readRouterBenchmarks } from "@/lib/routerBenchmarks";
+import { readRouterBenchmarks, readRouterState } from "@/lib/routerBenchmarks";
 import { readLayout } from "@/lib/uiLayout";
 import "./router-benchmarks.css";
 
@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";   // re-read the catalog on every visit
 /** Every known LLM-router benchmark and router-relevant data source, from the router-benchmark research. */
 export default async function RouterBenchmarksPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const sp = await searchParams;   // view state (filters, sort, open row) lives in the URL
-  const [catalog, layout] = await Promise.all([readRouterBenchmarks(), readLayout("router-benchmarks")]);
+  const [catalog, layout, state] = await Promise.all([readRouterBenchmarks(), readLayout("router-benchmarks"), readRouterState()]);
   return (
     <main className="page wide">
       <header className="rb-header">
@@ -25,7 +25,8 @@ export default async function RouterBenchmarksPage({ searchParams }: { searchPar
           No data yet. Build it with <code>python3 -I scripts/build_router_benchmarks.py &lt;research dir&gt;</code>.
         </p>
       ) : (
-        <RouterBenchmarksTable query={sp} layout={layout} benchmarks={catalog.benchmarks} groups={catalog.groups} />
+        <RouterBenchmarksTable query={sp} layout={layout} benchmarks={catalog.benchmarks} groups={catalog.groups}
+                               initialNotes={state.notes} initialArchived={state.archived} />
       )}
     </main>
   );

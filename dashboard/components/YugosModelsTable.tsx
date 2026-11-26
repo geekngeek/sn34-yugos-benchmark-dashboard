@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useEffect, useMemo, useRef, useState, type KeyboardEvent, type MouseEvent } from "react";
+import { NoteCell } from "@/components/NoteCell";
 import type { YugosModel } from "@/lib/yugosModels";
 import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { qFlag, qOne, useQuerySync, type Query } from "@/lib/urlState";
@@ -640,25 +641,3 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
   );
 }
 
-/** Click to edit; Enter or leaving the box saves, Shift+Enter adds a line, Esc cancels. */
-function NoteCell({ value, onSave, label }: { value: string; onSave: (v: string) => void; label: string }) {
-  const [editing, setEditing] = useState(false);
-  const [text, setText] = useState(value);
-  useEffect(() => { if (!editing) setText(value); }, [value, editing]);
-  if (!editing) {
-    return (
-      <button type="button" className={`ym-note${value ? "" : " empty"}`} onClick={() => setEditing(true)} title={value || "Add a note"}>
-        {value || "+ note"}
-      </button>
-    );
-  }
-  return (
-    <textarea autoFocus className="ym-note-input" value={text} aria-label={`Note for ${label}`} rows={Math.min(6, Math.max(2, text.split("\n").length))}
-      onChange={(e) => setText(e.target.value)}
-      onBlur={() => { setEditing(false); onSave(text); }}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); (e.target as HTMLTextAreaElement).blur(); }
-        if (e.key === "Escape") { e.stopPropagation(); setText(value); setEditing(false); }
-      }} />
-  );
-}
