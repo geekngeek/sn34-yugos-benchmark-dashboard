@@ -217,7 +217,7 @@ table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
 .mc-tip-all td.num { text-align: right; font-variant-numeric: tabular-nums; }
 .mc-tip-all tr.on td { font-weight: 600; }
 .mc-tip-all thead td { color: var(--muted); font-size: 11px; }
-.tc-leader { stroke: var(--muted); stroke-width: 0.6; opacity: .3; }
+.tc-leader { stroke: var(--muted); stroke-width: 0.4; opacity: .35; shape-rendering: geometricPrecision; }
 /* emphasis on hover: the rest fades smoothly and only part way; the emphasised model is drawn on top, bold */
 .tc-dot, .tc-line, .tc-plot svg g { transition: opacity .22s ease; }
 .tc-hl { pointer-events: none; animation: tc-hl-in .18s ease; }
