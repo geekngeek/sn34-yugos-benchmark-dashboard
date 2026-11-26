@@ -99,7 +99,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
 
   const q = query.trim().toLowerCase();
   const textFiltering = q !== "" || onlyNoted;
-  const filtering = textFiltering || cats.length > 0 || levels.length > 0;   // filtered rows show their matching sub-benchmarks, open
+  const filtering = textFiltering || cats.length > 0 || levels.length > 0 || params.length > 0;   // filtered rows show their matching sub-benchmarks, open
   const text = (i: TreeItem) => [i.name, i.category, i.focus, i.top, i.yugosUse, i.notes, i.myNotes, i.url,
     ...i.metrics.params.map((m) => `${m.key} ${METRIC_INFO[m.key].title} ${m.label} ${m.detail}`)].join(" ").toLowerCase();
   const match = (i: TreeItem) => (!q || text(i).includes(q)) && (!onlyNoted || i.myNotes.trim() !== "");
@@ -114,11 +114,14 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     && levels.some((L) => L >= c.difficulty.lo && L <= c.difficulty.hi));      // "2-3" counts for 2 and for 3
   const kidOk = (c: TreeItem) => (!cats.length || (topicsOf.get(c.no) ?? []).some((t) => cats.includes(t))) && levelOk(c);
   const subFiltered = cats.length > 0 || levels.length > 0;
-  const passes = (p: TreeItem) => {
-    if (!params.length) return true;
-    const got = reportedKeys(p.metrics);
+  // Reports: a benchmark passes on what it reports itself; a sub-benchmark on what its own table reports (its
+  // researched "Metrics detail"), or its parent's while it has none of its own
+  const metricsOk = (m: Metrics) => {
+    const got = reportedKeys(m);
     return params.every((k) => got.some((r) => r.key === k && (!onSiteOnly || r.where === "page")));
   };
+  const passes = (p: TreeItem) => !params.length || metricsOk(p.metrics);
+  const subPasses = (c: TreeItem, p: TreeItem) => !params.length || metricsOk(ownMetrics(c) ?? p.metrics);
   const narrowed = cats.length > 0 || params.length > 0 || levels.length > 0;
   const levelCounts = useMemo(() => [0, 1, 2, 3, 4, 5].map((L) => tree.reduce((n, p) => n + p.children.filter((c) =>
     (c.difficulty.kind === "firm" || c.difficulty.kind === "range") && L >= c.difficulty.lo && L <= c.difficulty.hi).length, 0)), [tree]);
@@ -130,9 +133,11 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     const rows: { item: TreeItem; depth: number; parent?: TreeItem; shownKids: number }[] = [];
     for (const p of tree) {
       if (onlyYugos && !yes(p.yugos)) continue;
-      if (!passes(p)) continue;
-      const base = subFiltered ? p.children.filter(kidOk) : p.children;
+      // a benchmark stays when it reports the chosen parameters itself (its overall table) or a sub-benchmark does
+      let base = params.length ? p.children.filter((c) => subPasses(c, p)) : p.children;
+      if (subFiltered) base = base.filter(kidOk);
       if (subFiltered && base.length === 0) continue;
+      if (params.length && !passes(p) && base.length === 0) continue;
       const kids = textFiltering ? (match(p) && !onlyNoted && q ? base : base.filter(match)) : base;
       if (textFiltering && !match(p) && kids.length === 0) continue;
       rows.push({ item: p, depth: 0, shownKids: kids.length });
@@ -178,7 +183,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   // difficulty or text filter is on (a benchmark matched by its own text with no sub-benchmark shown stands for
   // itself), else every listed benchmark's overall table
   const chartRows = useMemo(() => {
-    const sub = subFiltered || textFiltering;
+    const sub = subFiltered || textFiltering || params.length > 0;
     const out: { no: string; name: string }[] = [];
     for (const r of visible) {
       if (!sub) { if (r.depth === 0) out.push({ no: r.item.no, name: r.item.name }); continue; }
@@ -186,7 +191,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     }
     return { rows: out, note: sub ? (out.some((o) => !o.no.includes(".")) ? "sub-benchmarks and benchmarks" : "sub-benchmarks")
                                   : "benchmarks (each one's overall table)" };
-  }, [visible, subFiltered, textFiltering]);
+  }, [visible, subFiltered, textFiltering, params.length]);
   const subTotal = tree.reduce((n, p) => n + p.children.length, 0);
 
   // keep the selected row in view when moving with the keyboard
@@ -344,7 +349,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
                   </span>
               ),
               reports: () => (
-                  <span key="reports" className="c-rep" data-tip>{depth === 0 && <ReportTags item={i} />}</span>
+                  <span key="reports" className="c-rep" data-tip>{(depth === 0 || ownMetrics(i)) && <ReportTags item={i} />}</span>
               ),
               link: () => (
                   <span key="link" className="c-ico">
@@ -473,7 +478,7 @@ function Details({ item, parent, onSaved, onPick, onClose, width, onResize }: {
           ) : <p className="pre">{item.top}</p>}
         </Field>
       )}
-      <ReportsField item={parent ?? item} inherited={!!parent} />
+      <ReportsField item={ownMetrics(item) || !parent ? item : parent} inherited={!!parent && !ownMetrics(item)} />
       {item.yugosUse.trim() && <Field label="Yugos use?"><p className="pre">{item.yugosUse}</p></Field>}
       {item.notes.trim() && <Field label="Notes (research)"><p className="pre small subtle">{item.notes}</p></Field>}
       {item.extra.filter(([, v]) => v.trim()).map(([k, v]) => <Field key={k} label={k}><p className="pre">{v}</p></Field>)}
@@ -509,6 +514,9 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 }
 
 const WHERE_TEXT = { page: "shown on the page", data: "in the official data file only", paper: "in the paper only" };
+
+/** a sub-benchmark's own researched parameters (null: none yet, so its parent's apply) */
+const ownMetrics = (i: TreeItem): Metrics | null => (i.metrics.params.length || i.metrics.notReported.length ? i.metrics : null);
 
 /** compact tags for the parameters a benchmark reports (its score is always reported, so not shown) */
 function ReportTags({ item }: { item: TreeItem }) {

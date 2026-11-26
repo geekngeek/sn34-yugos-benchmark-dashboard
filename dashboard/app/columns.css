@@ -203,7 +203,7 @@ table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
 .mc-key .tc-key-item.empty { opacity: .55; }
 .mc .mc-icon { display: inline-block; flex-shrink: 0; vertical-align: -2px; overflow: visible; }
 .mc-spread { stroke: var(--tc-other); stroke-width: 2.5; }
-.mc-curve { stroke-width: 1.5; stroke-dasharray: 5 3; }
+.mc-curve { stroke-width: 2.2; stroke-dasharray: 6 3; }
 .mc-plot { position: relative; width: 100%; }
 .tc.full .mc-plot { flex: 1; cursor: grab; touch-action: none; }
 .tc.full.dragging .mc-plot { cursor: grabbing; }
@@ -217,7 +217,7 @@ table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
 .mc-tip-all td.num { text-align: right; font-variant-numeric: tabular-nums; }
 .mc-tip-all tr.on td { font-weight: 600; }
 .mc-tip-all thead td { color: var(--muted); font-size: 11px; }
-.tc-leader { stroke: var(--muted); stroke-width: 0.75; opacity: .7; }
+.tc-leader { stroke: var(--muted); stroke-width: 0.6; opacity: .3; }
 /* emphasis on hover: the rest fades smoothly and only part way; the emphasised model is drawn on top, bold */
 .tc-dot, .tc-line, .tc-plot svg g { transition: opacity .22s ease; }
 .tc-hl { pointer-events: none; animation: tc-hl-in .18s ease; }
@@ -277,3 +277,7 @@ table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
 .tc-controls label.tc-log:has(input:disabled), .mc-lines label:has(input:disabled) { opacity: .45; cursor: not-allowed; }
 .tc-controls label.tc-log input:focus-visible, .mc-lines label input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .mc-lines { gap: 6px !important; }
+.tc-dot.front { stroke: var(--ink); stroke-width: 1.5; }
+.tc-dot.front.hollow { stroke: var(--c, var(--tc-c1)); stroke-width: 2.5; }
+/* labels of the dots on a benchmark frontier are bold */
+.mc-lab-front .tc-label, .mc-lab-front .mc-label-out { font-weight: 700; }

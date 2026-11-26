@@ -72,6 +72,8 @@ files; nothing is fetched from the network.
 
 - `hle.json`, `mmlu_pro.json` and `gpqa.json` use a generic format, `"format": "benchmark-results/v1"`
   (source, benchmarks, flat results; see `importer/generic.py`), which any simple benchmark can reuse.
+- Generic files get **price per task** from the source's own totals and counts in each entry: Aider `total_cost_usd / test_cases`,
+  Terminal-Bench `total_cost_usd / n_trials`, MathArena `avg_cost_per_run_usd × runs / answers` (a total of 0 = not tracked, left empty).
   Developers missing from a source are inferred from the model name and flagged `developer_inferred`.
 - `accuracy` is filled only where the publisher reports its score as accuracy (share answered correctly):
   generic files mark those benchmarks with `"metric": "accuracy"` (HLE, MMLU-Pro, GPQA, Epoch AI,
@@ -288,5 +290,5 @@ Many benchmarks in one quality chart, nothing averaged (`dashboard/components/Mu
 - **Hover** a dot to highlight that configuration on every benchmark: its dots get bigger and outlined, its lines thicker, its labels bold, and everything else fades back part way. **Click** a dot to open its details card, which lists its score on each drawn benchmark. Click it again, click elsewhere, or press Esc to close the card.
 - **Labels:** every dot has one, placed in the nearest free gap. A label that had to move away from its dot gets a thin line back to it. In a crowded chart, labels with no free gap are drawn faint until their model is hovered; zooming in full screen gives them room.
 - **Labels** checkbox: off (`mclabels=0`) keeps labels only on the dots of the drawn benchmark frontiers and on the hovered model.
-- **Developer outline** checkbox: off (`mcoutline=0`) drops the coloured label outlines and their key.
+- **Developer outline** checkbox: off (`mcoutline=0`) drops the coloured label outlines in the chart (the key above stays).
 - In the URL: `mc=1` (draws on load), `mcx`, `mcy`, `mclx`, `mcly`, `mccolor`, `mclines`, `mclayout`, `mclabels`, `mcoutline`, `mchide`, `mcgrey`, `mcmodels`.

@@ -367,3 +367,15 @@ def test_efforts_of_one_model_are_connected_configs(conn):
     before = conn.execute("SELECT count(*) AS n FROM model_configs").fetchone()["n"]
     write(conn, generic.parse(doc))
     assert conn.execute("SELECT count(*) AS n FROM model_configs").fetchone()["n"] == before
+
+
+def test_generic_cost_per_task():
+    """cost per task comes from the entry's own totals and counts; 0 means not tracked"""
+    f = generic.cost_per_task
+    assert f({"cost_per_task_usd": 0.5}) == (0.5, None)
+    assert f({"extra": {"total_cost_usd": 45.0, "test_cases": 225}}) == (0.2, "total_cost_usd / test_cases")
+    assert f({"extra": {"total_cost_usd": 330.0, "n_trials": 330}}) == (1.0, "total_cost_usd / n_trials")
+    assert f({"extra": {"avg_cost_per_run_usd": 3.0, "runs": 4, "answers": 120}}) == (0.1, "avg_cost_per_run_usd * runs / answers")
+    assert f({"extra": {"total_cost_usd": 0.0, "test_cases": 225}}) == (None, None)
+    assert f({"extra": {"total_cost_usd": 10.0}}) == (None, None)     # no count: nothing assumed
+    assert f({"extra": {}}) == (None, None)

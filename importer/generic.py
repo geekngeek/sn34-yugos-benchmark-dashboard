@@ -13,6 +13,13 @@ and any future file in the same shape:
 
 A benchmark with "metric": "accuracy" (the publisher reports its score as the
 percentage answered correctly) also fills each result's accuracy with the score.
+
+Cost per task: a result's "cost_per_task_usd" when given, else derived from what the source
+publishes in "extra", always divided by a count from the same entry (never assumed):
+  total_cost_usd / test_cases          (Aider: cost of the whole run / exercises in that run)
+  total_cost_usd / n_trials            (Terminal-Bench: cost of all trials / trials)
+  avg_cost_per_run_usd * runs / answers (MathArena: total cost of the runs / answers given)
+A total of 0 is left empty: those sources write 0 when the cost was not tracked.
 """
 from __future__ import annotations
 
@@ -23,6 +30,22 @@ from .normalize import infer_provider, normalize_effort, normalize_provider, spl
 from .records import BenchmarkRec, Item, ModelRec, ParsedFile, ResultRec, SourceInfo
 
 FORMAT = "benchmark-results/v1"
+
+
+def cost_per_task(r: dict) -> tuple[float | None, str | None]:
+    """(USD per task, how it was worked out) for one result, or (None, None)"""
+    if r.get("cost_per_task_usd") is not None:
+        return float(r["cost_per_task_usd"]), None
+    x = r.get("extra") or {}
+    total = x.get("total_cost_usd")
+    if total:                                                   # 0 / missing = not tracked
+        for count_key in ("test_cases", "n_trials"):
+            if x.get(count_key):
+                return total / x[count_key], f"total_cost_usd / {count_key}"
+    per_run, runs, answers = x.get("avg_cost_per_run_usd"), x.get("runs"), x.get("answers")
+    if per_run and runs and answers:
+        return per_run * runs / answers, "avg_cost_per_run_usd * runs / answers"
+    return None, None
 
 
 def parse(doc: dict) -> ParsedFile:
@@ -62,6 +85,9 @@ def parse(doc: dict) -> ParsedFile:
             if r.get("developer_inferred"):
                 extra["developer_inferred"] = True
             eval_date = date.fromisoformat(r["evaluation_date"]) if r.get("evaluation_date") else None
+            cost, how = cost_per_task(r)
+            if how:
+                extra["cost_per_task_from"] = how
             results.append(ResultRec(
                 benchmark=benchmarks[r["benchmark"]], model=model,
                 external_id=r.get("external_id") or f"{r['model']}:{r['benchmark']}@{r['score']}",
@@ -71,6 +97,7 @@ def parse(doc: dict) -> ParsedFile:
                 accuracy=r.get("accuracy") if r.get("accuracy") is not None
                 else (r["score"] if r["benchmark"] in is_accuracy else None),
                 evaluation_date=eval_date,
+                cost_per_task_usd=cost,
                 evaluation_method=r.get("evaluation_method"), source_url=src.get("site"),
                 additional_metrics=extra))
         parsed.items.append(Item(payload={"source": src["name"], "results": rows},

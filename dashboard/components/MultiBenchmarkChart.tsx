@@ -458,7 +458,7 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
         {seriesIds.some((id) => hidden.has(id)) && <button type="button" className="link tc-key-reset" onClick={() => set.setHidden(new Set())}>Show all</button>}
       </div>
 
-      {outline && devLegend.length > 0 && (
+      {devLegend.length > 0 && (
         <div className="mc-devkey small" aria-label="Label outlines">
           <span className="muted">Label outline = developer:</span>
           {devLegend.map((d) => <span key={d} className="mc-devchip" style={{ ["--dev" as string]: devColorOfKey(d) }}>{d}</span>)}
@@ -623,15 +623,16 @@ function Plot({ pts, W, Hh, m, id, dom, x, y, logX, logY, R, lines, seriesIdx, c
 
         <g clipPath={`url(#${clip})`}>
           {curves.map((l) => <polyline key={`c${l.k}`} className="tc-line mc-curve" points={line(l.ps)}
-                                       style={{ ["--c" as string]: seriesColor(l.ps[0]), opacity: anyLit ? (l.ps.some(lit) && !hover ? 0.9 : 0.6 * LOW) : 0.6 }} />)}
+                                       style={{ ["--c" as string]: seriesColor(l.ps[0]), opacity: anyLit ? (l.ps.some(lit) && !hover ? 1 : 0.9 * LOW) : 0.9 }} />)}
           {spread.map((l) => <polyline key={`s${l.k}`} className="tc-line mc-spread" points={line(l.ps)}
                                        style={{ opacity: anyLit ? 0.45 * LOW : 0.45 }} />)}
           {efforts.map((l) => <polyline key={`e${l.k}`} className="tc-line" points={line(l.ps)}
                                         style={{ ["--c" as string]: colorOf(l.ps[0]), opacity: anyLit ? 0.7 * LOW : 0.7 }} />)}
           {pts.map((p, i) => {
             const [px, py] = P(p);
-            return <Shape key={i} shape={shapeOf(seriesIdx.get(p.benchmark_id) ?? 0)} x={px} y={py} r={p.yugos_providers.length ? r : r - 0.5}
-                          className={`tc-dot${p.yugos_providers.length ? "" : " hollow"}`} style={{ opacity: op(p), ["--c" as string]: colorOf(p) }} />;
+            const front = onFrontier.has(p);       // dots on a benchmark frontier: a little bigger, with a dark ring
+            return <Shape key={i} shape={shapeOf(seriesIdx.get(p.benchmark_id) ?? 0)} x={px} y={py} r={(p.yugos_providers.length ? r : r - 0.5) + (front ? 1.5 : 0)}
+                          className={`tc-dot${p.yugos_providers.length ? "" : " hollow"}${front ? " front" : ""}`} style={{ opacity: op(p), ["--c" as string]: colorOf(p) }} />;
           })}
           {/* the emphasised configuration (or benchmark) on top: its lines thicker, its dots bigger and outlined */}
           {anyLit && (
@@ -651,7 +652,7 @@ function Plot({ pts, W, Hh, m, id, dom, x, y, logX, logY, R, lines, seriesIdx, c
           const k = cfgOf.get(l.key)!;
           return (
             <g key={l.key} style={{ opacity: anyLit ? (byConfig.get(k)!.some(lit) ? 1 : LOW_LABEL) : l.crowded ? 0.3 : 1 }}
-               className={anyLit && byConfig.get(k)!.some(lit) ? "tc-lab-hl" : undefined}>
+               className={[anyLit && byConfig.get(k)!.some(lit) ? "tc-lab-hl" : "", onFrontier.has(ptOf.get(l.key)!) ? "mc-lab-front" : ""].filter(Boolean).join(" ") || undefined}>
               {l.leader && <line x1={l.leader[0]} y1={l.leader[1]} x2={l.leader[2]} y2={l.leader[3]} className="tc-leader" />}
               {/* the label is outlined in its developer's colour (coloured outline, thin light halo, dark text), so
                   developers stay apparent whatever the dots are coloured by */}
