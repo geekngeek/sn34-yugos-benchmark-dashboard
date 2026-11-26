@@ -350,10 +350,21 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
     <option key={k} value={k} disabled={cov[k] === 0 && k !== current}>{METRICS[k].short}{k === "quality" ? " 0–100" : ""} ({cov[k]})</option>
   ));
   const toggleLine = (l: LineKind) => { const s = new Set(lines); if (s.has(l)) s.delete(l); else s.add(l); set.setLines(s); };
+  // a benchmark with no point for the chosen axes cannot be drawn: the key shows it as unavailable (and why), and
+  // the show/hide clicks only count the benchmarks that can be drawn
+  const drawable = new Map<string, number>();
+  for (const p of usableAll) drawable.set(p.benchmark_id, (drawable.get(p.benchmark_id) ?? 0) + 1);
+  const whyNot = (id: string) => {
+    const ps = all.filter((p) => p.benchmark_id === id);
+    if (!ps.length) return "No results for the chosen models";
+    if (!ps.some((p) => val(p, y) !== null)) return y === "quality" ? "Not on a 0–100 scale, so it has no Quality value" : `No ${my.short.toLowerCase()} data`;
+    if (!ps.some((p) => val(p, x) !== null)) return `No ${mx.short.toLowerCase()} data`;
+    return "Its values are ≤ 0, which a log axis cannot show";
+  };
   // all shown: a click shows only that benchmark; then clicks add or remove; hiding the last one shows all again
-  const seriesIds = data.series.map((s) => s.id);
-  const toggleHidden = (id: string) => set.setHidden(new Set(keyClick(seriesIds, [...hidden], id)));
-  const pointCount = (id: string) => all.filter((p) => p.benchmark_id === id).length;
+  const seriesIds = data.series.map((s) => s.id).filter((id) => drawable.has(id));
+  const toggleHidden = (id: string) => set.setHidden(new Set([...keyClick(seriesIds, [...hidden], id), ...[...hidden].filter((h) => !seriesIds.includes(h))]));
+  const keyOrder = [...data.series.map((s, i) => ({ s, i }))].sort((a, b) => Number(!drawable.has(a.s.id)) - Number(!drawable.has(b.s.id)));
 
   // the tooltip: this configuration on every drawn benchmark
   const tip = (h: Hover, w: number, hh: number) => {
@@ -431,19 +442,20 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
 
       {/* benchmarks: shape (and colour) of each; hover highlights, click hides */}
       <div className="tc-key mc-key" role="group" aria-label="Benchmarks" onMouseLeave={() => setKeyHover(null)}>
-        {data.series.map((s, i) => {
-          const off = hidden.has(s.id), cnt = pointCount(s.id);
+        {keyOrder.map(({ s, i }) => {
+          const cnt = drawable.get(s.id) ?? 0, na = cnt === 0, off = !na && hidden.has(s.id);
+          const about = `${s.root ? `${s.root} › ` : ""}${s.label}\n${s.db} · ${s.sources.join(", ")} · Benchmark list ${s.nos.join(", ")}`;
           return (
-            <span key={s.id} className={`tc-key-item${off ? " off" : ""}${cnt ? "" : " empty"}`} onMouseEnter={() => !off && setKeyHover(`s:${s.id}`)} onMouseLeave={() => setKeyHover(null)}>
-              <ShapeIcon i={i} color={off ? "var(--tc-other)" : seriesColor(s)} />
-              <button type="button" className="tc-key-name" aria-pressed={!off} onClick={() => toggleHidden(s.id)}
-                      title={`${s.db} · ${s.sources.join(", ")} · Benchmark list ${s.nos.join(", ")}\n${keyClickHint(seriesIds, [...hidden], s.id, { on: "show it again", off: "hide it" })}`}>
-                {s.label} <span className="tc-key-n">{cnt}</span>
+            <span key={s.id} className={`tc-key-item${off ? " off" : ""}${na ? " na" : ""}`} onMouseEnter={() => !off && !na && setKeyHover(`s:${s.id}`)} onMouseLeave={() => setKeyHover(null)}>
+              <ShapeIcon i={i} color={off || na ? "var(--tc-other)" : seriesColor(s)} />
+              <button type="button" className="tc-key-name" aria-pressed={!off && !na} disabled={na} onClick={() => toggleHidden(s.id)}
+                      title={`${about}\n${na ? `Not drawn: ${whyNot(s.id)}. Pick other axes to see it.` : keyClickHint(seriesIds, [...hidden], s.id, { on: "show it again", off: "hide it" })}`}>
+                {s.root && <span className="mc-key-root">{s.root}</span>}{s.label} <span className="tc-key-n">{na ? "–" : cnt}</span>
               </button>
             </span>
           );
         })}
-        {hidden.size > 0 && <button type="button" className="link tc-key-reset" onClick={() => set.setHidden(new Set())}>Show all</button>}
+        {seriesIds.some((id) => hidden.has(id)) && <button type="button" className="link tc-key-reset" onClick={() => set.setHidden(new Set())}>Show all</button>}
       </div>
 
       {outline && devLegend.length > 0 && (
@@ -500,7 +512,7 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
               const dom = { x: autoDomain(pts.map((p) => val(p, x)!), logX), y: fitAll.y };
               return (
                 <div key={s.id} className="mc-panel">
-                  <div className="mc-panel-title small"><ShapeIcon i={seriesIdx.get(s.id) ?? 0} color={seriesColor(s)} /> <b>{s.label}</b> <span className="muted">{pts.length}</span></div>
+                  <div className="mc-panel-title small"><ShapeIcon i={seriesIdx.get(s.id) ?? 0} color={seriesColor(s)} /> {s.root && <span className="mc-key-root">{s.root}</span>}<b>{s.label}</b> <span className="muted">{pts.length}</span></div>
                   <Plot {...plotProps} pts={pts} W={panelW} Hh={ph} m={GM} id={s.id} dom={dom} labelsMax={showLabels ? 1 : 0} small />
                 </div>
               );

@@ -6,6 +6,7 @@ import type { ChartPoint } from "@/lib/chartMetrics";
 export interface Series {
   id: string;                 // database benchmark id
   label: string;              // the Benchmark list name (first row that links to it)
+  root: string | null;        // its parent benchmark's name when that row is a sub-benchmark
   db: string;                 // database name · version
   nos: string[];              // Benchmark list rows (No) that link to it
   results: number;

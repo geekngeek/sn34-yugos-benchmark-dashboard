@@ -1,5 +1,5 @@
 import { api, type BenchmarkInfo, type ModelConfig } from "@/lib/api";
-import { readBenchmarkMap, readListRows, type MapRef } from "@/lib/benchmarkMap";
+import { parentOf, readBenchmarkMap, readListRows, type MapRef } from "@/lib/benchmarkMap";
 import { readChartColors } from "@/lib/chartColors";
 import type { ChartPoint } from "@/lib/chartMetrics";
 import type { MultiChartData, Series } from "@/lib/multiChart";
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
       const b = info(r)!;
       const s = series.get(b.id);
       if (s) { if (!s.nos.includes(no)) s.nos.push(no); continue; }
-      series.set(b.id, { id: b.id, label: nameOf.get(no) ?? b.benchmark_name, db: [b.benchmark_name, b.benchmark_version].filter(Boolean).join(" · "),
+      series.set(b.id, { id: b.id, label: nameOf.get(no) ?? b.benchmark_name, root: parentOf(no) ? nameOf.get(parentOf(no)!) ?? null : null, db: [b.benchmark_name, b.benchmark_version].filter(Boolean).join(" · "),
                          nos: [no], results: b.result_count, sources: b.sources });
     }
   }
@@ -46,8 +46,9 @@ export async function POST(req: Request) {
   const list = [...series.values()];
   for (const pass of [(x: Series) => x.sources.join(", "), (x: Series) => x.db]) {
     const seen = new Map<string, number>();
-    list.forEach((x) => seen.set(x.label, (seen.get(x.label) ?? 0) + 1));
-    list.forEach((x) => { if (seen.get(x.label)! > 1) x.label = `${x.label} · ${pass(x)}`; });
+    const id = (x: Series) => `${x.root ?? ""}|${x.label}`;      // the root name is shown too, so only clashes under one root count
+    list.forEach((x) => seen.set(id(x), (seen.get(id(x)) ?? 0) + 1));
+    list.forEach((x) => { if (seen.get(id(x))! > 1) x.label = `${x.label} · ${pass(x)}`; });
   }
   const ids = [...series.keys()];
 

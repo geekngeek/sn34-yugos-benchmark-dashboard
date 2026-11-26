@@ -247,3 +247,33 @@ table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
   text-shadow: 1px 0 var(--surface), -1px 0 var(--surface), 0 1px var(--surface), 0 -1px var(--surface),
     1.8px 0 var(--c), -1.8px 0 var(--c), 0 1.8px var(--c), 0 -1.8px var(--c); }
 .mc-devchip { --c: color-mix(in srgb, var(--dev) 50%, transparent); }
+/* combined chart key: the parent benchmark's name, small, before a sub-benchmark's name; a benchmark the chosen
+   axes cannot draw is shown unavailable (dotted, faded, not clickable; the tooltip says why) */
+.mc-key-root { font-size: 10px; font-weight: 400; color: var(--muted); margin-right: 5px; letter-spacing: .01em; }
+.mc-key-root::after { content: " ›"; }
+.tc-key-item.na { background: transparent; border: 1px dotted var(--line); color: var(--muted); font-weight: 400; opacity: .7; }
+.tc-key-item.na button.tc-key-name { cursor: not-allowed; }
+.tc-key-item.na .mc-icon .tc-dot { fill: transparent; stroke: var(--muted); stroke-width: 1.2; }
+/* chart option checkboxes (log, Labels, Developer outline, Lines …) as pill toggles: on = filled with a tick,
+   off = dashed outline. The real checkbox stays for keyboard and screen readers, drawn as the tick. */
+.tc-controls label.tc-log, .mc-lines label {
+  display: inline-flex; align-items: center; gap: 5px !important; height: 28px; padding: 0 11px 0 8px; border-radius: 999px;
+  border: 1px dashed var(--line); background: transparent; color: var(--muted); cursor: pointer; user-select: none;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.tc-controls label.tc-log:hover, .mc-lines label:hover { border-color: var(--ink-2); color: var(--ink); }
+.tc-controls label.tc-log input, .mc-lines label input {
+  appearance: none; -webkit-appearance: none; width: 12px; height: 12px; margin: 0; border-radius: 50%;
+  border: 1.5px solid currentColor; display: inline-grid; place-content: center; cursor: pointer; flex-shrink: 0;
+}
+.tc-controls label.tc-log input:checked, .mc-lines label input:checked { border-color: transparent; background: var(--ink); }
+.tc-controls label.tc-log input:checked::after, .mc-lines label input:checked::after {
+  content: ""; width: 5px; height: 3px; border: solid var(--surface); border-width: 0 0 1.5px 1.5px; transform: translateY(-1px) rotate(-45deg);
+}
+.tc-controls label.tc-log:has(input:checked), .mc-lines label:has(input:checked) {
+  border-style: solid; border-color: color-mix(in srgb, var(--ink) 30%, transparent);
+  background: color-mix(in srgb, var(--ink) 6%, var(--surface)); color: var(--ink); font-weight: 500;
+}
+.tc-controls label.tc-log:has(input:disabled), .mc-lines label:has(input:disabled) { opacity: .45; cursor: not-allowed; }
+.tc-controls label.tc-log input:focus-visible, .mc-lines label input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mc-lines { gap: 6px !important; }
