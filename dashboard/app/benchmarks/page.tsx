@@ -49,7 +49,7 @@ export default async function BenchmarkListPage({ searchParams }: { searchParams
           <span aria-hidden="true">⬇</span> Download CSV
         </a>
       </header>
-      <BenchmarkTree items={items} expandAll={expandAll} initialView={initialView} layout={layout} />
+      <BenchmarkTree items={items} expandAll={expandAll} initialView={initialView} layout={layout} query={sp} />
     </main>
   );
 }

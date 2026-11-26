@@ -179,7 +179,21 @@ Every model the Yugos router may route to (the live world card), one row per mod
 
 ## Movable and resizable columns (every table)
 
-Drag a column header onto another to move it, or drag the grip on a header's right edge to resize it (double-click the grip to reset that width). Each table's layout is saved on the server in `data/ui-layout.json` (`POST /api/ui-layout`), shared by everyone, and read by the page on load. **Reset columns** next to a table puts it back to the defaults.
+Drag a column header onto another to move it, or drag the grip on a header's right edge to resize it (double-click the grip to reset that width). Columns always fit the table's box and follow it when the window or the Benchmark list's details pane changes size: short columns (numbers, dates, icons) keep a fixed px width; text columns share the rest in proportion to their saved weights, and resizing one trades width with its neighbour. No column goes below its minimum; if the box is too narrow the table scrolls sideways. Each table's layout is saved on the server in `data/ui-layout.json` (`POST /api/ui-layout`), shared by everyone, and read by the page on load. **Reset columns** next to a table puts it back to the defaults.
 
 - Shared code: `dashboard/lib/columnLayout.tsx` (hook), `dashboard/lib/uiLayout.ts` (storage), `dashboard/app/columns.css` (styles).
 - Tables: Results (`components/ResultsTable.tsx`, id `results`), Benchmark list tree (`components/BenchmarkTree.tsx`, id `benchmark-list`), Yugos models (`components/YugosModelsTable.tsx`, id `yugos-models`). The Benchmark list's Parameters matrix has no movable columns.
+
+## Benchmark list filters
+
+Under the toolbar: **Sub-benchmark category** (keeps sub-benchmarks whose own category is any of the chosen ones, shown open under their benchmark; benchmarks with none are hidden) and **Reports (all of)** (keeps benchmarks that report every chosen parameter, e.g. Cost + Time). "Shown on the site only" counts a parameter only when the benchmark's own page shows it, not just its data file or paper. Filters apply to the benchmark rows; a benchmark that passes keeps its sub-benchmarks. They work in both the Tree and Parameters views.
+
+## Links keep the view (URL query)
+
+Every page writes its view state into the address bar (in place, no reload or extra history entries), so a link or reload shows exactly the same thing. Defaults are left out.
+
+- **Results** `/`: `q`, `source_id`, `benchmark_id`, `provider`, `model_id`, `area`, `reasoning_effort`, `sort`, `order`, `limit`, `page`.
+- **Benchmark list** `/benchmarks`: `q`, `yugos=1`, `notes=1`, `cat` (repeatable), `param` (repeatable), `site=1`, `view=params`, and `expand=all` on load.
+- **Yugos models** `/yugos-models`: `q`, `vendor`, `newest=1`, `noutil=1`, `notes=1`, `show=all`, `view=table`, `group=none|line`, `sort`, `dir=asc|desc`.
+
+Shared helper: `dashboard/lib/urlState.ts` (`useQuerySync`, `qOne` / `qMany` / `qFlag`).

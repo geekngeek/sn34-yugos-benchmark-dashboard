@@ -2,8 +2,10 @@
 
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { HoverTip } from "@/components/HoverTip";
+import { MultiSelect } from "@/components/MultiSelect";
+import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
 import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
-import { METRIC_INFO, METRIC_KEYS, reportedKeys, type Metrics } from "@/lib/metrics";
+import { METRIC_INFO, METRIC_KEYS, reportedKeys, type MetricKey, type Metrics } from "@/lib/metrics";
 
 export interface TreeItem {
   no: string;
@@ -36,6 +38,7 @@ function parseTop(text: string): Ranked[] | null {
   return out;
 }
 
+const NO_CATEGORY = "(no category)";
 const shortUrl = (u: string) => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 const yes = (v: string) => v.trim().toLowerCase() === "yes";
 
@@ -57,13 +60,18 @@ const TREE_HEADS: Record<string, { label: string; cls?: string; title?: string; 
   link: { label: "", cls: "c-ico", aria: "Link" }, notes: { label: "", cls: "c-ico", aria: "Notes" },
 };
 
-export function BenchmarkTree({ items, expandAll = false, initialView = "tree", layout }: { items: TreeItem[]; expandAll?: boolean; initialView?: "tree" | "params"; layout?: SavedLayout }) {
+export function BenchmarkTree({ items, expandAll = false, initialView = "tree", layout, query: initialQuery }: { items: TreeItem[]; expandAll?: boolean; initialView?: "tree" | "params"; layout?: SavedLayout; query?: Query }) {
   const cl = useColumnLayout("benchmark-list", TREE_COLS, layout);
   const [tree, setTree] = useState(items);
   const [open, setOpen] = useState<Set<string>>(() => new Set(expandAll ? items.filter((p) => p.children.length).map((p) => p.no) : []));
-  const [query, setQuery] = useState("");
-  const [onlyYugos, setOnlyYugos] = useState(false);
-  const [onlyNoted, setOnlyNoted] = useState(false);
+  // every filter and the view start from the URL (?q=&yugos=1&notes=1&cat=…&param=…&site=1&view=params) and are written back to it
+  const [query, setQuery] = useState(() => qOne(initialQuery, "q"));
+  const [onlyYugos, setOnlyYugos] = useState(() => qFlag(initialQuery, "yugos"));
+  const [onlyNoted, setOnlyNoted] = useState(() => qFlag(initialQuery, "notes"));
+  // filters on the benchmark (parent) rows; a parent that passes keeps its sub-benchmarks
+  const [cats, setCats] = useState<string[]>(() => qMany(initialQuery, "cat"));      // sub-benchmarks in any of these categories
+  const [params, setParams] = useState<string[]>(() => qMany(initialQuery, "param")); // benchmark must report all of these parameters
+  const [onSiteOnly, setOnSiteOnly] = useState(() => qFlag(initialQuery, "site"));    // …shown on the benchmark's own page
   const [selected, setSelected] = useState<string>(items[0]?.no ?? "");
   const [view, setView] = useState<"tree" | "params">(initialView);
   // details panel: closed gives the table the full width; remembered between visits
@@ -76,23 +84,38 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   const searchRef = useRef<HTMLInputElement>(null);
 
   const q = query.trim().toLowerCase();
-  const filtering = q !== "" || onlyNoted;
+  const textFiltering = q !== "" || onlyNoted;
+  const filtering = textFiltering || cats.length > 0;   // filtered rows show their matching sub-benchmarks, open
   const text = (i: TreeItem) => [i.name, i.category, i.focus, i.top, i.yugosUse, i.notes, i.myNotes, i.url,
     ...i.metrics.params.map((m) => `${m.key} ${METRIC_INFO[m.key].title} ${m.label} ${m.detail}`)].join(" ").toLowerCase();
   const match = (i: TreeItem) => (!q || text(i).includes(q)) && (!onlyNoted || i.myNotes.trim() !== "");
+  const catOf = (i: TreeItem) => i.category.trim() || NO_CATEGORY;
+  // Category filters sub-benchmarks by their own category; Reports filters the benchmark (parent) itself
+  const kidOk = (c: TreeItem) => !cats.length || cats.includes(catOf(c));
+  const passes = (p: TreeItem) => {
+    if (!params.length) return true;
+    const got = reportedKeys(p.metrics);
+    return params.every((k) => got.some((r) => r.key === k && (!onSiteOnly || r.where === "page")));
+  };
+  const narrowed = cats.length > 0 || params.length > 0;
+  useQuerySync({ q: query.trim(), yugos: onlyYugos, notes: onlyNoted, cat: cats, param: params, site: onSiteOnly && params.length > 0,
+                 view: view === "params" ? "params" : null });
 
   // visible rows in order; while filtering, parents with matching children are shown open
   const visible = useMemo(() => {
     const rows: { item: TreeItem; depth: number; parent?: TreeItem; shownKids: number }[] = [];
     for (const p of tree) {
       if (onlyYugos && !yes(p.yugos)) continue;
-      const kids = filtering ? (match(p) && !onlyNoted && q ? p.children : p.children.filter(match)) : p.children;
-      if (filtering && !match(p) && kids.length === 0) continue;
+      if (!passes(p)) continue;
+      const base = cats.length ? p.children.filter(kidOk) : p.children;
+      if (cats.length && base.length === 0) continue;
+      const kids = textFiltering ? (match(p) && !onlyNoted && q ? base : base.filter(match)) : base;
+      if (textFiltering && !match(p) && kids.length === 0) continue;
       rows.push({ item: p, depth: 0, shownKids: kids.length });
       if (filtering ? kids.length > 0 : open.has(p.no)) for (const c of kids) rows.push({ item: c, depth: 1, parent: p, shownKids: 0 });
     }
     return rows;
-  }, [tree, open, q, onlyYugos, onlyNoted]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [tree, open, q, onlyYugos, onlyNoted, cats, params, onSiteOnly]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const byNo = useMemo(() => {
     const m = new Map<string, { item: TreeItem; parent?: TreeItem }>();
@@ -107,6 +130,25 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     return n;
   });
   const parentsWithKids = tree.filter((p) => p.children.length).map((p) => p.no);
+  // the sub-benchmarks' own categories, with how many sub-benchmarks (and in which benchmarks) use each
+  const catOptions = useMemo(() => {
+    const n = new Map<string, { subs: number; in: Set<string> }>();
+    for (const p of tree) for (const c of p.children) {
+      const k = catOf(c);
+      const e = n.get(k) ?? { subs: 0, in: new Set<string>() };
+      e.subs += 1; e.in.add(p.name);
+      n.set(k, e);
+    }
+    return [...n.entries()].sort(([a], [b]) => (a === NO_CATEGORY ? 1 : b === NO_CATEGORY ? -1 : a.localeCompare(b)))
+      .map(([c, e]) => ({ value: c, label: c,
+        hint: `${e.subs} sub · ${e.in.size === 1 ? [...e.in][0] : `${e.in.size} benchmarks`}` }));
+  }, [tree]); // eslint-disable-line react-hooks/exhaustive-deps
+  const paramOptions = useMemo(() => METRIC_KEYS.map((k: MetricKey) => {
+    const all = tree.filter((p) => reportedKeys(p.metrics).some((r) => r.key === k)).length;
+    const page = tree.filter((p) => reportedKeys(p.metrics).some((r) => r.key === k && r.where === "page")).length;
+    return { value: k, label: METRIC_INFO[k].title, hint: `${METRIC_INFO[k].help.toLowerCase()} · ${all} (${page} on site)` };
+  }).filter((o) => !o.hint.endsWith(" 0 (0 on site)")), [tree]);
+  const shownParents = visible.filter((r) => r.depth === 0).length;
   const subTotal = tree.reduce((n, p) => n + p.children.length, 0);
 
   // keep the selected row in view when moving with the keyboard
@@ -175,6 +217,20 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
             <span className="bl-legsep" /><span className="bl-tag t-cost faint">$</span> dashed = official, but only in a data file or the paper.</>
         )}
       </p>
+      <div className="bl-filters" role="group" aria-label="Filter benchmarks">
+        <MultiSelect id="bl-category" label="Sub-benchmark category" allLabel="All categories" options={catOptions} selected={cats}
+                     onChange={(v) => setCats(v)} />
+        <MultiSelect id="bl-params" label="Reports (all of)" allLabel="Any parameters" options={paramOptions} selected={params}
+                     onChange={(v) => setParams(v)} />
+        <label className="bl-toggle" title="Count a parameter only when the benchmark's own page shows it (not just its data file or paper)">
+          <input type="checkbox" checked={onSiteOnly} onChange={(e) => setOnSiteOnly(e.target.checked)} disabled={!params.length} /> Shown on the site only
+        </label>
+        {narrowed && <>
+          <span className="small">{shownParents} of {tree.length} benchmarks</span>
+          <button type="button" className="link" onClick={() => { setCats([]); setParams([]); setOnSiteOnly(false); }}>Clear filters</button>
+        </>}
+      </div>
+
       <div className={`bl-body${panel ? "" : " full"}`}>
         {view === "params" ? (
           <ParamsGrid items={visible.filter((r) => r.depth === 0).map((r) => r.item)} selected={selected} onSelect={(no) => { setSelected(no); setPanel(true); }} onOpen={() => setPanel(true)} />

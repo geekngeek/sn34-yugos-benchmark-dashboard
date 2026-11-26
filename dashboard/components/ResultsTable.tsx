@@ -26,7 +26,7 @@ const DEFS: ColDef[] = [
 
 /** The results table: columns can be dragged into another order and resized; the layout is saved on the server. */
 export function ResultsTable({ items, columns, layout }: { items: Result[]; columns: ResultsColumn[]; layout?: SavedLayout }) {
-  const cl = useColumnLayout("results", DEFS, layout);
+  const cl = useColumnLayout("results", DEFS, layout, 2);
   const head = new Map(columns.map((c) => [c.key, c]));
 
   const cell = (key: string, r: Result) => {

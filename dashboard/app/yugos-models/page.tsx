@@ -8,7 +8,8 @@ export const metadata: Metadata = { title: "Yugos models · LLM Benchmark Result
 export const dynamic = "force-dynamic";   // re-read the catalog and saved notes on every visit
 
 /** Every model the Yugos router may pick (the live world card), with the user's notes and watch list. */
-export default async function YugosModelsPage() {
+export default async function YugosModelsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  const sp = await searchParams;   // view state (filters, view, grouping, sort) lives in the URL
   const [catalog, state, layout] = await Promise.all([readCatalog(), readState(), readLayout("yugos-models")]);
   return (
     <main className="page wide">
@@ -23,7 +24,7 @@ export default async function YugosModelsPage() {
           </p>
         </div>
       </header>
-      <YugosModelsTable layout={layout} models={catalog.models} initialNotes={state.notes} initialExcluded={state.excluded} sourceNotes={catalog.notes} />
+      <YugosModelsTable query={sp} layout={layout} models={catalog.models} initialNotes={state.notes} initialExcluded={state.excluded} sourceNotes={catalog.notes} />
     </main>
   );
 }

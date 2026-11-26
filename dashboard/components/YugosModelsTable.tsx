@@ -3,6 +3,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState, type KeyboardEvent, type MouseEvent } from "react";
 import type { YugosModel } from "@/lib/yugosModels";
 import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
+import { qFlag, qOne, useQuerySync, type Query } from "@/lib/urlState";
 
 type SortKey = "model" | "vendor" | "line" | "released" | "in" | "out" | "cheapest" | "providers" | "expires";
 type View = "table" | "tree";
@@ -95,9 +96,10 @@ function compare(a: YugosModel, b: YugosModel, key: SortKey, dir: 1 | -1) {
   return (x < y ? -1 : 1) * dir;
 }
 
-export function YugosModelsTable({ models, initialNotes, initialExcluded, sourceNotes, layout }: {
+export function YugosModelsTable({ models, initialNotes, initialExcluded, sourceNotes, layout, query: initialQuery }: {
   models: YugosModel[];
   layout?: SavedLayout;
+  query?: Query;
   initialNotes: Record<string, string>;
   initialExcluded: string[];
   sourceNotes: string[];
@@ -106,24 +108,43 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
   const [excluded, setExcluded] = useState(() => new Set(initialExcluded));
   const [draft, setDraft] = useState<Set<string> | null>(null);   // non-null = edit (selection) mode
   const [history, setHistory] = useState<Set<string>[]>([]);       // undo steps inside edit mode
-  const [query, setQuery] = useState("");
-  const [vendor, setVendor] = useState("");
-  const [onlyNewest, setOnlyNewest] = useState(false);
-  const [hideUtility, setHideUtility] = useState(false);
-  const [onlyNoted, setOnlyNoted] = useState(false);
+  // filters, view, grouping and sort start from the URL and are written back to it (see useQuerySync below)
+  const [query, setQuery] = useState(() => qOne(initialQuery, "q"));
+  const [vendor, setVendor] = useState(() => qOne(initialQuery, "vendor"));
+  const [onlyNewest, setOnlyNewest] = useState(() => qFlag(initialQuery, "newest"));
+  const [hideUtility, setHideUtility] = useState(() => qFlag(initialQuery, "noutil"));
+  const [onlyNoted, setOnlyNoted] = useState(() => qFlag(initialQuery, "notes"));
   const [showExcluded, setShowExcluded] = useState(false);   // false = "Selected", true = "All"
-  useEffect(() => { setShowExcluded(localStorage.getItem("ym-show") === "all"); }, []);
+  // ?show=all|selected wins; without it, the choice this browser made last time
+  useEffect(() => {
+    const fromUrl = qOne(initialQuery, "show");
+    setShowExcluded(fromUrl ? fromUrl === "all" : localStorage.getItem("ym-show") === "all");
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const setShow = (all: boolean) => { setShowExcluded(all); localStorage.setItem("ym-show", all ? "all" : "selected"); };
-  const [view, setView] = useState<View>("tree");
-  const [groupBy, setGroupBy] = useState<GroupBy>("vendor");
-  const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>({ key: "released", dir: -1 });
+  const [view, setView] = useState<View>(() => (qOne(initialQuery, "view") === "table" ? "table" : "tree"));
+  const [groupBy, setGroupBy] = useState<GroupBy>(() => {
+    const g = qOne(initialQuery, "group");
+    return g === "none" || g === "line" ? g : "vendor";
+  });
+  const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>(() => {
+    const k = qOne(initialQuery, "sort") as SortKey;
+    const d = qOne(initialQuery, "dir");
+    return k in SORTERS ? { key: k, dir: d === "asc" ? 1 : -1 } : { key: "released", dir: -1 };
+  });
   const [openOffers, setOpenOffers] = useState<string | null>(null);
   const [flash, setFlash] = useState<string | null>(null);
   const [status, setStatus] = useState("");
   const lastClicked = useRef<string | null>(null);
 
   const editing = draft !== null;
-  const cl = useColumnLayout("yugos-models", COLS, layout, editing ? 30 : 0);
+  useQuerySync({
+    q: query.trim(), vendor, newest: onlyNewest, noutil: hideUtility, notes: onlyNoted,
+    show: showExcluded ? "all" : null,
+    view: view === "table" ? "table" : null, group: groupBy === "vendor" ? null : groupBy,
+    sort: sort.key === "released" && sort.dir === -1 ? null : sort.key,
+    dir: sort.key === "released" && sort.dir === -1 ? null : sort.dir === 1 ? "asc" : "desc",
+  });
+  const cl = useColumnLayout("yugos-models", COLS, layout, (editing ? 30 : 0) + 2);
   const out = draft ?? excluded;              // the exclusion set the page is showing
   const byName = useMemo(() => new Map(models.map((m) => [m.model, m])), [models]);
   const vendors = useMemo(() => [...new Set(models.map((m) => m.vendor))].sort((a, b) => a.localeCompare(b)), [models]);

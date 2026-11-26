@@ -50,16 +50,23 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
   const latest = useRef({ order, widths });
   latest.current = { order, widths };
 
+  const send = useCallback(() => {
+    timer.current = null;
+    fetch("/api/ui-layout", {
+      method: "POST", headers: { "content-type": "application/json" }, keepalive: true,   // survives leaving the page
+      body: JSON.stringify({ id, ...latest.current }),
+    }).catch(() => undefined);
+  }, [id]);
   const persist = useCallback(() => {
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => {
-      fetch("/api/ui-layout", {
-        method: "POST", headers: { "content-type": "application/json" },
-        body: JSON.stringify({ id, ...latest.current }),
-      }).catch(() => undefined);
-    }, SAVE_DELAY);
-  }, [id]);
-  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+    timer.current = setTimeout(send, SAVE_DELAY);
+  }, [send]);
+  // leaving the page (or switching tab) with a save still waiting: send it now rather than lose it
+  useEffect(() => {
+    const flush = () => { if (timer.current) { clearTimeout(timer.current); send(); } };
+    window.addEventListener("pagehide", flush);
+    return () => { window.removeEventListener("pagehide", flush); flush(); };
+  }, [send]);
 
   // the container's inner width, followed as it changes (window resize, side panel opening, …)
   const [box, setBox] = useState<number | null>(null);
@@ -114,7 +121,7 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
   const reset = () => {
     setOrder(defs.map((d) => d.key));
     setWidths({});
-    if (timer.current) clearTimeout(timer.current);
+    if (timer.current) { clearTimeout(timer.current); timer.current = null; }
     fetch("/api/ui-layout", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id, reset: true }) })
       .catch(() => undefined);
   };

@@ -173,3 +173,16 @@ tr.ym-top.ym-nested-open td { border-bottom-color: transparent; }
 .ym-table.cl td.ym-notes { white-space: nowrap !important; }
 .ym-table.cl .ym-note-input { min-width: 0; }
 .ym-table.cl th.ym-check, .ym-table.cl td.ym-check { overflow: visible; }
+
+/* ---- groups as separate blocks ------------------------------------------------------------
+   The table's own outer border ran straight through the gap rows, so groups still looked joined.
+   Draw the side edges on the cells instead and leave the gap row completely bare. */
+.ym-table.grid { border: 0; }
+.ym-table > thead > tr > th:first-child, .ym-table > tbody > tr > td:first-child { border-left: 1px solid var(--line); }
+.ym-table > thead > tr > th:last-child, .ym-table > tbody > tr > td:last-child { border-right: 1px solid var(--line); }
+.ym-table > thead > tr > th { border-top: 1px solid var(--line); }
+.ym-table tbody tr.ym-gap > td {
+  height: 30px; border: 0 !important; border-top: 1px solid var(--line) !important;
+}
+/* the open-family accent bar must not paint into the gap */
+.ym-table tbody tr.ym-gap > td:first-child { box-shadow: none !important; }
