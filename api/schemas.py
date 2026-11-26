@@ -76,6 +76,7 @@ class ChartPoint(BaseModel):
     reasoning_effort: str | None
     mode: str | None
     effort_rank: int | None
+    benchmark_id: UUID
     benchmark_name: str
     benchmark_version: str | None
     source_name: str

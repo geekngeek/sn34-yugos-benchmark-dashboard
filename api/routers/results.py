@@ -153,7 +153,7 @@ def chart_points(
                COALESCE(o.providers, '{{}}') AS yugos_providers
           FROM (SELECT DISTINCT ON (config_id, benchmark_id, source_id)
                        config_id, model_id, {CONFIG_SQL} AS config, model_key, model_name, provider, reasoning_effort, mode,
-                       effort_rank, benchmark_name, benchmark_version, source_name,
+                       effort_rank, benchmark_id, benchmark_name, benchmark_version, source_name,
                        COALESCE(display_score, benchmark_score)::float AS quality, sort_score::float AS sort_score,
                        accuracy::float AS accuracy, cost_per_task_usd::float AS cost_per_task,
                        time_per_task_sec::float AS time_per_task, ttft_sec::float AS ttft,

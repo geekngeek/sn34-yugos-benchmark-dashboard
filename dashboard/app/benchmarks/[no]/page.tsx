@@ -127,7 +127,7 @@ export default async function BenchmarkDetailPage({ params, searchParams }: { pa
     const b = changes.b === undefined ? one(sp.b) : changes.b;
     if (b) qs.set("b", b);
     if (modelsParam) qs.set("models", modelsParam);          // the model selection belongs to the page, not one table
-    for (const k of ["x", "y", "logx", "logy", "color", "grey"]) if (one(sp[k])) qs.set(k, one(sp[k]));   // chart settings
+    for (const k of ["x", "y", "logx", "logy", "color", "grey", "labels"]) if (one(sp[k])) qs.set(k, one(sp[k]));   // chart settings
     const s = changes.sort ?? sort, o = changes.order ?? order;
     if (s !== "benchmark_score" || o !== "desc") { qs.set("sort", s); qs.set("order", o); }
     const pg = changes.page ?? pageNo;

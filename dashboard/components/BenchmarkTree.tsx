@@ -8,6 +8,7 @@ import { difficultyText, LEVEL_HELP, LEVEL_NAMES, type Difficulty } from "@/lib/
 import { MultiSelect } from "@/components/MultiSelect";
 import { TOPICS, TOPIC_LABEL, parentTopics, subTopics } from "@/lib/benchmarkTopics";
 import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
+import { MultiBenchmarkChart } from "@/components/MultiBenchmarkChart";
 import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { METRIC_INFO, METRIC_KEYS, reportedKeys, type MetricKey, type Metrics } from "@/lib/metrics";
 
@@ -173,6 +174,19 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     return { value: k, label: METRIC_INFO[k].title, hint: `${all} · ${page} on site`, title: `${METRIC_INFO[k].help}: ${all} benchmarks report it, ${page} on the site itself`, all };
   }).filter((o) => o.all > 0), [tree]);
   const shownParents = visible.filter((r) => r.depth === 0).length;
+  // the combined chart below the list draws what the filters leave: the matching sub-benchmarks while a topic,
+  // difficulty or text filter is on (a benchmark matched by its own text with no sub-benchmark shown stands for
+  // itself), else every listed benchmark's overall table
+  const chartRows = useMemo(() => {
+    const sub = subFiltered || textFiltering;
+    const out: { no: string; name: string }[] = [];
+    for (const r of visible) {
+      if (!sub) { if (r.depth === 0) out.push({ no: r.item.no, name: r.item.name }); continue; }
+      if (r.depth === 1 || r.shownKids === 0) out.push({ no: r.item.no, name: r.item.name });
+    }
+    return { rows: out, note: sub ? (out.some((o) => !o.no.includes(".")) ? "sub-benchmarks and benchmarks" : "sub-benchmarks")
+                                  : "benchmarks (each one's overall table)" };
+  }, [visible, subFiltered, textFiltering]);
   const subTotal = tree.reduce((n, p) => n + p.children.length, 0);
 
   // keep the selected row in view when moving with the keyboard
@@ -364,6 +378,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
                              onSaved={(note) => updateNote(current.item.no, note)}
                              onPick={(no) => { setSelected(no); if (byNo.get(no)?.parent) toggle(byNo.get(no)!.parent!.no, true); }} />}
       </div>
+      <MultiBenchmarkChart candidates={chartRows.rows} scopeNote={chartRows.note} query={initialQuery} />
     </HoverTip>
   );
 }

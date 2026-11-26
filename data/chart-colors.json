@@ -1,5 +1,7 @@
 {
  "developers": {
-  "Google": "#0000ff"
+  "Google": "#0000ff",
+  "OpenAI": "#000000",
+  "Anthropic": "#ff0000"
  }
 }

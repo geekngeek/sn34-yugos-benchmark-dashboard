@@ -3,6 +3,9 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { AXIS_ORDER, METRICS, coverage, value, type ChartPoint, type MetricKey } from "@/lib/chartMetrics";
+import { autoDomain, scale, zoomDom, type Dom } from "@/lib/chartScale";
+import { placeLabels, type LabelIn } from "@/lib/labelPlace";
+import { keyClick, keyClickHint } from "@/lib/keyToggle";
 
 /**
  * Quality vs price (or another measure), in the manner of Artificial Analysis: every model configuration is a
@@ -16,55 +19,19 @@ type ColorBy = "developer" | "yugos" | "effort" | "none";
 // Fixed colour per lab (colour follows the developer, never its rank). The first three slots are the only ones a
 // scatter keeps apart for every reader, so they go to the most common labs; the rest are told apart by the key's
 // hover/isolate and the labels. Other developers are grey.
-const LAB_SLOT: Record<string, number> = { Google: 1, Anthropic: 2, OpenAI: 3, Alibaba: 7, Meta: 5, DeepSeek: 4, xAI: 8, Mistral: 6 };
-const LAB_ORDER = ["Google", "Anthropic", "OpenAI", "Alibaba", "Meta", "DeepSeek", "xAI", "Mistral"];
+export const LAB_SLOT: Record<string, number> = { Google: 1, Anthropic: 2, OpenAI: 3, Alibaba: 7, Meta: 5, DeepSeek: 4, xAI: 8, Mistral: 6 };
+export const LAB_ORDER = ["Google", "Anthropic", "OpenAI", "Alibaba", "Meta", "DeepSeek", "xAI", "Mistral"];
 const RANK_STEP = ["0", "1", "2", "3", "4", "5", "6"];    // effort ladder -> one-hue ordinal ramp (--tc-r0 … --tc-r6)
 interface Key { id: string; label: string; color: string; count: number; title?: string }
 
 const H = 460;
+export const LOW = 0.42;          // how far the rest of the chart fades while one model is emphasised
+export const LOW_LABEL = 0.4;
 const M = { top: 18, right: 150, bottom: 52, left: 64 };
 const EFFORT_LABEL: Record<string, string> = { none: "Non-reasoning", minimal: "Minimal", low: "Low", medium: "Medium",
   high: "High", xhigh: "Xhigh", max: "Max", enabled: "Reasoning" };
 const variant = (p: ChartPoint) =>
   [p.reasoning_effort === null ? "Default" : EFFORT_LABEL[p.reasoning_effort] ?? p.reasoning_effort, p.mode].filter(Boolean).join(" · ");
-
-// ---- scales ----------------------------------------------------------------------------------------
-function niceTicks(lo: number, hi: number, n = 6): number[] {
-  if (!(hi > lo)) return [lo];
-  const raw = (hi - lo) / n;
-  const pow = 10 ** Math.floor(Math.log10(raw));
-  const step = [1, 2, 2.5, 5, 10].map((m) => m * pow).find((s) => s >= raw) ?? raw;
-  const out: number[] = [];
-  for (let v = Math.ceil(lo / step) * step; v <= hi + step * 1e-9; v += step) out.push(+v.toPrecision(12));
-  return out;
-}
-function logTicks(lo: number, hi: number): number[] {
-  const out: number[] = [];
-  for (let e = Math.floor(Math.log10(lo)); e <= Math.ceil(Math.log10(hi)); e++) {
-    for (const m of [1, 2, 5]) { const v = m * 10 ** e; if (v >= lo * 0.999 && v <= hi * 1.001) out.push(v); }
-  }
-  return out.length >= 4 ? out : niceTicks(lo, hi);      // zoomed in far: evenly spaced values read better
-}
-/** a scale's domain in "axis space": log10(value) on a log axis, the value itself otherwise */
-type Dom = [number, number];
-function autoDomain(vals: number[], log: boolean): Dom {
-  let lo = Math.min(...vals), hi = Math.max(...vals);
-  if (log) { lo = lo / 1.25; hi = hi * 1.25; } else { const pad = (hi - lo || Math.abs(hi) || 1) * 0.06; lo -= pad; hi += pad; }
-  return log ? [Math.log10(lo), Math.log10(hi)] : [lo, hi];
-}
-function scale(dom: Dom, log: boolean, r0: number, r1: number) {
-  const [a, b] = dom;
-  const f = log ? (v: number) => Math.log10(v) : (v: number) => v;
-  const lo = log ? 10 ** a : a, hi = log ? 10 ** b : b;
-  return {
-    map: (v: number) => r0 + ((f(v) - a) / (b - a || 1)) * (r1 - r0),
-    invert: (px: number) => a + ((px - r0) / (r1 - r0)) * (b - a),          // pixel -> axis space
-    ticks: log ? logTicks(lo, hi) : niceTicks(lo, hi),
-    r0, r1, dom,
-  };
-}
-/** zoom a domain by `f` (<1 = in) around the axis-space point `at` */
-const zoomDom = ([a, b]: Dom, at: number, f: number): Dom => [at - (at - a) * f, at + (b - at) * f];
 
 export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer", grey = [], customColors = {} }: {
   points: ChartPoint[]; x: MetricKey; y: MetricKey; logX: boolean; logY: boolean; colorBy?: ColorBy; grey?: string[];
@@ -76,7 +43,13 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
   const [pending, startTransition] = useTransition();
   const box = useRef<HTMLDivElement>(null);
   const [W, setW] = useState(900);
+  const [ready, setReady] = useState(false);
+  const showLabels = useSearchParams().get("labels") !== "0";     // ?labels=0: no labels, except on the hovered model       // labels are measured and placed in the browser only (no hydration mismatch)
+  useEffect(() => setReady(true), []);
+  // hovering a dot only highlights its model; clicking it pins the details card (click again, elsewhere or Esc closes)
   const [hover, setHover] = useState<{ group: string; p: ChartPoint; px: number; py: number } | null>(null);
+  const [pinned, setPinned] = useState<{ group: string; p: ChartPoint; px: number; py: number } | null>(null);
+  const em = hover ?? pinned;          // what is emphasised
   const [keyHover, setKeyHover] = useState<string | null>(null);     // a colour-key entry being hovered
   const [custom, setCustom] = useState<Record<string, string>>(customColors);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -99,7 +72,7 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
   const [full, setFull] = useState(false);
   const [fullH, setFullH] = useState(700);
   const [view, setView] = useState<{ x: Dom; y: Dom } | null>(null);   // null = fit every point
-  const drag = useRef<{ px: number; py: number; x: Dom; y: Dom } | null>(null);
+  const drag = useRef<{ px: number; py: number; x: Dom; y: Dom; moved: boolean } | null>(null);
   const [dragging, setDragging] = useState(false);
 
   useEffect(() => {
@@ -198,8 +171,9 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
     const v = el && LAB_SLOT[k] ? getComputedStyle(el).getPropertyValue(`--tc-c${LAB_SLOT[k]}`).trim() : "";
     return /^#[0-9a-f]{6}$/i.test(v) ? v : "#888888";
   };
+  // all coloured: a click keeps only that one coloured; then clicks add or remove; the last one brings all back
   const toggleGrey = (k: string) => {
-    const next = greySet.has(k) ? grey.filter((g) => g !== k) : [...grey, k];
+    const next = keyClick(keys.map((e) => e.id), grey, k);
     setParam({ grey: next.length ? next.join(",") : null });
   };
   const mx = METRICS[x], my = METRICS[y];
@@ -219,7 +193,17 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
   } : null,
   // eslint-disable-next-line react-hooks/exhaustive-deps
   [usable.length, points, x, y, logX, logY]);
-  useEffect(() => { setView(null); }, [x, y, logX, logY, points]);        // new axes or data: fit again
+  useEffect(() => { setView(null); setPinned(null); }, [x, y, logX, logY, points]);        // new axes or data: fit again
+  useEffect(() => { setPinned(null); }, [view, W, full]);          // the card's spot moved with the view
+  // the pinned card closes on Esc or a click anywhere but a dot (a dot's own click opens, switches or closes it)
+  useEffect(() => {
+    if (!pinned) return;
+    const k = (e: KeyboardEvent) => { if (e.key === "Escape") { e.stopPropagation(); setPinned(null); } };
+    const down = (e: PointerEvent) => { if (!(e.target as Element | null)?.closest?.(".tc-hit")) setPinned(null); };
+    window.addEventListener("keydown", k, true);
+    document.addEventListener("pointerdown", down, true);
+    return () => { window.removeEventListener("keydown", k, true); document.removeEventListener("pointerdown", down, true); };
+  }, [pinned]);
   const plot = useMemo(() => {
     if (usable.length === 0 || !fit) return null;
     const sx = scale(view?.x ?? fit.x, logX, M.left, W - M.right);
@@ -234,26 +218,22 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
     const lines = [...groups.entries()].map(([k, ps]) => ({
       k, pts: ps.filter((p) => p.effort_rank !== null).sort((a, b) => a.effort_rank! - b.effort_rank!),
     })).filter((l) => l.pts.length > 1);
-    // one label per model, at its best point; best models first, skip any label that would overlap
-    const placed: { x0: number; x1: number; y0: number; y1: number }[] = [];
-    const labels: { k: string; x: number; y: number; text: string }[] = [];
-    // label at the best point that is in view (zoomed in, a model's best point may be off screen)
-    const best = [...groups.entries()].map(([k, ps]) => ({ k, vis: ps.filter(inside) }))
-      .filter((g) => g.vis.length > 0)
-      .map(({ k, vis }) => ({ k, p: vis.reduce((a, b) => (value(b, y)! > value(a, y)! ? b : a)) }))
-      .sort((a, b) => value(b.p, y)! - value(a.p, y)!);
-    for (const { k, p } of best) {
-      if (labels.length >= (full ? 80 : 18)) break;
-      if (!inside(p)) continue;
-      const lx = sx.map(value(p, x)!) + R + 4, ly = sy.map(value(p, y)!) + 4;
-      const w = p.model_name.length * 6.4, box_ = { x0: lx, x1: lx + w, y0: ly - 11, y1: ly + 3 };
-      if (box_.x1 > W - 4 || placed.some((b) => b.x0 < box_.x1 && box_.x0 < b.x1 && b.y0 < box_.y1 && box_.y0 < b.y1)) continue;
-      placed.push(box_);
-      labels.push({ k, x: lx, y: ly, text: p.model_name });
-    }
-    return { sx, sy, groups, lines, labels };
+    // every dot in view gets a label, placed in the nearest free gap (lib/labelPlace.ts). A model's best point
+    // carries its name; its other effort levels, joined to it by the line, carry just the level ("High").
+    const items: (LabelIn & { g: string })[] = [];
+    const ordered = [...groups.entries()].map(([k, ps]) => ({ k, vis: ps.filter(inside) })).filter((g) => g.vis.length > 0)
+      .map(({ k, vis }) => ({ k, vis, top: vis.reduce((a, b) => (value(b, y)! > value(a, y)! ? b : a)) }))
+      .sort((a, b) => value(b.top, y)! - value(a.top, y)!);
+    const item = (k: string, p: ChartPoint, text: string) =>
+      items.push({ key: `${k}|${p.config}`, g: k, x: sx.map(value(p, x)!), y: sy.map(value(p, y)!), r: R, text });
+    for (const { k, top, vis } of ordered) item(k, top, vis.length > 1 && (top.reasoning_effort !== null || top.mode) ? `${top.model_name} (${variant(top)})` : top.model_name);
+    for (const { k, top, vis } of ordered) for (const p of vis) if (p !== top) item(k, p, variant(p));
+    const group = new Map(items.map((i) => [i.key, i.g]));
+    const bounds = { x0: M.left, y0: M.top, x1: W - 4, y1: Hc - M.bottom };
+    const labels = !ready || !showLabels ? [] : placeLabels(items, bounds).map((l) => ({ ...l, g: group.get(l.key)! }));
+    return { sx, sy, groups, lines, labels, items, bounds };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [usable.length, points, x, y, logX, logY, W, Hc, view, fit, full, R]);
+  }, [usable.length, points, x, y, logX, logY, W, Hc, view, fit, full, R, ready, showLabels]);
 
   // ---- whiteboard controls (full screen) ----
   const plotRef = useRef(plot);
@@ -282,15 +262,20 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, [full, zoomAt]);
+  // a drag starts only once the pointer has moved a few pixels, so a plain click still reaches the dot under it
   const onPointerDown = (e: React.PointerEvent) => {
     if (!full || e.button !== 0 || !plot) return;
-    drag.current = { px: e.clientX, py: e.clientY, x: plot.sx.dom, y: plot.sy.dom };
-    setDragging(true);
-    (e.currentTarget as Element).setPointerCapture(e.pointerId);
+    drag.current = { px: e.clientX, py: e.clientY, x: plot.sx.dom, y: plot.sy.dom, moved: false };
   };
   const onPointerMove = (e: React.PointerEvent) => {
     const d = drag.current, pl = plotRef.current;
     if (!d || !pl) return;
+    if (!d.moved) {
+      if (Math.hypot(e.clientX - d.px, e.clientY - d.py) < 4) return;
+      d.moved = true;
+      setDragging(true);
+      (e.currentTarget as Element).setPointerCapture(e.pointerId);
+    }
     const dx = ((e.clientX - d.px) / (pl.sx.r1 - pl.sx.r0)) * (d.x[1] - d.x[0]);
     const dy = ((e.clientY - d.py) / (pl.sy.r1 - pl.sy.r0)) * (d.y[1] - d.y[0]);
     setView({ x: [d.x[0] - dx, d.x[1] - dx], y: [d.y[0] - dy, d.y[1] - dy] });
@@ -304,8 +289,22 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
   ));
   const missing = points.length - usable.length;
   const pointsByGroup = (k: string) => plot?.groups.get(k) ?? [];
-  const dim = hover ? (k: string) => (k === hover.group ? 1 : 0.18)
-    : keyHover ? (k: string) => (pointsByGroup(k).some((p) => keyOf(p) === keyHover) ? 1 : 0.12) : () => 1;
+  // emphasis: the hovered model (or key entry) is drawn again on top, bigger, outlined and bold; everything else
+  // only fades back a little (LOW), so the rest of the chart stays readable
+  // labels switched off: only the emphasised model (hovered, clicked, or picked in the key) gets labels
+  const shownLabels = useMemo(() => {
+    if (!plot) return [];
+    if (showLabels) return plot.labels;
+    if (!em && !keyHover) return [];
+    const on = (g: string) => (em ? g === em.group : (plot.groups.get(g) ?? []).some((p) => keyOf(p) === keyHover));
+    const pick = plot.items.filter((i) => on(i.g));
+    const gOf = new Map(pick.map((i) => [i.key, i.g]));
+    return placeLabels(pick, plot.bounds).map((l) => ({ ...l, g: gOf.get(l.key)! }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [plot, showLabels, em, keyHover]);
+  const dim = em ? (k: string) => (k === em.group ? 1 : LOW)
+    : keyHover ? (k: string) => (pointsByGroup(k).some((p) => keyOf(p) === keyHover) ? 1 : LOW) : () => 1;
+  const litPoint = (k: string, p: ChartPoint) => (em ? k === em.group : keyHover ? keyOf(p) === keyHover : false);
 
   return (
     <div ref={root} className={`tc${pending ? " busy" : ""}${full ? " full" : ""}${dragging ? " dragging" : ""}`}>
@@ -314,6 +313,8 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
         <label className="tc-log"><input type="checkbox" checked={logY} onChange={(e) => setParam({ logy: e.target.checked === METRICS[y].log ? null : e.target.checked ? "1" : "0" })} /> log</label>
         <label>X axis <select value={x} onChange={(e) => setParam({ x: e.target.value, logx: null })}>{options(x)}</select></label>
         <label className="tc-log"><input type="checkbox" checked={logX} onChange={(e) => setParam({ logx: e.target.checked === METRICS[x].log ? null : e.target.checked ? "1" : "0" })} /> log</label>
+        <label className="tc-log" title="Off: labels appear only on the model you hover"><input type="checkbox" checked={showLabels}
+          onChange={(e) => setParam({ labels: e.target.checked ? null : "0" })} /> Labels</label>
         <label>Colour by <select value={colorBy} onChange={(e) => setParam({ color: e.target.value === "developer" ? null : e.target.value, grey: null })}>
           <option value="developer">Developer</option><option value="yugos">Yugos availability</option>
           <option value="effort">Effort level</option><option value="none">One colour</option>
@@ -352,7 +353,7 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
                 ) : <span className="tc-swatch" style={{ background: k.color }} aria-hidden="true" />}
                 <button type="button" className="tc-key-name" aria-pressed={!greySet.has(k.id)} onFocus={() => setKeyHover(k.id)}
                         onBlur={() => setKeyHover(null)} onClick={() => toggleGrey(k.id)}
-                        title={k.title ?? (greySet.has(k.id) ? "Click to colour again" : "Hover to highlight · click to grey out")}>
+                        title={`${k.title ? `${k.title}\n` : ""}${keyClickHint(keys.map((e) => e.id), grey, k.id, { on: "colour it again", off: "grey it out" })}`}>
                   {k.label} <span className="tc-key-n">{k.count}</span>
                 </button>
                 {custom[k.id] && (
@@ -406,50 +407,67 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
             {[...plot.groups.entries()].map(([k, ps]) => ps.map((p) => (
               <circle key={`${k}${p.config}`} cx={plot.sx.map(value(p, x)!)} cy={plot.sy.map(value(p, y)!)} r={p.yugos_providers.length ? R : R - 0.5}
                       className={`tc-dot${p.yugos_providers.length ? "" : " hollow"}`}
-                      style={{ opacity: keyHover && keyOf(p) !== keyHover ? 0.12 : dim(k), ["--c" as string]: colorOfKey(keyOf(p)) }} />
+                      style={{ opacity: keyHover && keyOf(p) !== keyHover ? LOW : dim(k), ["--c" as string]: colorOfKey(keyOf(p)) }} />
             )))}
-            </g>
-            {/* selective labels: one per model at its best point (and the hovered model) */}
-            {plot.labels.map((l) => (
-              <text key={l.k} x={l.x} y={l.y} className="tc-label"
-                    style={{ opacity: hover ? (hover.group !== l.k ? 0.15 : 1)
-                      : keyHover ? (pointsByGroup(l.k).some((p) => keyOf(p) === keyHover) ? 1 : 0.15) : 1 }}>{l.text}</text>
-            ))}
-            {hover && !plot.labels.some((l) => l.k === hover.group) && (
-              <text x={hover.px + R + 4} y={hover.py + 4} className="tc-label">{hover.p.model_name}</text>
+            {/* the emphasised model on top: thicker line, bigger outlined dots */}
+            {(em || keyHover) && (
+              <g className="tc-hl">
+                {plot.lines.filter((l) => l.pts.some((p) => litPoint(l.k, p))).map((l) => (
+                  <polyline key={`hl${l.k}`} className="tc-line hl" style={{ ["--c" as string]: colorOfKey(keyOf(l.pts[0])) }}
+                    points={l.pts.map((p) => `${plot.sx.map(value(p, x)!)},${plot.sy.map(value(p, y)!)}`).join(" ")} />
+                ))}
+                {[...plot.groups.entries()].map(([k, ps]) => ps.filter((p) => litPoint(k, p)).map((p) => (
+                  <circle key={`hl${k}${p.config}`} cx={plot.sx.map(value(p, x)!)} cy={plot.sy.map(value(p, y)!)} r={R + 1.5}
+                          className={`tc-dot hl${p.yugos_providers.length ? "" : " hollow"}`} style={{ ["--c" as string]: colorOfKey(keyOf(p)) }} />
+                )))}
+              </g>
             )}
+            </g>
+            {/* every dot labelled; a label set apart from its dot has a leader line */}
+            {shownLabels.map((l) => {
+              const on = em ? em.group === l.g : keyHover ? pointsByGroup(l.g).some((p) => keyOf(p) === keyHover) : null;
+              const o = on === null ? (l.crowded ? 0.3 : 1) : on ? 1 : LOW_LABEL;
+              return (
+                <g key={l.key} style={{ opacity: o }} className={on ? "tc-lab-hl" : undefined}>
+                  {l.leader && <line x1={l.leader[0]} y1={l.leader[1]} x2={l.leader[2]} y2={l.leader[3]} className="tc-leader" />}
+                  <text x={l.tx} y={l.ty} className="tc-label">{l.text}</text>
+                </g>
+              );
+            })}
             {/* hit targets bigger than the marks */}
             {[...plot.groups.entries()].map(([k, ps]) => ps.map((p) => {
               const px = plot.sx.map(value(p, x)!), py = plot.sy.map(value(p, y)!);
               return (
                 <circle key={`h${k}${p.config}`} cx={px} cy={py} r={Math.max(12, R + 6)} className="tc-hit" tabIndex={0}
                         aria-label={`${p.model_name} ${variant(p)}: ${my.short} ${my.format(value(p, y)!)}, ${mx.short} ${mx.format(value(p, x)!)}`}
-                        onMouseEnter={() => setHover({ group: k, p, px, py })} onFocus={() => setHover({ group: k, p, px, py })}
-                        onBlur={() => setHover(null)} />
+                        onMouseEnter={() => setHover({ group: k, p, px, py })} onMouseLeave={() => setHover(null)}
+                        onFocus={() => setHover({ group: k, p, px, py })} onBlur={() => setHover(null)}
+                        onClick={(e) => { e.stopPropagation(); setPinned((c) => (c && c.group === k && c.p.config === p.config ? null : { group: k, p, px, py })); }}
+                        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setPinned((c) => (c && c.p.config === p.config && c.group === k ? null : { group: k, p, px, py })); } }} />
               );
             }))}
           </svg>
         )}
-        {hover && plot && (
-          <div className="tc-tip" style={{ left: Math.min(hover.px + 14, W - 250), top: Math.min(Math.max(hover.py - 10, 0), Hc - 150) }}>
-            <b>{hover.p.model_name}</b> <span className="subtle">{variant(hover.p)}</span>
-            <div className="subtle"><span className="tc-swatch" style={{ background: colorOfKey(keyOf(hover.p)) }} aria-hidden="true" /> {hover.p.provider}</div>
-            <div>{my.short}: <b>{my.format(value(hover.p, y)!)}</b></div>
-            <div>{mx.short}: <b>{mx.format(value(hover.p, x)!)}</b></div>
-            {(plot.groups.get(hover.group) ?? []).length > 1 && (
+        {pinned && plot && (
+          <div className="tc-tip" style={{ left: Math.min(pinned.px + 14, W - 250), top: Math.min(Math.max(pinned.py - 10, 0), Hc - 150) }}>
+            <b>{pinned.p.model_name}</b> <span className="subtle">{variant(pinned.p)}</span>
+            <div className="subtle"><span className="tc-swatch" style={{ background: colorOfKey(keyOf(pinned.p)) }} aria-hidden="true" /> {pinned.p.provider}</div>
+            <div>{my.short}: <b>{my.format(value(pinned.p, y)!)}</b></div>
+            <div>{mx.short}: <b>{mx.format(value(pinned.p, x)!)}</b></div>
+            {(plot.groups.get(pinned.group) ?? []).length > 1 && (
               <div className="tc-ladder">
-                {[...(plot.groups.get(hover.group) ?? [])].sort((a, b) => (a.effort_rank ?? -1) - (b.effort_rank ?? -1)).map((p) => (
-                  <span key={p.config} className={p.config === hover.p.config ? "on" : ""}>{variant(p)} {my.format(value(p, y)!)}</span>
+                {[...(plot.groups.get(pinned.group) ?? [])].sort((a, b) => (a.effort_rank ?? -1) - (b.effort_rank ?? -1)).map((p) => (
+                  <span key={p.config} className={p.config === pinned.p.config ? "on" : ""}>{variant(p)} {my.format(value(p, y)!)}</span>
                 ))}
               </div>
             )}
-            <div className="muted small">{hover.p.source_name}{hover.p.yugos_providers.length ? ` · Yugos: ${hover.p.yugos_providers.join(", ")}` : " · not on Yugos"}</div>
+            <div className="muted small">{pinned.p.source_name}{pinned.p.yugos_providers.length ? ` · Yugos: ${pinned.p.yugos_providers.join(", ")}` : " · not on Yugos"}</div>
           </div>
         )}
       </div>
       <p className="muted small tc-note">
         {usable.length} of {points.length} model configurations have both values{missing ? ` (${missing} lack ${[cov[x] < points.length ? mx.short.toLowerCase() : "", cov[y] < points.length ? my.short.toLowerCase() : ""].filter(Boolean).join(" or ")}${logX || logY ? " or are ≤ 0 on a log axis" : ""})` : ""}.
-        Each point is a configuration’s latest result; the table below has every result.
+        Each point is a configuration’s latest result; the table below has every result. Hover a dot to highlight its model; click it for its values.
         {full && " Wheel or pinch to zoom around the pointer · drag to pan · Shift+wheel to scroll sideways · double-click to fit · Esc to leave."}
       </p>
     </div>

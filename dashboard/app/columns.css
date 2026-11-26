@@ -187,3 +187,63 @@ table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
 .rb-table > tbody > tr.zb > td,
 .bl-grid > .bl-row.zb,
 .bl-matrix > .bl-mrow:not(.bl-head):nth-child(odd) { background-image: linear-gradient(var(--zebra), var(--zebra)); }
+
+
+/* Benchmark list: combined chart of the filtered benchmarks (components/MultiBenchmarkChart.tsx) */
+.mc { margin-top: 16px; padding: 14px 16px; }
+.mc-head { display: flex; gap: 16px; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
+.mc-head h2 { margin: 0 0 2px; font-size: 16px; }
+.mc-head p { margin: 0; max-width: 820px; }
+.mc-draw { display: inline-flex; gap: 10px; align-items: center; flex-shrink: 0; }
+.mc-draw .button { min-width: 88px; }
+.mc-stale { color: var(--warn-ink, #8a5a00); }
+.mc-lines { display: inline-flex; gap: 10px; align-items: center; }
+.mc-seg button { height: 28px; font-size: 12.5px; }
+.mc-picker { margin-left: auto; }
+.mc-key .tc-key-item.empty { opacity: .55; }
+.mc .mc-icon { display: inline-block; flex-shrink: 0; vertical-align: -2px; overflow: visible; }
+.mc-spread { stroke: var(--tc-other); stroke-width: 2.5; }
+.mc-curve { stroke-width: 1.5; stroke-dasharray: 5 3; }
+.mc-plot { position: relative; width: 100%; }
+.tc.full .mc-plot { flex: 1; cursor: grab; touch-action: none; }
+.tc.full.dragging .mc-plot { cursor: grabbing; }
+.mc-grid { display: grid; gap: 12px; }
+.mc-panel { border: 1px solid var(--line); border-radius: 8px; padding: 6px 0 0; min-width: 0; }
+.mc-panel-title { display: flex; gap: 6px; align-items: center; padding: 0 10px 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mc-tip { max-width: 300px; min-width: 220px; }
+.mc-tip-all { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 11.5px; }
+.mc-tip-all td { padding: 1px 4px 1px 0; white-space: nowrap; }
+.mc-tip-all td:first-child { white-space: normal; }
+.mc-tip-all td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.mc-tip-all tr.on td { font-weight: 600; }
+.mc-tip-all thead td { color: var(--muted); font-size: 11px; }
+.tc-leader { stroke: var(--muted); stroke-width: 0.75; opacity: .7; }
+/* emphasis on hover: the rest fades smoothly and only part way; the emphasised model is drawn on top, bold */
+.tc-dot, .tc-line, .tc-plot svg g { transition: opacity .22s ease; }
+.tc-hl { pointer-events: none; animation: tc-hl-in .18s ease; }
+@keyframes tc-hl-in { from { opacity: 0; } to { opacity: 1; } }
+.tc-dot.hl { stroke: var(--ink); stroke-width: 1.75; }
+.tc-dot.hl.hollow { stroke: var(--c, var(--tc-c1)); stroke-width: 2.5; }
+.tc-line.hl { stroke-width: 3.5; opacity: 1; }
+.mc-spread.hl { stroke: var(--ink-2); stroke-width: 3.5; opacity: .9; }
+.tc-lab-hl .tc-label { font-weight: 700; fill: var(--ink); }
+/* chart keys: an entry that is on is a filled chip with a solid edge; one that is off is a dashed outline,
+   struck through, with a hollow swatch */
+.tc-key-item {
+  background: color-mix(in srgb, var(--ink) 6%, var(--surface)); border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+  font-weight: 500; transition: background .15s, border-color .15s, color .15s;
+}
+.tc-key-item.off { background: transparent; border-style: dashed; border-color: var(--line); color: var(--muted); font-weight: 400; }
+.tc-key-item.off .tc-key-name { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 70%, transparent); }
+.tc-key-item.off .tc-swatch { background: transparent !important; box-shadow: inset 0 0 0 1.5px var(--muted) !important; opacity: 1; }
+.tc-key-item.off .mc-icon .tc-dot { fill: transparent; stroke: var(--muted); stroke-width: 1.2; }
+.tc-key-item.off .tc-key-n { color: var(--muted); }
+/* combined chart: model labels are outlined in the developer's colour (outline, then a thin light halo, then dark text) */
+.mc-label-out { fill: none; stroke: var(--c, var(--tc-other)); stroke-width: 4; stroke-opacity: .5; stroke-linejoin: round; font-size: 11px; pointer-events: none; }
+.mc-label-out + .tc-label { stroke-width: 2.6px; }
+.tc-lab-hl .mc-label-out { stroke-width: 4.6; stroke-opacity: .8; font-weight: 700; }
+.mc-devkey { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; margin: 0 0 6px; }
+.mc-devchip { padding: 0 5px; line-height: 20px; color: var(--ink);
+  text-shadow: 1px 0 var(--surface), -1px 0 var(--surface), 0 1px var(--surface), 0 -1px var(--surface),
+    1.8px 0 var(--c), -1.8px 0 var(--c), 0 1.8px var(--c), 0 -1.8px var(--c); }
+.mc-devchip { --c: color-mix(in srgb, var(--dev) 50%, transparent); }

@@ -11,6 +11,7 @@ export interface ChartPoint {
   reasoning_effort: string | null;
   mode: string | null;
   effort_rank: number | null;
+  benchmark_id: string;
   benchmark_name: string;
   benchmark_version: string | null;
   source_name: string;

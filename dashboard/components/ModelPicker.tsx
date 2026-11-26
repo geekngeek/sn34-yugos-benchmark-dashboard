@@ -25,9 +25,10 @@ export interface PickerProps {
   defaults: string[];              // what "Reset (to default)" gives
   defaultNote: string;             // how the default was chosen, shown in the panel
   yugos: string[];                 // model IDs selected on the Yugos models page (for the "In Yugos" filter)
+  onApply?: (configs: string[] | null) => void;   // given: report the selection (null = the default) instead of writing ?models=
 }
 
-export function ModelPicker({ configs, selected, defaults, defaultNote, yugos }: PickerProps) {
+export function ModelPicker({ configs, selected, defaults, defaultNote, yugos, onApply }: PickerProps) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
@@ -62,6 +63,12 @@ export function ModelPicker({ configs, selected, defaults, defaultNote, yugos }:
   /** write the selection to the URL (?models=…); the page reloads its tables from it */
   const apply = (next: Set<string>) => {
     setSel(next);
+    if (onApply) {
+      const list = all.filter((c) => next.has(c));
+      const isDefault = list.length === defaults.filter((c) => all.includes(c)).length && list.every((c) => defaults.includes(c));
+      onApply(isDefault ? null : list);
+      return;
+    }
     const qs = new URLSearchParams(params.toString());
     qs.delete("page");
     const list = all.filter((c) => next.has(c));
