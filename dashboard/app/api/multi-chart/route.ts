@@ -1,6 +1,8 @@
 import { api, type BenchmarkInfo, type ModelConfig } from "@/lib/api";
 import { parentOf, readBenchmarkMap, readListRows, type MapRef } from "@/lib/benchmarkMap";
+import { readList } from "@/lib/benchmarkList";
 import { readChartColors } from "@/lib/chartColors";
+import { parseDifficulty, spanOf, type Difficulty } from "@/lib/difficulty";
 import type { ChartPoint } from "@/lib/chartMetrics";
 import type { MultiChartData, Series } from "@/lib/multiChart";
 import { readModelLinks, readState } from "@/lib/yugosModels";
@@ -17,9 +19,20 @@ export async function POST(req: Request) {
   const nos = Array.isArray(body.nos) ? body.nos.filter((n): n is string => typeof n === "string").slice(0, 400) : [];
   const models = Array.isArray(body.models) ? body.models.filter((c): c is string => typeof c === "string") : null;
 
-  const [rows, map, dbList] = await Promise.all([
-    readListRows(), readBenchmarkMap(), api.benchmarks().catch((): BenchmarkInfo[] => []),
+  const [rows, map, dbList, csv] = await Promise.all([
+    readListRows(), readBenchmarkMap(), api.benchmarks().catch((): BenchmarkInfo[] => []), readList(),
   ]);
+  // difficulty per row, as the Benchmark list shows it (a benchmark: the span of its sub-benchmarks' levels)
+  const col = (n: string) => csv.header.findIndex((h) => h.trim().toLowerCase() === n.toLowerCase());
+  const dCol = col("Difficulty"), ddCol = col("Difficulty detail");
+  const own = new Map<string, Difficulty>(csv.rows.filter((r) => (r[0] ?? "").trim()).map((r) => [r[0].trim(),
+    parseDifficulty(dCol < 0 ? "" : r[dCol] ?? "", ddCol < 0 ? "" : r[ddCol] ?? "")]));
+  const levelOf = (no: string): { difficulty: Difficulty; span: boolean } => {
+    const d = own.get(no) ?? parseDifficulty("", "");
+    if (parentOf(no)) return { difficulty: d, span: false };
+    const kids = [...own.entries()].filter(([k]) => parentOf(k) === no).map(([, v]) => v);
+    return { difficulty: spanOf(kids, d), span: kids.length > 0 };
+  };
   const byKey = new Map(dbList.map((b) => [`${b.benchmark_name}|${b.benchmark_version ?? ""}`, b]));
   const info = (r: MapRef) => byKey.get(`${r.name}|${r.version ?? ""}`);
   const nameOf = new Map(rows.map((r) => [r.no, r.name]));
@@ -38,7 +51,7 @@ export async function POST(req: Request) {
       const b = info(r)!;
       const s = series.get(b.id);
       if (s) { if (!s.nos.includes(no)) s.nos.push(no); continue; }
-      series.set(b.id, { id: b.id, label: nameOf.get(no) ?? b.benchmark_name, root: parentOf(no) ? nameOf.get(parentOf(no)!) ?? null : null, db: [b.benchmark_name, b.benchmark_version].filter(Boolean).join(" · "),
+      series.set(b.id, { id: b.id, label: nameOf.get(no) ?? b.benchmark_name, root: parentOf(no) ? nameOf.get(parentOf(no)!) ?? null : null, ...levelOf(no), db: [b.benchmark_name, b.benchmark_version].filter(Boolean).join(" · "),
                          nos: [no], results: b.result_count, sources: b.sources });
     }
   }

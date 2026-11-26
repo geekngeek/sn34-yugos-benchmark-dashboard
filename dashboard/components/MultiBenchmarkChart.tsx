@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { MultiChartData, Series } from "@/lib/multiChart";
 import { ModelPicker } from "@/components/ModelPicker";
+import { Stars } from "@/components/Stars";
+import { difficultyText } from "@/lib/difficulty";
 import { LAB_ORDER, LAB_SLOT, LOW, LOW_LABEL } from "@/components/TradeoffChart";
 import { AXIS_ORDER, METRICS, defaultAxes, value, type ChartPoint, type MetricKey } from "@/lib/chartMetrics";
 import { autoDomain, scale, zoomDom, type Dom } from "@/lib/chartScale";
@@ -444,13 +446,15 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
       <div className="tc-key mc-key" role="group" aria-label="Benchmarks" onMouseLeave={() => setKeyHover(null)}>
         {keyOrder.map(({ s, i }) => {
           const cnt = drawable.get(s.id) ?? 0, na = cnt === 0, off = !na && hidden.has(s.id);
-          const about = `${s.root ? `${s.root} › ` : ""}${s.label}\n${s.db} · ${s.sources.join(", ")} · Benchmark list ${s.nos.join(", ")}`;
+          const about = `${s.root ? `${s.root} › ` : ""}${s.label}\nDifficulty: ${difficultyText(s.difficulty)}${s.span ? " (range of its sub-benchmarks)" : ""}\n${s.db} · ${s.sources.join(", ")} · Benchmark list ${s.nos.join(", ")}`;
           return (
             <span key={s.id} className={`tc-key-item${off ? " off" : ""}${na ? " na" : ""}`} onMouseEnter={() => !off && !na && setKeyHover(`s:${s.id}`)} onMouseLeave={() => setKeyHover(null)}>
               <ShapeIcon i={i} color={off || na ? "var(--tc-other)" : seriesColor(s)} />
               <button type="button" className="tc-key-name" aria-pressed={!off && !na} disabled={na} onClick={() => toggleHidden(s.id)}
                       title={`${about}\n${na ? `Not drawn: ${whyNot(s.id)}. Pick other axes to see it.` : keyClickHint(seriesIds, [...hidden], s.id, { on: "show it again", off: "hide it" })}`}>
-                {s.root && <span className="mc-key-root">{s.root}</span>}{s.label} <span className="tc-key-n">{na ? "–" : cnt}</span>
+                {s.root && <span className="mc-key-root">{s.root}</span>}{s.label}
+                {s.difficulty.kind !== "none" && <span className="mc-key-stars"><Stars d={s.difficulty} span={s.span} /></span>}
+                <span className="tc-key-n">{na ? "–" : cnt}</span>
               </button>
             </span>
           );
@@ -512,7 +516,8 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
               const dom = { x: autoDomain(pts.map((p) => val(p, x)!), logX), y: fitAll.y };
               return (
                 <div key={s.id} className="mc-panel">
-                  <div className="mc-panel-title small"><ShapeIcon i={seriesIdx.get(s.id) ?? 0} color={seriesColor(s)} /> {s.root && <span className="mc-key-root">{s.root}</span>}<b>{s.label}</b> <span className="muted">{pts.length}</span></div>
+                  <div className="mc-panel-title small"><ShapeIcon i={seriesIdx.get(s.id) ?? 0} color={seriesColor(s)} /> {s.root && <span className="mc-key-root">{s.root}</span>}<b>{s.label}</b>
+                    {s.difficulty.kind !== "none" && <Stars d={s.difficulty} span={s.span} />} <span className="muted">{pts.length}</span></div>
                   <Plot {...plotProps} pts={pts} W={panelW} Hh={ph} m={GM} id={s.id} dom={dom} labelsMax={showLabels ? 1 : 0} small />
                 </div>
               );

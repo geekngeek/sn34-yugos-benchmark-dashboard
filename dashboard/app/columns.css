@@ -281,3 +281,7 @@ table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
 .tc-dot.front.hollow { stroke: var(--c, var(--tc-c1)); stroke-width: 2.5; }
 /* labels of the dots on a benchmark frontier are bold */
 .mc-lab-front .tc-label, .mc-lab-front .mc-label-out { font-weight: 700; }
+/* difficulty stars inside a benchmark key chip (same stars as the Benchmark list table) */
+.mc-key-stars { margin: 0 6px 0 6px; display: inline-flex; vertical-align: -1px; }
+.mc-key-stars .stars { font-size: 10.5px; }
+.tc-key-item.off .mc-key-stars, .tc-key-item.na .mc-key-stars { opacity: .5; }
