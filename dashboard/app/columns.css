@@ -166,3 +166,24 @@ select.tc-key-add { width: auto; height: 26px; font-size: 12px; border-radius: 9
 .tc-fs, .tc-zoom .button { height: 30px; font-size: 12.5px; padding: 0 10px; }
 .tc-zoom { display: inline-flex; gap: 4px; }
 .tc-zoom .button:disabled { opacity: .4; }
+
+/* filter dropdowns: a long hint never squeezes the option's name (it shortens with "…"; full text on hover) */
+.multi-option .multi-label { flex: 1 1 auto; min-width: 45%; overflow-wrap: anywhere; }
+.multi-option .multi-hint { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; text-align: right; }
+.bl-filters .multi-panel { width: max(100%, 360px); }
+.bl-filters .multi-list { max-height: min(60vh, 460px); }
+
+/* ---- odd / even rows in every table ---------------------------------------------------------------
+   One translucent tint laid over every second row, so it works on top of each table's own row colours
+   (parent/sub rows, open rows); hover and selection still show. Yugos models has its own bands. */
+:root { --zebra: rgba(11, 11, 11, 0.05); }
+@media (prefers-color-scheme: dark) { :root { --zebra: rgba(255, 255, 255, 0.05); } }
+/* real tables: every second body row (Results, sub-benchmarks, offers, write-ups); the shared grid's faint stripe is replaced */
+table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) { background: transparent; }
+table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
+.ym-offer-table > tbody > tr:nth-child(even) > td,
+.rb-md-table > tbody > tr:nth-child(even) > td { background-image: linear-gradient(var(--zebra), var(--zebra)); }
+/* tables whose rows can open or hide: the component marks alternate rows (.zb) */
+.rb-table > tbody > tr.zb > td,
+.bl-grid > .bl-row.zb,
+.bl-matrix > .bl-mrow:not(.bl-head):nth-child(odd) { background-image: linear-gradient(var(--zebra), var(--zebra)); }

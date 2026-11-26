@@ -185,7 +185,7 @@ Every known LLM-router benchmark and router-relevant data source (32), one row e
   ```bash
   python3 -I scripts/build_router_benchmarks.py /root/subnet_analysis/research
   ```
-  It reads `router_benchmarks_complete_2026-11-26.md` (overview table), `router_benchmark_00_index_2026-11-26.md` (key findings) and `router_benchmark_NN_*_2026-11-26.md` (one write-up per benchmark). Re-run after the research changes.
+  It reads `router_benchmarks_complete_2026-11-26.md` (overview table), `router_benchmark_00_index_2026-11-26.md` (key findings) and `router_benchmark_NN_*_2026-11-26.md` (one write-up per benchmark) and `router_benchmark_public_fields_2026-11-26.md` (which per-question fields are public — Prompt, Model, Answer, Score, Cost, Tokens, Effort — and the licence; shown as tags in the "Public per question" column, matched by row number). Re-run after the research changes.
 - **Filters:** search (also searches the full write-ups), type, "For Yugos" (High / Medium / Low–Medium / Low / No) and "Newest models" (Yes / Partly / Unknown / No) chips. Sorting by #, name, type, newest models or usefulness.
 - Code: `app/router-benchmarks/` (page + `router-benchmarks.css`, classes `rb-`), `components/RouterBenchmarksTable.tsx` (table + small markdown renderer), `lib/routerBenchmarks.ts` (reads the JSON).
 
@@ -198,7 +198,7 @@ Drag a column header onto another to move it, or drag the grip on a header's rig
 
 ## Benchmark list filters
 
-Under the toolbar: **Sub-benchmark category** (keeps sub-benchmarks whose own category is any of the chosen ones, shown open under their benchmark; benchmarks with none are hidden) and **Reports (all of)** (keeps benchmarks that report every chosen parameter, e.g. Cost + Time). "Shown on the site only" counts a parameter only when the benchmark's own page shows it, not just its data file or paper. Filters apply to the benchmark rows; a benchmark that passes keeps its sub-benchmarks. They work in both the Tree and Parameters views.
+Under the toolbar: **Sub-benchmark category**, a topic (Coding, Math, Reasoning & puzzles, Science, Knowledge & QA, Agentic & tool use, Long context, Vision & documents, …; rules in `dashboard/lib/benchmarkTopics.ts`). A sub-benchmark's topics come from its name, else its focus, else its parent benchmark (the list's own Category column describes each source's site structure, so it is not used). Choosing topics keeps matching sub-benchmarks across every benchmark, shown open under their benchmark; the details panel shows a row's topics and where they came from and **Reports (all of)** (keeps benchmarks that report every chosen parameter, e.g. Cost + Time). "Shown on the site only" counts a parameter only when the benchmark's own page shows it, not just its data file or paper. Filters apply to the benchmark rows; a benchmark that passes keeps its sub-benchmarks. They work in both the Tree and Parameters views.
 
 ## Links keep the view (URL query)
 

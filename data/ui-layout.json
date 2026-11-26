@@ -59,7 +59,12 @@
    ],
    "widths": {
     "model": 541,
-    "notes": 89
+    "notes": 89,
+    "efforts": 183,
+    "reference": 84,
+    "expires": 81,
+    "providers": 113,
+    "cheapest": 104
    }
   },
   "router-benchmarks": {

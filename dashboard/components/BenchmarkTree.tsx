@@ -6,6 +6,7 @@ import { HoverTip } from "@/components/HoverTip";
 import { Stars } from "@/components/Stars";
 import { difficultyText, LEVEL_HELP, type Difficulty } from "@/lib/difficulty";
 import { MultiSelect } from "@/components/MultiSelect";
+import { TOPICS, TOPIC_LABEL, parentTopics, subTopics } from "@/lib/benchmarkTopics";
 import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
 import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { METRIC_INFO, METRIC_KEYS, reportedKeys, type MetricKey, type Metrics } from "@/lib/metrics";
@@ -42,7 +43,6 @@ function parseTop(text: string): Ranked[] | null {
   return out;
 }
 
-const NO_CATEGORY = "(no category)";
 const shortUrl = (u: string) => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 const yes = (v: string) => v.trim().toLowerCase() === "yes";
 
@@ -100,9 +100,14 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   const text = (i: TreeItem) => [i.name, i.category, i.focus, i.top, i.yugosUse, i.notes, i.myNotes, i.url,
     ...i.metrics.params.map((m) => `${m.key} ${METRIC_INFO[m.key].title} ${m.label} ${m.detail}`)].join(" ").toLowerCase();
   const match = (i: TreeItem) => (!q || text(i).includes(q)) && (!onlyNoted || i.myNotes.trim() !== "");
-  const catOf = (i: TreeItem) => i.category.trim() || NO_CATEGORY;
+  // a sub-benchmark's topics (lib/benchmarkTopics.ts): from its name, else its focus, else its parent
+  const topicsOf = useMemo(() => {
+    const m = new Map<string, string[]>();
+    for (const p of tree) for (const c of p.children) m.set(c.no, subTopics(c, p).topics);
+    return m;
+  }, [tree]);
   // Category filters sub-benchmarks by their own category; Reports filters the benchmark (parent) itself
-  const kidOk = (c: TreeItem) => !cats.length || cats.includes(catOf(c));
+  const kidOk = (c: TreeItem) => !cats.length || (topicsOf.get(c.no) ?? []).some((t) => cats.includes(t));
   const passes = (p: TreeItem) => {
     if (!params.length) return true;
     const got = reportedKeys(p.metrics);
@@ -126,7 +131,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
       if (filtering ? kids.length > 0 : open.has(p.no)) for (const c of kids) rows.push({ item: c, depth: 1, parent: p, shownKids: 0 });
     }
     return rows;
-  }, [tree, open, q, onlyYugos, onlyNoted, cats, params, onSiteOnly]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [tree, open, q, onlyYugos, onlyNoted, cats, params, onSiteOnly, topicsOf]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const byNo = useMemo(() => {
     const m = new Map<string, { item: TreeItem; parent?: TreeItem }>();
@@ -141,24 +146,25 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     return n;
   });
   const parentsWithKids = tree.filter((p) => p.children.length).map((p) => p.no);
-  // the sub-benchmarks' own categories, with how many sub-benchmarks (and in which benchmarks) use each
+  // topics with how many sub-benchmarks (in how many benchmarks) have each
   const catOptions = useMemo(() => {
     const n = new Map<string, { subs: number; in: Set<string> }>();
-    for (const p of tree) for (const c of p.children) {
-      const k = catOf(c);
-      const e = n.get(k) ?? { subs: 0, in: new Set<string>() };
+    for (const p of tree) for (const c of p.children) for (const t of topicsOf.get(c.no) ?? []) {
+      const e = n.get(t) ?? { subs: 0, in: new Set<string>() };
       e.subs += 1; e.in.add(p.name);
-      n.set(k, e);
+      n.set(t, e);
     }
-    return [...n.entries()].sort(([a], [b]) => (a === NO_CATEGORY ? 1 : b === NO_CATEGORY ? -1 : a.localeCompare(b)))
-      .map(([c, e]) => ({ value: c, label: c,
-        hint: `${e.subs} sub · ${e.in.size === 1 ? [...e.in][0] : `${e.in.size} benchmarks`}` }));
-  }, [tree]); // eslint-disable-line react-hooks/exhaustive-deps
+    return TOPICS.filter((t) => n.has(t.id)).map((t) => {
+      const e = n.get(t.id)!;
+      return { value: t.id, label: t.label, hint: `${e.subs} · ${e.in.size} bench`,
+               title: `${t.label}: ${e.subs} sub-benchmarks in ${e.in.size} benchmarks (${[...e.in].slice(0, 6).join(", ")}${e.in.size > 6 ? ", …" : ""})` };
+    });
+  }, [tree, topicsOf]);
   const paramOptions = useMemo(() => METRIC_KEYS.map((k: MetricKey) => {
     const all = tree.filter((p) => reportedKeys(p.metrics).some((r) => r.key === k)).length;
     const page = tree.filter((p) => reportedKeys(p.metrics).some((r) => r.key === k && r.where === "page")).length;
-    return { value: k, label: METRIC_INFO[k].title, hint: `${METRIC_INFO[k].help.toLowerCase()} · ${all} (${page} on site)` };
-  }).filter((o) => !o.hint.endsWith(" 0 (0 on site)")), [tree]);
+    return { value: k, label: METRIC_INFO[k].title, hint: `${all} · ${page} on site`, title: `${METRIC_INFO[k].help}: ${all} benchmarks report it, ${page} on the site itself`, all };
+  }).filter((o) => o.all > 0), [tree]);
   const shownParents = visible.filter((r) => r.depth === 0).length;
   const subTotal = tree.reduce((n, p) => n + p.children.length, 0);
 
@@ -229,7 +235,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
         )}
       </p>
       <div className="bl-filters" role="group" aria-label="Filter benchmarks">
-        <MultiSelect id="bl-category" label="Sub-benchmark category" allLabel="All categories" options={catOptions} selected={cats}
+        <MultiSelect id="bl-category" label="Sub-benchmark category" allLabel="All categories" options={catOptions} selected={cats.filter((c) => TOPIC_LABEL[c])}
                      onChange={(v) => setCats(v)} />
         <MultiSelect id="bl-params" label="Reports (all of)" allLabel="Any parameters" options={paramOptions} selected={params}
                      onChange={(v) => setParams(v)} />
@@ -259,8 +265,11 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
               );
             })}
           </div>
-          {visible.length === 0 && <div className="bl-empty muted">No matches</div>}
-          {visible.map(({ item: i, depth, shownKids }) => {
+          {visible.length === 0 && <div className="bl-empty muted">
+            {onlyNoted && !tree.some((p) => p.myNotes.trim() || p.children.some((c) => c.myNotes.trim()))
+              ? "No benchmark has a note of yours yet: select a row and write one under My notes in the details panel."
+              : "No matches. Clear a filter to see more."}</div>}
+          {visible.map(({ item: i, depth, shownKids }, vi) => {
             const isOpen = depth === 0 && (filtering ? shownKids > 0 : open.has(i.no));
             const ranked = parseTop(i.top);
             const cells: Record<string, () => React.ReactNode> = {
@@ -330,7 +339,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
             return (
               <div key={i.no} id={`bl-${i.no}`} data-no={i.no} role="row" aria-level={depth + 1}
                    aria-expanded={depth === 0 && i.children.length ? isOpen : undefined} aria-selected={selected === i.no}
-                   className={`bl-row ${depth ? "sub" : "parent"}${selected === i.no ? " sel" : ""}${isOpen ? " open" : ""}`}
+                   className={`bl-row ${depth ? "sub" : "parent"}${selected === i.no ? " sel" : ""}${isOpen ? " open" : ""}${vi % 2 ? " zb" : ""}`}
                    onClick={() => { setSelected(i.no); setPanel(true); }}>
                 {cl.cols.map((c) => cells[c.key]())}
               </div>
@@ -419,6 +428,16 @@ function Details({ item, parent, onSaved, onPick, onClose, width, onResize }: {
         </Field>
       )}
       {item.focus && <Field label="Focus"><p>{item.focus}</p></Field>}
+      {(() => {   // the topics the category filter uses, and where they came from
+        const t = parent ? subTopics(item, parent) : { topics: parentTopics(item), from: "name" as const };
+        if (!t.topics.length) return null;
+        return (
+          <Field label="Topics (category filter)">
+            <p>{t.topics.map((id) => TOPIC_LABEL[id]).join(" · ")}
+              {parent && <span className="muted small"> — from its {t.from === "parent" ? "parent benchmark" : t.from}</span>}</p>
+          </Field>
+        );
+      })()}
       {item.top.trim() && (
         <Field label="Top ranked models">
           {ranked ? (

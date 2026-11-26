@@ -7,6 +7,8 @@ const FILE = path.join(process.cwd(), "..", "data", "router-benchmarks", "benchm
 export type Usefulness = "High" | "Medium" | "Low–Medium" | "Low" | "No" | "?";
 export type Freshness = "Yes" | "Partly" | "No" | "Unknown";
 
+import type { PublicField, PublicStatus } from "./routerPublicFields";
+
 export interface RouterBenchmark {
   num: number;
   group: "A" | "B" | "C" | "D";
@@ -15,6 +17,8 @@ export interface RouterBenchmark {
   creators: string;
   scale: string;
   models: string;
+  /** exact model names (newest / most notable first) and pool size, from data/router-benchmarks/model_pools.json */
+  pool?: { models: string[]; total: number | null; approx: boolean; note: string } | null;
   focus: string;
   newest: Freshness;
   newest_raw: string;
@@ -25,6 +29,9 @@ export interface RouterBenchmark {
   finding: string;
   file: string | null;
   detail_md: string;
+  /** which fields can be downloaded per question (null: not in the public-fields research) */
+  public: Record<PublicField, { status: PublicStatus; note: string }> | null;
+  licence: string | null;
 }
 
 export interface RouterBenchmarkCatalog {

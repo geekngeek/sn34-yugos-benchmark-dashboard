@@ -6,6 +6,7 @@ export interface Option {
   value: string;
   label: string;
   hint?: string;     // secondary text, also searched
+  title?: string;    // full description, shown on hover
   group?: string;    // options with a group are listed under a heading (also searched)
   groupValue?: string;  // group-selection mode: the value reported when the whole group is chosen
 }
@@ -124,7 +125,7 @@ export function MultiSelect({ id, label, allLabel, options, selected, selectedGr
 
   const optionRow = (o: Option) => (
     <li key={o.value} role="option" aria-selected={chosen.has(o.value) || groupOn(o)}>
-      <label className="multi-option">
+      <label className="multi-option" title={o.title ?? (o.hint ? `${o.label} · ${o.hint}` : undefined)}>
         <input type="checkbox" checked={chosen.has(o.value) || groupOn(o)} onChange={() => toggle(o)} />
         <span className="multi-label">{o.label}</span>
         {o.hint && <span className="multi-hint">{o.hint}</span>}

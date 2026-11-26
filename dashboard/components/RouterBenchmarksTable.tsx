@@ -2,10 +2,11 @@
 
 import { Fragment, useMemo, useState, type ReactNode } from "react";
 import type { Freshness, RouterBenchmark, Usefulness } from "@/lib/routerBenchmarks";
+import { PUBLIC_FIELDS, type PublicStatus } from "@/lib/routerPublicFields";
 import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
 
-type SortKey = "num" | "name" | "group" | "newest" | "yugos";
+type SortKey = "num" | "name" | "newest" | "yugos";
 
 const USE_RANK: Record<Usefulness, number> = { High: 0, Medium: 1, "Low–Medium": 2, Low: 3, No: 4, "?": 5 };
 const NEW_RANK: Record<Freshness, number> = { Yes: 0, Partly: 1, Unknown: 2, No: 3 };
@@ -14,18 +15,83 @@ const NEW_LEVELS: Freshness[] = ["Yes", "Partly", "Unknown", "No"];
 
 // columns in their default order and width (px); the user can drag and resize them (saved on the server)
 const COLS: ColDef[] = [
-  { key: "num", width: 46, min: 40, fixed: true }, { key: "name", width: 220, min: 120 }, { key: "group", width: 150, min: 90 },
+  { key: "num", width: 46, min: 40, fixed: true }, { key: "name", width: 220, min: 120 }, { key: "public", width: 600, min: 200 },
   { key: "creators", width: 190, min: 90 }, { key: "scale", width: 300, min: 120 }, { key: "models", width: 260, min: 100 },
   { key: "focus", width: 220, min: 100 }, { key: "newest", width: 92, min: 70, fixed: true }, { key: "yugos", width: 110, min: 80, fixed: true },
-  { key: "finding", width: 320, min: 120 }, { key: "link", width: 150, min: 70 },
+  { key: "finding", width: 320, min: 120 },
 ];
 const HEADS: Record<string, { label: string; sort?: SortKey; title?: string }> = {
-  num: { label: "#", sort: "num" }, name: { label: "Benchmark", sort: "name" }, group: { label: "Type", sort: "group" },
+  num: { label: "#", sort: "num" }, name: { label: "Benchmark", sort: "name" },
   creators: { label: "Creators / year" }, scale: { label: "Scale" }, models: { label: "Model pool" }, focus: { label: "Focus / stored data" },
   newest: { label: "Newest models", sort: "newest", title: "Has GPT-6 / Claude 5.x / Gemini 4 / DeepSeek V4-era models" },
   yugos: { label: "For Yugos", sort: "yugos", title: "How useful for building the Yugos router" },
-  finding: { label: "Key finding" }, link: { label: "Link" },
+  public: { label: "Public per question", title: "Which fields can be downloaded per question (✓ yes, ◐ partly, ✕ no, ? not stated), and the licence (blue open, grey mixed, red none). Dotted underline: hover for details." },
+  finding: { label: "Key finding" },
 };
+
+const STATUS_MARK: Record<PublicStatus, string> = { Yes: "✓", Partial: "◐", No: "✕", "?": "?" };
+const STATUS_WORD: Record<PublicStatus, string> = { Yes: "public", Partial: "partly public", No: "not public", "?": "not stated" };
+
+/** open licence, no licence, or something in between (mixed, unverified, rules) */
+function licenceKind(text: string): "open" | "none" | "mixed" {
+  const t = text.toLowerCase();
+  if (t === "?" || t.startsWith("none") || t.startsWith("data none") || t.startsWith("? ")) return "none";
+  const open = /\b(mit|apache|cc[- ]by|cdla)/.test(t);
+  return open && !/(none|\?|unverified|rule)/.test(t) ? "open" : "mixed";
+}
+
+/** GPT-6, Claude 5.x (Opus/Sonnet/Fable 5), Gemini 4, DeepSeek V4: the "newest models" generation */
+const NEWEST = /gpt-?6|(opus|sonnet|fable|haiku|mythos)[ -]?5|claude-(opus|sonnet|fable|haiku)-5|gemini[ -]?4|deepseek[ -]?v4/i;
+
+const SHOW_MODELS = 6;   // tags shown before the "+N" tag
+
+function ModelTags({ b }: { b: RouterBenchmark }) {
+  const [all, setAll] = useState(false);
+  const pool = b.pool;
+  if (!pool?.models.length) return <span className="subtle" title={b.models}>{b.models || "—"}</span>;
+  const shown = all ? pool.models : pool.models.slice(0, SHOW_MODELS);
+  // models not shown: the rest of the pool when its size is known, else the rest of the list
+  const rest = (pool.total ?? pool.models.length) - shown.length;
+  const unlisted = pool.total !== null ? pool.total - pool.models.length : 0;
+  const tip = [`${pool.total === null ? "Pool size not stated" : `${pool.approx ? "About " : ""}${pool.total.toLocaleString("en-US")} models`}`,
+               pool.note, all ? "" : `All listed: ${pool.models.join(", ")}`].filter(Boolean).join("\n");
+  return (
+    <span className="rb-tags wrap">
+      {shown.map((m) => (
+        <span key={m} className={`rb-tag m-model${NEWEST.test(m) ? " m-newest" : ""}`} title={NEWEST.test(m) ? `${m} — newest generation` : m}>{m}</span>
+      ))}
+      {rest > 0 && !all && (
+        <button type="button" className="rb-tag m-rest" title={tip}
+                onClick={(e) => { e.stopPropagation(); setAll(true); }}>
+          +{pool.approx ? "~" : ""}{rest.toLocaleString("en-US")}
+        </button>
+      )}
+      {all && unlisted > 0 && <span className="rb-tag m-rest static" title={tip}>+{pool.approx ? "~" : ""}{unlisted.toLocaleString("en-US")} not named</span>}
+      {all && <button type="button" className="link small" onClick={(e) => { e.stopPropagation(); setAll(false); }}>less</button>}
+      {rest <= 0 && pool.total === null && pool.approx && <span className="rb-tag m-rest static" title={tip}>+ more</span>}
+    </span>
+  );
+}
+
+function PublicTags({ b }: { b: RouterBenchmark }) {
+  if (!b.public) return <span className="subtle">—</span>;
+  return (
+    <span className="rb-tags">
+      {PUBLIC_FIELDS.map((f) => {
+        const { status, note } = b.public![f];
+        return (
+          <span key={f} className={`rb-tag s-${cls(status === "?" ? "unknown" : status)}${note ? " has-note" : ""}`}
+                title={`${f}: ${STATUS_WORD[status]}${note ? ` — ${note}` : ""}`}>
+            <span aria-hidden="true">{STATUS_MARK[status]}</span> {f}
+          </span>
+        );
+      })}
+      {b.licence && (
+        <span className={`rb-tag lic-${licenceKind(b.licence)}`} title={`Licence: ${b.licence}`}>{b.licence}</span>
+      )}
+    </span>
+  );
+}
 
 const cls = (s: string) => s.toLowerCase().replace(/[^a-z]+/g, "-");
 
@@ -132,6 +198,7 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups }: {
   const [group, setGroup] = useState(qOne(query, "group"));
   const [useLv, setUseLv] = useState<string[]>(qMany(query, "use"));
   const [newLv, setNewLv] = useState<string[]>(qMany(query, "new"));
+  const [pubF, setPubF] = useState<string[]>(qMany(query, "pub"));   // fields that must be fully public
   const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>(() => {
     const k = qOne(query, "sort") as SortKey;
     return { key: k in HEADS || k === "num" ? k : "num", dir: qOne(query, "dir") === "desc" ? -1 : 1 };
@@ -139,7 +206,7 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups }: {
   const [open, setOpen] = useState<number | null>(() => { const n = Number(qOne(query, "open")); return Number.isInteger(n) && n > 0 ? n : null; });
 
   useQuerySync({
-    q, group, use: useLv, new: newLv,
+    q, group, use: useLv, new: newLv, pub: pubF,
     sort: sort.key === "num" ? "" : sort.key, dir: sort.dir === -1 ? "desc" : "",
     open: open ? String(open) : "",
   });
@@ -152,26 +219,30 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups }: {
       if (group && b.group !== group) return false;
       if (useLv.length && !useLv.includes(b.yugos)) return false;
       if (newLv.length && !newLv.includes(b.newest)) return false;
+      if (pubF.length && !pubF.every((f) => b.public?.[f as keyof NonNullable<RouterBenchmark["public"]>]?.status === "Yes")) return false;
       if (words.length) {
-        const hay = [b.name, b.creators, b.scale, b.models, b.focus, b.finding, b.yugos_raw, b.newest_raw, b.detail_md].join(" ").toLowerCase();
+        const hay = [b.name, b.creators, b.scale, b.models, b.focus, b.finding, b.yugos_raw, b.newest_raw, b.licence ?? "", b.detail_md].join(" ").toLowerCase();
         if (!words.every((w) => hay.includes(w))) return false;
       }
       return true;
     });
     const val = (b: RouterBenchmark): number | string =>
-      sort.key === "num" ? b.num : sort.key === "name" ? b.name.toLowerCase() : sort.key === "group" ? b.group
+      sort.key === "num" ? b.num : sort.key === "name" ? b.name.toLowerCase()
         : sort.key === "newest" ? NEW_RANK[b.newest] : USE_RANK[b.yugos];
     return [...rows].sort((a, b) => {
       const x = val(a), y = val(b);
       return (x < y ? -1 : x > y ? 1 : a.num - b.num) * sort.dir;
     });
-  }, [benchmarks, q, group, useLv, newLv, sort]);
+  }, [benchmarks, q, group, useLv, newLv, pubF, sort]);
 
   const toggle = (list: string[], set: (v: string[]) => void, v: string) => set(list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
-  const filtersOn = !!(q || group || useLv.length || newLv.length);
+  const filtersOn = !!(q || group || useLv.length || newLv.length || pubF.length);
   const counts = useMemo(() => {
     const c: Record<string, number> = {};
-    for (const b of benchmarks) { c[`u:${b.yugos}`] = (c[`u:${b.yugos}`] ?? 0) + 1; c[`n:${b.newest}`] = (c[`n:${b.newest}`] ?? 0) + 1; }
+    for (const b of benchmarks) {
+      c[`u:${b.yugos}`] = (c[`u:${b.yugos}`] ?? 0) + 1; c[`n:${b.newest}`] = (c[`n:${b.newest}`] ?? 0) + 1;
+      for (const f of PUBLIC_FIELDS) if (b.public?.[f].status === "Yes") c[`p:${f}`] = (c[`p:${f}`] ?? 0) + 1;
+    }
     return c;
   }, [benchmarks]);
 
@@ -198,14 +269,10 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups }: {
           <span className="rb-caret" aria-hidden="true">{open === b.num ? "▾" : "▸"}</span> {b.name}
         </td>
       );
-      case "group": return <td key={key}><span className={`rb-type t-${b.group}`} title={b.group_label}>{b.group} · {b.group_label}</span></td>;
       case "newest": return <td key={key}><span className={`rb-badge n-${cls(b.newest)}`} title={b.newest_raw}>{b.newest}</span></td>;
       case "yugos": return <td key={key}><span className={`rb-badge u-${cls(b.yugos)}`} title={b.yugos_raw}>{b.yugos}</span></td>;
-      case "link": return (
-        <td key={key} className="rb-links" onClick={(e) => e.stopPropagation()}>
-          {b.links.length ? b.links.map((l, j) => <a key={j} href={l.url} target="_blank" rel="noreferrer">{l.label}</a>) : <span className="subtle">{b.link_text || "—"}</span>}
-        </td>
-      );
+      case "public": return <td key={key} className="rb-public"><PublicTags b={b} /></td>;
+      case "models": return <td key={key} className="rb-models"><ModelTags b={b} /></td>;
       default: {
         const v = (b as unknown as Record<string, string>)[key] ?? "";
         return <td key={key} className="rb-clip" title={v}>{v || "—"}</td>;
@@ -215,6 +282,7 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups }: {
 
   const colCount = cl.cols.length;
   let lastGroup = "";
+  let band = -1;
 
   return (
     <div className="rb">
@@ -222,7 +290,7 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups }: {
         <div className="rb-count">
           <span><strong>{filtered.length}</strong> of {benchmarks.length} benchmarks</span>
           {filtersOn && (
-            <button type="button" className="link" onClick={() => { setQ(""); setGroup(""); setUseLv([]); setNewLv([]); }}>Clear filters</button>
+            <button type="button" className="link" onClick={() => { setQ(""); setGroup(""); setUseLv([]); setNewLv([]); setPubF([]); }}>Clear filters</button>
           )}
         </div>
         <ResetColumns layout={cl} />
@@ -250,6 +318,15 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups }: {
             </button>
           ))}
         </span>
+        <span className="rb-group" role="group" aria-label="Fields that must be public per question">
+          Public per question:
+          {PUBLIC_FIELDS.map((f) => (
+            <button key={f} type="button" className={`rb-chip${pubF.includes(f) ? " on" : ""}`} aria-pressed={pubF.includes(f)}
+                    title={`Only benchmarks where ${f} is fully public per question`} onClick={() => toggle(pubF, setPubF, f)}>
+              {f} <span className="rb-n">{counts[`p:${f}`] ?? 0}</span>
+            </button>
+          ))}
+        </span>
       </div>
 
       <div className="rb-scroll" ref={cl.root}>
@@ -262,22 +339,27 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups }: {
               const showGroup = sort.key === "num" && sort.dir === 1 && b.group !== lastGroup;
               lastGroup = b.group;
               const isOpen = open === b.num;
+              band = showGroup ? 0 : band + 1;          // odd/even rows, counted afresh in each group
+              const zb = band % 2 ? " zb" : "";
               return (
                 <Fragment key={b.num}>
                   {showGroup && (
                     <tr className="rb-grouprow"><td colSpan={colCount}>{b.group} · {b.group_label}</td></tr>
                   )}
-                  <tr className={`rb-row${isOpen ? " open" : ""}`} tabIndex={0} aria-expanded={isOpen}
+                  <tr className={`rb-row${isOpen ? " open" : ""}${zb}`} tabIndex={0} aria-expanded={isOpen}
                     onClick={() => setOpen(isOpen ? null : b.num)}
                     onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(isOpen ? null : b.num); } }}>
                     {cl.cols.map((c) => cell(b, c.key))}
                   </tr>
                   {isOpen && (
-                    <tr className="rb-detail">
+                    <tr className={`rb-detail${zb}`}>
                       <td colSpan={colCount}>
                         <div className="rb-detail-inner">
                           <div className="rb-detail-head">
-                            <span className="subtle small">Source: {b.file ?? "no write-up file"}</span>
+                            <span className="subtle small rb-detail-links">
+                              {b.links.map((l, j) => <a key={j} href={l.url} target="_blank" rel="noreferrer">{l.label}</a>)}
+                              <span>Source: {b.file ?? "no write-up file"}</span>
+                            </span>
                             <button type="button" className="link" onClick={() => setOpen(null)}>Close</button>
                           </div>
                           {b.detail_md ? <Markdown text={b.detail_md} /> : <p className="subtle">No write-up for this benchmark yet.</p>}
