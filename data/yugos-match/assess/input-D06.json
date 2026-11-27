@@ -1,0 +1,342 @@
+{
+ "batch": "D06",
+ "rows": [
+  {
+   "id": "bigcodebench_hard",
+   "name": "BigCodeBench-Hard",
+   "hf": "bigcode/bigcodebench-hard",
+   "url": "https://bigcode-bench.github.io",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2024-09-14",
+    "last_modified": "2025-02-23",
+    "downloads": 18571,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 740,
+    "rows_by_split": {
+     "default/v0.1.0_hf": 148,
+     "default/v0.1.1": 148,
+     "default/v0.1.2": 148,
+     "default/v0.1.3": 148,
+     "default/v0.1.4": 148
+    }
+   }
+  },
+  {
+   "id": "bird_sql",
+   "name": "BIRD-SQL",
+   "hf": "",
+   "url": "https://bird-bench.github.io",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "brumo_2025",
+   "name": "BRUMO 2025 (MathArena)",
+   "hf": "MathArena/brumo_2025",
+   "url": "https://matharena.ai",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-nc-sa-4.0",
+    "gated": false,
+    "created": "2025-05-13",
+    "last_modified": "2026-05-15",
+    "downloads": 5183,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 30,
+    "rows_by_split": {
+     "default/train": 30
+    }
+   }
+  },
+  {
+   "id": "classeval",
+   "name": "ClassEval",
+   "hf": "FudanSELab/ClassEval",
+   "url": "https://github.com/FudanSELab/ClassEval",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2023-09-02",
+    "last_modified": "2024-08-26",
+    "downloads": 2060,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 100,
+    "rows_by_split": {
+     "default/test": 100
+    }
+   }
+  },
+  {
+   "id": "cmimc_2025",
+   "name": "CMIMC 2025 (MathArena)",
+   "hf": "MathArena/cmimc_2025",
+   "url": "https://matharena.ai",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-nc-sa-4.0",
+    "gated": false,
+    "created": "2025-08-11",
+    "last_modified": "2026-10-19",
+    "downloads": 3973,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 40,
+    "rows_by_split": {
+     "default/train": 40
+    }
+   }
+  },
+  {
+   "id": "code_contests",
+   "name": "CodeContests",
+   "hf": "deepmind/code_contests",
+   "url": "https://github.com/google-deepmind/code_contests",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "cc-by-4.0"
+    ],
+    "gated": false,
+    "created": "2022-07-19",
+    "last_modified": "2023-06-11",
+    "downloads": 68493,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "translation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 4044,
+    "rows_by_split": {
+     "default/train": 3762,
+     "default/test": 165,
+     "default/valid": 117
+    }
+   }
+  },
+  {
+   "id": "codeforces_openr1",
+   "name": "Codeforces (open-r1)",
+   "hf": "open-r1/codeforces",
+   "url": "https://huggingface.co/datasets/open-r1/codeforces",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-4.0",
+    "gated": false,
+    "created": "2025-02-12",
+    "last_modified": "2025-05-19",
+    "downloads": 33121,
+    "size_category": "10K<n<100K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 29286,
+    "rows_by_split": {
+     "default/train": 9556,
+     "default/test": 468,
+     "verifiable/train": 8338,
+     "verifiable/test": 422,
+     "verifiable-prompts/train": 9658,
+     "verifiable-prompts/test": 844
+    }
+   }
+  },
+  {
+   "id": "cruxeval_i",
+   "name": "CRUXEval-I",
+   "hf": "cruxeval-org/cruxeval",
+   "url": "https://crux-eval.github.io",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2023-11-28",
+    "last_modified": "2024-01-23",
+    "downloads": 21623,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "code"
+    ],
+    "rows_total": 800,
+    "rows_by_split": {
+     "default/test": 800
+    }
+   }
+  },
+  {
+   "id": "cruxeval_o",
+   "name": "CRUXEval-O",
+   "hf": "cruxeval-org/cruxeval",
+   "url": "https://crux-eval.github.io",
+   "group": "math_code",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2023-11-28",
+    "last_modified": "2024-01-23",
+    "downloads": 21623,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "code"
+    ],
+    "rows_total": 800,
+    "rows_by_split": {
+     "default/test": 800
+    }
+   }
+  },
+  {
+   "id": "deepmind_math",
+   "name": "DeepMind Mathematics",
+   "hf": "",
+   "url": "https://github.com/google-deepmind/mathematics_dataset",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "ds1000",
+   "name": "DS-1000",
+   "hf": "xlangai/DS-1000",
+   "url": "https://ds1000-code-gen.github.io",
+   "group": "math_code",
+   "yugos": "live",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-sa-4.0",
+    "gated": false,
+    "created": "2024-04-09",
+    "last_modified": "2026-11-19",
+    "downloads": 8424,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "code"
+    ],
+    "rows_total": 1000,
+    "rows_by_split": {
+     "default/test": 1000
+    }
+   }
+  },
+  {
+   "id": "ds_bench",
+   "name": "DSBench",
+   "hf": "",
+   "url": "https://github.com/LiqiangJing/DSBench",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "finqa",
+   "name": "FinQA",
+   "hf": "",
+   "url": "https://github.com/czyssrs/FinQA",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "gsm8k",
+   "name": "GSM8K",
+   "hf": "openai/gsm8k",
+   "url": "https://github.com/openai/grade-school-math",
+   "group": "math_code",
+   "yugos": "catalog",
+   "list_no": "27.1",
+   "hub": {
+    "licence": [
+     "mit"
+    ],
+    "gated": false,
+    "created": "2022-04-12",
+    "last_modified": "2026-03-23",
+    "downloads": 1316225,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 17584,
+    "rows_by_split": {
+     "main/train": 7473,
+     "main/test": 1319,
+     "socratic/train": 7473,
+     "socratic/test": 1319
+    }
+   }
+  },
+  {
+   "id": "gsm_hard",
+   "name": "GSM-Hard",
+   "hf": "reasoning-machines/gsm-hard",
+   "url": "https://reasonwithpal.com",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "mit"
+    ],
+    "gated": false,
+    "created": "2023-01-17",
+    "last_modified": "2023-01-17",
+    "downloads": 6095,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [
+     "code"
+    ],
+    "rows_total": 1319,
+    "rows_by_split": {
+     "default/train": 1319
+    }
+   }
+  }
+ ]
+}

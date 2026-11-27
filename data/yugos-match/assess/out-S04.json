@@ -1,0 +1,1479 @@
+{
+ "2.33": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 0.2,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: long-horizon agent work over files and workplace apps, not one-shot QA"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: professional-services deliverables (banking, consulting, law), not math or code"
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.7,
+    "A": 0.45,
+    "Dm": 0.4,
+    "L": 0.2,
+    "F": 0.9,
+    "why": "Multi-step tool use across workplace apps fits the guessed private multi-step tool tasks, but grading is a rubric judge on deliverables (not database end state) and each task carries a whole world of files, far beyond 2,000 tokens."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/mercor/apex-agents",
+  "n_questions": 452,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "cc-by-4.0",
+  "overlap": "",
+  "summary": "452 of the 480 public APEX-Agents tasks (investment banking, consulting, corporate law): an agent works across files and workplace tools and is graded pass/fail on an expert rubric. Useful as long-horizon agentic examples, but the deliverable-plus-rubric grading differs from Yugos's end-state or AST checks.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/apex-agents-aa",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://huggingface.co/api/datasets/mercor/apex-agents"
+  ]
+ },
+ "2.34": {
+  "scores": {
+   "chat": {
+    "T": 0.2,
+    "I": 0.3,
+    "A": 0.7,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different flavour: short numeric answers, but each needs an agent working over a folder of spreadsheets and documents"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "related skill: quantitative data analysis with an exact numeric answer, but done by an agent over files rather than one code or math prompt"
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.65,
+    "A": 0.55,
+    "Dm": 0.35,
+    "L": 0.25,
+    "F": 0.9,
+    "why": "Multi-step agent work with tools over files, graded on a short exact numeric answer (pass^5) rather than end state; business-analyst topics differ from customer-service or function-calling tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 80,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "80 private business/data-analyst questions (14 domains), each tied to a folder of spreadsheets and documents; the agent must return a short rounded number. Only two example tasks are public, so it cannot be used as training data.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/aa-analyst-agent"
+  ]
+ },
+ "2.35": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.2,
+    "Dm": 0.15,
+    "L": 0.05,
+    "F": 0.95,
+    "why": "different skill: legal document drafting from case files, judged by rubric"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.05,
+    "F": 0.95,
+    "why": "different skill: legal work, no math or code"
+   },
+   "agentic": {
+    "T": 0.4,
+    "I": 0.6,
+    "A": 0.3,
+    "Dm": 0.15,
+    "L": 0.1,
+    "F": 0.95,
+    "why": "Agent works in a sandbox over many case documents (example: 19 .docx files) to write a Word deliverable graded by a 3-judge rubric with a hallucination gate: agentic but not tool-call or end-state graded."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
+  "n_questions": 120,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "120 private legal-agent tasks across 24 practice areas; deliverables (Word files) are graded criterion-by-criterion with zero credit for material hallucinations. Only a representative public task set is on GitHub (linked from the AA page); weak fit for Yugos questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/harvey-lab-aa"
+  ]
+ },
+ "2.36": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.9,
+    "why": "different skill: stateful enterprise tool workflows, not QA"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.9,
+    "why": "different skill: tool workflows, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.85,
+    "I": 0.8,
+    "A": 0.9,
+    "Dm": 0.7,
+    "L": 0.55,
+    "F": 0.9,
+    "why": "Multi-step live tool use (6-12 tools per task over MCP) graded only on the final database state, close to the guessed tau2-style private agentic tasks; single upfront request instead of a simulated user, and prompts run ~4-5k tokens (13k-char policy system prompt plus tool schemas)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/ServiceNow-AI/EnterpriseOps-Gym",
+  "n_questions": 1150,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "1,150 enterprise workflow tasks (email, calendar, teams, drive, customer service, HR, IT service management, hybrid) where the agent calls tools and is graded strictly on database end state. The public part (649 tasks per tool-set config on Hugging Face, Apache-2.0, with verifier SQL) is one of the best available stand-ins for multi-step agentic questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa",
+   "https://huggingface.co/api/datasets/ServiceNow-AI/EnterpriseOps-Gym",
+   "https://datasets-server.huggingface.co/first-rows?dataset=ServiceNow-AI/EnterpriseOps-Gym&config=oracle&split=hr"
+  ]
+ },
+ "2.37": {
+  "scores": {
+   "chat": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.05,
+    "Dm": 0.4,
+    "L": 1.0,
+    "F": 0.8,
+    "why": "Short single chat prompts, but judged pairwise on how strongly an answer shows a personality trait, with no reference answer and no correctness."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.8,
+    "why": "different skill: communication style, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://artificialanalysis.ai/evaluations/aa-personalitybench",
+  "n_questions": 900,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "900 short conversational prompts (30 per trait) judged pairwise by a model panel into trait Elo ratings; measures style, not correctness. Only 5 prompts are public, so it is of little use for a quality-based router.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/aa-personalitybench"
+  ]
+ },
+ "2.38": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.35,
+    "why": "Expert biology/chemistry/physics 4-option multiple choice, the same shape as the hle multiple-choice part and mmlu_pro (letter answer, regex graded); 2023 set that is widely used."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.35,
+    "why": "related skill only: some quantitative science reasoning, but answers are MC letters, not boxed math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Idavidrein/gpqa",
+  "n_questions": 198,
+  "per_question_results": "yes",
+  "results_where": "https://crfm.stanford.edu/helm/capabilities/latest/",
+  "licence": "cc-by-4.0",
+  "overlap": "",
+  "summary": "198 graduate-level science multiple-choice questions (GPQA Diamond). A close stand-in for the expert-QA part of Yugos chat; it is in the Yugos catalog and was a public set in pack v0.3.0, but has no overlap with a live v0.4.0 set. Authors ask that questions not be reposted; per-question results exist in HELM Capabilities (GPQA subset there not checked) and Epoch AI logs.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://huggingface.co/api/datasets/Idavidrein/gpqa",
+   "https://crfm.stanford.edu/2025/03/20/helm-capabilities.html",
+   "local: /root/cic/sn34-yugos/research/benchmarks/catalog (Yugos catalog copy) and yugos_evals/catalog.py"
+  ]
+ },
+ "2.39": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.85,
+    "why": "different skill: shell investigation of Kubernetes incident snapshots"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.2,
+    "A": 0.3,
+    "Dm": 0.15,
+    "L": 0.3,
+    "F": 0.85,
+    "why": "different skill: diagnosis by exploring data with shell commands, not a math answer or a code function"
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.7,
+    "A": 0.6,
+    "Dm": 0.25,
+    "L": 0.3,
+    "F": 0.85,
+    "why": "Multi-turn agent with a shell tool (100-turn cap) that must output a JSON list of root-cause entities scored by precision at full recall: checkable, but not function-schema calls or end-state checks, and SRE topics are far from customer-service tools."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/ArtificialAnalysis/ITBench-AA",
+  "n_questions": 59,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "cc-by-4.0",
+  "overlap": "",
+  "summary": "59 Kubernetes incident root-cause tasks (40 public from IBM's ITBench, 19 private) where the agent explores an offline snapshot with a shell and returns a structured diagnosis. The 40 public tasks could add SRE-style agentic examples, but the domain is narrow.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/itbench-aa",
+   "https://huggingface.co/api/datasets/ArtificialAnalysis/ITBench-AA"
+  ]
+ },
+ "2.40": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.5,
+    "L": 0.8,
+    "F": 0.5,
+    "why": "required images: Yugos is text-only"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 0.8,
+    "F": 0.5,
+    "why": "required images: Yugos is text-only"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "required images: Yugos is text-only; no tools"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "image",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/MMMU/MMMU_Pro",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "Multimodal multiple-choice questions across 30 academic disciplines where every question needs an image. Not usable for Yugos, which sends text only.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/api/datasets/MMMU/MMMU_Pro"
+  ]
+ },
+ "2.41": {
+  "scores": {
+   "chat": {
+    "T": 0.5,
+    "I": 1.0,
+    "A": 0.55,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.8,
+    "why": "One prompt in, one answer out, checked automatically by constraint-verification code; the skill is following output constraints rather than giving a short correct fact (the Yugos catalog lists IFEval under chat)."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.8,
+    "why": "different skill: writing under output constraints, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/IFBench_test",
+  "n_questions": 294,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "294 single-turn prompts (300 on Hugging Face) that each add verifiable output constraints from 58 new constraint types, graded by checker functions. A plausible stand-in for easy instruction-style chat questions in the hidden chat set, but not for the public short-answer QA sets.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/ifbench",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://huggingface.co/api/datasets/allenai/IFBench_test",
+   "local: /root/cic/sn34-yugos/research/benchmarks/catalog (Yugos catalog copy) and yugos_evals/catalog.py"
+  ]
+ },
+ "2.42": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.9,
+    "A": 0.4,
+    "Dm": 0.25,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Questions over one synthetic medical record of 25k-64k tokens, answered in cited paragraphs and judged by an LLM panel: reading-comprehension like hotpotqa but 20-45x longer and free-form."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.9,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: medical record synthesis"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/Wisedocs/mlcr-dataset",
+  "n_questions": 60,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "other",
+  "overlap": "",
+  "summary": "60 private held-out questions over long medical records (25k-64k tokens), graded for completeness and no contradictions by three LLM judges. A separate public MLCR release (205 questions) exists, but the input length is far beyond anything Yugos sends.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/mlcr-aa",
+   "https://huggingface.co/api/datasets/Wisedocs/mlcr-dataset"
+  ]
+ },
+ "2.43": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.05,
+    "Dm": 0.1,
+    "L": 0.6,
+    "F": 0.9,
+    "why": "different skill: creative video composition, judged pairwise with no reference answer"
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.15,
+    "L": 0.6,
+    "F": 0.9,
+    "why": "Writes HTML/GSAP code from a text brief, but the code is rendered to video and judged pairwise on looks, with no tests; topics are animation, not Python data libraries or math."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: one call with no tools"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://artificialanalysis.ai/evaluations/code2video-aa",
+  "n_questions": 114,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "CC BY 4.0 (HeyGen public split, per AA page)",
+  "overlap": "",
+  "summary": "114 text design briefs; the model writes one HyperFrames HTML composition that is rendered to a product video and compared pairwise by a model judge into Elo scores. No correctness check, so it does not fit Yugos's graded questions.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/code2video-aa"
+  ]
+ },
+ "2.44": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.6,
+    "A": 0.35,
+    "Dm": 0.3,
+    "L": 0.6,
+    "F": 0.9,
+    "why": "Clinician conversations graded against physician-written rubrics by a judge: chat-like, but long free-form clinical answers (with a length adjustment) rather than short checkable answers; prompt lengths not stated."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.6,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.6,
+    "F": 0.9,
+    "why": "different skill: clinical consult and writing"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench_professional/assets.zip",
+  "n_questions": 525,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "525 physician-authored conversations (consult, writing, research) graded by a rubric judge; the data zip is public (authors ask that examples not be reposted, and keep a small private held-out set). Medical and free-form, so only a loose stand-in for hidden chat questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/healthbench",
+   "https://arxiv.org/abs/2604.27470"
+  ]
+ },
+ "2.45": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.3,
+    "L": 0.8,
+    "F": 0.85,
+    "why": "required images: Yugos is text-only"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.85,
+    "why": "required images: Yugos is text-only"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "required images: Yugos is text-only; no tools"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "image",
+  "questions_public": "unknown",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Questions about evidence in scientific images; every question needs an image, so it cannot stand in for Yugos's text-only questions.",
+  "confidence": "high",
+  "sources": []
+ },
+ "2.46": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "required images: Yugos is text-only (drawings, schematics, scans)"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "required images: Yugos is text-only"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.6,
+    "A": 0.3,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "required images: Yugos is text-only; otherwise a long-horizon agent with sandbox, web and image-viewing tools, graded by rubric"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "image",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/google/multimodal-knowledge-agent",
+  "n_questions": 200,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "200 agent tasks across 10 industries that require reading visually dense PDFs (floor plans, schematics, clinical scans) and producing deliverables graded by a rubric judge. Image input is essential, so it does not fit Yugos.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/mka"
+  ]
+ },
+ "2.47": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.95,
+    "why": "different skill: multi-day-style physics research projects, not QA"
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.2,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 0.2,
+    "F": 0.95,
+    "why": "related topic (physics computation and simulation code), but as a long agentic research project with a manuscript, not a single math or code answer"
+   },
+   "agentic": {
+    "T": 0.35,
+    "I": 0.5,
+    "A": 0.4,
+    "Dm": 0.15,
+    "L": 0.1,
+    "F": 0.95,
+    "why": "Agentic (750-turn limit) research with a deterministic results verifier plus rubric reviewers; far longer and more open-ended than tool-call tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 54,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "54 private physics research tasks where an agent reviews literature, runs simulations and submits results plus a manuscript. Private and very long-horizon, so it adds little as Yugos stand-in data.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/frontierphysics"
+  ]
+ },
+ "2.48": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.05,
+    "Dm": 0.3,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: file deliverables (documents, slides, spreadsheets) judged pairwise with no reference answer"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.3,
+    "A": 0.05,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: occupational deliverables, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.3,
+    "I": 0.5,
+    "A": 0.15,
+    "Dm": 0.3,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "Agent with shell and web tools produces work files, but grading is blind pairwise Elo with no end-state or call check."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/openai/gdpval",
+  "n_questions": 220,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "220 professional tasks across 44 occupations (OpenAI GDPval, public on Hugging Face); an agent with shell and web produces deliverables compared pairwise into Elo. Without a reference answer it cannot give Yugos-style quality labels.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/gdpval-aa",
+   "https://huggingface.co/api/datasets/openai/gdpval"
+  ]
+ },
+ "2.49": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: customer-service agent with tools"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: tool workflows, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.9,
+    "I": 0.9,
+    "A": 0.85,
+    "Dm": 0.7,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "tau2-style conversation with a simulated customer, multi-step tool calls and grading on backend database state, matching the guessed private agentic shape; adds search over a ~195k-token knowledge base, so contexts grow long."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench",
+  "n_questions": 97,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/sierra-research/tau2-bench (leaderboard submissions; per-task files in public S3 sierra-tau-bench-public)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "97 banking customer-support tasks (tau-knowledge banking_knowledge domain): the agent searches ~700 policy documents and calls tools; graded on database end state. It is in the Yugos catalog as tau2_banking (not a live v0.4.0 public set) and has per-task leaderboard submissions, which makes it a strong candidate for the hidden agentic part.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/tau3-banking",
+   "local: /root/cic/sn34-yugos/research/benchmarks/catalog (Yugos catalog copy) and yugos_evals/catalog.py",
+   "local: /root/sjh/yugos/step1-benchmark/data/tau2_bench.json",
+   "local: /root/cic/sn34-yugos/research/open-benchmark-sources.md"
+  ]
+ },
+ "2.50": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.75,
+    "why": "different skill: terminal tasks"
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 0.3,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.75,
+    "why": "related skill: coding and data work, but done as a multi-step terminal session checked by tests, not one function from one prompt"
+   },
+   "agentic": {
+    "T": 0.65,
+    "I": 0.7,
+    "A": 0.8,
+    "Dm": 0.45,
+    "L": 0.6,
+    "F": 0.75,
+    "why": "Multi-step tool use (a real terminal) graded by verification tests on the final environment state, close to the guessed end-state agentic tasks; the only tool is a shell (no JSON schemas, no simulated user) and topics are software/sysadmin (terminal_bench is listed as planned in the Yugos catalog)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench",
+  "n_questions": 89,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "89 curated terminal tasks (Terminal-Bench 2.0 set with environment fixes) in Docker, each passed only if all tests pass. Public and runnable, so a useful source of end-state-graded agentic tasks, though shell-only.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://api.github.com/repos/harbor-framework/terminal-bench",
+   "local: /root/cic/sn34-yugos/research/benchmarks/catalog (Yugos catalog copy) and yugos_evals/catalog.py"
+  ]
+ },
+ "2.51": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: terminal tasks"
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 0.3,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "related skill: hard software/science work in a terminal checked by tests, not one function from one prompt"
+   },
+   "agentic": {
+    "T": 0.65,
+    "I": 0.7,
+    "A": 0.8,
+    "Dm": 0.45,
+    "L": 0.6,
+    "F": 0.9,
+    "why": "Multi-step tool use (a real terminal) graded by verification tests on the final environment state, close to the guessed end-state agentic tasks; the only tool is a shell (no JSON schemas, no simulated user) and topics are software/sysadmin (terminal_bench is listed as planned in the Yugos catalog)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench",
+  "n_questions": 66,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "66 harder terminal tasks (software, ML, science, ops, security, hardware, media), binary pass if every test passes. Tasks are published as tagged releases on the Harbor Hub; leaderboard submissions list per-trial IDs linked to Harbor Hub jobs, but per-task outcomes were not visible without the site's JavaScript (unverified).",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/terminalbench-4-0",
+   "https://api.github.com/repos/harbor-framework/terminal-bench",
+   "https://hub.harborframework.com/jobs/991af5e0-8c5f-4511-9619-a2a46939ebd4"
+  ]
+ },
+ "2.52": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.95,
+    "why": "different skill: repository code changes"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.6,
+    "Dm": 0.4,
+    "L": 0.2,
+    "F": 0.95,
+    "why": "related skill: coding checked by tests, but whole-repository changes by an agent rather than a single function from one prompt"
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.7,
+    "A": 0.7,
+    "Dm": 0.45,
+    "L": 0.3,
+    "F": 0.95,
+    "why": "Agentic coding in real open-source repos (250-turn cap) graded by tests plus LLM review, like SWE-bench (in the Yugos agentic catalog); repo context is far longer than Yugos agentic prompts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 100,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "100 private tasks (of 150) asking an agent to make a mergeable change to a real repository. Private, so it cannot supply training questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/frontiercode"
+  ]
+ },
+ "2.53": {
+  "scores": {
+   "chat": {
+    "T": 0.6,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.5,
+    "L": 0.05,
+    "F": 0.75,
+    "why": "Questions over long documents with short unambiguous answers checked by an answer matcher, like hotpotqa reading QA, but documents are 10k-100k tokens (far beyond ~1,400)."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.75,
+    "why": "different skill: document reasoning, some numeric extraction"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.75,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/ArtificialAnalysis/AA-LCR",
+  "n_questions": 100,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "100 hard questions over document sets of 10k-100k tokens (financial reports, legal, academic, government, marketing), graded pass/fail by an answer matcher. Same answer style as Yugos chat but the input is far too long to stand in for Yugos prompts.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://huggingface.co/api/datasets/ArtificialAnalysis/AA-LCR"
+  ]
+ },
+ "2.54": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.6,
+    "F": 0.5,
+    "why": "different skill: writing scientific Python functions"
+   },
+   "math_code": {
+    "T": 0.75,
+    "I": 0.85,
+    "A": 0.9,
+    "Dm": 0.55,
+    "L": 0.6,
+    "F": 0.5,
+    "why": "Write a Python function (numpy/scipy) from a docstring and header, checked by assert tests, close to bigcodebench; sub-steps build on earlier code and prompts with background run ~100-900 tokens plus prior code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/SciCode1/SciCode",
+  "n_questions": 288,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "288 test sub-problems from 80 lab problems in 16 sciences; each asks for a Python function using numpy/scipy, graded by assert tests against reference values (the dataset shows them as `target` placeholders). A good stand-in for library-heavy code questions, though more scientific than pandas/matplotlib.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/scicode",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://huggingface.co/api/datasets/SciCode1/SciCode",
+   "https://datasets-server.huggingface.co/first-rows?dataset=SciCode1/SciCode&config=default&split=test"
+  ]
+ },
+ "2.55": {
+  "scores": {
+   "chat": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.05,
+    "why": "It is the hle pool itself: the same 2,158 text-only questions Yugos samples its live hle set from (exact answer or MC, judge graded)."
+   },
+   "math_code": {
+    "T": 0.45,
+    "I": 1.0,
+    "A": 0.6,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.05,
+    "why": "About 45% research-level math with exact answers, like arxivmath, but judge-graded and mixed with other subjects; contains the live hle set."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.05,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 2158,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "mit",
+  "overlap": "contains the live Yugos hle set: AA uses the same 2,158 text-only questions of HLE (May 2025 revision) that the Yugos hle pool is drawn from",
+  "summary": "Humanity's Last Exam text-only (2,158 expert questions, 76% exact answer / 24% MC), graded by an answer matcher. It is the Yugos hle source itself, so it is useful for studying that set but brings no new questions.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://huggingface.co/api/datasets/cais/hle",
+   "local: /root/cic/sn34-yugos/research/benchmarks/profile.csv"
+  ]
+ },
+ "2.56": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.4,
+    "Dm": 0.3,
+    "L": 0.8,
+    "F": 0.8,
+    "why": "related: expert physics questions like the HLE physics share, but answers go into a Python function template checked by a server"
+   },
+   "math_code": {
+    "T": 0.6,
+    "I": 0.9,
+    "A": 0.7,
+    "Dm": 0.4,
+    "L": 0.6,
+    "F": 0.8,
+    "why": "Research-level physics problems with machine-verified closed-form answers (numbers, arrays, SymPy expressions in a Python template), similar in spirit to arxivmath; physics rather than pure math, prompts ~150-800 tokens."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/CritPt-Benchmark/CritPt",
+  "n_questions": 70,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "70 research-level physics challenges with guess-resistant answers checked by the authors' grading server. Problem statements are public on Hugging Face, but reference answers are not (only via the grading server), which limits use as training labels.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/critpt",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://huggingface.co/api/datasets/CritPt-Benchmark/CritPt",
+   "https://datasets-server.huggingface.co/first-rows?dataset=CritPt-Benchmark/CritPt&config=default&split=train"
+  ]
+ },
+ "2.57": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.6,
+    "why": "different skill: terminal tasks"
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 0.3,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.6,
+    "why": "related skill: coding and system tasks checked by scripts, but multi-step in a terminal"
+   },
+   "agentic": {
+    "T": 0.65,
+    "I": 0.7,
+    "A": 0.8,
+    "Dm": 0.45,
+    "L": 0.6,
+    "F": 0.6,
+    "why": "Multi-step tool use (a real terminal) graded by verification tests on the final environment state, close to the guessed end-state agentic tasks; the only tool is a shell (no JSON schemas, no simulated user) and topics are software/sysadmin (terminal_bench is listed as planned in the Yugos catalog)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench",
+  "n_questions": 44,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "44 tasks from the hard subset of terminal-bench-core (dataset as of 14 Aug 2025): compile code, train models, configure servers, debug systems; pass only if all tests pass. Older and better known than Terminal-Bench 2.1/4.0.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/terminalbench-hard",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.58": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: tech-support agent with tools"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: tool workflows, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.9,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.6,
+    "L": 0.55,
+    "F": 0.6,
+    "why": "tau2 conversation with a simulated user, multi-step tool calls and world-state grading, the shape guessed for the private agentic set; dual-control (the user also acts) and a long policy plus tech-support manual (~23k characters)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench",
+  "n_questions": 114,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/sierra-research/tau2-bench (leaderboard submissions; per-task files in public S3 sierra-tau-bench-public)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "114 telecom tech-support tasks (subsampled from 2,285) where agent and simulated user both use tools; graded on world state. It is in the Yugos catalog as tau2_telecom (tau2 was used in pack v0.3.0, not a live v0.4.0 public set) and has per-task public submissions, so it is very useful agentic data, though easy for 2026 models.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/tau2-bench",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "local: /root/cic/sn34-yugos/research/benchmarks/catalog (Yugos catalog copy) and yugos_evals/catalog.py",
+   "local: /root/cic/sn34-yugos/research/open-benchmark-sources.md"
+  ]
+ },
+ "2.59": {
+  "scores": {
+   "chat": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.05,
+    "why": "It is the mmlu_pro set itself: 10-option multiple choice over 14 subjects, letter answer."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.25,
+    "L": 1.0,
+    "F": 0.05,
+    "why": "related only for its ~11% math questions, still MC letters"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.05,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro",
+  "n_questions": 12032,
+  "per_question_results": "yes",
+  "results_where": "https://crfm.stanford.edu/helm/capabilities/latest/",
+  "licence": "mit",
+  "overlap": "is the live Yugos mmlu_pro set (TIGER-Lab/MMLU-Pro, 12,032 test questions)",
+  "summary": "MMLU-Pro (12,032 ten-option MC questions); identical to the Yugos mmlu_pro pool, so it brings no new questions, but per-question results (HELM Capabilities, older models) help calibrate that set.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/mmlu-pro",
+   "local: /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro",
+   "https://crfm.stanford.edu/2025/03/20/helm-capabilities.html"
+  ]
+ },
+ "2.60": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.65,
+    "why": "different skill: competitive programming"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.65,
+    "why": "Contest programming problems solved in one prompt and graded by hidden tests, same as the calibration LiveCodeBench row; algorithmic rather than pandas/numpy library use."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.65,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://livecodebench.github.io/performances_generation.json",
+  "licence": "cc (as on the dataset card)",
+  "overlap": "",
+  "summary": "LiveCodeBench code generation (LeetCode/AtCoder/Codeforces problems, 2023-2025 releases); AA's problem count and window are not stated. It is in the Yugos catalog (livecodebench v6, used in pack v0.3.0, not live in v0.4.0) and the official leaderboard publishes per-problem, per-model results.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/livecodebench",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://huggingface.co/api/datasets/livecodebench/code_generation_lite",
+   "local: /root/sjh/yugos/step1-benchmark/data/livecodebench.json",
+   "local: /root/cic/sn34-yugos/research/benchmarks/catalog (Yugos catalog copy) and yugos_evals/catalog.py"
+  ]
+ },
+ "2.61": {
+  "scores": {
+   "chat": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.05,
+    "why": "related only: math word problems, not chat QA; contains live math questions"
+   },
+   "math_code": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.05,
+    "why": "It is part of the live math pool: MATH competition problems with \\boxed{} answers."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.05,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/HuggingFaceH4/MATH-500",
+  "n_questions": 500,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "contains live Yugos math questions: all 500 MATH-500 problems appear verbatim in the Yugos math pool (MATH-lighteval test, 5,000), checked locally",
+  "summary": "MATH-500, a 500-problem subset of the MATH test set. Every problem is already in the Yugos math pool, so it adds no new questions.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/math-500",
+   "https://huggingface.co/datasets/HuggingFaceH4/MATH-500/resolve/main/test.jsonl",
+   "local: /root/cic/sn34-yugos/research/benchmarks/catalog/math"
+  ]
+ },
+ "2.62": {
+  "scores": {
+   "chat": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.4,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.55,
+    "why": "related only: olympiad math with integer answers, not chat QA"
+   },
+   "math_code": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.55,
+    "why": "Competition math with a single integer answer checked exactly, the same flavour as the MATH set but harder; widely discussed since Feb 2025 and only 30 problems."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.55,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/math-ai/aime25",
+  "n_questions": 30,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/MathArena/aime_2025_outputs",
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "The 30 AIME 2025 problems (integer answers 0-999). In the Yugos catalog as aime2025 (not in a pack); MathArena publishes per-question, per-model outputs (7,915 rows, CC BY-NC-SA 4.0), which is valuable for router training despite the small size.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/aime-2025",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://huggingface.co/api/datasets/math-ai/aime25",
+   "https://huggingface.co/api/datasets/MathArena/aime_2025_outputs",
+   "local: /root/cic/sn34-yugos/research/benchmarks/catalog (Yugos catalog copy) and yugos_evals/catalog.py"
+  ]
+ },
+ "2.63": {
+  "scores": {
+   "chat": {
+    "T": 0.6,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.8,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Four-option MMLU knowledge MC, same shape as mmlu_pro, but AA runs it in 16 languages (Yugos is English-only); 177 of the 400 English questions appear verbatim in MMLU-Pro."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.15,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "different skill: general-knowledge MC, few math items"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/CohereLabs/Global-MMLU-Lite",
+  "n_questions": 400,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "partial overlap with live Yugos mmlu_pro: 177 of 400 Global-MMLU-Lite English test questions appear verbatim in the MMLU-Pro test set (checked locally)",
+  "summary": "Global-MMLU-Lite: 400 MMLU questions per language (half culturally sensitive) in 16 languages in AA's run; only the English split fits Yugos, and 44% of it is already in MMLU-Pro. n_questions here is the English test split.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/global-mmlu-lite",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "https://huggingface.co/api/datasets/CohereLabs/Global-MMLU-Lite",
+   "local: /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro"
+  ]
+ }
+}

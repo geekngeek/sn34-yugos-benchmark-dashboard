@@ -1,0 +1,563 @@
+{
+ "batch": "S05",
+ "parents": [
+  {
+   "no": "3",
+   "name": "BenchLM",
+   "category": "",
+   "url": "https://benchlm.ai/",
+   "focus": "Weighted multi-benchmark aggregation with statistical intervals",
+   "notes": ""
+  },
+  {
+   "no": "4",
+   "name": "Humanity's Last Exam (HLE)",
+   "category": "General & Expert Knowledge",
+   "url": "https://lastexam.ai/",
+   "focus": "PhD-level, multi-disciplinary questions across science, humanities, and math.",
+   "notes": ""
+  }
+ ],
+ "rows": [
+  {
+   "no": "3.1",
+   "name": "Overall (BenchAlign score)",
+   "category": "Overall",
+   "url": "https://benchlm.ai/",
+   "focus": "BenchLM's overall BenchAlign score, putting direct benchmark results and outside evidence on one scale (missing tests stay missing; Supported/Estimated labels show evidence behind a position).",
+   "metrics": "quality, cost, time, speed, uncertainty, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: Score — BenchLM overall BenchAlign score 0-100 · https://benchlm.ai/\nCost [page]: input and output price — API price USD per 1M tokens · https://benchlm.ai/\nTime [page]: Latency — seconds to first answer token (Artificial Analysis) · https://benchlm.ai/\nSpeed [page]: output tokens per second — median tok/s (Artificial Analysis) · https://benchlm.ai/\nUncertainty [page]: 90% interval — posterior interval on the overall score · https://benchlm.ai/data/leaderboard.json\nEffort [page]:",
+   "notes": "Ranking mode bench-align-v5; leaderboard.json generatedAt 2026-11-26T02:42:18.171Z, sourceLastUpdated November 23, 2026; 215 ranked items in JSON (homepage says 216 models ranked). Homepage: 'Claude Fable 5.2 and Gemini 4 Neon tie under the 90% interval rule.' Scores are BenchLM's aggregate, not a single benchmark.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: composite: BenchLM's BenchAlign overall/category score aggregates other benchmarks' results (the Math page lists 22 tracked benchmarks with category-score weights) and is not a single benchmark.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.338,
+    "3": 0.545,
+    "4": 0.816
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "2": 0.338,
+    "3": 0.545,
+    "4": 0.816
+   }
+  },
+  {
+   "no": "3.2",
+   "name": "Agentic",
+   "category": "Category",
+   "url": "https://benchlm.ai/agentic",
+   "focus": "Tool use, browser research, and computer-use workflows",
+   "metrics": "quality, cost, time, speed, uncertainty*, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Weighted Agentic — category score (BenchAlign category board, 0-100), default sort column · https://benchlm.ai/agentic\nCost [page]: Price — API price per 1M tokens, input / output (model-level, not per category) · https://benchlm.ai/agentic\nTime [page]: Latency — seconds to first answer token (model-level, Artificial Analysis) · https://benchlm.ai/agentic\nSpeed [page]: Speed — output tokens/s (model-level, Artificial Analysis) · https://benchlm.ai/agentic\nUncertainty [data]: scor",
+   "notes": "Category leaderboard from leaderboard.json (key 'agentic'); page shows 'Ranked 182 of 1036 models', 73 tracked benchmarks (45 of 73 with scored evidence), scope: Terminal/tool use, Browser research, Computer use. Page headline sentence matches rank 1. Order follows BenchLM's decision rule (an Estimated model with <2 independent sources ranks below any model within 2 points), so scores are not always monotonic.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: composite: BenchLM's BenchAlign overall/category score aggregates other benchmarks' results (the Math page lists 22 tracked benchmarks with category-score weights) and is not a single benchmark.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.507,
+    "4": 0.7465
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "3": 0.507,
+    "4": 0.7465
+   }
+  },
+  {
+   "no": "3.3",
+   "name": "Coding",
+   "category": "Category",
+   "url": "https://benchlm.ai/coding",
+   "focus": "Programming and software development",
+   "metrics": "quality, cost, time, speed, uncertainty*, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Weighted Coding — category score (BenchAlign category board, 0-100), default sort column · https://benchlm.ai/coding\nCost [page]: Price — API price per 1M tokens, input / output (model-level, not per category) · https://benchlm.ai/coding\nTime [page]: Latency — seconds to first answer token (model-level, Artificial Analysis) · https://benchlm.ai/coding\nSpeed [page]: Speed — output tokens/s (model-level, Artificial Analysis) · https://benchlm.ai/coding\nUncertainty [data]: scoreInte",
+   "notes": "Category leaderboard from leaderboard.json (key 'coding'); page shows 'Ranked 180 of 1036 models', 47 tracked benchmarks (35 of 47 with scored evidence). Page headline sentence matches rank 1 and ranks 2-3. Order follows BenchLM's decision rule (an Estimated model with <2 independent sources ranks below any model within 2 points), so scores are not always monotonic.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: composite: BenchLM's BenchAlign overall/category score aggregates other benchmarks' results (the Math page lists 22 tracked benchmarks with category-score weights) and is not a single benchmark.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.263,
+    "3": 0.758,
+    "4": 0.889
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "2": 0.263,
+    "3": 0.758,
+    "4": 0.889
+   }
+  },
+  {
+   "no": "3.4",
+   "name": "Reasoning",
+   "category": "Category",
+   "url": "https://benchlm.ai/reasoning",
+   "focus": "Logical reasoning and problem solving",
+   "metrics": "quality, cost, time, speed, uncertainty*, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Weighted Reasoning — category score (BenchAlign category board, 0-100), default sort column · https://benchlm.ai/reasoning\nCost [page]: Price — API price per 1M tokens, input / output (model-level, not per category) · https://benchlm.ai/reasoning\nTime [page]: Latency — seconds to first answer token (model-level, Artificial Analysis) · https://benchlm.ai/reasoning\nSpeed [page]: Speed — output tokens/s (model-level, Artificial Analysis) · https://benchlm.ai/reasoning\nUncertainty [d",
+   "notes": "Category leaderboard from leaderboard.json (key 'reasoning'); page shows 'Ranked 161 of 1036 models', 29 tracked benchmarks (21 of 29 with scored evidence), scope: Abstract reasoning, Long-context reasoning. Page headline sentence matches rank 1. Order follows BenchLM's decision rule (an Estimated model with <2 independent sources ranks below any model within 2 points), so scores are not always monotonic.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: composite: BenchLM's BenchAlign overall/category score aggregates other benchmarks' results (the Math page lists 22 tracked benchmarks with category-score weights) and is not a single benchmark.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.58,
+    "3": 0.705,
+    "4": 0.829
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "2": 0.58,
+    "3": 0.705,
+    "4": 0.829
+   }
+  },
+  {
+   "no": "3.5",
+   "name": "Multimodal & Grounded",
+   "category": "Category",
+   "url": "https://benchlm.ai/multimodal-grounded",
+   "focus": "Vision, document, and grounded enterprise workflow benchmarks",
+   "metrics": "quality, cost, time, speed, uncertainty*, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Weighted Multimodal & Grounded — category score (BenchAlign category board, 0-100), default sort column · https://benchlm.ai/multimodal-grounded\nCost [page]: Price — API price per 1M tokens, input / output (model-level, not per category) · https://benchlm.ai/multimodal-grounded\nTime [page]: Latency — seconds to first answer token (model-level, Artificial Analysis) · https://benchlm.ai/multimodal-grounded\nSpeed [page]: Speed — output tokens/s (model-level, Artificial Analysis) · h",
+   "notes": "Category leaderboard from leaderboard.json (key 'multimodalGrounded'); page shows 'Ranked 119 of 1036 models', 55 tracked benchmarks (37 of 55 with scored evidence), scope: Vision, Document-office, GUI/web, Video. Page headline sentence matches rank 1. Order follows BenchLM's decision rule (an Estimated model with <2 independent sources ranks below any model within 2 points), so scores are not always monotonic.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: composite: BenchLM's BenchAlign overall/category score aggregates other benchmarks' results (the Math page lists 22 tracked benchmarks with category-score weights) and is not a single benchmark.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.732,
+    "4": 0.857
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "3": 0.732,
+    "4": 0.857
+   }
+  },
+  {
+   "no": "3.6",
+   "name": "Knowledge",
+   "category": "Category",
+   "url": "https://benchlm.ai/knowledge",
+   "focus": "General knowledge and factual understanding",
+   "metrics": "quality, cost, time, speed, uncertainty*, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Weighted Knowledge — category score (BenchAlign category board, 0-100), default sort column · https://benchlm.ai/knowledge\nCost [page]: Price — API price per 1M tokens, input / output (model-level, not per category) · https://benchlm.ai/knowledge\nTime [page]: Latency — seconds to first answer token (model-level, Artificial Analysis) · https://benchlm.ai/knowledge\nSpeed [page]: Speed — output tokens/s (model-level, Artificial Analysis) · https://benchlm.ai/knowledge\nUncertainty [d",
+   "notes": "Category leaderboard from leaderboard.json (key 'knowledge'); page shows 'Ranked 158 of 1036 models', 39 tracked benchmarks (29 of 39 with scored evidence), scope: Frontier science, Broad academic knowledge, Factuality. Page headline sentence matches rank 1. Order follows BenchLM's decision rule (an Estimated model with <2 independent sources ranks below any model within 2 points), so scores are not always monotonic.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: composite: BenchLM's BenchAlign overall/category score aggregates other benchmarks' results (the Math page lists 22 tracked benchmarks with category-score weights) and is not a single benchmark.",
+   "computed_level_cdf": {
+    "1": 0.407,
+    "2": 0.437,
+    "3": 0.718,
+    "4": 0.849
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "1": 0.407,
+    "2": 0.437,
+    "3": 0.718,
+    "4": 0.849
+   }
+  },
+  {
+   "no": "3.7",
+   "name": "Multilingual",
+   "category": "Category",
+   "url": "https://benchlm.ai/multilingual",
+   "focus": "Performance across multiple languages",
+   "metrics": "quality, cost, time, speed, uncertainty*, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Weighted Multilingual — category score (BenchAlign category board, 0-100), default sort column · https://benchlm.ai/multilingual\nCost [page]: Price — API price per 1M tokens, input / output (model-level, not per category) · https://benchlm.ai/multilingual\nTime [page]: Latency — seconds to first answer token (model-level, Artificial Analysis) · https://benchlm.ai/multilingual\nSpeed [page]: Speed — output tokens/s (model-level, Artificial Analysis) · https://benchlm.ai/multilingual",
+   "notes": "Category leaderboard from leaderboard.json (key 'multilingual'); page shows 'Ranked 88 of 1036 models', 10 tracked benchmarks (9 of 10 with scored evidence). Page headline sentence matches rank 1 and ranks 2-3. Order follows BenchLM's decision rule (an Estimated model with <2 independent sources ranks below any model within 2 points), so scores are not always monotonic.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: composite: BenchLM's BenchAlign overall/category score aggregates other benchmarks' results (the Math page lists 22 tracked benchmarks with category-score weights) and is not a single benchmark.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.302,
+    "3": 0.965,
+    "4": 0.965
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "2": 0.302,
+    "3": 0.965
+   }
+  },
+  {
+   "no": "3.8",
+   "name": "Instruction Following",
+   "category": "Category",
+   "url": "https://benchlm.ai/instruction-following",
+   "focus": "Ability to follow precise instructions and constraints",
+   "metrics": "quality, cost, time, speed, uncertainty*, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Weighted Instruction Following — category score (BenchAlign category board, 0-100), default sort column · https://benchlm.ai/instruction-following\nCost [page]: Price — API price per 1M tokens, input / output (model-level, not per category) · https://benchlm.ai/instruction-following\nTime [page]: Latency — seconds to first answer token (model-level, Artificial Analysis) · https://benchlm.ai/instruction-following\nSpeed [page]: Speed — output tokens/s (model-level, Artificial Analysi",
+   "notes": "Category leaderboard from leaderboard.json (key 'instructionFollowing'); page shows 'Ranked 143 of 1036 models', 9 tracked benchmarks (7 of 9 with scored evidence). Page headline sentence matches rank 1 and ranks 2-3. Order follows BenchLM's decision rule (an Estimated model with <2 independent sources ranks below any model within 2 points), so scores are not always monotonic.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: composite: BenchLM's BenchAlign overall/category score aggregates other benchmarks' results (the Math page lists 22 tracked benchmarks with category-score weights) and is not a single benchmark.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.389,
+    "3": 0.859,
+    "4": 0.859
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "2": 0.389,
+    "3": 0.859,
+    "4": 0.769
+   }
+  },
+  {
+   "no": "3.9",
+   "name": "Mathematics",
+   "category": "Category",
+   "url": "https://benchlm.ai/math",
+   "focus": "Mathematical reasoning and problem solving",
+   "metrics": "quality, cost, time, speed, uncertainty*, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Weighted Mathematics — category score (BenchAlign category board, 0-100), default sort column · https://benchlm.ai/math\nCost [page]: Price — API price per 1M tokens, input / output (model-level, not per category) · https://benchlm.ai/math\nTime [page]: Latency — seconds to first answer token (model-level, Artificial Analysis) · https://benchlm.ai/math\nSpeed [page]: Speed — output tokens/s (model-level, Artificial Analysis) · https://benchlm.ai/math\nUncertainty [data]: scoreInterva",
+   "notes": "Category leaderboard from leaderboard.json (key 'math'); page shows 'Ranked 125 of 1036 models', 22 tracked benchmarks (13 of 22 with scored evidence). Page headline sentence matches rank 1 and ranks 2-3. Order follows BenchLM's decision rule (an Estimated model with <2 independent sources ranks below any model within 2 points), so scores are not always monotonic.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: composite: BenchLM's BenchAlign overall/category score aggregates other benchmarks' results (the Math page lists 22 tracked benchmarks with category-score weights) and is not a single benchmark.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.233,
+    "3": 0.525,
+    "4": 0.916
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "2": 0.233,
+    "3": 0.525,
+    "4": 0.916
+   }
+  },
+  {
+   "no": "4.1",
+   "name": "Humanity's Last Exam (full, 2,500 questions)",
+   "category": "Main dataset",
+   "url": "https://scale.com/leaderboard/humanitys_last_exam",
+   "focus": "Multi-modal, expert-written closed-ended academic questions (multiple-choice and exact-match) across dozens of subjects; ~14% need an image.",
+   "metrics": "quality, uncertainty, effort, date*, other",
+   "metrics_detail": "Quality [page]: score (e.g. '54.80') — Accuracy (%) on the full 2,500-question HLE, o3-mini judge · https://labs.scale.com/leaderboard/humanitys_last_exam\nUncertainty [page]: ± (e.g. '54.80±1.94') — 95% confidence interval half-width (data field confidenceInterval_upper) · https://labs.scale.com/leaderboard/humanitys_last_exam\nEffort [page]: model-name suffix, e.g. '(xhigh)', '(thinking high)' — Separate entries per reasoning effort, encoded only in the model name · https://labs.scale.com/leader",
+   "notes": "Leaderboard is Scale AI SEAL (HLE co-creator; linked from lastexam.ai as 'Also available at ... SEAL LLM Leaderboards'). lastexam.ai's own table (judge o3-mini, dataset 2025-04-03) is older: 1. Gemini 3 Pro (38.3) 2. GPT-5 (25.3) 3. Grok 4 (24.5). Scale ranks by Rank (Upper Bound); order above is by listed score.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 16 models' published scores; guessing floor 5% removed.\nBest observed: GPT-6 Astra 54.8, Claude Sonnet 5.5 (xhigh) 46.1, Gemini 3.8 Flash 44.5.\nOfficial difficulty: Paper/lastexam.ai: designed to be at the frontier of human knowledge; questions filtered so frontier LLMs failed them.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.2821,
+    "4": 0.59
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "2": 0.027,
+    "3": 0.318
+   }
+  },
+  {
+   "no": "4.2",
+   "name": "Humanity's Last Exam (Text Only)",
+   "category": "Modality subset",
+   "url": "https://scale.com/leaderboard/humanitys_last_exam_text_only",
+   "focus": "Models evaluated on the text-only HLE questions (excludes questions with an image).",
+   "metrics": "quality, uncertainty, effort, date*, other",
+   "metrics_detail": "Quality [page]: score (e.g. '54.17') — Accuracy (%) on the text-only HLE questions · https://labs.scale.com/leaderboard/humanitys_last_exam_text_only\nUncertainty [page]: ± (e.g. '54.17±2.09') — 95% confidence interval half-width (data field confidenceInterval_upper) · https://labs.scale.com/leaderboard/humanitys_last_exam_text_only\nEffort [page]: model-name suffix, e.g. '(high)', '(xhigh)', 'thinking max', 'Non-Thinking', 'instant' — Separate entries per reasoning effort, only in the model name ",
+   "notes": "Scale AI SEAL leaderboard. On lastexam.ai only non-multimodal models (e.g. DeepSeek-R1*) are marked as text-only; paper Table 2 (C.2) gives text-only results for early-2025 models.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 22 models' published scores.\nBest observed: GPT-6 Astra 54.2, Claude Sonnet 5.5 (xhigh) 46.6, GPT-5.4 Pro 45.3.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.2,
+    "4": 0.59
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.033
+   }
+  },
+  {
+   "no": "4.3",
+   "name": "HLE-Rolling",
+   "category": "Version (dynamic fork)",
+   "url": "https://huggingface.co/datasets/cais/hle-rolling",
+   "focus": "Dynamic fork of HLE continually updated with community feedback, with some easy questions replaced by harder held-out ones.",
+   "metrics": "none published",
+   "metrics_detail": "Not reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Could not verify any results. The HF dataset card (https://huggingface.co/datasets/cais/hle-rolling) publishes no model results, scores or version dates. lastexam.ai's 'HLE-Rolling Contributors' section only showed 'Loading HLE results...' (JS-rendered, not readable). The Scale HLE page mentions HLE-Rolling (2026-09-17 update) only as a migration path, and its board still shows the 2,",
+   "notes": "Released 2025-10-08; change log at github hle-rolling-changes.txt (latest entries 07/27/2026). No separate official leaderboard found. Gated dataset.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No per-model scores published anywhere official: lastexam.ai only links the dataset and change log; the Scale SEAL HLE pages only announce HLE-Rolling (Update September 17, 2026) and still score the original 2,500-question set; the CAIS data embedded in lastexam.ai has only 'hle' (original) and 'hle_diamond' fields. Also a moving target (continually updated).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "4.4",
+   "name": "HLE-Diamond",
+   "category": "Version (refined subset)",
+   "url": "https://lastexam.ai/blog/hle-diamond",
+   "focus": "Refined 1,000-question subset of HLE (500 reasoning + 500 knowledge) after a year of cleaning, evaluated without tools.",
+   "metrics": "quality, tokens, breakdown",
+   "metrics_detail": "Quality [page]: Accuracy (%) — HLE-Diamond accuracy, 1,000 questions, no tools, 'reasoning high' (128k output cap); bar chart of 10 models · https://lastexam.ai/blog/hle-diamond\nTokens [page]: Token Usage — Mean output tokens per model at reasoning high (e.g. 3.3k to 59.2k, log axis) · https://lastexam.ai/blog/hle-diamond\nBreakdown [page]: Reasoning / Knowledge — Separate accuracy for the two 500-question partitions · https://lastexam.ai/blog/hle-diamond\nNot reported: cost, time, speed, uncertai",
+   "notes": "Released 2026-09-22. Results chart on the release post (reasoning high, 128k output cap); a 'reasoning max' view also exists on the page. Dataset gated: cais/hle-diamond.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 18 models' published scores.\nBest observed: Claude Fable 5.2 (high) 74.3, GPT-6.2 Astra (high) 66.6, Gemini 4 Neon (high) 65.2.\nOfficial difficulty: Release post: refined 1,000-question subset after a year of cleaning, for when frontier models hit the noise ceiling of original HLE.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.1368,
+    "4": 0.532
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "2": 0.0116,
+    "3": 0.1368,
+    "4": 0.532
+   }
+  },
+  {
+   "no": "4.5",
+   "name": "HLE-Diamond Reasoning partition",
+   "category": "HLE-Diamond partition",
+   "url": "https://lastexam.ai/blog/hle-diamond",
+   "focus": "500 HLE-Diamond questions measuring reasoning.",
+   "metrics": "quality",
+   "metrics_detail": "Quality [page]: Reasoning — Accuracy (%) on the 500 reasoning questions, no tools, reasoning high; 'Reasoning and Knowledge Partitions' chart · https://lastexam.ai/blog/hle-diamond\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Shown only as one bar series in the partitions chart of the HLE-Diamond blog post (10 models). The token usage chart covers the whole of HLE-Diamond, not this partition. Nothing else is published per partition.",
+   "notes": "Section 'Reasoning and Knowledge Partitions' on the release post; no separate URL. Reasoning high.",
+   "team_difficulty": "3-4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 68%, L3 32%.\nPlaced from 8 models' published scores.\nBest observed: Claude Fable 5.2 (high) 79.4, GPT-6.2 Astra (high) 78.8, Gemini 4 Neon (high) 76.4.",
+   "computed_level_cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.674
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.674
+   }
+  },
+  {
+   "no": "4.6",
+   "name": "HLE-Diamond Knowledge partition",
+   "category": "HLE-Diamond partition",
+   "url": "https://lastexam.ai/blog/hle-diamond",
+   "focus": "500 HLE-Diamond questions measuring expert knowledge.",
+   "metrics": "quality",
+   "metrics_detail": "Quality [page]: Knowledge — Accuracy (%) on the 500 knowledge questions, no tools, reasoning high; 'Reasoning and Knowledge Partitions' chart · https://lastexam.ai/blog/hle-diamond\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Same chart as 4.5 (other bar series). The token usage chart covers the whole of HLE-Diamond, not this partition. Nothing else is published per partition.",
+   "notes": "Section 'Reasoning and Knowledge Partitions' on the release post; no separate URL. Reasoning high.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 8 models' published scores.\nBest observed: Claude Fable 5.2 (high) 69.2, Gemini 4 Carbon (high) 55.2, GPT-6.2 Astra (high) 54.4.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.468
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.468
+   }
+  },
+  {
+   "no": "4.7",
+   "name": "HLE-Diamond with tools (web+code)",
+   "category": "HLE-Diamond evaluation setting",
+   "url": "https://github.com/centerforaisafety/hle/blob/main/docs/evaluation-with-tools.md",
+   "focus": "HLE-Diamond evaluated with recommended web search/fetch and Python tools under a blocklist.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: With tools (web+code) — HLE-Diamond accuracy (%) with web search/fetch + Python tools, reasoning high; 7 models · https://lastexam.ai/blog/hle-diamond\nEffort [page]: Without tools / With tools (web+code) — Paired bars per model for the two settings · https://lastexam.ai/blog/hle-diamond\nOther [page]: harness + version per model (e.g. 'Claude Opus 5.5 | Claude Code | 2.1.280') — Agent harness used for tool runs · https://github.com/centerforaisafety/hle/blob/main/docs/evaluation-w",
+   "notes": "Scores from 'HLE-Diamond with tools' chart on the release post (reasoning high); only 7 systems shown, a different model set than the no-tools chart.",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data now imported): only 8 distinct models, 4 of them with scores on at least 2 other benchmarks; the scale needs at least 6 such models to place a benchmark.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.707
+   },
+   "level_source": "scores+team-level (nearest level)",
+   "anchor_scores": {
+    "4": 0.707
+   }
+  },
+  {
+   "no": "4.8",
+   "name": "Math",
+   "category": "Subject category (paper Table 3)",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "focus": "HLE questions in the Math category (one of the high-level categories the paper groups its 100+ subjects into).",
+   "metrics": "quality*",
+   "metrics_detail": "Quality [paper]: Math — Accuracy (%) column (unlabelled; matches overall accuracy) in Table 3 'Category-wise breakdown of model performance on HLE', separate Text-Only and Full Dataset blocks · https://arxiv.org/html/2501.14249#A3.SS3\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Checked Table 3 directly. The category score exists only as a paper table column for the paper's early models. Calibration error and token counts are per model o",
+   "notes": "Per-category results only in the HLE paper (arXiv 2501.14249v12, Appendix C.3 Table 3, 'Full Dataset' block; early-2025 models only). No official per-category leaderboard. Ties shown as on the page. URL anchor is the paper's C.3 'Categorical Results' section (anchor id A3.SS3 confirmed in page HTML).",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 98%.\nPlaced from 6 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Gemini 2.0 Flash Thinking Experimental 8.0, o1 7.4, Gemini 1.5 Pro 5.2.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.0433,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.0315
+   }
+  },
+  {
+   "no": "4.9",
+   "name": "Bio/Med",
+   "category": "Subject category (paper Table 3)",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "focus": "HLE questions in the Bio/Med category (one of the high-level categories the paper groups its 100+ subjects into).",
+   "metrics": "quality*",
+   "metrics_detail": "Quality [paper]: Bio/Med — Accuracy (%) column (unlabelled; matches overall accuracy) in Table 3 'Category-wise breakdown of model performance on HLE', separate Text-Only and Full Dataset blocks · https://arxiv.org/html/2501.14249#A3.SS3\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Same Table 3 column layout as 4.8. The category score exists only as a paper table column for the paper's early models. Calibration error and token counts are",
+   "notes": "Per-category results only in the HLE paper (arXiv 2501.14249v12, Appendix C.3 Table 3, 'Full Dataset' block; early-2025 models only). No official per-category leaderboard. Ties shown as on the page. URL anchor is the paper's C.3 'Categorical Results' section (anchor id A3.SS3 confirmed in page HTML).",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L4 52%, L5 48%.\nPlaced from 6 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: o1 10.4, Gemini 2.0 Flash Thinking Experimental 8.2, GPT-4o 6.4.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.055,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.055
+   }
+  },
+  {
+   "no": "4.10",
+   "name": "Physics",
+   "category": "Subject category (paper Table 3)",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "focus": "HLE questions in the Physics category (one of the high-level categories the paper groups its 100+ subjects into).",
+   "metrics": "quality*",
+   "metrics_detail": "Quality [paper]: Physics — Accuracy (%) column (unlabelled; matches overall accuracy) in Table 3 'Category-wise breakdown of model performance on HLE', separate Text-Only and Full Dataset blocks · https://arxiv.org/html/2501.14249#A3.SS3\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Same Table 3 column layout as 4.8. The category score exists only as a paper table column for the paper's early models. Calibration error and token counts are",
+   "notes": "Per-category results only in the HLE paper (arXiv 2501.14249v12, Appendix C.3 Table 3, 'Full Dataset' block; early-2025 models only). No official per-category leaderboard. Ties shown as on the page. URL anchor is the paper's C.3 'Categorical Results' section (anchor id A3.SS3 confirmed in page HTML).",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 100%.\nPlaced from 6 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: o1 7.0, Gemini 2.0 Flash Thinking Experimental 4.8, Grok 2 3.9.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.0433,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.028
+   }
+  },
+  {
+   "no": "4.11",
+   "name": "CS/AI",
+   "category": "Subject category (paper Table 3)",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "focus": "HLE questions in the CS/AI category (one of the high-level categories the paper groups its 100+ subjects into).",
+   "metrics": "quality*",
+   "metrics_detail": "Quality [paper]: CS/AI — Accuracy (%) column (unlabelled; matches overall accuracy) in Table 3 'Category-wise breakdown of model performance on HLE', separate Text-Only and Full Dataset blocks · https://arxiv.org/html/2501.14249#A3.SS3\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Same Table 3 column layout as 4.8. The category score exists only as a paper table column for the paper's early models. Calibration error and token counts are p",
+   "notes": "Per-category results only in the HLE paper (arXiv 2501.14249v12, Appendix C.3 Table 3, 'Full Dataset' block; early-2025 models only). No official per-category leaderboard. Ties shown as on the page. URL anchor is the paper's C.3 'Categorical Results' section (anchor id A3.SS3 confirmed in page HTML).",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 100%.\nPlaced from 6 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: o1 8.2, Gemini 2.0 Flash Thinking Experimental 4.5, Gemini 1.5 Pro 3.7.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.0433,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.0165
+   }
+  },
+  {
+   "no": "4.12",
+   "name": "Humanities",
+   "category": "Subject category (paper Table 3)",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "focus": "HLE questions in the Humanities category (one of the high-level categories the paper groups its 100+ subjects into).",
+   "metrics": "quality*",
+   "metrics_detail": "Quality [paper]: Humanities — Accuracy (%) column (unlabelled; matches overall accuracy) in Table 3 'Category-wise breakdown of model performance on HLE', separate Text-Only and Full Dataset blocks · https://arxiv.org/html/2501.14249#A3.SS3\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Same Table 3 column layout as 4.8. The category score exists only as a paper table column for the paper's early models. Calibration error and token counts ",
+   "notes": "Per-category results only in the HLE paper (arXiv 2501.14249v12, Appendix C.3 Table 3, 'Full Dataset' block; early-2025 models only). No official per-category leaderboard. Ties shown as on the page. URL anchor is the paper's C.3 'Categorical Results' section (anchor id A3.SS3 confirmed in page HTML).",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 96%.\nPlaced from 6 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: o1 8.7, Gemini 2.0 Flash Thinking Experimental 6.4, Claude 3.5 Sonnet 5.9.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.0455,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.0455
+   }
+  },
+  {
+   "no": "4.13",
+   "name": "Chemistry",
+   "category": "Subject category (paper Table 3)",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "focus": "HLE questions in the Chemistry category (one of the high-level categories the paper groups its 100+ subjects into).",
+   "metrics": "quality*",
+   "metrics_detail": "Quality [paper]: Chemistry — Accuracy (%) column (unlabelled; matches overall accuracy) in Table 3 'Category-wise breakdown of model performance on HLE', separate Text-Only and Full Dataset blocks · https://arxiv.org/html/2501.14249#A3.SS3\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Same Table 3 column layout as 4.8. The category score exists only as a paper table column for the paper's early models. Calibration error and token counts a",
+   "notes": "Per-category results only in the HLE paper (arXiv 2501.14249v12, Appendix C.3 Table 3, 'Full Dataset' block; early-2025 models only). No official per-category leaderboard. Ties shown as on the page. URL anchor is the paper's C.3 'Categorical Results' section (anchor id A3.SS3 confirmed in page HTML).",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 92%, L4 8%.\nPlaced from 6 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: o1 9.7, Gemini 1.5 Pro 6.1, Gemini 2.0 Flash Thinking Experimental 5.5.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.0433,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.039
+   }
+  },
+  {
+   "no": "4.14",
+   "name": "Engineering",
+   "category": "Subject category (paper Table 3)",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "focus": "HLE questions in the Engineering category (one of the high-level categories the paper groups its 100+ subjects into).",
+   "metrics": "quality*",
+   "metrics_detail": "Quality [paper]: Engineering — Accuracy (%) column (unlabelled; matches overall accuracy) in Table 3 'Category-wise breakdown of model performance on HLE', separate Text-Only and Full Dataset blocks · https://arxiv.org/html/2501.14249#A3.SS3\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Same Table 3 column layout as 4.8. The category score exists only as a paper table column for the paper's early models. Calibration error and token counts",
+   "notes": "Per-category results only in the HLE paper (arXiv 2501.14249v12, Appendix C.3 Table 3, 'Full Dataset' block; early-2025 models only). No official per-category leaderboard. Ties shown as on the page. URL anchor is the paper's C.3 'Categorical Results' section (anchor id A3.SS3 confirmed in page HTML).",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 96%.\nPlaced from 6 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Claude 3.5 Sonnet 7.2, o1 6.3, Gemini 2.0 Flash Thinking Experimental 6.3.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.045,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.045
+   }
+  },
+  {
+   "no": "4.15",
+   "name": "Other",
+   "category": "Subject category (paper Table 3)",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "focus": "HLE questions in the Other category (one of the high-level categories the paper groups its 100+ subjects into).",
+   "metrics": "quality*",
+   "metrics_detail": "Quality [paper]: Other — Accuracy (%) column (unlabelled; matches overall accuracy) in Table 3 'Category-wise breakdown of model performance on HLE', separate Text-Only and Full Dataset blocks · https://arxiv.org/html/2501.14249#A3.SS3\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes, other\nNote: Same Table 3 column layout as 4.8. The category score exists only as a paper table column for the paper's early models. Calibration error and token counts are p",
+   "notes": "Per-category results only in the HLE paper (arXiv 2501.14249v12, Appendix C.3 Table 3, 'Full Dataset' block; early-2025 models only). No official per-category leaderboard. Ties shown as on the page. URL anchor is the paper's C.3 'Categorical Results' section (anchor id A3.SS3 confirmed in page HTML).",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 100%.\nPlaced from 6 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: o1 7.3, Gemini 1.5 Pro 3.4, Gemini 2.0 Flash Thinking Experimental 3.0.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.0433,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.024
+   }
+  }
+ ]
+}

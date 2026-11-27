@@ -1,0 +1,1159 @@
+{
+ "3.1": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.5,
+    "L": 0.5,
+    "F": 0.4,
+    "why": "Composite of every BenchLM category: its knowledge and reasoning inputs resemble chat questions, but most weight is agentic, coding and multimodal, and BenchLM has no questions of its own."
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "Includes the math and coding category inputs (competition math, repo-level SWE, LiveCodeBench) diluted by everything else; no questions of its own."
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.5,
+    "A": 0.4,
+    "Dm": 0.4,
+    "L": 0.4,
+    "F": 0.5,
+    "why": "Agentic inputs (Terminal-Bench, OSWorld, BrowseComp, tau2/tau3, BFCL v4) are one slice of a much wider mix; no questions of its own."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "Composite only: its inputs include HLE, MMLU-Pro and BFCL v4 (weighted) and SimpleQA and MATH-500 (display only) -- the benchmarks behind Yugos hle, mmlu_pro, bfcl, simpleqa_verified and math. BenchLM itself holds no questions.",
+  "summary": "BenchLM's overall score is a weighted aggregate of other benchmarks' published model scores (all categories); it has no questions, answers or per-question results, so it cannot be used as question data -- only as model-level prior scores or a pointer to its constituent benchmarks.",
+  "confidence": "medium",
+  "sources": [
+   "https://benchlm.ai/agentic",
+   "https://benchlm.ai/coding",
+   "https://benchlm.ai/reasoning",
+   "https://benchlm.ai/multimodal-grounded",
+   "https://benchlm.ai/knowledge",
+   "https://benchlm.ai/multilingual",
+   "https://benchlm.ai/instruction-following",
+   "https://benchlm.ai/math"
+  ]
+ },
+ "3.2": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.5,
+    "why": "different skill: multi-step agent tasks, not single-answer chat questions"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.3,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.5,
+    "why": "Mostly agent tasks; only terminal/agentic-coding parts touch code, and in a long multi-step setting."
+   },
+   "agentic": {
+    "T": 0.5,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.3,
+    "F": 0.5,
+    "why": "Composite of multi-step agent benchmarks (Terminal-Bench, BrowseComp, OSWorld, MCP Atlas, tau2/tau3-bench, BFCL v4, VendingBench...): the skill is related to the hidden agentic part, but many need screenshots, browsing or very long horizons, and BenchLM has no questions of its own."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "Includes BFCL v4 (2% weight) and BFCL v3 (display only), the family of the live Yugos bfcl set.",
+  "summary": "Weighted aggregate of ~45 published agent benchmark scores (terminal, browser research, computer use, tool use). No questions of its own; useful only as model-level agentic priors and as a list of candidate agent datasets (tau2/tau3, MCP Atlas, BFCL v4) to fetch directly.",
+  "confidence": "medium",
+  "sources": [
+   "https://benchlm.ai/agentic"
+  ]
+ },
+ "3.3": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.3,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.7,
+    "why": "different skill: software engineering and code generation"
+   },
+   "math_code": {
+    "T": 0.45,
+    "I": 0.5,
+    "A": 0.7,
+    "Dm": 0.4,
+    "L": 0.4,
+    "F": 0.7,
+    "why": "Mostly repo-level agentic SWE tasks (SWE-bench Pro, DeepSWE, FrontierSWE, NL2Repo) plus some function-level code (LiveCodeBench v6/Pro, SciCode); Yugos code is single-prompt Python library functions; BenchLM has no questions of its own."
+   },
+   "agentic": {
+    "T": 0.2,
+    "I": 0.4,
+    "A": 0.4,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.7,
+    "why": "Agentic coding in a terminal harness is tool use, but not function-calling from schemas or customer-service style tasks."
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Weighted aggregate of ~35 coding benchmark scores, dominated by repo-level software-engineering agents; BigCodeBench and DS-1000 are not among its inputs. No questions of its own; only model-level coding priors.",
+  "confidence": "medium",
+  "sources": [
+   "https://benchlm.ai/coding"
+  ]
+ },
+ "3.4": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.5,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "Puzzle-style inputs (LisanBench, chess and mystery-game puzzles, NYT Connections, LiveBench reasoning, ARC-AGI-2) resemble bbeh reasoning puzzles, but long-context inputs (LongBench v2, MRCR v2, Graphwalks 128K-1M) and interactive game arenas do not; no questions of its own."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.6,
+    "A": 0.4,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "Logic/data-analysis reasoning, not math problems or code."
+   },
+   "agentic": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: game arenas are interactive but give no tool schemas"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Weighted aggregate of ~22 reasoning benchmark scores (puzzles, games, long-context retrieval). BBH appears display-only (bbeh's predecessor, different questions); BBEH itself is not an input. No questions of its own; only model-level reasoning priors.",
+  "confidence": "medium",
+  "sources": [
+   "https://benchlm.ai/reasoning"
+  ]
+ },
+ "3.5": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.5,
+    "A": 0.3,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: needs images, documents, video or audio (MMMU-Pro, OCRBench, Video-MME, CharXiv, VoxPopuli); Yugos is text-only"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.5,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: visual math (MathVision, DynaMath) needs images"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.3,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: GUI grounding / visual tasks need screenshots"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Weighted aggregate of vision, document, video and audio benchmark scores; almost every input needs a non-text input, so it cannot stand in for Yugos's text-only questions. No questions of its own.",
+  "confidence": "medium",
+  "sources": [
+   "https://benchlm.ai/multimodal-grounded"
+  ]
+ },
+ "3.6": {
+  "scores": {
+   "chat": {
+    "T": 0.65,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.85,
+    "L": 0.9,
+    "F": 0.3,
+    "why": "Knowledge QA mix (GPQA-D, SuperGPQA, MMLU-Pro, HLE, SimpleQA, MedXpertQA text, HealthBench) matches chat's knowledge parts; HealthBench is multi-turn and rubric-judged; several inputs are live Yugos sets; no questions of its own."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.9,
+    "A": 0.4,
+    "Dm": 0.2,
+    "L": 0.9,
+    "F": 0.3,
+    "why": "Expert knowledge recall, with only HLE's math share overlapping math problems."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "Includes HLE, HLE w/o tools and HLE-Diamond (Yugos hle), MMLU-Pro (Yugos mmlu_pro) and SimpleQA (display only; superset of Yugos simpleqa_verified).",
+  "summary": "Weighted aggregate of knowledge benchmark scores (GPQA-D, MMLU-Pro, HLE, HealthBench, MedXpertQA, SuperGPQA). No questions of its own, but it names the right families; the underlying datasets (several of them live Yugos sets) should be used directly.",
+  "confidence": "medium",
+  "sources": [
+   "https://benchlm.ai/knowledge"
+  ]
+ },
+ "3.7": {
+  "scores": {
+   "chat": {
+    "T": 0.25,
+    "I": 0.9,
+    "A": 0.7,
+    "Dm": 0.5,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "Non-English knowledge tests (Global-MMLU Lite, MMLU-ProX, INCLUDE, cEval, NOVA-63) while Yugos is English-only; the biggest weight (22%) is SWE Multilingual coding; no questions of its own."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.3,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "SWE Multilingual is repo-level coding in many programming languages; MGSM Bengali and PolyMath are non-English math."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "MMLU-ProX is MMLU-Pro translated into other languages, i.e. translated copies of the pool behind Yugos mmlu_pro.",
+  "summary": "Weighted aggregate of 9 multilingual benchmark scores. Yugos questions are all English, so the fit is weak; no questions of its own.",
+  "confidence": "medium",
+  "sources": [
+   "https://benchlm.ai/multilingual"
+  ]
+ },
+ "3.8": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.7,
+    "A": 0.4,
+    "Dm": 0.4,
+    "L": 0.8,
+    "F": 0.7,
+    "why": "Chat-type skills (constraint following IFBench/LiveBench IF, EQ-Bench, BullshitBench, WritingBench) but graded by constraint checks or judges rather than short reference answers; no questions of its own."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.7,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.8,
+    "F": 0.7,
+    "why": "different skill: instruction following and writing"
+   },
+   "agentic": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "different skill; only the prompt-injection tests (Gray Swan IPI, PromptArmor) involve tool-using agents"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Weighted aggregate of 7 instruction-following / writing / safety benchmark scores. Could hint at how models handle easy everyday chat prompts (the hidden chat part), but has no questions of its own.",
+  "confidence": "medium",
+  "sources": [
+   "https://benchlm.ai/instruction-following"
+  ]
+ },
+ "3.9": {
+  "scores": {
+   "chat": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.6,
+    "why": "Competition math; Yugos chat only has math inside hle."
+   },
+   "math_code": {
+    "T": 0.6,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.6,
+    "why": "Competition and frontier math with closed-form answers (Apex, IMOAnswerBench, FrontierMath, HMMT, AIME, MATH-500) fits Yugos math/arxivmath, but no code, FrontierMath is private, and BenchLM has no questions of its own."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.6,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "MATH-500 (display only) is a 500-problem subset of the MATH test set, the source family of Yugos math; it may share problems with it.",
+  "summary": "Weighted aggregate of ~21 math benchmark scores (mostly 2025-2026 competitions plus FrontierMath). No questions of its own; the public constituents (AIME/HMMT 2025-26, MATH-500) are the usable data.",
+  "confidence": "medium",
+  "sources": [
+   "https://benchlm.ai/math"
+  ]
+ },
+ "4.1": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Same source as Yugos hle: expert closed-ended questions, 76% exact / 24% MC, LLM judge, median ~126 tokens; 342 of 2,500 need an image (filterable via the image field)."
+   },
+   "math_code": {
+    "T": 0.45,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.45,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "41% is research-level math with closed-form answers (like arxivmath), judged by LLM rather than Math-Verify; the rest is non-math and there is no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 2500,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "The live Yugos hle set (90 text-only questions) is drawn from this exact dataset (cais/hle, revision pinned by Yugos).",
+  "summary": "The full 2,500-question HLE (gated but auto-approved on HF, MIT): the exact pool Yugos samples its hle questions from, so its 2,158 text-only questions are ideal stand-ins for chat:public hle (exclude the 90 live ones). Third-party per-question results exist in LLMRouterBench (HLE 2,158 text-only samples, 13 late-2025 models, LLM judge).",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/cais/hle",
+   "https://arxiv.org/html/2501.14249",
+   "https://lastexam.ai/",
+   "https://github.com/ynulihao/LLMRouterBench",
+   "local Yugos-pinned copy /root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle (counted)"
+  ]
+ },
+ "4.2": {
+  "scores": {
+   "chat": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "This is exactly the pool Yugos hle samples from: text-only expert questions (2,158; 45% math), 76% exact / 24% MC, LLM judge, median ~126 tokens."
+   },
+   "math_code": {
+    "T": 0.5,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "45% is research-level math with closed-form answers (like arxivmath), judged by LLM rather than Math-Verify; no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 2158,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "The live Yugos hle set (90 text-only questions) is drawn from this exact dataset (cais/hle, revision pinned by Yugos).",
+  "summary": "The 2,158 HLE questions without an image (count from the Yugos-pinned cais/hle copy): identical in kind to Yugos's hle set and the best stand-in for it once the 90 live questions are excluded. LLMRouterBench lists HLE with 2,158 samples and per-record correctness, tokens and cost for late-2025 models.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/cais/hle",
+   "https://arxiv.org/html/2501.14249",
+   "https://labs.scale.com/leaderboard/humanitys_last_exam_text_only",
+   "https://github.com/ynulihao/LLMRouterBench",
+   "local Yugos-pinned copy /root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle (counted)"
+  ]
+ },
+ "4.3": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.95,
+    "L": 1.0,
+    "F": 0.5,
+    "why": "Fork of HLE in the same format (MC / short answer, same columns) with some easy questions swapped for harder held-out ones; image share not stated."
+   },
+   "math_code": {
+    "T": 0.45,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.45,
+    "L": 1.0,
+    "F": 0.5,
+    "why": "Same HLE mix with a large math share (exact share not stated); no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.25,
+    "4": 0.55
+   },
+   "why": "Dataset card: HLE fork where some easy questions were replaced by harder held-out ones, so at most as easy as full HLE (computed cdf 0.04/0.04/0.28/0.59); shifted slightly harder."
+  },
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle-rolling",
+  "n_questions": 1000,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "Fork of HLE (some questions replaced), so it may share questions with the 90 live Yugos hle questions; not checked.",
+  "summary": "Continually updated HLE fork (created 2025-10-07, last modified 2026-09-17; HF metadata lists 1,000 test rows; gated, MIT). Same question style as Yugos hle and slightly harder; no per-model results published anywhere found. HF tags it text-only but it keeps the image column, so the image share is unverified.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/cais/hle-rolling",
+   "https://huggingface.co/api/datasets/cais/hle-rolling"
+  ]
+ },
+ "4.4": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.55,
+    "why": "Cleaned 1,000-question HLE subset in the HLE format (500 reasoning + 500 knowledge, no tools): same kind as Yugos hle; image share not stated."
+   },
+   "math_code": {
+    "T": 0.45,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.45,
+    "L": 1.0,
+    "F": 0.55,
+    "why": "Expert math is part of the mix (share not stated) with closed-form answers; no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.55,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle-diamond",
+  "n_questions": 1000,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "Refined subset of HLE, the source of the live Yugos hle set; ids not checked, so some of the 90 live questions may be in it.",
+  "summary": "HLE-Diamond (released 2026-09-22, gated, MIT): 1,000 cleaned HLE questions with a reasoning/knowledge partition column; a less noisy version of the Yugos hle pool. Only aggregate accuracy and token counts are published.",
+  "confidence": "high",
+  "sources": [
+   "https://lastexam.ai/blog/hle-diamond",
+   "https://huggingface.co/datasets/cais/hle-diamond",
+   "https://huggingface.co/api/datasets/cais/hle-diamond"
+  ]
+ },
+ "4.5": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.9,
+    "L": 1.0,
+    "F": 0.55,
+    "why": "The 500 HLE-Diamond 'reasoning' questions: same format and judge as Yugos hle; subject mix not stated."
+   },
+   "math_code": {
+    "T": 0.5,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.55,
+    "why": "Reasoning-type expert questions; math share not stated; closed-form answers, no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.55,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle-diamond",
+  "n_questions": 500,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "Refined subset of HLE, the source of the live Yugos hle set; ids not checked, so some of the 90 live questions may be in it.",
+  "summary": "Reasoning half of HLE-Diamond, selectable via the partition column of cais/hle-diamond. Good stand-in for the reasoning-heavy part of Yugos hle; only an aggregate bar chart of 10 models is published.",
+  "confidence": "medium",
+  "sources": [
+   "https://lastexam.ai/blog/hle-diamond",
+   "https://huggingface.co/api/datasets/cais/hle-diamond"
+  ]
+ },
+ "4.6": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.55,
+    "why": "The 500 HLE-Diamond 'knowledge' questions: expert-knowledge closed-ended QA in the Yugos hle format."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.6,
+    "Dm": 0.25,
+    "L": 1.0,
+    "F": 0.55,
+    "why": "Mostly expert knowledge recall rather than math problems; no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.55,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle-diamond",
+  "n_questions": 500,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "Refined subset of HLE, the source of the live Yugos hle set; ids not checked, so some of the 90 live questions may be in it.",
+  "summary": "Knowledge half of HLE-Diamond (partition column). Stands in for the knowledge-recall part of Yugos hle, where routing hinges on what a model knows; aggregate results only.",
+  "confidence": "medium",
+  "sources": [
+   "https://lastexam.ai/blog/hle-diamond",
+   "https://huggingface.co/api/datasets/cais/hle-diamond"
+  ]
+ },
+ "4.7": {
+  "scores": {
+   "chat": {
+    "T": 0.75,
+    "I": 0.5,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 0.6,
+    "F": 0.55,
+    "why": "Same HLE-Diamond questions, but scored with web search/fetch and a Python sandbox in provider agent CLIs; Yugos chat gives no tools, so scores do not transfer."
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 0.5,
+    "A": 0.7,
+    "Dm": 0.45,
+    "L": 0.6,
+    "F": 0.55,
+    "why": "Math share solved with a Python sandbox; closed-form answers, no code to write as output."
+   },
+   "agentic": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.4,
+    "Dm": 0.3,
+    "L": 0.3,
+    "F": 0.55,
+    "why": "Multi-step research with generic tools (web_search, web_fetch up to 60k chars, Python) graded on the final answer; not schema function calls or end-state tasks."
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle-diamond",
+  "n_questions": 1000,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "Refined subset of HLE, the source of the live Yugos hle set; ids not checked, so some of the 90 live questions may be in it.",
+  "summary": "An evaluation setting, not new questions: HLE-Diamond run with web+code tools in Claude Code / Codex CLI / Gemini CLI under a blocklist; only 7 systems' aggregate scores published. Questions are the same as 4.4; the tool-use results mainly show how much tools lift scores.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/centerforaisafety/hle/blob/main/docs/evaluation-with-tools.md",
+   "https://lastexam.ai/blog/hle-diamond"
+  ]
+ },
+ "4.8": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "HLE Math slice: same format and LLM judge as Yugos hle (91% exact answer in the text-only part, median ~107 tokens), but one subject only; 4% need an image (filterable)."
+   },
+   "math_code": {
+    "T": 0.8,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.65,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Research-level math, 91% closed-form exact answers (like arxivmath), judged by LLM rather than Math-Verify; no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 1021,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "Slice of HLE, the source of the live Yugos hle set (90 text-only questions), so some live questions may be in this category.",
+  "summary": "The 1021 HLE questions labelled 'Math' in the category column of cais/hle (976 without an image; counts from the current 2,500-question release, which may differ from the set behind the paper's early-2025 Table 3). Largest HLE category and the 45% math share of Yugos hle; also a strong stand-in for arxivmath-style research math in math_code. Per-question third-party results for the text-only items are in LLMRouterBench (joinable to the category via the HLE question).",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/html/2501.14249",
+   "https://huggingface.co/datasets/cais/hle",
+   "https://github.com/ynulihao/LLMRouterBench",
+   "local Yugos-pinned copy /root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle (counted)"
+  ]
+ },
+ "4.9": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "HLE Bio/Med slice: same format and LLM judge as Yugos hle (34% exact answer in the text-only part, median ~196 tokens), but one subject only; 21% need an image (filterable)."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.4,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "different skill: biology/medicine expert knowledge, mostly multiple choice"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 280,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "Slice of HLE, the source of the live Yugos hle set (90 text-only questions), so some live questions may be in this category.",
+  "summary": "The 280 HLE questions labelled 'Bio/Med' in the category column of cais/hle (222 without an image; counts from the current 2,500-question release, which may differ from the set behind the paper's early-2025 Table 3). Expert biology/medicine questions; two thirds of the text-only ones are multiple choice. Per-question third-party results for the text-only items are in LLMRouterBench (joinable to the category via the HLE question).",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/html/2501.14249",
+   "https://huggingface.co/datasets/cais/hle",
+   "https://github.com/ynulihao/LLMRouterBench",
+   "local Yugos-pinned copy /root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle (counted)"
+  ]
+ },
+ "4.10": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "HLE Physics slice: same format and LLM judge as Yugos hle (82% exact answer in the text-only part, median ~132 tokens), but one subject only; 12% need an image (filterable)."
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Physics problems often need calculation to a closed-form answer, related to math problems; no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 230,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "Slice of HLE, the source of the live Yugos hle set (90 text-only questions), so some live questions may be in this category.",
+  "summary": "The 230 HLE questions labelled 'Physics' in the category column of cais/hle (202 without an image; counts from the current 2,500-question release, which may differ from the set behind the paper's early-2025 Table 3). Expert physics problems, mostly exact answers. Per-question third-party results for the text-only items are in LLMRouterBench (joinable to the category via the HLE question).",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/html/2501.14249",
+   "https://huggingface.co/datasets/cais/hle",
+   "https://github.com/ynulihao/LLMRouterBench",
+   "local Yugos-pinned copy /root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle (counted)"
+  ]
+ },
+ "4.11": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "HLE CS/AI slice: same format and LLM judge as Yugos hle (71% exact answer in the text-only part, median ~228 tokens), but one subject only; 7% need an image (filterable)."
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.6,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "CS theory/algorithm reasoning answered in short form, not code that is executed."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 241,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "Slice of HLE, the source of the live Yugos hle set (90 text-only questions), so some live questions may be in this category.",
+  "summary": "The 241 HLE questions labelled 'CS/AI' in the category column of cais/hle (224 without an image; counts from the current 2,500-question release, which may differ from the set behind the paper's early-2025 Table 3). Expert computer-science/AI questions answered in short form (no code execution). Per-question third-party results for the text-only items are in LLMRouterBench (joinable to the category via the HLE question).",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/html/2501.14249",
+   "https://huggingface.co/datasets/cais/hle",
+   "https://github.com/ynulihao/LLMRouterBench",
+   "local Yugos-pinned copy /root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle (counted)"
+  ]
+ },
+ "4.12": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.75,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "HLE Humanities slice: same format and LLM judge as Yugos hle (59% exact answer in the text-only part, median ~117 tokens), but one subject only; 12% need an image (filterable)."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "different skill: humanities/social-science knowledge"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 219,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "Slice of HLE, the source of the live Yugos hle set (90 text-only questions), so some live questions may be in this category.",
+  "summary": "The 219 HLE questions labelled 'Humanities' in the category column of cais/hle (193 without an image; counts from the current 2,500-question release, which may differ from the set behind the paper's early-2025 Table 3). Expert humanities/social-science questions. Per-question third-party results for the text-only items are in LLMRouterBench (joinable to the category via the HLE question).",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/html/2501.14249",
+   "https://huggingface.co/datasets/cais/hle",
+   "https://github.com/ynulihao/LLMRouterBench",
+   "local Yugos-pinned copy /root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle (counted)"
+  ]
+ },
+ "4.13": {
+  "scores": {
+   "chat": {
+    "T": 0.75,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "HLE Chemistry slice: same format and LLM judge as Yugos hle (74% exact answer in the text-only part, median ~98 tokens), but one subject only; 39% need an image (filterable)."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.6,
+    "Dm": 0.2,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Some quantitative chemistry with closed-form answers; mostly chemistry knowledge; no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 165,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "Slice of HLE, the source of the live Yugos hle set (90 text-only questions), so some live questions may be in this category.",
+  "summary": "The 165 HLE questions labelled 'Chemistry' in the category column of cais/hle (101 without an image; counts from the current 2,500-question release, which may differ from the set behind the paper's early-2025 Table 3). Expert chemistry questions; 39% need an image (structures), the highest share after Engineering. Per-question third-party results for the text-only items are in LLMRouterBench (joinable to the category via the HLE question).",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/html/2501.14249",
+   "https://huggingface.co/datasets/cais/hle",
+   "https://github.com/ynulihao/LLMRouterBench",
+   "local Yugos-pinned copy /root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle (counted)"
+  ]
+ },
+ "4.14": {
+  "scores": {
+   "chat": {
+    "T": 0.75,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "HLE Engineering slice: same format and LLM judge as Yugos hle (61% exact answer in the text-only part, median ~210 tokens), but one subject only; 42% need an image (filterable)."
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 1.0,
+    "A": 0.6,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Engineering calculations with closed-form answers are math-adjacent; no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 111,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "Slice of HLE, the source of the live Yugos hle set (90 text-only questions), so some live questions may be in this category.",
+  "summary": "The 111 HLE questions labelled 'Engineering' in the category column of cais/hle (64 without an image; counts from the current 2,500-question release, which may differ from the set behind the paper's early-2025 Table 3). Expert engineering questions; 42% need an image, leaving only 64 text-only. Per-question third-party results for the text-only items are in LLMRouterBench (joinable to the category via the HLE question).",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/html/2501.14249",
+   "https://huggingface.co/datasets/cais/hle",
+   "https://github.com/ynulihao/LLMRouterBench",
+   "local Yugos-pinned copy /root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle (counted)"
+  ]
+ },
+ "4.15": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.75,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "HLE Other slice: same format and LLM judge as Yugos hle (75% exact answer in the text-only part, median ~96 tokens), but one subject only; 24% need an image (filterable)."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.4,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "different skill: miscellaneous expert subjects outside math and science"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle",
+  "n_questions": 233,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "Slice of HLE, the source of the live Yugos hle set (90 text-only questions), so some live questions may be in this category.",
+  "summary": "The 233 HLE questions labelled 'Other' in the category column of cais/hle (176 without an image; counts from the current 2,500-question release, which may differ from the set behind the paper's early-2025 Table 3). HLE's catch-all category of miscellaneous subjects. Per-question third-party results for the text-only items are in LLMRouterBench (joinable to the category via the HLE question).",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/html/2501.14249",
+   "https://huggingface.co/datasets/cais/hle",
+   "https://github.com/ynulihao/LLMRouterBench",
+   "local Yugos-pinned copy /root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle (counted)"
+  ]
+ }
+}

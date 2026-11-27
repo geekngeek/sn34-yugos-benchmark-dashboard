@@ -1,0 +1,700 @@
+{
+ "batch": "S04",
+ "parents": [
+  {
+   "no": "2",
+   "name": "Artificial Analyfi Intelligence Index",
+   "category": "",
+   "url": "https://artificialanalysis.ai/",
+   "focus": "Composite score across coding, science, general knowledge, and speed/cost",
+   "notes": ""
+  }
+ ],
+ "rows": [
+  {
+   "no": "2.33",
+   "name": "APEX-Agents-AA",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/apex-agents-aa",
+   "focus": "Artificial Analysis' implementation of the APEX-Agents benchmark, testing AI agents on long-horizon, cross-application tasks in professional-services environments with realistic application tooling.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date",
+   "metrics_detail": "Quality [page]: APEX-Agents-AA Pass@1 — % of tasks where the model fully satisfies the rubric · https://artificialanalysis.ai/evaluations/apex-agents-aa\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/apex-agents-aa\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output",
+   "notes": "Headline metric: APEX-Agents-AA Pass@1. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 29 models' published scores.\nBest observed: Qwen4 Max 59.1, Gemini 3.5 Flash 47.1, Qwen3.8 Max Preview 42.4.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.59
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "2.34",
+   "name": "AA-AnalystAgent",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
+   "focus": "Artificial Analysis' data analysis benchmark, testing AI agents on their ability to work with spreadsheets and documents to answer quantitative questions a Business Analyst or Data Analyst would face day-to-day.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date",
+   "metrics_detail": "Quality [page]: AA-AnalystAgent: Score — % of tasks solved on all 5 of 5 attempts (pass^5) · https://artificialanalysis.ai/evaluations/aa-analyst-agent\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/aa-analyst-agent\nTime [page]: Time per Task — estimated minutes per task on this evaluation = outpu",
+   "notes": "Headline metric: AA-AnalystAgent pass^5. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Page also ranks pass@1 and pass@5.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 26 models' published scores.\nBest observed: GPT-6.2 Astra 62.5, Gemini 3.7 Flash 60.0, Claude Sonnet 5.5 57.5.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.5375
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.5375
+   }
+  },
+  {
+   "no": "2.35",
+   "name": "Harvey LAB-AA v1.1",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
+   "focus": "Artificial Analysis' implementation of Harvey's Legal Agent Benchmark (LAB), testing AI agents on real-world legal work from Harvey's dataset of 120 private tasks spanning 24 legal practice areas. v1.1, built in collaboration with Harvey, checks every deliverable against the task's source documents for hallucinations, so work that passes every rubric criterion but contains a material hallucination receives no credit. A panel of three judges grades each deliverable criterion-by-criterion.",
+   "metrics": "quality, cost, time, tokens, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: Harvey LAB-AA v1.1: Hallucination-Gated All-Pass Rate — % of tasks passing all criteria with no material hallucination · https://artificialanalysis.ai/evaluations/harvey-lab-aa\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/harvey-lab-aa\nTime [page]: Time per Task — estimated minut",
+   "notes": "Headline metric: Harvey LAB-AA v1.1. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels.",
+   "team_difficulty": "5",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 100%.\nPlaced from 16 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: GPT-6.2 Astra 15.0, Muse Wonder Full 13.1, GPT-6.2 Sol 11.1.",
+   "computed_level_cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.08
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.064
+   }
+  },
+  {
+   "no": "2.36",
+   "name": "EnterpriseOps-Gym-AA",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa",
+   "focus": "Artificial Analysis' independent implementation of ServiceNow's EnterpriseOps-Gym, an agentic benchmark testing whether LLM agents can complete stateful, multi-step enterprise workflows across eight business domains via live tool use, graded on the final state of the underlying databases.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: EnterpriseOps-Gym-AA Task success rate — % strict task success · https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output ",
+   "notes": "Headline metric: EnterpriseOps-Gym-AA Task success rate. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 23 models' published scores.\nBest observed: Claude Fable 5 51.1, Gemini 3.5 Flash 50.1, DeepSeek V4 Pro 49.6.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.299
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.299
+   }
+  },
+  {
+   "no": "2.37",
+   "name": "AA-PersonalityBench",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/aa-personalitybench",
+   "focus": "Measures how models communicate rather than whether they are correct: 30 judged personality traits rolled up into 8 indexes, plus 21 measured communication characteristics.",
+   "metrics": "quality, uncertainty, effort, breakdown, votes, other",
+   "metrics_detail": "Quality [page]: index percentiles (1-100) — 8 personality indexes percentile-ranked across models; underlying Elo z-scores · https://artificialanalysis.ai/evaluations/aa-personalitybench\nUncertainty [page]: 95% confidence interval — whiskers on leaderboards · https://artificialanalysis.ai/evaluations/aa-personalitybench\nEffort [page]: model name suffix (e.g. (max), (xhigh)) — effort labels in names; page does not state the rule explicitly · https://artificialanalysis.ai/evaluations/aa-personalit",
+   "notes": "No single overall leaderboard: results are 8 personality indexes (Expressiveness, Organization, Informativeness, Transparency, Warmth, Conviction, Imagination, Slop) plus 30 trait leaderboards; not a capability score.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No single score and not a capability measure: 8 personality indexes (percentile-ranked Elo z-scores) plus 30 trait Elo leaderboards.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "2.38",
+   "name": "GPQA Diamond",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+   "focus": "The most challenging 198 questions from GPQA, where PhD experts achieve 65% accuracy but skilled non-experts only reach 34% despite web access.",
+   "metrics": "quality, cost, time, tokens, effort, date",
+   "metrics_detail": "Quality [page]: GPQA Diamond: Score — % correct · https://artificialanalysis.ai/evaluations/gpqa-diamond\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/gpqa-diamond\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lower is better) · https:/",
+   "notes": "Headline metric: GPQA. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Removed from the Intelligence Index (changelog on methodology page).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 192 models' published scores; guessing floor 25% removed.\nBest observed: GPT-6 Astra 96.1, Gemini 3.8 Flash 95.3, Grok 4.6 94.9.",
+   "computed_level_cdf": {
+    "1": 0.0364,
+    "2": 0.3912,
+    "3": 0.8209,
+    "4": 0.9165
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.2773,
+    "2": 0.5434,
+    "3": 0.8657,
+    "4": 0.9374
+   }
+  },
+  {
+   "no": "2.39",
+   "name": "ITBench-AA",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/itbench-aa",
+   "focus": "Artificial Analysis' implementation of IBM's ITBench benchmark, testing AI agents on Kubernetes incident root-cause analysis from offline incident snapshots. The agent inspects alerts, events, traces, and topology and identifies the contributing-factor entities (deployments, pods, namespaces, network policies, etc.) responsible for the failure.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date, other",
+   "metrics_detail": "Quality [page]: ITBench-AA Average precision at full recall — % average precision at full recall · https://artificialanalysis.ai/evaluations/itbench-aa\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/itbench-aa\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output toke",
+   "notes": "Headline metric: ITBench-AA Average precision at full recall. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 24 models' published scores.\nBest observed: GPT-5.6 Sol 56.2, Step 5 Preview 55.6, Gemini 3.8 Flash 52.5.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.4902
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.4902
+   }
+  },
+  {
+   "no": "2.40",
+   "name": "MMMU-Pro",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/mmmu-pro",
+   "focus": "An enhanced MMMU benchmark that eliminates shortcuts and guessing strategies to more rigorously test multimodal models across 30 academic disciplines.",
+   "metrics": "quality, cost, time, tokens, effort, date",
+   "metrics_detail": "Quality [page]: MMMU-Pro: Score — % correct · https://artificialanalysis.ai/evaluations/mmmu-pro\nCost [page]: Cost per Task / Total Cost to Run — US cents per task split by token type; total cost tab · https://artificialanalysis.ai/evaluations/mmmu-pro\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lower is better) · https://artificialanalysis.ai/evaluations/mmmu-pro\nTokens [page]: Output Tokens per Task — output tokens per task on this",
+   "notes": "Headline metric: MMMU-Pro. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Multimodal (visual) reasoning; not in the Intelligence Index.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 95%.\nPlaced from 109 models' published scores; guessing floor 10% removed.\nBest observed: GPT-6.2 Astra 89.5, Claude Opus 5.5 87.7, GPT-6 Astra 86.9.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.5144,
+    "3": 0.7149,
+    "4": 0.8587
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "2": 0.563,
+    "3": 0.7434,
+    "4": 0.8729
+   }
+  },
+  {
+   "no": "2.41",
+   "name": "IFBench",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/ifbench",
+   "focus": "A benchmark evaluating precise instruction-following generalization on 58 diverse, verifiable out-of-domain constraints that test models' ability to follow specific output requirements.",
+   "metrics": "quality, cost, time, tokens, effort, date",
+   "metrics_detail": "Quality [page]: IFBench: Score — % of instructions followed · https://artificialanalysis.ai/evaluations/ifbench\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/ifbench\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lower is better) · https",
+   "notes": "Headline metric: IFBench. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Removed from the Intelligence Index in v4.1; still run on new models.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 140 models' published scores.\nBest observed: MiniMax M3 82.9, Nemotron 3 Ultra 81.4, Grok 4.3 81.3.",
+   "computed_level_cdf": {
+    "1": 0.2456,
+    "2": 0.3752,
+    "3": 0.7041,
+    "4": 0.74
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.2456,
+    "2": 0.3752,
+    "3": 0.7041
+   }
+  },
+  {
+   "no": "2.42",
+   "name": "MLCR-AA",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/mlcr-aa",
+   "focus": "An open benchmark from Wisedocs measuring how well models reason over long, fragmented medical records, performing the multi-document synthesis claims professionals rely on when reviewing insurance and healthcare cases.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date, breakdown",
+   "metrics_detail": "Quality [page]: MLCR-AA Pass Rate — % (pass@1) · https://artificialanalysis.ai/evaluations/mlcr-aa\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/mlcr-aa\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lower is better) · https://artificial",
+   "notes": "Headline metric: MLCR-AA Pass Rate. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Component of the Healthcare & Medical Index (Long-Context Reasoning 15%).",
+   "team_difficulty": "5",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 100%.\nPlaced from 28 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Claude Fable 5.2 43.9, GPT-6 Astra 41.7, Claude Sonnet 5.5 41.7.",
+   "computed_level_cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.211
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.211
+   }
+  },
+  {
+   "no": "2.43",
+   "name": "Code2Video-AA",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/code2video-aa",
+   "focus": "Artificial Analysis' implementation of HeyGen's Code2Video Bench, evaluating how well models create short product and brand videos from 114 design briefs using HyperFrames HTML.",
+   "metrics": "quality, cost, time, tokens, uncertainty, effort, breakdown",
+   "metrics_detail": "Quality [page]: Code2Video-AA Elo — Elo points (mean of five judge-axis Elos, anchored GPT-5.5 (xhigh) = 1000) · https://artificialanalysis.ai/evaluations/code2video-aa\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/code2video-aa\nTime [page]: Time per Task — estimated minutes per task on this eval",
+   "notes": "Headline metric: Code2Video-AA. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Elo rating from pairwise comparisons (e.g. 1536).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "2.44",
+   "name": "HealthBench Professional",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/healthbench",
+   "focus": "OpenAI's HealthBench Professional: 525 clinician conversations covering consult, writing and research tasks, graded against physician-written rubrics.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: HealthBench Professional: Length-Adjusted Score — % (raw score view also available) · https://artificialanalysis.ai/evaluations/healthbench\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/healthbench\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output",
+   "notes": "Headline metric: HealthBench Professional. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Listed as \"HealthBench\" on /evaluations; page title is HealthBench Professional.",
+   "team_difficulty": "≤4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 85%, L3 15%.\nPlaced from 12 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Claude Fable 5.2 67.7, GPT-6 Astra 66.0, Claude Sonnet 5.5 63.0.",
+   "computed_level_cdf": {
+    "1": 0.2775,
+    "2": 0.5075,
+    "3": 0.6775,
+    "4": 0.6775
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.578
+   }
+  },
+  {
+   "no": "2.45",
+   "name": "VIALS-AA",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/vials-aa",
+   "focus": "VIALS-AA is Artificial Analysis' implementation of Handshake AI's VIALS benchmark. It tests whether language models can interpret scientific images and answer questions about the evidence they contain.",
+   "metrics": "quality, cost, time, tokens, runs, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: VIALS-AA: Score — % of tasks correct in all three repeats (pass^3) · https://artificialanalysis.ai/evaluations/vials-aa\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/vials-aa\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed ",
+   "notes": "Headline metric: VIALS-AA Score. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 98%.\nPlaced from 18 models' published scores.\nBest observed: Claude Fable 5.2 (Max, Default Fallback) 67.1, GPT-6.2 Astra (Max) 65.8, Gemini 4 Carbon (High) 64.0.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.6273
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.6273
+   }
+  },
+  {
+   "no": "2.46",
+   "name": "MKA (Multimodal Knowledge Agent)",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/mka",
+   "focus": "Artificial Analysis' implementation of Google DeepMind's Multimodal Knowledge Agent (MKA) benchmark. It tests whether agents can read visually dense project files, such as architectural drawings, engineering schematics and clinical scans, and produce the deliverables a professional would.",
+   "metrics": "quality, cost, time, tokens, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: MKA: Climb WSR — % mean weighted share of Climb rubric criteria satisfied per task · https://artificialanalysis.ai/evaluations/mka\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/mka\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output ",
+   "notes": "Headline metric: MKA Climb WSR. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 22 models' published scores.\nBest observed: Claude Fable 5.2 56.6, Gemini 4 Neon 56.5, Gemini 4 Carbon 54.3.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.53
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.53
+   }
+  },
+  {
+   "no": "2.47",
+   "name": "FrontierPhysics",
+   "category": "Standalone evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/frontierphysics",
+   "focus": "Artificial Analysis' implementation of BenchFlow's FrontierPhysics tests whether AI agents can carry out physics research by reviewing the literature, running simulations or analyses, and submitting their results with a manuscript.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date, breakdown",
+   "metrics_detail": "Quality [page]: Score — % mean over all runs (Pass@1) · https://artificialanalysis.ai/evaluations/frontierphysics\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/frontierphysics\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lower is bette",
+   "notes": "Headline metric: FrontierPhysics. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels.",
+   "team_difficulty": "5",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 99%.\nPlaced from 14 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Claude Fable 5.2 (Max, Default Fallback) 32.9, Gemini 4 Neon (Xhigh) 24.6, Claude Opus 5.5 (Max, Default Fallback) 23.9.",
+   "computed_level_cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.3
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "2.48",
+   "name": "GDPval-AA v2.1",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
+   "focus": "GDPval-AA v2.1 is Artificial Analysis' evaluation framework for OpenAI's GDPval dataset. It tests AI models on real-world tasks across 44 occupations and 9 major industries. Models are given shell access and web browsing capabilities in an agentic loop via Stirrup to solve tasks, with Elo ratings derived from blind pairwise comparisons.",
+   "metrics": "quality, cost, tokens, uncertainty, effort, date, other",
+   "metrics_detail": "Quality [page]: GDPval-AA v2.1 Elo — Elo rating from blind pairwise comparisons · https://artificialanalysis.ai/evaluations/gdpval-aa\nCost [page]: Cost per Task / Total Cost — USD per task and total · https://artificialanalysis.ai/evaluations/gdpval-aa\nTokens [page]: Output Tokens per Task / Total Output Tokens — output tokens · https://artificialanalysis.ai/evaluations/gdpval-aa\nUncertainty [page]: CI (leaderboard column) — e.g. -26 / +26 · https://artificialanalysis.ai/evaluations/gdpval-aa\nEf",
+   "notes": "Headline metric: GDPval-AA v2.1. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Removed from the Intelligence Index in v5.0 (constituent up to v4.3.2). Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Elo rating from blind pairwise comparisons (e.g. 1866).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "2.49",
+   "name": "τ³-Banking",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/tau3-banking",
+   "focus": "A fintech customer-support benchmark from the 𝜏-Knowledge framework that tests whether agents can navigate a large unstructured knowledge base and execute multi-step tool calls to resolve realistic banking workflows.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date",
+   "metrics_detail": "Quality [page]: 𝜏³-Banking: Score — % (pass@1 averaged across repeats) · https://artificialanalysis.ai/evaluations/tau3-banking\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/tau3-banking\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (low",
+   "notes": "Headline metric: 𝜏³-Banking. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 20 models' published scores.\nBest observed: Grok 4.6 50.7, Muse Spark 1.3 50.5, GLM-5.3 50.3.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.4265
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.4265
+   }
+  },
+  {
+   "no": "2.50",
+   "name": "Terminal-Bench 2.1",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
+   "focus": "A verified refresh of Terminal-Bench 2.0: 89 curated tasks across software engineering, system administration, data processing, model training, and security, with environment and instruction fixes so scores reflect agent capability rather than environment gaps.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date",
+   "metrics_detail": "Quality [page]: Terminal-Bench 2.1: Score — % (pass@1) · https://artificialanalysis.ai/evaluations/terminalbench-2-1\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/terminalbench-2-1\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lower is ",
+   "notes": "Headline metric: Terminal-Bench 2.1. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 28 models' published scores.\nBest observed: Claude Fable 5.1 91.4, Claude Opus 5 89.1, Grok 4.6 88.4.",
+   "computed_level_cdf": {
+    "1": 0.015,
+    "2": 0.32,
+    "3": 0.3521,
+    "4": 0.8989
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.015,
+    "3": 0.3521,
+    "4": 0.8989
+   }
+  },
+  {
+   "no": "2.51",
+   "name": "Terminal-Bench 4.0",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/terminalbench-4-0",
+   "focus": "A harder 66-task benchmark of complex terminal work across software, machine learning, science, operations, security, hardware, and media, with recalibrated compute and time allowances and improved instructions, environments, and verifiers.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date",
+   "metrics_detail": "Quality [page]: Terminal-Bench 4.0: Score — % (pass@1) · https://artificialanalysis.ai/evaluations/terminalbench-4-0\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/terminalbench-4-0\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lower is ",
+   "notes": "Headline metric: Terminal-Bench 4.0. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Superseded by Terminal-Bench 4.1 in Intelligence Index v5.0.2. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 23 models' published scores.\nBest observed: Kimi K3.1 Pro 67.2, Gemini 4 Carbon 65.2, GPT-6.2 Astra 64.1.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.596
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.596
+   }
+  },
+  {
+   "no": "2.52",
+   "name": "FrontierCode 1.1",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/frontiercode",
+   "focus": "Artificial Analysis' implementation of Cognition's FrontierCode 1.1, a private agentic coding benchmark that tests models on completing coding tasks in a way that would actually get merged by maintainers of real-world repositories.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date",
+   "metrics_detail": "Quality [page]: FrontierCode 1.1: Score — % (mean of three attempts per task) · https://artificialanalysis.ai/evaluations/frontiercode\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/frontiercode\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output spe",
+   "notes": "Headline metric: FrontierCode 1.1. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 98%.\nPlaced from 18 models' published scores.\nBest observed: Claude Fable 5.2 (Max, Default Fallback) 56.2, Claude Opus 5.5 (Max, Default Fallback) 52.2, GPT-6.1 Sol (Max) 49.1.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.4904
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.4904
+   }
+  },
+  {
+   "no": "2.53",
+   "name": "AA-LCR v1.1",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
+   "focus": "A challenging benchmark measuring language models' ability to extract, reason about, and synthesize information from long-form documents ranging from 10k to 100k tokens (measured using the cl100k_base tokenizer).",
+   "metrics": "quality, cost, time, tokens, effort, date",
+   "metrics_detail": "Quality [page]: AA-LCR v1.1: Score — % average pass rate · https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning\nTime [page]: Time per Task — estimated minutes per task on this ",
+   "notes": "Headline metric: AA-LCR v1.1. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Removed from the Intelligence Index in v5.0. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 211 models' published scores.\nBest observed: Kimi K3 88.7, Step 5 Preview 88.3, MiMo-V2.6-Pro 86.3.",
+   "computed_level_cdf": {
+    "1": 0.0,
+    "2": 0.253,
+    "3": 0.7665,
+    "4": 0.8265
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0,
+    "2": 0.253,
+    "3": 0.7665,
+    "4": 0.8265
+   }
+  },
+  {
+   "no": "2.54",
+   "name": "SciCode",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/scicode",
+   "focus": "A scientist-curated coding benchmark featuring 288 test set subproblems from 80 laboratory problems across 16 scientific disciplines.",
+   "metrics": "quality, cost, time, tokens, effort, date",
+   "metrics_detail": "Quality [page]: SciCode: Score — % subproblems solved · https://artificialanalysis.ai/evaluations/scicode\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/scicode\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lower is better) · https://art",
+   "notes": "Headline metric: SciCode. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Marked \"Under review\" on /evaluations. Removed from the Intelligence Index in v5.0. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "3-4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 60%, L3 40%.\nPlaced from 113 models' published scores.\nBest observed: Claude Fable 5.2 67.7, Claude Opus 5.5 66.9, Claude Fable 5.1 63.1.",
+   "computed_level_cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.5972
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.5972
+   }
+  },
+  {
+   "no": "2.55",
+   "name": "Humanity's Last Exam",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+   "focus": "A frontier-level benchmark with 2,500 expert-vetted questions across mathematics, sciences, and humanities, designed to be the final closed-ended academic evaluation.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date",
+   "metrics_detail": "Quality [page]: Humanity's Last Exam: Score — % answers graded correct (pass@1) · https://artificialanalysis.ai/evaluations/humanitys-last-exam\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/humanitys-last-exam\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tok",
+   "notes": "Headline metric: Humanity's Last Exam. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Replaced by HLE-Diamond in the Intelligence Index v5.0. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 216 models' published scores; guessing floor 5% removed.\nBest observed: Claude Fable 5.2 74.3, Claude Opus 5.5 61.4, Claude Fable 5.1 59.1.",
+   "computed_level_cdf": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.2558,
+    "4": 0.5316
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0005,
+    "2": 0.024,
+    "3": 0.293,
+    "4": 0.555
+   }
+  },
+  {
+   "no": "2.56",
+   "name": "CritPt",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/critpt",
+   "focus": "A benchmark designed to test LLMs on research-level physics reasoning tasks, featuring 71 composite research challenges.",
+   "metrics": "quality, cost, time, tokens, effort, date",
+   "metrics_detail": "Quality [page]: CritPt: Score — % of challenges solved · https://artificialanalysis.ai/evaluations/critpt\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/critpt\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lower is better) · https://arti",
+   "notes": "Headline metric: CritPt. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Superseded by CritPt v2. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 94%, L5 6%.\nPlaced from 208 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Claude Fable 5.2 35.4, Muse Wonder Full 32.9, GPT-5.6 Sol 32.3.",
+   "computed_level_cdf": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0515,
+    "4": 0.309
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0515,
+    "4": 0.309
+   }
+  },
+  {
+   "no": "2.57",
+   "name": "Terminal-Bench Hard",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/terminalbench-hard",
+   "focus": "An agentic benchmark evaluating AI capabilities in terminal environments through software engineering, system administration, and data processing tasks.",
+   "metrics": "quality, cost, time, tokens, effort, date",
+   "metrics_detail": "Quality [page]: Terminal-Bench Hard: Score — % tasks passed · https://artificialanalysis.ai/evaluations/terminalbench-hard\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/terminalbench-hard\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lo",
+   "notes": "Headline metric: Terminal-Bench Hard. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 71%, L3 29%.\nPlaced from 22 models' published scores.\nBest observed: GPT-5.6 Sol 65.9, Claude Fable 5 62.9, GPT-5.5 60.6.",
+   "computed_level_cdf": {
+    "1": 0.0,
+    "2": 0.0008,
+    "3": 0.0042,
+    "4": 0.629
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0,
+    "2": 0.0008,
+    "3": 0.0042,
+    "4": 0.629
+   }
+  },
+  {
+   "no": "2.58",
+   "name": "τ²-Bench Telecom",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/tau2-bench",
+   "focus": "A dual-control conversational AI benchmark simulating technical support scenarios where both agent and user must coordinate actions to resolve telecom service issues.",
+   "metrics": "quality, cost, time, tokens, effort, date",
+   "metrics_detail": "Quality [page]: 𝜏²-Bench Telecom: Score — % tasks resolved · https://artificialanalysis.ai/evaluations/tau2-bench\nCost [page]: Cost per Task / Total Cost to Run — average USD per task on this evaluation, split into input, cache hit, cache write, reasoning and answer tokens; total cost to run this evaluation per model · https://artificialanalysis.ai/evaluations/tau2-bench\nTime [page]: Time per Task — estimated minutes per task on this evaluation = output tokens / output speed (lower is better) · ",
+   "notes": "Headline metric: 𝜏²-Bench Telecom. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "≤3",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 7 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Step 3.7 Flash 98.5, GLM-5-Turbo 98.5, Qwen3.6 Plus 97.7.",
+   "computed_level_cdf": {
+    "1": 0.3567,
+    "2": 0.6533,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "2.59",
+   "name": "MMLU-Pro",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/mmlu-pro",
+   "focus": "An enhanced version of MMLU with 12,000 graduate-level questions across 14 subject areas, featuring ten answer options and deeper reasoning requirements.",
+   "metrics": "quality, effort, date",
+   "metrics_detail": "Quality [page]: Score — % correct · https://artificialanalysis.ai/evaluations/mmlu-pro\nEffort [page]: Model name suffix (e.g. (High), (Low), (Reasoning), (Non-reasoning)) — separate entries per effort/reasoning variant · https://artificialanalysis.ai/evaluations/mmlu-pro\nDate [page]: MMLU-Pro: Score vs. Release Date — chart only; no per-entry dates in text · https://artificialanalysis.ai/evaluations/mmlu-pro\nNot reported: cost, time, speed, tokens, uncertainty, runs, breakdown, votes, other\nNote",
+   "notes": "Headline metric: MMLU-Pro. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "≤3",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L2 60%, L1 40%.\nPlaced from 13 models' published scores — only models on one side of its difficulty were tested, so this is a bound; guessing floor 10% removed.\nBest observed: Gemini 3 Pro 89.8, Claude 4.5 Opus (enabled) 89.5, GPT-5.2 87.4.",
+   "computed_level_cdf": {
+    "1": 0.3704,
+    "2": 0.7108,
+    "3": 0.8828,
+    "4": 0.89
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.4333,
+    "2": 0.7397,
+    "3": 0.8945
+   }
+  },
+  {
+   "no": "2.60",
+   "name": "LiveCodeBench",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/livecodebench",
+   "focus": "A contamination-free coding benchmark that continuously harvests fresh competitive programming problems from LeetCode, AtCoder, and CodeForces, evaluating code generation, self-repair, and execution.",
+   "metrics": "quality, effort, date",
+   "metrics_detail": "Quality [page]: LiveCodeBench: Score — % problems solved · https://artificialanalysis.ai/evaluations/livecodebench\nEffort [page]: Model name suffix (e.g. (High), (Low), (Reasoning), (Non-reasoning)) — separate entries per effort/reasoning variant · https://artificialanalysis.ai/evaluations/livecodebench\nDate [page]: LiveCodeBench: Score vs. Release Date — chart only; no per-entry dates in text · https://artificialanalysis.ai/evaluations/livecodebench\nNot reported: cost, time, speed, tokens, unce",
+   "notes": "Headline metric: LiveCodeBench. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 88%, L2 10%.\nPlaced from 19 models' published scores.\nBest observed: Gemini 3 Pro 91.7, GLM-4.7 89.4, GPT-OSS 120B 87.8.",
+   "computed_level_cdf": {
+    "1": 0.0963,
+    "2": 0.3196,
+    "3": 0.8709,
+    "4": 0.8709
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0963,
+    "2": 0.3196,
+    "3": 0.8709
+   }
+  },
+  {
+   "no": "2.61",
+   "name": "MATH-500",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/math-500",
+   "focus": "A 500-problem subset from the MATH dataset, featuring competition-level mathematics across six domains including algebra, geometry, and number theory.",
+   "metrics": "quality, effort, date",
+   "metrics_detail": "Quality [page]: Score — % correct · https://artificialanalysis.ai/evaluations/math-500\nEffort [page]: Model name suffix (e.g. (High), (Low), (Reasoning), (Non-reasoning)) — separate entries per effort/reasoning variant · https://artificialanalysis.ai/evaluations/math-500\nDate [page]: MATH-500: Score vs. Release Date — chart only; no per-entry dates in text · https://artificialanalysis.ai/evaluations/math-500\nNot reported: cost, time, speed, tokens, uncertainty, runs, breakdown, votes, other\nNote",
+   "notes": "Headline metric: MATH-500. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "1-2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 64%, L1 36%.\nPlaced from 14 models' published scores.\nBest observed: GPT-5 99.4, o3 99.2, Grok 4 99.0.",
+   "computed_level_cdf": {
+    "1": 0.47,
+    "2": 0.754,
+    "3": 0.994,
+    "4": 0.994
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.47,
+    "2": 0.754,
+    "3": 0.994
+   }
+  },
+  {
+   "no": "2.62",
+   "name": "AIME 2025",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/aime-2025",
+   "focus": "All 30 problems from the 2025 American Invitational Mathematics Examination, testing olympiad-level mathematical reasoning with integer answers from 000-999.",
+   "metrics": "quality, effort, date",
+   "metrics_detail": "Quality [page]: AIME 2025: Score — % correct · https://artificialanalysis.ai/evaluations/aime-2025\nEffort [page]: Model name suffix (e.g. (High), (Low), (Reasoning), (Non-reasoning)) — separate entries per effort/reasoning variant · https://artificialanalysis.ai/evaluations/aime-2025\nDate [page]: AIME 2025: Score vs. Release Date — chart only; no per-entry dates in text · https://artificialanalysis.ai/evaluations/aime-2025\nNot reported: cost, time, speed, tokens, uncertainty, runs, breakdown, vo",
+   "notes": "Headline metric: AIME 2025. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 88%, L2 10%.\nPlaced from 17 models' published scores.\nBest observed: GPT-5.2 99.0, Gemini 3 Pro 95.7, GLM-4.7 95.0.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.045,
+    "3": 0.9433,
+    "4": 0.9433
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0433,
+    "2": 0.045,
+    "3": 0.9433
+   }
+  },
+  {
+   "no": "2.63",
+   "name": "Global-MMLU-Lite",
+   "category": "Legacy evaluation",
+   "url": "https://artificialanalysis.ai/evaluations/global-mmlu-lite",
+   "focus": "A lightweight, multilingual version of MMLU, designed to evaluate knowledge and reasoning skills across a diverse range of languages and cultural contexts.",
+   "metrics": "quality, effort, date, breakdown",
+   "metrics_detail": "Quality [page]: Global-MMLU-Lite: Score — % correct · https://artificialanalysis.ai/evaluations/global-mmlu-lite\nEffort [page]: Model name suffix (e.g. (High), (Low), (Reasoning), (Non-reasoning)) — separate entries per effort/reasoning variant · https://artificialanalysis.ai/evaluations/global-mmlu-lite\nDate [page]: Global-MMLU-Lite: Score vs. Release Date — chart only; no per-entry dates in text · https://artificialanalysis.ai/evaluations/global-mmlu-lite\nBreakdown [page]: Global-MMLU-Lite Sco",
+   "notes": "Headline metric: Global-MMLU-Lite. Top 3 copied from the page's server-rendered summary sentence ('X scores the highest on ... followed by ...'); ranking is over every model/effort variant AA has scored, so one model can appear at several effort levels. Powers the Artificial Analysis Multilingual Index (methodology page); tagged Legacy on /evaluations. Tagged Legacy on /evaluations; legacy leaderboards include older models.",
+   "team_difficulty": "≤3",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L2 52%, L1 48%.\nPlaced from 19 models' published scores — only models on one side of its difficulty were tested, so this is a bound; guessing floor 25% removed.\nBest observed: Gemini 3.1 Pro 93.2, Gemini 3 Flash 92.7, Gemini 3 Pro 92.2.",
+   "computed_level_cdf": {
+    "1": 0.1349,
+    "2": 0.6533,
+    "3": 0.8837,
+    "4": 0.89
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.3512,
+    "3": 0.9128
+   }
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+/* Datasets page (app/datasets). Reuses the router-benchmarks table styles (rb-*); its own classes start with ds- / dsc-. */
+.ds-filters { flex-wrap: wrap; }
+.ds-chartbar { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 8px 0 2px; color: var(--ink-2, var(--muted)); }
+
+/* chart */
+.dsc { margin: 4px 0 12px; }
+.dsc-key { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
+.dsc-key > span { display: inline-flex; align-items: center; gap: 5px; }
+.dsc-wrap { position: relative; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+.dsc-wrap svg { display: block; width: 100%; height: auto; }
+.dsc-grid { stroke: var(--line); stroke-width: 1; }
+.dsc-sep { stroke: var(--line); stroke-dasharray: 3 3; }
+.dsc-tick { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.dsc-axis { fill: var(--muted); font-size: 12px; }
+.dsc-dot { stroke: var(--surface); stroke-width: 2; cursor: pointer; }
+.dsc-dot.mx-chat { fill: var(--cat-chat); } .dsc-dot.mx-math_code { fill: var(--cat-math_code); } .dsc-dot.mx-agentic { fill: var(--cat-agentic); }
+.dsc-dot.live { fill: var(--surface); stroke-width: 2.5; }
+.dsc-dot.live.mx-chat { stroke: var(--cat-chat); } .dsc-dot.live.mx-math_code { stroke: var(--cat-math_code); } .dsc-dot.live.mx-agentic { stroke: var(--cat-agentic); }
+.dsc-dot.sel { stroke: var(--ink); stroke-width: 2.5; }
+.dsc-dot:hover { stroke: var(--ink); }
+.dsc-label text { fill: var(--ink); font-size: 11px; }
+.dsc-label text.crowded { opacity: 0.4; }
+.dsc-leader { stroke: var(--muted); stroke-width: 0.8; }
+.dsc-tip { position: absolute; transform: translate(12px, -50%); pointer-events: none; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 8px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); max-width: 320px; z-index: 3; }
+.dsc-note { margin: 4px 0 0; }
+
+/* table */
+.ds-table td.ds-name { font-weight: 500; }
+.ds-yug { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 999px; border: 1px solid var(--border); white-space: nowrap; }
+.ds-yug.live { background: var(--mx-warn-bg); color: var(--mx-warn-ink); border-color: transparent; }
+.ds-yug.catalog { color: var(--muted); }
+.ds-pct { position: relative; }
+.ds-pbar { position: absolute; left: 0; bottom: 3px; height: 3px; border-radius: 2px; opacity: 0.35; }
+.ds-pct.top .ds-pbar { opacity: 0.9; }
+.ds-pct.top .ds-pv { font-weight: 600; }
+.ds-pbar.mx-chat { background: var(--cat-chat); } .ds-pbar.mx-math_code { background: var(--cat-math_code); } .ds-pbar.mx-agentic { background: var(--cat-agentic); }
+.ds-yn.yes { color: var(--cat-agentic); font-weight: 500; }
+.ds-yn.no { color: var(--muted); }
+.ds-yn.unknown { color: var(--muted); }
+.ds-detail { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; }
+@media (max-width: 900px) { .ds-detail { grid-template-columns: 1fr; } }
+.ds-title { margin: 0 0 4px; font-size: 16px; }
+.ds-detail-side h4 { margin: 4px 0 6px; font-size: 13px; }
+.ds-anchors { border-collapse: collapse; width: 100%; }
+.ds-anchors th { text-align: left; font-weight: 500; color: var(--muted); padding: 2px 8px 2px 0; white-space: nowrap; vertical-align: top; }
+.ds-anchors td { padding: 2px 0; white-space: normal; }
+.ds-picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 10px 0 4px; }
+@media (max-width: 1000px) { .ds-picks { grid-template-columns: 1fr; } }
+.ds-pick { border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; background: var(--surface); }
+.ds-pick ol { margin: 4px 0 0; padding-left: 18px; display: grid; gap: 2px; }
+.ds-pick li { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

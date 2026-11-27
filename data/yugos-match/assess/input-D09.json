@@ -1,0 +1,321 @@
+{
+ "batch": "D09",
+ "rows": [
+  {
+   "id": "bfcl",
+   "name": "BFCL single-turn (AST)",
+   "hf": "gorilla-llm/Berkeley-Function-Calling-Leaderboard",
+   "url": "https://gorilla.cs.berkeley.edu/leaderboard.html",
+   "group": "agentic",
+   "yugos": "live",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2024-02-27",
+    "last_modified": "2026-04-29",
+    "downloads": 71285,
+    "size_category": null,
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "size_error": "timeout"
+   }
+  },
+  {
+   "id": "bfcl_multi_turn",
+   "name": "BFCL multi-turn",
+   "hf": "gorilla-llm/Berkeley-Function-Calling-Leaderboard",
+   "url": "https://gorilla.cs.berkeley.edu/leaderboard.html",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2024-02-27",
+    "last_modified": "2026-04-29",
+    "downloads": 71285,
+    "size_category": null,
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "size_error": "timeout"
+   }
+  },
+  {
+   "id": "complexfuncbench",
+   "name": "ComplexFuncBench",
+   "hf": "THUDM/ComplexFuncBench",
+   "url": "https://github.com/THUDM/ComplexFuncBench",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2025-01-17",
+    "last_modified": "2025-01-22",
+    "downloads": 7376,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "size_error": 404
+   }
+  },
+  {
+   "id": "gaia",
+   "name": "GAIA",
+   "hf": "gaia-benchmark/GAIA",
+   "url": "https://huggingface.co/gaia-benchmark",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": "auto",
+    "created": "2023-10-20",
+    "last_modified": "2025-10-28",
+    "downloads": 31210,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "size_error": 404
+   }
+  },
+  {
+   "id": "glaive_fc_v2",
+   "name": "Glaive function calling v2",
+   "hf": "glaiveai/glaive-function-calling-v2",
+   "url": "https://huggingface.co/datasets/glaiveai/glaive-function-calling-v2",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2023-08-15",
+    "last_modified": "2023-09-27",
+    "downloads": 17769,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 112960,
+    "rows_by_split": {
+     "default/train": 112960
+    }
+   }
+  },
+  {
+   "id": "hermes_fc",
+   "name": "Hermes function calling v1",
+   "hf": "NousResearch/hermes-function-calling-v1",
+   "url": "https://huggingface.co/datasets/NousResearch/hermes-function-calling-v1",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2024-08-14",
+    "last_modified": "2026-01-03",
+    "downloads": 20786,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "text-generation",
+     "question-answering",
+     "feature-extraction"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 11578,
+    "rows_by_split": {
+     "func_calling_singleturn/train": 1893,
+     "func_calling/train": 1893,
+     "glaive_func_calling/train": 5209,
+     "json_mode_agentic/train": 1342,
+     "json_mode_singleturn/train": 1241
+    }
+   }
+  },
+  {
+   "id": "mcp_bench",
+   "name": "MCP-Bench",
+   "hf": "",
+   "url": "https://github.com/Accenture/mcp-bench",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "mint_bench",
+   "name": "MINT",
+   "hf": "",
+   "url": "https://github.com/xingyaoww/mint-bench",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "nestful",
+   "name": "NESTFUL",
+   "hf": "ibm-research/nestful",
+   "url": "https://github.com/IBM/NESTFUL",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2025-01-30",
+    "last_modified": "2025-05-22",
+    "downloads": 972,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 1861,
+    "rows_by_split": {
+     "default/train": 1861
+    }
+   }
+  },
+  {
+   "id": "nexus_fc",
+   "name": "NexusRaven function-calling eval",
+   "hf": "Nexusflow/NexusRaven_API_evaluation",
+   "url": "https://huggingface.co/Nexusflow/NexusRaven-V2-13B",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2023-09-28",
+    "last_modified": "2023-09-29",
+    "downloads": 532,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 1070,
+    "rows_by_split": {
+     "outputs_in_toolllm_format/train": 348,
+     "raw_queries/train": 339,
+     "standardized_api_list/train": 65,
+     "standardized_queries/train": 318
+    }
+   }
+  },
+  {
+   "id": "seal_tools",
+   "name": "Seal-Tools",
+   "hf": "",
+   "url": "https://github.com/fairyshine/Seal-Tools",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "swe_bench_verified",
+   "name": "SWE-bench Verified",
+   "hf": "princeton-nlp/SWE-bench_Verified",
+   "url": "https://www.swebench.com",
+   "group": "agentic",
+   "yugos": "catalog",
+   "list_no": "11.1",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2024-08-13",
+    "last_modified": "2025-02-18",
+    "downloads": 184137,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 500,
+    "rows_by_split": {
+     "default/test": 500
+    }
+   }
+  },
+  {
+   "id": "swe_bench_verified_mini",
+   "name": "SWE-bench Verified mini",
+   "hf": "MariusHobbhahn/swe-bench-verified-mini",
+   "url": "https://huggingface.co/datasets/MariusHobbhahn/swe-bench-verified-mini",
+   "group": "agentic",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2025-01-08",
+    "last_modified": "2025-01-08",
+    "downloads": 3167,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 50,
+    "rows_by_split": {
+     "default/test": 50
+    }
+   }
+  },
+  {
+   "id": "taskbench",
+   "name": "TaskBench",
+   "hf": "microsoft/Taskbench",
+   "url": "https://github.com/microsoft/JARVIS/tree/main/taskbench",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2024-02-21",
+    "last_modified": "2024-08-21",
+    "downloads": 1730,
+    "size_category": "10K<n<100K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 17331,
+    "rows_by_split": {
+     "dailylifeapis/test": 4318,
+     "huggingface/test": 7458,
+     "multimedia/test": 5555
+    }
+   }
+  },
+  {
+   "id": "tau2_airline",
+   "name": "tau2-bench airline",
+   "hf": "",
+   "url": "https://github.com/sierra-research/tau2-bench",
+   "group": "agentic",
+   "yugos": "catalog",
+   "list_no": "16.5",
+   "hub": {}
+  }
+ ]
+}

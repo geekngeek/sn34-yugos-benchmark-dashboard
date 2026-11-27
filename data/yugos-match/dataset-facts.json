@@ -1,0 +1,3113 @@
+{
+ "bbeh": {
+  "id": "bbeh",
+  "hf": "BBEH/bbeh",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2025-05-17",
+  "last_modified": "2025-05-20",
+  "downloads": 10518,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 4520,
+  "rows_by_split": {
+   "default/train": 4520
+  }
+ },
+ "hle": {
+  "id": "hle",
+  "hf": "cais/hle",
+  "licence": "mit",
+  "gated": "auto",
+  "created": "2025-01-23",
+  "last_modified": "2026-01-20",
+  "downloads": 87197,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 2500,
+  "rows_by_split": {
+   "default/test": 2500
+  }
+ },
+ "hotpotqa": {
+  "id": "hotpotqa",
+  "hf": "hotpotqa/hotpot_qa",
+  "licence": [
+   "cc-by-sa-4.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2025-08-11",
+  "downloads": 92365,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 203109,
+  "rows_by_split": {
+   "distractor/train": 90447,
+   "distractor/validation": 7405,
+   "fullwiki/train": 90447,
+   "fullwiki/validation": 7405,
+   "fullwiki/test": 7405
+  }
+ },
+ "simpleqa_verified": {
+  "id": "simpleqa_verified",
+  "hf": "codelion/SimpleQA-Verified",
+  "licence": "mit",
+  "gated": false,
+  "created": "2025-09-11",
+  "last_modified": "2025-09-11",
+  "downloads": 7018,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 1000,
+  "rows_by_split": {
+   "default/train": 1000
+  }
+ },
+ "mmlu_pro": {
+  "id": "mmlu_pro",
+  "hf": "TIGER-Lab/MMLU-Pro",
+  "licence": "mit",
+  "gated": false,
+  "created": "2024-05-08",
+  "last_modified": "2026-05-02",
+  "downloads": 376452,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 12102,
+  "rows_by_split": {
+   "default/test": 12032,
+   "default/validation": 70
+  }
+ },
+ "gpqa_diamond": {
+  "id": "gpqa_diamond",
+  "hf": "Idavidrein/gpqa",
+  "licence": "cc-by-4.0",
+  "gated": "auto",
+  "created": "2023-11-27",
+  "last_modified": "2026-09-21",
+  "downloads": 113012,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering",
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "size_error": 404
+ },
+ "arc_challenge": {
+  "id": "arc_challenge",
+  "hf": "allenai/ai2_arc",
+  "licence": [
+   "cc-by-sa-4.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2023-12-21",
+  "downloads": 580597,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 7787,
+  "rows_by_split": {
+   "ARC-Challenge/train": 1119,
+   "ARC-Challenge/test": 1172,
+   "ARC-Challenge/validation": 299,
+   "ARC-Easy/train": 2251,
+   "ARC-Easy/test": 2376,
+   "ARC-Easy/validation": 570
+  }
+ },
+ "arc_easy": {
+  "id": "arc_easy",
+  "hf": "allenai/ai2_arc",
+  "licence": [
+   "cc-by-sa-4.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2023-12-21",
+  "downloads": 580597,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 7787,
+  "rows_by_split": {
+   "ARC-Challenge/train": 1119,
+   "ARC-Challenge/test": 1172,
+   "ARC-Challenge/validation": 299,
+   "ARC-Easy/train": 2251,
+   "ARC-Easy/test": 2376,
+   "ARC-Easy/validation": 570
+  }
+ },
+ "musr": {
+  "id": "musr",
+  "hf": "TAUR-Lab/MuSR",
+  "licence": "cc-by-4.0",
+  "gated": false,
+  "created": "2024-05-17",
+  "last_modified": "2024-05-21",
+  "downloads": 16969,
+  "size_category": "n<1K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 756,
+  "rows_by_split": {
+   "default/murder_mysteries": 250,
+   "default/object_placements": 256,
+   "default/team_allocation": 250
+  }
+ },
+ "simpleqa": {
+  "id": "simpleqa",
+  "hf": null
+ },
+ "ifeval": {
+  "id": "ifeval",
+  "hf": "google/IFEval",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2023-12-22",
+  "last_modified": "2024-08-14",
+  "downloads": 201094,
+  "size_category": "n<1K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 541,
+  "rows_by_split": {
+   "default/train": 541
+  }
+ },
+ "livebench_reasoning": {
+  "id": "livebench_reasoning",
+  "hf": "livebench/reasoning",
+  "licence": null,
+  "gated": false,
+  "created": "2024-06-06",
+  "last_modified": "2025-04-07",
+  "downloads": 6525,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 200,
+  "rows_by_split": {
+   "default/test": 200
+  }
+ },
+ "winogrande": {
+  "id": "winogrande",
+  "hf": "allenai/winogrande",
+  "licence": null,
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2025-07-11",
+  "downloads": 205808,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 81442,
+  "rows_by_split": {
+   "winogrande_debiased/train": 9248,
+   "winogrande_debiased/test": 1767,
+   "winogrande_debiased/validation": 1267,
+   "winogrande_l/train": 10234,
+   "winogrande_l/test": 1767,
+   "winogrande_l/validation": 1267,
+   "winogrande_m/train": 2558,
+   "winogrande_m/test": 1767,
+   "winogrande_m/validation": 1267,
+   "winogrande_s/train": 640,
+   "winogrande_s/test": 1767,
+   "winogrande_s/validation": 1267,
+   "winogrande_xl/train": 40398,
+   "winogrande_xl/test": 1767,
+   "winogrande_xl/validation": 1267,
+   "winogrande_xs/train": 160,
+   "winogrande_xs/test": 1767,
+   "winogrande_xs/validation": 1267
+  }
+ },
+ "hellaswag": {
+  "id": "hellaswag",
+  "hf": "Rowan/hellaswag",
+  "licence": null,
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2025-07-10",
+  "downloads": 295001,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 59950,
+  "rows_by_split": {
+   "default/train": 39905,
+   "default/test": 10003,
+   "default/validation": 10042
+  }
+ },
+ "commonsense_qa": {
+  "id": "commonsense_qa",
+  "hf": "tau/commonsense_qa",
+  "licence": [
+   "mit"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-04",
+  "downloads": 86313,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 12102,
+  "rows_by_split": {
+   "default/train": 9741,
+   "default/validation": 1221,
+   "default/test": 1140
+  }
+ },
+ "bbh": {
+  "id": "bbh",
+  "hf": "Joschka/big_bench_hard",
+  "licence": "mit",
+  "gated": false,
+  "created": "2024-11-03",
+  "last_modified": "2025-07-19",
+  "downloads": 13042,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering",
+   "multiple-choice",
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 6538,
+  "rows_by_split": {
+   "boolean_expressions/boolean_expressions": 250,
+   "causal_judgement/causal_judgement": 187,
+   "date_understanding/date_understanding": 250,
+   "disambiguation_qa/disambiguation_qa": 250,
+   "dyck_languages/dyck_languages": 250,
+   "few_shot_prompts/few_shot_prompts": 27,
+   "formal_fallacies/formal_fallacies": 250,
+   "geometric_shapes/geometric_shapes": 250,
+   "hyperbaton/hyperbaton": 250,
+   "logical_deduction_five_objects/logical_deduction_five_objects": 250,
+   "logical_deduction_seven_objects/logical_deduction_seven_objects": 250,
+   "logical_deduction_three_objects/logical_deduction_three_objects": 250,
+   "movie_recommendation/movie_recommendation": 250,
+   "multistep_arithmetic_two/multistep_arithmetic_two": 250,
+   "navigate/navigate": 250,
+   "object_counting/object_counting": 250,
+   "penguins_in_a_table/penguins_in_a_table": 146,
+   "reasoning_about_colored_objects/reasoning_about_colored_objects": 250,
+   "ruin_names/ruin_names": 250,
+   "salient_translation_error_detection/salient_translation_error_detection": 250,
+   "snarks/snarks": 178,
+   "sports_understanding/sports_understanding": 250,
+   "temporal_sequences/temporal_sequences": 250,
+   "tracking_shuffled_objects_five_objects/tracking_shuffled_objects_five_objects": 250,
+   "tracking_shuffled_objects_seven_objects/tracking_shuffled_objects_seven_objects": 250,
+   "tracking_shuffled_objects_three_objects/tracking_shuffled_objects_three_objects": 250,
+   "web_of_lies/web_of_lies": 250,
+   "word_sorting/word_sorting": 250
+  }
+ },
+ "medqa": {
+  "id": "medqa",
+  "hf": "bigbio/med_qa",
+  "licence": "unknown",
+  "gated": false,
+  "created": "2022-11-13",
+  "last_modified": "2026-09-04",
+  "downloads": 12862,
+  "size_category": "100K<n<1M",
+  "task_categories": [],
+  "languages": [
+   "en",
+   "zh"
+  ],
+  "rows_total": 272634,
+  "rows_by_split": {
+   "med_qa_en_source/train": 10178,
+   "med_qa_en_source/test": 1273,
+   "med_qa_en_source/validation": 1272,
+   "med_qa_en_4options_bigbio_qa/train": 10178,
+   "med_qa_en_4options_bigbio_qa/test": 1273,
+   "med_qa_en_4options_bigbio_qa/validation": 1272,
+   "med_qa_en_4options_source/train": 10178,
+   "med_qa_en_4options_source/test": 1273,
+   "med_qa_en_4options_source/validation": 1272,
+   "med_qa_en_bigbio_qa/train": 10178,
+   "med_qa_en_bigbio_qa/test": 1273,
+   "med_qa_en_bigbio_qa/validation": 1272,
+   "med_qa_tw_bigbio_qa/train": 11298,
+   "med_qa_tw_bigbio_qa/test": 1413,
+   "med_qa_tw_bigbio_qa/validation": 1412,
+   "med_qa_tw_en_bigbio_qa/train": 11298,
+   "med_qa_tw_en_bigbio_qa/test": 1413,
+   "med_qa_tw_en_bigbio_qa/validation": 1412,
+   "med_qa_tw_en_source/train": 11298,
+   "med_qa_tw_en_source/test": 1413,
+   "med_qa_tw_en_source/validation": 1412,
+   "med_qa_tw_source/train": 11298,
+   "med_qa_tw_source/test": 1413,
+   "med_qa_tw_source/validation": 1412,
+   "med_qa_tw_zh_bigbio_qa/train": 11298,
+   "med_qa_tw_zh_bigbio_qa/test": 1413,
+   "med_qa_tw_zh_bigbio_qa/validation": 1412,
+   "med_qa_tw_zh_source/train": 11298,
+   "med_qa_tw_zh_source/test": 1413,
+   "med_qa_tw_zh_source/validation": 1412,
+   "med_qa_zh_4options_bigbio_qa/train": 27400,
+   "med_qa_zh_4options_bigbio_qa/test": 3426,
+   "med_qa_zh_4options_bigbio_qa/validation": 3425,
+   "med_qa_zh_4options_source/train": 27400,
+   "med_qa_zh_4options_source/test": 3426,
+   "med_qa_zh_4options_source/validation": 3425,
+   "med_qa_zh_bigbio_qa/train": 27400,
+   "med_qa_zh_bigbio_qa/test": 3426,
+   "med_qa_zh_bigbio_qa/validation": 3425,
+   "med_qa_zh_source/train": 27400,
+   "med_qa_zh_source/test": 3426,
+   "med_qa_zh_source/validation": 3425
+  }
+ },
+ "paws": {
+  "id": "paws",
+  "hf": "google-research-datasets/paws",
+  "licence": [
+   "other"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-04",
+  "downloads": 59749,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "text-classification"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 751450,
+  "rows_by_split": {
+   "labeled_final/train": 49401,
+   "labeled_final/test": 8000,
+   "labeled_final/validation": 8000,
+   "labeled_swap/train": 30397,
+   "unlabeled_final/train": 645652,
+   "unlabeled_final/validation": 10000
+  }
+ },
+ "worldsense": {
+  "id": "worldsense",
+  "hf": null
+ },
+ "pubmedqa": {
+  "id": "pubmedqa",
+  "hf": "qiaojin/PubMedQA",
+  "licence": [
+   "mit"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-03-06",
+  "downloads": 39949,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 273518,
+  "rows_by_split": {
+   "pqa_artificial/train": 211269,
+   "pqa_labeled/train": 1000,
+   "pqa_unlabeled/train": 61249
+  }
+ },
+ "belebele": {
+  "id": "belebele",
+  "hf": "facebook/belebele",
+  "licence": "cc-by-sa-4.0",
+  "gated": false,
+  "created": "2023-09-01",
+  "last_modified": "2024-08-12",
+  "downloads": 55000,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "question-answering",
+   "zero-shot-classification",
+   "text-classification",
+   "multiple-choice"
+  ],
+  "languages": [
+   "af",
+   "am",
+   "ar",
+   "az",
+   "as",
+   "bm",
+   "bn",
+   "bo",
+   "bg",
+   "ca",
+   "cs",
+   "ku",
+   "da",
+   "de",
+   "el",
+   "en",
+   "es",
+   "et",
+   "eu",
+   "fi",
+   "fr",
+   "ff",
+   "om",
+   "gu",
+   "gn",
+   "ht",
+   "ha",
+   "he",
+   "hi",
+   "hr",
+   "hu",
+   "hy",
+   "ig",
+   "id",
+   "it",
+   "is",
+   "jv",
+   "ja",
+   "ka",
+   "kn",
+   "kk",
+   "mn",
+   "km",
+   "rw",
+   "ky",
+   "ko",
+   "lo",
+   "ln",
+   "lt",
+   "lg",
+   "lv",
+   "ml",
+   "mr",
+   "mk",
+   "mt",
+   "mi",
+   "my",
+   "nl",
+   "no",
+   "ne",
+   "ny",
+   "or",
+   "pa",
+   "ps",
+   "fa",
+   "mg",
+   "pl",
+   "pt",
+   "ro",
+   "ru",
+   "sn",
+   "si",
+   "sl",
+   "sv",
+   "sk",
+   "sd",
+   "sw",
+   "ta",
+   "te",
+   "tg",
+   "tl",
+   "th",
+   "ti",
+   "tn",
+   "ts",
+   "tr",
+   "uk",
+   "ur",
+   "uz",
+   "vi",
+   "wo",
+   "xh",
+   "yo",
+   "zh",
+   "ms",
+   "zu"
+  ],
+  "rows_total": 109800,
+  "rows_by_split": {
+   "acm_Arab/test": 900,
+   "afr_Latn/test": 900,
+   "als_Latn/test": 900,
+   "amh_Ethi/test": 900,
+   "apc_Arab/test": 900,
+   "arb_Arab/test": 900,
+   "arb_Latn/test": 900,
+   "ars_Arab/test": 900,
+   "ary_Arab/test": 900,
+   "arz_Arab/test": 900,
+   "asm_Beng/test": 900,
+   "azj_Latn/test": 900,
+   "bam_Latn/test": 900,
+   "ben_Beng/test": 900,
+   "ben_Latn/test": 900,
+   "bod_Tibt/test": 900,
+   "bul_Cyrl/test": 900,
+   "cat_Latn/test": 900,
+   "ceb_Latn/test": 900,
+   "ces_Latn/test": 900,
+   "ckb_Arab/test": 900,
+   "dan_Latn/test": 900,
+   "deu_Latn/test": 900,
+   "ell_Grek/test": 900,
+   "eng_Latn/test": 900,
+   "est_Latn/test": 900,
+   "eus_Latn/test": 900,
+   "fin_Latn/test": 900,
+   "fra_Latn/test": 900,
+   "fuv_Latn/test": 900,
+   "gaz_Latn/test": 900,
+   "grn_Latn/test": 900,
+   "guj_Gujr/test": 900,
+   "hat_Latn/test": 900,
+   "hau_Latn/test": 900,
+   "heb_Hebr/test": 900,
+   "hin_Deva/test": 900,
+   "hin_Latn/test": 900,
+   "hrv_Latn/test": 900,
+   "hun_Latn/test": 900,
+   "hye_Armn/test": 900,
+   "ibo_Latn/test": 900,
+   "ilo_Latn/test": 900,
+   "ind_Latn/test": 900,
+   "isl_Latn/test": 900,
+   "ita_Latn/test": 900,
+   "jav_Latn/test": 900,
+   "jpn_Jpan/test": 900,
+   "kac_Latn/test": 900,
+   "kan_Knda/test": 900,
+   "kat_Geor/test": 900,
+   "kaz_Cyrl/test": 900,
+   "kea_Latn/test": 900,
+   "khk_Cyrl/test": 900,
+   "khm_Khmr/test": 900,
+   "kin_Latn/test": 900,
+   "kir_Cyrl/test": 900,
+   "kor_Hang/test": 900,
+   "lao_Laoo/test": 900,
+   "lin_Latn/test": 900,
+   "lit_Latn/test": 900,
+   "lug_Latn/test": 900,
+   "luo_Latn/test": 900,
+   "lvs_Latn/test": 900,
+   "mal_Mlym/test": 900,
+   "mar_Deva/test": 900,
+   "mkd_Cyrl/test": 900,
+   "mlt_Latn/test": 900,
+   "mri_Latn/test": 900,
+   "mya_Mymr/test": 900,
+   "nld_Latn/test": 900,
+   "nob_Latn/test": 900,
+   "npi_Deva/test": 900,
+   "npi_Latn/test": 900,
+   "nso_Latn/test": 900,
+   "nya_Latn/test": 900,
+   "ory_Orya/test": 900,
+   "pan_Guru/test": 900,
+   "pbt_Arab/test": 900,
+   "pes_Arab/test": 900,
+   "plt_Latn/test": 900,
+   "pol_Latn/test": 900,
+   "por_Latn/test": 900,
+   "ron_Latn/test": 900,
+   "rus_Cyrl/test": 900,
+   "shn_Mymr/test": 900,
+   "sin_Latn/test": 900,
+   "sin_Sinh/test": 900,
+   "slk_Latn/test": 900,
+   "slv_Latn/test": 900,
+   "sna_Latn/test": 900,
+   "snd_Arab/test": 900,
+   "som_Latn/test": 900,
+   "sot_Latn/test": 900,
+   "spa_Latn/test": 900,
+   "srp_Cyrl/test": 900,
+   "ssw_Latn/test": 900,
+   "sun_Latn/test": 900,
+   "swe_Latn/test": 900,
+   "swh_Latn/test": 900,
+   "tam_Taml/test": 900,
+   "tel_Telu/test": 900,
+   "tgk_Cyrl/test": 900,
+   "tgl_Latn/test": 900,
+   "tha_Thai/test": 900,
+   "tir_Ethi/test": 900,
+   "tsn_Latn/test": 900,
+   "tso_Latn/test": 900,
+   "tur_Latn/test": 900,
+   "ukr_Cyrl/test": 900,
+   "urd_Arab/test": 900,
+   "urd_Latn/test": 900,
+   "uzn_Latn/test": 900,
+   "vie_Latn/test": 900,
+   "war_Latn/test": 900,
+   "wol_Latn/test": 900,
+   "xho_Latn/test": 900,
+   "yor_Latn/test": 900,
+   "zho_Hans/test": 900,
+   "zho_Hant/test": 900,
+   "zsm_Latn/test": 900,
+   "zul_Latn/test": 900
+  }
+ },
+ "longbench_v2": {
+  "id": "longbench_v2",
+  "hf": "zai-org/LongBench-v2",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-12-18",
+  "last_modified": "2024-12-20",
+  "downloads": 62936,
+  "size_category": "n<1K",
+  "task_categories": [
+   "multiple-choice",
+   "question-answering",
+   "text-classification",
+   "table-question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 503,
+  "rows_by_split": {
+   "default/train": 503
+  }
+ },
+ "boolq": {
+  "id": "boolq",
+  "hf": "google/boolq",
+  "licence": [
+   "cc-by-sa-3.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-22",
+  "downloads": 78646,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "text-classification"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 12697,
+  "rows_by_split": {
+   "default/train": 9427,
+   "default/validation": 3270
+  }
+ },
+ "squad": {
+  "id": "squad",
+  "hf": "rajpurkar/squad_v2",
+  "licence": [
+   "cc-by-sa-4.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-03-04",
+  "downloads": 51680,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 142192,
+  "rows_by_split": {
+   "squad_v2/train": 130319,
+   "squad_v2/validation": 11873
+  }
+ },
+ "drop": {
+  "id": "drop",
+  "hf": "EleutherAI/drop",
+  "licence": "cc-by-4.0",
+  "gated": false,
+  "created": "2023-08-30",
+  "last_modified": "2025-01-10",
+  "downloads": 15344,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 86945,
+  "rows_by_split": {
+   "default/train": 77409,
+   "default/validation": 9536
+  }
+ },
+ "piqa": {
+  "id": "piqa",
+  "hf": "ybisk/piqa",
+  "licence": [
+   "unknown"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-18",
+  "downloads": 103161,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "size_error": "timeout"
+ },
+ "race_h": {
+  "id": "race_h",
+  "hf": "ehovy/race",
+  "licence": [
+   "other"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-04",
+  "downloads": 34118,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "multiple-choice"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 195374,
+  "rows_by_split": {
+   "all/test": 4934,
+   "all/train": 87866,
+   "all/validation": 4887,
+   "high/test": 3498,
+   "high/train": 62445,
+   "high/validation": 3451,
+   "middle/test": 1436,
+   "middle/train": 25421,
+   "middle/validation": 1436
+  }
+ },
+ "truthfulqa": {
+  "id": "truthfulqa",
+  "hf": "truthfulqa/truthful_qa",
+  "licence": [
+   "apache-2.0"
+  ],
+  "gated": false,
+  "created": "2022-06-08",
+  "last_modified": "2024-01-04",
+  "downloads": 100727,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "multiple-choice",
+   "text-generation",
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 1634,
+  "rows_by_split": {
+   "generation/validation": 817,
+   "multiple_choice/validation": 817
+  }
+ },
+ "arenahard_v2": {
+  "id": "arenahard_v2",
+  "hf": null
+ },
+ "triviaqa": {
+  "id": "triviaqa",
+  "hf": "mandarjoshi/trivia_qa",
+  "licence": [
+   "unknown"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-05",
+  "downloads": 101709,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 913686,
+  "rows_by_split": {
+   "rc/train": 138384,
+   "rc/validation": 17944,
+   "rc/test": 17210,
+   "rc.nocontext/train": 138384,
+   "rc.nocontext/validation": 17944,
+   "rc.nocontext/test": 17210,
+   "rc.web/train": 76496,
+   "rc.web/validation": 9951,
+   "rc.web/test": 9509,
+   "rc.web.nocontext/train": 76496,
+   "rc.web.nocontext/validation": 9951,
+   "rc.web.nocontext/test": 9509,
+   "rc.wikipedia/train": 61888,
+   "rc.wikipedia/validation": 7993,
+   "rc.wikipedia/test": 7701,
+   "rc.wikipedia.nocontext/train": 61888,
+   "rc.wikipedia.nocontext/validation": 7993,
+   "rc.wikipedia.nocontext/test": 7701,
+   "unfiltered/train": 87622,
+   "unfiltered/validation": 11313,
+   "unfiltered/test": 10832,
+   "unfiltered.nocontext/train": 87622,
+   "unfiltered.nocontext/validation": 11313,
+   "unfiltered.nocontext/test": 10832
+  }
+ },
+ "nq_open": {
+  "id": "nq_open",
+  "hf": "google-research-datasets/nq_open",
+  "licence": [
+   "cc-by-sa-3.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-03-22",
+  "downloads": 35931,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 91535,
+  "rows_by_split": {
+   "nq_open/train": 87925,
+   "nq_open/validation": 3610
+  }
+ },
+ "web_questions": {
+  "id": "web_questions",
+  "hf": "stanfordnlp/web_questions",
+  "licence": [
+   "unknown"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-04",
+  "downloads": 17016,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 5810,
+  "rows_by_split": {
+   "default/train": 3778,
+   "default/test": 2032
+  }
+ },
+ "popqa": {
+  "id": "popqa",
+  "hf": "akariasai/PopQA",
+  "licence": null,
+  "gated": false,
+  "created": "2022-12-22",
+  "last_modified": "2022-12-22",
+  "downloads": 16876,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 14267,
+  "rows_by_split": {
+   "default/test": 14267
+  }
+ },
+ "freshqa": {
+  "id": "freshqa",
+  "hf": null
+ },
+ "sciq": {
+  "id": "sciq",
+  "hf": "allenai/sciq",
+  "licence": [
+   "cc-by-nc-3.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-04",
+  "downloads": 137359,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 13679,
+  "rows_by_split": {
+   "default/train": 11679,
+   "default/validation": 1000,
+   "default/test": 1000
+  }
+ },
+ "openbookqa": {
+  "id": "openbookqa",
+  "hf": "allenai/openbookqa",
+  "licence": [
+   "unknown"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-04",
+  "downloads": 181580,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 11914,
+  "rows_by_split": {
+   "additional/train": 4957,
+   "additional/validation": 500,
+   "additional/test": 500,
+   "main/train": 4957,
+   "main/validation": 500,
+   "main/test": 500
+  }
+ },
+ "qasc": {
+  "id": "qasc",
+  "hf": "allenai/qasc",
+  "licence": [
+   "cc-by-4.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-04",
+  "downloads": 25261,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering",
+   "multiple-choice"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 9980,
+  "rows_by_split": {
+   "default/train": 8134,
+   "default/test": 920,
+   "default/validation": 926
+  }
+ },
+ "social_iqa": {
+  "id": "social_iqa",
+  "hf": "allenai/social_i_qa",
+  "licence": null,
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2025-12-01",
+  "downloads": 27689,
+  "size_category": null,
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "size_error": "timeout"
+ },
+ "mmlu": {
+  "id": "mmlu",
+  "hf": "cais/mmlu",
+  "licence": [
+   "mit"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-03-08",
+  "downloads": 655863,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 231400,
+  "rows_by_split": {
+   "abstract_algebra/test": 100,
+   "abstract_algebra/validation": 11,
+   "abstract_algebra/dev": 5,
+   "all/test": 14042,
+   "all/validation": 1531,
+   "all/dev": 285,
+   "all/auxiliary_train": 99842,
+   "anatomy/test": 135,
+   "anatomy/validation": 14,
+   "anatomy/dev": 5,
+   "astronomy/test": 152,
+   "astronomy/validation": 16,
+   "astronomy/dev": 5,
+   "auxiliary_train/train": 99842,
+   "business_ethics/test": 100,
+   "business_ethics/validation": 11,
+   "business_ethics/dev": 5,
+   "clinical_knowledge/test": 265,
+   "clinical_knowledge/validation": 29,
+   "clinical_knowledge/dev": 5,
+   "college_biology/test": 144,
+   "college_biology/validation": 16,
+   "college_biology/dev": 5,
+   "college_chemistry/test": 100,
+   "college_chemistry/validation": 8,
+   "college_chemistry/dev": 5,
+   "college_computer_science/test": 100,
+   "college_computer_science/validation": 11,
+   "college_computer_science/dev": 5,
+   "college_mathematics/test": 100,
+   "college_mathematics/validation": 11,
+   "college_mathematics/dev": 5,
+   "college_medicine/test": 173,
+   "college_medicine/validation": 22,
+   "college_medicine/dev": 5,
+   "college_physics/test": 102,
+   "college_physics/validation": 11,
+   "college_physics/dev": 5,
+   "computer_security/test": 100,
+   "computer_security/validation": 11,
+   "computer_security/dev": 5,
+   "conceptual_physics/test": 235,
+   "conceptual_physics/validation": 26,
+   "conceptual_physics/dev": 5,
+   "econometrics/test": 114,
+   "econometrics/validation": 12,
+   "econometrics/dev": 5,
+   "electrical_engineering/test": 145,
+   "electrical_engineering/validation": 16,
+   "electrical_engineering/dev": 5,
+   "elementary_mathematics/test": 378,
+   "elementary_mathematics/validation": 41,
+   "elementary_mathematics/dev": 5,
+   "formal_logic/test": 126,
+   "formal_logic/validation": 14,
+   "formal_logic/dev": 5,
+   "global_facts/test": 100,
+   "global_facts/validation": 10,
+   "global_facts/dev": 5,
+   "high_school_biology/test": 310,
+   "high_school_biology/validation": 32,
+   "high_school_biology/dev": 5,
+   "high_school_chemistry/test": 203,
+   "high_school_chemistry/validation": 22,
+   "high_school_chemistry/dev": 5,
+   "high_school_computer_science/test": 100,
+   "high_school_computer_science/validation": 9,
+   "high_school_computer_science/dev": 5,
+   "high_school_european_history/test": 165,
+   "high_school_european_history/validation": 18,
+   "high_school_european_history/dev": 5,
+   "high_school_geography/test": 198,
+   "high_school_geography/validation": 22,
+   "high_school_geography/dev": 5,
+   "high_school_government_and_politics/test": 193,
+   "high_school_government_and_politics/validation": 21,
+   "high_school_government_and_politics/dev": 5,
+   "high_school_macroeconomics/test": 390,
+   "high_school_macroeconomics/validation": 43,
+   "high_school_macroeconomics/dev": 5,
+   "high_school_mathematics/test": 270,
+   "high_school_mathematics/validation": 29,
+   "high_school_mathematics/dev": 5,
+   "high_school_microeconomics/test": 238,
+   "high_school_microeconomics/validation": 26,
+   "high_school_microeconomics/dev": 5,
+   "high_school_physics/test": 151,
+   "high_school_physics/validation": 17,
+   "high_school_physics/dev": 5,
+   "high_school_psychology/test": 545,
+   "high_school_psychology/validation": 60,
+   "high_school_psychology/dev": 5,
+   "high_school_statistics/test": 216,
+   "high_school_statistics/validation": 23,
+   "high_school_statistics/dev": 5,
+   "high_school_us_history/test": 204,
+   "high_school_us_history/validation": 22,
+   "high_school_us_history/dev": 5,
+   "high_school_world_history/test": 237,
+   "high_school_world_history/validation": 26,
+   "high_school_world_history/dev": 5,
+   "human_aging/test": 223,
+   "human_aging/validation": 23,
+   "human_aging/dev": 5,
+   "human_sexuality/test": 131,
+   "human_sexuality/validation": 12,
+   "human_sexuality/dev": 5,
+   "international_law/test": 121,
+   "international_law/validation": 13,
+   "international_law/dev": 5,
+   "jurisprudence/test": 108,
+   "jurisprudence/validation": 11,
+   "jurisprudence/dev": 5,
+   "logical_fallacies/test": 163,
+   "logical_fallacies/validation": 18,
+   "logical_fallacies/dev": 5,
+   "machine_learning/test": 112,
+   "machine_learning/validation": 11,
+   "machine_learning/dev": 5,
+   "management/test": 103,
+   "management/validation": 11,
+   "management/dev": 5,
+   "marketing/test": 234,
+   "marketing/validation": 25,
+   "marketing/dev": 5,
+   "medical_genetics/test": 100,
+   "medical_genetics/validation": 11,
+   "medical_genetics/dev": 5,
+   "miscellaneous/test": 783,
+   "miscellaneous/validation": 86,
+   "miscellaneous/dev": 5,
+   "moral_disputes/test": 346,
+   "moral_disputes/validation": 38,
+   "moral_disputes/dev": 5,
+   "moral_scenarios/test": 895,
+   "moral_scenarios/validation": 100,
+   "moral_scenarios/dev": 5,
+   "nutrition/test": 306,
+   "nutrition/validation": 33,
+   "nutrition/dev": 5,
+   "philosophy/test": 311,
+   "philosophy/validation": 34,
+   "philosophy/dev": 5,
+   "prehistory/test": 324,
+   "prehistory/validation": 35,
+   "prehistory/dev": 5,
+   "professional_accounting/test": 282,
+   "professional_accounting/validation": 31,
+   "professional_accounting/dev": 5,
+   "professional_law/test": 1534,
+   "professional_law/validation": 170,
+   "professional_law/dev": 5,
+   "professional_medicine/test": 272,
+   "professional_medicine/validation": 31,
+   "professional_medicine/dev": 5,
+   "professional_psychology/test": 612,
+   "professional_psychology/validation": 69,
+   "professional_psychology/dev": 5,
+   "public_relations/test": 110,
+   "public_relations/validation": 12,
+   "public_relations/dev": 5,
+   "security_studies/test": 245,
+   "security_studies/validation": 27,
+   "security_studies/dev": 5,
+   "sociology/test": 201,
+   "sociology/validation": 22,
+   "sociology/dev": 5,
+   "us_foreign_policy/test": 100,
+   "us_foreign_policy/validation": 11,
+   "us_foreign_policy/dev": 5,
+   "virology/test": 166,
+   "virology/validation": 18,
+   "virology/dev": 5,
+   "world_religions/test": 171,
+   "world_religions/validation": 19,
+   "world_religions/dev": 5
+  }
+ },
+ "mmlu_redux": {
+  "id": "mmlu_redux",
+  "hf": "edinburgh-dawg/mmlu-redux-2.0",
+  "licence": "cc-by-4.0",
+  "gated": false,
+  "created": "2024-08-17",
+  "last_modified": "2025-02-25",
+  "downloads": 61447,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 5700,
+  "rows_by_split": {
+   "abstract_algebra/test": 100,
+   "anatomy/test": 100,
+   "astronomy/test": 100,
+   "business_ethics/test": 100,
+   "clinical_knowledge/test": 100,
+   "college_biology/test": 100,
+   "college_chemistry/test": 100,
+   "college_computer_science/test": 100,
+   "college_mathematics/test": 100,
+   "college_medicine/test": 100,
+   "college_physics/test": 100,
+   "computer_security/test": 100,
+   "conceptual_physics/test": 100,
+   "econometrics/test": 100,
+   "electrical_engineering/test": 100,
+   "elementary_mathematics/test": 100,
+   "formal_logic/test": 100,
+   "global_facts/test": 100,
+   "high_school_biology/test": 100,
+   "high_school_chemistry/test": 100,
+   "high_school_computer_science/test": 100,
+   "high_school_european_history/test": 100,
+   "high_school_geography/test": 100,
+   "high_school_government_and_politics/test": 100,
+   "high_school_macroeconomics/test": 100,
+   "high_school_mathematics/test": 100,
+   "high_school_microeconomics/test": 100,
+   "high_school_physics/test": 100,
+   "high_school_psychology/test": 100,
+   "high_school_statistics/test": 100,
+   "high_school_us_history/test": 100,
+   "high_school_world_history/test": 100,
+   "human_aging/test": 100,
+   "human_sexuality/test": 100,
+   "international_law/test": 100,
+   "jurisprudence/test": 100,
+   "logical_fallacies/test": 100,
+   "machine_learning/test": 100,
+   "management/test": 100,
+   "marketing/test": 100,
+   "medical_genetics/test": 100,
+   "miscellaneous/test": 100,
+   "moral_disputes/test": 100,
+   "moral_scenarios/test": 100,
+   "nutrition/test": 100,
+   "philosophy/test": 100,
+   "prehistory/test": 100,
+   "professional_accounting/test": 100,
+   "professional_law/test": 100,
+   "professional_medicine/test": 100,
+   "professional_psychology/test": 100,
+   "public_relations/test": 100,
+   "security_studies/test": 100,
+   "sociology/test": 100,
+   "us_foreign_policy/test": 100,
+   "virology/test": 100,
+   "world_religions/test": 100
+  }
+ },
+ "supergpqa": {
+  "id": "supergpqa",
+  "hf": "m-a-p/SuperGPQA",
+  "licence": "odc-by",
+  "gated": false,
+  "created": "2025-02-20",
+  "last_modified": "2025-04-30",
+  "downloads": 26443,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 26529,
+  "rows_by_split": {
+   "default/train": 26529
+  }
+ },
+ "agieval": {
+  "id": "agieval",
+  "hf": null
+ },
+ "strategyqa": {
+  "id": "strategyqa",
+  "hf": "ChilleD/StrategyQA",
+  "licence": "mit",
+  "gated": false,
+  "created": "2023-05-08",
+  "last_modified": "2023-08-26",
+  "downloads": 11354,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 2290,
+  "rows_by_split": {
+   "default/train": 1603,
+   "default/test": 687
+  }
+ },
+ "logiqa2": {
+  "id": "logiqa2",
+  "hf": null
+ },
+ "folio": {
+  "id": "folio",
+  "hf": "yale-nlp/FOLIO",
+  "licence": "mit",
+  "gated": "auto",
+  "created": "2023-12-21",
+  "last_modified": "2023-12-21",
+  "downloads": 2122,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [],
+  "size_error": 404
+ },
+ "zebralogic": {
+  "id": "zebralogic",
+  "hf": "allenai/ZebraLogicBench",
+  "licence": null,
+  "gated": false,
+  "created": "2024-07-11",
+  "last_modified": "2024-07-11",
+  "downloads": 1617,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 4259,
+  "rows_by_split": {
+   "grid_mode/test": 1000,
+   "mc_mode/test": 3259
+  }
+ },
+ "musique": {
+  "id": "musique",
+  "hf": "dgslibisey/MuSiQue",
+  "licence": null,
+  "gated": false,
+  "created": "2023-06-14",
+  "last_modified": "2023-06-16",
+  "downloads": 25568,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 22355,
+  "rows_by_split": {
+   "default/train": 19938,
+   "default/validation": 2417
+  }
+ },
+ "two_wiki_multihop": {
+  "id": "two_wiki_multihop",
+  "hf": null
+ },
+ "quality": {
+  "id": "quality",
+  "hf": null
+ },
+ "coqa": {
+  "id": "coqa",
+  "hf": "stanfordnlp/coqa",
+  "licence": [
+   "other"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-04",
+  "downloads": 5723,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 7699,
+  "rows_by_split": {
+   "default/train": 7199,
+   "default/validation": 500
+  }
+ },
+ "medmcqa": {
+  "id": "medmcqa",
+  "hf": "openlifescienceai/medmcqa",
+  "licence": [
+   "apache-2.0"
+  ],
+  "gated": false,
+  "created": "2022-05-06",
+  "last_modified": "2024-01-04",
+  "downloads": 58975,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "question-answering",
+   "multiple-choice"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 193155,
+  "rows_by_split": {
+   "default/train": 182822,
+   "default/test": 6150,
+   "default/validation": 4183
+  }
+ },
+ "ifbench": {
+  "id": "ifbench",
+  "hf": "allenai/IFBench_test",
+  "licence": null,
+  "gated": false,
+  "created": "2025-07-02",
+  "last_modified": "2026-11-02",
+  "downloads": 30905,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 300,
+  "rows_by_split": {
+   "default/train": 300
+  }
+ },
+ "mt_bench": {
+  "id": "mt_bench",
+  "hf": "lmsys/mt_bench_human_judgments",
+  "licence": "cc-by-4.0",
+  "gated": false,
+  "created": "2023-07-04",
+  "last_modified": "2023-07-20",
+  "downloads": 16474,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 5755,
+  "rows_by_split": {
+   "default/gpt4_pair": 2400,
+   "default/human": 3355
+  }
+ },
+ "alpacaeval": {
+  "id": "alpacaeval",
+  "hf": "tatsu-lab/alpaca_eval",
+  "licence": "cc-by-nc-4.0",
+  "gated": false,
+  "created": "2023-05-29",
+  "last_modified": "2024-08-16",
+  "downloads": 22330,
+  "size_category": null,
+  "task_categories": [],
+  "languages": [],
+  "size_error": "timeout"
+ },
+ "wildchat": {
+  "id": "wildchat",
+  "hf": "allenai/WildChat-1M",
+  "licence": "odc-by",
+  "gated": false,
+  "created": "2024-05-03",
+  "last_modified": "2024-10-17",
+  "downloads": 37553,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "text-generation",
+   "question-answering"
+  ],
+  "languages": [],
+  "rows_total": 837989,
+  "rows_by_split": {
+   "default/train": 837989
+  }
+ },
+ "chatbot_arena_conv": {
+  "id": "chatbot_arena_conv",
+  "hf": "lmsys/chatbot_arena_conversations",
+  "licence": "cc",
+  "gated": "auto",
+  "created": "2023-07-18",
+  "last_modified": "2023-09-30",
+  "downloads": 3249,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [],
+  "size_error": 404
+ },
+ "lmsys_chat_1m": {
+  "id": "lmsys_chat_1m",
+  "hf": "lmsys/lmsys-chat-1m",
+  "licence": null,
+  "gated": "auto",
+  "created": "2023-09-20",
+  "last_modified": "2024-07-27",
+  "downloads": 7557,
+  "size_category": "1M<n<10M",
+  "task_categories": [],
+  "languages": [],
+  "size_error": 404
+ },
+ "kor_bench": {
+  "id": "kor_bench",
+  "hf": null
+ },
+ "routerbench": {
+  "id": "routerbench",
+  "hf": "withmartian/routerbench",
+  "licence": null,
+  "gated": false,
+  "created": "2024-03-04",
+  "last_modified": "2024-03-27",
+  "downloads": 7236,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "text-generation",
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "size_error": "timeout"
+ },
+ "sprout": {
+  "id": "sprout",
+  "hf": "CARROT-LLM-Routing/SPROUT",
+  "licence": null,
+  "gated": false,
+  "created": "2025-02-04",
+  "last_modified": "2025-02-04",
+  "downloads": 1251,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 44241,
+  "rows_by_split": {
+   "default/train": 30968,
+   "default/validation": 6636,
+   "default/test": 6637
+  }
+ },
+ "embedllm": {
+  "id": "embedllm",
+  "hf": null
+ },
+ "routerarena": {
+  "id": "routerarena",
+  "hf": null
+ },
+ "routellm_arena": {
+  "id": "routellm_arena",
+  "hf": "routellm/gpt4_dataset",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-06-11",
+  "last_modified": "2025-04-01",
+  "downloads": 384,
+  "size_category": "100K<n<1M",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 119101,
+  "rows_by_split": {
+   "default/train": 109101,
+   "default/validation": 10000
+  }
+ },
+ "mixinstruct": {
+  "id": "mixinstruct",
+  "hf": "llm-blender/mix-instruct",
+  "licence": "mit",
+  "gated": false,
+  "created": "2023-05-31",
+  "last_modified": "2023-06-09",
+  "downloads": 1085,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 110000,
+  "rows_by_split": {
+   "default/train": 100000,
+   "default/validation": 5000,
+   "default/test": 5000
+  }
+ },
+ "open_llm_lb_details": {
+  "id": "open_llm_lb_details",
+  "hf": "open-llm-leaderboard/contents",
+  "licence": null,
+  "gated": false,
+  "created": "2024-06-26",
+  "last_modified": "2025-03-20",
+  "downloads": 20665,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 4576,
+  "rows_by_split": {
+   "default/train": 4576
+  }
+ },
+ "helm_raw": {
+  "id": "helm_raw",
+  "hf": null
+ },
+ "gsm8k": {
+  "id": "gsm8k",
+  "hf": "openai/gsm8k",
+  "licence": [
+   "mit"
+  ],
+  "gated": false,
+  "created": "2022-04-12",
+  "last_modified": "2026-03-23",
+  "downloads": 1316225,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 17584,
+  "rows_by_split": {
+   "main/train": 7473,
+   "main/test": 1319,
+   "socratic/train": 7473,
+   "socratic/test": 1319
+  }
+ },
+ "aime2024": {
+  "id": "aime2024",
+  "hf": "Maxwell-Jia/AIME_2024",
+  "licence": "mit",
+  "gated": false,
+  "created": "2024-12-05",
+  "last_modified": "2025-02-18",
+  "downloads": 80480,
+  "size_category": "n<1K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 30,
+  "rows_by_split": {
+   "default/train": 30
+  }
+ },
+ "aime2025": {
+  "id": "aime2025",
+  "hf": "math-ai/aime25",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2025-02-17",
+  "last_modified": "2026-01-19",
+  "downloads": 74234,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 30,
+  "rows_by_split": {
+   "default/test": 30
+  }
+ },
+ "aime2026": {
+  "id": "aime2026",
+  "hf": "math-ai/aime26",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2026-02-20",
+  "last_modified": "2026-02-21",
+  "downloads": 23292,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 30,
+  "rows_by_split": {
+   "default/test": 30
+  }
+ },
+ "math": {
+  "id": "math",
+  "hf": "DigitalLearningGmbH/MATH-lighteval",
+  "licence": "mit",
+  "gated": false,
+  "created": "2025-01-15",
+  "last_modified": "2025-01-15",
+  "downloads": 41409,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "size_error": 404
+ },
+ "arxivmath": {
+  "id": "arxivmath",
+  "hf": "MathArena/arxivmath-0826",
+  "licence": "cc-by-sa-4.0",
+  "gated": false,
+  "created": "2026-09-13",
+  "last_modified": "2026-09-13",
+  "downloads": 1351,
+  "size_category": "n<1K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 57,
+  "rows_by_split": {
+   "default/train": 57
+  }
+ },
+ "livemathbench": {
+  "id": "livemathbench",
+  "hf": "opencompass/LiveMathBench",
+  "licence": "cc-by-4.0",
+  "gated": "auto",
+  "created": "2024-12-23",
+  "last_modified": "2025-08-05",
+  "downloads": 529,
+  "size_category": "n<1K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "size_error": 404
+ },
+ "cruxeval_o": {
+  "id": "cruxeval_o",
+  "hf": "cruxeval-org/cruxeval",
+  "licence": "mit",
+  "gated": false,
+  "created": "2023-11-28",
+  "last_modified": "2024-01-23",
+  "downloads": 21623,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "code"
+  ],
+  "rows_total": 800,
+  "rows_by_split": {
+   "default/test": 800
+  }
+ },
+ "livecodebench": {
+  "id": "livecodebench",
+  "hf": "livecodebench/code_generation_lite",
+  "licence": "cc",
+  "gated": false,
+  "created": "2024-04-16",
+  "last_modified": "2025-06-05",
+  "downloads": 115241,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [],
+  "size_error": "timeout"
+ },
+ "livecodebench_plus": {
+  "id": "livecodebench_plus",
+  "hf": "BenchEvolver/livecodebench-plus",
+  "licence": "mit",
+  "gated": false,
+  "created": "2026-06-02",
+  "last_modified": "2026-06-02",
+  "downloads": 228,
+  "size_category": "n<1K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [],
+  "rows_total": 91,
+  "rows_by_split": {
+   "hard/test": 69,
+   "medium/test": 22
+  }
+ },
+ "bigcodebench": {
+  "id": "bigcodebench",
+  "hf": "bigcode/bigcodebench",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-06-05",
+  "last_modified": "2025-04-30",
+  "downloads": 182945,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [
+   "code"
+  ],
+  "rows_total": 5700,
+  "rows_by_split": {
+   "default/v0.1.0_hf": 1140,
+   "default/v0.1.1": 1140,
+   "default/v0.1.2": 1140,
+   "default/v0.1.3": 1140,
+   "default/v0.1.4": 1140
+  }
+ },
+ "ds1000": {
+  "id": "ds1000",
+  "hf": "xlangai/DS-1000",
+  "licence": "cc-by-sa-4.0",
+  "gated": false,
+  "created": "2024-04-09",
+  "last_modified": "2026-11-19",
+  "downloads": 8424,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "code"
+  ],
+  "rows_total": 1000,
+  "rows_by_split": {
+   "default/test": 1000
+  }
+ },
+ "humaneval": {
+  "id": "humaneval",
+  "hf": "openai/openai_humaneval",
+  "licence": [
+   "mit"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-04",
+  "downloads": 300011,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 164,
+  "rows_by_split": {
+   "openai_humaneval/test": 164
+  }
+ },
+ "mbpp": {
+  "id": "mbpp",
+  "hf": "google-research-datasets/mbpp",
+  "licence": [
+   "cc-by-4.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-04",
+  "downloads": 310182,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 1401,
+  "rows_by_split": {
+   "full/train": 374,
+   "full/test": 500,
+   "full/validation": 90,
+   "full/prompt": 10,
+   "sanitized/train": 120,
+   "sanitized/test": 257,
+   "sanitized/validation": 43,
+   "sanitized/prompt": 7
+  }
+ },
+ "math500": {
+  "id": "math500",
+  "hf": "HuggingFaceH4/MATH-500",
+  "licence": null,
+  "gated": false,
+  "created": "2024-11-15",
+  "last_modified": "2025-12-15",
+  "downloads": 229357,
+  "size_category": "n<1K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 500,
+  "rows_by_split": {
+   "default/test": 500
+  }
+ },
+ "gsm_hard": {
+  "id": "gsm_hard",
+  "hf": "reasoning-machines/gsm-hard",
+  "licence": [
+   "mit"
+  ],
+  "gated": false,
+  "created": "2023-01-17",
+  "last_modified": "2023-01-17",
+  "downloads": 6095,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [
+   "code"
+  ],
+  "rows_total": 1319,
+  "rows_by_split": {
+   "default/train": 1319
+  }
+ },
+ "svamp": {
+  "id": "svamp",
+  "hf": "ChilleD/SVAMP",
+  "licence": "mit",
+  "gated": false,
+  "created": "2023-04-24",
+  "last_modified": "2024-06-05",
+  "downloads": 30801,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 1000,
+  "rows_by_split": {
+   "default/train": 700,
+   "default/test": 300
+  }
+ },
+ "asdiv": {
+  "id": "asdiv",
+  "hf": "EleutherAI/asdiv",
+  "licence": "cc-by-nc-4.0",
+  "gated": false,
+  "created": "2023-07-07",
+  "last_modified": "2025-09-01",
+  "downloads": 20682,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 2305,
+  "rows_by_split": {
+   "asdiv/validation": 2305
+  }
+ },
+ "aqua_rat": {
+  "id": "aqua_rat",
+  "hf": "deepmind/aqua_rat",
+  "licence": [
+   "apache-2.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-09",
+  "downloads": 18930,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 195950,
+  "rows_by_split": {
+   "raw/train": 97467,
+   "raw/test": 254,
+   "raw/validation": 254,
+   "tokenized/train": 97467,
+   "tokenized/test": 254,
+   "tokenized/validation": 254
+  }
+ },
+ "mathqa": {
+  "id": "mathqa",
+  "hf": "allenai/math_qa",
+  "licence": [
+   "apache-2.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-01-18",
+  "downloads": 22260,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "size_error": "timeout"
+ },
+ "omni_math": {
+  "id": "omni_math",
+  "hf": "KbsdJames/Omni-MATH",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-09-14",
+  "last_modified": "2024-10-12",
+  "downloads": 16589,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 4428,
+  "rows_by_split": {
+   "default/test": 4428
+  }
+ },
+ "olympiadbench": {
+  "id": "olympiadbench",
+  "hf": "Hothan/OlympiadBench",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-07-16",
+  "last_modified": "2025-06-08",
+  "downloads": 28338,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering",
+   "visual-question-answering"
+  ],
+  "languages": [
+   "zh",
+   "en"
+  ],
+  "rows_total": 8476,
+  "rows_by_split": {
+   "OE_MM_maths_en_COMP/train": 150,
+   "OE_MM_maths_zh_CEE/train": 1910,
+   "OE_MM_maths_zh_COMP/train": 56,
+   "OE_MM_physics_en_COMP/train": 456,
+   "OE_MM_physics_zh_CEE/train": 1483,
+   "OE_TO_maths_en_COMP/train": 674,
+   "OE_TO_maths_zh_CEE/train": 1240,
+   "OE_TO_maths_zh_COMP/train": 408,
+   "OE_TO_physics_en_COMP/train": 236,
+   "OE_TO_physics_zh_CEE/train": 115,
+   "TP_MM_maths_en_COMP/train": 62,
+   "TP_MM_maths_zh_CEE/train": 652,
+   "TP_MM_maths_zh_COMP/train": 81,
+   "TP_MM_physics_en_COMP/train": 19,
+   "TP_TO_maths_en_COMP/train": 503,
+   "TP_TO_maths_zh_CEE/train": 207,
+   "TP_TO_maths_zh_COMP/train": 199,
+   "TP_TO_physics_en_COMP/train": 25
+  }
+ },
+ "amc23": {
+  "id": "amc23",
+  "hf": "math-ai/amc23",
+  "licence": null,
+  "gated": false,
+  "created": "2025-02-13",
+  "last_modified": "2025-02-16",
+  "downloads": 12345,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 40,
+  "rows_by_split": {
+   "default/test": 40
+  }
+ },
+ "hmmt_feb_2025": {
+  "id": "hmmt_feb_2025",
+  "hf": "MathArena/hmmt_feb_2025",
+  "licence": "cc-by-nc-sa-4.0",
+  "gated": false,
+  "created": "2025-04-16",
+  "last_modified": "2026-05-15",
+  "downloads": 19178,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 30,
+  "rows_by_split": {
+   "default/train": 30
+  }
+ },
+ "brumo_2025": {
+  "id": "brumo_2025",
+  "hf": "MathArena/brumo_2025",
+  "licence": "cc-by-nc-sa-4.0",
+  "gated": false,
+  "created": "2025-05-13",
+  "last_modified": "2026-05-15",
+  "downloads": 5183,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 30,
+  "rows_by_split": {
+   "default/train": 30
+  }
+ },
+ "smt_2025": {
+  "id": "smt_2025",
+  "hf": "MathArena/smt_2025",
+  "licence": "cc-by-nc-sa-4.0",
+  "gated": false,
+  "created": "2025-05-14",
+  "last_modified": "2026-05-15",
+  "downloads": 3588,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 53,
+  "rows_by_split": {
+   "default/train": 53
+  }
+ },
+ "cmimc_2025": {
+  "id": "cmimc_2025",
+  "hf": "MathArena/cmimc_2025",
+  "licence": "cc-by-nc-sa-4.0",
+  "gated": false,
+  "created": "2025-08-11",
+  "last_modified": "2026-10-19",
+  "downloads": 3973,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 40,
+  "rows_by_split": {
+   "default/train": 40
+  }
+ },
+ "theoremqa": {
+  "id": "theoremqa",
+  "hf": "TIGER-Lab/TheoremQA",
+  "licence": "mit",
+  "gated": false,
+  "created": "2024-01-28",
+  "last_modified": "2024-05-15",
+  "downloads": 14697,
+  "size_category": "n<1K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 800,
+  "rows_by_split": {
+   "default/test": 800
+  }
+ },
+ "minerva_math": {
+  "id": "minerva_math",
+  "hf": "math-ai/minervamath",
+  "licence": null,
+  "gated": false,
+  "created": "2025-02-15",
+  "last_modified": "2025-02-15",
+  "downloads": 18755,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 272,
+  "rows_by_split": {
+   "default/test": 272
+  }
+ },
+ "numinamath": {
+  "id": "numinamath",
+  "hf": "AI-MO/NuminaMath-1.5",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2025-02-10",
+  "last_modified": "2026-01-29",
+  "downloads": 43888,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "size_error": 404
+ },
+ "deepmind_math": {
+  "id": "deepmind_math",
+  "hf": null
+ },
+ "u_math": {
+  "id": "u_math",
+  "hf": "toloka/u-math",
+  "licence": "mit",
+  "gated": false,
+  "created": "2024-12-03",
+  "last_modified": "2026-01-30",
+  "downloads": 1385,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 1100,
+  "rows_by_split": {
+   "default/test": 1100
+  }
+ },
+ "finqa": {
+  "id": "finqa",
+  "hf": null
+ },
+ "humaneval_plus": {
+  "id": "humaneval_plus",
+  "hf": "evalplus/humanevalplus",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-01-22",
+  "last_modified": "2024-05-01",
+  "downloads": 44739,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 164,
+  "rows_by_split": {
+   "default/test": 164
+  }
+ },
+ "mbpp_plus": {
+  "id": "mbpp_plus",
+  "hf": "evalplus/mbppplus",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-01-23",
+  "last_modified": "2024-04-17",
+  "downloads": 52896,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 378,
+  "rows_by_split": {
+   "default/test": 378
+  }
+ },
+ "apps": {
+  "id": "apps",
+  "hf": "codeparrot/apps",
+  "licence": [
+   "mit"
+  ],
+  "gated": false,
+  "created": "2022-06-15",
+  "last_modified": "2022-10-20",
+  "downloads": 31771,
+  "size_category": null,
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "code"
+  ],
+  "size_error": "timeout"
+ },
+ "code_contests": {
+  "id": "code_contests",
+  "hf": "deepmind/code_contests",
+  "licence": [
+   "cc-by-4.0"
+  ],
+  "gated": false,
+  "created": "2022-07-19",
+  "last_modified": "2023-06-11",
+  "downloads": 68493,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "translation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 4044,
+  "rows_by_split": {
+   "default/train": 3762,
+   "default/test": 165,
+   "default/valid": 117
+  }
+ },
+ "taco": {
+  "id": "taco",
+  "hf": "BAAI/TACO",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2023-12-20",
+  "last_modified": "2024-06-19",
+  "downloads": 26138,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "code"
+  ],
+  "size_error": "timeout"
+ },
+ "codeforces_openr1": {
+  "id": "codeforces_openr1",
+  "hf": "open-r1/codeforces",
+  "licence": "cc-by-4.0",
+  "gated": false,
+  "created": "2025-02-12",
+  "last_modified": "2025-05-19",
+  "downloads": 33121,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 29286,
+  "rows_by_split": {
+   "default/train": 9556,
+   "default/test": 468,
+   "verifiable/train": 8338,
+   "verifiable/test": 422,
+   "verifiable-prompts/train": 9658,
+   "verifiable-prompts/test": 844
+  }
+ },
+ "bigcodebench_hard": {
+  "id": "bigcodebench_hard",
+  "hf": "bigcode/bigcodebench-hard",
+  "licence": null,
+  "gated": false,
+  "created": "2024-09-14",
+  "last_modified": "2025-02-23",
+  "downloads": 18571,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 740,
+  "rows_by_split": {
+   "default/v0.1.0_hf": 148,
+   "default/v0.1.1": 148,
+   "default/v0.1.2": 148,
+   "default/v0.1.3": 148,
+   "default/v0.1.4": 148
+  }
+ },
+ "classeval": {
+  "id": "classeval",
+  "hf": "FudanSELab/ClassEval",
+  "licence": "mit",
+  "gated": false,
+  "created": "2023-09-02",
+  "last_modified": "2024-08-26",
+  "downloads": 2060,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 100,
+  "rows_by_split": {
+   "default/test": 100
+  }
+ },
+ "multipl_e": {
+  "id": "multipl_e",
+  "hf": "nuprl/MultiPL-E",
+  "licence": [
+   "mit"
+  ],
+  "gated": false,
+  "created": "2022-09-28",
+  "last_modified": "2025-07-15",
+  "downloads": 31940,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 12667,
+  "rows_by_split": {
+   "humaneval-adb/test": 157,
+   "humaneval-clj/test": 161,
+   "humaneval-cpp/test": 161,
+   "humaneval-cs/test": 158,
+   "humaneval-d/test": 156,
+   "humaneval-dart/test": 157,
+   "humaneval-elixir/test": 161,
+   "humaneval-go/test": 154,
+   "humaneval-hs/test": 156,
+   "humaneval-java/test": 158,
+   "humaneval-jl/test": 159,
+   "humaneval-js/test": 161,
+   "humaneval-lua/test": 161,
+   "humaneval-ml/test": 155,
+   "humaneval-php/test": 161,
+   "humaneval-pl/test": 161,
+   "humaneval-r/test": 161,
+   "humaneval-rb/test": 161,
+   "humaneval-rkt/test": 161,
+   "humaneval-rs/test": 156,
+   "humaneval-scala/test": 160,
+   "humaneval-sh/test": 158,
+   "humaneval-swift/test": 158,
+   "humaneval-ts/test": 159,
+   "mbpp-adb/test": 365,
+   "mbpp-clj/test": 397,
+   "mbpp-cpp/test": 397,
+   "mbpp-cs/test": 386,
+   "mbpp-d/test": 358,
+   "mbpp-elixir/test": 397,
+   "mbpp-go/test": 374,
+   "mbpp-hs/test": 355,
+   "mbpp-java/test": 386,
+   "mbpp-jl/test": 390,
+   "mbpp-js/test": 397,
+   "mbpp-lua/test": 397,
+   "mbpp-ml/test": 355,
+   "mbpp-php/test": 397,
+   "mbpp-pl/test": 396,
+   "mbpp-r/test": 397,
+   "mbpp-rb/test": 397,
+   "mbpp-rkt/test": 397,
+   "mbpp-rs/test": 354,
+   "mbpp-scala/test": 396,
+   "mbpp-sh/test": 382,
+   "mbpp-swift/test": 396,
+   "mbpp-ts/test": 390
+  }
+ },
+ "spider": {
+  "id": "spider",
+  "hf": "xlangai/spider",
+  "licence": [
+   "cc-by-sa-4.0"
+  ],
+  "gated": false,
+  "created": "2022-03-02",
+  "last_modified": "2024-03-27",
+  "downloads": 13906,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 8034,
+  "rows_by_split": {
+   "spider/train": 7000,
+   "spider/validation": 1034
+  }
+ },
+ "bird_sql": {
+  "id": "bird_sql",
+  "hf": null
+ },
+ "kodcode": {
+  "id": "kodcode",
+  "hf": "KodCode/KodCode-V1",
+  "licence": "cc-by-nc-4.0",
+  "gated": false,
+  "created": "2025-02-28",
+  "last_modified": "2025-03-17",
+  "downloads": 34589,
+  "size_category": "100K<n<1M",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 487432,
+  "rows_by_split": {
+   "default/train": 484097,
+   "default/use_with_caution": 3335
+  }
+ },
+ "cruxeval_i": {
+  "id": "cruxeval_i",
+  "hf": "cruxeval-org/cruxeval",
+  "licence": "mit",
+  "gated": false,
+  "created": "2023-11-28",
+  "last_modified": "2024-01-23",
+  "downloads": 21623,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "code"
+  ],
+  "rows_total": 800,
+  "rows_by_split": {
+   "default/test": 800
+  }
+ },
+ "pandas_numpy_eval": {
+  "id": "pandas_numpy_eval",
+  "hf": null
+ },
+ "ds_bench": {
+  "id": "ds_bench",
+  "hf": null
+ },
+ "bfcl": {
+  "id": "bfcl",
+  "hf": "gorilla-llm/Berkeley-Function-Calling-Leaderboard",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-02-27",
+  "last_modified": "2026-04-29",
+  "downloads": 71285,
+  "size_category": null,
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "size_error": "timeout"
+ },
+ "bfcl_multi_turn": {
+  "id": "bfcl_multi_turn",
+  "hf": "gorilla-llm/Berkeley-Function-Calling-Leaderboard",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-02-27",
+  "last_modified": "2026-04-29",
+  "downloads": 71285,
+  "size_category": null,
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "size_error": "timeout"
+ },
+ "tau2_airline": {
+  "id": "tau2_airline",
+  "hf": null
+ },
+ "tau2_retail": {
+  "id": "tau2_retail",
+  "hf": null
+ },
+ "tau2_telecom": {
+  "id": "tau2_telecom",
+  "hf": null
+ },
+ "tau2_banking": {
+  "id": "tau2_banking",
+  "hf": null
+ },
+ "agent_bench_os": {
+  "id": "agent_bench_os",
+  "hf": null
+ },
+ "swe_bench_verified": {
+  "id": "swe_bench_verified",
+  "hf": "princeton-nlp/SWE-bench_Verified",
+  "licence": null,
+  "gated": false,
+  "created": "2024-08-13",
+  "last_modified": "2025-02-18",
+  "downloads": 184137,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 500,
+  "rows_by_split": {
+   "default/test": 500
+  }
+ },
+ "swe_bench_verified_mini": {
+  "id": "swe_bench_verified_mini",
+  "hf": "MariusHobbhahn/swe-bench-verified-mini",
+  "licence": null,
+  "gated": false,
+  "created": "2025-01-08",
+  "last_modified": "2025-01-08",
+  "downloads": 3167,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 50,
+  "rows_by_split": {
+   "default/test": 50
+  }
+ },
+ "appworld": {
+  "id": "appworld",
+  "hf": null
+ },
+ "terminal_bench": {
+  "id": "terminal_bench",
+  "hf": null
+ },
+ "when2call": {
+  "id": "when2call",
+  "hf": "nvidia/When2Call",
+  "licence": "cc-by-4.0",
+  "gated": false,
+  "created": "2025-04-26",
+  "last_modified": "2025-04-29",
+  "downloads": 12119,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 27952,
+  "rows_by_split": {
+   "test/llm_judge": 300,
+   "test/mcq": 3652,
+   "train_pref/train": 9000,
+   "train_sft/train": 15000
+  }
+ },
+ "apigen_mt": {
+  "id": "apigen_mt",
+  "hf": "Salesforce/APIGen-MT-5k",
+  "licence": "cc-by-nc-4.0",
+  "gated": false,
+  "created": "2025-04-29",
+  "last_modified": "2025-10-10",
+  "downloads": 4782,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering",
+   "text-generation",
+   "reinforcement-learning"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 5000,
+  "rows_by_split": {
+   "dataset/train": 5000
+  }
+ },
+ "xlam_fc60k": {
+  "id": "xlam_fc60k",
+  "hf": "Salesforce/xlam-function-calling-60k",
+  "licence": "cc-by-4.0",
+  "gated": "auto",
+  "created": "2024-06-13",
+  "last_modified": "2025-01-24",
+  "downloads": 17587,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "question-answering",
+   "text-generation",
+   "reinforcement-learning"
+  ],
+  "languages": [
+   "en"
+  ],
+  "size_error": 404
+ },
+ "glaive_fc_v2": {
+  "id": "glaive_fc_v2",
+  "hf": "glaiveai/glaive-function-calling-v2",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2023-08-15",
+  "last_modified": "2023-09-27",
+  "downloads": 17769,
+  "size_category": "100K<n<1M",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 112960,
+  "rows_by_split": {
+   "default/train": 112960
+  }
+ },
+ "hermes_fc": {
+  "id": "hermes_fc",
+  "hf": "NousResearch/hermes-function-calling-v1",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-08-14",
+  "last_modified": "2026-01-03",
+  "downloads": 20786,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "text-generation",
+   "question-answering",
+   "feature-extraction"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 11578,
+  "rows_by_split": {
+   "func_calling_singleturn/train": 1893,
+   "func_calling/train": 1893,
+   "glaive_func_calling/train": 5209,
+   "json_mode_agentic/train": 1342,
+   "json_mode_singleturn/train": 1241
+  }
+ },
+ "toolace": {
+  "id": "toolace",
+  "hf": "Team-ACE/ToolACE",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-08-21",
+  "last_modified": "2024-09-04",
+  "downloads": 12899,
+  "size_category": "10K<n<100K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en",
+   "zh"
+  ],
+  "rows_total": 11300,
+  "rows_by_split": {
+   "default/train": 11300
+  }
+ },
+ "toolbench": {
+  "id": "toolbench",
+  "hf": null
+ },
+ "api_bank": {
+  "id": "api_bank",
+  "hf": "liminghao1630/API-Bank",
+  "licence": "mit",
+  "gated": false,
+  "created": "2023-11-17",
+  "last_modified": "2023-11-17",
+  "downloads": 3635,
+  "size_category": null,
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 0,
+  "rows_by_split": {}
+ },
+ "nexus_fc": {
+  "id": "nexus_fc",
+  "hf": "Nexusflow/NexusRaven_API_evaluation",
+  "licence": null,
+  "gated": false,
+  "created": "2023-09-28",
+  "last_modified": "2023-09-29",
+  "downloads": 532,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 1070,
+  "rows_by_split": {
+   "outputs_in_toolllm_format/train": 348,
+   "raw_queries/train": 339,
+   "standardized_api_list/train": 65,
+   "standardized_queries/train": 318
+  }
+ },
+ "nestful": {
+  "id": "nestful",
+  "hf": "ibm-research/nestful",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2025-01-30",
+  "last_modified": "2025-05-22",
+  "downloads": 972,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 1861,
+  "rows_by_split": {
+   "default/train": 1861
+  }
+ },
+ "complexfuncbench": {
+  "id": "complexfuncbench",
+  "hf": "THUDM/ComplexFuncBench",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2025-01-17",
+  "last_modified": "2025-01-22",
+  "downloads": 7376,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "size_error": 404
+ },
+ "acebench": {
+  "id": "acebench",
+  "hf": null
+ },
+ "toolsandbox": {
+  "id": "toolsandbox",
+  "hf": null
+ },
+ "taskbench": {
+  "id": "taskbench",
+  "hf": "microsoft/Taskbench",
+  "licence": "mit",
+  "gated": false,
+  "created": "2024-02-21",
+  "last_modified": "2024-08-21",
+  "downloads": 1730,
+  "size_category": "10K<n<100K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 17331,
+  "rows_by_split": {
+   "dailylifeapis/test": 4318,
+   "huggingface/test": 7458,
+   "multimedia/test": 5555
+  }
+ },
+ "seal_tools": {
+  "id": "seal_tools",
+  "hf": null
+ },
+ "tau_bench_v1": {
+  "id": "tau_bench_v1",
+  "hf": null
+ },
+ "mint_bench": {
+  "id": "mint_bench",
+  "hf": null
+ },
+ "gaia": {
+  "id": "gaia",
+  "hf": "gaia-benchmark/GAIA",
+  "licence": null,
+  "gated": "auto",
+  "created": "2023-10-20",
+  "last_modified": "2025-10-28",
+  "downloads": 31210,
+  "size_category": "n<1K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "size_error": 404
+ },
+ "assistantbench": {
+  "id": "assistantbench",
+  "hf": "AssistantBench/AssistantBench",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2024-07-21",
+  "last_modified": "2024-07-26",
+  "downloads": 8737,
+  "size_category": "n<1K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 214,
+  "rows_by_split": {
+   "default/validation": 33,
+   "default/test": 181
+  }
+ },
+ "mcp_bench": {
+  "id": "mcp_bench",
+  "hf": null
+ },
+ "toolhop": {
+  "id": "toolhop",
+  "hf": "bytedance-research/ToolHop",
+  "licence": null,
+  "gated": false,
+  "created": "2025-01-07",
+  "last_modified": "2026-04-11",
+  "downloads": 2725,
+  "size_category": null,
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "size_error": "timeout"
+ },
+ "llmrouterbench": {
+  "id": "llmrouterbench",
+  "hf": "NPULH/LLMRouterBench",
+  "licence": null,
+  "gated": false,
+  "created": "2025-12-08",
+  "last_modified": "2026-11-02",
+  "downloads": 2909,
+  "size_category": null,
+  "task_categories": [],
+  "languages": [],
+  "rows_total": 0,
+  "rows_by_split": {}
+ },
+ "routereval": {
+  "id": "routereval",
+  "hf": "linggm/RouterEval",
+  "licence": "mit",
+  "gated": false,
+  "created": "2025-03-08",
+  "last_modified": "2025-10-18",
+  "downloads": 20670,
+  "size_category": null,
+  "task_categories": [],
+  "languages": [],
+  "size_error": "timeout"
+ },
+ "matharena_outputs": {
+  "id": "matharena_outputs",
+  "hf": "MathArena/aime_2025_outputs",
+  "licence": "cc-by-nc-sa-4.0",
+  "gated": false,
+  "created": "2025-05-13",
+  "last_modified": "2026-09-11",
+  "downloads": 691,
+  "size_category": "1K<n<10K",
+  "task_categories": [],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 7915,
+  "rows_by_split": {
+   "default/train": 7915
+  }
+ },
+ "lcb_performances": {
+  "id": "lcb_performances",
+  "hf": null
+ },
+ "tau2_submissions": {
+  "id": "tau2_submissions",
+  "hf": null
+ },
+ "wildbench_results": {
+  "id": "wildbench_results",
+  "hf": "allenai/WildBench",
+  "licence": null,
+  "gated": false,
+  "created": "2024-02-23",
+  "last_modified": "2025-03-04",
+  "downloads": 2170,
+  "size_category": "1K<n<10K",
+  "task_categories": [
+   "text-generation"
+  ],
+  "languages": [
+   "en"
+  ],
+  "rows_total": 2304,
+  "rows_by_split": {
+   "v1-legacy/test": 1024,
+   "v2/test": 1024,
+   "v2-hard/test": 256
+  }
+ },
+ "mmlu_pro_eval_results": {
+  "id": "mmlu_pro_eval_results",
+  "hf": null
+ },
+ "aa_omniscience_public": {
+  "id": "aa_omniscience_public",
+  "hf": "ArtificialAnalysis/AA-Omniscience-Public",
+  "licence": "apache-2.0",
+  "gated": false,
+  "created": "2025-11-17",
+  "last_modified": "2026-08-24",
+  "downloads": 18105,
+  "size_category": "n<1K",
+  "task_categories": [
+   "question-answering"
+  ],
+  "languages": [],
+  "rows_total": 600,
+  "rows_by_split": {
+   "default/train": 600
+  }
+ },
+ "automationbench": {
+  "id": "automationbench",
+  "hf": null
+ },
+ "enterpriseops_gym": {
+  "id": "enterpriseops_gym",
+  "hf": null
+ },
+ "facts_parametric": {
+  "id": "facts_parametric",
+  "hf": null
+ },
+ "hle_diamond": {
+  "id": "hle_diamond",
+  "hf": null
+ }
+}

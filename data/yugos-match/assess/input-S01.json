@@ -1,0 +1,455 @@
+{
+ "batch": "S01",
+ "parents": [
+  {
+   "no": "1",
+   "name": "LiveBench 2.0",
+   "category": "",
+   "url": "https://livebench.ai/",
+   "focus": "Contamination-free, long-horizon work (coding, research, browser use)",
+   "notes": ""
+  }
+ ],
+ "rows": [
+  {
+   "no": "1.1",
+   "name": "Long Agentic",
+   "category": "LiveBench 2.0 suite",
+   "url": "https://livebench.ai/#/?cats=Long%20Agentic",
+   "focus": "long-running work — applications extended over several turns of changing requirements, operations on an existing codebase over simulated months or weeks, and extended coding and optimisation tasks. Deterministic grading.",
+   "metrics": "quality, cost, time, tokens, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Long Agentic — 0-100 suite score, mean task score over the suite's 18 tasks; column 'long_agentic' in table.csv, also the table's first column when the suite is selected (?cats=Long%20Agentic) · https://livebench.ai/data/20261106/table.csv\nCost [page]: Cost per successful task — USD, (Σ cost ÷ Σ tasks ÷ score) × 100 over the selected suite; table column plus 'Quality vs. cost · Long Agentic' and 'Cost, ranked · Long Agentic' charts · https://livebench.ai/static/js/main.099aad9b.j",
+   "notes": "JS page (hash route; ?cats=<suite> selects the suite and sorts by it, per main.js); values from release 20261106 data files the page loads. Default view: one row per model, finetunes hidden. Weight in Overall per categories.json: 2.0.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 64 models' published scores.\nBest observed: Claude Opus 5.5 (max) 85.0, Claude Fable 5.2 (xhigh) 82.9, Gemini 4 Neon (xhigh) 82.6.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.713
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.713
+   }
+  },
+  {
+   "no": "1.2",
+   "name": "Finance & Compliance Apps",
+   "category": "Long Agentic",
+   "url": "https://livebench.ai/#/?cats=Long%20Agentic",
+   "focus": "Payroll, budgets, tax claims and audit records: keep the money and the paper trail right as the rules change, turn after turn.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Finance & Compliance Apps — 0-100 subcategory score = mean score over its 3 tasks; shown as a column when the Long Agentic suite is selected (?cats=Long%20Agentic) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/sta",
+   "notes": "Subcategory of Long Agentic (3 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 64 models' published scores.\nBest observed: GPT-6 Astra (max) 100.0, Claude Sonnet 5.5 (max) 100.0, Claude Opus 5.5 (max) 100.0.\nData caveats: Only 3 tasks -> very coarse (scores jump in steps; many 0/100 ties). LiveBench 2.0 values change between releases (tasks rotate, single run per model, unmeasurable tasks score 0); our DB (63 models) does not match release 20261106 alone (e.g. DB Long Agentic Claude Opus 5.5 (max) 85.0 vs ",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.889
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.889
+   }
+  },
+  {
+   "no": "1.3",
+   "name": "Operations & Commerce Apps",
+   "category": "Long Agentic",
+   "url": "https://livebench.ai/#/?cats=Long%20Agentic",
+   "focus": "Ticketing, equipment hire, stock and site records: keep a live operational app correct as the business changes around it.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Operations & Commerce Apps — 0-100 subcategory score = mean score over its 4 tasks; shown as a column when the Long Agentic suite is selected (?cats=Long%20Agentic) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/st",
+   "notes": "Tie: 5 models share 95.8 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Long Agentic (4 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 64 models' published scores.\nBest observed: GPT-6.2 Sol (max) 100.0, GPT-6.1 Sol (max) 100.0, GPT-6 Astra (max) 100.0.\nData caveats: Only 4 tasks (breakdown.json) - high variance; several models score 100.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.958
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.958
+   }
+  },
+  {
+   "no": "1.4",
+   "name": "Long-Run Operations",
+   "category": "Long Agentic",
+   "url": "https://livebench.ai/#/?cats=Long%20Agentic",
+   "focus": "Run an existing system through simulated months of releases, closes and change requests, where early choices compound.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Long-Run Operations — 0-100 subcategory score = mean score over its 3 tasks; shown as a column when the Long Agentic suite is selected (?cats=Long%20Agentic) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js",
+   "notes": "Subcategory of Long Agentic (3 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 98%.\nPlaced from 64 models' published scores.\nBest observed: Gemini 4 Neon (xhigh) 72.9, Gemini 4 Carbon (high) 60.0, Claude Fable 5.2 (xhigh) 59.2.\nData caveats: Only 3 tasks; single run. Very few tasks in this subcategory (per breakdown.json 'tasks' count), so scores are coarse (many 0/100 values) and one unmeasurable task scores 0.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.489
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.489
+   }
+  },
+  {
+   "no": "1.5",
+   "name": "Delegated Operations",
+   "category": "Long Agentic",
+   "url": "https://livebench.ai/#/?cats=Long%20Agentic",
+   "focus": "Keep a small business's books and duties right for weeks while its owner is away, through a command someone else follows to the letter; what matters shows only in the data.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Delegated Operations — 0-100 subcategory score = mean score over its 4 tasks; shown as a column when the Long Agentic suite is selected (?cats=Long%20Agentic) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/j",
+   "notes": "Subcategory of Long Agentic (4 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 92%, L5 8%.\nPlaced from 41 models' published scores.\nBest observed: Claude Fable 5.1 (max) 79.0, Gemini 4 Neon (xhigh) 73.8, Claude Fable 5.2 (xhigh) 73.8.\nData caveats: Only 4 tasks (breakdown.json) - high variance.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.503
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.503
+   }
+  },
+  {
+   "no": "1.6",
+   "name": "Systems Engineering",
+   "category": "Long Agentic",
+   "url": "https://livebench.ai/#/?cats=Long%20Agentic",
+   "focus": "Build and repair complex systems from a specification, then keep them running under realistic load and failures.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Systems Engineering — 0-100 subcategory score = mean score over its 2 tasks; shown as a column when the Long Agentic suite is selected (?cats=Long%20Agentic) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js",
+   "notes": "Subcategory of Long Agentic (2 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 64 models' published scores.\nBest observed: GPT-6 Astra (max) 98.3, Claude Opus 5.5 (max) 98.1, Gemini 4 Argon (high) 97.6.\nData caveats: Only 2 tasks -> very coarse (scores jump in steps; many 0/100 ties). LiveBench 2.0 values change between releases (tasks rotate, single run per model, unmeasurable tasks score 0); our DB (63 models) does not match release 20261106 alone (e.g. DB Long Agentic Claude Opus 5.5 (max) 85.0 vs 72.8",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.969
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.969
+   }
+  },
+  {
+   "no": "1.7",
+   "name": "Performance Optimisation",
+   "category": "Long Agentic",
+   "url": "https://livebench.ai/#/?cats=Long%20Agentic",
+   "focus": "Make real programs faster and real schedules tighter, scored on measured results rather than judgement.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Performance Optimisation — 0-100 subcategory score = mean score over its 2 tasks; shown as a column when the Long Agentic suite is selected (?cats=Long%20Agentic) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/stat",
+   "notes": "Subcategory of Long Agentic (2 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 64 models' published scores.\nBest observed: Claude Opus 5.5 (max) 87.6, Claude Fable 5.2 (xhigh) 83.2, Claude Sonnet 5.5 (max) 82.5.\nData caveats: Only 2 tasks -> very coarse (scores jump in steps; many 0/100 ties). LiveBench 2.0 values change between releases (tasks rotate, single run per model, unmeasurable tasks score 0); our DB (63 models) does not match release 20261106 alone (e.g. DB Long Agentic Claude Opus 5.5 (max) 85.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.679
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.679
+   }
+  },
+  {
+   "no": "1.8",
+   "name": "Reasoning",
+   "category": "LiveBench 2.0 suite",
+   "url": "https://livebench.ai/#/?cats=Reasoning",
+   "focus": "short logic, spatial and theory-of-mind questions, each with a single correct answer, graded against ground truth. Each question costs far less than an agentic task.",
+   "metrics": "quality, cost, time*, tokens, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Reasoning — 0-100 suite score, equal-weight mean of its subcategory scores (202 questions in all); column 'reasoning' in table.csv, also the table's first column when the suite is selected (?cats=Reasoning) · https://livebench.ai/data/20261106/table.csv\nCost [page]: Cost per successful task — USD, (Σ cost ÷ Σ tasks ÷ score) × 100 over the selected suite; table column plus 'Quality vs. cost · Reasoning' and 'Cost, ranked · Reasoning' charts · https://livebench.ai/static/js/main.09",
+   "notes": "JS page (hash route; ?cats=<suite> selects the suite and sorts by it, per main.js); values from release 20261106 data files the page loads. Default view: one row per model, finetunes hidden. Weight in Overall per categories.json: 1.0.",
+   "team_difficulty": "1-2",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L2 62%, L1 38%.\nPlaced from 64 models' published scores.\nBest observed: Gemini 4 Argon (high) 95.1, GPT-6 Astra (max) 92.7, GPT-6.1 Sol (max) 92.6.",
+   "computed_level_cdf": {
+    "1": 0.495,
+    "2": 0.82,
+    "3": 0.935,
+    "4": 0.935
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.909
+   }
+  },
+  {
+   "no": "1.9",
+   "name": "Theory of mind",
+   "category": "Reasoning",
+   "url": "https://livebench.ai/#/?cats=Reasoning",
+   "focus": "Track who knows or believes what in a short story.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Theory of mind — 0-100 subcategory score = mean score over its 52 questions; shown as a column when the Reasoning suite is selected (?cats=Reasoning) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/main.09",
+   "notes": "Tie: 2 models share 88.5 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Reasoning (52 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 81%, L1 19%.\nPlaced from 64 models' published scores.\nBest observed: Gemini 4 Argon (high) 92.3, Grok 4.6 (xhigh) 90.4, Mistral Large 4 1029 (high) 88.5.\nData caveats: 52 questions.",
+   "computed_level_cdf": {
+    "1": 0.33,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.92
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.865
+   }
+  },
+  {
+   "no": "1.10",
+   "name": "Zebra puzzles",
+   "category": "Reasoning",
+   "url": "https://livebench.ai/#/?cats=Reasoning",
+   "focus": "Deduce who has which attribute from interlocking clues.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Zebra puzzles — 0-100 subcategory score = mean score over its 50 questions; shown as a column when the Reasoning suite is selected (?cats=Reasoning) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/main.099",
+   "notes": "Tie: 22 models share 100.0 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Reasoning (50 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "2-3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L3 52%, L2 47%.\nPlaced from 64 models' published scores.\nBest observed: Qwen4 Max (xhigh) 100.0, Qwen3.8 Max (max) 100.0, Muse Wonder 1.0 (max) 100.0.\nData caveats: 50 tasks, single run.",
+   "computed_level_cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 1.0
+   }
+  },
+  {
+   "no": "1.11",
+   "name": "Spatial",
+   "category": "Reasoning",
+   "url": "https://livebench.ai/#/?cats=Reasoning",
+   "focus": "Reason about shapes and positions in 2D and 3D.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Spatial — 0-100 subcategory score = mean score over its 50 questions; shown as a column when the Reasoning suite is selected (?cats=Reasoning) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/main.099aad9b.",
+   "notes": "Tie: 12 models share 100.0 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Reasoning (50 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 64 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Qwen3.8 Max (max) 100.0, Qwen3.8 Flash (max) 100.0, Nemotron 3.5 Super VL (max nvfp4) 100.0.\nData caveats: LiveBench 2.0 values change between releases (tasks rotate, single run per model, unmeasurable tasks score 0); our DB (63 models) does not match release 20261106 alone (e.g. DB Long Agentic Claude Opus 5.5 ",
+   "computed_level_cdf": {
+    "1": 0.66,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.98
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.98
+   }
+  },
+  {
+   "no": "1.12",
+   "name": "Logic with navigation",
+   "category": "Reasoning",
+   "url": "https://livebench.ai/#/?cats=Reasoning",
+   "focus": "Work out who tells the truth from a chain of statements.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Logic with navigation — 0-100 subcategory score = mean score over its 50 questions; shown as a column when the Reasoning suite is selected (?cats=Reasoning) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/",
+   "notes": "Tie: 4 models share 86.0 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Reasoning (50 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 73%, L3 26%.\nPlaced from 64 models' published scores.\nBest observed: Muse Spark 1.2 (xhigh) 88.0, Gemini 4 Argon (high) 88.0, GPT-6 Astra (max) 88.0.\nData caveats: 50 questions.",
+   "computed_level_cdf": {
+    "1": 0.33,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.92
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.82
+   }
+  },
+  {
+   "no": "1.13",
+   "name": "Coding",
+   "category": "LiveBench 2.0 suite",
+   "url": "https://livebench.ai/#/?cats=Coding",
+   "focus": "bug-fix tasks taken from real merged pull requests on a frozen codebase. Deterministic grading; a fix that breaks existing behaviour scores 0.",
+   "metrics": "quality, cost, time, tokens, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Coding — 0-100 suite score, mean task score over the suite's 24 tasks; column 'coding' in table.csv, also the table's first column when the suite is selected (?cats=Coding) · https://livebench.ai/data/20261106/table.csv\nCost [page]: Cost per successful task — USD, (Σ cost ÷ Σ tasks ÷ score) × 100 over the selected suite; table column plus 'Quality vs. cost · Coding' and 'Cost, ranked · Coding' charts · https://livebench.ai/static/js/main.099aad9b.js\nCost [data]: coding / nq_codin",
+   "notes": "Tie: 2 models share 89.7 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. JS page (hash route; ?cats=<suite> selects the suite and sorts by it, per main.js); values from release 20261106 data files the page loads. Default view: one row per model, finetunes hidden. Weight in Overall per categories.json: 1.5.",
+   "team_difficulty": "2-3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L3 56%, L2 42%.\nPlaced from 64 models' published scores.\nBest observed: Claude Fable 5 (max) 98.3, Claude Fable 5.1 (max) 97.7, Claude Opus 5.5 (max) 96.3.",
+   "computed_level_cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 0.9145
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.9145
+   }
+  },
+  {
+   "no": "1.14",
+   "name": "LLM API Integration",
+   "category": "Coding",
+   "url": "https://livebench.ai/#/?cats=Coding",
+   "focus": "Provider wire formats and request/response handling.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: LLM API Integration — 0-100 subcategory score = mean score over its 3 tasks; shown as a column when the Coding suite is selected (?cats=Coding) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/main.099aad9b",
+   "notes": "Tie: 14 models share 100.0 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Coding (3 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "2-3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 54%, L3 44%.\nPlaced from 64 models' published scores.\nBest observed: Step 5 Preview (max) 100.0, Qwen3.8 Max (max) 100.0, Qwen3.8 Flash (max) 100.0.\nData caveats: Task count changed between releases: 20261014/20261025 breakdown.json list 4 tasks, 20261106 lists 3 tasks — scores from different releases are on different task sets (version mix). Very few tasks in this subcategory (per breakdown.json 'tasks' count), so scores are coarse (many 0/100",
+   "computed_level_cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 1.0
+   }
+  },
+  {
+   "no": "1.15",
+   "name": "Agent Loop",
+   "category": "Coding",
+   "url": "https://livebench.ai/#/?cats=Coding",
+   "focus": "Agent runtime control flow.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Agent Loop — 0-100 subcategory score = mean score over its 3 tasks; shown as a column when the Coding suite is selected (?cats=Coding) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/main.099aad9b.js\nOther",
+   "notes": "Tie: 18 models share 100.0 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Coding (3 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 88%, L2 10%.\nPlaced from 64 models' published scores.\nBest observed: Step 5 Preview (max) 100.0, Qwen3.8-27B (max) 100.0, Qwen3.8 Max (max) 100.0.\nData caveats: Only 3 tasks -> very coarse (scores jump in steps; many 0/100 ties). LiveBench 2.0 values change between releases (tasks rotate, single run per model, unmeasurable tasks score 0); our DB (63 models) does not match release 20261106 alone (e.g. DB Long Agentic Claude Opus 5.5 (max) 85.0 v",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 1.0
+   }
+  },
+  {
+   "no": "1.16",
+   "name": "Billing & Limits",
+   "category": "Coding",
+   "url": "https://livebench.ai/#/?cats=Coding",
+   "focus": "Metering, quotas and limit enforcement.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Billing & Limits — 0-100 subcategory score = mean score over its 3 tasks; shown as a column when the Coding suite is selected (?cats=Coding) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/main.099aad9b.js",
+   "notes": "Tie: 17 models share 100.0 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Coding (3 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 94%, L2 5%.\nPlaced from 64 models' published scores.\nBest observed: MiMo-V2.6-Pro (high) 100.0, Inkling 2 Small (xhigh) 100.0, Grok 4.7 (xhigh) 100.0.\nData caveats: Task count changed between releases: 20261014/20261025 breakdown.json list 4 tasks, 20261106 lists 3 tasks — scores from different releases are on different task sets (version mix). Very few tasks in this subcategory (per breakdown.json 'tasks' count), so scores are coarse (many 0/1",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 1.0
+   }
+  },
+  {
+   "no": "1.17",
+   "name": "Cloud Infrastructure",
+   "category": "Coding",
+   "url": "https://livebench.ai/#/?cats=Coding",
+   "focus": "Storage, compute and cloud service plumbing.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Cloud Infrastructure — 0-100 subcategory score = mean score over its 3 tasks; shown as a column when the Coding suite is selected (?cats=Coding) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/main.099aad9",
+   "notes": "Tie: 22 models share 100.0 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Coding (3 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "2-3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 52%, L3 48%.\nPlaced from 64 models' published scores.\nBest observed: Qwen4 Max (xhigh) 100.0, Muse Wonder 1.0 (max) 100.0, Muse Spark 1.3 (max) 100.0.\nData caveats: Only 3 tasks -> very coarse (scores jump in steps; many 0/100 ties). LiveBench 2.0 values change between releases (tasks rotate, single run per model, unmeasurable tasks score 0); our DB (63 models) does not match release 20261106 alone (e.g. DB Long Agentic Claude Opus 5.5 (max) 85",
+   "computed_level_cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 1.0
+   }
+  },
+  {
+   "no": "1.18",
+   "name": "Product & UX",
+   "category": "Coding",
+   "url": "https://livebench.ai/#/?cats=Coding",
+   "focus": "User-facing product behaviour.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Product & UX — 0-100 subcategory score = mean score over its 4 tasks; shown as a column when the Coding suite is selected (?cats=Coding) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/main.099aad9b.js\nOth",
+   "notes": "Tie: 4 models share 100.0 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Coding (4 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 64 models' published scores.\nBest observed: Gemini 4 Carbon (high) 100.0, GPT-6.2 Astra (max) 100.0, GPT-6.1 Sol (max) 100.0.\nData caveats: Task count changed between releases: 20261014/20261025 breakdown.json list 6 tasks, 20261106 lists 4 tasks — scores from different releases are on different task sets (version mix). Very few tasks in this subcategory (per breakdown.json 'tasks' count), so scores are coarse (many 0/100 value",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.917
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.917
+   }
+  },
+  {
+   "no": "1.19",
+   "name": "Memory & Tools",
+   "category": "Coding",
+   "url": "https://livebench.ai/#/?cats=Coding",
+   "focus": "Memory handling and tool integrations.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Memory & Tools — 0-100 subcategory score = mean score over its 3 tasks; shown as a column when the Coding suite is selected (?cats=Coding) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/main.099aad9b.js\nO",
+   "notes": "Tie: 23 models share 100.0 (rank 3 cutoff); order among tied models is data-file order, not a site tiebreak. Subcategory of Coding (3 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "≤2",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 68%, L2 32%.\nPlaced from 64 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Step 5 Preview (max) 100.0, Qwen3.8-27B (max) 100.0, Qwen3.8 Flash (max) 100.0.\nData caveats: Only 3 tasks -> very coarse (scores jump in steps; many 0/100 ties). LiveBench 2.0 values change between releases (tasks rotate, single run per model, unmeasurable tasks score 0); our DB (63 models) does not matc",
+   "computed_level_cdf": {
+    "1": 0.495,
+    "2": 0.82,
+    "3": 0.935,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 1.0
+   }
+  },
+  {
+   "no": "1.20",
+   "name": "Hard Fixes",
+   "category": "Coding",
+   "url": "https://livebench.ai/#/?cats=Coding",
+   "focus": "Multi-site product fixes whose hidden tests cover every brief-stated requirement; partial credit halves per broken one.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Hard Fixes — 0-100 subcategory score = mean score over its 5 tasks; shown as a column when the Coding suite is selected (?cats=Coding) and in each model's expanded row · https://livebench.ai/data/20261106/breakdown.json\nEffort [page]: Effort: — one entry per model at its highest supported effort (name carries a lower setting, e.g. 'Claude Fable 5.2 (xhigh)'); inherited from the parent model entry, no separate rows per effort · https://livebench.ai/static/js/main.099aad9b.js\nOther",
+   "notes": "Subcategory of Coding (5 tasks) shown in the suite breakdown; no own URL, link is the parent suite view. Values from breakdown.json (release 20261106).",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 41 models' published scores.\nBest observed: GPT-6.1 Terra (max) 81.7, GPT-6 Astra (max) 70.0, Claude Fable 5.1 (max) 63.9.\nData caveats: Only 5 tasks (breakdown.json) - high variance.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.572
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.572
+   }
+  }
+ ]
+}

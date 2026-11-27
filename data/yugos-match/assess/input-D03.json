@@ -1,0 +1,467 @@
+{
+ "batch": "D03",
+ "rows": [
+  {
+   "id": "mmlu_redux",
+   "name": "MMLU-Redux 2.0",
+   "hf": "edinburgh-dawg/mmlu-redux-2.0",
+   "url": "https://github.com/aryopg/mmlu-redux",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-4.0",
+    "gated": false,
+    "created": "2024-08-17",
+    "last_modified": "2025-02-25",
+    "downloads": 61447,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 5700,
+    "rows_by_split": {
+     "abstract_algebra/test": 100,
+     "anatomy/test": 100,
+     "astronomy/test": 100,
+     "business_ethics/test": 100,
+     "clinical_knowledge/test": 100,
+     "college_biology/test": 100,
+     "college_chemistry/test": 100,
+     "college_computer_science/test": 100,
+     "college_mathematics/test": 100,
+     "college_medicine/test": 100,
+     "college_physics/test": 100,
+     "computer_security/test": 100,
+     "conceptual_physics/test": 100,
+     "econometrics/test": 100,
+     "electrical_engineering/test": 100,
+     "elementary_mathematics/test": 100,
+     "formal_logic/test": 100,
+     "global_facts/test": 100,
+     "high_school_biology/test": 100,
+     "high_school_chemistry/test": 100,
+     "high_school_computer_science/test": 100,
+     "high_school_european_history/test": 100,
+     "high_school_geography/test": 100,
+     "high_school_government_and_politics/test": 100,
+     "high_school_macroeconomics/test": 100,
+     "high_school_mathematics/test": 100,
+     "high_school_microeconomics/test": 100,
+     "high_school_physics/test": 100,
+     "high_school_psychology/test": 100,
+     "high_school_statistics/test": 100,
+     "high_school_us_history/test": 100,
+     "high_school_world_history/test": 100,
+     "human_aging/test": 100,
+     "human_sexuality/test": 100,
+     "international_law/test": 100,
+     "jurisprudence/test": 100,
+     "logical_fallacies/test": 100,
+     "machine_learning/test": 100,
+     "management/test": 100,
+     "marketing/test": 100,
+     "medical_genetics/test": 100,
+     "miscellaneous/test": 100,
+     "moral_disputes/test": 100,
+     "moral_scenarios/test": 100,
+     "nutrition/test": 100,
+     "philosophy/test": 100,
+     "prehistory/test": 100,
+     "professional_accounting/test": 100,
+     "professional_law/test": 100,
+     "professional_medicine/test": 100,
+     "professional_psychology/test": 100,
+     "public_relations/test": 100,
+     "security_studies/test": 100,
+     "sociology/test": 100,
+     "us_foreign_policy/test": 100,
+     "virology/test": 100,
+     "world_religions/test": 100
+    }
+   }
+  },
+  {
+   "id": "mt_bench",
+   "name": "MT-Bench",
+   "hf": "lmsys/mt_bench_human_judgments",
+   "url": "https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-4.0",
+    "gated": false,
+    "created": "2023-07-04",
+    "last_modified": "2023-07-20",
+    "downloads": 16474,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 5755,
+    "rows_by_split": {
+     "default/gpt4_pair": 2400,
+     "default/human": 3355
+    }
+   }
+  },
+  {
+   "id": "musique",
+   "name": "MuSiQue",
+   "hf": "dgslibisey/MuSiQue",
+   "url": "https://github.com/StonyBrookNLP/musique",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2023-06-14",
+    "last_modified": "2023-06-16",
+    "downloads": 25568,
+    "size_category": "10K<n<100K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 22355,
+    "rows_by_split": {
+     "default/train": 19938,
+     "default/validation": 2417
+    }
+   }
+  },
+  {
+   "id": "musr",
+   "name": "MuSR",
+   "hf": "TAUR-Lab/MuSR",
+   "url": "https://github.com/Zayne-sprague/MuSR",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-4.0",
+    "gated": false,
+    "created": "2024-05-17",
+    "last_modified": "2024-05-21",
+    "downloads": 16969,
+    "size_category": "n<1K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 756,
+    "rows_by_split": {
+     "default/murder_mysteries": 250,
+     "default/object_placements": 256,
+     "default/team_allocation": 250
+    }
+   }
+  },
+  {
+   "id": "nq_open",
+   "name": "Natural Questions (open)",
+   "hf": "google-research-datasets/nq_open",
+   "url": "https://ai.google.com/research/NaturalQuestions",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "cc-by-sa-3.0"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-03-22",
+    "downloads": 35931,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 91535,
+    "rows_by_split": {
+     "nq_open/train": 87925,
+     "nq_open/validation": 3610
+    }
+   }
+  },
+  {
+   "id": "openbookqa",
+   "name": "OpenBookQA",
+   "hf": "allenai/openbookqa",
+   "url": "https://allenai.org/data/open-book-qa",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "unknown"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-04",
+    "downloads": 181580,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 11914,
+    "rows_by_split": {
+     "additional/train": 4957,
+     "additional/validation": 500,
+     "additional/test": 500,
+     "main/train": 4957,
+     "main/validation": 500,
+     "main/test": 500
+    }
+   }
+  },
+  {
+   "id": "paws",
+   "name": "PAWS",
+   "hf": "google-research-datasets/paws",
+   "url": "https://github.com/google-research-datasets/paws",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "other"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-04",
+    "downloads": 59749,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "text-classification"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 751450,
+    "rows_by_split": {
+     "labeled_final/train": 49401,
+     "labeled_final/test": 8000,
+     "labeled_final/validation": 8000,
+     "labeled_swap/train": 30397,
+     "unlabeled_final/train": 645652,
+     "unlabeled_final/validation": 10000
+    }
+   }
+  },
+  {
+   "id": "piqa",
+   "name": "PIQA",
+   "hf": "ybisk/piqa",
+   "url": "https://yonatanbisk.com/piqa/",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "unknown"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-18",
+    "downloads": 103161,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "size_error": "timeout"
+   }
+  },
+  {
+   "id": "popqa",
+   "name": "PopQA",
+   "hf": "akariasai/PopQA",
+   "url": "https://github.com/AlexTMallen/adaptive-retrieval",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2022-12-22",
+    "last_modified": "2022-12-22",
+    "downloads": 16876,
+    "size_category": "10K<n<100K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 14267,
+    "rows_by_split": {
+     "default/test": 14267
+    }
+   }
+  },
+  {
+   "id": "pubmedqa",
+   "name": "PubMedQA",
+   "hf": "qiaojin/PubMedQA",
+   "url": "https://pubmedqa.github.io",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "mit"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-03-06",
+    "downloads": 39949,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 273518,
+    "rows_by_split": {
+     "pqa_artificial/train": 211269,
+     "pqa_labeled/train": 1000,
+     "pqa_unlabeled/train": 61249
+    }
+   }
+  },
+  {
+   "id": "qasc",
+   "name": "QASC",
+   "hf": "allenai/qasc",
+   "url": "https://allenai.org/data/qasc",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "cc-by-4.0"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-04",
+    "downloads": 25261,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "question-answering",
+     "multiple-choice"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 9980,
+    "rows_by_split": {
+     "default/train": 8134,
+     "default/test": 920,
+     "default/validation": 926
+    }
+   }
+  },
+  {
+   "id": "quality",
+   "name": "QuALITY",
+   "hf": "",
+   "url": "https://github.com/nyu-mll/quality",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "race_h",
+   "name": "RACE-H",
+   "hf": "ehovy/race",
+   "url": "https://www.cs.cmu.edu/~glai1/data/race/",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "other"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-04",
+    "downloads": 34118,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "multiple-choice"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 195374,
+    "rows_by_split": {
+     "all/test": 4934,
+     "all/train": 87866,
+     "all/validation": 4887,
+     "high/test": 3498,
+     "high/train": 62445,
+     "high/validation": 3451,
+     "middle/test": 1436,
+     "middle/train": 25421,
+     "middle/validation": 1436
+    }
+   }
+  },
+  {
+   "id": "sciq",
+   "name": "SciQ",
+   "hf": "allenai/sciq",
+   "url": "https://allenai.org/data/sciq",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "cc-by-nc-3.0"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-04",
+    "downloads": 137359,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 13679,
+    "rows_by_split": {
+     "default/train": 11679,
+     "default/validation": 1000,
+     "default/test": 1000
+    }
+   }
+  },
+  {
+   "id": "simpleqa",
+   "name": "SimpleQA (original)",
+   "hf": "",
+   "url": "https://openai.com/index/introducing-simpleqa/",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "7.1",
+   "hub": {}
+  }
+ ]
+}

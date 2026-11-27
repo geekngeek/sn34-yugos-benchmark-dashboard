@@ -1,0 +1,973 @@
+{
+ "hmmt_feb_2025": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.75,
+    "why": "Hard competition math with a short exact answer resembles the math share of HLE in public chat, but chat is mostly reasoning puzzles, reading and facts."
+   },
+   "math_code": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.75,
+    "why": "Same skill and checker as MATH/arxivmath (one problem, closed-form answer compared after parsing), 2025 contest, but math only and no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.75,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/MathArena/hmmt_feb_2025",
+  "n_questions": 30,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/MathArena/hmmt_feb_2025_outputs",
+  "licence": "cc-by-nc-sa-4.0",
+  "overlap": "",
+  "summary": "30 HMMT February 2025 problems (algebra, number theory, combinatorics, geometry) with one closed-form answer each, e.g. 'Compute the sum of the positive divisors of 9! that have units digit 1' -> 103. MathArena publishes every model answer: 64 models x 4 runs (7,680 rows with correct flag, tokens and cost), from GPT-4o (5.8%) to GPT-5.2 xhigh (100%); very useful router evidence for hard L3 math, but only 30 questions.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/MathArena/hmmt_feb_2025",
+   "https://huggingface.co/datasets/MathArena/hmmt_feb_2025_outputs (accuracy computed from the 'correct' column)",
+   "https://matharena.ai"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": {
+    "model": "GPT-4o (MathArena, 4 runs)",
+    "score": 0.058,
+    "source": "https://huggingface.co/datasets/MathArena/hmmt_feb_2025_outputs"
+   },
+   "3": {
+    "model": "mean of GPT-5 (high) 0.883 and Gemini 3 Pro (preview) 0.975 (MathArena, 4 runs each)",
+    "score": 0.929,
+    "source": "https://huggingface.co/datasets/MathArena/hmmt_feb_2025_outputs"
+   },
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "humaneval": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.9,
+    "F": 0.2,
+    "why": "different skill: writing code graded by tests, not a short fact or reasoning answer"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.45,
+    "L": 0.9,
+    "F": 0.2,
+    "why": "Write one Python function from a signature and docstring, checked by hidden unit tests; simple algorithmic tasks without the pandas/numpy libraries of bigcodebench/ds1000, and heavily memorized (2021)."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.2,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/openai/openai_humaneval",
+  "n_questions": 164,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/evalplus/evalplus/releases/tag/v0.1.0 (LLM-generated samples of 14 older models, 2023; also nuprl/MultiPL-E-completions for translated versions)",
+  "licence": "mit",
+  "overlap": "",
+  "summary": "164 hand-written Python function-completion problems (signature + docstring with examples, ~100-150 tokens), graded by unit tests (pass@k). Easy and saturated (L1-2) and widely trained on, so useful only as an easy-code anchor for the router.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/openai/openai_humaneval",
+   "https://github.com/openai/human-eval",
+   "https://github.com/evalplus/evalplus/releases/tag/v0.1.0"
+  ],
+  "anchor_scores": null,
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2021
+ },
+ "humaneval_plus": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.9,
+    "F": 0.25,
+    "why": "different skill: writing code graded by tests, not a short fact or reasoning answer"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.45,
+    "L": 0.9,
+    "F": 0.25,
+    "why": "Same 164 HumanEval prompts with about 80x more tests (stricter checker, closer to bigcodebench's hidden tests); simple algorithmic Python, memorized prompts."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.25,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/evalplus/humanevalplus",
+  "n_questions": 164,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/evalplus/evalplus/releases/tag/v0.1.0 (samples of 14 older models)",
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "HumanEval's 164 Python function tasks re-tested with ~80x more test inputs (EvalPlus), so sloppy solutions fail. Scores: Llama 3.1 8B 62.8%, GPT-4o 87.2%; still mostly L1-2 and the prompts are heavily memorized.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/evalplus/humanevalplus",
+   "https://github.com/evalplus/evalplus",
+   "https://evalplus.github.io/results.json",
+   "https://github.com/evalplus/evalplus/releases/tag/v0.1.0"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama3.1-8B-instruct",
+    "score": 0.628,
+    "source": "https://evalplus.github.io/leaderboard.html (data: https://evalplus.github.io/results.json)"
+   },
+   "2": {
+    "model": "GPT 4o (Aug 2024)",
+    "score": 0.872,
+    "source": "https://evalplus.github.io/leaderboard.html (data: https://evalplus.github.io/results.json)"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2023
+ },
+ "kodcode": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 1.0,
+    "F": 0.75,
+    "why": "different skill: writing code graded by tests, not a short fact or reasoning answer"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.7,
+    "L": 0.95,
+    "F": 0.75,
+    "why": "Synthetic Python coding tasks with pytest unit tests across 12 subsets (LeetCode/Codeforces-style, data structures, plus Docs and Package subsets on library APIs) - close to bigcodebench's function+tests shape; tests are GPT-4o-generated so the checker is noisier."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.75,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": {
+   "cdf": {
+    "1": 0.4,
+    "2": 0.65,
+    "3": 0.9,
+    "4": 0.95
+   },
+   "why": "No published group scores on KodCode itself. GPT-4o's own pass rate over up to 10 solution+test trials averages 0.625 (gpt_difficulty easy 56% / medium 25% / hard 19%, HF statistics on 387k train rows), and questions GPT-4o never solved were discarded, so a late-2025 frontier model should solve most; L1 assumed below GPT-4o."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/KodCode/KodCode-V1",
+  "n_questions": 487432,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/KodCode/KodCode-V1 (gpt_pass_sequence: GPT-4o-0513 up to 10 self-verification trials per question) and https://huggingface.co/datasets/KodCode/KodCode-V1-SFT-R1 (r1_pass_sequence: DeepSeek-R1, 3 trials vs unit tests)",
+  "licence": "cc-by-nc-4.0",
+  "overlap": "",
+  "summary": "~487k synthetic Python coding questions (instruct or complete style, ~90 tokens median) with a GPT-4o solution and pytest tests verified at 100% branch coverage; decontaminated by embedding similarity against HumanEval, MBPP, BigCodeBench and LiveCodeBench (>0.95 flagged; DS-1000 not checked). A large, fresh pool of code questions shaped like bigcodebench for router training, with per-question pass data for GPT-4o and DeepSeek-R1.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/KodCode/KodCode-V1",
+   "https://arxiv.org/abs/2503.02951",
+   "https://huggingface.co/datasets/KodCode/KodCode-V1-SFT-R1",
+   "https://datasets-server.huggingface.co/statistics?dataset=KodCode/KodCode-V1&config=default&split=train"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "livecodebench": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.7,
+    "why": "different skill: writing code graded by tests, not a short fact or reasoning answer"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.7,
+    "why": "Contest programming problems (LeetCode, AtCoder, Codeforces) solved in one answer and checked by hidden tests; algorithmic rather than library-heavy like bigcodebench/ds1000."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+  "n_questions": 1055,
+  "per_question_results": "yes",
+  "results_where": "https://livecodebench.github.io/performances_generation.json (pass@1 per problem for 28 models incl. GPT-4o, Claude 3.5 Sonnet, o3, Gemini 2.5 Pro, DeepSeek-R1)",
+  "licence": "cc",
+  "overlap": "",
+  "summary": "1,055 contest problems released May 2023 - Apr 2025 (release_v6), each a statement with examples (~300-500 tokens) and hidden tests, tagged easy/medium/hard and by date. The public leaderboard file gives per-problem pass@1 for 28 models, which is directly usable router training data for code (it was in Yugos pack v0.3.0, not v0.4.0).",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+   "https://livecodebench.github.io/leaderboard.html",
+   "https://livecodebench.github.io/performances_generation.json"
+  ],
+  "anchor_scores": null,
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ },
+ "livecodebench_plus": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.9,
+    "why": "different skill: writing code graded by tests, not a short fact or reasoning answer"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.55,
+    "L": 0.9,
+    "F": 0.9,
+    "why": "Hard stdin/stdout contest problems (64 machine-evolved LCB-v6 variants + 27 original AtCoder ones) checked against ~26 tests each; same code-with-tests skill but contest algorithms, not data-science libraries."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/BenchEvolver/livecodebench-plus",
+  "n_questions": 91,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "mit",
+  "overlap": "",
+  "summary": "91 very hard competitive-programming problems (22 medium, 69 hard; median statement ~370 tokens) built by BenchEvolver in 2026: 64 evolved variants of LiveCodeBench v6 problems plus 27 original AtCoder problems, with 2,357 test cases. Frontier Pass@1 27.5%-62.6% (GPT-5.5 best), so it covers L4-L5 code; per-problem results were not found on the project page or HF card.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/BenchEvolver/livecodebench-plus",
+   "https://arxiv.org/abs/2606.01286",
+   "https://benchevolver.github.io/"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": {
+    "model": "Gemini-3.1-Pro (2026 update of Gemini 3 Pro; closest listed model, likely a bit above group 3)",
+    "score": 0.591,
+    "source": "https://benchevolver.github.io/"
+   },
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2026
+ },
+ "livemathbench": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.75,
+    "Dm": 0.25,
+    "L": 1.0,
+    "F": 0.7,
+    "why": "Competition math with a short answer overlaps only the math share of HLE in public chat; graded by an LLM judge."
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.55,
+    "L": 0.95,
+    "F": 0.7,
+    "why": "Competition and exam math (CNMO, Chinese gaokao, AMC, Putnam) with closed-form answers, like MATH/arxivmath, but checked by a Qwen2.5-72B judge rather than Math-Verify; math only."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/opencompass/LiveMathBench (gated: accept the terms first)",
+  "n_questions": 338,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "cc-by-4.0",
+  "overlap": "",
+  "summary": "v202412: 238 questions = 119 problems in English and Chinese (CNMO 18, CCEE 44, AMC 46, Putnam 11; fill-in or problem-solving, MC options removed); v202505: 100 more questions. Answers judged by Qwen2.5-72B (G-Pass@k). Mid-hard math (Llama 3.1 8B 24%, GPT-4o 44.8%) for math_code; gated so the terms must be accepted before download.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/open-compass/GPassK",
+   "https://arxiv.org/html/2412.13147",
+   "https://huggingface.co/datasets/opencompass/LiveMathBench"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama-3.1-8B-Instruct (greedy, v202412)",
+    "score": 0.24,
+    "source": "https://arxiv.org/html/2412.13147"
+   },
+   "2": {
+    "model": "GPT-4o-2024-11-20 (greedy, v202412)",
+    "score": 0.448,
+    "source": "https://arxiv.org/html/2412.13147"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en",
+   "zh"
+  ],
+  "release_year": 2024
+ },
+ "math": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.25,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Competition math with a short answer overlaps only the math share of HLE/mmlu_pro in chat."
+   },
+   "math_code": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "It is the live Yugos math set: same problems, \\boxed{} answer and checker; covers the math part of the category but none of the code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/DigitalLearningGmbH/MATH-lighteval (now SevenAIGmbH/MATH-lighteval)",
+  "n_questions": 12500,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/open-llm-leaderboard (per-model *-details datasets: per-sample outputs on the MATH Level-5 test problems for thousands of open models; gated)",
+  "licence": "mit",
+  "overlap": "is the live Yugos math set: only the questions outside the live sample can be used, and never for testing (Yugos builds its math pack from the 5,000-problem test split; the 7,500 train problems are outside it)",
+  "summary": "12,500 competition problems (AMC, AIME and others; 7 subjects, levels 1-5) with step-by-step solutions and a \\boxed{} answer. The train split is a safe, exactly matching source of extra math questions; the test split is the live Yugos pool.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/SevenAIGmbH/MATH-lighteval",
+   "https://github.com/openai/simple-evals",
+   "https://www.vals.ai/benchmarks/math500",
+   "/root/cic/sn34-yugos/work/packs/math.build.log"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3.1 8B (reported, MATH 0-shot CoT)",
+    "score": 0.519,
+    "source": "https://github.com/openai/simple-evals"
+   },
+   "2": {
+    "model": "gpt-4o-2024-05-13",
+    "score": 0.766,
+    "source": "https://github.com/openai/simple-evals"
+   },
+   "3": {
+    "model": "GPT 5 (on MATH-500, the IID 500-problem subset of the MATH test split)",
+    "score": 0.96,
+    "source": "https://www.vals.ai/benchmarks/math500"
+   },
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2021
+ },
+ "math500": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.25,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Competition math with a short answer overlaps only the math share of HLE/mmlu_pro in chat."
+   },
+   "math_code": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "500-problem subset of the MATH test split: same skill, answer and checker as the live math set, but drawn from the same pool."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/HuggingFaceH4/MATH-500",
+  "n_questions": 500,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "subset of the MATH test split, which the live Yugos math set samples from: expect about 1 in 10 live math questions to be MATH-500 items; do not use for testing",
+  "summary": "500 MATH test problems chosen by OpenAI (PRM800K, 'Let's Verify Step by Step') with answer, subject and level; median prompt ~35-50 tokens. Exactly the live math format, but it overlaps the live pool; per-sample outputs exist only for its Level-5 part (Open LLM Leaderboard details), not checked further.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/HuggingFaceH4/MATH-500",
+   "https://github.com/openai/prm800k",
+   "/root/cic/sn34-yugos/work/packs/math.build.log"
+  ],
+  "anchor_scores": null,
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2023
+ },
+ "mathqa": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.2,
+    "why": "5-option multiple-choice math word problems answered by a letter, like the math questions in mmlu_pro, but school-level arithmetic only."
+   },
+   "math_code": {
+    "T": 0.75,
+    "I": 1.0,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.95,
+    "F": 0.2,
+    "why": "GRE/GMAT-style word problems (rates, percentages, probability) answered by an option letter, not a closed-form boxed answer; easier and narrower than MATH/arxivmath, and labels are known to be noisy."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.2,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": {
+   "cdf": {
+    "1": 0.3,
+    "2": 0.65,
+    "3": 0.85,
+    "4": 0.88
+   },
+   "why": "No group scores found for MathQA itself. Its questions are the AQuA-RAT problems; on AQuA (arXiv 2408.10839, CoT) GPT-3.5 0.54, GPT-4o 0.75 (0.81 self-consistency), Llama 3 8B 0.31; after removing the 0.2 guessing floor this gives ~0.3 at L1 and ~0.65 at L2; the ceiling is set below 0.9 for label noise."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/math_qa (loading script; also https://math-qa.github.io)",
+  "n_questions": 37297,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "37,297 GRE/GMAT-level math word problems (train 29,837 / val 4,475 / test 2,985) re-annotated from AQuA-RAT, each with 5 options, the correct letter, a rationale and an operation program. Old (2019), easy-to-medium MC math; could pad easy math or MC-style chat items but its answer format differs from Yugos math.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/math_qa",
+   "https://math-qa.github.io",
+   "https://arxiv.org/html/2408.10839"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.2,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2019
+ },
+ "mbpp": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.6,
+    "F": 0.3,
+    "why": "different skill: writing code graded by tests, not a short fact or reasoning answer"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.5,
+    "L": 0.6,
+    "F": 0.3,
+    "why": "Short one-sentence Python tasks checked by 3 asserts; same code-with-tests skill as bigcodebench but tiny prompts, few libraries, old and memorized."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/google-research-datasets/mbpp",
+  "n_questions": 974,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "cc-by-4.0",
+  "overlap": "",
+  "summary": "974 crowd-sourced entry-level Python tasks ('Write a python function to remove first and last occurrence of a given character from the string', ~20 tokens) with a reference solution and 3 assert tests (427-task sanitized subset too). Easy (Llama 3.1 8B 68%, GPT-4o 88% on EvalPlus's base-test version); an easy-code anchor only.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/google-research-datasets/mbpp",
+   "https://evalplus.github.io/results.json"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama3.1-8B-instruct (EvalPlus 'mbpp' = 378 sanitized MBPP tasks with original tests)",
+    "score": 0.683,
+    "source": "https://evalplus.github.io/leaderboard.html (data: https://evalplus.github.io/results.json)"
+   },
+   "2": {
+    "model": "GPT 4o (Aug 2024) (EvalPlus 'mbpp' base tests)",
+    "score": 0.876,
+    "source": "https://evalplus.github.io/leaderboard.html (data: https://evalplus.github.io/results.json)"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2021
+ },
+ "mbpp_plus": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.6,
+    "F": 0.3,
+    "why": "different skill: writing code graded by tests, not a short fact or reasoning answer"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.5,
+    "L": 0.6,
+    "F": 0.3,
+    "why": "378 cleaned MBPP tasks with ~35x more tests: stricter checker like bigcodebench's hidden tests, but tiny prompts and old memorized problems."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/evalplus/mbppplus",
+  "n_questions": 378,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "EvalPlus's 378-task cleaned MBPP (broken tasks removed, v0.2.0) with ~35x more tests. Scores plateau around 70-80% even for strong models (GPT-4o 72.2%, o1-preview 80.2%), partly due to ambiguous one-line specs.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/evalplus/mbppplus",
+   "https://github.com/evalplus/evalplus",
+   "https://evalplus.github.io/results.json"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama3.1-8B-instruct",
+    "score": 0.556,
+    "source": "https://evalplus.github.io/leaderboard.html (data: https://evalplus.github.io/results.json)"
+   },
+   "2": {
+    "model": "GPT 4o (Aug 2024)",
+    "score": 0.722,
+    "source": "https://evalplus.github.io/leaderboard.html (data: https://evalplus.github.io/results.json)"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2023
+ },
+ "minerva_math": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 1.0,
+    "A": 0.75,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "Undergraduate science calculations with a short numeric answer resemble STEM items in mmlu_pro/HLE, but chat is mostly puzzles, reading and facts."
+   },
+   "math_code": {
+    "T": 0.8,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.45,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "One quantitative problem -> one numeric or closed-form answer, like MATH/arxivmath, but mostly physics, chemistry, astronomy and EE from MIT courses; answers with units make checking noisier."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/math-ai/minervamath",
+  "n_questions": 272,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "272 MIT OpenCourseWare undergraduate STEM problems (e.g. image size through a Magellan telescope -> 1.6 cm) with a numeric/closed-form answer, median ~86 tokens. Low published scores (GPT-4o 36.8%) reflect strict answer matching as much as difficulty.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/math-ai/minervamath",
+   "https://arxiv.org/abs/2206.14858",
+   "https://arxiv.org/html/2409.12122"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama-3.1-8B-Instruct (CoT, zero-shot)",
+    "score": 0.217,
+    "source": "https://arxiv.org/html/2409.12122"
+   },
+   "2": {
+    "model": "GPT-4o-2024-08-06 (CoT, zero-shot)",
+    "score": 0.368,
+    "source": "https://arxiv.org/html/2409.12122"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2022
+ },
+ "multipl_e": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.9,
+    "F": 0.3,
+    "why": "different skill: writing code graded by tests, not a short fact or reasoning answer"
+   },
+   "math_code": {
+    "T": 0.7,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.3,
+    "why": "HumanEval/MBPP tasks translated into 22+ other programming languages and checked by translated unit tests; same code-with-tests skill but not Python and not data-science libraries."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/nuprl/MultiPL-E",
+  "n_questions": 12667,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/nuprl/MultiPL-E-completions (completions and execution results, mostly older code models: Codex davinci/cushman, InCoder, CodeGen, StarCoder/StarCoder2, CodeLlama, DeepSeek-Coder)",
+  "licence": "mit",
+  "overlap": "",
+  "summary": "12,667 rows: the 164 HumanEval and ~400 MBPP problems machine-translated into C++, Java, Rust, Go, Lua, Racket, Bash and others (function signature + doc comment, unit tests in that language). Useful only if Yugos's hidden code questions include non-Python languages; per-problem results exist for older code models.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/nuprl/MultiPL-E",
+   "https://nuprl.github.io/MultiPL-E/",
+   "https://arxiv.org/html/2409.12186v3",
+   "https://arxiv.org/html/2407.21783",
+   "https://huggingface.co/datasets/nuprl/MultiPL-E-completions"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3 8B post-trained (Llama 3.1 paper, mean of 6 HumanEval-MultiPL-E languages C++/Java/PHP/TS/C#/Shell)",
+    "score": 0.499,
+    "source": "https://arxiv.org/html/2407.21783"
+   },
+   "2": {
+    "model": "GPT-4o-2024-08-06 (Qwen2.5-Coder report, mean of 8 languages incl. Python)",
+    "score": 0.791,
+    "source": "https://arxiv.org/html/2409.12186v3"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2022
+ },
+ "numinamath": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.75,
+    "Dm": 0.25,
+    "L": 1.0,
+    "F": 0.4,
+    "why": "Competition math with a short answer overlaps only the math share of HLE/mmlu_pro in chat."
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.75,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.4,
+    "why": "Competition and school math problems with a final answer, like MATH/arxivmath; but 12% are proofs and 16% multiple choice, some answers are 'notfound', and it is a widely used training set."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.4,
+    "why": "different skill: no tools, one prompt and one answer"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": {
+   "cdf": {
+    "1": 0.4,
+    "2": 0.65,
+    "3": 0.85,
+    "4": 0.92
+   },
+   "why": "No group scores found (it is a training set). Source mix from the card: cn_k12 30%, orca_math 17% and synthetic_math 17% (mostly school-level, L1-2), olympiads 22% and aops_forum 8% (olympiad level, L2-L4+); answers for proofs are not checkable."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/AI-MO/NuminaMath-1.5 (now project-numina/NuminaMath-1.5)",
+  "n_questions": 896215,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k (DeepSeek-R1 only: 2-4 traces per problem verified with Math-Verify / Llama-3.3-70B judge; only problems with at least one correct trace kept)",
+  "licence": "apache-2.0",
+  "overlap": "not checked; its amc_aime part (5,872) may repeat AMC/AIME problems that MATH also contains",
+  "summary": "896,215 competition-style math problems with chain-of-thought solutions and answer/problem_type/question_type metadata (sources: Chinese K-12, Orca-Math, synthetic MATH-style, olympiads, AoPS, AMC/AIME). A huge pool of checkable math word problems (~632k) for math_code; filter out proofs and 'notfound' answers.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/project-numina/NuminaMath-1.5",
+   "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
+   "https://huggingface.co/datasets/open-r1/OpenR1-Math-220k"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ }
+}

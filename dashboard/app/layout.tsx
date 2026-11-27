@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./columns.css";
+import "./match.css";
 import { Tabs } from "@/components/Tabs";
 
 export const metadata: Metadata = {

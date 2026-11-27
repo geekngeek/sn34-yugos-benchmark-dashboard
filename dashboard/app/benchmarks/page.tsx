@@ -4,6 +4,8 @@ import { readLayout } from "@/lib/uiLayout";
 import { LIST_FILE, MY_NOTES, readList } from "@/lib/benchmarkList";
 import { parseMetrics } from "@/lib/metrics";
 import { parseDifficulty, spanOf } from "@/lib/difficulty";
+import { readSubMatches } from "@/lib/yugosMatchData";
+import { MATCH_CATS, tripleOf } from "@/lib/yugosMatch";
 
 export const metadata: Metadata = { title: "Benchmark list · LLM Benchmark Results" };
 export const dynamic = "force-dynamic";   // re-read the file on every visit, so edits show up at once
@@ -19,7 +21,7 @@ export default async function BenchmarkListPage({ searchParams }: { searchParams
   const sp = await searchParams;
   const expandAll = sp.expand === "all";              // /benchmarks?expand=all opens every group
   const initialView = sp.view === "params" ? "params" : "tree";   // /benchmarks?view=params opens the parameters grid
-  const [{ header, rows }, layout] = await Promise.all([readList(), readLayout("benchmark-list")]);
+  const [{ header, rows }, layout, matches] = await Promise.all([readList(), readLayout("benchmark-list"), readSubMatches()]);
   const col = (name: string) => header.findIndex((h) => h.toLowerCase() === name.toLowerCase());
   const get = (r: string[], name: string) => { const i = col(name); return i < 0 ? "" : (r[i] ?? "").trim(); };
   const extras = header.filter((h) => !KNOWN.some((k) => k.toLowerCase() === h.toLowerCase()));
@@ -39,6 +41,15 @@ export default async function BenchmarkListPage({ searchParams }: { searchParams
   }
   // a parent shows the span of levels its sub-benchmarks cover (its own level if it has no levelled subs)
   for (const p of items) p.difficulty = spanOf(p.children.map((c) => c.difficulty), p.difficulty);
+  // Yugos match (data/yugos-match/subbenchmarks.json): each sub-benchmark's scores; a parent shows its best sub-benchmark per category
+  for (const p of items) {
+    for (const c of p.children) {
+      const m = matches?.rows[c.no];
+      if (m) { c.match = m; c.fit = tripleOf(m); }
+    }
+    const scored = p.children.filter((c) => c.fit);
+    if (scored.length) p.fit = Object.fromEntries(MATCH_CATS.map((k) => [k, Math.max(...scored.map((c) => c.fit![k]))])) as typeof p.fit;
+  }
   const used = items.filter((i) => i.yugos.toLowerCase() === "yes").length;
 
   return (
@@ -52,7 +63,7 @@ export default async function BenchmarkListPage({ searchParams }: { searchParams
           <span aria-hidden="true">⬇</span> Download CSV
         </a>
       </header>
-      <BenchmarkTree items={items} expandAll={expandAll} initialView={initialView} layout={layout} query={sp} />
+      <BenchmarkTree items={items} expandAll={expandAll} initialView={initialView} layout={layout} query={sp} matchTargets={matches?.targets ?? null} />
     </main>
   );
 }

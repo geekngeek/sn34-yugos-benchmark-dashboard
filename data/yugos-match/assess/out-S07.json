@@ -1,0 +1,1417 @@
+{
+ "8.1": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.5,
+    "Dm": 0.2,
+    "L": 0.7,
+    "F": 0.2,
+    "why": "Hard abstract-reasoning puzzles like BBEH's, but the task is inducing a grid transformation from ~3 examples and the answer is a whole grid (exact match, 2 tries); no topical overlap; text grids measured ~1.5k cells median (~1.5-3k tokens); 2019 set heavily trained on."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.1,
+    "L": 0.7,
+    "F": 0.2,
+    "why": "Not math or code questions: some solvers write programs, but the asked answer is a grid, not a boxed value or tested code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.2,
+    "why": "different skill: static grid puzzles, no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/fchollet/ARC-AGI",
+  "n_questions": 800,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/arcprize/arc_agi_v1_public_eval",
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "800 public grid-transformation puzzles (400 training + 400 public eval; the scored 100 semi-private and 100 private tasks are hidden), given as integer grids and answered with an exact output grid. ARC Prize publishes per-model attempts on the public eval set, but the skill and answer format are far from Yugos chat questions, so it adds little beyond a few hard-reasoning examples.",
+  "confidence": "medium",
+  "sources": [
+   "https://arcprize.org/arc-agi/1",
+   "https://api.github.com/repos/fchollet/ARC-AGI",
+   "https://huggingface.co/datasets/arcprize/arc_agi_v1_public_eval"
+  ]
+ },
+ "8.2": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.5,
+    "Dm": 0.2,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "Same grid-induction puzzle format as ARC-AGI-1 but bigger grids (sample median ~2.6k cells, ~2.5-5k tokens as text) and multi-rule tasks; reasoning-puzzle skill near BBEH, very different answer (full grid)."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "Not math or code questions; the answer is a grid, not a boxed value or tested code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.7,
+    "why": "different skill: static grid puzzles, no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/arcprize/ARC-AGI-2",
+  "n_questions": 1120,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/arcprize/arc_agi_v2_public_eval",
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "2025 grid-puzzle set: 1,000 public training + 120 public eval tasks downloadable (the 120 semi-private and 120 private scored tasks are hidden); answers are exact output grids. Per-model attempts on the public eval set are on Hugging Face, but the task is far from Yugos's text Q&A, so it is weak router data.",
+  "confidence": "medium",
+  "sources": [
+   "https://arcprize.org/arc-agi/2",
+   "https://api.github.com/repos/arcprize/ARC-AGI-2",
+   "https://huggingface.co/datasets/arcprize/arc_agi_v2_public_eval"
+  ]
+ },
+ "8.3": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.95,
+    "why": "different skill: interactive game environment, not question answering"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.95,
+    "why": "different skill: interactive game environment, not math or code"
+   },
+   "agentic": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.1,
+    "L": 0.2,
+    "F": 0.95,
+    "why": "Multi-turn agent loop: the model picks game actions (RESET, ACTION1-6) by function calling and is scored on beating levels as efficiently as humans - tool-using with an end-state-like score, but it is exploring novel games from grid frames, not API or customer-service tasks, and episodes are very long."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://arcprize.org/tasks",
+  "n_questions": 55,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Interactive turn-based games (25 public games via the ARC-AGI-3 toolkit/API; the leaderboard uses 55 semi-private games) where an agent observes colour-grid frames and chooses actions; Standard harness carries model-written notes. It exercises long multi-step tool use but in a game world, so it is a loose stand-in for Yugos's hidden agentic tasks; frame encoding (text vs image) in the official harness was not checked.",
+  "confidence": "medium",
+  "sources": [
+   "https://arcprize.org/arc-agi/3",
+   "https://docs.arcprize.org/",
+   "https://docs.arcprize.org/llm_agents.md"
+  ]
+ },
+ "8.4": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.95,
+    "why": "different skill: interactive game environment, not question answering"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.95,
+    "why": "different skill: interactive game environment, not math or code"
+   },
+   "agentic": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.1,
+    "L": 0.2,
+    "F": 0.95,
+    "why": "Multi-turn agent loop: the model picks game actions (RESET, ACTION1-6) by function calling and is scored on beating levels as efficiently as humans - tool-using with an end-state-like score, but it is exploring novel games from grid frames, not API or customer-service tasks, and episodes are very long. Provider adapter harness keeps reasoning state and compacts history."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://arcprize.org/tasks",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Same ARC-AGI-3 games as the Standard column, run with a harness that preserves reasoning state and compacts long conversations (only 18 models have results). Same loose fit to Yugos's hidden agentic part; the number of games scored in this column was not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://arcprize.org/arc-agi/3",
+   "https://docs.arcprize.org/",
+   "https://docs.arcprize.org/llm_agents.md",
+   "https://arcprize.org/leaderboard (row facts)"
+  ]
+ },
+ "9.1": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 0.8,
+    "A": 0.8,
+    "Dm": 0.4,
+    "L": 0.9,
+    "F": 0.95,
+    "why": "Like HLE's math share: expert questions with one closed-form answer, but all research-flavoured math and none of the other chat topics; Epoch runs give the model a Python sandbox."
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 0.8,
+    "A": 0.9,
+    "Dm": 0.55,
+    "L": 0.9,
+    "F": 0.95,
+    "why": "Closest to arxivmath: research-level problems with a definite closed-form answer checked computationally (Math-Verify-like); covers only the math half of the category; Epoch's eval lets the model run Python."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.95,
+    "why": "different skill: math answers; the Python sandbox in Epoch's harness is incidental"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://epoch.ai/frontiermath/tiers-1-4/benchmark-problems",
+  "n_questions": 295,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "295 private, unpublished expert math problems (advanced undergrad to early research) with exact closed-form answers checked by computer; only about a dozen sample problems are public, so it cannot supply training questions, though its style is the best match here for arxivmath. Per-question results were not found (only run-level scores in Epoch's benchmark_data.zip).",
+  "confidence": "medium",
+  "sources": [
+   "https://epoch.ai/frontiermath",
+   "https://epoch.ai/frontiermath/tiers-1-4",
+   "https://epoch.ai/frontiermath/tiers-1-4/about",
+   "https://epoch.ai/frontiermath/tiers-1-4/benchmark-problems"
+  ]
+ },
+ "9.2": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 0.8,
+    "A": 0.8,
+    "Dm": 0.4,
+    "L": 0.9,
+    "F": 0.95,
+    "why": "Like HLE's math share: expert questions with one closed-form answer, but all research-flavoured math and none of the other chat topics; Epoch runs give the model a Python sandbox."
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 0.8,
+    "A": 0.9,
+    "Dm": 0.5,
+    "L": 0.9,
+    "F": 0.95,
+    "why": "Closest to arxivmath: research-level problems with a definite closed-form answer checked computationally (Math-Verify-like); covers only the math half of the category; Epoch's eval lets the model run Python."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.95,
+    "why": "different skill: math answers; the Python sandbox in Epoch's harness is incidental"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://epoch.ai/frontiermath/tiers-1-4/benchmark-problems",
+  "n_questions": 43,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "43 private, exceptionally hard research-level problems (Tier 4 v2) with closed-form answers; only 2 Tier 4 samples are public. Good format match to arxivmath but no usable question data; per-question results not found.",
+  "confidence": "medium",
+  "sources": [
+   "https://epoch.ai/frontiermath",
+   "https://epoch.ai/frontiermath/tiers-1-4",
+   "https://epoch.ai/frontiermath/tiers-1-4/about",
+   "https://epoch.ai/frontiermath/tiers-1-4/benchmark-problems"
+  ]
+ },
+ "9.3": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 0.8,
+    "A": 0.8,
+    "Dm": 0.4,
+    "L": 0.9,
+    "F": 0.9,
+    "why": "Like HLE's math share: expert questions with one closed-form answer, but all research-flavoured math and none of the other chat topics; Epoch runs give the model a Python sandbox."
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 0.8,
+    "A": 0.9,
+    "Dm": 0.55,
+    "L": 0.9,
+    "F": 0.9,
+    "why": "Closest to arxivmath: research-level problems with a definite closed-form answer checked computationally (Math-Verify-like); covers only the math half of the category; Epoch's eval lets the model run Python."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: math answers; the Python sandbox in Epoch's harness is incidental"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://epoch.ai/frontiermath/tiers-1-4/benchmark-problems",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Frozen 2025-02-28 version of the private Tiers 1-3 set (errors in 42% of problems were later fixed in v2); closed-form math answers, only sample problems public. Same arxivmath-like format as 9.1; problem count for this version not stated on the pages read.",
+  "confidence": "medium",
+  "sources": [
+   "https://epoch.ai/frontiermath",
+   "https://epoch.ai/frontiermath/tiers-1-4",
+   "https://epoch.ai/frontiermath/tiers-1-4/about",
+   "https://epoch.ai/frontiermath/tiers-1-4/benchmark-problems"
+  ]
+ },
+ "9.4": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 0.8,
+    "A": 0.8,
+    "Dm": 0.4,
+    "L": 0.9,
+    "F": 0.9,
+    "why": "Like HLE's math share: expert questions with one closed-form answer, but all research-flavoured math and none of the other chat topics; Epoch runs give the model a Python sandbox."
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 0.8,
+    "A": 0.9,
+    "Dm": 0.5,
+    "L": 0.9,
+    "F": 0.9,
+    "why": "Closest to arxivmath: research-level problems with a definite closed-form answer checked computationally (Math-Verify-like); covers only the math half of the category; Epoch's eval lets the model run Python."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: math answers; the Python sandbox in Epoch's harness is incidental"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://epoch.ai/frontiermath/tiers-1-4/benchmark-problems",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Frozen 2025-07-01 version of the private Tier 4 set (Epoch says Tier 4 is an expansion set of 50 problems, 20 held out from OpenAI); closed-form research-math answers, only 2 samples public. Format fits arxivmath, but no question data; count for this exact version not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://epoch.ai/frontiermath",
+   "https://epoch.ai/frontiermath/tiers-1-4",
+   "https://epoch.ai/frontiermath/tiers-1-4/about",
+   "https://epoch.ai/frontiermath/tiers-1-4/benchmark-problems"
+  ]
+ },
+ "9.5": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.7,
+    "F": 1.0,
+    "why": "different skill: open conjectures to prove in Lean, not question answering"
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 0.2,
+    "A": 0.2,
+    "Dm": 0.4,
+    "L": 0.7,
+    "F": 1.0,
+    "why": "Research math like arxivmath, but each task is an open Erdős conjecture whose answer is a complete Lean proof or disproof checked by the Lean kernel, done over up to 72 hours with tools - not a closed-form answer from one prompt."
+   },
+   "agentic": {
+    "T": 0.2,
+    "I": 0.5,
+    "A": 0.5,
+    "Dm": 0.1,
+    "L": 0.2,
+    "F": 1.0,
+    "why": "Long agent runs with bash, editor and Lean tooling, graded by a machine check of the end result, but the work is theorem proving, not API/tool tasks of the Yugos kind."
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://github.com/epoch-research/LeanOpenProblems",
+  "n_questions": 68,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "68 Erdős conjectures (open as of August 2026) stated in Lean; models must produce full Lean proofs or disproofs with a $300 / 72-hour budget. Statements are public (the repo is named in Epoch's paper; repo itself not opened) but there are no reference answers, so it is almost useless as router training data.",
+  "confidence": "medium",
+  "sources": [
+   "https://epoch.ai/benchmarks/frontiermath-erdos",
+   "https://epoch.ai/frontiermath",
+   "web search: Epoch FrontierMath Erdős paper (epoch.ai/files/frontiermath-erdos.pdf) naming github.com/epoch-research/LeanOpenProblems"
+  ]
+ },
+ "9.6": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 1.0,
+    "why": "different skill: unsolved research problems needing constructions, not question answering"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.7,
+    "A": 0.3,
+    "Dm": 0.4,
+    "L": 0.8,
+    "F": 1.0,
+    "why": "Research math, but answers are constructions, counterexamples, bounds or algorithms checked by bespoke verifier programs (sold, not public) - most problems are still unsolved, so there is no closed-form reference answer."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 1.0,
+    "why": "different skill: math research problems; no tools in the task"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.02,
+    "4": 0.15
+   },
+   "why": "These were open research problems; the page shows 10 of 49 solved with AI involvement (5 by AI alone) and Epoch says models 'don't show much promise' on the real problems, so at most ~20% are within reach of the frontier and almost none at lower levels."
+  },
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://epoch.ai/frontiermath/open-problems",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "About 50 open research problems (page lists 49; 'recently expanded to 50') with precise prompts on per-problem pages; solutions are checked by paid-access verifier programs, and 10 have been solved with AI involvement (5 AI alone). No model ranking table and no answers for unsolved problems, so it offers little router data.",
+  "confidence": "medium",
+  "sources": [
+   "https://epoch.ai/frontiermath/open-problems",
+   "https://epoch.ai/latest/benchmarking-ai-on-unsolved-math-problems",
+   "https://epoch.ai/frontiermath"
+  ]
+ },
+ "10.1": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.7,
+    "why": "One question with a short exact (integer) answer, like HLE's math share or MMLU-Pro math, but all competition math and nothing from the other chat sets."
+   },
+   "math_code": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.7,
+    "why": "Same shape as Yugos's MATH set: a competition problem (~40-330 tokens) with one integer 0-999 answer that is boxed and checked; harder end of MATH; AIME 2025 problems."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "different skill: math questions, no tools"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/MathArena/aime_2025",
+  "n_questions": 30,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/MathArena/aime_2025_outputs",
+  "licence": "CC BY-NC-SA 4.0",
+  "overlap": "",
+  "summary": "The 30 AIME 2025 I+II problems with integer answers. MathArena publishes every model's answer per problem with correctness, tokens and cost (7,915 rows), which is very useful for router training, though only 30 questions. Released Feb 2025 and widely published; MathArena flags newer models as possibly contaminated. AIME 2025 is in Yugos's own catalog (math_code) but not in the live pack.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/MathArena/aime_2025",
+   "https://huggingface.co/api/datasets?author=MathArena",
+   "https://datasets-server.huggingface.co/info?dataset=MathArena/aime_2025_outputs",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/aime2025 (local copy, prompt lengths)"
+  ]
+ },
+ "10.2": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.85,
+    "why": "One question with a short exact (integer) answer, like HLE's math share or MMLU-Pro math, but all competition math and nothing from the other chat sets."
+   },
+   "math_code": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.85,
+    "why": "Same shape as Yugos's MATH set: a competition problem (~40-330 tokens) with one integer 0-999 answer that is boxed and checked; harder end of MATH; AIME 2026 problems."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: math questions, no tools"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/MathArena/aime_2026",
+  "n_questions": 30,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/MathArena/aime_2026_outputs",
+  "licence": "CC BY-NC-SA 4.0",
+  "overlap": "",
+  "summary": "The 30 AIME 2026 I+II problems with integer answers. MathArena publishes every model's answer per problem with correctness, tokens and cost (3,516 rows), which is very useful for router training, though only 30 questions. Released Feb 2026, so less memorised. AIME 2026 is in Yugos's own catalog (math_code) but not in the live pack.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/MathArena/aime_2026",
+   "https://huggingface.co/api/datasets?author=MathArena",
+   "https://datasets-server.huggingface.co/info?dataset=MathArena/aime_2026_outputs",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/aime2026 (local copy, prompt lengths)"
+  ]
+ },
+ "11.1": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.4,
+    "why": "different skill: repository bug-fixing, not question answering"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.3,
+    "A": 0.6,
+    "Dm": 0.45,
+    "L": 0.3,
+    "F": 0.4,
+    "why": "Python coding with hidden unit tests like BigCodeBench (repos include sympy, matplotlib, scikit-learn), but it is multi-file patching inside a whole repository through an agent loop, not one function from one prompt."
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.8,
+    "A": 0.8,
+    "Dm": 0.4,
+    "L": 0.4,
+    "F": 0.4,
+    "why": "Multi-step tool use (shell/editor in a sandbox) graded on end state by hidden tests - the shape guessed for Yugos's private agentic part, and Yugos's own catalog lists SWE-bench Verified as agentic - but it is repository coding, not API/customer-service work; issue text ~300 tokens median but agent context grows far longer."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified",
+  "n_questions": 500,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/SWE-bench/experiments",
+  "licence": null,
+  "overlap": "",
+  "summary": "500 human-checked GitHub issues from 12 Python repos (django 231, sympy 75, ...; issues 2013-2023), solved by an agent editing the repo and graded by hidden tests. Per-instance resolved lists for every submission are public, so it is the most usable stand-in here for a hidden multi-step agentic part; heavily trained on.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/SWE-bench/experiments",
+   "https://huggingface.co/api/datasets/SWE-bench/SWE-bench_Verified",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/swe_bench_verified (local copy, statement lengths)",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ]
+ },
+ "11.2": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.4,
+    "why": "different skill: repository bug-fixing, not question answering"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.3,
+    "A": 0.6,
+    "Dm": 0.45,
+    "L": 0.3,
+    "F": 0.4,
+    "why": "Python coding with hidden unit tests like BigCodeBench (repos include sympy, matplotlib, scikit-learn), but it is multi-file patching inside a whole repository through an agent loop, not one function from one prompt."
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.85,
+    "A": 0.8,
+    "Dm": 0.4,
+    "L": 0.4,
+    "F": 0.4,
+    "why": "Multi-step tool use (shell/editor in a sandbox) graded on end state by hidden tests - the shape guessed for Yugos's private agentic part, and Yugos's own catalog lists SWE-bench Verified as agentic - but it is repository coding, not API/customer-service work; issue text ~300 tokens median but agent context grows far longer. Single bash tool, same harness for all models."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified",
+  "n_questions": 500,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/SWE-bench/experiments",
+  "licence": null,
+  "overlap": "",
+  "summary": "Same 500 Verified tasks, all run in one minimal bash-only harness (mini-SWE-agent), so models are compared like-for-like; per-instance results and per-instance cost are published, which is the kind of quality-and-cost data a router needs.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/SWE-bench/experiments",
+   "https://huggingface.co/api/datasets/SWE-bench/SWE-bench_Verified",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/swe_bench_verified (local copy, statement lengths)",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ]
+ },
+ "11.3": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.7,
+    "why": "different skill: required images; repository bug-fixing"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.3,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.7,
+    "why": "different skill: required images (issues built around screenshots / visual bugs)"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.7,
+    "why": "different skill: required images (issues built around screenshots / visual bugs)"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Multimodal",
+  "n_questions": 480,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/SWE-bench/experiments",
+  "licence": null,
+  "overlap": "",
+  "summary": "JavaScript/visual-software issues built around screenshots and visual bugs (v2 keeps 480 test tasks; dataset carries image_assets). Yugos is text-only, so it does not fit any category.",
+  "confidence": "medium",
+  "sources": [
+   "https://www.swebench.com/multimodal.html",
+   "https://datasets-server.huggingface.co/info?dataset=SWE-bench/SWE-bench_Multimodal",
+   "https://github.com/SWE-bench/experiments"
+  ]
+ },
+ "11.4": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: repository bug-fixing, not question answering"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.6,
+    "Dm": 0.25,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "Coding with hidden tests, but repository patching in 9 languages (Yugos code tasks are Python) through an agent loop."
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.8,
+    "A": 0.8,
+    "Dm": 0.35,
+    "L": 0.4,
+    "F": 0.6,
+    "why": "Multi-step tool use (shell/editor in a sandbox) graded on end state by hidden tests - the shape guessed for Yugos's private agentic part, and Yugos's own catalog lists SWE-bench Verified as agentic - but it is multi-language repository coding, not API/customer-service work; issue text ~300 tokens median but agent context grows far longer."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual",
+  "n_questions": 300,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/SWE-bench/experiments",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "300 SWE-bench-style issues from 42 repos in 9 programming languages (dataset published April 2025), all run with mini-SWE-agent with per-instance cost. Same agentic shape as Verified, less overlap with Yugos's Python-only code tasks.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/api/datasets/SWE-bench/SWE-bench_Multilingual",
+   "https://datasets-server.huggingface.co/info?dataset=SWE-bench/SWE-bench_Multilingual",
+   "https://github.com/SWE-bench/experiments"
+  ]
+ },
+ "11.5": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.3,
+    "why": "different skill: repository bug-fixing, not question answering"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.3,
+    "A": 0.55,
+    "Dm": 0.45,
+    "L": 0.3,
+    "F": 0.3,
+    "why": "Python coding with hidden unit tests like BigCodeBench (repos include sympy, matplotlib, scikit-learn), but it is multi-file patching inside a whole repository through an agent loop, not one function from one prompt."
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.8,
+    "A": 0.7,
+    "Dm": 0.4,
+    "L": 0.4,
+    "F": 0.3,
+    "why": "Multi-step tool use (shell/editor in a sandbox) graded on end state by hidden tests - the shape guessed for Yugos's private agentic part, and Yugos's own catalog lists SWE-bench Verified as agentic - but it is repository coding, not API/customer-service work; issue text ~300 tokens median but agent context grows far longer."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Lite",
+  "n_questions": 300,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/SWE-bench/experiments",
+  "licence": null,
+  "overlap": "",
+  "summary": "300-issue subset of the original 2023 SWE-bench (11 Python repos), not human-verified like Verified, with mostly older agent submissions (2023-2025). Per-instance results are public; older and noisier than Verified.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/api/datasets/SWE-bench/SWE-bench_Lite",
+   "https://github.com/SWE-bench/experiments"
+  ]
+ },
+ "11.6": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.3,
+    "why": "different skill: repository bug-fixing, not question answering"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.5,
+    "Dm": 0.45,
+    "L": 0.25,
+    "F": 0.3,
+    "why": "Python coding with hidden unit tests like BigCodeBench (repos include sympy, matplotlib, scikit-learn), but it is multi-file patching inside a whole repository through an agent loop, not one function from one prompt."
+   },
+   "agentic": {
+    "T": 0.5,
+    "I": 0.8,
+    "A": 0.65,
+    "Dm": 0.4,
+    "L": 0.35,
+    "F": 0.3,
+    "why": "Multi-step tool use (shell/editor in a sandbox) graded on end state by hidden tests - the shape guessed for Yugos's private agentic part, and Yugos's own catalog lists SWE-bench Verified as agentic - but it is repository coding, not API/customer-service work; issue text ~300 tokens median but agent context grows far longer."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/SWE-bench/SWE-bench",
+  "n_questions": 2294,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/SWE-bench/experiments",
+  "licence": null,
+  "overlap": "",
+  "summary": "The original 2,294 GitHub issues from 12 Python repos (2023); unfiltered, so some issues/tests are under-specified (the reason Verified exists). Large and with per-instance results, but old and heavily trained on.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/api/datasets/SWE-bench/SWE-bench",
+   "https://github.com/SWE-bench/experiments"
+  ]
+ },
+ "11.7": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: repository bug-fixing, not question answering"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.6,
+    "Dm": 0.3,
+    "L": 0.2,
+    "F": 0.8,
+    "why": "Coding with hidden tests, but long-horizon multi-file repository changes in Go/Python/JS/TS through an agent loop, not one Python function from one prompt."
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.8,
+    "A": 0.8,
+    "Dm": 0.35,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "Long-horizon multi-step tool use (SWE-Agent / mini-swe-agent, up to 250 turns) graded on end state by tests - fits the guessed private agentic shape, but repository coding rather than API/customer-service tasks, with long contexts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro",
+  "n_questions": 731,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT (harness/tooling); task content subject to the upstream repositories' licences",
+  "overlap": "",
+  "summary": "731 public long-horizon tasks from copyleft repos in Go, Python, JavaScript and TypeScript (paper Sep 2025; a V2 config with 642 tasks was added 2026-09). Contamination-resistant agentic coding; per-instance model results were not found.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro"
+  ]
+ },
+ "11.8": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.95,
+    "why": "different skill: repository bug-fixing, not question answering"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.6,
+    "Dm": 0.3,
+    "L": 0.2,
+    "F": 0.95,
+    "why": "Coding with hidden tests, but long-horizon multi-file repository changes in Go/Python/JS/TS through an agent loop, not one Python function from one prompt."
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.8,
+    "A": 0.8,
+    "Dm": 0.35,
+    "L": 0.3,
+    "F": 0.95,
+    "why": "Long-horizon multi-step tool use (SWE-Agent / mini-swe-agent, up to 250 turns) graded on end state by tests - fits the guessed private agentic shape, but repository coding rather than API/customer-service tasks, with long contexts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 276,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "276 tasks from 18 private startup codebases, held by Scale and not downloadable. Same agentic-coding shape as SWE-Bench Pro Public, but it offers no question data, only aggregate scores.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro",
+   "https://labs.scale.com/leaderboard/swe_bench_pro (row facts)"
+  ]
+ },
+ "12.1": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.7,
+    "why": "different skill: contest programming, not question answering"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.7,
+    "why": "Contest problems (LeetCode/AtCoder/Codeforces, ~200-540 tokens) answered with one Python program checked by hidden tests: same prompt-to-tested-code shape as BigCodeBench, but algorithmic rather than library-heavy; Yugos's own catalog has LiveCodeBench v6 (used in pack v0.3.0)."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "different skill: one-shot coding, no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+  "n_questions": 1055,
+  "per_question_results": "yes",
+  "results_where": "https://livecodebench.github.io/performances_generation.json",
+  "licence": "cc (version not stated on the dataset card)",
+  "overlap": "",
+  "summary": "1,055 contest programming problems (May 2023-Apr 2025, release_v6; the default leaderboard window uses 454 of them) solved with code checked by hidden tests. Per-model per-problem pass@1 is public, making it strong router data for the code side of math_code; it was in Yugos's v0.3.0 pack but is not in the live v0.4.0 public sets.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/LiveCodeBench/LiveCodeBench",
+   "https://livecodebench.github.io/performances_generation.json",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/livecodebench (local copy of code_generation_lite: counts, dates, lengths)",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ]
+ },
+ "12.2": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.7,
+    "why": "different skill: contest programming, not question answering"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.7,
+    "why": "Contest problems (LeetCode/AtCoder/Codeforces, ~200-540 tokens) answered with one Python program checked by hidden tests: same prompt-to-tested-code shape as BigCodeBench, but algorithmic rather than library-heavy; Yugos's own catalog has LiveCodeBench v6 (used in pack v0.3.0). Easy split."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "different skill: one-shot coding, no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+  "n_questions": 322,
+  "per_question_results": "yes",
+  "results_where": "https://livecodebench.github.io/performances_generation.json",
+  "licence": "cc (version not stated on the dataset card)",
+  "overlap": "",
+  "summary": "The easy problems of LiveCodeBench (322 easy in release_v6) - same format, nearly saturated by frontier models. Per-problem results are public; useful for teaching the router when a cheap model suffices.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/LiveCodeBench/LiveCodeBench",
+   "https://livecodebench.github.io/performances_generation.json",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/livecodebench (local copy of code_generation_lite: counts, dates, lengths)",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ]
+ },
+ "12.3": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.7,
+    "why": "different skill: contest programming, not question answering"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.7,
+    "why": "Contest problems (LeetCode/AtCoder/Codeforces, ~200-540 tokens) answered with one Python program checked by hidden tests: same prompt-to-tested-code shape as BigCodeBench, but algorithmic rather than library-heavy; Yugos's own catalog has LiveCodeBench v6 (used in pack v0.3.0). Medium split."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "different skill: one-shot coding, no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+  "n_questions": 383,
+  "per_question_results": "yes",
+  "results_where": "https://livecodebench.github.io/performances_generation.json",
+  "licence": "cc (version not stated on the dataset card)",
+  "overlap": "",
+  "summary": "The medium problems of LiveCodeBench (383 in release_v6) - matches the rubric's calibration example. Per-problem results are public.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/LiveCodeBench/LiveCodeBench",
+   "https://livecodebench.github.io/performances_generation.json",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/livecodebench (local copy of code_generation_lite: counts, dates, lengths)",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ]
+ },
+ "12.4": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.7,
+    "why": "different skill: contest programming, not question answering"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.7,
+    "why": "Contest problems (LeetCode/AtCoder/Codeforces, ~200-540 tokens) answered with one Python program checked by hidden tests: same prompt-to-tested-code shape as BigCodeBench, but algorithmic rather than library-heavy; Yugos's own catalog has LiveCodeBench v6 (used in pack v0.3.0). Hard split."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "different skill: one-shot coding, no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+  "n_questions": 350,
+  "per_question_results": "yes",
+  "results_where": "https://livecodebench.github.io/performances_generation.json",
+  "licence": "cc (version not stated on the dataset card)",
+  "overlap": "",
+  "summary": "The hard problems of LiveCodeBench (350 in release_v6), where models differ most. Per-problem results are public; good for learning when to pay for a stronger model.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/LiveCodeBench/LiveCodeBench",
+   "https://livecodebench.github.io/performances_generation.json",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/livecodebench (local copy of code_generation_lite: counts, dates, lengths)",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ]
+ },
+ "12.5": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.65,
+    "why": "different skill: contest programming, not question answering"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.65,
+    "why": "Contest problems (LeetCode/AtCoder/Codeforces, ~200-540 tokens) answered with one Python program checked by hidden tests: same prompt-to-tested-code shape as BigCodeBench, but algorithmic rather than library-heavy; Yugos's own catalog has LiveCodeBench v6 (used in pack v0.3.0)."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.65,
+    "why": "different skill: one-shot coding, no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+  "n_questions": 880,
+  "per_question_results": "yes",
+  "results_where": "https://livecodebench.github.io/v5.json",
+  "licence": "cc (version not stated on the dataset card)",
+  "overlap": "",
+  "summary": "Older release_v5 leaderboard: 880 contest problems (May 2023-Jan 2025), mostly a subset of release_v6; per-problem pass@1 is in v5.json. Same fit as 12.1, slightly staler.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/LiveCodeBench/LiveCodeBench",
+   "https://livecodebench.github.io/performances_generation.json",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/livecodebench (local copy of code_generation_lite: counts, dates, lengths)",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ]
+ },
+ "12.6": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.7,
+    "why": "different skill: contest programming, not question answering"
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.7,
+    "why": "Contest problems (LeetCode/AtCoder/Codeforces, ~200-540 tokens) answered with one Python program checked by hidden tests: same prompt-to-tested-code shape as BigCodeBench, but algorithmic rather than library-heavy; Yugos's own catalog has LiveCodeBench v6 (used in pack v0.3.0)."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "different skill: one-shot coding, no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": {
+   "cdf": {
+    "1": 0.08,
+    "2": 0.31,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "why": "Same problem pool as the release_v6 and release_v5 leaderboards (12.1 and 12.5), whose fitted level CDFs are 0.08/0.295-0.329/0.64/0.74; taken as their average."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+  "n_questions": 1055,
+  "per_question_results": "yes",
+  "results_where": "https://livecodebench.github.io/performances_generation.json",
+  "licence": "cc (version not stated on the dataset card)",
+  "overlap": "",
+  "summary": "The time-sliced dataset releases (v1 400 problems ... v6 1,055) of the same contest problems; not scored per version, but the problems themselves and per-problem results on the current leaderboard are public. Earlier slices (2023) are more likely memorised.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/LiveCodeBench/LiveCodeBench",
+   "https://livecodebench.github.io/performances_generation.json",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/livecodebench (local copy of code_generation_lite: counts, dates, lengths)",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ]
+ },
+ "12.7": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.7,
+    "F": 0.5,
+    "why": "different skill: fixing code, not question answering"
+   },
+   "math_code": {
+    "T": 0.7,
+    "I": 0.8,
+    "A": 0.9,
+    "Dm": 0.5,
+    "L": 0.7,
+    "F": 0.5,
+    "why": "Code generation with tests, but the prompt carries a contest problem plus the model's own failed program and execution feedback (a second-turn repair), so it is longer and depends on a prior attempt."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.6,
+    "F": 0.5,
+    "why": "different skill: one repair turn, no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://github.com/LiveCodeBench/LiveCodeBench",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "MIT (repository)",
+  "overlap": "",
+  "summary": "Repair prompts built from each model's own failed LiveCodeBench solutions plus test feedback; the base problems are public but the repair inputs must be generated per model. Only a static 2024 bar chart of 12 older models is published, so it adds little router data.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/LiveCodeBench/LiveCodeBench"
+  ]
+ },
+ "12.8": {
+  "scores": {
+   "chat": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.2,
+    "L": 1.0,
+    "F": 0.5,
+    "why": "Step-by-step tracing to one exact short answer, like BBEH's algorithmic puzzles, but every question is reading a Python function."
+   },
+   "math_code": {
+    "T": 0.6,
+    "I": 1.0,
+    "A": 0.75,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.5,
+    "why": "Predict a Python function's output for a given input (CRUXEval-O style, which Yugos's catalog lists under math_code and used in pack v0.3.0); checked by equality, but no code writing."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: code reasoning, no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/execution",
+  "n_questions": 479,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "479 short Python functions from LiveCodeBench problems with a call to evaluate; the model must state the exact output. Close in kind to CRUXEval-O, which Yugos has used before; only a static chart of 2024 models exists, no per-question results.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/livecodebench/execution",
+   "https://github.com/LiveCodeBench/LiveCodeBench",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ]
+ },
+ "12.9": {
+  "scores": {
+   "chat": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.2,
+    "L": 0.9,
+    "F": 0.5,
+    "why": "One exact answer worked out from a problem statement, but always predicting an algorithm's output on a test input, not knowledge or reading questions."
+   },
+   "math_code": {
+    "T": 0.5,
+    "I": 1.0,
+    "A": 0.75,
+    "Dm": 0.45,
+    "L": 0.9,
+    "F": 0.5,
+    "why": "Read a LeetCode-style problem and a test input and predict the exact expected output - code/algorithm reasoning without writing code; checked by exact match."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: code reasoning, no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/test_generation",
+  "n_questions": 442,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "cc (version not stated on the dataset card)",
+  "overlap": "",
+  "summary": "442 LeetCode-style problems (contests from May 2023) each with a test input; the model predicts the output. A related code-reasoning format with exact answers; only a static chart of 2024 models exists, no per-question results.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/livecodebench/test_generation",
+   "https://github.com/LiveCodeBench/LiveCodeBench"
+  ]
+ }
+}

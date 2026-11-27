@@ -1,0 +1,378 @@
+{
+ "batch": "D05",
+ "rows": [
+  {
+   "id": "mixinstruct",
+   "name": "MixInstruct",
+   "hf": "llm-blender/mix-instruct",
+   "url": "https://github.com/yuchenlin/LLM-Blender",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2023-05-31",
+    "last_modified": "2023-06-09",
+    "downloads": 1085,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 110000,
+    "rows_by_split": {
+     "default/train": 100000,
+     "default/validation": 5000,
+     "default/test": 5000
+    }
+   }
+  },
+  {
+   "id": "open_llm_lb_details",
+   "name": "Open LLM Leaderboard v2 per-sample details",
+   "hf": "open-llm-leaderboard/contents",
+   "url": "https://huggingface.co/open-llm-leaderboard",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2024-06-26",
+    "last_modified": "2025-03-20",
+    "downloads": 20665,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 4576,
+    "rows_by_split": {
+     "default/train": 4576
+    }
+   }
+  },
+  {
+   "id": "routellm_arena",
+   "name": "RouteLLM arena preference data",
+   "hf": "routellm/gpt4_dataset",
+   "url": "https://github.com/lm-sys/RouteLLM",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2024-06-11",
+    "last_modified": "2025-04-01",
+    "downloads": 384,
+    "size_category": "100K<n<1M",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 119101,
+    "rows_by_split": {
+     "default/train": 109101,
+     "default/validation": 10000
+    }
+   }
+  },
+  {
+   "id": "routerarena",
+   "name": "RouterArena",
+   "hf": "",
+   "url": "https://github.com/RouteWorks/RouterArena",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "routerbench",
+   "name": "RouterBench (per-question outcomes)",
+   "hf": "withmartian/routerbench",
+   "url": "https://github.com/withmartian/routerbench",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2024-03-04",
+    "last_modified": "2024-03-27",
+    "downloads": 7236,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "text-generation",
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "size_error": "timeout"
+   }
+  },
+  {
+   "id": "sprout",
+   "name": "SPROUT (CARROT router data)",
+   "hf": "CARROT-LLM-Routing/SPROUT",
+   "url": "https://huggingface.co/datasets/CARROT-LLM-Routing/SPROUT",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2025-02-04",
+    "last_modified": "2025-02-04",
+    "downloads": 1251,
+    "size_category": "10K<n<100K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 44241,
+    "rows_by_split": {
+     "default/train": 30968,
+     "default/validation": 6636,
+     "default/test": 6637
+    }
+   }
+  },
+  {
+   "id": "aime2024",
+   "name": "AIME 2024",
+   "hf": "Maxwell-Jia/AIME_2024",
+   "url": "https://artofproblemsolving.com/wiki/index.php/2024_AIME_I",
+   "group": "math_code",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2024-12-05",
+    "last_modified": "2025-02-18",
+    "downloads": 80480,
+    "size_category": "n<1K",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 30,
+    "rows_by_split": {
+     "default/train": 30
+    }
+   }
+  },
+  {
+   "id": "aime2025",
+   "name": "AIME 2025",
+   "hf": "math-ai/aime25",
+   "url": "https://artofproblemsolving.com/wiki/index.php/2025_AIME_I",
+   "group": "math_code",
+   "yugos": "catalog",
+   "list_no": "10.1",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2025-02-17",
+    "last_modified": "2026-01-19",
+    "downloads": 74234,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 30,
+    "rows_by_split": {
+     "default/test": 30
+    }
+   }
+  },
+  {
+   "id": "aime2026",
+   "name": "AIME 2026",
+   "hf": "math-ai/aime26",
+   "url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I",
+   "group": "math_code",
+   "yugos": "catalog",
+   "list_no": "10.2",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2026-02-20",
+    "last_modified": "2026-02-21",
+    "downloads": 23292,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 30,
+    "rows_by_split": {
+     "default/test": 30
+    }
+   }
+  },
+  {
+   "id": "amc23",
+   "name": "AMC 2023",
+   "hf": "math-ai/amc23",
+   "url": "https://artofproblemsolving.com/wiki/index.php/AMC_12_Problems_and_Solutions",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2025-02-13",
+    "last_modified": "2025-02-16",
+    "downloads": 12345,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 40,
+    "rows_by_split": {
+     "default/test": 40
+    }
+   }
+  },
+  {
+   "id": "apps",
+   "name": "APPS",
+   "hf": "codeparrot/apps",
+   "url": "https://github.com/hendrycks/apps",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "mit"
+    ],
+    "gated": false,
+    "created": "2022-06-15",
+    "last_modified": "2022-10-20",
+    "downloads": 31771,
+    "size_category": null,
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "code"
+    ],
+    "size_error": "timeout"
+   }
+  },
+  {
+   "id": "aqua_rat",
+   "name": "AQuA-RAT",
+   "hf": "deepmind/aqua_rat",
+   "url": "https://github.com/google-deepmind/AQuA",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "apache-2.0"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-09",
+    "downloads": 18930,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 195950,
+    "rows_by_split": {
+     "raw/train": 97467,
+     "raw/test": 254,
+     "raw/validation": 254,
+     "tokenized/train": 97467,
+     "tokenized/test": 254,
+     "tokenized/validation": 254
+    }
+   }
+  },
+  {
+   "id": "arxivmath",
+   "name": "ArXivMath (MathArena)",
+   "hf": "MathArena/arxivmath-0826",
+   "url": "https://matharena.ai",
+   "group": "math_code",
+   "yugos": "live",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-sa-4.0",
+    "gated": false,
+    "created": "2026-09-13",
+    "last_modified": "2026-09-13",
+    "downloads": 1351,
+    "size_category": "n<1K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 57,
+    "rows_by_split": {
+     "default/train": 57
+    }
+   }
+  },
+  {
+   "id": "asdiv",
+   "name": "ASDiv",
+   "hf": "EleutherAI/asdiv",
+   "url": "https://github.com/chaochun/nlu-asdiv-dataset",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-nc-4.0",
+    "gated": false,
+    "created": "2023-07-07",
+    "last_modified": "2025-09-01",
+    "downloads": 20682,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 2305,
+    "rows_by_split": {
+     "asdiv/validation": 2305
+    }
+   }
+  },
+  {
+   "id": "bigcodebench",
+   "name": "BigCodeBench (complete)",
+   "hf": "bigcode/bigcodebench",
+   "url": "https://bigcode-bench.github.io",
+   "group": "math_code",
+   "yugos": "live",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2024-06-05",
+    "last_modified": "2025-04-30",
+    "downloads": 182945,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [
+     "code"
+    ],
+    "rows_total": 5700,
+    "rows_by_split": {
+     "default/v0.1.0_hf": 1140,
+     "default/v0.1.1": 1140,
+     "default/v0.1.2": 1140,
+     "default/v0.1.3": 1140,
+     "default/v0.1.4": 1140
+    }
+   }
+  }
+ ]
+}

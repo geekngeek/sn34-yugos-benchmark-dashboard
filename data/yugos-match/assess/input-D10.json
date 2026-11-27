@@ -1,0 +1,181 @@
+{
+ "batch": "D10",
+ "rows": [
+  {
+   "id": "tau2_banking",
+   "name": "tau2-bench banking",
+   "hf": "",
+   "url": "https://github.com/sierra-research/tau2-bench",
+   "group": "agentic",
+   "yugos": "catalog",
+   "list_no": "16.7",
+   "hub": {}
+  },
+  {
+   "id": "tau2_retail",
+   "name": "tau2-bench retail",
+   "hf": "",
+   "url": "https://github.com/sierra-research/tau2-bench",
+   "group": "agentic",
+   "yugos": "catalog",
+   "list_no": "16.4",
+   "hub": {}
+  },
+  {
+   "id": "tau2_telecom",
+   "name": "tau2-bench telecom",
+   "hf": "",
+   "url": "https://github.com/sierra-research/tau2-bench",
+   "group": "agentic",
+   "yugos": "catalog",
+   "list_no": "16.6",
+   "hub": {}
+  },
+  {
+   "id": "tau_bench_v1",
+   "name": "tau-bench (original) retail + airline",
+   "hf": "",
+   "url": "https://github.com/sierra-research/tau-bench",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "terminal_bench",
+   "name": "Terminal-Bench 2.0",
+   "hf": "",
+   "url": "https://www.tbench.ai",
+   "group": "agentic",
+   "yugos": "catalog",
+   "list_no": "14.5",
+   "hub": {}
+  },
+  {
+   "id": "toolace",
+   "name": "ToolACE",
+   "hf": "Team-ACE/ToolACE",
+   "url": "https://huggingface.co/datasets/Team-ACE/ToolACE",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2024-08-21",
+    "last_modified": "2024-09-04",
+    "downloads": 12899,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "rows_total": 11300,
+    "rows_by_split": {
+     "default/train": 11300
+    }
+   }
+  },
+  {
+   "id": "toolbench",
+   "name": "ToolBench",
+   "hf": "",
+   "url": "https://github.com/OpenBMB/ToolBench",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "toolhop",
+   "name": "ToolHop",
+   "hf": "bytedance-research/ToolHop",
+   "url": "https://huggingface.co/datasets/bytedance-research/ToolHop",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2025-01-07",
+    "last_modified": "2026-04-11",
+    "downloads": 2725,
+    "size_category": null,
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "size_error": "timeout"
+   }
+  },
+  {
+   "id": "toolsandbox",
+   "name": "ToolSandbox",
+   "hf": "",
+   "url": "https://github.com/apple/ToolSandbox",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "when2call",
+   "name": "When2Call",
+   "hf": "nvidia/When2Call",
+   "url": "https://github.com/NVIDIA/When2Call",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-4.0",
+    "gated": false,
+    "created": "2025-04-26",
+    "last_modified": "2025-04-29",
+    "downloads": 12119,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 27952,
+    "rows_by_split": {
+     "test/llm_judge": 300,
+     "test/mcq": 3652,
+     "train_pref/train": 9000,
+     "train_sft/train": 15000
+    }
+   }
+  },
+  {
+   "id": "xlam_fc60k",
+   "name": "xLAM function-calling-60k",
+   "hf": "Salesforce/xlam-function-calling-60k",
+   "url": "https://apigen-pipeline.github.io",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-4.0",
+    "gated": "auto",
+    "created": "2024-06-13",
+    "last_modified": "2025-01-24",
+    "downloads": 17587,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "question-answering",
+     "text-generation",
+     "reinforcement-learning"
+    ],
+    "languages": [
+     "en"
+    ],
+    "size_error": 404
+   }
+  }
+ ]
+}

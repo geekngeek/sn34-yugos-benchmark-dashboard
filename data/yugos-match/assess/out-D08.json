@@ -1,0 +1,497 @@
+{
+  "olympiadbench": {
+    "scores": {
+      "chat": {"T": 0.3, "I": 1.0, "A": 0.8, "Dm": 0.3, "L": 0.9, "F": 0.5, "why": "Hard olympiad maths/physics with short exact answers overlaps the maths share of hle, but chat is mostly puzzles, reading, facts and multiple choice."},
+      "math_code": {"T": 0.8, "I": 1.0, "A": 0.9, "Dm": 0.65, "L": 0.9, "F": 0.5, "why": "The English text-only open-ended maths part (674 problems) is competition maths with a final numeric/expression answer checked automatically, close to math/arxivmath; physics, proof (TP) and image subsets fit less."},
+      "agentic": {"T": 0.05, "I": 0.1, "A": 0.1, "Dm": 0.1, "L": 0.5, "F": 0.5, "why": "different skill: no tools"}
+    },
+    "best_part": "math_code:public",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": {"model": "Llama-3.1-8B-Instruct", "score": 0.154, "source": "https://arxiv.org/html/2409.12122"},
+      "2": {"model": "GPT-4o-2024-08-06", "score": 0.433, "source": "https://arxiv.org/html/2409.12122"},
+      "3": null,
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "mixed",
+    "questions_public": "yes",
+    "questions_where": "https://huggingface.co/datasets/Hothan/OlympiadBench",
+    "n_questions": 8476,
+    "per_question_results": "unknown",
+    "results_where": null,
+    "licence": "apache-2.0 (Hugging Face card); the GitHub repo states MIT",
+    "overlap": "",
+    "languages": ["en", "zh"],
+    "release_year": 2024,
+    "summary": "8,476 olympiad and Chinese college-entrance maths and physics problems (Feb 2024, ACL 2024), split into 18 subsets by open-ended vs proof, text-only vs image, English vs Chinese; only about 1,440 are English text-only (674 open-ended maths, 236 open-ended physics, 528 proof). The English open-ended maths set (the one usually called OlympiadBench) is good extra competition-maths data for the math part; anchor scores are on that subset (Qwen2.5-Math report Table 3). No late-2025 frontier score found.",
+    "confidence": "medium",
+    "sources": [
+      "https://huggingface.co/datasets/Hothan/OlympiadBench",
+      "https://github.com/OpenBMB/OlympiadBench",
+      "https://arxiv.org/html/2409.12122"
+    ]
+  },
+  "omni_math": {
+    "scores": {
+      "chat": {"T": 0.3, "I": 1.0, "A": 0.7, "Dm": 0.3, "L": 0.9, "F": 0.5, "why": "Olympiad maths with a short final answer matches only the maths share of hle; the rest of chat is other skills."},
+      "math_code": {"T": 0.85, "I": 1.0, "A": 0.8, "Dm": 0.7, "L": 0.9, "F": 0.5, "why": "One text problem to one final answer across 33 maths sub-domains and 10 difficulty levels, like math/arxivmath; graded by a GPT-4o or Omni-Judge LLM judge (rule-based for a subset) rather than strict boxed matching; no code."},
+      "agentic": {"T": 0.05, "I": 0.1, "A": 0.1, "Dm": 0.1, "L": 0.5, "F": 0.5, "why": "different skill: no tools"}
+    },
+    "best_part": "math_code:public",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": {"model": "Llama-3.1-8B-Instruct", "score": 0.127, "source": "https://huggingface.co/nvidia/OpenMath2-Llama3.1-8B"},
+      "2": {"model": "GPT-4o", "score": 0.3049, "source": "https://omni-math.github.io"},
+      "3": {"model": "GPT-5 (on Omni-MATH-2-Filtered, 4,181 cleaned problems, GPT-5-mini judge)", "score": 0.8453, "source": "https://arxiv.org/html/2601.19532v1"},
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "yes",
+    "questions_where": "https://huggingface.co/datasets/KbsdJames/Omni-MATH",
+    "n_questions": 4428,
+    "per_question_results": "no",
+    "results_where": null,
+    "licence": "apache-2.0",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2024,
+    "summary": "4,428 olympiad-level competition problems (Oct 2024) with difficulty 1-9.5, domain tags, a reference solution and a final answer. Strong candidate for extra hard maths items; a 2026 audit found 61 problems need a missing image, 115 are proofs, 54 are estimation and some reference answers are wrong, so use the cleaned Omni-MATH-2 list. No per-model matrix; only ProcessBench (pragsri8/omnimath) has 1,000 single-model solutions with correctness flags. Overlap with the MATH set was not checked.",
+    "confidence": "medium",
+    "sources": [
+      "https://omni-math.github.io",
+      "https://huggingface.co/datasets/KbsdJames/Omni-MATH",
+      "https://github.com/KbsdJames/Omni-MATH",
+      "https://arxiv.org/html/2601.19532v1",
+      "https://huggingface.co/nvidia/OpenMath2-Llama3.1-8B",
+      "https://huggingface.co/datasets/pragsri8/omnimath"
+    ]
+  },
+  "pandas_numpy_eval": {
+    "scores": {
+      "chat": {"T": 0.1, "I": 1.0, "A": 0.1, "Dm": 0.2, "L": 0.9, "F": 0.3, "why": "different skill: writing pandas/numpy code, not answering questions"},
+      "math_code": {"T": 0.85, "I": 1.0, "A": 0.9, "Dm": 0.8, "L": 0.9, "F": 0.3, "why": "Code fill-in from a short stub with a comment (StackOverflow-style pandas/numpy tasks), executed against asserts: nearly the ds1000 shape and libraries, but only pandas and numpy and mostly one-line answers."},
+      "agentic": {"T": 0.05, "I": 0.1, "A": 0.1, "Dm": 0.1, "L": 0.5, "F": 0.3, "why": "different skill: no tools"}
+    },
+    "best_part": "math_code:public",
+    "level_guess": {"cdf": {"1": 0.55, "2": 0.8, "3": 0.9, "4": 0.93}, "why": "No score for the four model groups found. Problems are one-line idioms from high-vote StackOverflow posts (median prompt about 60 tokens); even 2021 Codex 12B passes 18.9% (pandas) / 34.4% (numpy) pass@1 and GPT-3 175B 13-16% (CERT paper Table 4), so modern models should solve most. Kept below 1.0 at L4 because some tests use np.float, removed in NumPy 1.24, which fails on a modern stack."},
+    "anchor_scores": {"1": null, "2": null, "3": null, "4": null},
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "yes",
+    "questions_where": "https://github.com/microsoft/PyCodeGPT/tree/main/cert/pandas-numpy-eval/data",
+    "n_questions": 202,
+    "per_question_results": "no",
+    "results_where": null,
+    "licence": "MIT (repository licence)",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2022,
+    "summary": "PandasEval and NumpyEval: 101 + 101 HumanEval-style tasks (2022, CERT paper) made from high-vote StackOverflow pandas/numpy posts: a short code context with a comment, the model completes the code, hidden asserts run it. Very close in shape to ds1000 but small, old (likely memorized), mostly one-liners and needing an old NumPy for some tests. DS-1000 is also built from StackOverflow posts; shared source posts were not checked.",
+    "confidence": "high",
+    "sources": [
+      "https://github.com/microsoft/PyCodeGPT/tree/main/cert",
+      "https://raw.githubusercontent.com/microsoft/PyCodeGPT/main/cert/pandas-numpy-eval/README.md",
+      "https://raw.githubusercontent.com/microsoft/PyCodeGPT/main/cert/pandas-numpy-eval/data/PandasEval.jsonl.gz",
+      "https://raw.githubusercontent.com/microsoft/PyCodeGPT/main/cert/pandas-numpy-eval/data/NumpyEval.jsonl.gz",
+      "https://arxiv.org/pdf/2206.06888"
+    ]
+  },
+  "smt_2025": {
+    "scores": {
+      "chat": {"T": 0.3, "I": 1.0, "A": 0.9, "Dm": 0.3, "L": 0.9, "F": 0.85, "why": "Competition maths with a short exact answer matches only the maths share of hle."},
+      "math_code": {"T": 0.9, "I": 1.0, "A": 0.95, "Dm": 0.75, "L": 0.9, "F": 0.85, "why": "Fresh 2025 competition problems (algebra, geometry, combinatorics, number theory), one prompt to one final answer parsed and checked exactly, very like math; no code."},
+      "agentic": {"T": 0.05, "I": 0.1, "A": 0.1, "Dm": 0.1, "L": 0.5, "F": 0.85, "why": "different skill: no tools"}
+    },
+    "best_part": "math_code:private",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": null,
+      "2": null,
+      "3": {"model": "GPT-5 (high), 195 of 212 runs correct (4 runs x 53 problems)", "score": 0.92, "source": "https://huggingface.co/datasets/MathArena/smt_2025_outputs"},
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "yes",
+    "questions_where": "https://huggingface.co/datasets/MathArena/smt_2025",
+    "n_questions": 53,
+    "per_question_results": "yes",
+    "results_where": "https://huggingface.co/datasets/MathArena/smt_2025_outputs",
+    "licence": "cc-by-nc-sa-4.0",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2025,
+    "summary": "53 Stanford Math Tournament 2025 problems with exact final answers. Only 53 items, but MathArena publishes every run: 10,875 rows for 43 model configs (GPT-5 family, o3, o4-mini, Gemini 2.5/3 Pro, Claude 3.7/Sonnet 4.5, DeepSeek, Qwen3, GLM, Kimi, Grok...) x 4 runs, with full output, correctness, tokens and cost per run. That is ready-made router training data (quality and cost per model per question). Other measured: Gemini 3 Pro 198/212, Claude Sonnet 4.5 (Think) 178/212. Licence is non-commercial.",
+    "confidence": "high",
+    "sources": [
+      "https://huggingface.co/datasets/MathArena/smt_2025",
+      "https://huggingface.co/datasets/MathArena/smt_2025_outputs",
+      "https://datasets-server.huggingface.co/statistics?dataset=MathArena/smt_2025_outputs&config=default&split=train",
+      "https://matharena.ai/"
+    ]
+  },
+  "spider": {
+    "scores": {
+      "chat": {"T": 0.1, "I": 1.0, "A": 0.1, "Dm": 0.2, "L": 0.9, "F": 0.2, "why": "different skill: writing SQL queries, not answering questions"},
+      "math_code": {"T": 0.45, "I": 1.0, "A": 0.7, "Dm": 0.3, "L": 0.85, "F": 0.2, "why": "Code generation checked by running it (execution accuracy), but in SQL over a given database schema rather than Python with pandas/numpy libraries."},
+      "agentic": {"T": 0.1, "I": 0.2, "A": 0.1, "Dm": 0.1, "L": 0.8, "F": 0.2, "why": "different skill: no tool calls, one query output"}
+    },
+    "best_part": "math_code:public",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": {"model": "Meta-Llama-3.1-8B-Instruct (Spider test, execution accuracy, greedy)", "score": 0.722, "source": "https://arxiv.org/html/2503.02240"},
+      "2": {"model": "GPT-4o (Spider test, execution accuracy, greedy)", "score": 0.832, "source": "https://arxiv.org/html/2503.02240"},
+      "3": null,
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "yes",
+    "questions_where": "https://huggingface.co/datasets/xlangai/spider (train/dev; test set and the 200 databases from https://yale-lily.github.io/spider)",
+    "n_questions": 10181,
+    "per_question_results": "unknown",
+    "results_where": null,
+    "licence": "cc-by-sa-4.0",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2018,
+    "summary": "Spider 1.0 (2018): 10,181 English questions over 200 databases, the model writes a SQL query that is executed and compared with the gold result. A related code skill (data querying) with an executed checker, but SQL not Python, old and heavily trained on; the leaderboard is closed since Feb 2024. The Hugging Face rows hold only question, query and db_id: database files and schemas must be fetched from the Spider site.",
+    "confidence": "medium",
+    "sources": [
+      "https://yale-lily.github.io/spider",
+      "https://datasets-server.huggingface.co/statistics?dataset=xlangai/spider&config=spider&split=validation",
+      "https://arxiv.org/html/2503.02240"
+    ]
+  },
+  "svamp": {
+    "scores": {
+      "chat": {"T": 0.4, "I": 1.0, "A": 0.85, "Dm": 0.3, "L": 0.9, "F": 0.2, "why": "Very easy one-line word problems with a single number answer could resemble easy private chat items, but chat's public sets are puzzles, reading, facts and MC."},
+      "math_code": {"T": 0.6, "I": 1.0, "A": 0.9, "Dm": 0.35, "L": 0.9, "F": 0.2, "why": "Maths with an exact numeric answer like math, but grade-school one- or two-step arithmetic, far below MATH competition and arxivmath research level."},
+      "agentic": {"T": 0.05, "I": 0.1, "A": 0.1, "Dm": 0.1, "L": 0.5, "F": 0.2, "why": "different skill: no tools"}
+    },
+    "best_part": "math_code:public",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": {"model": "Llama-3.1-8B", "score": 0.827, "source": "https://arxiv.org/pdf/2608.07827"},
+      "2": {"model": "GPT-4o (8-shot CoT, accuracy)", "score": 0.94, "source": "https://arxiv.org/pdf/2408.10839"},
+      "3": null,
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "yes",
+    "questions_where": "https://huggingface.co/datasets/ChilleD/SVAMP",
+    "n_questions": 1000,
+    "per_question_results": "unknown",
+    "results_where": null,
+    "licence": "mit",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2021,
+    "summary": "SVAMP (NAACL 2021): 1,000 elementary maths word problems (700 train / 300 test) with body, question, equation and numeric answer. Easy, old and heavily trained on; useful only as an easy end of the maths mix (where a cheap model is enough), not for the hard math_code items.",
+    "confidence": "medium",
+    "sources": [
+      "https://huggingface.co/datasets/ChilleD/SVAMP",
+      "https://arxiv.org/pdf/2608.07827",
+      "https://arxiv.org/pdf/2408.10839"
+    ]
+  },
+  "taco": {
+    "scores": {
+      "chat": {"T": 0.1, "I": 1.0, "A": 0.1, "Dm": 0.2, "L": 0.8, "F": 0.3, "why": "different skill: writing programs, not answering questions"},
+      "math_code": {"T": 0.85, "I": 1.0, "A": 0.9, "Dm": 0.5, "L": 0.8, "F": 0.3, "why": "Contest programming problems solved with Python and checked on many hidden input/output tests (about 202 per test problem), like LiveCodeBench; algorithmic rather than the library-use code of bigcodebench/ds1000."},
+      "agentic": {"T": 0.05, "I": 0.1, "A": 0.1, "Dm": 0.1, "L": 0.5, "F": 0.3, "why": "different skill: no tools"}
+    },
+    "best_part": "math_code:private",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": null,
+      "2": {"model": "GPT-4 (version not stated; Dec 2023 paper), pass@1 averaged over the 5 difficulty bins of 200 test problems each", "score": 0.14, "source": "https://arxiv.org/html/2312.14852"},
+      "3": null,
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "yes",
+    "questions_where": "https://huggingface.co/datasets/BAAI/TACO",
+    "n_questions": 26443,
+    "per_question_results": "no",
+    "results_where": null,
+    "licence": "apache-2.0 (some parts MIT / CC BY 4.0)",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2023,
+    "summary": "TACO (Dec 2023): 26,443 contest programming problems (25,443 train, 1,000 test at 5 difficulty levels) from Codeforces, AtCoder, LeetCode, CodeChef and others, with tests and 1.55M verified Python solutions. A big pool of code items with executable checking; about 70% of problems come from APPS/CodeContests (older, likely memorized), a few rely on images (picture_num), and the Hugging Face copy needs its loading script. GPT-4 scored 31.5% (easy) down to 2% (very hard).",
+    "confidence": "medium",
+    "sources": [
+      "https://huggingface.co/datasets/BAAI/TACO",
+      "https://arxiv.org/html/2312.14852"
+    ]
+  },
+  "theoremqa": {
+    "scores": {
+      "chat": {"T": 0.5, "I": 1.0, "A": 0.85, "Dm": 0.5, "L": 0.9, "F": 0.35, "why": "University STEM questions (maths, physics, EE&CS, finance) with a short exact answer, close to the STEM parts of hle and mmlu_pro but not multiple choice."},
+      "math_code": {"T": 0.7, "I": 1.0, "A": 0.85, "Dm": 0.55, "L": 0.9, "F": 0.35, "why": "Theorem-applying problems with a numeric/boolean/list answer checked automatically, like math; about half is applied physics/EE/finance instead of pure maths, and no code."},
+      "agentic": {"T": 0.05, "I": 0.1, "A": 0.1, "Dm": 0.1, "L": 0.5, "F": 0.35, "why": "different skill: no tools"}
+    },
+    "best_part": "math_code:public",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": {"model": "Llama-3-8B-Instruct", "score": 0.228, "source": "https://arxiv.org/html/2405.03548"},
+      "2": {"model": "GPT-4-Turbo-0409", "score": 0.484, "source": "https://arxiv.org/html/2405.03548"},
+      "3": null,
+      "4": null
+    },
+    "guess_floor": 0.08,
+    "modality": "mixed",
+    "questions_public": "yes",
+    "questions_where": "https://huggingface.co/datasets/TIGER-Lab/TheoremQA",
+    "n_questions": 800,
+    "per_question_results": "unknown",
+    "results_where": null,
+    "licence": "mit",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2023,
+    "summary": "TheoremQA (EMNLP 2023): 800 questions built around 350+ theorems in maths, physics, EE&CS and finance; answers are integer 216, float 378, bool 115, lists 73, option 18. 53 questions carry an image (drop them for Yugos). Short prompts (median about 160 characters). Useful as university-STEM exact-answer items for math and for hle/mmlu_pro-like chat; guess floor reflects the yes/no and option answers.",
+    "confidence": "medium",
+    "sources": [
+      "https://huggingface.co/datasets/TIGER-Lab/TheoremQA",
+      "https://github.com/TIGER-AI-Lab/TheoremQA",
+      "https://datasets-server.huggingface.co/statistics?dataset=TIGER-Lab/TheoremQA&config=default&split=test",
+      "https://arxiv.org/html/2405.03548"
+    ]
+  },
+  "u_math": {
+    "scores": {
+      "chat": {"T": 0.3, "I": 1.0, "A": 0.7, "Dm": 0.3, "L": 0.9, "F": 0.7, "why": "University maths with a judged final answer touches only the maths share of hle."},
+      "math_code": {"T": 0.85, "I": 1.0, "A": 0.8, "Dm": 0.7, "L": 0.9, "F": 0.7, "why": "One text problem to a boxed final answer, like math/arxivmath, on university topics (precalculus to multivariable calculus and series); graded by an LLM judge against a reference solution, not exact match; 200 of 1,100 need an image."},
+      "agentic": {"T": 0.05, "I": 0.1, "A": 0.1, "Dm": 0.1, "L": 0.5, "F": 0.7, "why": "different skill: no tools"}
+    },
+    "best_part": "math_code:public",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": {"model": "Llama-3.1 8B (text-only part, 900 problems)", "score": 0.337, "source": "https://arxiv.org/html/2412.03205"},
+      "2": {"model": "GPT-4o (text-only part, 900 problems)", "score": 0.539, "source": "https://arxiv.org/html/2412.03205"},
+      "3": null,
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "mixed",
+    "questions_public": "yes",
+    "questions_where": "https://huggingface.co/datasets/toloka/u-math",
+    "n_questions": 1100,
+    "per_question_results": "yes",
+    "results_where": "https://huggingface.co/datasets/toloka/mu-math",
+    "licence": "mit",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2024,
+    "summary": "U-MATH (Dec 2024): 1,100 previously unpublished university maths problems from real teaching materials, 6 topics, 900 text-only and 200 with images; free-form answers judged by an LLM (o3-mini in the paper). The 900 text problems are good fresh maths items. Per-question outcomes are limited: mu-MATH has 1,084 expert-labelled solutions from 4 models (Llama-3.1 70B, Qwen2.5 72B, GPT-4o, Gemini 1.5 Pro) on 271 problems. o1 reached 93.1% on the text part.",
+    "confidence": "medium",
+    "sources": [
+      "https://huggingface.co/datasets/toloka/u-math/raw/main/README.md",
+      "https://huggingface.co/datasets/toloka/mu-math/raw/main/README.md",
+      "https://arxiv.org/html/2412.03205",
+      "https://github.com/Toloka/u-math",
+      "https://toloka.ai/math-benchmark"
+    ]
+  },
+  "acebench": {
+    "scores": {
+      "chat": {"T": 0.05, "I": 0.2, "A": 0.1, "Dm": 0.2, "L": 0.6, "F": 0.75, "why": "different skill: choosing function calls, not answering questions"},
+      "math_code": {"T": 0.05, "I": 0.2, "A": 0.1, "Dm": 0.1, "L": 0.6, "F": 0.75, "why": "different skill: function calling, no maths or code writing"},
+      "agentic": {"T": 0.9, "I": 0.9, "A": 0.9, "Dm": 0.8, "L": 0.9, "F": 0.75, "why": "JSON-schema tools in the prompt and the expected call compared by AST, with irrelevant/incomplete/error cases where no call is right, almost the bfcl shape; also 50 multi-turn/multi-step agent tasks with a simulated user graded on end state."}
+    },
+    "best_part": "agentic:public",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": {"model": "Llama-3.1-8B-Instruct (overall)", "score": 0.338, "source": "https://github.com/ACEBench/ACEBench"},
+      "2": {"model": "GPT-4o-2024-11-20 (overall)", "score": 0.896, "source": "https://github.com/ACEBench/ACEBench"},
+      "3": {"model": "GPT-5 (High), ACEBench-en (metric not stated in that report)", "score": 0.793, "source": "https://arxiv.org/html/2602.04705v1"},
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "yes",
+    "questions_where": "https://github.com/ACEBench/ACEBench/tree/main/data_all",
+    "n_questions": 1023,
+    "per_question_results": "no",
+    "results_where": null,
+    "licence": "MIT",
+    "overlap": "",
+    "languages": ["en", "zh"],
+    "release_year": 2025,
+    "summary": "ACEBench (Jan 2025, answers fixed Oct 2025): tool-use test with 4,538 APIs; I counted 1,023 English items in 17 files (single/parallel calls, multi-turn, similar APIs, preferences, 6 parameter-type sets, 150 special cases with incomplete, wrong or irrelevant requests, 50 agent tasks), plus a parallel Chinese copy. It is the closest match to the public bfcl part. Median item about 3,400 characters with schemas. The GPT-5 score comes from another report (ERNIE 5.0) and is lower than the repo's GPT-4o score, so it is probably not the same metric.",
+    "confidence": "high",
+    "sources": [
+      "https://github.com/ACEBench/ACEBench",
+      "https://raw.githubusercontent.com/ACEBench/ACEBench/main/category.py",
+      "https://raw.githubusercontent.com/ACEBench/ACEBench/main/data_all/data_en/data_normal_single_turn_single_function.json",
+      "https://arxiv.org/html/2501.12851",
+      "https://arxiv.org/html/2602.04705v1",
+      "https://sota2.com/research/sota/agent-performance-on-acebench-en"
+    ]
+  },
+  "agent_bench_os": {
+    "scores": {
+      "chat": {"T": 0.05, "I": 0.2, "A": 0.3, "Dm": 0.1, "L": 0.7, "F": 0.4, "why": "different skill: needs a live Linux shell to find the answer"},
+      "math_code": {"T": 0.2, "I": 0.3, "A": 0.5, "Dm": 0.2, "L": 0.7, "F": 0.4, "why": "Writing bash/python commands is code-like, but done step by step in a shell and graded on the answer or system state, not on one function with unit tests."},
+      "agentic": {"T": 0.75, "I": 0.8, "A": 0.8, "Dm": 0.5, "L": 0.7, "F": 0.4, "why": "Multi-step tool use (one bash tool in a Docker box, up to 8+ rounds) graded on the final answer or a check script on the machine state, like the guessed private shape; topic is Linux admin, not API/customer-service tools."}
+    },
+    "best_part": "agentic:private",
+    "level_guess": {"cdf": {"1": 0.5, "2": 0.8, "3": 0.93, "4": 0.97}, "why": "Paper scores (gpt-3.5-turbo 32.6%, gpt-4 42.4% on 144 tasks) were on tasks the Inspect port later found broken; on the fixed Inspect v4 test split (the one Yugos runs) glm-5.3-flash scored 95.8% and deepseek-v4-flash 97.5% (N=119), so most tasks are easy for any recent model. No group 1-2 score on the fixed tasks, so lower levels are estimated."},
+    "anchor_scores": {"1": null, "2": null, "3": null, "4": null},
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "yes",
+    "questions_where": "https://github.com/THUDM/AgentBench/tree/main/data/os_interaction/data (fixed copy in the inspect_evals package, agent_bench/data)",
+    "n_questions": 145,
+    "per_question_results": "unknown",
+    "results_where": null,
+    "licence": "Apache-2.0 (AgentBench repo)",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2023,
+    "summary": "AgentBench OS (Aug 2023): 26 dev + 119 test tasks (Inspect v4; 144 in the paper) where the model uses a bash shell in a Docker machine to answer a question (count users, find an interval) or change the system, checked by answer match or a check script. It is in Yugos's runnable catalog (inspect_evals agent_bench_os, test split), so it may be one source of the hidden agentic questions (not confirmed); it needs Docker to run. Local copy: /root/cic/sn34-yugos/research/benchmarks/catalog/agent_bench_os.",
+    "confidence": "medium",
+    "sources": [
+      "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/inspect_evals/agent_bench/README.md",
+      "/root/cic/sn34-yugos/research/benchmarks/catalog/agent_bench_os/inspect_evals_data/agent_bench_os_test.json",
+      "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py",
+      "https://arxiv.org/html/2308.03688",
+      "https://raw.githubusercontent.com/THUDM/AgentBench/main/LICENSE"
+    ]
+  },
+  "api_bank": {
+    "scores": {
+      "chat": {"T": 0.05, "I": 0.3, "A": 0.1, "Dm": 0.2, "L": 0.8, "F": 0.4, "why": "different skill: producing an API call, not an answer"},
+      "math_code": {"T": 0.05, "I": 0.3, "A": 0.1, "Dm": 0.1, "L": 0.8, "F": 0.4, "why": "different skill: API calling, no maths or code writing"},
+      "agentic": {"T": 0.8, "I": 0.75, "A": 0.75, "Dm": 0.6, "L": 0.9, "F": 0.4, "why": "API descriptions plus dialogue history in the prompt and one call to produce, checked by running it, close to bfcl single-turn; but text API descriptions and a [Name(key=value)] format instead of JSON schemas, and few no-call cases."}
+    },
+    "best_part": "agentic:public",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": {"model": "LLaMA-3.1-8B-Instruct (Call level)", "score": 0.7118, "source": "https://arxiv.org/html/2409.00920"},
+      "2": {"model": "gpt-4o-2024-05-13 (Call level)", "score": 0.7619, "source": "https://arxiv.org/html/2409.00920"},
+      "3": null,
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "yes",
+    "questions_where": "https://huggingface.co/datasets/liminghao1630/API-Bank/tree/main/test-data",
+    "n_questions": 753,
+    "per_question_results": "no",
+    "results_where": null,
+    "licence": "mit",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2023,
+    "summary": "API-Bank (EMNLP 2023): evaluation set of 73 runnable APIs, 314 dialogues and 753 API calls in three levels (call, retrieve+call, plan+retrieve+call), plus a 1,888-dialogue training set. Each item gives API descriptions and the dialogue so far and asks for the next API request (level-1 file: 399 items, median about 2,000 characters). Good BFCL-like extra data; scores top out near 76% even for GPT-4o, likely label noise, so it separates models weakly.",
+    "confidence": "medium",
+    "sources": [
+      "https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/api-bank",
+      "https://arxiv.org/abs/2304.08244",
+      "https://huggingface.co/datasets/liminghao1630/API-Bank/resolve/main/test-data/level-1-api.json",
+      "https://arxiv.org/html/2409.00920"
+    ]
+  },
+  "apigen_mt": {
+    "scores": {
+      "chat": {"T": 0.05, "I": 0.2, "A": 0.1, "Dm": 0.2, "L": 0.4, "F": 0.7, "why": "different skill: multi-turn customer-service tool dialogues"},
+      "math_code": {"T": 0.05, "I": 0.2, "A": 0.1, "Dm": 0.1, "L": 0.4, "F": 0.7, "why": "different skill: tool use, no maths or code writing"},
+      "agentic": {"T": 0.85, "I": 0.9, "A": 0.45, "Dm": 0.75, "L": 0.6, "F": 0.7, "why": "tau-bench style retail/airline conversations with a policy, tools and many calls, just like the guessed private shape; but they are training trajectories with no grader shipped (calls can be matched turn by turn, end-state needs the tau-bench environment) and long policy prompts."}
+    },
+    "best_part": "agentic:private",
+    "level_guess": null,
+    "anchor_scores": {"1": null, "2": null, "3": null, "4": null},
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "yes",
+    "questions_where": "https://huggingface.co/datasets/Salesforce/APIGen-MT-5k",
+    "n_questions": 5000,
+    "per_question_results": "no",
+    "results_where": null,
+    "licence": "cc-by-nc-4.0 (card also says: research use only; part generated with GPT-4, not to be used to build models that compete with OpenAI; card asks users to accept terms)",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2025,
+    "summary": "APIGen-MT-5k (Apr 2025): 5,000 verified multi-turn agent dialogues (human, function_call, observation, gpt turns, plus tools and the domain policy) generated with GPT-4o and DeepSeek-V3 in the tau-bench retail and airline environments; a training set for xLAM-2, not a test. Closest in shape to the guessed hidden agentic tasks (tau2-like), but there are no model scores per task, no difficulty data, and the non-commercial / no-competing-model terms must be checked before using it for router training.",
+    "confidence": "low",
+    "sources": [
+      "https://huggingface.co/datasets/Salesforce/APIGen-MT-5k",
+      "https://apigen-mt.github.io"
+    ]
+  },
+  "appworld": {
+    "scores": {
+      "chat": {"T": 0.05, "I": 0.1, "A": 0.1, "Dm": 0.2, "L": 0.2, "F": 0.7, "why": "different skill: long interactive app tasks"},
+      "math_code": {"T": 0.35, "I": 0.3, "A": 0.6, "Dm": 0.3, "L": 0.3, "F": 0.7, "why": "The agent writes Python that calls app APIs and is checked by unit tests, but step by step in an environment over many turns, not one function from one prompt."},
+      "agentic": {"T": 0.7, "I": 0.7, "A": 0.85, "Dm": 0.6, "L": 0.3, "F": 0.7, "why": "Multi-step everyday-app tasks (9 apps, 457 APIs) graded on the final database state, including damage checks, like the guessed private shape; but the agent calls tools by writing code over about 30-60 turns with long API docs."}
+    },
+    "best_part": "agentic:private",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": null,
+      "2": {"model": "GPT-4o-2024-05-13, ReAct (Test-Normal task goal completion)", "score": 0.488, "source": "https://appworld.dev/appworld/leaderboard.json"},
+      "3": null,
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "partial",
+    "questions_where": "https://github.com/StonyBrookNLP/appworld (appworld download data; test splits ship in encrypted bundles)",
+    "n_questions": 750,
+    "per_question_results": "yes",
+    "results_where": "https://github.com/StonyBrookNLP/appworld (appworld download experiment-outputs: per-task evaluation reports for the baseline runs)",
+    "licence": "Apache-2.0, plus: protected data may be redistributed only in encrypted form",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2024,
+    "summary": "AppWorld (ACL 2024): 750 tasks over 9 simulated apps (music, payments, mail, notes...) for about 100 fake users; the agent writes Python calling 457 APIs and is graded by state-based unit tests. In Yugos's catalog but only 'planned' (needs the AppWorld server). Leaderboard: GPT-4o ReAct 48.8% (normal) / 30.2% (challenge); 2026 harnesses reach 85-94% (Claude Opus 4.6 91.1%, GLM-5.3 94.0%). Test data is encrypted and must not be posted in plain text; baseline per-task outputs are downloadable.",
+    "confidence": "medium",
+    "sources": [
+      "https://appworld.dev/appworld",
+      "https://appworld.dev/appworld/leaderboard.json",
+      "https://github.com/StonyBrookNLP/appworld",
+      "https://arxiv.org/abs/2407.18901",
+      "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+    ]
+  },
+  "assistantbench": {
+    "scores": {
+      "chat": {"T": 0.35, "I": 0.9, "A": 0.75, "Dm": 0.4, "L": 1.0, "F": 0.5, "why": "Short real-life information questions with a short answer and partial-credit scoring (like hotpotqa F1), but they are meant to be solved by browsing current websites, so closed-book answers are mostly wrong or stale."},
+      "math_code": {"T": 0.05, "I": 0.5, "A": 0.2, "Dm": 0.1, "L": 1.0, "F": 0.5, "why": "different skill: web information seeking"},
+      "agentic": {"T": 0.45, "I": 0.4, "A": 0.6, "Dm": 0.4, "L": 0.3, "F": 0.5, "why": "Multi-step tool use, but live web browsing over many pages and graded on the final answer, not tools given in the prompt or an end state."}
+    },
+    "best_part": "agentic:private",
+    "level_guess": null,
+    "anchor_scores": {
+      "1": null,
+      "2": {"model": "GPT-4 Turbo, closed-book 1-shot (test set accuracy)", "score": 0.222, "source": "https://assistantbench.github.io"},
+      "3": {"model": "GPT-5 Medium with Browser-Use agent (HAL)", "score": 0.3523, "source": "https://hal.cs.princeton.edu/assistantbench"},
+      "4": null
+    },
+    "guess_floor": 0.0,
+    "modality": "text",
+    "questions_public": "partial",
+    "questions_where": "https://huggingface.co/datasets/AssistantBench/AssistantBench (answers only for the 33 dev tasks; 181 test answers hidden)",
+    "n_questions": 214,
+    "per_question_results": "unknown",
+    "results_where": null,
+    "licence": "apache-2.0",
+    "overlap": "",
+    "languages": ["en"],
+    "release_year": 2024,
+    "summary": "AssistantBench (Jul 2024): 214 realistic, time-consuming web tasks (e.g. which of a person's social accounts has most followers) with short answers scored with partial credit; only 33 dev answers are public. Hard and noisy for Yugos: it needs a live browser, answers drift with the web, and even GPT-5 with a browser agent gets 35%. HAL has encrypted traces for 15 model runs; whether they hold per-task scores was not checked.",
+    "confidence": "low",
+    "sources": [
+      "https://huggingface.co/datasets/AssistantBench/AssistantBench",
+      "https://assistantbench.github.io",
+      "https://hal.cs.princeton.edu/assistantbench"
+    ]
+  }
+}

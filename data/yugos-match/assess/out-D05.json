@@ -1,0 +1,963 @@
+{
+ "mixinstruct": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.9,
+    "A": 0.2,
+    "Dm": 0.5,
+    "L": 0.8,
+    "F": 0.3,
+    "why": "Open-ended instruction/chat prompts (Alpaca-GPT4, Dolly-15k, GPT4All-LAION, ShareGPT) scored by BLEU/ROUGE/BERTScore against a reference and by ChatGPT pairwise comparison, not short checkable answers."
+   },
+   "math_code": {
+    "T": 0.08,
+    "I": 0.9,
+    "A": 0.1,
+    "Dm": 0.15,
+    "L": 0.8,
+    "F": 0.3,
+    "why": "different skill: general instructions; the few code/math prompts have no tests or closed-form checker"
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/llm-blender/mix-instruct",
+  "n_questions": 110000,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/llm-blender/mix-instruct",
+  "licence": "mit",
+  "overlap": "",
+  "summary": "110k instruction prompts (100k train / 5k val / 5k test) from Alpaca-GPT4, Dolly-15k, GPT4All-LAION and ShareGPT, each with candidate answers from 11 open 2023 models (Alpaca, Vicuna-13B, Dolly-v2-12B, StableLM-7B, OASST-Pythia-12B, Koala-7B, Baize-7B, Flan-T5-XXL, ChatGLM-6B, MOSS, MPT-7B) scored by BLEU/ROUGE/BERTScore/BLEURT/BARTScore; ChatGPT pairwise labels exist only for 4,771 test items. Models are far older than the Yugos menu and there is no correctness label, so it is of little use for router training beyond a coarse 'open chat' prior.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/llm-blender/mix-instruct",
+   "https://github.com/yuchenlin/LLM-Blender",
+   "https://arxiv.org/abs/2306.02561"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": null,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2023
+ },
+ "open_llm_lb_details": {
+  "scores": {
+   "chat": {
+    "T": 0.8,
+    "I": 0.8,
+    "A": 0.55,
+    "Dm": 0.8,
+    "L": 0.7,
+    "F": 0.2,
+    "why": "Mostly chat-type exam questions (MMLU-Pro is the largest task, plus BBH puzzles like BBEH, GPQA, MuSR, IFEval) but run few-shot and the multiple-choice tasks are scored by log-likelihood choice, not a generated answer."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.8,
+    "A": 0.4,
+    "Dm": 0.25,
+    "L": 0.7,
+    "F": 0.2,
+    "why": "Only the MATH Level 5 task (a small share) is math with an exact-match answer; no code tasks."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.2,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/open-llm-leaderboard (per-model '<org>__<model>-details' datasets; question sources: TIGER-Lab/MMLU-Pro, BBH, MATH Lvl 5, GPQA, MuSR, IFEval)",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/open-llm-leaderboard/meta-llama__Llama-3.1-8B-Instruct-details (one such gated-'auto' dataset per evaluated model)",
+  "licence": null,
+  "overlap": "Contains the full MMLU-Pro test set (the live Yugos mmlu_pro pool) and the MATH Level 5 test questions (part of the live Yugos math pool).",
+  "summary": "Per-sample lm-eval-harness details (38 task configs per model: IFEval, BBH 3-shot, MATH Lvl 5 4-shot, GPQA, MuSR, MMLU-Pro 5-shot) for the 4,576 open-weight models of Open LLM Leaderboard v2 (Jun 2024 - Mar 2025, e.g. Llama-3.1-8B-Instruct, Qwen2.5-72B-Instruct, DeepSeek-R1 distills); no closed or 2025-26 frontier models. Huge model coverage makes it good for item difficulty on mmlu_pro/MATH-L5/BBH, but outcomes are mostly log-likelihood picks and the details datasets are gated (accept terms); Llama-3.1-8B-Instruct scores MMLU-Pro 0.380, BBH 0.508, MATH Lvl 5 0.154 there.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/open-llm-leaderboard/contents",
+   "https://huggingface.co/docs/leaderboards/open_llm_leaderboard/about",
+   "https://huggingface.co/datasets/open-llm-leaderboard/meta-llama__Llama-3.1-8B-Instruct-details (README + HF API: gated='auto')",
+   "https://arxiv.org/pdf/2602.15532 (closure 13 Mar 2025, 4,576 LLMs; via search result)"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": null,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ },
+ "routellm_arena": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.9,
+    "A": 0.25,
+    "Dm": 0.55,
+    "L": 0.9,
+    "F": 0.3,
+    "why": "Real chat prompts (Nectar: lmsys-chat-1m, ShareGPT, UltraChat, Evol-Instruct, FLAN, Anthropic-HH, TruthfulQA, FalseQA) with only a 1-5 rating of the Mixtral answer, no reference answer."
+   },
+   "math_code": {
+    "T": 0.08,
+    "I": 0.9,
+    "A": 0.1,
+    "Dm": 0.15,
+    "L": 0.9,
+    "F": 0.3,
+    "why": "different skill: general chat prompts, no tests or closed-form answers"
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/routellm/gpt4_dataset",
+  "n_questions": 119101,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/routellm/gpt4_dataset",
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "119,101 single prompts (median 139 characters) each with a GPT-4 answer, a Mixtral-8x7B answer and mixtral_score 1-5 (68% are 5; the card is empty, the RouteLLM paper says GPT-4 judged ~120k Nectar prompts). Only two 2023-24 models, so it teaches only 'does a weak model suffice on easy chat'; the separate Arena human-preference data (lmsys 55k battles, 64 models) is pairwise with no reference answer.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/routellm/gpt4_dataset",
+   "https://datasets-server.huggingface.co/statistics?dataset=routellm/gpt4_dataset&config=default&split=train",
+   "https://arxiv.org/html/2406.18665",
+   "https://github.com/lm-sys/RouteLLM"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": null,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ },
+ "routerarena": {
+  "scores": {
+   "chat": {
+    "T": 0.8,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.75,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "About 85% short knowledge/trivia/multiple-choice QA (MMLU-Pro 2,528, OpenTDB 887, QANTA 644, PubMedQA, MedMCQA, MMLU, SuperGLUE...) answered as a boxed letter or short string, close to Yugos chat; some translation (WMT19) and chess items are off-type."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.55,
+    "Dm": 0.4,
+    "L": 0.9,
+    "F": 0.4,
+    "why": "Only ~10% is math or code (LiveCodeBench 385, MathQA 158, AsDiv 88, FinQA 74, MATH 55, AIME 39, GSM8K 24)."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.4,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/RouteWorks/RouterArena",
+  "n_questions": 8400,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/RouteWorks/RouterArena/tree/main/router_inference/predictions",
+  "licence": "Apache-2.0 (GitHub repo; HF dataset card states none)",
+  "overlap": "Contains 2,528 MMLU-Pro questions (live Yugos mmlu_pro) and 55 MATH questions (live Yugos math).",
+  "summary": "8,400 queries from 23 source datasets in 9 domains / 44 categories, labelled easy 3,990 / medium 2,445 / hard 1,965 by how many of 42 models solved them; per-question outcomes come from 37 router prediction files (model chosen, answer, accuracy, cost, tokens) covering 59 model names: full coverage for Gemini 3 Flash, DeepSeek V3.2, Qwen3-235B-2507, DeepSeek V4 Pro/Flash, Gemini 3.7 Flash, gpt-oss-120b; partial for GPT-5.6 Luna (5.3k), Claude Opus 4.7 (4.4k), Gemini 3.8 Flash (4.0k), DeepSeek V4.1 Flash low/high (703/248). Best 2026-model per-question source for easy chat-type QA; note its README calls it evaluation-only (routers trained on it are barred from its leaderboard).",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/RouteWorks/RouterArena",
+   "https://arxiv.org/html/2510.00202",
+   "https://huggingface.co/datasets/RouteWorks/RouterArena",
+   "https://datasets-server.huggingface.co/statistics?dataset=RouteWorks/RouterArena&config=default&split=full",
+   "https://api.github.com/repos/RouteWorks/RouterArena/git/trees/main?recursive=1 (37 prediction files downloaded and counted 2026-11-27)"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3.1 8B Instruct",
+    "score": 0.4523,
+    "source": "https://arxiv.org/html/2510.00202 (Table 5)"
+   },
+   "2": {
+    "model": "GPT-4o",
+    "score": 0.6635,
+    "source": "https://arxiv.org/html/2510.00202 (Table 5)"
+   },
+   "3": {
+    "model": "GPT-5",
+    "score": 0.7404,
+    "source": "https://arxiv.org/html/2510.00202 (Table 5)"
+   },
+   "4": null
+  },
+  "guess_floor": 0.15,
+  "languages": [
+   "en",
+   "cs",
+   "de",
+   "fi",
+   "gu",
+   "kk",
+   "lt",
+   "ru",
+   "zh"
+  ],
+  "release_year": 2025
+ },
+ "routerbench": {
+  "scores": {
+   "chat": {
+    "T": 0.75,
+    "I": 0.8,
+    "A": 0.8,
+    "Dm": 0.6,
+    "L": 0.85,
+    "F": 0.2,
+    "why": "Mostly 5-shot multiple-choice knowledge and commonsense (MMLU, HellaSwag, Winogrande, ARC-C) graded by exact match, like an older mmlu_pro; plus MT-Bench and RAG judged by GPT-4."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 0.8,
+    "A": 0.5,
+    "Dm": 0.35,
+    "L": 0.85,
+    "F": 0.2,
+    "why": "GSM8K (exact match) and MBPP (graded by GPT-4, not by running tests) are a minority of the prompts."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.2,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": {
+   "cdf": {
+    "1": 0.6,
+    "2": 0.8,
+    "3": 0.92,
+    "4": 0.95
+   },
+   "why": "RouterBench Table 1: GPT-3.5 scores 0.60-0.91 and GPT-4 0.65-0.97 across the 7 datasets (MMLU 0.72/0.83, ARC 0.86/0.92, HellaSwag 0.82/0.92, GSM8K 0.60/0.65), with 25-50% guessing floors on the MC sets; these 2018-2021 sets are near-saturated for later frontier models."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/withmartian/routerbench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/withmartian/routerbench (routerbench_0shot.pkl, routerbench_5shot.pkl, routerbench_raw.pkl)",
+  "licence": null,
+  "overlap": "MMLU questions: MMLU-Pro (live Yugos mmlu_pro) was built partly from MMLU questions, so some question stems overlap (different option sets).",
+  "summary": "'Over 30,000' prompts from 8 datasets (MMLU, HellaSwag, Winogrande, ARC-C, MT-Bench 80, GSM8K, MBPP, 800 RAG client queries) with 405,467 outcomes for 11 2023-era models (GPT-4, GPT-3.5, Claude V1/V2/Instant, Llama-70B-chat, Mixtral-8x7B, Yi-34B, Code Llama 34B, Mistral 7B, WizardLM 13B): response, cost and a 0-1 score. Useful only for router method testing; models and questions are old and saturated.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/withmartian/routerbench",
+   "https://arxiv.org/html/2403.12031",
+   "https://github.com/withmartian/routerbench"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.25,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ },
+ "sprout": {
+  "scores": {
+   "chat": {
+    "T": 0.7,
+    "I": 1.0,
+    "A": 0.6,
+    "Dm": 0.7,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "Train mix: OpenHermes instructions 44%, MMLU-Pro 27%, plus GPQA, MuSR and RAGBench (incl. 94 HotpotQA) - mostly chat-type questions, graded by a Llama-3.1-70B judge against a golden answer."
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.5,
+    "Dm": 0.35,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "About 22% are MATH problems (1,735 from the MATH test split); no code tasks with tests; judge-graded."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/CARROT-LLM-Routing/SPROUT",
+  "n_questions": 44241,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/CARROT-LLM-Routing/SPROUT",
+  "licence": null,
+  "overlap": "Contains 8,264 MMLU-Pro questions (live Yugos mmlu_pro) and 1,735 MATH test questions (live Yugos math) in the train split; 94 HotpotQA items via RAGBench (live Yugos hotpotqa uses the distractor validation set; overlap not checked).",
+  "summary": "44,241 prompts (train 30,968: OpenHermes 13,670, MMLU-Pro 8,264, MATH 6,857, RAGBench 1,269, MuSR 524, GPQA-extended 384) answered by 13 models in the HF release (GPT-4o, GPT-4o-mini, Claude 3.5 Sonnet, Titan Text Premier, Llama 3/3.1/3.2/3.3 1B-405B, Granite 3 2B/8B, Mixtral-8x7B) with response, input/output tokens and a 0-1 correctness score from a Llama-3.1-70B judge. Good 2024-model difficulty labels for chat-type and MATH questions; no licence stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/CARROT-LLM-Routing/SPROUT",
+   "https://datasets-server.huggingface.co/statistics?dataset=CARROT-LLM-Routing/SPROUT&config=default&split=train",
+   "https://arxiv.org/abs/2502.03261",
+   "https://arxiv.org/html/2502.03261v2"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": null,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "aime2024": {
+  "scores": {
+   "chat": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.2,
+    "L": 1.0,
+    "F": 0.5,
+    "why": "Competition math with an integer answer fits only the math share of hle in chat."
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.55,
+    "L": 0.9,
+    "F": 0.5,
+    "why": "Competition math (AIME 2024 I & II) with a single integer answer, the hard end of the MATH genre; no code, and 2024 problems are widely seen in training."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Maxwell-Jia/AIME_2024",
+  "n_questions": 30,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "mit",
+  "overlap": "",
+  "summary": "The 30 AIME 2024 problems with worked solutions and integer answers (0-999). Hard math items for the L2-L3 boundary (GPT-4o 9.3%), but only 30 questions and likely memorized by 2025-26 models.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/Maxwell-Jia/AIME_2024 (card, local copy in research/benchmarks/catalog/aime2024)",
+   "https://github.com/deepseek-ai/DeepSeek-R1",
+   "https://huggingface.co/nvidia/OpenMath2-Llama3.1-8B"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3.1 8B Instruct",
+    "score": 0.0667,
+    "source": "https://huggingface.co/nvidia/OpenMath2-Llama3.1-8B (2/30)"
+   },
+   "2": {
+    "model": "GPT-4o 0513",
+    "score": 0.093,
+    "source": "https://github.com/deepseek-ai/DeepSeek-R1 (AIME 2024 pass@1; Claude-3.5-Sonnet-1022 0.160)"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ },
+ "aime2025": {
+  "scores": {
+   "chat": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.2,
+    "L": 1.0,
+    "F": 0.7,
+    "why": "Competition math with an integer answer fits only the math share of hle in chat."
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.55,
+    "L": 0.9,
+    "F": 0.75,
+    "why": "Competition math (AIME 2025 I & II) with integer answers, same genre as MATH's hardest items; no code; 2025 but now heavily used."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.75,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/math-ai/aime25",
+  "n_questions": 30,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/MathArena/aime_2025_outputs",
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "The 30 AIME 2025 problems (problem, integer answer). MathArena publishes per-question outputs (4 runs each, correct/tokens/cost) for 67 model configs from GPT-4o and Claude 3.5 Sonnet up to GPT-5 (high), GPT-5.2, Gemini 3 Pro and Claude Opus 4 / Sonnet 4.5: good for hard-math difficulty, but only 30 items.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/math-ai/aime25 (card, local copy)",
+   "https://datasets-server.huggingface.co/statistics?dataset=MathArena/aime_2025_outputs&config=default&split=train"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "aime2026": {
+  "scores": {
+   "chat": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.2,
+    "L": 1.0,
+    "F": 0.9,
+    "why": "Competition math with an integer answer fits only the math share of hle in chat."
+   },
+   "math_code": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.55,
+    "L": 0.9,
+    "F": 0.9,
+    "why": "Competition math (AIME 2026) with integer answers, same genre as MATH's hardest items; no code; released Feb 2026 so little memorization."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/math-ai/aime26",
+  "n_questions": 30,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/MathArena/aime_2026_outputs",
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "The 30 AIME 2026 problems (problem, integer answer). MathArena publishes per-question outputs for 32 model configs (GPT-5.2/5.4/5.5 xhigh, Claude Opus 4.6/4.7/4.8, Gemini 3 Pro/3.1 Pro/3.5-3.6 Flash, DeepSeek V4 Pro/Flash, Kimi K3, Qwen3.5...), fresh hard-math data but only 30 items.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/math-ai/aime26 (card, local copy)",
+   "https://datasets-server.huggingface.co/statistics?dataset=MathArena/aime_2026_outputs&config=default&split=train"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2026
+ },
+ "amc23": {
+  "scores": {
+   "chat": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.2,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Competition math with a numeric answer fits only the math share of hle in chat."
+   },
+   "math_code": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "AMC 12 2023 problems turned into numeric-answer questions (options removed), close to MATH competition items; no code; 2023 and widely used for RL training."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/math-ai/amc23",
+  "n_questions": 40,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "40 problems from the 2023 AMC 12A (22) and 12B (18) with integer answers and AoPS links. Mid-to-hard competition math between MATH and AIME, but tiny and probably memorized.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/math-ai/amc23",
+   "https://huggingface.co/nvidia/OpenMath2-Llama3.1-8B",
+   "https://arxiv.org/html/2412.15084"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3.1 8B Instruct",
+    "score": 0.225,
+    "source": "https://huggingface.co/nvidia/OpenMath2-Llama3.1-8B (9/40)"
+   },
+   "2": {
+    "model": "Claude 3.5 Sonnet (2024-10-22)",
+    "score": 0.525,
+    "source": "https://arxiv.org/html/2412.15084 (Appendix Table 9, greedy, 21/40; Llama 3.1 405B 20/40)"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2023
+ },
+ "apps": {
+  "scores": {
+   "chat": {
+    "T": 0.08,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.25,
+    "why": "different skill: writing programs, not answering questions"
+   },
+   "math_code": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.45,
+    "L": 0.8,
+    "F": 0.25,
+    "why": "Python programs for contest problems (Codewars, AtCoder, Kattis, Codeforces) checked by hidden input/output tests, like bigcodebench grading, but algorithmic stdin/stdout tasks rather than library-heavy functions."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.25,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/codeparrot/apps",
+  "n_questions": 10000,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "mit",
+  "overlap": "",
+  "summary": "10,000 coding problems (5,000 train / 5,000 test; test = 1,000 introductory, 3,000 interview, 1,000 competition), ~293-word statements, graded by all-tests-pass (avg 21.2 tests per test problem; known false positives). A large code-generation pool with a difficulty label, but 2021-era and heavily trained on; no clean published group scores found.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/codeparrot/apps",
+   "https://ar5iv.labs.arxiv.org/html/2105.09938"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en",
+   "code"
+  ],
+  "release_year": 2021
+ },
+ "aqua_rat": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.2,
+    "why": "Five-option algebra word problems answered with a letter resemble the math items of mmlu_pro, but cover only one narrow subject."
+   },
+   "math_code": {
+    "T": 0.6,
+    "I": 1.0,
+    "A": 0.6,
+    "Dm": 0.45,
+    "L": 1.0,
+    "F": 0.2,
+    "why": "Math word problems, but answered by picking A-E rather than a closed-form/boxed answer, and GMAT/GRE-level rather than competition-level."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.2,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/deepmind/aqua_rat",
+  "n_questions": 97975,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "About 98k algebraic word problems (97,467 train, 254 val, 254 test) with five options, a rationale and the correct letter (2017). Easy, old and noisy; usable only as cheap 'easy math MC' filler.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/deepmind/aqua_rat",
+   "https://github.com/om-ai-lab/open-agent-leaderboard"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "GPT-3.5 Turbo",
+    "score": 0.6102,
+    "source": "https://github.com/om-ai-lab/open-agent-leaderboard (AQuA test 254, CoT)"
+   },
+   "2": {
+    "model": "GPT-4o",
+    "score": 0.8268,
+    "source": "https://github.com/om-ai-lab/open-agent-leaderboard (AQuA test 254, CoT)"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.2,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2017
+ },
+ "arxivmath": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "Research-level math questions with an exact closed-form answer look like the math half of hle, but are only a slice of chat."
+   },
+   "math_code": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "It is one of the eight monthly sets in the live Yugos arxivmath pool: same prompts and closed-form answers (MathArena now grades with an LLM judge, Yugos with Math-Verify)."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/MathArena/arxivmath-0826",
+  "n_questions": 57,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/MathArena/arxivmath-0826_outputs",
+  "licence": "cc-by-sa-4.0",
+  "overlap": "is the live Yugos arxivmath set (August 2026 month, one of 8 monthly sets in the 287-question pool): only the questions outside the live sample can be used, and never for testing",
+  "summary": "57 research-level questions from August-2026 arXiv papers (25 from resolved conjectures) with LaTeX final answers. MathArena's outputs file has 1,729 per-question runs (correct, tokens, cost) for 18 Nov-2026-era configs incl. GPT-6.1 Sol (max), GPT-6 Sol/Astra, Claude Opus 5.5 (high), Fable 5.1 (low/high), Gemini 4 Argon, Gemini 3.8 Flash, DeepSeek-V4.1-Flash (Max): directly useful for menu-model strength on hard math, but only for analysis because it is live.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/MathArena/arxivmath-0826 (card, local copy)",
+   "https://matharena.ai/arxiv_august/",
+   "https://datasets-server.huggingface.co/statistics?dataset=MathArena/arxivmath-0826_outputs&config=default&split=train"
+  ],
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": {
+    "model": "GPT-6 Astra",
+    "score": 0.886,
+    "source": "https://matharena.ai/arxiv_august/ (Fable 5.1 0.8772)"
+   }
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2026
+ },
+ "asdiv": {
+  "scores": {
+   "chat": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.15,
+    "L": 1.0,
+    "F": 0.2,
+    "why": "Elementary arithmetic word problems fit chat only as trivial reasoning items."
+   },
+   "math_code": {
+    "T": 0.6,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.2,
+    "why": "Math word problems with a numeric answer (with a unit to strip), but elementary-school arithmetic far below MATH/arxivmath; no code."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.2,
+    "why": "different skill: no tools or function schemas in the prompt"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/EleutherAI/asdiv",
+  "n_questions": 2305,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "cc-by-nc-4.0",
+  "overlap": "",
+  "summary": "2,305 English grade-school math word problems (body, question, answer like '9 (apples)', formula, 24 solution types, grade level) from ACL 2020. Near-saturated (GPT-3.5 0.87, GPT-4 0.91 in ToRA); useful only as 'cheap model is enough' examples; non-commercial licence.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/EleutherAI/asdiv",
+   "https://github.com/chaochun/nlu-asdiv-dataset",
+   "https://arxiv.org/html/2309.17452"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "ChatGPT (GPT-3.5)",
+    "score": 0.873,
+    "source": "https://arxiv.org/html/2309.17452 (ToRA Table 2)"
+   },
+   "2": {
+    "model": "GPT-4 (2023)",
+    "score": 0.913,
+    "source": "https://arxiv.org/html/2309.17452 (ToRA Table 2; original GPT-4, not GPT-4 Turbo)"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2020
+ },
+ "bigcodebench": {
+  "scores": {
+   "chat": {
+    "T": 0.08,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "different skill: writing Python functions, not answering questions"
+   },
+   "math_code": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.75,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "It is the live Yugos bigcodebench set: complete a Python function using ~2.8 libraries, checked by hidden unit tests."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.3,
+    "why": "different skill: calls libraries in code, no tool/function-call schemas"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/bigcode/bigcodebench",
+  "n_questions": 1140,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/bigcode/bigcodebench-perf",
+  "licence": "apache-2.0",
+  "overlap": "is the live Yugos bigcodebench set (Yugos uses complete v0.1.2, 1,139 tasks): only the questions outside the live sample can be used, and never for testing",
+  "summary": "1,140 Python tasks (complete and instruct prompts, 5 versions v0.1.0-v0.1.4) using 139 libraries, ~5.6 unit tests each, June 2024. bigcode/bigcodebench-perf has a pass/fail matrix for 153 models x 1,140 tasks (complete and instruct, 2024 to Apr 2025: GPT-4o, Claude 3.5 Sonnet, Llama 3.1/3.3, DeepSeek-V3, Llama 4, GPT-4.1-mini; no licence stated) and GitHub release v0.2.4 has the generated code: strong item-difficulty data for the live code set, but no late-2025+ models.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/bigcode/bigcodebench",
+   "https://github.com/bigcode-project/bigcodebench",
+   "https://bigcode-bench.github.io/results.json",
+   "https://huggingface.co/datasets/bigcode/bigcodebench-perf (parquet read 2026-11-27)"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3.1 8B Instruct",
+    "score": 0.405,
+    "source": "https://bigcode-bench.github.io/results.json (complete, full set)"
+   },
+   "2": {
+    "model": "GPT-4o 2024-05-13",
+    "score": 0.611,
+    "source": "https://bigcode-bench.github.io/results.json (complete, full set; Claude 3.5 Sonnet 0620 0.586)"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en",
+   "code"
+  ],
+  "release_year": 2024
+ }
+}

@@ -1,0 +1,1360 @@
+{
+ "5.1": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Biology is one of its 14 subjects, prompts ~166 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 69% STEM-website, 31% original MMLU."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "different skill: biology knowledge multiple choice, little calculation"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'biology')",
+  "n_questions": 717,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 717 Biology questions are in that pool.",
+  "summary": "The 717 MMLU-Pro test questions in Biology: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder. Mostly easy (over 70% at level 2 or below), so it may also resemble the very easy private chat part.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.2": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Business is one of its 14 subjects, prompts ~101 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 71% STEM-website, 20% original MMLU, 9% TheoremQA."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.25,
+    "Dm": 0.2,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "some finance/accounting calculations, but answered by picking 1 of 10 options; no code, no competition math"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'business')",
+  "n_questions": 789,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 789 Business questions are in that pool.",
+  "summary": "The 789 MMLU-Pro test questions in Business: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.3": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Chemistry is one of its 14 subjects, prompts ~142 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 65% STEM-website, 19% SciBench, 16% original MMLU."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.25,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "many quantitative chemistry calculations, but answered by picking 1 of 10 options; not competition math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'chemistry')",
+  "n_questions": 1132,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 1132 Chemistry questions are in that pool.",
+  "summary": "The 1132 MMLU-Pro test questions in Chemistry: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.4": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Computer Science is one of its 14 subjects, prompts ~120 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 67% original MMLU, 19% TheoremQA, 15% STEM-website."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "CS theory and some code-reading questions, but no code is written or executed; 10-option letter answer"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'computer science')",
+  "n_questions": 410,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 410 Computer Science questions are in that pool.",
+  "summary": "The 410 MMLU-Pro test questions in Computer Science: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.5": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Economics is one of its 14 subjects, prompts ~117 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 53% original MMLU, 47% STEM-website."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.15,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "mostly conceptual economics with a few calculations; 10-option letter answer"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'economics')",
+  "n_questions": 844,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 844 Economics questions are in that pool.",
+  "summary": "The 844 MMLU-Pro test questions in Economics: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder. Mostly easy (over 70% at level 2 or below), so it may also resemble the very easy private chat part.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.6": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Engineering is one of its 14 subjects, prompts ~174 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 93% STEM-website, 7% original MMLU."
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "mostly engineering calculation problems, but answered by picking 1 of 10 options; not competition math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'engineering')",
+  "n_questions": 969,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 969 Engineering questions are in that pool.",
+  "summary": "The 969 MMLU-Pro test questions in Engineering: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.7": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Health is one of its 14 subjects, prompts ~111 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 100% original MMLU."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "different skill: medical knowledge recall"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'health')",
+  "n_questions": 818,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 818 Health questions are in that pool.",
+  "summary": "The 818 MMLU-Pro test questions in Health: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder. Mostly easy (over 70% at level 2 or below), so it may also resemble the very easy private chat part.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.8": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); History is one of its 14 subjects, prompts ~266 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 100% original MMLU."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "different skill: history reading/recall"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'history')",
+  "n_questions": 381,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 381 History questions are in that pool.",
+  "summary": "The 381 MMLU-Pro test questions in History: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.9": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Law is one of its 14 subjects, prompts ~305 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 100% original MMLU."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "different skill: legal reasoning over scenarios"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'law')",
+  "n_questions": 1101,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 1101 Law questions are in that pool.",
+  "summary": "The 1101 MMLU-Pro test questions in Law: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.10": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Math is one of its 14 subjects, prompts ~88 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 63% original MMLU, 25% TheoremQA, 12% SciBench."
+   },
+   "math_code": {
+    "T": 0.45,
+    "I": 1.0,
+    "A": 0.4,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "real math problems (school/college, TheoremQA, SciBench) but answered by picking 1 of 10 options; could be turned into closed-form answers; easier and different flavour than MATH competition / arXiv research math"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'math')",
+  "n_questions": 1351,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 1351 Math questions are in that pool.",
+  "summary": "The 1351 MMLU-Pro test questions in Math: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.11": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Philosophy is one of its 14 subjects, prompts ~82 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 100% original MMLU."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "different skill: philosophy knowledge/argument"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'philosophy')",
+  "n_questions": 499,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 499 Philosophy questions are in that pool.",
+  "summary": "The 499 MMLU-Pro test questions in Philosophy: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.12": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.65,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Physics is one of its 14 subjects, prompts ~120 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 47% STEM-website, 32% original MMLU, 13% SciBench, 8% TheoremQA."
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "many quantitative physics calculations, but answered by picking 1 of 10 options; not competition math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'physics')",
+  "n_questions": 1299,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 1299 Physics questions are in that pool.",
+  "summary": "The 1299 MMLU-Pro test questions in Physics: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.13": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Psychology is one of its 14 subjects, prompts ~120 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 62% original MMLU, 38% STEM-website."
+   },
+   "math_code": {
+    "T": 0.08,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "different skill: psychology knowledge recall"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'psychology')",
+  "n_questions": 798,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 798 Psychology questions are in that pool.",
+  "summary": "The 798 MMLU-Pro test questions in Psychology: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder. Mostly easy (over 70% at level 2 or below), so it may also resemble the very easy private chat part.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "5.14": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Same format and grader as Yugos's live mmlu_pro set (10-option multiple choice, letter match); Other is one of its 14 subjects, prompts ~76 tokens median; but these questions are the very pool Yugos samples mmlu_pro from (F low), and sources are 100% original MMLU."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "different skill: mixed general knowledge (misc. MMLU subjects)"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro (test split, category == 'other')",
+  "n_questions": 924,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset card); repo Apache-2.0",
+  "overlap": "Contained in the live Yugos mmlu_pro set's pool: Yugos samples 40 questions (0-shot) from the 12,032 MMLU-Pro test questions (TIGER-Lab/MMLU-Pro rev 527feea); all 924 Other questions are in that pool.",
+  "summary": "The 924 MMLU-Pro test questions in Other: 10-option (some fewer) multiple choice, one prompt, letter answer. They are the same pool Yugos's live chat mmlu_pro set is drawn from, so they mirror that public part exactly; per-question outputs of 48 models (5-shot) are in the repo's eval_results folder. Mostly easy (over 70% at level 2 or below), so it may also resemble the very easy private chat part.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://api.github.com/repos/TIGER-AI-Lab/MMLU-Pro/contents/eval_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro (counts and token lengths computed)",
+   "yugos_evals/catalog.py (mmlu_pro fewshot 0)"
+  ]
+ },
+ "6.1": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.4,
+    "why": "Expert-written graduate science questions, one prompt, 4-option multiple choice graded by letter: close to Yugos's hle (expert, 24% MC) and mmlu_pro parts; prompts ~160 tokens median (Diamond); 2023 and widely used, though gated. Hardest, most-used split."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.4,
+    "why": "graduate physics/chemistry questions often need calculation, but the answer is 1 of 4 options; not competition math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.4,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Idavidrein/gpqa (gated: accept terms; config gpqa_diamond); also password zip in https://github.com/idavidrein/gpqa. Authors ask not to repost questions online.",
+  "n_questions": 198,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/idavidrein/gpqa/tree/main/baseline_results (per-question answers for 2023 runs only: GPT-3.5-turbo-16k, GPT-4, Llama-2-70B-chat; zero/few-shot, CoT, retrieval)",
+  "licence": "CC BY 4.0 (HF dataset card); repo MIT",
+  "overlap": "",
+  "summary": "198 hardest GPQA questions (93 chemistry, 86 physics, 19 biology), 4-option multiple choice. Good stand-in for hard expert chat questions (hle-like); not a live Yugos v0.4.0 set, but GPQA Diamond was a Yugos public set in the older pack v0.3.0.",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/html/2311.12022",
+   "https://huggingface.co/datasets/Idavidrein/gpqa",
+   "https://github.com/idavidrein/gpqa",
+   "https://api.github.com/repos/idavidrein/gpqa/contents/baseline_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/gpqa_diamond (token lengths computed)"
+  ]
+ },
+ "6.2": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Expert-written graduate science questions, one prompt, 4-option multiple choice graded by letter: close to Yugos's hle (expert, 24% MC) and mmlu_pro parts; prompts ~160 tokens median (Diamond); 2023 and widely used, though gated. Superset of Diamond with somewhat easier questions."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "graduate physics/chemistry questions often need calculation, but the answer is 1 of 4 options; not competition math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.05,
+    "2": 0.22,
+    "3": 0.7,
+    "4": 0.93
+   },
+   "why": "Rough: GPT-4 (2023) scored 39.7% few-shot CoT on main with 4 options (~20% above chance), so few questions sit at L1-L2; the harder Diamond subset (inside main) reaches 96-97% for Nov-2026 frontier models (row 6.1), so nearly all are <= L4; L3 share is an estimate."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Idavidrein/gpqa (gated: accept terms; config gpqa_main); also password zip in https://github.com/idavidrein/gpqa. Authors ask not to repost questions online.",
+  "n_questions": 448,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/idavidrein/gpqa/tree/main/baseline_results (per-question answers for 2023 runs only: GPT-3.5-turbo-16k, GPT-4, Llama-2-70B-chat; zero/few-shot, CoT, retrieval)",
+  "licence": "CC BY 4.0 (HF dataset card); repo MIT",
+  "overlap": "",
+  "summary": "448 recommended GPQA questions (biology, physics, chemistry), 4-option multiple choice; contains all 198 Diamond questions. Good stand-in for hard expert chat questions; only 2023 per-question outputs exist.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/html/2311.12022",
+   "https://huggingface.co/datasets/Idavidrein/gpqa",
+   "https://github.com/idavidrein/gpqa",
+   "https://api.github.com/repos/idavidrein/gpqa/contents/baseline_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/gpqa_diamond (token lengths computed)"
+  ]
+ },
+ "6.3": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Expert-written graduate science questions, one prompt, 4-option multiple choice graded by letter: close to Yugos's hle (expert, 24% MC) and mmlu_pro parts; prompts ~160 tokens median (Diamond); 2023 and widely used, though gated. Full release incl. questions experts disagreed on (noisier keys)."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "graduate physics/chemistry questions often need calculation, but the answer is 1 of 4 options; not competition math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.05,
+    "2": 0.2,
+    "3": 0.65,
+    "4": 0.9
+   },
+   "why": "Rough: GPT-4 (2023) 38.7% few-shot CoT with 4 options (~18% above chance); includes questions where experts disagreed, so some keys may be wrong (L5-like); Diamond subset reaches 96-97% for Nov-2026 frontier models (row 6.1)."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Idavidrein/gpqa (gated: accept terms; config gpqa_extended); also password zip in https://github.com/idavidrein/gpqa. Authors ask not to repost questions online.",
+  "n_questions": 546,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/idavidrein/gpqa/tree/main/baseline_results (per-question answers for 2023 runs only: GPT-3.5-turbo-16k, GPT-4, Llama-2-70B-chat; zero/few-shot, CoT, retrieval)",
+  "licence": "CC BY 4.0 (HF dataset card); repo MIT",
+  "overlap": "",
+  "summary": "All 546 released GPQA questions (105 biology, 227 physics, 214 chemistry), 4-option multiple choice; contains main and Diamond. Largest GPQA pool for hard expert chat-style questions, with some noisy answer keys.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/html/2311.12022",
+   "https://huggingface.co/datasets/Idavidrein/gpqa",
+   "https://github.com/idavidrein/gpqa",
+   "https://api.github.com/repos/idavidrein/gpqa/contents/baseline_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/gpqa_diamond (token lengths computed)"
+  ]
+ },
+ "6.4": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Expert-written graduate science questions, one prompt, 4-option multiple choice graded by letter: close to Yugos's hle (expert, 24% MC) and mmlu_pro parts; prompts ~160 tokens median (Diamond); 2023 and widely used, though gated. Biology only (molecular biology, genetics)."
+   },
+   "math_code": {
+    "T": 0.08,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "different skill: graduate molecular biology/genetics multiple choice, little calculation"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.15,
+    "2": 0.45,
+    "3": 0.8,
+    "4": 0.95
+   },
+   "why": "Rough: GPT-4 (2023) scored 58.1% on GPQA biology (extended, 4 options, ~44% above chance), the easiest GPQA domain; Diamond overall reaches 96-97% for Nov-2026 frontier (row 6.1)."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Idavidrein/gpqa (gated: accept terms; config gpqa_extended, filter High-level domain == Biology); also password zip in https://github.com/idavidrein/gpqa. Authors ask not to repost questions online.",
+  "n_questions": 105,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/idavidrein/gpqa/tree/main/baseline_results (per-question answers for 2023 runs only: GPT-3.5-turbo-16k, GPT-4, Llama-2-70B-chat; zero/few-shot, CoT, retrieval)",
+  "licence": "CC BY 4.0 (HF dataset card); repo MIT",
+  "overlap": "",
+  "summary": "105 graduate biology GPQA questions (extended set), 4-option multiple choice. Small, hle/mmlu_pro-like expert chat questions; the easiest GPQA domain.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/html/2311.12022",
+   "https://huggingface.co/datasets/Idavidrein/gpqa",
+   "https://github.com/idavidrein/gpqa",
+   "https://api.github.com/repos/idavidrein/gpqa/contents/baseline_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/gpqa_diamond (token lengths computed)"
+  ]
+ },
+ "6.5": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Expert-written graduate science questions, one prompt, 4-option multiple choice graded by letter: close to Yugos's hle (expert, 24% MC) and mmlu_pro parts; prompts ~160 tokens median (Diamond); 2023 and widely used, though gated. Physics only."
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "graduate physics (quantum, particle, astro) often needs real calculation, but the answer is 1 of 4 options; not competition math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.05,
+    "2": 0.2,
+    "3": 0.7,
+    "4": 0.92
+   },
+   "why": "Rough: GPT-4 (2023) scored 37.0% on GPQA physics (extended, 4 options, ~16% above chance); Diamond overall reaches 96-97% for Nov-2026 frontier (row 6.1)."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Idavidrein/gpqa (gated: accept terms; config gpqa_extended, filter High-level domain == Physics); also password zip in https://github.com/idavidrein/gpqa. Authors ask not to repost questions online.",
+  "n_questions": 227,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/idavidrein/gpqa/tree/main/baseline_results (per-question answers for 2023 runs only: GPT-3.5-turbo-16k, GPT-4, Llama-2-70B-chat; zero/few-shot, CoT, retrieval)",
+  "licence": "CC BY 4.0 (HF dataset card); repo MIT",
+  "overlap": "",
+  "summary": "227 graduate physics GPQA questions (extended set), 4-option multiple choice. Hard expert chat questions with a calculation flavour (some math overlap).",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/html/2311.12022",
+   "https://huggingface.co/datasets/Idavidrein/gpqa",
+   "https://github.com/idavidrein/gpqa",
+   "https://api.github.com/repos/idavidrein/gpqa/contents/baseline_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/gpqa_diamond (token lengths computed)"
+  ]
+ },
+ "6.6": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "Expert-written graduate science questions, one prompt, 4-option multiple choice graded by letter: close to Yugos's hle (expert, 24% MC) and mmlu_pro parts; prompts ~160 tokens median (Diamond); 2023 and widely used, though gated. Chemistry only (mostly organic)."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.25,
+    "L": 1.0,
+    "F": 0.45,
+    "why": "graduate (mostly organic) chemistry, some calculation, answer is 1 of 4 options; not competition math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.45,
+    "why": "different skill: no tools or function calls, plain question answering"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.03,
+    "2": 0.12,
+    "3": 0.6,
+    "4": 0.88
+   },
+   "why": "Rough: GPT-4 (2023) scored 31.8% on GPQA chemistry (extended, 4 options, ~9% above chance), the hardest GPQA domain; Diamond overall reaches 96-97% for Nov-2026 frontier (row 6.1); some noisy keys in extended."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Idavidrein/gpqa (gated: accept terms; config gpqa_extended, filter High-level domain == Chemistry); also password zip in https://github.com/idavidrein/gpqa. Authors ask not to repost questions online.",
+  "n_questions": 214,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/idavidrein/gpqa/tree/main/baseline_results (per-question answers for 2023 runs only: GPT-3.5-turbo-16k, GPT-4, Llama-2-70B-chat; zero/few-shot, CoT, retrieval)",
+  "licence": "CC BY 4.0 (HF dataset card); repo MIT",
+  "overlap": "",
+  "summary": "214 graduate chemistry GPQA questions (extended set, mostly organic), 4-option multiple choice. Hardest GPQA domain; hard expert chat-style questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/html/2311.12022",
+   "https://huggingface.co/datasets/Idavidrein/gpqa",
+   "https://github.com/idavidrein/gpqa",
+   "https://api.github.com/repos/idavidrein/gpqa/contents/baseline_results",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/gpqa_diamond (token lengths computed)"
+  ]
+ },
+ "7.1": {
+  "scores": {
+   "chat": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.5,
+    "why": "Same task as Yugos's simpleqa_verified: one-line fact question (~21 tokens median), short answer, judge graded; 2024 and 944 questions overlap simpleqa_verified."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.5,
+    "why": "different skill: factual recall, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/simple_qa_test_set.csv",
+  "n_questions": 4326,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT (openai/simple-evals repo)",
+  "overlap": "944 of SimpleQA's 4,326 questions are in the live Yugos simpleqa_verified set (a filtered 1,000-question subset of SimpleQA).",
+  "summary": "4,326 short fact-seeking questions with one short answer, graded by an LLM judge (correct / incorrect / not attempted). Near-perfect stand-in for Yugos's simpleqa_verified part; drop the 944 overlapping questions to avoid leakage.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/openai/simple-evals",
+   "https://arxiv.org/html/2411.04368",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/simpleqa (token lengths computed)"
+  ]
+ },
+ "7.2": {
+  "scores": {
+   "chat": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.0,
+    "why": "It is Yugos's live simpleqa_verified set itself (one-line fact question, short answer, GPT-4.1 autorater), so it adds no new questions for that part (F = 0)."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.0,
+    "why": "different skill: factual recall, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.0,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/google/simpleqa-verified (Yugos pulls the mirror codelion/SimpleQA-Verified)",
+  "n_questions": 1000,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT (HF dataset card)",
+  "overlap": "Is the live Yugos simpleqa_verified set: Yugos uses 50 of these 1,000 prompts (via the codelion/SimpleQA-Verified mirror); all 1,000 are also SimpleQA questions.",
+  "summary": "1,000 cleaned SimpleQA questions (Sept 2025) graded by a GPT-4.1 autorater. It is exactly the pool of Yugos's public simpleqa_verified part, so it is already known data; its Kaggle leaderboard scores (aggregate only, per-question not confirmed) are still useful for model-quality priors.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/google/simpleqa-verified",
+   "yugos_evals/catalog.py (simpleqa_verified)",
+   "local copy /root/cic/sn34-yugos/research/benchmarks/catalog/simpleqa_verified"
+  ]
+ },
+ "7.3": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 0.8,
+    "A": 0.6,
+    "Dm": 0.7,
+    "L": 0.6,
+    "F": 0.8,
+    "why": "Average of four different parts: Parametric (SimpleQA-like, good fit), Search (needs a search tool), Grounding (long-form answers over long documents) and Multimodal (needs images); only part of it fits chat."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.6,
+    "F": 0.8,
+    "why": "different skill: factuality, no math or code"
+   },
+   "agentic": {
+    "T": 0.12,
+    "I": 0.4,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.6,
+    "F": 0.8,
+    "why": "mostly different skill: only the Search quarter uses a tool (one web-search tool), graded on final answer"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "https://www.kaggle.com/benchmarks/google/facts (public halves of each part stated as released; direct download for Parametric/Search/Multimodal not located); Grounding public: https://huggingface.co/datasets/google/FACTS-grounding-public",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Aggregate score over the four FACTS parts, not a question set of its own; use the parts separately (Parametric is the useful one for chat). Total item count is inconsistent across official sources (blog says 3,513; per-part counts sum higher), so left null.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/html/2512.10791v1",
+   "https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/"
+  ]
+ },
+ "7.4": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.5,
+    "L": 0.4,
+    "F": 0.5,
+    "why": "Reading a provided document and answering (Q&A, summarise, rewrite) like hotpotqa's read-then-answer, but answers are long-form and judged only for grounding (Gemini 2.5 Flash + GPT-5 + eligibility judge), and documents run up to 32k tokens (example contexts 0.9k-2.1k tokens)."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.4,
+    "F": 0.5,
+    "why": "different skill: document-grounded long-form writing"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/google/FACTS-grounding-public (860 public examples; 859 private on Kaggle)",
+  "n_questions": 1719,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "CC BY 4.0 (HF dataset card)",
+  "overlap": "",
+  "summary": "1,719 long-context tasks (system instruction + document up to ~153k characters + user request) where the model must write a long answer using only the document. Weak stand-in: Yugos chat answers are short and checkable; might loosely resemble unknown private chat prompts.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/html/2512.10791v1",
+   "https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/",
+   "https://huggingface.co/datasets/google/FACTS-grounding-public"
+  ]
+ },
+ "7.5": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.9,
+    "L": 1.0,
+    "F": 0.9,
+    "why": "Same task as Yugos's simpleqa_verified: short closed-book factoid question (no tools, no yes/no), short gold answer, Gemini 2.5 Pro autorater with correct/incorrect/not-attempted; released Dec 2025 with half kept private; prompt lengths not stated but questions are one-liners in the examples."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.9,
+    "why": "different skill: factual recall, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: no tools (closed-book by design)"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://www.kaggle.com/benchmarks/google/facts-parametric (1,052 public items stated as released; direct download file not located)",
+  "n_questions": 2104,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "2,104 hard factoid questions drawn from real Google Search queries, answered from memory and graded against a gold answer. Very close, fresher stand-in for Yugos's simpleqa_verified part (SimpleQA-style but different source); only the 1,052 public half is usable, if its download can be found.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/html/2512.10791v1",
+   "https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/"
+  ]
+ },
+ "7.6": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 0.5,
+    "A": 0.9,
+    "Dm": 0.8,
+    "L": 0.9,
+    "F": 0.9,
+    "why": "Short factoid and multi-hop questions with short gold answers (judge graded), hotpotqa/simpleqa-like, but they are meant to be answered with a web-search tool; Yugos chat gives no tool, so closed-book difficulty differs."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.5,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.9,
+    "why": "different skill: fact retrieval, no math or code"
+   },
+   "agentic": {
+    "T": 0.4,
+    "I": 0.6,
+    "A": 0.4,
+    "Dm": 0.3,
+    "L": 0.7,
+    "F": 0.9,
+    "why": "Real tool use (one Brave Search tool, up to 7 hops) in a multi-step loop, but only one generic tool, graded on the final answer against gold, not function-call AST or end state; prompt+tool lengths not stated."
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://www.kaggle.com/benchmarks/google/facts-search (890 public items stated as released; direct download file not located)",
+  "n_questions": 1884,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "1,884 questions (890 public, 994 private per paper/blog; the row says 1,842) that require web search: hard-tail facts and Wikipedia/KG multi-hop. Usable as hard closed-book fact/multi-hop chat questions or as a weak single-tool agentic example.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/html/2512.10791v1",
+   "https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/"
+  ]
+ },
+ "7.7": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.5,
+    "A": 0.2,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: every question needs an image (Yugos is text-only); long-form answers judged on rubrics"
+   },
+   "math_code": {
+    "T": 0.02,
+    "I": 0.5,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: image questions"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: image questions, no tools"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "image",
+  "questions_public": "partial",
+  "questions_where": "https://www.kaggle.com/benchmarks/google/facts-multimodal (711 public items stated as released; direct download file not located)",
+  "n_questions": 1522,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "About 1,522 image-based questions (711 public, 811 private per paper) answered in long form and judged on coverage/no-contradiction rubrics. Not usable for Yugos, which sends text only.",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/html/2512.10791v1",
+   "https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/"
+  ]
+ }
+}

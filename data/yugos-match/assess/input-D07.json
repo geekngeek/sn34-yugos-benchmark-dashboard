@@ -1,0 +1,432 @@
+{
+ "batch": "D07",
+ "rows": [
+  {
+   "id": "hmmt_feb_2025",
+   "name": "HMMT February 2025 (MathArena)",
+   "hf": "MathArena/hmmt_feb_2025",
+   "url": "https://matharena.ai",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-nc-sa-4.0",
+    "gated": false,
+    "created": "2025-04-16",
+    "last_modified": "2026-05-15",
+    "downloads": 19178,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 30,
+    "rows_by_split": {
+     "default/train": 30
+    }
+   }
+  },
+  {
+   "id": "humaneval",
+   "name": "HumanEval",
+   "hf": "openai/openai_humaneval",
+   "url": "https://github.com/openai/human-eval",
+   "group": "math_code",
+   "yugos": "catalog",
+   "list_no": "28.1",
+   "hub": {
+    "licence": [
+     "mit"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-04",
+    "downloads": 300011,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 164,
+    "rows_by_split": {
+     "openai_humaneval/test": 164
+    }
+   }
+  },
+  {
+   "id": "humaneval_plus",
+   "name": "HumanEval+",
+   "hf": "evalplus/humanevalplus",
+   "url": "https://github.com/evalplus/evalplus",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2024-01-22",
+    "last_modified": "2024-05-01",
+    "downloads": 44739,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 164,
+    "rows_by_split": {
+     "default/test": 164
+    }
+   }
+  },
+  {
+   "id": "kodcode",
+   "name": "KodCode-V1",
+   "hf": "KodCode/KodCode-V1",
+   "url": "https://kodcode-ai.github.io",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-nc-4.0",
+    "gated": false,
+    "created": "2025-02-28",
+    "last_modified": "2025-03-17",
+    "downloads": 34589,
+    "size_category": "100K<n<1M",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 487432,
+    "rows_by_split": {
+     "default/train": 484097,
+     "default/use_with_caution": 3335
+    }
+   }
+  },
+  {
+   "id": "livecodebench",
+   "name": "LiveCodeBench (code generation)",
+   "hf": "livecodebench/code_generation_lite",
+   "url": "https://livecodebench.github.io",
+   "group": "math_code",
+   "yugos": "catalog",
+   "list_no": "12.1",
+   "hub": {
+    "licence": "cc",
+    "gated": false,
+    "created": "2024-04-16",
+    "last_modified": "2025-06-05",
+    "downloads": 115241,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [],
+    "size_error": "timeout"
+   }
+  },
+  {
+   "id": "livecodebench_plus",
+   "name": "LiveCodeBench+",
+   "hf": "BenchEvolver/livecodebench-plus",
+   "url": "https://huggingface.co/datasets/BenchEvolver/livecodebench-plus",
+   "group": "math_code",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2026-06-02",
+    "last_modified": "2026-06-02",
+    "downloads": 228,
+    "size_category": "n<1K",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [],
+    "rows_total": 91,
+    "rows_by_split": {
+     "hard/test": 69,
+     "medium/test": 22
+    }
+   }
+  },
+  {
+   "id": "livemathbench",
+   "name": "LiveMathBench",
+   "hf": "opencompass/LiveMathBench",
+   "url": "https://github.com/open-compass/GPassK",
+   "group": "math_code",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-4.0",
+    "gated": "auto",
+    "created": "2024-12-23",
+    "last_modified": "2025-08-05",
+    "downloads": 529,
+    "size_category": "n<1K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "size_error": 404
+   }
+  },
+  {
+   "id": "math",
+   "name": "MATH (competition math)",
+   "hf": "DigitalLearningGmbH/MATH-lighteval",
+   "url": "https://github.com/hendrycks/math",
+   "group": "math_code",
+   "yugos": "live",
+   "list_no": "",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2025-01-15",
+    "last_modified": "2025-01-15",
+    "downloads": 41409,
+    "size_category": "10K<n<100K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "size_error": 404
+   }
+  },
+  {
+   "id": "math500",
+   "name": "MATH-500",
+   "hf": "HuggingFaceH4/MATH-500",
+   "url": "https://github.com/openai/prm800k",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "2.61",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2024-11-15",
+    "last_modified": "2025-12-15",
+    "downloads": 229357,
+    "size_category": "n<1K",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 500,
+    "rows_by_split": {
+     "default/test": 500
+    }
+   }
+  },
+  {
+   "id": "mathqa",
+   "name": "MathQA",
+   "hf": "allenai/math_qa",
+   "url": "https://math-qa.github.io",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "apache-2.0"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-18",
+    "downloads": 22260,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "size_error": "timeout"
+   }
+  },
+  {
+   "id": "mbpp",
+   "name": "MBPP",
+   "hf": "google-research-datasets/mbpp",
+   "url": "https://github.com/google-research/google-research/tree/master/mbpp",
+   "group": "math_code",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "cc-by-4.0"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-04",
+    "downloads": 310182,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 1401,
+    "rows_by_split": {
+     "full/train": 374,
+     "full/test": 500,
+     "full/validation": 90,
+     "full/prompt": 10,
+     "sanitized/train": 120,
+     "sanitized/test": 257,
+     "sanitized/validation": 43,
+     "sanitized/prompt": 7
+    }
+   }
+  },
+  {
+   "id": "mbpp_plus",
+   "name": "MBPP+",
+   "hf": "evalplus/mbppplus",
+   "url": "https://github.com/evalplus/evalplus",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2024-01-23",
+    "last_modified": "2024-04-17",
+    "downloads": 52896,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 378,
+    "rows_by_split": {
+     "default/test": 378
+    }
+   }
+  },
+  {
+   "id": "minerva_math",
+   "name": "Minerva Math (OCWCourses)",
+   "hf": "math-ai/minervamath",
+   "url": "https://arxiv.org/abs/2206.14858",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2025-02-15",
+    "last_modified": "2025-02-15",
+    "downloads": 18755,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 272,
+    "rows_by_split": {
+     "default/test": 272
+    }
+   }
+  },
+  {
+   "id": "multipl_e",
+   "name": "MultiPL-E",
+   "hf": "nuprl/MultiPL-E",
+   "url": "https://nuprl.github.io/MultiPL-E/",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "mit"
+    ],
+    "gated": false,
+    "created": "2022-09-28",
+    "last_modified": "2025-07-15",
+    "downloads": 31940,
+    "size_category": "10K<n<100K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 12667,
+    "rows_by_split": {
+     "humaneval-adb/test": 157,
+     "humaneval-clj/test": 161,
+     "humaneval-cpp/test": 161,
+     "humaneval-cs/test": 158,
+     "humaneval-d/test": 156,
+     "humaneval-dart/test": 157,
+     "humaneval-elixir/test": 161,
+     "humaneval-go/test": 154,
+     "humaneval-hs/test": 156,
+     "humaneval-java/test": 158,
+     "humaneval-jl/test": 159,
+     "humaneval-js/test": 161,
+     "humaneval-lua/test": 161,
+     "humaneval-ml/test": 155,
+     "humaneval-php/test": 161,
+     "humaneval-pl/test": 161,
+     "humaneval-r/test": 161,
+     "humaneval-rb/test": 161,
+     "humaneval-rkt/test": 161,
+     "humaneval-rs/test": 156,
+     "humaneval-scala/test": 160,
+     "humaneval-sh/test": 158,
+     "humaneval-swift/test": 158,
+     "humaneval-ts/test": 159,
+     "mbpp-adb/test": 365,
+     "mbpp-clj/test": 397,
+     "mbpp-cpp/test": 397,
+     "mbpp-cs/test": 386,
+     "mbpp-d/test": 358,
+     "mbpp-elixir/test": 397,
+     "mbpp-go/test": 374,
+     "mbpp-hs/test": 355,
+     "mbpp-java/test": 386,
+     "mbpp-jl/test": 390,
+     "mbpp-js/test": 397,
+     "mbpp-lua/test": 397,
+     "mbpp-ml/test": 355,
+     "mbpp-php/test": 397,
+     "mbpp-pl/test": 396,
+     "mbpp-r/test": 397,
+     "mbpp-rb/test": 397,
+     "mbpp-rkt/test": 397,
+     "mbpp-rs/test": 354,
+     "mbpp-scala/test": 396,
+     "mbpp-sh/test": 382,
+     "mbpp-swift/test": 396,
+     "mbpp-ts/test": 390
+    }
+   }
+  },
+  {
+   "id": "numinamath",
+   "name": "NuminaMath-1.5",
+   "hf": "AI-MO/NuminaMath-1.5",
+   "url": "https://projectnumina.ai",
+   "group": "math_code",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2025-02-10",
+    "last_modified": "2026-01-29",
+    "downloads": 43888,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "size_error": 404
+   }
+  }
+ ]
+}

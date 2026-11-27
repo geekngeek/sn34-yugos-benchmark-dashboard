@@ -1,0 +1,1576 @@
+{
+ "17.1": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.8,
+    "A": 0.15,
+    "Dm": 0.5,
+    "L": 0.8,
+    "F": 0.85,
+    "why": "Real-user text prompts (400-row sample of the 140k release: 88% single-turn, first message median ~80 chars, ~half English) graded only by pairwise human votes with no reference answer, so a weak stand-in for correctness-graded Yugos chat."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.3,
+    "L": 0.8,
+    "F": 0.85,
+    "why": "About 30% of sampled battles are code and ~8% math-tagged, but answers are judged by preference, not unit tests or a checked final answer."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.7,
+    "F": 0.85,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/lmarena-ai/arena-human-preference-140k (135,634 vote rows, 2025); also lmarena-ai/arena-expert-5k (5,128), arena-human-preference-100k (Jun-Aug 2024), arena-human-preference-55k",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/lmarena-ai/arena-human-preference-140k",
+  "licence": "User prompts CC-BY-4.0; model outputs under each provider's terms (arena-human-preference-140k card)",
+  "overlap": "",
+  "summary": "Pairwise human votes on real user conversations; only periodic samples of the prompts are released. Useful at most as a source of realistic easy chat prompts (no gold answers, so labels would have to be made by grading models ourselves).",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/arena-human-preference-140k",
+   "https://huggingface.co/datasets/lmarena-ai/arena-expert-5k",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.2": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.8,
+    "A": 0.15,
+    "Dm": 0.55,
+    "L": 0.8,
+    "F": 0.85,
+    "why": "Same real-user text-arena prompts filtered by category (hard-prompts, expert, math, instruction-following, ...); still pairwise votes with no reference answer."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.35,
+    "L": 0.8,
+    "F": 0.85,
+    "why": "The coding and math views pick code/math prompts (140k data has is_code and math tags), but grading is a human vote, not tests or a boxed answer."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.7,
+    "F": 0.85,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/lmarena-ai/arena-human-preference-140k (category_tag: math, creative writing, hard prompts, instruction following; is_code); lmarena-ai/arena-expert-5k has occupational tags",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/lmarena-ai/arena-human-preference-140k",
+  "licence": "User prompts CC-BY-4.0; model outputs under each provider's terms (arena-human-preference-140k card)",
+  "overlap": "",
+  "summary": "28 category slices of the text arena (coding, math, hard prompts, languages, occupations...). Category tags in the released vote data let us pull English math/code/hard prompts, but there is no reference answer to grade against.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/arena-human-preference-140k",
+   "https://huggingface.co/datasets/lmarena-ai/arena-expert-5k",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.3": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.6,
+    "F": 0.9,
+    "why": "different skill: building web apps, not Q&A"
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.5,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.6,
+    "F": 0.9,
+    "why": "Prompts ask for whole web apps (sample of 2026 battles: median prompt ~720 chars, p90 ~12k chars) judged by a human vote, not hidden unit tests on a Python function."
+   },
+   "agentic": {
+    "T": 0.2,
+    "I": 0.5,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.9,
+    "why": "2026 battles include agentic build traces with tool calls, but the task is coding a website and grading is a vote, not function-call AST or end-state checks."
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/lmarena-ai/arena-webdev-preferences (6,390 battles, Jul 2026 sample, CC-BY-4.0 prompts); https://huggingface.co/datasets/lmarena-ai/webdev-arena-preference-10k (10K battles, gated, no redistribution)",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/lmarena-ai/arena-webdev-preferences",
+  "licence": "arena-webdev-preferences: CC-BY-4.0 for prompts, outputs under provider terms; webdev-arena-preference-10k: custom gated licence (no transfer to third parties)",
+  "overlap": "",
+  "summary": "Human-preference battles where models build websites (HTML/React/front-end) from a prompt. Code skill, but a different flavour and no automatic checker, so little help for Yugos math_code or agentic.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/arena-webdev-preferences",
+   "https://huggingface.co/datasets/lmarena-ai/webdev-arena-preference-10k",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.4": {
+  "scores": {
+   "chat": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.3,
+    "F": 0.9,
+    "why": "different skill: prompt includes an image (Yugos is text-only)"
+   },
+   "math_code": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.3,
+    "F": 0.9,
+    "why": "different skill: image input required (image-to-web-app)"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.3,
+    "F": 0.9,
+    "why": "different skill: image input required"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "unknown",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Web-app building from an input image, judged by human votes. Needs image input, so it cannot stand in for any text-only Yugos question.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.5": {
+  "scores": {
+   "chat": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: image+text prompts (Yugos is text-only)"
+   },
+   "math_code": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: image input required"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: image input required"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "lmarena-ai/VisionArena-Chat, lmarena-ai/VisionArena-Battle (HF; image+text, listed in org, cards not read in detail)",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Human-preference votes on image+text prompts. Requires images, so no fit with Yugos.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.6": {
+  "scores": {
+   "chat": {
+    "T": 0.2,
+    "I": 0.6,
+    "A": 0.1,
+    "Dm": 0.4,
+    "L": 0.2,
+    "F": 0.85,
+    "why": "Questions about uploaded documents resemble reading-based QA (hotpotqa), but answers are judged by human votes with no reference, and document inputs are likely far longer than Yugos chat prompts (length not verified)."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.2,
+    "F": 0.85,
+    "why": "different skill: document chat, no math answers or tests"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.2,
+    "F": 0.85,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "unknown",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Arena for chatting over uploaded documents (file types not verified). No released prompt/vote dataset found in the lmarena-ai Hugging Face org (checked 2026-11-27), so it gives neither questions nor per-question outcomes.",
+  "confidence": "low",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.7": {
+  "scores": {
+   "chat": {
+    "T": 0.25,
+    "I": 0.6,
+    "A": 0.1,
+    "Dm": 0.55,
+    "L": 0.7,
+    "F": 0.8,
+    "why": "Info-seeking questions are close in spirit to simpleqa/hotpotqa, but many need live web search, ~90 languages, multi-turn sessions, and only human votes with no reference answer (prompt length not measured)."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.7,
+    "F": 0.8,
+    "why": "different skill: search-augmented info seeking"
+   },
+   "agentic": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.1,
+    "Dm": 0.15,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "Search is a tool, but it runs inside each search-LLM system, not as JSON function schemas the model must call; graded by vote."
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/lmarena-ai/search-arena-24k (24,069 conversations, 12,652 votes, Mar 18-May 8 2025); also lmarena-ai/search-arena-v1-7k",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/lmarena-ai/search-arena-24k",
+  "licence": "User prompts CC-BY-4.0; model outputs under provider terms (search-arena-24k card)",
+  "overlap": "",
+  "summary": "Human preference for search-augmented answers to real info-seeking questions. Questions are public, but answers depend on live web results and have no gold label, so weak for Yugos (models answer without search).",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/search-arena-24k",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.8": {
+  "scores": {
+   "chat": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: text-to-image generation (output is image; Yugos is text-only)"
+   },
+   "math_code": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: text-to-image generation"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: text-to-image generation"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "image",
+  "questions_public": "unknown",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Human-preference votes on text-to-image generation. Not a text question-answering task, so no fit with any Yugos category.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.9": {
+  "scores": {
+   "chat": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: image editing (output is image; Yugos is text-only)"
+   },
+   "math_code": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: image editing"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: image editing"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "image",
+  "questions_public": "unknown",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Human-preference votes on image editing. Not a text question-answering task, so no fit with any Yugos category.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.10": {
+  "scores": {
+   "chat": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: text-to-video generation (output is video; Yugos is text-only)"
+   },
+   "math_code": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: text-to-video generation"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: text-to-video generation"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "video",
+  "questions_public": "unknown",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Human-preference votes on text-to-video generation. Not a text question-answering task, so no fit with any Yugos category.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.11": {
+  "scores": {
+   "chat": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: image-to-video generation (output is video; Yugos is text-only)"
+   },
+   "math_code": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: image-to-video generation"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: image-to-video generation"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "video",
+  "questions_public": "unknown",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Human-preference votes on image-to-video generation. Not a text question-answering task, so no fit with any Yugos category.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.12": {
+  "scores": {
+   "chat": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: video editing (output is video; Yugos is text-only)"
+   },
+   "math_code": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: video editing"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.85,
+    "why": "different skill: video editing"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "video",
+  "questions_public": "unknown",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Human-preference votes on video editing. Not a text question-answering task, so no fit with any Yugos category.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "17.13": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: long multi-step agent sessions, not single Q&A"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.1,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "53% of sessions are coding/repo-debugging, but as long multi-turn agent work (32% end with 128k+ input tokens), not single prompts with unit tests."
+   },
+   "agentic": {
+    "T": 0.4,
+    "I": 0.6,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Real multi-turn tool-using agent sessions (Agent Mode: coding, file creation, terminal) like the guessed private agentic set, but scored by implicit user/environment signals (IPS), not end-state checks, with very long contexts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "unknown",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Agent Arena ranks orchestrator models from millions of real Agent Mode sessions using causal (IPS) signals such as task outcome and tool errors. No session dataset found in the lmarena-ai HF org and the methodology blog mentions none, so it is a ranking signal only, not usable questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://arena.ai/blog/agent-arena-methodology",
+   "https://huggingface.co/api/datasets?author=lmarena-ai",
+   "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset"
+  ]
+ },
+ "18.1": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.8,
+    "A": 0.25,
+    "Dm": 0.5,
+    "L": 0.85,
+    "F": 0.45,
+    "why": "Real-user open-ended tasks (v2: 1,024 English tasks from WildChat, 73% single-turn, median input ~1,250 chars, p90 ~5,800) ranked by pairwise GPT-4 judge comparisons with a checklist; no gold answer, unlike Yugos's correctness grading."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.8,
+    "A": 0.2,
+    "Dm": 0.35,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "Includes coding/debugging (~17%) and math (~8%) tasks by primary tag, but judged free-form, not by unit tests or a checked final answer."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/WildBench (config v2, test; v2-hard 256)",
+  "n_questions": 1024,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/allenai/WildBench/tree/main/eval_results/v2.0625/score.v2/eval=gpt-4o-2024-05-13",
+  "licence": "CC BY 4.0 (dataset card); AI2 Responsible Use Guidelines",
+  "overlap": "",
+  "summary": "WildBench v2: 1,024 hard real-user tasks (info seeking, coding, creative, reasoning, planning, math) with a per-task checklist and GPT-4 reference; this row is the length-controlled Elo ranking. Per-task judge scores for 63 mid-2024 models are on GitHub, useful as old-model difficulty signals only.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/WildBench",
+   "https://github.com/allenai/WildBench",
+   "https://github.com/allenai/WildBench/blob/main/src/view_wb_eval.py",
+   "https://huggingface.co/datasets/allenai/WildBench-V2-Model-Outputs"
+  ]
+ },
+ "18.2": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.8,
+    "A": 0.25,
+    "Dm": 0.5,
+    "L": 0.85,
+    "F": 0.45,
+    "why": "Same 1,024 real-user tasks as 18.1, ranked by pairwise judge Elo without length control; no gold answer."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.8,
+    "A": 0.2,
+    "Dm": 0.35,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "Coding and math tasks present but judged free-form, not by tests or a checked answer."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/WildBench (config v2, test; v2-hard 256)",
+  "n_questions": 1024,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/allenai/WildBench/tree/main/eval_results/v2.0625/score.v2/eval=gpt-4o-2024-05-13",
+  "licence": "CC BY 4.0 (dataset card); AI2 Responsible Use Guidelines",
+  "overlap": "",
+  "summary": "Same WildBench v2 tasks as the default view; only the ranking metric differs (Elo without length control).",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/WildBench",
+   "https://github.com/allenai/WildBench",
+   "https://github.com/allenai/WildBench/blob/main/src/view_wb_eval.py",
+   "https://huggingface.co/datasets/allenai/WildBench-V2-Model-Outputs"
+  ]
+ },
+ "18.3": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.8,
+    "A": 0.35,
+    "Dm": 0.5,
+    "L": 0.85,
+    "F": 0.45,
+    "why": "Same 1,024 real-user tasks scored one response at a time (1-10 checklist judge), closer to a rubric judge than pairwise Elo, but still no exact answer to check."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.8,
+    "A": 0.25,
+    "Dm": 0.35,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "Coding and math tasks present, but the checklist judge is not a unit-test or final-answer check."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/WildBench (config v2, test; v2-hard 256)",
+  "n_questions": 1024,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/allenai/WildBench/tree/main/eval_results/v2.0625/score.v2/eval=gpt-4o-2024-05-13",
+  "licence": "CC BY 4.0 (dataset card); AI2 Responsible Use Guidelines",
+  "overlap": "",
+  "summary": "WildBench v2 tasks with the individual checklist score (WB-Score). Per-task scores for 63 mid-2024 models are public; they rate answer quality, not correctness.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/WildBench",
+   "https://github.com/allenai/WildBench",
+   "https://github.com/allenai/WildBench/blob/main/src/view_wb_eval.py",
+   "https://huggingface.co/datasets/allenai/WildBench-V2-Model-Outputs"
+  ]
+ },
+ "18.4": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.8,
+    "A": 0.2,
+    "Dm": 0.5,
+    "L": 0.85,
+    "F": 0.45,
+    "why": "Same 1,024 tasks scored as pairwise reward against 3 baseline models; relative preference, no gold answer."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.8,
+    "A": 0.15,
+    "Dm": 0.35,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "Coding and math tasks present but scored by pairwise judge reward, not tests."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/WildBench (config v2, test; v2-hard 256)",
+  "n_questions": 1024,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/allenai/WildBench/tree/main/eval_results/v2.0625/score.v2/eval=gpt-4o-2024-05-13",
+  "licence": "CC BY 4.0 (dataset card); AI2 Responsible Use Guidelines",
+  "overlap": "",
+  "summary": "WildBench v2 tasks with the pairwise reward metric vs GPT-4-Turbo, Claude 3 Haiku and Llama-2-70B. Same questions as the other WildBench views.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/WildBench",
+   "https://github.com/allenai/WildBench",
+   "https://github.com/allenai/WildBench/blob/main/src/view_wb_eval.py",
+   "https://huggingface.co/datasets/allenai/WildBench-V2-Model-Outputs"
+  ]
+ },
+ "18.5": {
+  "scores": {
+   "chat": {
+    "T": 0.15,
+    "I": 0.8,
+    "A": 0.15,
+    "Dm": 0.2,
+    "L": 0.85,
+    "F": 0.45,
+    "why": "Creative writing, role play, editing and brainstorming (387 tasks counting primary+secondary tags): open-ended, a different skill from Yugos's checkable Q&A."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: creative writing"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/WildBench (config v2, test; v2-hard 256)",
+  "n_questions": 387,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/allenai/WildBench/tree/main/eval_results/v2.0625/score.v2/eval=gpt-4o-2024-05-13",
+  "licence": "CC BY 4.0 (dataset card); AI2 Responsible Use Guidelines",
+  "overlap": "",
+  "summary": "WildBench creative tasks (387 of 1,024 by tag, computed from v2 data with the repo's tag map). Little use: Yugos chat grades correctness.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/WildBench",
+   "https://github.com/allenai/WildBench",
+   "https://github.com/allenai/WildBench/blob/main/src/view_wb_eval.py",
+   "https://huggingface.co/datasets/allenai/WildBench-V2-Model-Outputs"
+  ]
+ },
+ "18.6": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.75,
+    "A": 0.3,
+    "Dm": 0.5,
+    "L": 0.85,
+    "F": 0.45,
+    "why": "Reasoning and planning requests from real users (669 tasks by tag); reasoning overlaps bbeh/hle in spirit, but answers are free-form and checklist-judged."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.75,
+    "A": 0.15,
+    "Dm": 0.25,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "Some reasoning tasks involve math, but no boxed answer or tests."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/WildBench (config v2, test; v2-hard 256)",
+  "n_questions": 669,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/allenai/WildBench/tree/main/eval_results/v2.0625/score.v2/eval=gpt-4o-2024-05-13",
+  "licence": "CC BY 4.0 (dataset card); AI2 Responsible Use Guidelines",
+  "overlap": "",
+  "summary": "WildBench planning & reasoning tasks (669 of 1,024 by tag, computed). Realistic reasoning prompts but no gold answers.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/WildBench",
+   "https://github.com/allenai/WildBench",
+   "https://github.com/allenai/WildBench/blob/main/src/view_wb_eval.py",
+   "https://huggingface.co/datasets/allenai/WildBench-V2-Model-Outputs"
+  ]
+ },
+ "18.7": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.75,
+    "A": 0.25,
+    "Dm": 0.45,
+    "L": 0.85,
+    "F": 0.45,
+    "why": "Math and data-analysis requests (252 tasks by tag) judged free-form; some resemble chat math questions but without an exact answer key."
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.75,
+    "A": 0.25,
+    "Dm": 0.5,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "Real-user math problems and data-analysis requests touch MATH/ds1000 topics, but grading is a checklist judge, not a checked final answer or executed code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/WildBench (config v2, test; v2-hard 256)",
+  "n_questions": 252,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/allenai/WildBench/tree/main/eval_results/v2.0625/score.v2/eval=gpt-4o-2024-05-13",
+  "licence": "CC BY 4.0 (dataset card); AI2 Responsible Use Guidelines",
+  "overlap": "",
+  "summary": "WildBench math & data analysis tasks (252 of 1,024 by tag, computed). Topic-relevant real prompts, but no answer key or tests; labels would need our own grading.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/WildBench",
+   "https://github.com/allenai/WildBench",
+   "https://github.com/allenai/WildBench/blob/main/src/view_wb_eval.py",
+   "https://huggingface.co/datasets/allenai/WildBench-V2-Model-Outputs"
+  ]
+ },
+ "18.8": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.6,
+    "A": 0.25,
+    "Dm": 0.55,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "Information and advice seeking (404 tasks by tag, only 61% single-turn): factual-ish questions, but open-ended and judged without a reference answer."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: information/advice seeking"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/WildBench (config v2, test; v2-hard 256)",
+  "n_questions": 404,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/allenai/WildBench/tree/main/eval_results/v2.0625/score.v2/eval=gpt-4o-2024-05-13",
+  "licence": "CC BY 4.0 (dataset card); AI2 Responsible Use Guidelines",
+  "overlap": "",
+  "summary": "WildBench information/advice seeking tasks (404 of 1,024 by tag, computed). Closest WildBench slice to chat QA, still without gold answers.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/WildBench",
+   "https://github.com/allenai/WildBench",
+   "https://github.com/allenai/WildBench/blob/main/src/view_wb_eval.py",
+   "https://huggingface.co/datasets/allenai/WildBench-V2-Model-Outputs"
+  ]
+ },
+ "18.9": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.15,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: coding and debugging requests, not chat Q&A"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.8,
+    "A": 0.2,
+    "Dm": 0.45,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "Real-user coding/debugging requests (212 tasks by tag, 83% single-turn) are code-writing like bigcodebench, but judged by a checklist LLM judge, not hidden unit tests; language mix not checked."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: no tools in the prompt"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/WildBench (config v2, test; v2-hard 256)",
+  "n_questions": 212,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/allenai/WildBench/tree/main/eval_results/v2.0625/score.v2/eval=gpt-4o-2024-05-13",
+  "licence": "CC BY 4.0 (dataset card); AI2 Responsible Use Guidelines",
+  "overlap": "",
+  "summary": "WildBench coding & debugging tasks (212 of 1,024 by tag, computed). Realistic code prompts without executable tests.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/WildBench",
+   "https://github.com/allenai/WildBench",
+   "https://github.com/allenai/WildBench/blob/main/src/view_wb_eval.py",
+   "https://huggingface.co/datasets/allenai/WildBench-V2-Model-Outputs"
+  ]
+ },
+ "26.1": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.7,
+    "L": 0.85,
+    "F": 0.1,
+    "why": "4-option MC knowledge questions (law, philosophy incl. moral scenarios, history) like mmlu_pro's humanities, but a 2020 set heavily trained on and partly inside MMLU-Pro."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.1,
+    "why": "different skill: humanities multiple choice"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/mmlu (test split; subject->group map in hendrycks/test categories.py)",
+  "n_questions": 4705,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/linggm/RouterEval (full_data/mmlu)",
+  "licence": "MIT",
+  "overlap": "MMLU-Pro (live Yugos mmlu_pro) took 6,810 of its 12,032 questions from original MMLU, including all of its Law (1,101), Philosophy (499) and History (381) questions (options expanded to 10); dedupe against Yugos mmlu_pro before use.",
+  "summary": "MMLU humanities group: 4,705 test questions (counted with the repo's category map). Same question style as Yugos mmlu_pro (fewer options) and a good easy-chat stand-in, but old and overlapping MMLU-Pro.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/cais/mmlu",
+   "https://github.com/hendrycks/test/blob/master/categories.py",
+   "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro",
+   "https://huggingface.co/datasets/linggm/RouterEval",
+   "https://github.com/hendrycks/test"
+  ]
+ },
+ "26.2": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.65,
+    "L": 0.9,
+    "F": 0.1,
+    "why": "4-option MC on economics, psychology, politics, geography, sociology; matches mmlu_pro style, but old, heavily trained on and partly reused in MMLU-Pro."
+   },
+   "math_code": {
+    "T": 0.08,
+    "I": 1.0,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.1,
+    "why": "different skill: social-science multiple choice (only econometrics touches math)"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/mmlu (test split; subject->group map in hendrycks/test categories.py)",
+  "n_questions": 3077,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/linggm/RouterEval (full_data/mmlu)",
+  "licence": "MIT",
+  "overlap": "MMLU-Pro (live Yugos mmlu_pro) reuses original-MMLU questions, including 444 Economics and 493 Psychology items (options expanded to 10); dedupe against Yugos mmlu_pro.",
+  "summary": "MMLU social sciences group: 3,077 test questions (counted with the repo's category map). Easy MC chat stand-in; contamination and MMLU-Pro reuse limit freshness.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/cais/mmlu",
+   "https://github.com/hendrycks/test/blob/master/categories.py",
+   "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro",
+   "https://huggingface.co/datasets/linggm/RouterEval",
+   "https://github.com/hendrycks/test"
+  ]
+ },
+ "26.3": {
+  "scores": {
+   "chat": {
+    "T": 0.8,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.75,
+    "L": 0.9,
+    "F": 0.1,
+    "why": "4-option MC in math, physics, chemistry, CS, biology, engineering (elementary to college) overlapping mmlu_pro STEM and some hle-style topics; 2020 set, heavily trained on."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.25,
+    "Dm": 0.4,
+    "L": 0.9,
+    "F": 0.1,
+    "why": "Math/CS questions but answered by picking a letter, not a boxed closed-form answer or executed code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/mmlu (test split; subject->group map in hendrycks/test categories.py)",
+  "n_questions": 3018,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/linggm/RouterEval (full_data/mmlu)",
+  "licence": "MIT",
+  "overlap": "MMLU-Pro (live Yugos mmlu_pro) reuses original-MMLU STEM questions: Math 846, Physics 411, Computer Science 274, Biology 219, Chemistry 178, Engineering 67 (options expanded to 10); dedupe against Yugos mmlu_pro.",
+  "summary": "MMLU STEM group: 3,018 test questions (counted with the repo's category map). Best MMLU slice for chat (STEM-heavy like mmlu_pro/hle) but old and overlapping MMLU-Pro.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/cais/mmlu",
+   "https://github.com/hendrycks/test/blob/master/categories.py",
+   "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro",
+   "https://huggingface.co/datasets/linggm/RouterEval",
+   "https://github.com/hendrycks/test"
+  ]
+ },
+ "26.4": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.65,
+    "L": 0.9,
+    "F": 0.1,
+    "why": "4-option MC on business, health/medicine, accounting, global facts and misc; mmlu_pro-style, old and partly reused in MMLU-Pro."
+   },
+   "math_code": {
+    "T": 0.07,
+    "I": 1.0,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.1,
+    "why": "different skill: professional/general-knowledge multiple choice"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/mmlu (test split; subject->group map in hendrycks/test categories.py)",
+  "n_questions": 3242,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/linggm/RouterEval (full_data/mmlu)",
+  "licence": "MIT",
+  "overlap": "MMLU-Pro (live Yugos mmlu_pro) reuses original-MMLU questions, including all of its Health (818) and Other (924) items and 155 Business items (options expanded to 10); dedupe against Yugos mmlu_pro.",
+  "summary": "MMLU 'other' group (business, health, misc): 3,242 test questions (counted with the repo's category map). Easy MC chat stand-in with heavy contamination.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/cais/mmlu",
+   "https://github.com/hendrycks/test/blob/master/categories.py",
+   "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro",
+   "https://huggingface.co/datasets/linggm/RouterEval",
+   "https://github.com/hendrycks/test"
+  ]
+ },
+ "27.1": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 0.95,
+    "F": 0.15,
+    "why": "Short math word problems with a single numeric answer; only a small part of the chat mix (hle/mmlu_pro math) and far simpler."
+   },
+   "math_code": {
+    "T": 0.7,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.15,
+    "why": "Math word problems with a checkable numeric final answer (questions median ~210 chars) like MATH, but elementary arithmetic only, no algebra/geometry/number theory or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.15,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/openai/gsm8k (config main, split test)",
+  "n_questions": 1319,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/linggm/RouterEval (full_data/gsm8k)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "GSM8K test: 1,319 grade-school word problems (2-8 arithmetic steps, answer after '####'). Same answer-checking shape as Yugos math, but L1 difficulty and heavily trained on since 2021.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/openai/grade-school-math",
+   "https://huggingface.co/datasets/openai/gsm8k",
+   "https://huggingface.co/datasets/linggm/RouterEval"
+  ]
+ },
+ "27.2": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 0.95,
+    "F": 0.1,
+    "why": "Short math word problems with a single numeric answer; only a small part of the chat mix (hle/mmlu_pro math) and far simpler."
+   },
+   "math_code": {
+    "T": 0.7,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Math word problems with a checkable numeric final answer (questions median ~210 chars) like MATH, but elementary arithmetic only, no algebra/geometry/number theory or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.845,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "why": "Same 8.5K human-written problem pool split into 7.5K train / 1K test (README), so the test split's fitted level applies; no scores published on train."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/openai/gsm8k (config main, split train)",
+  "n_questions": 7473,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "GSM8K train: 7,473 problems from the same pool as test, meant as training data (so certainly memorized by many models). Only useful as easy math filler.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/openai/grade-school-math",
+   "https://huggingface.co/datasets/openai/gsm8k",
+   "https://huggingface.co/datasets/linggm/RouterEval"
+  ]
+ },
+ "27.3": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 0.95,
+    "F": 0.1,
+    "why": "Short math word problems with a single numeric answer; only a small part of the chat mix (hle/mmlu_pro math) and far simpler."
+   },
+   "math_code": {
+    "T": 0.7,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "Math word problems with a checkable numeric final answer (questions median ~210 chars) like MATH, but elementary arithmetic only, no algebra/geometry/number theory or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.845,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "why": "Questions are identical to GSM8K main (only the solution format changes), so the test split's fitted level applies."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/openai/gsm8k (config socratic) / https://github.com/openai/grade-school-math (train_socratic.jsonl, test_socratic.jsonl)",
+  "n_questions": 8792,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "Same GSM8K problems (7,473 train + 1,319 test) with auto-generated Socratic sub-questions added to the solutions only; adds no new questions beyond 27.1/27.2, never scored.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/openai/grade-school-math",
+   "https://huggingface.co/datasets/openai/gsm8k",
+   "https://huggingface.co/datasets/linggm/RouterEval"
+  ]
+ },
+ "27.4": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 0.95,
+    "F": 0.15,
+    "why": "Short math word problems with a single numeric answer; only a small part of the chat mix (hle/mmlu_pro math) and far simpler."
+   },
+   "math_code": {
+    "T": 0.7,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.15,
+    "why": "Math word problems with a checkable numeric final answer (questions median ~210 chars) like MATH, but elementary arithmetic only, no algebra/geometry/number theory or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.15,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.845,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "why": "These are the GSM8K test problems, so the test split's fitted level applies."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/openai/grade-school-math (example_model_solutions.jsonl over the test problems)",
+  "n_questions": 1319,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/openai/grade-school-math#view-model-solutions",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "The GSM8K test problems plus raw solutions from four 2021 GPT-3 setups (6B/175B, finetuning/verification). The questions duplicate 27.1; the outputs are per-question results but for very old models.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/openai/grade-school-math",
+   "https://huggingface.co/datasets/openai/gsm8k",
+   "https://huggingface.co/datasets/linggm/RouterEval"
+  ]
+ },
+ "28.1": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.15,
+    "L": 0.9,
+    "F": 0.15,
+    "why": "different skill: writing Python functions, not Q&A"
+   },
+   "math_code": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.35,
+    "L": 0.95,
+    "F": 0.15,
+    "why": "Write a Python function from a signature+docstring (prompt median ~400 chars) checked by hidden unit tests, like bigcodebench, but pure-Python algorithms with no pandas/numpy/matplotlib; 2021 and heavily contaminated."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.15,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/openai/openai_humaneval",
+  "n_questions": 164,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench (humaneval folder)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "HumanEval: 164 hand-written Python function-completion problems graded by unit tests. Right answer format for Yugos code, but simple (L1), library-free and memorized.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/openai/openai_humaneval",
+   "https://github.com/openai/human-eval",
+   "https://github.com/openai/simple-evals",
+   "https://huggingface.co/datasets/NPULH/LLMRouterBench"
+  ]
+ },
+ "28.2": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.15,
+    "L": 0.9,
+    "F": 0.15,
+    "why": "different skill: writing Python functions, not Q&A"
+   },
+   "math_code": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.35,
+    "L": 0.95,
+    "F": 0.15,
+    "why": "Write a Python function from a signature+docstring (prompt median ~400 chars) checked by hidden unit tests, like bigcodebench, but pure-Python algorithms with no pandas/numpy/matplotlib; 2021 and heavily contaminated."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.15,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/openai/openai_humaneval (same 164 problems; simple-evals zero-shot CoT prompt)",
+  "n_questions": 164,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench (humaneval folder)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "The same 164 HumanEval problems run through OpenAI simple-evals with a zero-shot chain-of-thought instruction (repo frozen July 2025). No new questions beyond 28.1.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/openai/openai_humaneval",
+   "https://github.com/openai/human-eval",
+   "https://github.com/openai/simple-evals",
+   "https://huggingface.co/datasets/NPULH/LLMRouterBench"
+  ]
+ }
+}

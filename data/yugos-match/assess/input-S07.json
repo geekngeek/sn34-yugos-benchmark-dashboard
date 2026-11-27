@@ -1,0 +1,688 @@
+{
+ "batch": "S07",
+ "parents": [
+  {
+   "no": "8",
+   "name": "ARC-AGI-2 / ARC-AGI-3",
+   "category": "Abstract Reasoning",
+   "url": "https://arcprize.org/",
+   "focus": "Fluid intelligence and novel pattern recognition that cannot be memorized.",
+   "notes": ""
+  },
+  {
+   "no": "9",
+   "name": "FrontierMath",
+   "category": "Mathematics",
+   "url": "https://epoch.ai/frontiermath",
+   "focus": "Original, unpublished research-level math problems created by mathematicians.",
+   "notes": ""
+  },
+  {
+   "no": "10",
+   "name": "AIME (2025/2026)",
+   "category": "Mathematics",
+   "url": "",
+   "focus": "High-school Olympiad math problems requiring multi-step logical deduction.",
+   "notes": ""
+  },
+  {
+   "no": "11",
+   "name": "SWE-bench Pro / Verified",
+   "category": "Software Engineering",
+   "url": "https://www.swebench.com/",
+   "focus": "Resolving real-world GitHub issues inside full software repositories.",
+   "notes": ""
+  },
+  {
+   "no": "12",
+   "name": "LiveCodeBench",
+   "category": "Coding",
+   "url": "https://livecodebench.github.io/",
+   "focus": "Continuously updated competitive programming problems to prevent training leaks.",
+   "notes": ""
+  }
+ ],
+ "rows": [
+  {
+   "no": "8.1",
+   "name": "ARC-AGI-1",
+   "category": "ARC-AGI Series",
+   "url": "https://arcprize.org/arc-agi/1",
+   "focus": "Abstraction and Reasoning Corpus (2019, 'Challenges Deep Learning'): tests AI systems' ability to deal with reasoning problems they had not been prepared for, i.e. skill acquisition rather than any predefined task.",
+   "metrics": "quality, cost, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: ARC-AGI-1 — % of Semi-Private tasks solved (evaluations.v1_Semi_Private.score, 0-1) · https://arcprize.org/leaderboard\nCost [page]: Cost/task — USD per task (costPerTask), also x-axis of the score-vs-cost chart · https://arcprize.org/leaderboard\nCost [page]: $X input / $Y output per 1M tokens — model API price on the results-page header (per model, not per benchmark) · https://arcprize.org/results/openai-gpt-6-2-astra\nEffort [page]: AI System / Effort — separate row per reasoning",
+   "notes": "Leaderboard page is Next.js; values read from the server-rendered HTML and its embedded React flight data (groups/rows/evaluations, datasets v1_Semi_Private, v2_Semi_Private, v3_Semi_Private) on https://arcprize.org/leaderboard. Ranking = one entry per model (best effort), ties broken by lower cost, matching the page's 1st/2nd/3rd place medals. Human Panel (100% on ARC-AGI-2) excluded as not a ranked system. Semi-private set. ARC-AGI-1 is saturated: 11 systems tie at 98.5%; order is by lower cost/task ($0.059, $0.065, $0.158) per the page's tie rule. No per-version leaderboard URL; the ARC-AGI-1 column is on /leaderboard.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 50 models' published scores.\nBest observed: Gemini 4 Argon 98.5, Gemini 3.8 Flash 98.5, GPT-6.2 Astra 98.5.\nOfficial difficulty: 'Easy for humans but challenging for AI' (arcprize.org/arc-agi/1); 800 grid tasks with ~3 examples each.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.775,
+    "4": 0.975
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "3": 0.775,
+    "4": 0.975
+   }
+  },
+  {
+   "no": "8.2",
+   "name": "ARC-AGI-2",
+   "category": "ARC-AGI Series",
+   "url": "https://arcprize.org/arc-agi/2",
+   "focus": "Next iteration of ARC (2025, 'Challenges Reasoning Models'), built to stress-test state-of-the-art AI reasoning systems and measure efficiency against human performance.",
+   "metrics": "quality, cost, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: ARC-AGI-2 — % of Semi-Private tasks solved (evaluations.v2_Semi_Private.score, 0-1) · https://arcprize.org/leaderboard\nCost [page]: Cost/task — USD per task (costPerTask), also x-axis of the score-vs-cost chart · https://arcprize.org/leaderboard\nCost [page]: $X input / $Y output per 1M tokens — model API price on the results-page header (per model, not per benchmark) · https://arcprize.org/results/openai-gpt-6-2-astra\nEffort [page]: AI System / Effort — separate row per reasoning",
+   "notes": "Leaderboard page is Next.js; values read from the server-rendered HTML and its embedded React flight data (groups/rows/evaluations, datasets v1_Semi_Private, v2_Semi_Private, v3_Semi_Private) on https://arcprize.org/leaderboard. Ranking = one entry per model (best effort), ties broken by lower cost, matching the page's 1st/2nd/3rd place medals. Human Panel (100% on ARC-AGI-2) excluded as not a ranked system. Semi-private set. 3rd place is tied at 94.2% with Gemini 4 Carbon (Medium); GPT-6.1 Sol (Max) ranks higher on cost ($0.254 vs $0.375/task). Kaggle ARC Prize 2026 competition board is separate: https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/leaderboard",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 72%, L4 28%.\nPlaced from 47 models' published scores.\nBest observed: GPT-6.2 Astra 95.8, GPT-6 Astra 95.0, GPT-6.1 Sol 94.2.\nOfficial difficulty: Calibrated: every task solved pass@2 by at least two humans; Public/Semi-Private/Private sets statistically similar (<1pp expected difference) (arcprize.org/arc-agi/2).",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.3437,
+    "4": 0.9125
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "3": 0.3437,
+    "4": 0.9125
+   }
+  },
+  {
+   "no": "8.3",
+   "name": "ARC-AGI-3 · Standard",
+   "category": "ARC-AGI Series",
+   "url": "https://arcprize.org/arc-agi/3",
+   "focus": "Interactive reasoning benchmark that challenges AI agents to explore novel environments, acquire goals on the fly and build adaptable world models; Standard harness carries model-selected notes through the environment.",
+   "metrics": "quality, cost, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: ARC-AGI-3 · Standard — % score on 55 Semi-Private games with the Standard harness (v3_Semi_Private.score) · https://arcprize.org/leaderboard\nCost [page]: Cost — TOTAL USD of the ARC-AGI-3 run (field cost, e.g. $24.2K), not per task · https://arcprize.org/leaderboard\nCost [page]: $X input / $Y output per 1M tokens — model API price on results-page header · https://arcprize.org/results/openai-gpt-6-2-astra\nEffort [page]: AI System / Effort — separate row per reasoning-effort settin",
+   "notes": "Leaderboard page is Next.js; values read from the server-rendered HTML and its embedded React flight data (groups/rows/evaluations, datasets v1_Semi_Private, v2_Semi_Private, v3_Semi_Private) on https://arcprize.org/leaderboard. Ranking = one entry per model (best effort), ties broken by lower cost, matching the page's 1st/2nd/3rd place medals. Human Panel (100% on ARC-AGI-2) excluded as not a ranked system. Column 'ARC-AGI-3 · Standard' on /leaderboard (no separate URL). Entries are agents run with each model; cost is total cost ($21.9K, $24.2K, $7.2K). Kaggle competition board: https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3/leaderboard",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 96%.\nPlaced from 26 models' published scores.\nBest observed: GPT-6.2 Astra 70.3, Claude Fable 5.2 65.7, Gemini 4 Carbon 63.9.\nOfficial difficulty: '100% human-solvable environments' (arcprize.org/arc-agi/3).",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.5493
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.5493
+   }
+  },
+  {
+   "no": "8.4",
+   "name": "ARC-AGI-3 · Provider adapter",
+   "category": "ARC-AGI Series",
+   "url": "https://arcprize.org/leaderboard",
+   "focus": "ARC-AGI-3 run with the Provider Adapter harness, which preserves reasoning state and compacts longer conversations so the model can reuse prior work.",
+   "metrics": "quality, cost, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: ARC-AGI-3 · Adapter — % score on Semi-Private games with the Provider adapter harness (providerAdapterEvaluation.score) · https://arcprize.org/leaderboard\nCost [data]: Cost — TOTAL USD of the adapter run (providerAdapterEvaluation.cost, e.g. $4.1K) · https://arcprize.org/leaderboard\nCost [page]: $X input / $Y output per 1M tokens — model API price on results-page header · https://arcprize.org/results/openai-gpt-6-2-astra\nEffort [page]: AI System / Effort — separate row per reason",
+   "notes": "Leaderboard page is Next.js; values read from the server-rendered HTML and its embedded React flight data (groups/rows/evaluations, datasets v1_Semi_Private, v2_Semi_Private, v3_Semi_Private) on https://arcprize.org/leaderboard. Ranking = one entry per model (best effort), ties broken by lower cost, matching the page's 1st/2nd/3rd place medals. Human Panel (100% on ARC-AGI-2) excluded as not a ranked system. Column 'ARC-AGI-3 · Provider adapter' on /leaderboard; no own page, so the leaderboard URL is the closest. Only 18 models have adapter results. Total costs $4.1K, $18.8K, $4.6K.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 99%.\nPlaced from 13 models' published scores.\nBest observed: GPT-6.2 Astra 99.8, GPT-6 Astra 98.6, GPT-6.2 Sol 98.2.\nOfficial difficulty: '100% human-solvable environments' (arcprize.org/arc-agi/3).",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.9708
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.9708
+   }
+  },
+  {
+   "no": "9.1",
+   "name": "FrontierMath Tiers 1-3 (v2)",
+   "category": "Our benchmarks",
+   "url": "https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v2",
+   "focus": "Expert-written math problems covering advanced undergrad through early career research (base set of 295 problems after the 2026-06-12 v2 update; private set).",
+   "metrics": "quality*, uncertainty*, effort*, date*, other*",
+   "metrics_detail": "Quality [data]: Best score (across scorers) — fraction correct 0-1, the hub's score column for this set (benchmark_metadata.csv); private set · https://epoch.ai/data/benchmark_data.zip (frontiermath_tiers_1_3_v2.csv)\nQuality [data]: mean_score — mean accuracy 0-1 over the problem set · https://epoch.ai/data/benchmark_data.zip (frontiermath_tiers_1_3_v2.csv)\nUncertainty [data]: stderr — standard error of the mean score, filled for all 129 rows · https://epoch.ai/data/benchmark_data.zip (frontierm",
+   "notes": "Benchmark page is JS (loads from Epoch's internal API); scores read from Epoch's official download https://epoch.ai/data/benchmark_data.zip (file frontiermath_tiers_1_3_v2.csv) fetched 2026-11-26, column 'Best score (across scorers)', names from model_metadata.csv display_name. Ranked per run (model+effort setting). 2nd/3rd are tied at 93.7%; order between them not shown in the data. Hub card high score 0.9509 matches.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 107 models' published scores.\nBest observed: Claude Fable 5.2 (max) 95.1, GPT-6.1 Sol (max) 93.7, GPT-6 Astra (max) 93.7.\nOfficial difficulty: 'advanced undergrad through early career research' (Epoch page).",
+   "computed_level_cdf": {
+    "1": 0.0,
+    "2": 0.0053,
+    "3": 0.4491,
+    "4": 0.9053
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0,
+    "2": 0.0053,
+    "3": 0.4491,
+    "4": 0.9053
+   }
+  },
+  {
+   "no": "9.2",
+   "name": "FrontierMath Tier 4 (v2)",
+   "category": "Our benchmarks",
+   "url": "https://epoch.ai/benchmarks/frontiermath-tier-4-v2",
+   "focus": "Exceptionally difficult research-level math problems (expansion set of 43 problems after the v2 update; private set).",
+   "metrics": "quality*, uncertainty*, effort*, date*, other*",
+   "metrics_detail": "Quality [data]: Best score (across scorers) — fraction correct 0-1, the hub's score column for this set (benchmark_metadata.csv); private set · https://epoch.ai/data/benchmark_data.zip (frontiermath_tier_4_v2.csv)\nQuality [data]: mean_score — mean accuracy 0-1 over the problem set · https://epoch.ai/data/benchmark_data.zip (frontiermath_tier_4_v2.csv)\nUncertainty [data]: stderr — standard error of the mean score, filled for all 85 rows · https://epoch.ai/data/benchmark_data.zip (frontiermath_tie",
+   "notes": "Benchmark page is JS (loads from Epoch's internal API); scores read from Epoch's official download https://epoch.ai/data/benchmark_data.zip (file frontiermath_tier_4_v2.csv) fetched 2026-11-26, column 'Best score (across scorers)', names from model_metadata.csv display_name. Ranked per run (model+effort setting). Three runs tie at 100% (order arbitrary); next is GPT-6 Astra at 97.6%. https://epoch.ai/benchmarks/frontiermath redirects here. Hub card high score = 1.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 98%.\nPlaced from 76 models' published scores.\nBest observed: GPT-6.2 Astra (max) 100.0, GPT-6.1 Sol (max) 100.0, Claude Fable 5.2 (max) 100.0.\nOfficial difficulty: 'Exceptionally difficult research-level math problems' (Epoch page).",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.1341,
+    "4": 0.95
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "3": 0.1341,
+    "4": 0.95
+   }
+  },
+  {
+   "no": "9.3",
+   "name": "FrontierMath Tiers 1-3 (v1, old)",
+   "category": "Our benchmarks",
+   "url": "https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v1",
+   "focus": "Original (2025-02-28 private set) version of Tiers 1-3: expert-written math problems from advanced undergrad to early career research.",
+   "metrics": "quality*, uncertainty*, effort*, date*, other*",
+   "metrics_detail": "Quality [data]: Best score (across scorers) — fraction correct 0-1, the hub's score column for this set (benchmark_metadata.csv); private set · https://epoch.ai/data/benchmark_data.zip (frontiermath.csv)\nQuality [data]: mean_score — mean accuracy 0-1 over the problem set · https://epoch.ai/data/benchmark_data.zip (frontiermath.csv)\nUncertainty [data]: stderr — standard error of the mean score, filled for all 101 rows · https://epoch.ai/data/benchmark_data.zip (frontiermath.csv)\nEffort [data]: Mo",
+   "notes": "Benchmark page is JS (loads from Epoch's internal API); scores read from Epoch's official download https://epoch.ai/data/benchmark_data.zip (file frontiermath.csv) fetched 2026-11-26, column 'Best score (across scorers)', names from model_metadata.csv display_name. Ranked per run (model+effort setting). Page says it is no longer updated since v2 was released 2026-06-12 (frozen leaderboard).",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 80 models' published scores.\nBest observed: GPT-5.5 (xhigh) 51.7, GPT-5.5 Pro (xhigh) 51.0, GPT-5.4 Pro (xhigh) 50.0.\nOfficial difficulty: 'advanced undergrad through early career research' (Epoch page).",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.3241,
+    "4": 0.59
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "2": 0.0121,
+    "3": 0.3241
+   }
+  },
+  {
+   "no": "9.4",
+   "name": "FrontierMath Tier 4 (v1, old)",
+   "category": "Our benchmarks",
+   "url": "https://epoch.ai/benchmarks/frontiermath-tier-4-v1",
+   "focus": "Original (2025-07-01 private set) version of Tier 4: exceptionally difficult research-level math problems.",
+   "metrics": "quality*, uncertainty*, effort*, date*, other*",
+   "metrics_detail": "Quality [data]: Best score (across scorers) — fraction correct 0-1, the hub's score column for this set (benchmark_metadata.csv); private set · https://epoch.ai/data/benchmark_data.zip (frontiermath_tier_4.csv)\nQuality [data]: mean_score — mean accuracy 0-1 over the problem set · https://epoch.ai/data/benchmark_data.zip (frontiermath_tier_4.csv)\nUncertainty [data]: stderr — standard error of the mean score, filled for all 72 rows · https://epoch.ai/data/benchmark_data.zip (frontiermath_tier_4.cs",
+   "notes": "Benchmark page is JS (loads from Epoch's internal API); scores read from Epoch's official download https://epoch.ai/data/benchmark_data.zip (file frontiermath_tier_4.csv) fetched 2026-11-26, column 'Best score (across scorers)', names from model_metadata.csv display_name. Ranked per run (model+effort setting). No longer updated since v2 (2026-06-12). #1 'AI co-mathematician' (gdm-ai-co-mathematician) is an agent system, not a plain model. 2nd/3rd tied.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 62 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: GPT-5.5 Pro (xhigh) 39.6, GPT-5.4 Pro 37.5, GPT-5.5 (xhigh) 35.4.\nOfficial difficulty: 'Exceptionally difficult research-level math problems' (Epoch page).",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.125,
+    "4": 0.59
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "2": 0.0,
+    "3": 0.125
+   }
+  },
+  {
+   "no": "9.5",
+   "name": "FrontierMath Erdős",
+   "category": "Our benchmarks",
+   "url": "https://epoch.ai/benchmarks/frontiermath-erdos",
+   "focus": "Problems posed or studied by Paul Erdős, open as of August 2026 and curated to be especially interesting and difficult (68 unsolved problems).",
+   "metrics": "quality*, uncertainty*, effort*, date, other",
+   "metrics_detail": "Quality [data]: Best score (across scorers) / mean_score — fraction of the 68 Erdős problems solved, 0-1 · https://epoch.ai/data/benchmark_data.zip (frontiermath_erdos.csv)\nUncertainty [data]: stderr — standard error per run; page methodology says chart 'error bars are ±1 standard error' · https://epoch.ai/data/benchmark_data.zip (frontiermath_erdos.csv)\nEffort [data]: Model version (effort suffix) — e.g. gemini-4-neon_xhigh, separate entries per effort · https://epoch.ai/data/benchmark_data.zip",
+   "notes": "Benchmark page is JS (loads from Epoch's internal API); scores read from Epoch's official download https://epoch.ai/data/benchmark_data.zip (file frontiermath_erdos.csv) fetched 2026-11-26, column 'Best score (across scorers)', names from model_metadata.csv display_name. Ranked per run (model+effort setting). Problem count (68) from the hub's card text on /benchmarks.",
+   "team_difficulty": "5",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 100%.\nPlaced from 18 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: GPT-6.2 Astra (max) 10.3, Gemini 4 Neon (xhigh) 7.4, GPT-6.1 Sol (max) 4.4.\nOfficial difficulty: All 68 problems were open (unsolved by mathematicians) as of August 2026; budget $300 / 72h per problem (Epoch page).",
+   "computed_level_cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.08
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.0294
+   }
+  },
+  {
+   "no": "9.6",
+   "name": "FrontierMath: Open Problems",
+   "category": "Our benchmarks",
+   "url": "https://epoch.ai/frontiermath/open-problems",
+   "focus": "Collection of unsolved mathematical problems designed to test AI systems' ability to advance human mathematical knowledge.",
+   "metrics": "other",
+   "metrics_detail": "Other [page]: Status — per-problem status: 'Solved (AI)', 'Solved (human + AI)', 'Solved (human)', unsolved · https://epoch.ai/frontiermath/open-problems\nOther [page]: Notability / Type / Field — per-problem tier (e.g. 'Moderately interesting' … 'Breakthrough'), problem type, maths field; solved counts per tier (e.g. '6/22 SOLVED') · https://epoch.ai/frontiermath/open-problems\nNot reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Not a model le",
+   "notes": "Per-problem pages, no model ranking table; hub card stat high score is 0. Not in benchmark_data.zip.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No per-model scores published: the page lists problems (and which were solved by AI) but no model ranking table; not in benchmark_data.zip.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "10.1",
+   "name": "AIME 2025",
+   "category": "Final-Answer Comps",
+   "url": "https://matharena.ai/?comp=aime--aime_2025",
+   "focus": "American Invitational Mathematics Exam: two-part 15-question, 3-hour exam used to qualify for USAMO; each answer is an integer 0-999 (MathArena evaluates I+II together, 30 problems).",
+   "metrics": "quality, cost, time, tokens, uncertainty, runs, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Accuracy (± 95% CI) — % of the 30 problems (AIME I+II) correct, averaged over runs · https://matharena.ai/competition_tables/aime--aime_2025\nCost [page]: Cost — 'Cost in USD for one model run on one problem' (tooltip) · https://matharena.ai/competition_tables/aime--aime_2025\nTime [page]: Average Time — 'Average time taken per answer' · https://matharena.ai/competition_tables/aime--aime_2025\nTokens [page]: Output Tokens / Input Tokens — average output / input tokens per answer · h",
+   "notes": "JS page; values from https://matharena.ai/competition_tables/aime--aime_2025 (JSON 'table' HTML the page loads), fetched 2026-11-26. Marked 'Deprecated' under 'Final-Answer Comps' (no longer updated). AIME I and II are not separate on MathArena (one 30-problem competition). Models marked ⚠️ on the page ('Model was released after competition release', possible contamination): all three. Score = Accuracy (± 95% CI). 30 problems, 61 models (per /competitions). Page shows tied rank 1. Dataset: https://huggingface.co/datasets/MathArena/aime_2025",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 92%, L2 6%.\nPlaced from 52 models' published scores.\nBest observed: GPT-5.2 (xhigh) 100.0, GPT-5.2 (high) 100.0, Step 3.5 Flash 98.3.\nOfficial difficulty: AIME: USAMO qualifier, 15-question 3-hour exam per part.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.045,
+    "3": 0.9433,
+    "4": 0.9433
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0433,
+    "2": 0.045,
+    "3": 0.9433
+   }
+  },
+  {
+   "no": "10.2",
+   "name": "AIME 2026",
+   "category": "Final-Answer Comps",
+   "url": "https://matharena.ai/?comp=aime--aime_2026",
+   "focus": "American Invitational Mathematics Exam: two-part 15-question, 3-hour exam used to qualify for USAMO; each answer is an integer 0-999 (MathArena evaluates I+II together, 30 problems).",
+   "metrics": "quality, cost, time, tokens, uncertainty, runs, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: Accuracy (± 95% CI) — % of the 30 problems (AIME I+II) correct, averaged over runs · https://matharena.ai/competition_tables/aime--aime_2026\nCost [page]: Cost — 'Cost in USD for one model run on one problem' (tooltip) · https://matharena.ai/competition_tables/aime--aime_2026\nTime [page]: Average Time — 'Average time taken per answer' · https://matharena.ai/competition_tables/aime--aime_2026\nTokens [page]: Output Tokens / Input Tokens — average output / input tokens per answer · h",
+   "notes": "JS page; values from https://matharena.ai/competition_tables/aime--aime_2026 (JSON 'table' HTML the page loads), fetched 2026-11-26. Marked 'Deprecated' under 'Final-Answer Comps' (no longer updated). AIME I and II are not separate on MathArena (one 30-problem competition). Models marked ⚠️ on the page ('Model was released after competition release', possible contamination): all three. Score = Accuracy (± 95% CI). 30 problems, 32 models (per /competitions). Page shows tied rank 1. Dataset: https://huggingface.co/datasets/MathArena/aime_2026",
+   "team_difficulty": "≤3",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 25 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: GPT-5.5 (xhigh) 100.0, Claude Opus 4.8 (max) 100.0, GPT-5.4 (xhigh) 99.2.\nOfficial difficulty: AIME: USAMO qualifier exam.",
+   "computed_level_cdf": {
+    "1": 0.3567,
+    "2": 0.6533,
+    "3": 0.9167,
+    "4": 0.9167
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "3": 0.9167
+   }
+  },
+  {
+   "no": "11.1",
+   "name": "SWE-bench Verified",
+   "category": "Official Leaderboards",
+   "url": "https://www.swebench.com/#verified",
+   "focus": "Human-filtered subset of 500 SWE-bench instances (problem statements, tests and solvability reviewed with OpenAI).",
+   "metrics": "quality, cost, runs*, effort, date, breakdown*, other",
+   "metrics_detail": "Quality [page]: % Resolved — percent of the 500 Verified instances resolved; one column of the Verified board · https://www.swebench.com/js/mainResults.js\nCost [page]: Avg. $ — average USD cost per task instance; column appears only when the Agent filter is narrowed to mini-SWE-agent (the default 'Bash Only' preset on first load); 44 of 180 entries (all mini-SWE-agent) carry it · https://www.swebench.com/js/mainResults.js\nCost [data]: cost / per_instance_details[].cost — total USD of the run and",
+   "notes": "Default view of the Verified tab is the bash-only preset (Agent filter = mini-SWE-agent); top 3 is that default view (rank numbers on page are board-wide, computed over all agents). Clearing the filter (all agent systems) gives: 1. Sonar Foundation Agent + Claude 4.5 Opus (79.20), 2. live-SWE-agent + Claude 4.5 Opus medium (20251101) (79.20), 3. TRAE + Doubao-Seed-Code (78.80). Entries are agent+model systems; Model column shows model_display + effort, Agent column shown in []. Ties at 75.80 / 79.20 in data order. Latest entries dated 2026-02-17.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 49 models' published scores.\nBest observed: Claude 4.5 Opus (medium) 79.2, Claude 4.5 Opus 79.2, Gemini 3 Pro Preview 77.4.\nOfficial difficulty: Human-filtered: tasks reviewed as solvable.",
+   "computed_level_cdf": {
+    "1": 0.004,
+    "2": 0.511,
+    "3": 0.759,
+    "4": 0.759
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.004,
+    "2": 0.511,
+    "3": 0.759
+   }
+  },
+  {
+   "no": "11.2",
+   "name": "SWE-bench Bash Only (mini-SWE-agent)",
+   "category": "Filter preset on Verified (also Multilingual)",
+   "url": "https://www.swebench.com/#bash-only",
+   "focus": "Compares language models in the same minimal bash-only harness (mini-SWE-agent) on SWE-bench Verified.",
+   "metrics": "quality, cost, runs*, effort, date, breakdown*, other",
+   "metrics_detail": "Quality [page]: % Resolved — percent of SWE-bench Verified (500) resolved, Verified board filtered to Agent = mini-SWE-agent (47 entries) · https://www.swebench.com/js/mainResults.js\nCost [page]: Avg. $ — average USD cost per task instance (44 of 47 entries) · https://www.swebench.com/js/mainResults.js\nCost [data]: cost / per_instance_details[].cost — total USD of the run and per-instance cost · https://www.swebench.com/\nRuns [data]: tags 'System: Attempts - 1' — all 47 entries are single-attemp",
+   "notes": "No longer a separate board: #bash-only is an alias that opens Verified with the 'Bash Only' toggle (Agent=mini-SWE-agent); /bash-only path returns 404. Same rows as Verified default view. Shows cost/trajectory columns.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 18 models' published scores.\nBest observed: Claude 4.5 Opus (high) 76.8, Gemini 3 Flash (high) 75.8, Claude Opus 4.6 75.6.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.2162,
+    "3": 0.719,
+    "4": 0.74
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "2": 0.2162,
+    "3": 0.719
+   }
+  },
+  {
+   "no": "11.3",
+   "name": "SWE-bench Multimodal",
+   "category": "Official Leaderboards",
+   "url": "https://www.swebench.com/#multimodal",
+   "focus": "Issues with visual elements (screenshots, diagrams, visual errors) in JS/visual software domains; V2 retains 480 tasks for reproducible evaluation.",
+   "metrics": "quality, runs*, effort, date, other",
+   "metrics_detail": "Quality [page]: % Resolved — percent of SWE-bench Multimodal instances resolved (Multimodal board, 22 entries) · https://www.swebench.com/js/mainResults.js\nRuns [data]: tags 'System: Attempts - 1' — all 22 entries single-attempt · https://www.swebench.com/\nEffort [page]: Agent column — each entry is agent scaffold + model; no reasoning_effort badge on any entry · https://www.swebench.com/js/mainResults.js\nDate [page]: Date — submission date per entry (2024-10-06 to 2025-11-17) · https://www.sweb",
+   "notes": "Entries are agent systems; tie at 35.98 in data order. Model column on page shows the model (o3, o3, Claude 4 Sonnet) and the Agent column the system (GUIRepair, Codefuse_Pycfuse_SVR, Refact.ai Agent).",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 85%, L4 15%.\nPlaced from 7 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: o3 36.0, Claude 4 Sonnet 35.6, o4-mini 33.9.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.2786,
+    "3": 0.3067,
+    "4": 0.604
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "2": 0.2786,
+    "4": 0.604
+   }
+  },
+  {
+   "no": "11.4",
+   "name": "SWE-bench Multilingual",
+   "category": "Official Leaderboards",
+   "url": "https://www.swebench.com/#multilingual",
+   "focus": "300 curated SWE-bench-style tasks from 42 repositories across 9 programming languages.",
+   "metrics": "quality, cost, runs*, effort, date, breakdown*, other",
+   "metrics_detail": "Quality [page]: % Resolved — percent of the 300 Multilingual instances resolved (13 entries) · https://www.swebench.com/js/mainResults.js\nCost [page]: Avg. $ — average USD cost per task instance; shown for all entries (board is entirely mini-SWE-agent runs) · https://www.swebench.com/js/mainResults.js\nCost [data]: cost / per_instance_details[].cost — total USD of the run and per-instance cost · https://www.swebench.com/\nRuns [data]: tags 'System: Attempts - 1' — all 13 entries single-attempt · h",
+   "notes": "All entries run with mini-SWE-agent (bash-only); latest entries dated 2026-02-13.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 13 models' published scores.\nBest observed: Gemini 3 Flash 72.7, Claude Opus 4.6 72.0, Claude 4.5 Opus 70.7.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.731,
+    "4": 0.917
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "3": 0.731,
+    "4": 0.917
+   }
+  },
+  {
+   "no": "11.5",
+   "name": "SWE-bench Lite",
+   "category": "Official Leaderboards",
+   "url": "https://www.swebench.com/#lite",
+   "focus": "Curated 300-instance subset of SWE-bench (11 of the 12 repos) for cheaper evaluation.",
+   "metrics": "quality, runs*, effort, date, other",
+   "metrics_detail": "Quality [page]: % Resolved — percent of the 300 Lite instances resolved (Lite board, 84 entries) · https://www.swebench.com/js/mainResults.js\nRuns [data]: tags 'System: Attempts - 1 / 2+' — only 17 of 84 entries tagged (7 single, 10 multi-attempt) · https://www.swebench.com/\nEffort [page]: Agent column — agent scaffold + model; no reasoning_effort badges · https://www.swebench.com/js/mainResults.js\nDate [page]: Date — submission date (2023-10-10 to 2025-09-11) · https://www.swebench.com/js/mainR",
+   "notes": "Entries are agent systems (names = submission names; page Model column shows Claude 4 Sonnet / Multiple / Claude 4 Sonnet, Agent column ExpeRepair-v1.0 / Refact.ai Agent / KGCompass).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 14 models' published scores.\nBest observed: Claude 4 Sonnet 60.3, Claude 3.5 Sonnet 51.3, Claude 3.7 Sonnet 48.0.",
+   "computed_level_cdf": {
+    "1": 0.0033,
+    "2": 0.4466,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0033,
+    "2": 0.4466
+   }
+  },
+  {
+   "no": "11.6",
+   "name": "SWE-bench Full",
+   "category": "Official Leaderboards",
+   "url": "https://www.swebench.com/#test",
+   "focus": "Original full test set of 2,294 issue/PR task instances from 12 popular Python repositories.",
+   "metrics": "quality, runs*, effort, date, other",
+   "metrics_detail": "Quality [page]: % Resolved — percent of the 2,294 full test instances resolved (board 'Test', hash #test, 24 entries) · https://www.swebench.com/js/mainResults.js\nRuns [data]: tags 'System: Attempts - 1 / 2+' — 22 single-attempt, 2 multi-attempt · https://www.swebench.com/\nEffort [page]: Agent column — agent scaffold + model (e.g. RAG baseline, SWE-agent, Amazon Q); no reasoning_effort badges · https://www.swebench.com/js/mainResults.js\nDate [page]: Date — submission date (2023-10-10 to 2025-12-",
+   "notes": "Tab label 'Full', data key/hash 'Test'. Entries are agent systems (page Model column: Claude 4.5 Opus / Multiple / Undisclosed).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 82%, L4 18%.\nPlaced from 11 models' published scores.\nBest observed: Claude 4.5 Opus 52.6, Claude 3.7 Sonnet 33.8, CodeAct v2.1 claude-3-5-sonnet 29.4.",
+   "computed_level_cdf": {
+    "1": 0.0017,
+    "2": 0.2186,
+    "3": 0.5262,
+    "4": 0.74
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0017,
+    "2": 0.2186,
+    "3": 0.5262
+   }
+  },
+  {
+   "no": "11.7",
+   "name": "SWE-Bench Pro (Public)",
+   "category": "Scale AI leaderboard tab 'Public'",
+   "url": "https://labs.scale.com/leaderboard/swe_bench_pro",
+   "focus": "731-instance public set of long-horizon tasks from copyleft (GPL) open-source repositories, contamination-resistant by design.",
+   "metrics": "quality, uncertainty, effort, date*, other",
+   "metrics_detail": "Quality [page]: Score (Resolve Rate) — % resolved on the Public set; 'Public' toggle of the Performance Comparison table, 25 entries (e.g. 61.50 ± 3.10) · https://labs.scale.com/leaderboard/swe_bench_pro\nUncertainty [page]: ± (confidence interval) — half-width next to each score (field confidenceInterval_upper) · https://labs.scale.com/leaderboard/swe_bench_pro\nEffort [page]: model name suffix / '*' marker — effort in the name ('(xHigh)', '(thinking)'); '*' = run with mini-swe-agent harness; gra",
+   "notes": "https://scale.com/leaderboard/swe_bench_pro_public now redirects to labs.scale.com/leaderboard/swe_bench_pro (Public tab default). * = run with mini-swe-agent harness; others SWE-Agent scaffold, 250-turn limit. Scores +- CI (3.10, 3.56, 3.60). Repo: https://github.com/scaleapi/SWE-bench_Pro-os (no leaderboard there).",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 88%, L3 12%.\nPlaced from 21 models' published scores.\nBest observed: Muse Spark 1.1 61.5, GPT-5.4 (xhigh) 59.1, Muse Spark 55.0.\nOfficial difficulty: Long-horizon, contamination-resistant (copyleft GPL repos) (Scale page).",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.59
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "11.8",
+   "name": "SWE-Bench Pro (Private / commercial)",
+   "category": "Scale AI leaderboard tab 'Private'",
+   "url": "https://labs.scale.com/leaderboard/swe_bench_pro",
+   "focus": "276 instances from 18 private, proprietary startup codebases, testing generalization on unseen industrial code.",
+   "metrics": "quality, uncertainty, effort, date*, other",
+   "metrics_detail": "Quality [page]: Score (Resolve Rate) — % resolved on the Private (commercial, proprietary-codebase) set; 'Private' toggle of the same table, 14 entries (e.g. 51.5 ± 5.5) · https://labs.scale.com/leaderboard/swe_bench_pro\nUncertainty [page]: ± (confidence interval) — half-width per score (confidenceInterval_upper), wider than Public (about ±5-6) · https://labs.scale.com/leaderboard/swe_bench_pro\nEffort [page]: model name suffix / '*' marker — same conventions as Public ('(xHigh)', '(thinking)', '",
+   "notes": "Same URL as Public; select the 'Private' tab (no separate URL). Values read from page's embedded JSON (scores 51.5, 47.1, 44.7). Held-out set (858 instances) has no published leaderboard.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 12 models' published scores.\nBest observed: Muse Spark 1.1 51.5, Muse Spark 44.7, GPT-5.4 (xhigh) 43.4.\nOfficial difficulty: 276 instances from 18 private startup codebases, not publicly accessible (Scale page).",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.59
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "12.1",
+   "name": "Code Generation (current leaderboard, release_v6)",
+   "category": "Scenario",
+   "url": "https://livecodebench.github.io/leaderboard.html",
+   "focus": "Generate correct programs for new LeetCode/AtCoder/CodeForces contest problems, evaluated only on problems released after a model's cutoff (contamination-free).",
+   "metrics": "quality, effort, date*, breakdown, other",
+   "metrics_detail": "Quality [page]: Pass@1 — mean pass@1 (%) over problems in the selected release-date window · https://livecodebench.github.io/leaderboard.html\nEffort [page]: model name variants, e.g. 'O3-Mini-2025-01-31 (Low/Med/High)', '(Thinking)' — separate entries · https://livecodebench.github.io/performances_generation.json\nDate [data]: release_date — model release date, used to flag contamination · https://livecodebench.github.io/performances_generation.json\nBreakdown [page]: Easy / Medium / Hard — pass@1",
+   "notes": "JS page; Default window 2024-08-01 to 2025-05-01 (454 problems; slider start index 15 of 25 date marks, assuming standard HTML range-input step rounding - not checked in a live browser). Latest data month 2025-05; leaderboard is code generation only. Score = Pass@1. Models flagged as contaminated for the window get no rank. Dataset: https://huggingface.co/datasets/livecodebench/code_generation_lite",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 94%.\nPlaced from 25 models' published scores.\nBest observed: o4-mini (high) 80.2, o3 (high) 75.8, o4-mini (medium) 74.2.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.295,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.295
+   }
+  },
+  {
+   "no": "12.2",
+   "name": "Easy",
+   "category": "Difficulty split (leaderboard column)",
+   "url": "https://livecodebench.github.io/leaderboard.html",
+   "focus": "Pass@1 on the easy-difficulty problems in the selected time window.",
+   "metrics": "quality, effort, date*, other",
+   "metrics_detail": "Quality [page]: Easy — pass@1 (%) on easy problems in the selected window, a column of the parent table · https://livecodebench.github.io/leaderboard.html\nEffort [page]: model name variants (Low/Med/High, Thinking) — inherited row identity · https://livecodebench.github.io/performances_generation.json\nDate [data]: release_date — model release date (parent row field) · https://livecodebench.github.io/performances_generation.json\nOther [data]: per-problem pass@1 with difficulty='easy', platform (a",
+   "notes": "Column of the main leaderboard, not a separate ranked board. 9-way tie at 99.1 in the default window: O3-Mini-2025-01-31 (Low/Med/High), O4-Mini (High), O3 (High), Gemini-2.5-Pro-06-05, Gemini-2.5-Flash-04-17, Gemini-2.5-Flash-05-20, Qwen3-235B-A22B - so no meaningful top 3. Default window 2024-08-01 to 2025-05-01 (454 problems; slider start index 15 of 25 date marks, assuming standard HTML range-input step rounding - not checked in a live browser). Latest data month 2025-05; leaderboard is code generation only.",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 98%.\nPlaced from 25 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: o4-mini (high) 99.1, o3-Mini (medium) 99.1, o3-Mini (low) 99.1.\nOfficial difficulty: Easy (LeetCode/AtCoder/Codeforces difficulty label used by LiveCodeBench)",
+   "computed_level_cdf": {
+    "1": 0.66,
+    "2": 0.825,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.825
+   }
+  },
+  {
+   "no": "12.3",
+   "name": "Medium",
+   "category": "Difficulty split (leaderboard column)",
+   "url": "https://livecodebench.github.io/leaderboard.html",
+   "focus": "Pass@1 on the medium-difficulty problems in the selected time window.",
+   "metrics": "quality, effort, date*, other",
+   "metrics_detail": "Quality [page]: Medium — pass@1 (%) on medium problems in the selected window, a column of the parent table · https://livecodebench.github.io/leaderboard.html\nEffort [page]: model name variants (Low/Med/High, Thinking) — inherited row identity · https://livecodebench.github.io/performances_generation.json\nDate [data]: release_date — model release date (parent row field) · https://livecodebench.github.io/performances_generation.json\nOther [data]: per-problem pass@1 with difficulty='medium', platf",
+   "notes": "Column of the main leaderboard (page ranks by overall Pass@1); top 3 here = highest values in the Medium column. Default window 2024-08-01 to 2025-05-01 (454 problems; slider start index 15 of 25 date marks, assuming standard HTML range-input step rounding - not checked in a live browser). Latest data month 2025-05; leaderboard is code generation only.",
+   "team_difficulty": "2-3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 68%, L2 30%.\nPlaced from 25 models' published scores.\nBest observed: o4-mini (high) 89.4, gemini-2.5-pro-preview-06-05 87.2, o4-mini (medium) 86.5.\nOfficial difficulty: Medium (LeetCode/AtCoder/Codeforces difficulty label used by LiveCodeBench)",
+   "computed_level_cdf": {
+    "1": 0.205,
+    "2": 0.26,
+    "3": 0.78,
+    "4": 0.85
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.26
+   }
+  },
+  {
+   "no": "12.4",
+   "name": "Hard",
+   "category": "Difficulty split (leaderboard column)",
+   "url": "https://livecodebench.github.io/leaderboard.html",
+   "focus": "Pass@1 on the hard-difficulty problems in the selected time window.",
+   "metrics": "quality, effort, date*, other",
+   "metrics_detail": "Quality [page]: Hard — pass@1 (%) on hard problems in the selected window, a column of the parent table · https://livecodebench.github.io/leaderboard.html\nEffort [page]: model name variants (Low/Med/High, Thinking) — inherited row identity · https://livecodebench.github.io/performances_generation.json\nDate [data]: release_date — model release date (parent row field) · https://livecodebench.github.io/performances_generation.json\nOther [data]: per-problem pass@1 with difficulty='hard', platform (a",
+   "notes": "Column of the main leaderboard (page ranks by overall Pass@1); top 3 here = highest values in the Hard column. Default window 2024-08-01 to 2025-05-01 (454 problems; slider start index 15 of 25 date marks, assuming standard HTML range-input step rounding - not checked in a live browser). Latest data month 2025-05; leaderboard is code generation only.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 25 models' published scores.\nBest observed: o4-mini (high) 63.5, o3 (high) 57.1, o4-mini (medium) 52.7.\nOfficial difficulty: Hard (LeetCode/AtCoder/Codeforces difficulty label used by LiveCodeBench)",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.08,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.033
+   }
+  },
+  {
+   "no": "12.5",
+   "name": "Code Generation leaderboard (previous version, release_v5)",
+   "category": "Release / leaderboard version",
+   "url": "https://livecodebench.github.io/leaderboard_v5.html",
+   "focus": "Earlier code-generation leaderboard on release_v5 problems (May 2023 - Jan 2025, 880 problems).",
+   "metrics": "quality, effort, date*, breakdown, other",
+   "metrics_detail": "Quality [page]: Pass@1 — mean pass@1 (%) over release_v5 problems in the selected window · https://livecodebench.github.io/leaderboard_v5.html\nEffort [page]: model name variants (separate entries per reasoning setting) · https://livecodebench.github.io/v5.json\nDate [data]: release_date — model release date in v5.json · https://livecodebench.github.io/v5.json\nBreakdown [page]: Easy / Medium / Hard — pass@1 per difficulty; v5.json has per-problem pass@1 with platform and date · https://livecodeben",
+   "notes": "JS page; default window 2024-07-01 to 2025-02-01 (327 problems; start index 14 of 22 after range-input rounding, not checked in a live browser). Kimi-k1.6-IOI-high (75.2) is shown second but flagged contaminated, so unranked. Superseded; the current page no longer links to it.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 97%.\nPlaced from 18 models' published scores.\nBest observed: o4-mini (high) 76.5, o1 (high) 73.1, o3-Mini (high) 71.6.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.329,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.329
+   }
+  },
+  {
+   "no": "12.6",
+   "name": "Release versions (release_v1 ... release_v6, release_latest)",
+   "category": "Dataset versions",
+   "url": "https://github.com/LiveCodeBench/LiveCodeBench#dataset-versions",
+   "focus": "Time-sliced dataset releases: v1 400 problems (May 2023-Mar 2024) up to v6 1055 problems (May 2023-Apr 2025); fine-grained slices like v1_v3, v4_v5.",
+   "metrics": "none published",
+   "metrics_detail": "Not reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, votes, breakdown\nNote: Release versions are dataset slices described in the GitHub README (problem counts and date ranges); no per-version results table is published, except release_v5 (12.5) and release_v6 (current leaderboard, 12.1). The README says it computes pass@1 and pass@5, but no per-version results are listed.",
+   "notes": "No per-release leaderboard; the site leaderboard uses a date-window slider instead (current = release_v6 data, v5 page = release_v5).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Dataset versions (release_v1..v6) are not scored separately anywhere official; the leaderboards use a date-window slider instead (current page = release_v6 data, v5 page = release_v5, both covered by 12.1/12.5).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "12.7",
+   "name": "Self-Repair",
+   "category": "Scenario",
+   "url": "https://github.com/LiveCodeBench/LiveCodeBench#self-repair",
+   "focus": "Fix a previously generated incorrect program using execution feedback.",
+   "metrics": "quality, breakdown",
+   "metrics_detail": "Quality [page]: Pass@1 — self-repair pass@1 (%) per model, static bar chart 'Self-Repair' on the home page, 12 older models (GPT4-Turbo … DS-Ins-6.7B) · https://livecodebench.github.io/images/repair_performance.png\nBreakdown [page]: Difficulty Level easy / medium — two bars per model (no hard) · https://livecodebench.github.io/images/repair_performance.png\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, votes\nNote: No leaderboard; only a static image from the original 2",
+   "notes": "No official leaderboard (submissions accepted only for code generation); results only in paper https://arxiv.org/abs/2403.07974.",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 25 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: GPT-4O-2024-05-13 49.1, GPT-4 Turbo 45.6, GPT-4-Turbo-1106 42.6.",
+   "computed_level_cdf": {
+    "1": 0.2375,
+    "2": 0.456,
+    "3": 0.456,
+    "4": 0.5433
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.2375,
+    "2": 0.456
+   }
+  },
+  {
+   "no": "12.8",
+   "name": "Code Execution",
+   "category": "Scenario",
+   "url": "https://huggingface.co/datasets/livecodebench/execution",
+   "focus": "Predict the output of executing a given program on a given input (optionally with CoT).",
+   "metrics": "quality, effort",
+   "metrics_detail": "Quality [page]: Pass@1 / Pass@1-COT — code-execution pass@1 (%) with and without chain-of-thought prompt, static bar chart 'Code Execution', 11 older models · https://livecodebench.github.io/images/execution_performance.png\nEffort [page]: Prompt: Pass@1-COT vs Pass@1 — two prompt settings per model · https://livecodebench.github.io/images/execution_performance.png\nNot reported: cost, time, speed, tokens, uncertainty, runs, date, votes, breakdown\nNote: No leaderboard; only a static home-page imag",
+   "notes": "No official leaderboard; results only in paper https://arxiv.org/abs/2403.07974.",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 24 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: GPT-4 Turbo 45.9, GPT-4 0613 44.3, Gemini-Pro-1.5-May 42.1.",
+   "computed_level_cdf": {
+    "1": 0.339,
+    "2": 0.405,
+    "3": 0.405,
+    "4": 0.5433
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.339,
+    "2": 0.405
+   }
+  },
+  {
+   "no": "12.9",
+   "name": "Test Output Prediction",
+   "category": "Scenario",
+   "url": "https://huggingface.co/datasets/livecodebench/test_generation",
+   "focus": "Predict the expected output for a test input from the natural-language problem statement.",
+   "metrics": "quality",
+   "metrics_detail": "Quality [page]: Pass@1 — test output prediction pass@1 (%), static bar chart 'Test Output Prediction', 12 older models · https://livecodebench.github.io/images/testgen_performance.png\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, votes, breakdown\nNote: No leaderboard; only a static home-page image (2024 models). The HF dataset page has no results.",
+   "notes": "No official leaderboard; results only in paper https://arxiv.org/abs/2403.07974. LiveCodeBench Pro is NOT part of this project: neither livecodebench.github.io nor its README mentions or links it, so it is excluded.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 70%, L2 28%.\nPlaced from 25 models' published scores.\nBest observed: GPT-4O-2024-05-13 68.9, GPT-4 Turbo 66.1, Claude 3 Opus 58.7.",
+   "computed_level_cdf": {
+    "1": 0.3395,
+    "2": 0.661,
+    "3": 0.661,
+    "4": 0.74
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.3395,
+    "2": 0.661
+   }
+  }
+ ]
+}

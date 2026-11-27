@@ -1,0 +1,587 @@
+{
+ "batch": "D02",
+ "rows": [
+  {
+   "id": "gpqa_diamond",
+   "name": "GPQA Diamond",
+   "hf": "Idavidrein/gpqa",
+   "url": "https://github.com/idavidrein/gpqa",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "2.38",
+   "hub": {
+    "licence": "cc-by-4.0",
+    "gated": "auto",
+    "created": "2023-11-27",
+    "last_modified": "2026-09-21",
+    "downloads": 113012,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "question-answering",
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "size_error": 404
+   }
+  },
+  {
+   "id": "hellaswag",
+   "name": "HellaSwag",
+   "hf": "Rowan/hellaswag",
+   "url": "https://rowanzellers.com/hellaswag/",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2025-07-10",
+    "downloads": 295001,
+    "size_category": "10K<n<100K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 59950,
+    "rows_by_split": {
+     "default/train": 39905,
+     "default/test": 10003,
+     "default/validation": 10042
+    }
+   }
+  },
+  {
+   "id": "hle",
+   "name": "Humanity's Last Exam (text-only)",
+   "hf": "cais/hle",
+   "url": "https://lastexam.ai",
+   "group": "chat",
+   "yugos": "live",
+   "list_no": "4.2",
+   "hub": {
+    "licence": "mit",
+    "gated": "auto",
+    "created": "2025-01-23",
+    "last_modified": "2026-01-20",
+    "downloads": 87197,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 2500,
+    "rows_by_split": {
+     "default/test": 2500
+    }
+   }
+  },
+  {
+   "id": "hotpotqa",
+   "name": "HotpotQA (distractor)",
+   "hf": "hotpotqa/hotpot_qa",
+   "url": "https://hotpotqa.github.io",
+   "group": "chat",
+   "yugos": "live",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "cc-by-sa-4.0"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2025-08-11",
+    "downloads": 92365,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 203109,
+    "rows_by_split": {
+     "distractor/train": 90447,
+     "distractor/validation": 7405,
+     "fullwiki/train": 90447,
+     "fullwiki/validation": 7405,
+     "fullwiki/test": 7405
+    }
+   }
+  },
+  {
+   "id": "ifbench",
+   "name": "IFBench",
+   "hf": "allenai/IFBench_test",
+   "url": "https://github.com/allenai/IFBench",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2025-07-02",
+    "last_modified": "2026-11-02",
+    "downloads": 30905,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 300,
+    "rows_by_split": {
+     "default/train": 300
+    }
+   }
+  },
+  {
+   "id": "ifeval",
+   "name": "IFEval",
+   "hf": "google/IFEval",
+   "url": "https://github.com/google-research/google-research/tree/master/instruction_following_eval",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2023-12-22",
+    "last_modified": "2024-08-14",
+    "downloads": 201094,
+    "size_category": "n<1K",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 541,
+    "rows_by_split": {
+     "default/train": 541
+    }
+   }
+  },
+  {
+   "id": "kor_bench",
+   "name": "KOR-Bench",
+   "hf": "",
+   "url": "https://kor-bench.github.io",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "livebench_reasoning",
+   "name": "LiveBench reasoning",
+   "hf": "livebench/reasoning",
+   "url": "https://livebench.ai",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "1.8",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2024-06-06",
+    "last_modified": "2025-04-07",
+    "downloads": 6525,
+    "size_category": "n<1K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 200,
+    "rows_by_split": {
+     "default/test": 200
+    }
+   }
+  },
+  {
+   "id": "lmsys_chat_1m",
+   "name": "LMSYS-Chat-1M",
+   "hf": "lmsys/lmsys-chat-1m",
+   "url": "https://huggingface.co/datasets/lmsys/lmsys-chat-1m",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": "auto",
+    "created": "2023-09-20",
+    "last_modified": "2024-07-27",
+    "downloads": 7557,
+    "size_category": "1M<n<10M",
+    "task_categories": [],
+    "languages": [],
+    "size_error": 404
+   }
+  },
+  {
+   "id": "logiqa2",
+   "name": "LogiQA 2.0",
+   "hf": "",
+   "url": "https://github.com/csitfun/LogiQA2.0",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "longbench_v2",
+   "name": "LongBench v2",
+   "hf": "zai-org/LongBench-v2",
+   "url": "https://longbench2.github.io",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2024-12-18",
+    "last_modified": "2024-12-20",
+    "downloads": 62936,
+    "size_category": "n<1K",
+    "task_categories": [
+     "multiple-choice",
+     "question-answering",
+     "text-classification",
+     "table-question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 503,
+    "rows_by_split": {
+     "default/train": 503
+    }
+   }
+  },
+  {
+   "id": "medmcqa",
+   "name": "MedMCQA",
+   "hf": "openlifescienceai/medmcqa",
+   "url": "https://medmcqa.github.io",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "apache-2.0"
+    ],
+    "gated": false,
+    "created": "2022-05-06",
+    "last_modified": "2024-01-04",
+    "downloads": 58975,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "question-answering",
+     "multiple-choice"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 193155,
+    "rows_by_split": {
+     "default/train": 182822,
+     "default/test": 6150,
+     "default/validation": 4183
+    }
+   }
+  },
+  {
+   "id": "medqa",
+   "name": "MedQA (USMLE)",
+   "hf": "bigbio/med_qa",
+   "url": "https://github.com/jind11/MedQA",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": "unknown",
+    "gated": false,
+    "created": "2022-11-13",
+    "last_modified": "2026-09-04",
+    "downloads": 12862,
+    "size_category": "100K<n<1M",
+    "task_categories": [],
+    "languages": [
+     "en",
+     "zh"
+    ],
+    "rows_total": 272634,
+    "rows_by_split": {
+     "med_qa_en_source/train": 10178,
+     "med_qa_en_source/test": 1273,
+     "med_qa_en_source/validation": 1272,
+     "med_qa_en_4options_bigbio_qa/train": 10178,
+     "med_qa_en_4options_bigbio_qa/test": 1273,
+     "med_qa_en_4options_bigbio_qa/validation": 1272,
+     "med_qa_en_4options_source/train": 10178,
+     "med_qa_en_4options_source/test": 1273,
+     "med_qa_en_4options_source/validation": 1272,
+     "med_qa_en_bigbio_qa/train": 10178,
+     "med_qa_en_bigbio_qa/test": 1273,
+     "med_qa_en_bigbio_qa/validation": 1272,
+     "med_qa_tw_bigbio_qa/train": 11298,
+     "med_qa_tw_bigbio_qa/test": 1413,
+     "med_qa_tw_bigbio_qa/validation": 1412,
+     "med_qa_tw_en_bigbio_qa/train": 11298,
+     "med_qa_tw_en_bigbio_qa/test": 1413,
+     "med_qa_tw_en_bigbio_qa/validation": 1412,
+     "med_qa_tw_en_source/train": 11298,
+     "med_qa_tw_en_source/test": 1413,
+     "med_qa_tw_en_source/validation": 1412,
+     "med_qa_tw_source/train": 11298,
+     "med_qa_tw_source/test": 1413,
+     "med_qa_tw_source/validation": 1412,
+     "med_qa_tw_zh_bigbio_qa/train": 11298,
+     "med_qa_tw_zh_bigbio_qa/test": 1413,
+     "med_qa_tw_zh_bigbio_qa/validation": 1412,
+     "med_qa_tw_zh_source/train": 11298,
+     "med_qa_tw_zh_source/test": 1413,
+     "med_qa_tw_zh_source/validation": 1412,
+     "med_qa_zh_4options_bigbio_qa/train": 27400,
+     "med_qa_zh_4options_bigbio_qa/test": 3426,
+     "med_qa_zh_4options_bigbio_qa/validation": 3425,
+     "med_qa_zh_4options_source/train": 27400,
+     "med_qa_zh_4options_source/test": 3426,
+     "med_qa_zh_4options_source/validation": 3425,
+     "med_qa_zh_bigbio_qa/train": 27400,
+     "med_qa_zh_bigbio_qa/test": 3426,
+     "med_qa_zh_bigbio_qa/validation": 3425,
+     "med_qa_zh_source/train": 27400,
+     "med_qa_zh_source/test": 3426,
+     "med_qa_zh_source/validation": 3425
+    }
+   }
+  },
+  {
+   "id": "mmlu",
+   "name": "MMLU",
+   "hf": "cais/mmlu",
+   "url": "https://github.com/hendrycks/test",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "mit"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-03-08",
+    "downloads": 655863,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 231400,
+    "rows_by_split": {
+     "abstract_algebra/test": 100,
+     "abstract_algebra/validation": 11,
+     "abstract_algebra/dev": 5,
+     "all/test": 14042,
+     "all/validation": 1531,
+     "all/dev": 285,
+     "all/auxiliary_train": 99842,
+     "anatomy/test": 135,
+     "anatomy/validation": 14,
+     "anatomy/dev": 5,
+     "astronomy/test": 152,
+     "astronomy/validation": 16,
+     "astronomy/dev": 5,
+     "auxiliary_train/train": 99842,
+     "business_ethics/test": 100,
+     "business_ethics/validation": 11,
+     "business_ethics/dev": 5,
+     "clinical_knowledge/test": 265,
+     "clinical_knowledge/validation": 29,
+     "clinical_knowledge/dev": 5,
+     "college_biology/test": 144,
+     "college_biology/validation": 16,
+     "college_biology/dev": 5,
+     "college_chemistry/test": 100,
+     "college_chemistry/validation": 8,
+     "college_chemistry/dev": 5,
+     "college_computer_science/test": 100,
+     "college_computer_science/validation": 11,
+     "college_computer_science/dev": 5,
+     "college_mathematics/test": 100,
+     "college_mathematics/validation": 11,
+     "college_mathematics/dev": 5,
+     "college_medicine/test": 173,
+     "college_medicine/validation": 22,
+     "college_medicine/dev": 5,
+     "college_physics/test": 102,
+     "college_physics/validation": 11,
+     "college_physics/dev": 5,
+     "computer_security/test": 100,
+     "computer_security/validation": 11,
+     "computer_security/dev": 5,
+     "conceptual_physics/test": 235,
+     "conceptual_physics/validation": 26,
+     "conceptual_physics/dev": 5,
+     "econometrics/test": 114,
+     "econometrics/validation": 12,
+     "econometrics/dev": 5,
+     "electrical_engineering/test": 145,
+     "electrical_engineering/validation": 16,
+     "electrical_engineering/dev": 5,
+     "elementary_mathematics/test": 378,
+     "elementary_mathematics/validation": 41,
+     "elementary_mathematics/dev": 5,
+     "formal_logic/test": 126,
+     "formal_logic/validation": 14,
+     "formal_logic/dev": 5,
+     "global_facts/test": 100,
+     "global_facts/validation": 10,
+     "global_facts/dev": 5,
+     "high_school_biology/test": 310,
+     "high_school_biology/validation": 32,
+     "high_school_biology/dev": 5,
+     "high_school_chemistry/test": 203,
+     "high_school_chemistry/validation": 22,
+     "high_school_chemistry/dev": 5,
+     "high_school_computer_science/test": 100,
+     "high_school_computer_science/validation": 9,
+     "high_school_computer_science/dev": 5,
+     "high_school_european_history/test": 165,
+     "high_school_european_history/validation": 18,
+     "high_school_european_history/dev": 5,
+     "high_school_geography/test": 198,
+     "high_school_geography/validation": 22,
+     "high_school_geography/dev": 5,
+     "high_school_government_and_politics/test": 193,
+     "high_school_government_and_politics/validation": 21,
+     "high_school_government_and_politics/dev": 5,
+     "high_school_macroeconomics/test": 390,
+     "high_school_macroeconomics/validation": 43,
+     "high_school_macroeconomics/dev": 5,
+     "high_school_mathematics/test": 270,
+     "high_school_mathematics/validation": 29,
+     "high_school_mathematics/dev": 5,
+     "high_school_microeconomics/test": 238,
+     "high_school_microeconomics/validation": 26,
+     "high_school_microeconomics/dev": 5,
+     "high_school_physics/test": 151,
+     "high_school_physics/validation": 17,
+     "high_school_physics/dev": 5,
+     "high_school_psychology/test": 545,
+     "high_school_psychology/validation": 60,
+     "high_school_psychology/dev": 5,
+     "high_school_statistics/test": 216,
+     "high_school_statistics/validation": 23,
+     "high_school_statistics/dev": 5,
+     "high_school_us_history/test": 204,
+     "high_school_us_history/validation": 22,
+     "high_school_us_history/dev": 5,
+     "high_school_world_history/test": 237,
+     "high_school_world_history/validation": 26,
+     "high_school_world_history/dev": 5,
+     "human_aging/test": 223,
+     "human_aging/validation": 23,
+     "human_aging/dev": 5,
+     "human_sexuality/test": 131,
+     "human_sexuality/validation": 12,
+     "human_sexuality/dev": 5,
+     "international_law/test": 121,
+     "international_law/validation": 13,
+     "international_law/dev": 5,
+     "jurisprudence/test": 108,
+     "jurisprudence/validation": 11,
+     "jurisprudence/dev": 5,
+     "logical_fallacies/test": 163,
+     "logical_fallacies/validation": 18,
+     "logical_fallacies/dev": 5,
+     "machine_learning/test": 112,
+     "machine_learning/validation": 11,
+     "machine_learning/dev": 5,
+     "management/test": 103,
+     "management/validation": 11,
+     "management/dev": 5,
+     "marketing/test": 234,
+     "marketing/validation": 25,
+     "marketing/dev": 5,
+     "medical_genetics/test": 100,
+     "medical_genetics/validation": 11,
+     "medical_genetics/dev": 5,
+     "miscellaneous/test": 783,
+     "miscellaneous/validation": 86,
+     "miscellaneous/dev": 5,
+     "moral_disputes/test": 346,
+     "moral_disputes/validation": 38,
+     "moral_disputes/dev": 5,
+     "moral_scenarios/test": 895,
+     "moral_scenarios/validation": 100,
+     "moral_scenarios/dev": 5,
+     "nutrition/test": 306,
+     "nutrition/validation": 33,
+     "nutrition/dev": 5,
+     "philosophy/test": 311,
+     "philosophy/validation": 34,
+     "philosophy/dev": 5,
+     "prehistory/test": 324,
+     "prehistory/validation": 35,
+     "prehistory/dev": 5,
+     "professional_accounting/test": 282,
+     "professional_accounting/validation": 31,
+     "professional_accounting/dev": 5,
+     "professional_law/test": 1534,
+     "professional_law/validation": 170,
+     "professional_law/dev": 5,
+     "professional_medicine/test": 272,
+     "professional_medicine/validation": 31,
+     "professional_medicine/dev": 5,
+     "professional_psychology/test": 612,
+     "professional_psychology/validation": 69,
+     "professional_psychology/dev": 5,
+     "public_relations/test": 110,
+     "public_relations/validation": 12,
+     "public_relations/dev": 5,
+     "security_studies/test": 245,
+     "security_studies/validation": 27,
+     "security_studies/dev": 5,
+     "sociology/test": 201,
+     "sociology/validation": 22,
+     "sociology/dev": 5,
+     "us_foreign_policy/test": 100,
+     "us_foreign_policy/validation": 11,
+     "us_foreign_policy/dev": 5,
+     "virology/test": 166,
+     "virology/validation": 18,
+     "virology/dev": 5,
+     "world_religions/test": 171,
+     "world_religions/validation": 19,
+     "world_religions/dev": 5
+    }
+   }
+  },
+  {
+   "id": "mmlu_pro",
+   "name": "MMLU-Pro",
+   "hf": "TIGER-Lab/MMLU-Pro",
+   "url": "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "group": "chat",
+   "yugos": "live",
+   "list_no": "2.59",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2024-05-08",
+    "last_modified": "2026-05-02",
+    "downloads": 376452,
+    "size_category": "10K<n<100K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 12102,
+    "rows_by_split": {
+     "default/test": 12032,
+     "default/validation": 70
+    }
+   }
+  }
+ ]
+}

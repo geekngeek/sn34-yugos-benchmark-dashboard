@@ -1,0 +1,8827 @@
+{
+ "groups": {
+  "1": "small/old (GPT-3.5, Llama-3-8B, Mistral 7B, Gemma 2 9B)",
+  "2": "2024 flagships (GPT-4o, Claude 3.5 Sonnet, GPT-4 Turbo, Llama 3.1 405B)",
+  "3": "late-2025 frontier (GPT-5, Claude Opus 4.5, Gemini 3 Pro)",
+  "4": "Nov-2026 frontier (GPT-6.x, Claude Fable/Opus 5.x, Gemini 4)"
+ },
+ "default_cdf_by_team_level": {
+  "1": {
+   "1": 0.66,
+   "2": 0.89,
+   "3": 0.95,
+   "4": 0.97
+  },
+  "2": {
+   "1": 0.33,
+   "2": 0.75,
+   "3": 0.92,
+   "4": 0.96
+  },
+  "3": {
+   "1": 0.08,
+   "2": 0.32,
+   "3": 0.64,
+   "4": 0.74
+  },
+  "4": {
+   "1": 0.04,
+   "2": 0.07,
+   "3": 0.2,
+   "4": 0.59
+  },
+  "5": {
+   "1": 0.01,
+   "2": 0.03,
+   "3": 0.08,
+   "4": 0.3
+  }
+ },
+ "rows": {
+  "1.1": {
+   "no": "1.1",
+   "name": "Long Agentic",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 63,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.713,
+     "cdf": 0.713
+    }
+   },
+   "measured": {
+    "4": 0.713
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.713
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.2": {
+   "no": "1.2",
+   "name": "Finance & Compliance Apps",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.889,
+     "cdf": 0.889
+    }
+   },
+   "measured": {
+    "4": 0.889
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.889
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.3": {
+   "no": "1.3",
+   "name": "Operations & Commerce Apps",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.958,
+     "cdf": 0.958
+    }
+   },
+   "measured": {
+    "4": 0.958
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.958
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.4": {
+   "no": "1.4",
+   "name": "Long-Run Operations",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.489,
+     "cdf": 0.489
+    }
+   },
+   "measured": {
+    "4": 0.489
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.489
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.5": {
+   "no": "1.5",
+   "name": "Delegated Operations",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.503,
+     "cdf": 0.503
+    }
+   },
+   "measured": {
+    "4": 0.503
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.503
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.6": {
+   "no": "1.6",
+   "name": "Systems Engineering",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.969,
+     "cdf": 0.969
+    }
+   },
+   "measured": {
+    "4": 0.969
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.969
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.7": {
+   "no": "1.7",
+   "name": "Performance Optimisation",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.679,
+     "cdf": 0.679
+    }
+   },
+   "measured": {
+    "4": 0.679
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.679
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.8": {
+   "no": "1.8",
+   "name": "Reasoning",
+   "team_level": "1-2",
+   "floor": 0.0,
+   "n_models": 63,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.909,
+     "cdf": 0.909
+    }
+   },
+   "measured": {
+    "4": 0.909
+   },
+   "cdf": {
+    "1": 0.495,
+    "2": 0.82,
+    "3": 0.935,
+    "4": 0.935
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.9": {
+   "no": "1.9",
+   "name": "Theory of mind",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.865,
+     "cdf": 0.865
+    }
+   },
+   "measured": {
+    "4": 0.865
+   },
+   "cdf": {
+    "1": 0.33,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.92
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.10": {
+   "no": "1.10",
+   "name": "Zebra puzzles",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 1.0,
+     "cdf": 1.0
+    }
+   },
+   "measured": {
+    "4": 1.0
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.11": {
+   "no": "1.11",
+   "name": "Spatial",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.98,
+     "cdf": 0.98
+    }
+   },
+   "measured": {
+    "4": 0.98
+   },
+   "cdf": {
+    "1": 0.66,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.98
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.12": {
+   "no": "1.12",
+   "name": "Logic with navigation",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.82,
+     "cdf": 0.82
+    }
+   },
+   "measured": {
+    "4": 0.82
+   },
+   "cdf": {
+    "1": 0.33,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.92
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.13": {
+   "no": "1.13",
+   "name": "Coding",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 63,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.9145,
+     "cdf": 0.9145
+    }
+   },
+   "measured": {
+    "4": 0.9145
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 0.9145
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.14": {
+   "no": "1.14",
+   "name": "LLM API Integration",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 1.0,
+     "cdf": 1.0
+    }
+   },
+   "measured": {
+    "4": 1.0
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.15": {
+   "no": "1.15",
+   "name": "Agent Loop",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 1.0,
+     "cdf": 1.0
+    }
+   },
+   "measured": {
+    "4": 1.0
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.16": {
+   "no": "1.16",
+   "name": "Billing & Limits",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 1.0,
+     "cdf": 1.0
+    }
+   },
+   "measured": {
+    "4": 1.0
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.17": {
+   "no": "1.17",
+   "name": "Cloud Infrastructure",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 1.0,
+     "cdf": 1.0
+    }
+   },
+   "measured": {
+    "4": 1.0
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.18": {
+   "no": "1.18",
+   "name": "Product & UX",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.917,
+     "cdf": 0.917
+    }
+   },
+   "measured": {
+    "4": 0.917
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.917
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.19": {
+   "no": "1.19",
+   "name": "Memory & Tools",
+   "team_level": "\u22642",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 1.0,
+     "cdf": 1.0
+    }
+   },
+   "measured": {
+    "4": 1.0
+   },
+   "cdf": {
+    "1": 0.495,
+    "2": 0.82,
+    "3": 0.935,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.20": {
+   "no": "1.20",
+   "name": "Hard Fixes",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.572,
+     "cdf": 0.572
+    }
+   },
+   "measured": {
+    "4": 0.572
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.572
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.21": {
+   "no": "1.21",
+   "name": "Browser",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 63,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.9165,
+     "cdf": 0.9165
+    }
+   },
+   "measured": {
+    "4": 0.9165
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.9165
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.22": {
+   "no": "1.22",
+   "name": "Data Aggregation",
+   "team_level": "3-4",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.833,
+     "cdf": 0.833
+    }
+   },
+   "measured": {
+    "4": 0.833
+   },
+   "cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.833
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.23": {
+   "no": "1.23",
+   "name": "Sequential Planning",
+   "team_level": "3-4",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.839,
+     "cdf": 0.839
+    }
+   },
+   "measured": {
+    "4": 0.839
+   },
+   "cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.839
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.24": {
+   "no": "1.24",
+   "name": "Analysis-Driven Action",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.923,
+     "cdf": 0.923
+    }
+   },
+   "measured": {
+    "4": 0.923
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.923
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.25": {
+   "no": "1.25",
+   "name": "Structural Integrity",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.948,
+     "cdf": 0.948
+    }
+   },
+   "measured": {
+    "4": 0.948
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.948
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.26": {
+   "no": "1.26",
+   "name": "Constraint Adherence",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 1.0,
+     "cdf": 1.0
+    }
+   },
+   "measured": {
+    "4": 1.0
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 1.0
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.27": {
+   "no": "1.27",
+   "name": "Data Analysis",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 63,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.821,
+     "cdf": 0.821
+    }
+   },
+   "measured": {
+    "4": 0.821
+   },
+   "cdf": {
+    "1": 0.33,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.92
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.28": {
+   "no": "1.28",
+   "name": "Consecutive events",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.906,
+     "cdf": 0.906
+    }
+   },
+   "measured": {
+    "4": 0.906
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.906
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.29": {
+   "no": "1.29",
+   "name": "Table join",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.574,
+     "cdf": 0.574
+    }
+   },
+   "measured": {
+    "4": 0.574
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.574
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.30": {
+   "no": "1.30",
+   "name": "Table reformat",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.98,
+     "cdf": 0.98
+    }
+   },
+   "measured": {
+    "4": 0.98
+   },
+   "cdf": {
+    "1": 0.66,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.98
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.31": {
+   "no": "1.31",
+   "name": "Research",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 63,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.8945,
+     "cdf": 0.8945
+    }
+   },
+   "measured": {
+    "4": 0.8945
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.8945
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.32": {
+   "no": "1.32",
+   "name": "Regulatory & Compliance",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.929,
+     "cdf": 0.929
+    }
+   },
+   "measured": {
+    "4": 0.929
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 0.929
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.33": {
+   "no": "1.33",
+   "name": "Legal",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.995,
+     "cdf": 0.995
+    }
+   },
+   "measured": {
+    "4": 0.995
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 0.995
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.34": {
+   "no": "1.34",
+   "name": "Tax & Finance",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.916,
+     "cdf": 0.916
+    }
+   },
+   "measured": {
+    "4": 0.916
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.916
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.35": {
+   "no": "1.35",
+   "name": "Strategy",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.835,
+     "cdf": 0.835
+    }
+   },
+   "measured": {
+    "4": 0.835
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 0.835
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.36": {
+   "no": "1.36",
+   "name": "Science & Evidence",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.867,
+     "cdf": 0.867
+    }
+   },
+   "measured": {
+    "4": 0.867
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.78,
+    "4": 0.867
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.37": {
+   "no": "1.37",
+   "name": "Design",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 63,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.8215,
+     "cdf": 0.8215
+    }
+   },
+   "measured": {
+    "4": 0.8215
+   },
+   "cdf": {
+    "1": 0.33,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.92
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.38": {
+   "no": "1.38",
+   "name": "Documents (DOCX)",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.883,
+     "cdf": 0.883
+    }
+   },
+   "measured": {
+    "4": 0.883
+   },
+   "cdf": {
+    "1": 0.33,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.92
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.39": {
+   "no": "1.39",
+   "name": "PDF",
+   "team_level": "1-3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.841,
+     "cdf": 0.841
+    }
+   },
+   "measured": {
+    "4": 0.841
+   },
+   "cdf": {
+    "1": 0.3567,
+    "2": 0.6533,
+    "3": 0.8367,
+    "4": 0.841
+   },
+   "level_source": "scores+team-level"
+  },
+  "1.40": {
+   "no": "1.40",
+   "name": "Presentations (PPT)",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.764,
+     "cdf": 0.764
+    }
+   },
+   "measured": {
+    "4": 0.764
+   },
+   "cdf": {
+    "1": 0.33,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.92
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.1": {
+   "no": "2.1",
+   "name": "Artificial Analysis Intelligence Index v5.0.2",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 89,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.5738,
+     "cdf": 0.5738
+    }
+   },
+   "measured": {
+    "4": 0.5738
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.5738
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "2.2": {
+   "no": "2.2",
+   "name": "AA-Briefcase v1.1",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.3": {
+   "no": "2.3",
+   "name": "AutomationBench-AA",
+   "team_level": "3-4",
+   "floor": 0.0,
+   "n_models": 176,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.7128,
+     "cdf": 0.7128
+    }
+   },
+   "measured": {
+    "4": 0.7128
+   },
+   "cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.7128
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.4": {
+   "no": "2.4",
+   "name": "GDP.pdf",
+   "team_level": "5",
+   "floor": 0.0,
+   "n_models": 177,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.242,
+     "cdf": 0.242
+    }
+   },
+   "measured": {
+    "4": 0.242
+   },
+   "cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.242
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.5": {
+   "no": "2.5",
+   "name": "FrontierCode-AA 2.0",
+   "team_level": "5",
+   "floor": 0.0,
+   "n_models": 85,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.0041,
+     "cdf": 0.0041
+    }
+   },
+   "measured": {
+    "4": 0.0041
+   },
+   "cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.08
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.6": {
+   "no": "2.6",
+   "name": "Terminal-Bench 4.1",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 173,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.596,
+     "cdf": 0.596
+    }
+   },
+   "measured": {
+    "4": 0.596
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.596
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.7": {
+   "no": "2.7",
+   "name": "Terminal-Bench-Science 0.1",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 90,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.619,
+     "cdf": 0.619
+    }
+   },
+   "measured": {
+    "4": 0.619
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.619
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.8": {
+   "no": "2.8",
+   "name": "CritPt v2 (Hard Subset)",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 88,
+   "groups": {
+    "3": {
+     "models": [
+      "openai/gpt-5"
+     ],
+     "score": 0.0011,
+     "cdf": 0.0011
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.0067,
+     "cdf": 0.0067
+    }
+   },
+   "measured": {
+    "3": 0.0011,
+    "4": 0.0067
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.32,
+    "4": 0.32
+   },
+   "level_source": "scores"
+  },
+  "2.9": {
+   "no": "2.9",
+   "name": "AA-Omniscience v1.1",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 41,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.4627,
+     "cdf": 0.4627
+    }
+   },
+   "measured": {
+    "4": 0.4627
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.4627
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.10": {
+   "no": "2.10",
+   "name": "HLE-Diamond",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 119,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.569,
+     "cdf": 0.569
+    }
+   },
+   "measured": {
+    "4": 0.569
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.569
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.11": {
+   "no": "2.11",
+   "name": "Economics Index",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 89,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.573,
+     "cdf": 0.573
+    }
+   },
+   "measured": {
+    "4": 0.573
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.573
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "2.12": {
+   "no": "2.12",
+   "name": "Engineering Index",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 83,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.612,
+     "cdf": 0.612
+    }
+   },
+   "measured": {
+    "4": 0.612
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.612
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "2.13": {
+   "no": "2.13",
+   "name": "Finance & Accounting Index",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 89,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.574,
+     "cdf": 0.574
+    }
+   },
+   "measured": {
+    "4": 0.574
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.574
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "2.14": {
+   "no": "2.14",
+   "name": "Healthcare & Medical Index",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 63,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.5334,
+     "cdf": 0.5334
+    }
+   },
+   "measured": {
+    "4": 0.5334
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.5334
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "2.15": {
+   "no": "2.15",
+   "name": "Legal Index",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 83,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.6116,
+     "cdf": 0.6116
+    }
+   },
+   "measured": {
+    "4": 0.6116
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.6116
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "2.16": {
+   "no": "2.16",
+   "name": "Strategy & Ops Index",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 89,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.573,
+     "cdf": 0.573
+    }
+   },
+   "measured": {
+    "4": 0.573
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.573
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "2.17": {
+   "no": "2.17",
+   "name": "Artificial Analysis Cyber Index",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 29,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5.5",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.3512,
+     "cdf": 0.3512
+    }
+   },
+   "measured": {
+    "4": 0.3512
+   },
+   "cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.3512
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "2.18": {
+   "no": "2.18",
+   "name": "CWE-Bench-AA",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 29,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5.5",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.625,
+     "cdf": 0.625
+    }
+   },
+   "measured": {
+    "4": 0.625
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.625
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.19": {
+   "no": "2.19",
+   "name": "DeepsecBench-AA",
+   "team_level": "4-5",
+   "floor": 0.0,
+   "n_models": 30,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.369,
+     "cdf": 0.369
+    }
+   },
+   "measured": {
+    "4": 0.369
+   },
+   "cdf": {
+    "1": 0.025,
+    "2": 0.05,
+    "3": 0.14,
+    "4": 0.369
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.20": {
+   "no": "2.20",
+   "name": "CyberGym-E2E-AA",
+   "team_level": "4-5",
+   "floor": 0.0,
+   "n_models": 29,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5.5",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.0,
+     "cdf": 0.0
+    }
+   },
+   "measured": {
+    "4": 0.0
+   },
+   "cdf": {
+    "1": 0.025,
+    "2": 0.05,
+    "3": 0.14,
+    "4": 0.14
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.21": {
+   "no": "2.21",
+   "name": "Artificial Analysis Coding Agent Index v2.1",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.22": {
+   "no": "2.22",
+   "name": "Artificial Analysis Search Index",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.23": {
+   "no": "2.23",
+   "name": "Artificial Analysis Decision Index v2.1",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 1,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.24": {
+   "no": "2.24",
+   "name": "AA-Paperclip",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.25": {
+   "no": "2.25",
+   "name": "EvalSafe-O*NET-AA",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.26": {
+   "no": "2.26",
+   "name": "AA-Omniscience-Decision v1.1",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.27": {
+   "no": "2.27",
+   "name": "HLE-MultiChoice v1.1",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.28": {
+   "no": "2.28",
+   "name": "AA-Symmetry v1.1",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.29": {
+   "no": "2.29",
+   "name": "When2Call",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.30": {
+   "no": "2.30",
+   "name": "Artificial Analysis Progress Index v1",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.31": {
+   "no": "2.31",
+   "name": "Artificial Analysis Openness Index",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 276,
+   "groups": {
+    "2": {
+     "models": [
+      "meta/llama-3.1-405b-instruct"
+     ],
+     "score": 0.3889,
+     "cdf": 0.3889
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.0556,
+     "cdf": 0.0556
+    }
+   },
+   "measured": {
+    "2": 0.3889,
+    "3": 0.0556
+   },
+   "cdf": {
+    "1": 0.01,
+    "2": 0.3889,
+    "3": 0.3889,
+    "4": 0.3889
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "2.32": {
+   "no": "2.32",
+   "name": "AA-3D",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.33": {
+   "no": "2.33",
+   "name": "APEX-Agents-AA",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.59
+   },
+   "level_source": "team-level"
+  },
+  "2.34": {
+   "no": "2.34",
+   "name": "AA-AnalystAgent",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 55,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.5375,
+     "cdf": 0.5375
+    }
+   },
+   "measured": {
+    "4": 0.5375
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.5375
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.35": {
+   "no": "2.35",
+   "name": "Harvey LAB-AA v1.1",
+   "team_level": "5",
+   "floor": 0.0,
+   "n_models": 32,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.064,
+     "cdf": 0.064
+    }
+   },
+   "measured": {
+    "4": 0.064
+   },
+   "cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.08
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.36": {
+   "no": "2.36",
+   "name": "EnterpriseOps-Gym-AA",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 53,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-opus-5",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.299,
+     "cdf": 0.299
+    }
+   },
+   "measured": {
+    "4": 0.299
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.299
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.37": {
+   "no": "2.37",
+   "name": "AA-PersonalityBench",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.38": {
+   "no": "2.38",
+   "name": "GPQA Diamond",
+   "team_level": "3",
+   "floor": 0.25,
+   "n_models": 451,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct",
+      "openai/gpt-3.5-turbo"
+     ],
+     "score": 0.2773,
+     "cdf": 0.0364
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4o"
+     ],
+     "score": 0.5434,
+     "cdf": 0.3912
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.8657,
+     "cdf": 0.8209
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5",
+      "openai/gpt-6-astra"
+     ],
+     "score": 0.9374,
+     "cdf": 0.9165
+    }
+   },
+   "measured": {
+    "1": 0.0364,
+    "2": 0.3912,
+    "3": 0.8209,
+    "4": 0.9165
+   },
+   "cdf": {
+    "1": 0.0364,
+    "2": 0.3912,
+    "3": 0.8209,
+    "4": 0.9165
+   },
+   "level_source": "scores"
+  },
+  "2.39": {
+   "no": "2.39",
+   "name": "ITBench-AA",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 43,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5.5",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol"
+     ],
+     "score": 0.4902,
+     "cdf": 0.4902
+    }
+   },
+   "measured": {
+    "4": 0.4902
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.4902
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.40": {
+   "no": "2.40",
+   "name": "MMMU-Pro",
+   "team_level": "3",
+   "floor": 0.1,
+   "n_models": 180,
+   "groups": {
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.563,
+     "cdf": 0.5144
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.7434,
+     "cdf": 0.7149
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra"
+     ],
+     "score": 0.8729,
+     "cdf": 0.8587
+    }
+   },
+   "measured": {
+    "2": 0.5144,
+    "3": 0.7149,
+    "4": 0.8587
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.5144,
+    "3": 0.7149,
+    "4": 0.8587
+   },
+   "level_source": "scores"
+  },
+  "2.41": {
+   "no": "2.41",
+   "name": "IFBench",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 329,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct"
+     ],
+     "score": 0.2456,
+     "cdf": 0.2456
+    },
+    "2": {
+     "models": [
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4o"
+     ],
+     "score": 0.3752,
+     "cdf": 0.3752
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.7041,
+     "cdf": 0.7041
+    }
+   },
+   "measured": {
+    "1": 0.2456,
+    "2": 0.3752,
+    "3": 0.7041
+   },
+   "cdf": {
+    "1": 0.2456,
+    "2": 0.3752,
+    "3": 0.7041,
+    "4": 0.74
+   },
+   "level_source": "scores"
+  },
+  "2.42": {
+   "no": "2.42",
+   "name": "MLCR-AA",
+   "team_level": "5",
+   "floor": 0.0,
+   "n_models": 117,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.211,
+     "cdf": 0.211
+    }
+   },
+   "measured": {
+    "4": 0.211
+   },
+   "cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.211
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.43": {
+   "no": "2.43",
+   "name": "Code2Video-AA",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.44": {
+   "no": "2.44",
+   "name": "HealthBench Professional",
+   "team_level": "\u22644",
+   "floor": 0.0,
+   "n_models": 15,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.578,
+     "cdf": 0.578
+    }
+   },
+   "measured": {
+    "4": 0.578
+   },
+   "cdf": {
+    "1": 0.2775,
+    "2": 0.5075,
+    "3": 0.6775,
+    "4": 0.6775
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.45": {
+   "no": "2.45",
+   "name": "VIALS-AA",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 23,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.6273,
+     "cdf": 0.6273
+    }
+   },
+   "measured": {
+    "4": 0.6273
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.6273
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.46": {
+   "no": "2.46",
+   "name": "MKA (Multimodal Knowledge Agent)",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 24,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra"
+     ],
+     "score": 0.53,
+     "cdf": 0.53
+    }
+   },
+   "measured": {
+    "4": 0.53
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.53
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.47": {
+   "no": "2.47",
+   "name": "FrontierPhysics",
+   "team_level": "5",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.3
+   },
+   "level_source": "team-level"
+  },
+  "2.48": {
+   "no": "2.48",
+   "name": "GDPval-AA v2.1",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "2.49": {
+   "no": "2.49",
+   "name": "\u03c4\u00b3-Banking",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 20,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1"
+     ],
+     "score": 0.4265,
+     "cdf": 0.4265
+    }
+   },
+   "measured": {
+    "4": 0.4265
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.4265
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.50": {
+   "no": "2.50",
+   "name": "Terminal-Bench 2.1",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 184,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b-instruct"
+     ],
+     "score": 0.015,
+     "cdf": 0.015
+    },
+    "3": {
+     "models": [
+      "openai/gpt-5"
+     ],
+     "score": 0.3521,
+     "cdf": 0.3521
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5",
+      "openai/gpt-6-astra"
+     ],
+     "score": 0.8989,
+     "cdf": 0.8989
+    }
+   },
+   "measured": {
+    "1": 0.015,
+    "3": 0.3521,
+    "4": 0.8989
+   },
+   "cdf": {
+    "1": 0.015,
+    "2": 0.32,
+    "3": 0.3521,
+    "4": 0.8989
+   },
+   "level_source": "scores"
+  },
+  "2.51": {
+   "no": "2.51",
+   "name": "Terminal-Bench 4.0",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 174,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.596,
+     "cdf": 0.596
+    }
+   },
+   "measured": {
+    "4": 0.596
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.596
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.52": {
+   "no": "2.52",
+   "name": "FrontierCode 1.1",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 42,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.4904,
+     "cdf": 0.4904
+    }
+   },
+   "measured": {
+    "4": 0.4904
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.4904
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.53": {
+   "no": "2.53",
+   "name": "AA-LCR v1.1",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 436,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct"
+     ],
+     "score": 0.0,
+     "cdf": 0.0
+    },
+    "2": {
+     "models": [
+      "meta/llama-3.1-405b",
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4o"
+     ],
+     "score": 0.253,
+     "cdf": 0.253
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.7665,
+     "cdf": 0.7665
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.8265,
+     "cdf": 0.8265
+    }
+   },
+   "measured": {
+    "1": 0.0,
+    "2": 0.253,
+    "3": 0.7665,
+    "4": 0.8265
+   },
+   "cdf": {
+    "1": 0.0,
+    "2": 0.253,
+    "3": 0.7665,
+    "4": 0.8265
+   },
+   "level_source": "scores"
+  },
+  "2.54": {
+   "no": "2.54",
+   "name": "SciCode",
+   "team_level": "3-4",
+   "floor": 0.0,
+   "n_models": 163,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.5972,
+     "cdf": 0.5972
+    }
+   },
+   "measured": {
+    "4": 0.5972
+   },
+   "cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.5972
+   },
+   "level_source": "scores+team-level"
+  },
+  "2.55": {
+   "no": "2.55",
+   "name": "Humanity's Last Exam",
+   "team_level": "4",
+   "floor": 0.05,
+   "n_models": 504,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct"
+     ],
+     "score": 0.0005,
+     "cdf": 0.0
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "meta/llama-3.1-405b",
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.024,
+     "cdf": 0.0
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.293,
+     "cdf": 0.2558
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.555,
+     "cdf": 0.5316
+    }
+   },
+   "measured": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.2558,
+    "4": 0.5316
+   },
+   "cdf": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.2558,
+    "4": 0.5316
+   },
+   "level_source": "scores"
+  },
+  "2.56": {
+   "no": "2.56",
+   "name": "CritPt",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 432,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct"
+     ],
+     "score": 0.0,
+     "cdf": 0.0
+    },
+    "2": {
+     "models": [
+      "meta/llama-3.1-405b",
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4o"
+     ],
+     "score": 0.0,
+     "cdf": 0.0
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.0515,
+     "cdf": 0.0515
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.309,
+     "cdf": 0.309
+    }
+   },
+   "measured": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0515,
+    "4": 0.309
+   },
+   "cdf": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0515,
+    "4": 0.309
+   },
+   "level_source": "scores"
+  },
+  "2.57": {
+   "no": "2.57",
+   "name": "Terminal-Bench Hard",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 315,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b-instruct"
+     ],
+     "score": 0.0,
+     "cdf": 0.0
+    },
+    "2": {
+     "models": [
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4o"
+     ],
+     "score": 0.0008,
+     "cdf": 0.0008
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.0042,
+     "cdf": 0.0042
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5"
+     ],
+     "score": 0.629,
+     "cdf": 0.629
+    }
+   },
+   "measured": {
+    "1": 0.0,
+    "2": 0.0008,
+    "3": 0.0042,
+    "4": 0.629
+   },
+   "cdf": {
+    "1": 0.0,
+    "2": 0.0008,
+    "3": 0.0042,
+    "4": 0.629
+   },
+   "level_source": "scores"
+  },
+  "2.58": {
+   "no": "2.58",
+   "name": "\u03c4\u00b2-Bench Telecom",
+   "team_level": "\u22643",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.3567,
+    "2": 0.6533,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "team-level"
+  },
+  "2.59": {
+   "no": "2.59",
+   "name": "MMLU-Pro",
+   "team_level": "\u22643",
+   "floor": 0.1,
+   "n_models": 276,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct",
+      "openai/gpt-3.5-turbo"
+     ],
+     "score": 0.4333,
+     "cdf": 0.3704
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.7397,
+     "cdf": 0.7108
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.8945,
+     "cdf": 0.8828
+    }
+   },
+   "measured": {
+    "1": 0.3704,
+    "2": 0.7108,
+    "3": 0.8828
+   },
+   "cdf": {
+    "1": 0.3704,
+    "2": 0.7108,
+    "3": 0.8828,
+    "4": 0.89
+   },
+   "level_source": "scores"
+  },
+  "2.60": {
+   "no": "2.60",
+   "name": "LiveCodeBench",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 271,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct"
+     ],
+     "score": 0.0963,
+     "cdf": 0.0963
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.3196,
+     "cdf": 0.3196
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.8709,
+     "cdf": 0.8709
+    }
+   },
+   "measured": {
+    "1": 0.0963,
+    "2": 0.3196,
+    "3": 0.8709
+   },
+   "cdf": {
+    "1": 0.0963,
+    "2": 0.3196,
+    "3": 0.8709,
+    "4": 0.8709
+   },
+   "level_source": "scores"
+  },
+  "2.61": {
+   "no": "2.61",
+   "name": "MATH-500",
+   "team_level": "1-2",
+   "floor": 0.0,
+   "n_models": 171,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct",
+      "openai/gpt-3.5-turbo"
+     ],
+     "score": 0.47,
+     "cdf": 0.47
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.754,
+     "cdf": 0.754
+    },
+    "3": {
+     "models": [
+      "openai/gpt-5"
+     ],
+     "score": 0.994,
+     "cdf": 0.994
+    }
+   },
+   "measured": {
+    "1": 0.47,
+    "2": 0.754,
+    "3": 0.994
+   },
+   "cdf": {
+    "1": 0.47,
+    "2": 0.754,
+    "3": 0.994,
+    "4": 0.994
+   },
+   "level_source": "scores"
+  },
+  "2.62": {
+   "no": "2.62",
+   "name": "AIME 2025",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 208,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b-instruct"
+     ],
+     "score": 0.0433,
+     "cdf": 0.0433
+    },
+    "2": {
+     "models": [
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4o"
+     ],
+     "score": 0.045,
+     "cdf": 0.045
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.9433,
+     "cdf": 0.9433
+    }
+   },
+   "measured": {
+    "1": 0.0433,
+    "2": 0.045,
+    "3": 0.9433
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.045,
+    "3": 0.9433,
+    "4": 0.9433
+   },
+   "level_source": "scores"
+  },
+  "2.63": {
+   "no": "2.63",
+   "name": "Global-MMLU-Lite",
+   "team_level": "\u22643",
+   "floor": 0.25,
+   "n_models": 95,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b-instruct"
+     ],
+     "score": 0.3512,
+     "cdf": 0.1349
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.9128,
+     "cdf": 0.8837
+    }
+   },
+   "measured": {
+    "1": 0.1349,
+    "3": 0.8837
+   },
+   "cdf": {
+    "1": 0.1349,
+    "2": 0.6533,
+    "3": 0.8837,
+    "4": 0.89
+   },
+   "level_source": "scores"
+  },
+  "3.1": {
+   "no": "3.1",
+   "name": "Overall (BenchAlign score)",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 211,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.338,
+     "cdf": 0.338
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.545,
+     "cdf": 0.545
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.816,
+     "cdf": 0.816
+    }
+   },
+   "measured": {
+    "2": 0.338,
+    "3": 0.545,
+    "4": 0.816
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.338,
+    "3": 0.545,
+    "4": 0.816
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "3.2": {
+   "no": "3.2",
+   "name": "Agentic",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 119,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5"
+     ],
+     "score": 0.507,
+     "cdf": 0.507
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.7465,
+     "cdf": 0.7465
+    }
+   },
+   "measured": {
+    "3": 0.507,
+    "4": 0.7465
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.507,
+    "4": 0.7465
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "3.3": {
+   "no": "3.3",
+   "name": "Coding",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 197,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.263,
+     "cdf": 0.263
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.758,
+     "cdf": 0.758
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5"
+     ],
+     "score": 0.889,
+     "cdf": 0.889
+    }
+   },
+   "measured": {
+    "2": 0.263,
+    "3": 0.758,
+    "4": 0.889
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.263,
+    "3": 0.758,
+    "4": 0.889
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "3.4": {
+   "no": "3.4",
+   "name": "Reasoning",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 208,
+   "groups": {
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.58,
+     "cdf": 0.58
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.705,
+     "cdf": 0.705
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.829,
+     "cdf": 0.829
+    }
+   },
+   "measured": {
+    "2": 0.58,
+    "3": 0.705,
+    "4": 0.829
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.58,
+    "3": 0.705,
+    "4": 0.829
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "3.5": {
+   "no": "3.5",
+   "name": "Multimodal & Grounded",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 136,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.732,
+     "cdf": 0.732
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra"
+     ],
+     "score": 0.857,
+     "cdf": 0.857
+    }
+   },
+   "measured": {
+    "3": 0.732,
+    "4": 0.857
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.732,
+    "4": 0.857
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "3.6": {
+   "no": "3.6",
+   "name": "Knowledge",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 261,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b"
+     ],
+     "score": 0.407,
+     "cdf": 0.407
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.437,
+     "cdf": 0.437
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.718,
+     "cdf": 0.718
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.849,
+     "cdf": 0.849
+    }
+   },
+   "measured": {
+    "1": 0.407,
+    "2": 0.437,
+    "3": 0.718,
+    "4": 0.849
+   },
+   "cdf": {
+    "1": 0.407,
+    "2": 0.437,
+    "3": 0.718,
+    "4": 0.849
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "3.7": {
+   "no": "3.7",
+   "name": "Multilingual",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 16,
+   "groups": {
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.302,
+     "cdf": 0.302
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5"
+     ],
+     "score": 0.965,
+     "cdf": 0.965
+    }
+   },
+   "measured": {
+    "2": 0.302,
+    "3": 0.965
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.302,
+    "3": 0.965,
+    "4": 0.965
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "3.8": {
+   "no": "3.8",
+   "name": "Instruction Following",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 159,
+   "groups": {
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.389,
+     "cdf": 0.389
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.859,
+     "cdf": 0.859
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5"
+     ],
+     "score": 0.769,
+     "cdf": 0.769
+    }
+   },
+   "measured": {
+    "2": 0.389,
+    "3": 0.859,
+    "4": 0.769
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.389,
+    "3": 0.859,
+    "4": 0.859
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "3.9": {
+   "no": "3.9",
+   "name": "Mathematics",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 96,
+   "groups": {
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.233,
+     "cdf": 0.233
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5"
+     ],
+     "score": 0.525,
+     "cdf": 0.525
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra"
+     ],
+     "score": 0.916,
+     "cdf": 0.916
+    }
+   },
+   "measured": {
+    "2": 0.233,
+    "3": 0.525,
+    "4": 0.916
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.233,
+    "3": 0.525,
+    "4": 0.916
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "4.1": {
+   "no": "4.1",
+   "name": "Humanity's Last Exam (full, 2,500 questions)",
+   "team_level": "4",
+   "floor": 0.05,
+   "n_models": 10,
+   "groups": {
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.027,
+     "cdf": 0.0
+    },
+    "3": {
+     "models": [
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.318,
+     "cdf": 0.2821
+    }
+   },
+   "measured": {
+    "2": 0.0,
+    "3": 0.2821
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.2821,
+    "4": 0.59
+   },
+   "level_source": "scores"
+  },
+  "4.2": {
+   "no": "4.2",
+   "name": "Humanity's Last Exam (Text Only)",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 8,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.033,
+     "cdf": 0.033
+    }
+   },
+   "measured": {
+    "2": 0.033
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.2,
+    "4": 0.59
+   },
+   "level_source": "scores+team-level"
+  },
+  "4.3": {
+   "no": "4.3",
+   "name": "HLE-Rolling",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "4.4": {
+   "no": "4.4",
+   "name": "HLE-Diamond",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 166,
+   "groups": {
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.0116,
+     "cdf": 0.0116
+    },
+    "3": {
+     "models": [
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.1368,
+     "cdf": 0.1368
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.532,
+     "cdf": 0.532
+    }
+   },
+   "measured": {
+    "2": 0.0116,
+    "3": 0.1368,
+    "4": 0.532
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.1368,
+    "4": 0.532
+   },
+   "level_source": "scores"
+  },
+  "4.5": {
+   "no": "4.5",
+   "name": "HLE-Diamond Reasoning partition",
+   "team_level": "3-4",
+   "floor": 0.0,
+   "n_models": 25,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.674,
+     "cdf": 0.674
+    }
+   },
+   "measured": {
+    "4": 0.674
+   },
+   "cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.674
+   },
+   "level_source": "scores+team-level"
+  },
+  "4.6": {
+   "no": "4.6",
+   "name": "HLE-Diamond Knowledge partition",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 25,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.468,
+     "cdf": 0.468
+    }
+   },
+   "measured": {
+    "4": 0.468
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.468
+   },
+   "level_source": "scores+team-level"
+  },
+  "4.7": {
+   "no": "4.7",
+   "name": "HLE-Diamond with tools (web+code)",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 8,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.707,
+     "cdf": 0.707
+    }
+   },
+   "measured": {
+    "4": 0.707
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.707
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "4.8": {
+   "no": "4.8",
+   "name": "Math",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 6,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.0315,
+     "cdf": 0.0315
+    }
+   },
+   "measured": {
+    "2": 0.0315
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.0433,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level"
+  },
+  "4.9": {
+   "no": "4.9",
+   "name": "Bio/Med",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 6,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.055,
+     "cdf": 0.055
+    }
+   },
+   "measured": {
+    "2": 0.055
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.055,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level"
+  },
+  "4.10": {
+   "no": "4.10",
+   "name": "Physics",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 6,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.028,
+     "cdf": 0.028
+    }
+   },
+   "measured": {
+    "2": 0.028
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.0433,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level"
+  },
+  "4.11": {
+   "no": "4.11",
+   "name": "CS/AI",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 6,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.0165,
+     "cdf": 0.0165
+    }
+   },
+   "measured": {
+    "2": 0.0165
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.0433,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level"
+  },
+  "4.12": {
+   "no": "4.12",
+   "name": "Humanities",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 6,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.0455,
+     "cdf": 0.0455
+    }
+   },
+   "measured": {
+    "2": 0.0455
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.0455,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level"
+  },
+  "4.13": {
+   "no": "4.13",
+   "name": "Chemistry",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 6,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.039,
+     "cdf": 0.039
+    }
+   },
+   "measured": {
+    "2": 0.039
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.0433,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level"
+  },
+  "4.14": {
+   "no": "4.14",
+   "name": "Engineering",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 6,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.045,
+     "cdf": 0.045
+    }
+   },
+   "measured": {
+    "2": 0.045
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.045,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level"
+  },
+  "4.15": {
+   "no": "4.15",
+   "name": "Other",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 6,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.024,
+     "cdf": 0.024
+    }
+   },
+   "measured": {
+    "2": 0.024
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.0433,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level"
+  },
+  "5.1": {
+   "no": "5.1",
+   "name": "Biology",
+   "team_level": "1",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.5642,
+     "cdf": 0.5158
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.8856,
+     "cdf": 0.8729
+    }
+   },
+   "measured": {
+    "1": 0.5158,
+    "2": 0.8729
+   },
+   "cdf": {
+    "1": 0.5158,
+    "2": 0.8729,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores"
+  },
+  "5.2": {
+   "no": "5.2",
+   "name": "Business",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.3258,
+     "cdf": 0.2508
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.801,
+     "cdf": 0.7789
+    }
+   },
+   "measured": {
+    "1": 0.2508,
+    "2": 0.7789
+   },
+   "cdf": {
+    "1": 0.2508,
+    "2": 0.7789,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "5.3": {
+   "no": "5.3",
+   "name": "Chemistry",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.2535,
+     "cdf": 0.1706
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.7393,
+     "cdf": 0.7103
+    }
+   },
+   "measured": {
+    "1": 0.1706,
+    "2": 0.7103
+   },
+   "cdf": {
+    "1": 0.1706,
+    "2": 0.7103,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "5.4": {
+   "no": "5.4",
+   "name": "Computer Science",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.3561,
+     "cdf": 0.2846
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.7829,
+     "cdf": 0.7588
+    }
+   },
+   "measured": {
+    "1": 0.2846,
+    "2": 0.7588
+   },
+   "cdf": {
+    "1": 0.2846,
+    "2": 0.7588,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "5.5": {
+   "no": "5.5",
+   "name": "Economics",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.465,
+     "cdf": 0.4056
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.8164,
+     "cdf": 0.796
+    }
+   },
+   "measured": {
+    "1": 0.4056,
+    "2": 0.796
+   },
+   "cdf": {
+    "1": 0.4056,
+    "2": 0.796,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "5.6": {
+   "no": "5.6",
+   "name": "Engineering",
+   "team_level": "3",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.2704,
+     "cdf": 0.1893
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.5531,
+     "cdf": 0.5034
+    }
+   },
+   "measured": {
+    "1": 0.1893,
+    "2": 0.5034
+   },
+   "cdf": {
+    "1": 0.1893,
+    "2": 0.5034,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores"
+  },
+  "5.7": {
+   "no": "5.7",
+   "name": "Health",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.4389,
+     "cdf": 0.3766
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.7604,
+     "cdf": 0.7338
+    }
+   },
+   "measured": {
+    "1": 0.3766,
+    "2": 0.7338
+   },
+   "cdf": {
+    "1": 0.3766,
+    "2": 0.7338,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "5.8": {
+   "no": "5.8",
+   "name": "History",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.3897,
+     "cdf": 0.3219
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.7323,
+     "cdf": 0.7026
+    }
+   },
+   "measured": {
+    "1": 0.3219,
+    "2": 0.7026
+   },
+   "cdf": {
+    "1": 0.3219,
+    "2": 0.7026,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "5.9": {
+   "no": "5.9",
+   "name": "Law",
+   "team_level": "3",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.2144,
+     "cdf": 0.1271
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.5895,
+     "cdf": 0.5439
+    }
+   },
+   "measured": {
+    "1": 0.1271,
+    "2": 0.5439
+   },
+   "cdf": {
+    "1": 0.1271,
+    "2": 0.5439,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores"
+  },
+  "5.10": {
+   "no": "5.10",
+   "name": "Math",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.3182,
+     "cdf": 0.2425
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.7942,
+     "cdf": 0.7713
+    }
+   },
+   "measured": {
+    "1": 0.2425,
+    "2": 0.7713
+   },
+   "cdf": {
+    "1": 0.2425,
+    "2": 0.7713,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "5.11": {
+   "no": "5.11",
+   "name": "Philosophy",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.4038,
+     "cdf": 0.3376
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.7034,
+     "cdf": 0.6704
+    }
+   },
+   "measured": {
+    "1": 0.3376,
+    "2": 0.6704
+   },
+   "cdf": {
+    "1": 0.3376,
+    "2": 0.6704,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "5.12": {
+   "no": "5.12",
+   "name": "Physics",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.313,
+     "cdf": 0.2366
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.7506,
+     "cdf": 0.7229
+    }
+   },
+   "measured": {
+    "1": 0.2366,
+    "2": 0.7229
+   },
+   "cdf": {
+    "1": 0.2366,
+    "2": 0.7229,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "5.13": {
+   "no": "5.13",
+   "name": "Psychology",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 138,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.532,
+     "cdf": 0.4799
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.8271,
+     "cdf": 0.8079
+    }
+   },
+   "measured": {
+    "1": 0.4799,
+    "2": 0.8079
+   },
+   "cdf": {
+    "1": 0.4799,
+    "2": 0.8079,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "5.14": {
+   "no": "5.14",
+   "name": "Other",
+   "team_level": "2",
+   "floor": 0.1,
+   "n_models": 137,
+   "groups": {
+    "1": {
+     "models": [
+      "google/gemma-2-9b",
+      "google/gemma-2-9b-it",
+      "meta/llama-3-8b",
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct-v0.1",
+      "mistral/mistral-7b-instruct-v0.2",
+      "mistral/mistral-7b-v0.1",
+      "mistral/mistral-7b-v0.2"
+     ],
+     "score": 0.4253,
+     "cdf": 0.3614
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.7955,
+     "cdf": 0.7728
+    }
+   },
+   "measured": {
+    "1": 0.3614,
+    "2": 0.7728
+   },
+   "cdf": {
+    "1": 0.3614,
+    "2": 0.7728,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "6.1": {
+   "no": "6.1",
+   "name": "GPQA Diamond",
+   "team_level": "2-3",
+   "floor": 0.25,
+   "n_models": 496,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct",
+      "openai/gpt-3.5-turbo"
+     ],
+     "score": 0.0028,
+     "cdf": 0.0
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4o"
+     ],
+     "score": 0.0054,
+     "cdf": 0.0
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.0087,
+     "cdf": 0.0
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.96,
+     "cdf": 0.9467
+    }
+   },
+   "measured": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.9467
+   },
+   "cdf": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.9467
+   },
+   "level_source": "scores"
+  },
+  "6.2": {
+   "no": "6.2",
+   "name": "GPQA (main set)",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 3,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "6.3": {
+   "no": "6.3",
+   "name": "GPQA Extended",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 3,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "6.4": {
+   "no": "6.4",
+   "name": "Biology",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "6.5": {
+   "no": "6.5",
+   "name": "Physics",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "6.6": {
+   "no": "6.6",
+   "name": "Chemistry",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "7.1": {
+   "no": "7.1",
+   "name": "SimpleQA",
+   "team_level": "3-4",
+   "floor": 0.0,
+   "n_models": 28,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.289,
+     "cdf": 0.289
+    }
+   },
+   "measured": {
+    "2": 0.289
+   },
+   "cdf": {
+    "1": 0.06,
+    "2": 0.289,
+    "3": 0.42,
+    "4": 0.665
+   },
+   "level_source": "scores+team-level"
+  },
+  "7.2": {
+   "no": "7.2",
+   "name": "SimpleQA Verified",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 98,
+   "groups": {
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.26,
+     "cdf": 0.26
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "openai/gpt-5"
+     ],
+     "score": 0.479,
+     "cdf": 0.479
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra"
+     ],
+     "score": 0.739,
+     "cdf": 0.739
+    }
+   },
+   "measured": {
+    "2": 0.26,
+    "3": 0.479,
+    "4": 0.739
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.26,
+    "3": 0.479,
+    "4": 0.739
+   },
+   "level_source": "scores"
+  },
+  "7.3": {
+   "no": "7.3",
+   "name": "FACTS Benchmark Suite (average)",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "7.4": {
+   "no": "7.4",
+   "name": "FACTS Grounding",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level"
+  },
+  "7.5": {
+   "no": "7.5",
+   "name": "FACTS Parametric",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.59
+   },
+   "level_source": "team-level"
+  },
+  "7.6": {
+   "no": "7.6",
+   "name": "FACTS Search V2",
+   "team_level": "\u22643",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.3567,
+    "2": 0.6533,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "team-level"
+  },
+  "7.7": {
+   "no": "7.7",
+   "name": "FACTS Multimodal",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 24,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.552,
+     "cdf": 0.552
+    }
+   },
+   "measured": {
+    "4": 0.552
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.552
+   },
+   "level_source": "scores+team-level"
+  },
+  "8.1": {
+   "no": "8.1",
+   "name": "ARC-AGI-1",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 42,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro"
+     ],
+     "score": 0.775,
+     "cdf": 0.775
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.975,
+     "cdf": 0.975
+    }
+   },
+   "measured": {
+    "3": 0.775,
+    "4": 0.975
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.775,
+    "4": 0.975
+   },
+   "level_source": "scores"
+  },
+  "8.2": {
+   "no": "8.2",
+   "name": "ARC-AGI-2",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 46,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro"
+     ],
+     "score": 0.3437,
+     "cdf": 0.3437
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.9125,
+     "cdf": 0.9125
+    }
+   },
+   "measured": {
+    "3": 0.3437,
+    "4": 0.9125
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.3437,
+    "4": 0.9125
+   },
+   "level_source": "scores"
+  },
+  "8.3": {
+   "no": "8.3",
+   "name": "ARC-AGI-3 \u00b7 Standard",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 26,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.5493,
+     "cdf": 0.5493
+    }
+   },
+   "measured": {
+    "4": 0.5493
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.5493
+   },
+   "level_source": "scores+team-level"
+  },
+  "8.4": {
+   "no": "8.4",
+   "name": "ARC-AGI-3 \u00b7 Provider adapter",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 13,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.2",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.9708,
+     "cdf": 0.9708
+    }
+   },
+   "measured": {
+    "4": 0.9708
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.9708
+   },
+   "level_source": "scores+team-level"
+  },
+  "9.1": {
+   "no": "9.1",
+   "name": "FrontierMath Tiers 1-3 (v2)",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 97,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5-turbo"
+     ],
+     "score": 0.0,
+     "cdf": 0.0
+    },
+    "2": {
+     "models": [
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.0053,
+     "cdf": 0.0053
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "openai/gpt-5"
+     ],
+     "score": 0.4491,
+     "cdf": 0.4491
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra"
+     ],
+     "score": 0.9053,
+     "cdf": 0.9053
+    }
+   },
+   "measured": {
+    "1": 0.0,
+    "2": 0.0053,
+    "3": 0.4491,
+    "4": 0.9053
+   },
+   "cdf": {
+    "1": 0.0,
+    "2": 0.0053,
+    "3": 0.4491,
+    "4": 0.9053
+   },
+   "level_source": "scores"
+  },
+  "9.2": {
+   "no": "9.2",
+   "name": "FrontierMath Tier 4 (v2)",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 79,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "openai/gpt-5"
+     ],
+     "score": 0.1341,
+     "cdf": 0.1341
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra"
+     ],
+     "score": 0.95,
+     "cdf": 0.95
+    }
+   },
+   "measured": {
+    "3": 0.1341,
+    "4": 0.95
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.1341,
+    "4": 0.95
+   },
+   "level_source": "scores"
+  },
+  "9.3": {
+   "no": "9.3",
+   "name": "FrontierMath Tiers 1-3 (v1, old)",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 68,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.0121,
+     "cdf": 0.0121
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.3241,
+     "cdf": 0.3241
+    }
+   },
+   "measured": {
+    "2": 0.0121,
+    "3": 0.3241
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.3241,
+    "4": 0.59
+   },
+   "level_source": "scores"
+  },
+  "9.4": {
+   "no": "9.4",
+   "name": "FrontierMath Tier 4 (v1, old)",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 54,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet"
+     ],
+     "score": 0.0,
+     "cdf": 0.0
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.125,
+     "cdf": 0.125
+    }
+   },
+   "measured": {
+    "2": 0.0,
+    "3": 0.125
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.04,
+    "3": 0.125,
+    "4": 0.59
+   },
+   "level_source": "scores"
+  },
+  "9.5": {
+   "no": "9.5",
+   "name": "FrontierMath Erd\u0151s",
+   "team_level": "5",
+   "floor": 0.0,
+   "n_models": 18,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra"
+     ],
+     "score": 0.0294,
+     "cdf": 0.0294
+    }
+   },
+   "measured": {
+    "4": 0.0294
+   },
+   "cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.08
+   },
+   "level_source": "scores+team-level"
+  },
+  "9.6": {
+   "no": "9.6",
+   "name": "FrontierMath: Open Problems",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "10.1": {
+   "no": "10.1",
+   "name": "AIME 2025",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 208,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b-instruct"
+     ],
+     "score": 0.0433,
+     "cdf": 0.0433
+    },
+    "2": {
+     "models": [
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4o"
+     ],
+     "score": 0.045,
+     "cdf": 0.045
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.9433,
+     "cdf": 0.9433
+    }
+   },
+   "measured": {
+    "1": 0.0433,
+    "2": 0.045,
+    "3": 0.9433
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.045,
+    "3": 0.9433,
+    "4": 0.9433
+   },
+   "level_source": "scores"
+  },
+  "10.2": {
+   "no": "10.2",
+   "name": "AIME 2026",
+   "team_level": "\u22643",
+   "floor": 0.0,
+   "n_models": 31,
+   "groups": {
+    "3": {
+     "models": [
+      "google/gemini-3-pro-preview"
+     ],
+     "score": 0.9167,
+     "cdf": 0.9167
+    }
+   },
+   "measured": {
+    "3": 0.9167
+   },
+   "cdf": {
+    "1": 0.3567,
+    "2": 0.6533,
+    "3": 0.9167,
+    "4": 0.9167
+   },
+   "level_source": "scores+team-level"
+  },
+  "11.1": {
+   "no": "11.1",
+   "name": "SWE-bench Verified",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 76,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5"
+     ],
+     "score": 0.004,
+     "cdf": 0.004
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.511,
+     "cdf": 0.511
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.759,
+     "cdf": 0.759
+    }
+   },
+   "measured": {
+    "1": 0.004,
+    "2": 0.511,
+    "3": 0.759
+   },
+   "cdf": {
+    "1": 0.004,
+    "2": 0.511,
+    "3": 0.759,
+    "4": 0.759
+   },
+   "level_source": "scores"
+  },
+  "11.2": {
+   "no": "11.2",
+   "name": "SWE-bench Bash Only (mini-SWE-agent)",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 41,
+   "groups": {
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.2162,
+     "cdf": 0.2162
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.719,
+     "cdf": 0.719
+    }
+   },
+   "measured": {
+    "2": 0.2162,
+    "3": 0.719
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.2162,
+    "3": 0.719,
+    "4": 0.74
+   },
+   "level_source": "scores"
+  },
+  "11.3": {
+   "no": "11.3",
+   "name": "SWE-bench Multimodal",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 15,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.2786,
+     "cdf": 0.2786
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5"
+     ],
+     "score": 0.604,
+     "cdf": 0.604
+    }
+   },
+   "measured": {
+    "2": 0.2786,
+    "4": 0.604
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.2786,
+    "3": 0.3067,
+    "4": 0.604
+   },
+   "level_source": "scores"
+  },
+  "11.4": {
+   "no": "11.4",
+   "name": "SWE-bench Multilingual",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 67,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro"
+     ],
+     "score": 0.731,
+     "cdf": 0.731
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5"
+     ],
+     "score": 0.917,
+     "cdf": 0.917
+    }
+   },
+   "measured": {
+    "3": 0.731,
+    "4": 0.917
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.731,
+    "4": 0.917
+   },
+   "level_source": "scores"
+  },
+  "11.5": {
+   "no": "11.5",
+   "name": "SWE-bench Lite",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 22,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5"
+     ],
+     "score": 0.0033,
+     "cdf": 0.0033
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.4466,
+     "cdf": 0.4466
+    }
+   },
+   "measured": {
+    "1": 0.0033,
+    "2": 0.4466
+   },
+   "cdf": {
+    "1": 0.0033,
+    "2": 0.4466,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores"
+  },
+  "11.6": {
+   "no": "11.6",
+   "name": "SWE-bench Full",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 11,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5"
+     ],
+     "score": 0.0017,
+     "cdf": 0.0017
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.2186,
+     "cdf": 0.2186
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5"
+     ],
+     "score": 0.5262,
+     "cdf": 0.5262
+    }
+   },
+   "measured": {
+    "1": 0.0017,
+    "2": 0.2186,
+    "3": 0.5262
+   },
+   "cdf": {
+    "1": 0.0017,
+    "2": 0.2186,
+    "3": 0.5262,
+    "4": 0.74
+   },
+   "level_source": "scores"
+  },
+  "11.7": {
+   "no": "11.7",
+   "name": "SWE-Bench Pro (Public)",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.59
+   },
+   "level_source": "team-level"
+  },
+  "11.8": {
+   "no": "11.8",
+   "name": "SWE-Bench Pro (Private / commercial)",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.59
+   },
+   "level_source": "team-level"
+  },
+  "12.1": {
+   "no": "12.1",
+   "name": "Code Generation (current leaderboard, release_v6)",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 23,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.295,
+     "cdf": 0.295
+    }
+   },
+   "measured": {
+    "2": 0.295
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.295,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level"
+  },
+  "12.2": {
+   "no": "12.2",
+   "name": "Easy",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 23,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.825,
+     "cdf": 0.825
+    }
+   },
+   "measured": {
+    "2": 0.825
+   },
+   "cdf": {
+    "1": 0.66,
+    "2": 0.825,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "12.3": {
+   "no": "12.3",
+   "name": "Medium",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 23,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.26,
+     "cdf": 0.26
+    }
+   },
+   "measured": {
+    "2": 0.26
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.26,
+    "3": 0.78,
+    "4": 0.85
+   },
+   "level_source": "scores+team-level"
+  },
+  "12.4": {
+   "no": "12.4",
+   "name": "Hard",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 23,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.033,
+     "cdf": 0.033
+    }
+   },
+   "measured": {
+    "2": 0.033
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.08,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level"
+  },
+  "12.5": {
+   "no": "12.5",
+   "name": "Code Generation leaderboard (previous version, release_v5)",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 31,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.329,
+     "cdf": 0.329
+    }
+   },
+   "measured": {
+    "2": 0.329
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.329,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level"
+  },
+  "12.6": {
+   "no": "12.6",
+   "name": "Release versions (release_v1 ... release_v6, release_latest)",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "12.7": {
+   "no": "12.7",
+   "name": "Self-Repair",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 31,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5-turbo-0125",
+      "openai/gpt-3.5-turbo-0301"
+     ],
+     "score": 0.2375,
+     "cdf": 0.2375
+    },
+    "2": {
+     "models": [
+      "openai/gpt-4-turbo",
+      "openai/gpt-4-turbo-1106",
+      "openai/gpt-4o"
+     ],
+     "score": 0.456,
+     "cdf": 0.456
+    }
+   },
+   "measured": {
+    "1": 0.2375,
+    "2": 0.456
+   },
+   "cdf": {
+    "1": 0.2375,
+    "2": 0.456,
+    "3": 0.456,
+    "4": 0.5433
+   },
+   "level_source": "scores"
+  },
+  "12.8": {
+   "no": "12.8",
+   "name": "Code Execution",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 33,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5-turbo-0301"
+     ],
+     "score": 0.339,
+     "cdf": 0.339
+    },
+    "2": {
+     "models": [
+      "openai/gpt-4-turbo",
+      "openai/gpt-4-turbo-1106",
+      "openai/gpt-4o"
+     ],
+     "score": 0.405,
+     "cdf": 0.405
+    }
+   },
+   "measured": {
+    "1": 0.339,
+    "2": 0.405
+   },
+   "cdf": {
+    "1": 0.339,
+    "2": 0.405,
+    "3": 0.405,
+    "4": 0.5433
+   },
+   "level_source": "scores"
+  },
+  "12.9": {
+   "no": "12.9",
+   "name": "Test Output Prediction",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 34,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5-turbo-0125",
+      "openai/gpt-3.5-turbo-0301"
+     ],
+     "score": 0.3395,
+     "cdf": 0.3395
+    },
+    "2": {
+     "models": [
+      "openai/gpt-4-turbo",
+      "openai/gpt-4-turbo-1106",
+      "openai/gpt-4o"
+     ],
+     "score": 0.661,
+     "cdf": 0.661
+    }
+   },
+   "measured": {
+    "1": 0.3395,
+    "2": 0.661
+   },
+   "cdf": {
+    "1": 0.3395,
+    "2": 0.661,
+    "3": 0.661,
+    "4": 0.74
+   },
+   "level_source": "scores"
+  },
+  "13.1": {
+   "no": "13.1",
+   "name": "Aider polyglot coding leaderboard",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 55,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.3735,
+     "cdf": 0.3735
+    },
+    "3": {
+     "models": [
+      "openai/gpt-5"
+     ],
+     "score": 0.88,
+     "cdf": 0.88
+    }
+   },
+   "measured": {
+    "2": 0.3735,
+    "3": 0.88
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.3735,
+    "3": 0.88,
+    "4": 0.88
+   },
+   "level_source": "scores"
+  },
+  "13.2": {
+   "no": "13.2",
+   "name": "Code editing leaderboard (legacy)",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 93,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b-instruct",
+      "openai/gpt-3.5-turbo-0125",
+      "openai/gpt-3.5-turbo-0301",
+      "openai/gpt-3.5-turbo-0613",
+      "openai/gpt-3.5-turbo-1106"
+     ],
+     "score": 0.504,
+     "cdf": 0.504
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.7855,
+     "cdf": 0.7855
+    }
+   },
+   "measured": {
+    "1": 0.504,
+    "2": 0.7855
+   },
+   "cdf": {
+    "1": 0.504,
+    "2": 0.7855,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores"
+  },
+  "13.3": {
+   "no": "13.3",
+   "name": "Refactoring leaderboard",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 12,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.775,
+     "cdf": 0.775
+    }
+   },
+   "measured": {
+    "2": 0.775
+   },
+   "cdf": {
+    "1": 0.33,
+    "2": 0.775,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores+team-level"
+  },
+  "14.1": {
+   "no": "14.1",
+   "name": "Terminal-Bench 4.1",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 56,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "google/gemini-4-hydrogen",
+      "google/gemini-4-neon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.606,
+     "cdf": 0.606
+    }
+   },
+   "measured": {
+    "4": 0.606
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.606
+   },
+   "level_source": "scores+team-level"
+  },
+  "14.2": {
+   "no": "14.2",
+   "name": "Terminal-Bench 4.0",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 60,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.5788,
+     "cdf": 0.5788
+    }
+   },
+   "measured": {
+    "4": 0.5788
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.5788
+   },
+   "level_source": "scores+team-level"
+  },
+  "14.3": {
+   "no": "14.3",
+   "name": "Terminal-Bench 3.0",
+   "team_level": "5",
+   "floor": 0.0,
+   "n_models": 13,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-opus-5"
+     ],
+     "score": 0.3837,
+     "cdf": 0.3837
+    }
+   },
+   "measured": {
+    "4": 0.3837
+   },
+   "cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.3837
+   },
+   "level_source": "scores+team-level"
+  },
+  "14.4": {
+   "no": "14.4",
+   "name": "Terminal-Bench 2.1",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 85,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5"
+     ],
+     "score": 0.843,
+     "cdf": 0.843
+    }
+   },
+   "measured": {
+    "4": 0.843
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.843
+   },
+   "level_source": "scores+team-level"
+  },
+  "14.5": {
+   "no": "14.5",
+   "name": "Terminal-Bench 2.0",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 40,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5"
+     ],
+     "score": 0.593,
+     "cdf": 0.593
+    }
+   },
+   "measured": {
+    "3": 0.593
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.593,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level"
+  },
+  "14.6": {
+   "no": "14.6",
+   "name": "Terminal-Bench 1.0",
+   "team_level": "3-4",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.665
+   },
+   "level_source": "team-level"
+  },
+  "14.7": {
+   "no": "14.7",
+   "name": "Terminal-Bench-Science 0.1",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 15,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-hydrogen",
+      "openai/gpt-6-astra",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.6165,
+     "cdf": 0.6165
+    }
+   },
+   "measured": {
+    "4": 0.6165
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.6165
+   },
+   "level_source": "scores+team-level"
+  },
+  "14.8": {
+   "no": "14.8",
+   "name": "Terminal-Bench Challenges",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "15.1": {
+   "no": "15.1",
+   "name": "Test set (Average score)",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level"
+  },
+  "15.2": {
+   "no": "15.2",
+   "name": "Level 1",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level"
+  },
+  "15.3": {
+   "no": "15.3",
+   "name": "Level 2",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level"
+  },
+  "15.4": {
+   "no": "15.4",
+   "name": "Level 3",
+   "team_level": "3-4",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.665
+   },
+   "level_source": "team-level"
+  },
+  "15.5": {
+   "no": "15.5",
+   "name": "Validation set (public dev set)",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level"
+  },
+  "16.1": {
+   "no": "16.1",
+   "name": "\u03c4-bench (original) \u2014 Airline",
+   "team_level": "\u22653",
+   "floor": 0.0,
+   "n_models": 3,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.44,
+     "cdf": 0.44
+    }
+   },
+   "measured": {
+    "2": 0.44
+   },
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.44,
+    "3": 0.44,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level"
+  },
+  "16.2": {
+   "no": "16.2",
+   "name": "\u03c4-bench (original) \u2014 Retail",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 2,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.648,
+     "cdf": 0.648
+    }
+   },
+   "measured": {
+    "2": 0.648
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.648,
+    "3": 0.648,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level"
+  },
+  "16.3": {
+   "no": "16.3",
+   "name": "\u03c4\u00b2-bench \u2014 Overall",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 320,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3-8b-instruct",
+      "meta/llama-3.1-8b-instruct",
+      "mistral/mistral-7b-instruct"
+     ],
+     "score": 0.0,
+     "cdf": 0.0
+    },
+    "2": {
+     "models": [
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4o"
+     ],
+     "score": 0.2398,
+     "cdf": 0.2398
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.8713,
+     "cdf": 0.8713
+    }
+   },
+   "measured": {
+    "1": 0.0,
+    "2": 0.2398,
+    "3": 0.8713
+   },
+   "cdf": {
+    "1": 0.0,
+    "2": 0.2398,
+    "3": 0.8713,
+    "4": 0.8713
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "16.4": {
+   "no": "16.4",
+   "name": "\u03c4\u00b2-bench \u2014 Retail",
+   "team_level": "\u22643",
+   "floor": 0.0,
+   "n_models": 23,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.8158,
+     "cdf": 0.8158
+    }
+   },
+   "measured": {
+    "3": 0.8158
+   },
+   "cdf": {
+    "1": 0.3567,
+    "2": 0.6533,
+    "3": 0.8158,
+    "4": 0.89
+   },
+   "level_source": "scores+team-level"
+  },
+  "16.5": {
+   "no": "16.5",
+   "name": "\u03c4\u00b2-bench \u2014 Airline",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 26,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.805,
+     "cdf": 0.805
+    }
+   },
+   "measured": {
+    "3": 0.805
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.805,
+    "4": 0.805
+   },
+   "level_source": "scores+team-level"
+  },
+  "16.6": {
+   "no": "16.6",
+   "name": "\u03c4\u00b2-bench \u2014 Telecom",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 18,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "openai/gpt-5"
+     ],
+     "score": 0.9583,
+     "cdf": 0.9583
+    }
+   },
+   "measured": {
+    "3": 0.9583
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.9583,
+    "4": 0.9583
+   },
+   "level_source": "scores+team-level"
+  },
+  "16.7": {
+   "no": "16.7",
+   "name": "\u03c4\u00b3-Banking (\u03c4-knowledge)",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 28,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro"
+     ],
+     "score": 0.2139,
+     "cdf": 0.2139
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5",
+      "anthropic/claude-opus-5"
+     ],
+     "score": 0.442,
+     "cdf": 0.442
+    }
+   },
+   "measured": {
+    "3": 0.2139,
+    "4": 0.442
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2139,
+    "4": 0.442
+   },
+   "level_source": "scores"
+  },
+  "16.8": {
+   "no": "16.8",
+   "name": "\u03c4\u00b3-Voice \u2014 Overall (Multilingual)",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 5,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "16.9": {
+   "no": "16.9",
+   "name": "\u03c4\u00b3-Voice \u2014 Retail",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 17,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "16.10": {
+   "no": "16.10",
+   "name": "\u03c4\u00b3-Voice \u2014 Airline",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 17,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "16.11": {
+   "no": "16.11",
+   "name": "\u03c4\u00b3-Voice \u2014 Telecom",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 17,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "16.12": {
+   "no": "16.12",
+   "name": "\u03c4\u00b3-Voice \u2014 Banking",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 4,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "16.13": {
+   "no": "16.13",
+   "name": "\u03c4\u00b3-Voice \u2014 Intake (\u03c4-Entity)",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 3,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "16.14": {
+   "no": "16.14",
+   "name": "\u03c4\u00b3-Voice \u2014 English edition",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level"
+  },
+  "16.15": {
+   "no": "16.15",
+   "name": "\u03c4^\u03c4-bench (hyper-tau-bench)",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 6,
+   "groups": {
+    "4": {
+     "models": [
+      "anthropic/claude-opus-5"
+     ],
+     "score": 0.2761,
+     "cdf": 0.2761
+    }
+   },
+   "measured": {
+    "4": 0.2761
+   },
+   "cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.2761
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "17.1": {
+   "no": "17.1",
+   "name": "Text",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.2": {
+   "no": "17.2",
+   "name": "Text \u2014 category views",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.3": {
+   "no": "17.3",
+   "name": "WebDev",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.4": {
+   "no": "17.4",
+   "name": "Image-to-WebDev",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.5": {
+   "no": "17.5",
+   "name": "Vision",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.6": {
+   "no": "17.6",
+   "name": "Document",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.7": {
+   "no": "17.7",
+   "name": "Search",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.8": {
+   "no": "17.8",
+   "name": "Text-to-Image",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.9": {
+   "no": "17.9",
+   "name": "Image Edit",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.10": {
+   "no": "17.10",
+   "name": "Text-to-Video",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.11": {
+   "no": "17.11",
+   "name": "Image-to-Video",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.12": {
+   "no": "17.12",
+   "name": "Video Edit",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "17.13": {
+   "no": "17.13",
+   "name": "Agent",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "18.1": {
+   "no": "18.1",
+   "name": "WB-Elo (LC)",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "18.2": {
+   "no": "18.2",
+   "name": "WB-Elo (Raw)",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "18.3": {
+   "no": "18.3",
+   "name": "WB-Score",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "18.4": {
+   "no": "18.4",
+   "name": "WB-Reward (pairwise)",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "18.5": {
+   "no": "18.5",
+   "name": "Creative Tasks",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "18.6": {
+   "no": "18.6",
+   "name": "Planning & Reasoning",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "18.7": {
+   "no": "18.7",
+   "name": "Math & Data Analysis",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "18.8": {
+   "no": "18.8",
+   "name": "Information/Advice seeking",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "18.9": {
+   "no": "18.9",
+   "name": "Coding & Debugging",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "19.1": {
+   "no": "19.1",
+   "name": "MMMU-Pro (Overall)",
+   "team_level": "3",
+   "floor": 0.13,
+   "n_models": 198,
+   "groups": {
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.0056,
+     "cdf": 0.0
+    },
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5"
+     ],
+     "score": 0.357,
+     "cdf": 0.2609
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-opus-5",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "google/gemini-4-carbon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra"
+     ],
+     "score": 0.0087,
+     "cdf": 0.0
+    }
+   },
+   "measured": {
+    "2": 0.0,
+    "3": 0.2609,
+    "4": 0.0
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.08,
+    "3": 0.2609,
+    "4": 0.2609
+   },
+   "level_source": "scores"
+  },
+  "19.2": {
+   "no": "19.2",
+   "name": "MMMU-Pro Vision",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "19.3": {
+   "no": "19.3",
+   "name": "MMMU-Pro Standard (10 options)",
+   "team_level": "3",
+   "floor": 0.1,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level"
+  },
+  "19.4": {
+   "no": "19.4",
+   "name": "MMMU (Val)",
+   "team_level": "2",
+   "floor": 0.22,
+   "n_models": 30,
+   "groups": {
+    "3": {
+     "models": [
+      "anthropic/claude-opus-4.5",
+      "google/gemini-3-pro"
+     ],
+     "score": 0.8395,
+     "cdf": 0.7942
+    }
+   },
+   "measured": {
+    "3": 0.7942
+   },
+   "cdf": {
+    "1": 0.33,
+    "2": 0.75,
+    "3": 0.7942,
+    "4": 0.96
+   },
+   "level_source": "scores+team-level"
+  },
+  "19.5": {
+   "no": "19.5",
+   "name": "MMMU (Test)",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "20.1": {
+   "no": "20.1",
+   "name": "OCRBench v2 English (Average)",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.4585,
+     "cdf": 0.4585
+    }
+   },
+   "measured": {
+    "2": 0.4585
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.4585,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.2": {
+   "no": "20.2",
+   "name": "English: Text Recognition",
+   "team_level": "\u22643",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.617,
+     "cdf": 0.617
+    }
+   },
+   "measured": {
+    "2": 0.617
+   },
+   "cdf": {
+    "1": 0.3567,
+    "2": 0.617,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.3": {
+   "no": "20.3",
+   "name": "English: Text Referring",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.2755,
+     "cdf": 0.2755
+    }
+   },
+   "measured": {
+    "2": 0.2755
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.2755,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.4": {
+   "no": "20.4",
+   "name": "English: Text Spotting",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.0065,
+     "cdf": 0.0065
+    }
+   },
+   "measured": {
+    "2": 0.0065
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.08,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.5": {
+   "no": "20.5",
+   "name": "English: Relation Extraction",
+   "team_level": "\u22643",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.6705,
+     "cdf": 0.6705
+    }
+   },
+   "measured": {
+    "2": 0.6705
+   },
+   "cdf": {
+    "1": 0.3567,
+    "2": 0.6705,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.6": {
+   "no": "20.6",
+   "name": "English: Element Parsing",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.3705,
+     "cdf": 0.3705
+    }
+   },
+   "measured": {
+    "2": 0.3705
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.3705,
+    "3": 0.3705,
+    "4": 0.59
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.7": {
+   "no": "20.7",
+   "name": "English: Mathematical Calculation",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.421,
+     "cdf": 0.421
+    }
+   },
+   "measured": {
+    "2": 0.421
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.421,
+    "3": 0.78,
+    "4": 0.85
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.8": {
+   "no": "20.8",
+   "name": "English: Visual Text Understanding",
+   "team_level": "\u22643",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.723,
+     "cdf": 0.723
+    }
+   },
+   "measured": {
+    "2": 0.723
+   },
+   "cdf": {
+    "1": 0.3567,
+    "2": 0.723,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.9": {
+   "no": "20.9",
+   "name": "English: Knowledge Reasoning",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.582,
+     "cdf": 0.582
+    }
+   },
+   "measured": {
+    "2": 0.582
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.582,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.10": {
+   "no": "20.10",
+   "name": "OCRBench v2 Chinese (Average)",
+   "team_level": "3",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.359,
+     "cdf": 0.359
+    }
+   },
+   "measured": {
+    "2": 0.359
+   },
+   "cdf": {
+    "1": 0.08,
+    "2": 0.359,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.11": {
+   "no": "20.11",
+   "name": "Chinese: Text Recognition",
+   "team_level": "2-3",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.213,
+     "cdf": 0.213
+    }
+   },
+   "measured": {
+    "2": 0.213
+   },
+   "cdf": {
+    "1": 0.205,
+    "2": 0.213,
+    "3": 0.78,
+    "4": 0.85
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.12": {
+   "no": "20.12",
+   "name": "Chinese: Relation Extraction",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.546,
+     "cdf": 0.546
+    }
+   },
+   "measured": {
+    "2": 0.546
+   },
+   "cdf": {
+    "1": 0.33,
+    "2": 0.546,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.13": {
+   "no": "20.13",
+   "name": "Chinese: Element Parsing",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.325,
+     "cdf": 0.325
+    }
+   },
+   "measured": {
+    "2": 0.325
+   },
+   "cdf": {
+    "1": 0.04,
+    "2": 0.325,
+    "3": 0.325,
+    "4": 0.59
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.14": {
+   "no": "20.14",
+   "name": "Chinese: Visual Text Understanding",
+   "team_level": "\u22643",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.4675,
+     "cdf": 0.4675
+    }
+   },
+   "measured": {
+    "2": 0.4675
+   },
+   "cdf": {
+    "1": 0.3567,
+    "2": 0.4675,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "scores+team-level"
+  },
+  "20.15": {
+   "no": "20.15",
+   "name": "Chinese: Knowledge Reasoning",
+   "team_level": "\u22654",
+   "floor": 0.0,
+   "n_models": 48,
+   "groups": {
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "openai/gpt-4o"
+     ],
+     "score": 0.2435,
+     "cdf": 0.2435
+    }
+   },
+   "measured": {
+    "2": 0.2435
+   },
+   "cdf": {
+    "1": 0.025,
+    "2": 0.2435,
+    "3": 0.2435,
+    "4": 0.445
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.1": {
+   "no": "21.1",
+   "name": "Retrieval (NIAH)",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 24,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b"
+     ],
+     "score": 0.984,
+     "cdf": 0.984
+    }
+   },
+   "measured": {
+    "1": 0.984
+   },
+   "cdf": {
+    "1": 0.984,
+    "2": 0.984,
+    "3": 0.984,
+    "4": 0.984
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.2": {
+   "no": "21.2",
+   "name": "Multi-hop Tracing (variable_tracking)",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 24,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b"
+     ],
+     "score": 0.944,
+     "cdf": 0.944
+    }
+   },
+   "measured": {
+    "1": 0.944
+   },
+   "cdf": {
+    "1": 0.944,
+    "2": 0.944,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.3": {
+   "no": "21.3",
+   "name": "Aggregation (common_words_extraction, freq_words_extraction)",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 24,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b"
+     ],
+     "score": 0.667,
+     "cdf": 0.667
+    }
+   },
+   "measured": {
+    "1": 0.667
+   },
+   "cdf": {
+    "1": 0.667,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.4": {
+   "no": "21.4",
+   "name": "Question Answering (qa)",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 24,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b"
+     ],
+     "score": 0.666,
+     "cdf": 0.666
+    }
+   },
+   "measured": {
+    "1": 0.666
+   },
+   "cdf": {
+    "1": 0.666,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.5": {
+   "no": "21.5",
+   "name": "RULER @ 4K context",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 44,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b",
+      "mistral/mistral-7b"
+     ],
+     "score": 0.9455,
+     "cdf": 0.9455
+    }
+   },
+   "measured": {
+    "1": 0.9455
+   },
+   "cdf": {
+    "1": 0.9455,
+    "2": 0.9455,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.6": {
+   "no": "21.6",
+   "name": "RULER @ 8K context",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 44,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b",
+      "mistral/mistral-7b"
+     ],
+     "score": 0.925,
+     "cdf": 0.925
+    }
+   },
+   "measured": {
+    "1": 0.925
+   },
+   "cdf": {
+    "1": 0.925,
+    "2": 0.925,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.7": {
+   "no": "21.7",
+   "name": "RULER @ 16K context",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 44,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b",
+      "mistral/mistral-7b"
+     ],
+     "score": 0.894,
+     "cdf": 0.894
+    }
+   },
+   "measured": {
+    "1": 0.894
+   },
+   "cdf": {
+    "1": 0.894,
+    "2": 0.894,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.8": {
+   "no": "21.8",
+   "name": "RULER @ 32K context",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 44,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b",
+      "mistral/mistral-7b"
+     ],
+     "score": 0.814,
+     "cdf": 0.814
+    }
+   },
+   "measured": {
+    "1": 0.814
+   },
+   "cdf": {
+    "1": 0.814,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.9": {
+   "no": "21.9",
+   "name": "RULER @ 64K context",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 44,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b",
+      "mistral/mistral-7b"
+     ],
+     "score": 0.6685,
+     "cdf": 0.6685
+    }
+   },
+   "measured": {
+    "1": 0.6685
+   },
+   "cdf": {
+    "1": 0.6685,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.10": {
+   "no": "21.10",
+   "name": "RULER @ 128K context",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 43,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b",
+      "mistral/mistral-7b"
+     ],
+     "score": 0.454,
+     "cdf": 0.454
+    }
+   },
+   "measured": {
+    "1": 0.454
+   },
+   "cdf": {
+    "1": 0.454,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.11": {
+   "no": "21.11",
+   "name": "RULER average (4K-128K)",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 44,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b",
+      "mistral/mistral-7b"
+     ],
+     "score": 0.7835,
+     "cdf": 0.7835
+    }
+   },
+   "measured": {
+    "1": 0.7835
+   },
+   "cdf": {
+    "1": 0.7835,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "21.12": {
+   "no": "21.12",
+   "name": "OpenAI-MRCR 2-needle",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "21.13": {
+   "no": "21.13",
+   "name": "OpenAI-MRCR 4-needle",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "21.14": {
+   "no": "21.14",
+   "name": "OpenAI-MRCR 8-needle",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "22.1": {
+   "no": "22.1",
+   "name": "Honesty Score",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "22.2": {
+   "no": "22.2",
+   "name": "Accuracy",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 32,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b-instruct"
+     ],
+     "score": 0.62,
+     "cdf": 0.62
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "meta/llama-3.1-405b-instruct",
+      "openai/gpt-4o"
+     ],
+     "score": 0.786,
+     "cdf": 0.786
+    }
+   },
+   "measured": {
+    "1": 0.62,
+    "2": 0.786
+   },
+   "cdf": {
+    "1": 0.62,
+    "2": 0.786,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores (nearest level)"
+  },
+  "22.3": {
+   "no": "22.3",
+   "name": "Known Facts",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "22.4": {
+   "no": "22.4",
+   "name": "Situation-Provided Facts",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "22.5": {
+   "no": "22.5",
+   "name": "Doubling Down",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "22.6": {
+   "no": "22.6",
+   "name": "Fabricated Statistics",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "22.7": {
+   "no": "22.7",
+   "name": "Continuations",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "22.8": {
+   "no": "22.8",
+   "name": "Disinformation Generation",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "23.1": {
+   "no": "23.1",
+   "name": "HealthBench",
+   "team_level": "4",
+   "floor": 0.0,
+   "n_models": 26,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5-turbo"
+     ],
+     "score": 0.16,
+     "cdf": 0.16
+    },
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.32,
+     "cdf": 0.32
+    },
+    "4": {
+     "models": [
+      "anthropic/claude-fable-5.1",
+      "anthropic/claude-fable-5.2",
+      "anthropic/claude-opus-5.5",
+      "google/gemini-4-argon",
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol",
+      "openai/gpt-6.2-astra",
+      "openai/gpt-6.2-sol"
+     ],
+     "score": 0.5699,
+     "cdf": 0.5699
+    }
+   },
+   "measured": {
+    "1": 0.16,
+    "2": 0.32,
+    "4": 0.5699
+   },
+   "cdf": {
+    "1": 0.16,
+    "2": 0.32,
+    "3": 0.32,
+    "4": 0.5699
+   },
+   "level_source": "scores"
+  },
+  "23.2": {
+   "no": "23.2",
+   "name": "HealthBench Hard",
+   "team_level": "\u22654",
+   "floor": 0.0,
+   "n_models": 13,
+   "groups": {
+    "4": {
+     "models": [
+      "openai/gpt-6-astra",
+      "openai/gpt-6-sol",
+      "openai/gpt-6.1-sol"
+     ],
+     "score": 0.362,
+     "cdf": 0.362
+    }
+   },
+   "measured": {
+    "4": 0.362
+   },
+   "cdf": {
+    "1": 0.025,
+    "2": 0.05,
+    "3": 0.14,
+    "4": 0.362
+   },
+   "level_source": "scores+team-level"
+  },
+  "23.3": {
+   "no": "23.3",
+   "name": "HealthBench Consensus",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 9,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5-turbo"
+     ],
+     "score": 0.7509,
+     "cdf": 0.7509
+    },
+    "2": {
+     "models": [
+      "openai/gpt-4o"
+     ],
+     "score": 0.8867,
+     "cdf": 0.8867
+    }
+   },
+   "measured": {
+    "1": 0.7509,
+    "2": 0.8867
+   },
+   "cdf": {
+    "1": 0.7509,
+    "2": 0.8867,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores"
+  },
+  "23.4": {
+   "no": "23.4",
+   "name": "Emergency referrals",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "23.5": {
+   "no": "23.5",
+   "name": "Responding under uncertainty",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "23.6": {
+   "no": "23.6",
+   "name": "Health data tasks",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "23.7": {
+   "no": "23.7",
+   "name": "Global health",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "23.8": {
+   "no": "23.8",
+   "name": "Expertise-tailored communication",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "23.9": {
+   "no": "23.9",
+   "name": "Context seeking",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "23.10": {
+   "no": "23.10",
+   "name": "Response depth",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "24.1": {
+   "no": "24.1",
+   "name": "Domain-relevant questions",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "24.2": {
+   "no": "24.2",
+   "name": "Novel-generated questions",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "24.3": {
+   "no": "24.3",
+   "name": "Metrics-generated questions",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "25.1": {
+   "no": "25.1",
+   "name": "Issue-spotting",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 20,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5"
+     ],
+     "score": 0.609,
+     "cdf": 0.609
+    }
+   },
+   "measured": {
+    "1": 0.609
+   },
+   "cdf": {
+    "1": 0.609,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "25.2": {
+   "no": "25.2",
+   "name": "Rule-recall",
+   "team_level": "2",
+   "floor": 0.0,
+   "n_models": 20,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5"
+     ],
+     "score": 0.463,
+     "cdf": 0.463
+    }
+   },
+   "measured": {
+    "1": 0.463
+   },
+   "cdf": {
+    "1": 0.463,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores+team-level"
+  },
+  "25.3": {
+   "no": "25.3",
+   "name": "Rule-application",
+   "team_level": "",
+   "floor": 0.0,
+   "n_models": 3,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5"
+     ],
+     "score": 0.585,
+     "cdf": 0.585
+    }
+   },
+   "measured": {
+    "1": 0.585
+   },
+   "cdf": {
+    "1": 0.585,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level (nearest level)"
+  },
+  "25.4": {
+   "no": "25.4",
+   "name": "Rule-conclusion",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 20,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5"
+     ],
+     "score": 0.78,
+     "cdf": 0.78
+    }
+   },
+   "measured": {
+    "1": 0.78
+   },
+   "cdf": {
+    "1": 0.78,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "25.5": {
+   "no": "25.5",
+   "name": "Interpretation",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 20,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5"
+     ],
+     "score": 0.726,
+     "cdf": 0.726
+    }
+   },
+   "measured": {
+    "1": 0.726
+   },
+   "cdf": {
+    "1": 0.726,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "25.6": {
+   "no": "25.6",
+   "name": "Rhetorical-understanding",
+   "team_level": "1-2",
+   "floor": 0.0,
+   "n_models": 20,
+   "groups": {
+    "1": {
+     "models": [
+      "openai/gpt-3.5"
+     ],
+     "score": 0.667,
+     "cdf": 0.667
+    }
+   },
+   "measured": {
+    "1": 0.667
+   },
+   "cdf": {
+    "1": 0.667,
+    "2": 0.82,
+    "3": 0.935,
+    "4": 0.965
+   },
+   "level_source": "scores+team-level"
+  },
+  "26.1": {
+   "no": "26.1",
+   "name": "Humanities",
+   "team_level": "3-4",
+   "floor": 0.25,
+   "n_models": 12,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.665
+   },
+   "level_source": "team-level"
+  },
+  "26.2": {
+   "no": "26.2",
+   "name": "Social Sciences",
+   "team_level": "3",
+   "floor": 0.25,
+   "n_models": 12,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level"
+  },
+  "26.3": {
+   "no": "26.3",
+   "name": "STEM",
+   "team_level": "\u22653",
+   "floor": 0.25,
+   "n_models": 12,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.0433,
+    "2": 0.14,
+    "3": 0.3067,
+    "4": 0.5433
+   },
+   "level_source": "team-level"
+  },
+  "26.4": {
+   "no": "26.4",
+   "name": "Other",
+   "team_level": "3",
+   "floor": 0.25,
+   "n_models": 12,
+   "groups": {},
+   "measured": {},
+   "cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level"
+  },
+  "27.1": {
+   "no": "27.1",
+   "name": "GSM8K (main) \u2014 test split",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 7,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b"
+     ],
+     "score": 0.845,
+     "cdf": 0.845
+    }
+   },
+   "measured": {
+    "1": 0.845
+   },
+   "cdf": {
+    "1": 0.845,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "27.2": {
+   "no": "27.2",
+   "name": "GSM8K (main) \u2014 train split",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "27.3": {
+   "no": "27.3",
+   "name": "GSM8K Socratic (train_socratic / test_socratic)",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "27.4": {
+   "no": "27.4",
+   "name": "Example model solutions (6B/175B finetuning & verification)",
+   "team_level": "n/a",
+   "floor": 0.0,
+   "n_models": 0,
+   "groups": {},
+   "measured": {},
+   "cdf": null,
+   "level_source": "none"
+  },
+  "28.1": {
+   "no": "28.1",
+   "name": "HumanEval (official harness, pass@k)",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 23,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b"
+     ],
+     "score": 0.726,
+     "cdf": 0.726
+    }
+   },
+   "measured": {
+    "1": 0.726
+   },
+   "cdf": {
+    "1": 0.726,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level"
+  },
+  "28.2": {
+   "no": "28.2",
+   "name": "HumanEval in OpenAI simple-evals (zero-shot)",
+   "team_level": "1",
+   "floor": 0.0,
+   "n_models": 24,
+   "groups": {
+    "1": {
+     "models": [
+      "meta/llama-3.1-8b"
+     ],
+     "score": 0.726,
+     "cdf": 0.726
+    },
+    "2": {
+     "models": [
+      "anthropic/claude-3.5-sonnet",
+      "meta/llama-3.1-405b",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4o"
+     ],
+     "score": 0.9,
+     "cdf": 0.9
+    }
+   },
+   "measured": {
+    "1": 0.726,
+    "2": 0.9
+   },
+   "cdf": {
+    "1": 0.726,
+    "2": 0.9,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores"
+  }
+ }
+}

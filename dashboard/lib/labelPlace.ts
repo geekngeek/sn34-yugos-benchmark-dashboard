@@ -58,9 +58,10 @@ class Grid {
 }
 
 /** place a label for every item, in the given order (most important first) */
-export function placeLabels(items: LabelIn[], bounds: Box, opts: { padX?: number; h?: number } = {}): LabelOut[] {
+export function placeLabels(items: LabelIn[], bounds: Box, opts: { padX?: number; h?: number; obstacles?: Box[] } = {}): LabelOut[] {
   const H = opts.h ?? H0, padX = opts.padX ?? 0;
   const grid = new Grid();
+  for (const b of opts.obstacles ?? []) grid.add(b);   // marks that get no label but must not be covered (e.g. other dots)
   const dotBox = new Map<string, Box>();
   for (const it of items) {
     const b = { x0: it.x - it.r, x1: it.x + it.r, y0: it.y - it.r, y1: it.y + it.r };

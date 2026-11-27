@@ -1,0 +1,596 @@
+{
+ "batch": "S06",
+ "parents": [
+  {
+   "no": "5",
+   "name": "MMLU-Pro",
+   "category": "General & Expert Knowledge",
+   "url": "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "focus": "Harder, 10-choice version of MMLU focusing on reasoning over memorization.",
+   "notes": ""
+  },
+  {
+   "no": "6",
+   "name": "GPQA Diamond",
+   "category": "Science & Reasoning",
+   "url": "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "focus": "\n Reasoning\tGraduate-level biology, physics, and chemistry questions written by domain experts.\n",
+   "notes": ""
+  },
+  {
+   "no": "7",
+   "name": "SimpleQA / FACTS",
+   "category": "Factuality & Grounding",
+   "url": "https://openai.com/index/introducing-simpleqa/",
+   "focus": "Ability to answer short factual questions without hallucinating or fabricating sources.",
+   "notes": ""
+  }
+ ],
+ "rows": [
+  {
+   "no": "5.1",
+   "name": "Biology",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Biology domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Biology — subject accuracy as a 0-1 fraction (e.g. GPT-4o 0.8675), a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Repo",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab, GPT-4o (2024-08-06)=TIGER-Lab. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 84%, L2 16%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 95.8, Gemini-2.5-Pro-Exp-03-25 93.0, GPT-4o 89.3.",
+   "computed_level_cdf": {
+    "1": 0.5158,
+    "2": 0.8729,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.5642,
+    "2": 0.8856
+   }
+  },
+  {
+   "no": "5.2",
+   "name": "Business",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Business domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Business — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(B)",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab, Claude-3.5-Sonnet (2024-10-22)=TIGER-LAb. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 93.3, Gemini-2.5-Pro-Exp-03-25 89.3, Claude 3.5 Sonnet 81.4.",
+   "computed_level_cdf": {
+    "1": 0.2508,
+    "2": 0.7789,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.3258,
+    "2": 0.801
+   }
+  },
+  {
+   "no": "5.3",
+   "name": "Chemistry",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Chemistry domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Chemistry — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(B",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab, GPT-oss-20B(medium)=TIGER-Lab. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 92.1, Gemini-2.5-Pro-Exp-03-25 87.4, GPT-OSS 20B (medium) 80.8.",
+   "computed_level_cdf": {
+    "1": 0.1706,
+    "2": 0.7103,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.2535,
+    "2": 0.7393
+   }
+  },
+  {
+   "no": "5.4",
+   "name": "Computer Science",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Computer Science domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Computer Science — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab, Claude-3.5-Sonnet (2024-10-22)=TIGER-LAb. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists. Tie at 3rd with: GPT-oss-20B(medium).",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 93.7, Gemini-2.5-Pro-Exp-03-25 85.6, GPT-OSS 20B (medium) 82.4.",
+   "computed_level_cdf": {
+    "1": 0.2846,
+    "2": 0.7588,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.3561,
+    "2": 0.7829
+   }
+  },
+  {
+   "no": "5.5",
+   "name": "Economics",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Economics domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Economics — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(B",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab, Claude-3.5-Sonnet (2024-10-22)=TIGER-LAb. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 93.4, Gemini-2.5-Pro-Exp-03-25 88.3, Claude 3.5 Sonnet 85.9.",
+   "computed_level_cdf": {
+    "1": 0.4056,
+    "2": 0.796,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.465,
+    "2": 0.8164
+   }
+  },
+  {
+   "no": "5.6",
+   "name": "Engineering",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Engineering domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Engineering — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab, Qwen2-72B-Chat=TIGER-Lab. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 93%, L2 6%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 87.3, Gemini-2.5-Pro-Exp-03-25 73.6, Qwen2-72B-Chat 67.2.",
+   "computed_level_cdf": {
+    "1": 0.1893,
+    "2": 0.5034,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.2704,
+    "2": 0.5531
+   }
+  },
+  {
+   "no": "5.7",
+   "name": "Health",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Health domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Health — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(B) —",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab, QwQ-32B-Preview=Self-Reported. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 86.2, Gemini-2.5-Pro-Exp-03-25 81.7, QwQ-32B-Preview 77.8.",
+   "computed_level_cdf": {
+    "1": 0.3766,
+    "2": 0.7338,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.4389,
+    "2": 0.7604
+   }
+  },
+  {
+   "no": "5.8",
+   "name": "History",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the History domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: History — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(B) ",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Claude-3.5-Sonnet (2024-06-20)=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 85.6, Claude 3.5 Sonnet 75.8, Gemini-2.5-Pro-Exp-03-25 75.5.",
+   "computed_level_cdf": {
+    "1": 0.3219,
+    "2": 0.7026,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.3897,
+    "2": 0.7323
+   }
+  },
+  {
+   "no": "5.9",
+   "name": "Law",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Law domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Law — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(B) — ro",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, QwQ-32B-Preview=Self-Reported, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 85.6, QwQ-32B-Preview 76.0, Gemini-2.5-Pro-Exp-03-25 72.4.",
+   "computed_level_cdf": {
+    "1": 0.1271,
+    "2": 0.5439,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.2144,
+    "2": 0.5895
+   }
+  },
+  {
+   "no": "5.10",
+   "name": "Math",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Math domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Math — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(B) — r",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, GPT-oss-20B(medium)=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 95.5, GPT-OSS 20B (medium) 91.5, Gemini-2.5-Pro-Exp-03-25 88.8.",
+   "computed_level_cdf": {
+    "1": 0.2425,
+    "2": 0.7713,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.3182,
+    "2": 0.7942
+   }
+  },
+  {
+   "no": "5.11",
+   "name": "Philosophy",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Philosophy domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Philosophy — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, QwQ-32B-Preview=Self-Reported, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 90.4, QwQ-32B-Preview 84.9, Gemini-2.5-Pro-Exp-03-25 83.3.",
+   "computed_level_cdf": {
+    "1": 0.3376,
+    "2": 0.6704,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.4038,
+    "2": 0.7034
+   }
+  },
+  {
+   "no": "5.12",
+   "name": "Physics",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Physics domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Physics — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(B) ",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab, GPT-oss-20B(medium)=TIGER-Lab. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 93.2, Gemini-2.5-Pro-Exp-03-25 88.3, GPT-OSS 20B (medium) 83.1.",
+   "computed_level_cdf": {
+    "1": 0.2366,
+    "2": 0.7229,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.313,
+    "2": 0.7506
+   }
+  },
+  {
+   "no": "5.13",
+   "name": "Psychology",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Psychology domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Psychology — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab, Claude-3.5-Sonnet (2024-10-22)=TIGER-LAb. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 96%.\nPlaced from 138 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 91.8, Gemini-2.5-Pro-Exp-03-25 87.3, Claude 3.5 Sonnet 84.6.",
+   "computed_level_cdf": {
+    "1": 0.4799,
+    "2": 0.8079,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.532,
+    "2": 0.8271
+   }
+  },
+  {
+   "no": "5.14",
+   "name": "Other",
+   "category": "Subject (one of 14 domains)",
+   "url": "https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro",
+   "focus": "MMLU-Pro ten-option, reasoning-focused multiple-choice questions in the Other domain.",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: Other — subject accuracy as a 0-1 fraction, a selectable column of the Space table / results.csv · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nEffort [page]: model-name suffix (e.g. 'GPT-5(high)', '-Thinking'/'-NonThinking') — same rows as the parent table · https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv\nOther [page]: Data Source (TIGER-Lab / Self-Reported), Model Size(B) — ",
+   "notes": "Gradio Space; values from the CSV the Space loads (https://huggingface.co/datasets/TIGER-Lab/mmlu_pro_leaderboard_submission/resolve/main/results.csv), sorted by this subject column (the Space sorts by Overall; subject columns toggled via 'Select Subjects to Display'). Scores are 0-1 accuracy as displayed. Rows are TIGER-Lab-run or self-reported (Data Source column); top 3 here: Gemini-3.1-Pro=TIGER-Lab, Gemini-2.5-Pro-Exp-03-25=TIGER-Lab, Claude-3.5-Sonnet (2024-10-22)=TIGER-LAb. Many self-reported rows give Overall only, so they cannot rank per subject. No per-subject URL exists.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 137 models' published scores; guessing floor 10% removed.\nBest observed: Gemini 3.1 Pro 89.3, Gemini-2.5-Pro-Exp-03-25 83.0, Claude 3.5 Sonnet 80.2.",
+   "computed_level_cdf": {
+    "1": 0.3614,
+    "2": 0.7728,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.4253,
+    "2": 0.7955
+   }
+  },
+  {
+   "no": "6.1",
+   "name": "GPQA Diamond",
+   "category": "Dataset split",
+   "url": "https://arxiv.org/html/2311.12022#S2.SS3",
+   "focus": "Highest-quality 198-question subset: both experts answer correctly and the majority of non-experts answer incorrectly.",
+   "metrics": "quality*, effort*, other*",
+   "metrics_detail": "Quality [paper]: Accuracy by subset (%) — Diamond column of Tables 5 and 6: accuracy % for Llama-2-70B-chat, GPT-3.5-turbo-16k, GPT-4 and expert/non-expert human validators · https://arxiv.org/html/2311.12022\nEffort [paper]: Evaluation Method (Zero-Shot, Few-Shot, Zero-Shot CoT, Few-Shot CoT, GPT-4 with search) — separate rows per prompting method / with web search · https://arxiv.org/html/2311.12022\nOther [paper]: Abstention rate (%) — Table 7 gives the Diamond abstention rate per model/method ",
+   "notes": "Leaderboard is the Hugging Face 'Official Benchmark' leaderboard on the dataset page (task selector), populated from model repos' own .eval_results files: all entries verified=false (self-reported by model publishers, open-weight models only, not run by GPQA authors). Values from https://huggingface.co/api/datasets/Idavidrein/gpqa/leaderboard?task_id=diamond. The GPQA authors publish no leaderboard; repo baseline_results/ only has 2023 paper runs. HF config: gpqa_diamond (gated). 129 entries. Paper Table 5 (2023): Few-Shot CoT GPT-4 38.8.",
+   "team_difficulty": "2-3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L3 60%, L2 39%.\nPlaced from 88 models' published scores; guessing floor 25% removed.\nBest observed: GPT-6.2 Astra 97.0, GPT-6.2 Sol 96.0, GPT-6 Astra 96.0.\nOfficial difficulty: Paper: experts 81.2% on Diamond (selection-skewed), non-experts 21.9%.",
+   "computed_level_cdf": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.9467
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.0028,
+    "2": 0.0054,
+    "3": 0.0087,
+    "4": 0.96
+   }
+  },
+  {
+   "no": "6.2",
+   "name": "GPQA (main set)",
+   "category": "Dataset split",
+   "url": "https://arxiv.org/html/2311.12022#S2.SS3",
+   "focus": "Recommended 448-question main set: removes questions where both experts were wrong and all non-experts right (>=1/2 experts agree, <=2/3 non-experts correct).",
+   "metrics": "quality*, effort*, other*",
+   "metrics_detail": "Quality [paper]: Accuracy by subset (%) — Main column of Tables 5 and 6: accuracy % for Llama-2-70B-chat, GPT-3.5-turbo-16k, GPT-4 and expert/non-expert human validators · https://arxiv.org/html/2311.12022\nEffort [paper]: Evaluation Method (Zero-Shot, Few-Shot, Zero-Shot CoT, Few-Shot CoT, GPT-4 with search) — separate rows per prompting method / with web search · https://arxiv.org/html/2311.12022\nOther [paper]: Abstention rate (%) — Table 7 gives the Main abstention rate per model/method · http",
+   "notes": "Leaderboard is the Hugging Face 'Official Benchmark' leaderboard on the dataset page (task selector), populated from model repos' own .eval_results files: all entries verified=false (self-reported by model publishers, open-weight models only, not run by GPQA authors). Values from https://huggingface.co/api/datasets/Idavidrein/gpqa/leaderboard?task_id=main. The GPQA authors publish no leaderboard; repo baseline_results/ only has 2023 paper runs. Only 9 entries; 3rd place tied with JetBrains/Mellum2-12B-A2.5B-Base (35.04). HF config: gpqa_main. Paper Table 5 (2023): GPT-4 with search 41.0, Few-Shot CoT GPT-4 39.7.",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data now imported): only 3 distinct models, 2 of them with scores on at least 2 other benchmarks; the scale needs at least 6 such models to place a benchmark.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "6.3",
+   "name": "GPQA Extended",
+   "category": "Dataset split",
+   "url": "https://arxiv.org/html/2311.12022#S2.SS3",
+   "focus": "Full released set of 546 expert-written questions (564 collected minus an 18-question unreleased held-out set).",
+   "metrics": "quality*, effort*, other*",
+   "metrics_detail": "Quality [paper]: Accuracy by subset (%) — Extended column of Tables 5 and 6: accuracy % for Llama-2-70B-chat, GPT-3.5-turbo-16k, GPT-4 and expert/non-expert human validators · https://arxiv.org/html/2311.12022\nEffort [paper]: Evaluation Method (Zero-Shot, Few-Shot, Zero-Shot CoT, Few-Shot CoT, GPT-4 with search) — separate rows per prompting method / with web search · https://arxiv.org/html/2311.12022\nOther [paper]: Abstention rate (%) — Table 7 gives the Extended abstention rate per model/metho",
+   "notes": "HF dataset-page leaderboard has an 'extended' task but 0 entries. Only paper baselines (2023, Table 5): GPT-4 with search (backoff to CoT on abstention) 39.4, Few-Shot CoT GPT-4 38.7, Few-Shot CoT Llama-2-70B-chat 30.4. HF config: gpqa_extended.",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data now imported): only 3 distinct models, 2 of them with scores on at least 2 other benchmarks; the scale needs at least 6 such models to place a benchmark.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "6.4",
+   "name": "Biology",
+   "category": "High-level domain",
+   "url": "https://arxiv.org/html/2311.12022#S2.SS2",
+   "focus": "Graduate-level biology questions; subdomains Molecular Biology (85) and Genetics (20); 105 questions in extended set.",
+   "metrics": "quality*, other*",
+   "metrics_detail": "Quality [paper]: accuracy on biology questions — single figure 58.1% for GPT-4 few-shot CoT (closed-book), given only in the Section 4 text, not in a table · https://arxiv.org/html/2311.12022\nOther [paper]: Expert Acc. (%) / Non-Expert Acc. (%) / Δ (pts) / Count — Table 3 per-domain human validator accuracy and question count (extended set) · https://arxiv.org/html/2311.12022\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: No per-model table for d",
+   "notes": "No per-domain leaderboard or model scores on official sources; paper Table 3 gives question count and expert/non-expert validator accuracy per domain (extended set). Anchor #S2.SS2 is the paper's '2.2 Domains' section.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Domain split is not scored per model anywhere official: the only per-domain model result is a single model in the paper text (GPT-4 few-shot CoT, biology 58.1%, extended set). One model cannot place a benchmark.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "6.5",
+   "name": "Physics",
+   "category": "High-level domain",
+   "url": "https://arxiv.org/html/2311.12022#S2.SS2",
+   "focus": "Graduate-level physics questions (227 in extended set) across subdomains such as Quantum Mechanics, High-Energy Particle Physics, Astrophysics.",
+   "metrics": "quality*, other*",
+   "metrics_detail": "Quality [paper]: accuracy on physics questions — single figure 37.0% for GPT-4 few-shot CoT (closed-book), given only in the Section 4 text, not in a table · https://arxiv.org/html/2311.12022\nOther [paper]: Expert Acc. (%) / Non-Expert Acc. (%) / Δ (pts) / Count — Table 3 per-domain human validator accuracy and question count (extended set) · https://arxiv.org/html/2311.12022\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: No per-model table for d",
+   "notes": "No per-domain leaderboard or model scores on official sources; paper Table 3 gives question count and expert/non-expert validator accuracy per domain (extended set). Anchor #S2.SS2 is the paper's '2.2 Domains' section.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Domain split is not scored per model anywhere official: the only per-domain model result is a single model in the paper text (GPT-4 few-shot CoT, physics 37.0%, extended set). One model cannot place a benchmark.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "6.6",
+   "name": "Chemistry",
+   "category": "High-level domain",
+   "url": "https://arxiv.org/html/2311.12022#S2.SS2",
+   "focus": "Graduate-level chemistry questions (214 in extended set), mostly Organic Chemistry and Chemistry (general).",
+   "metrics": "quality*, other*",
+   "metrics_detail": "Quality [paper]: accuracy on chemistry questions — single figure 31.8% for GPT-4 few-shot CoT (closed-book), given only in the Section 4 text, not in a table · https://arxiv.org/html/2311.12022\nOther [paper]: Expert Acc. (%) / Non-Expert Acc. (%) / Δ (pts) / Count — Table 3 per-domain human validator accuracy and question count (extended set) · https://arxiv.org/html/2311.12022\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: No per-model table for",
+   "notes": "No per-domain leaderboard or model scores on official sources; paper Table 3 gives question count and expert/non-expert validator accuracy per domain (extended set). Anchor #S2.SS2 is the paper's '2.2 Domains' section.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Domain split is not scored per model anywhere official: the only per-domain model result is a single model in the paper text (GPT-4 few-shot CoT, chemistry 31.8%, extended set). One model cannot place a benchmark.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "7.1",
+   "name": "SimpleQA",
+   "category": "Original benchmark (OpenAI)",
+   "url": "https://openai.com/index/introducing-simpleqa/",
+   "focus": "Factuality benchmark measuring the ability of language models to answer short, fact-seeking questions (4,326 questions).",
+   "metrics": "quality, effort, other",
+   "metrics_detail": "Quality [page]: SimpleQA — score column in the simple-evals README Benchmark Results table, no unit stated (percent-style, e.g. 48.6); 'n/a' for some rows · https://github.com/openai/simple-evals\nQuality [paper]: Correct / Not attempted / Incorrect / Correct given attempted / F-score — per-model grading split in Table 3 (GPT-4o, o1, Claude-3 models) · https://arxiv.org/html/2411.04368\nEffort [page]: model-name suffix (o3-high / o3 / o3-low, o4-mini-high ...) — separate rows per reasoning level; ",
+   "notes": "No leaderboard on the OpenAI page; scores from the results table in OpenAI's simple-evals README, which stopped updating in July 2025 (OpenAI models only, no tools). 2nd/3rd tied at 49.4; o3-high 48.6.",
+   "team_difficulty": "3-4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L3 58%, L4 42%.\nPlaced from 21 models' published scores.\nBest observed: GPT-4.5 Preview 62.5, o3 (low) 49.4, o3 49.4.",
+   "computed_level_cdf": {
+    "1": 0.06,
+    "2": 0.289,
+    "3": 0.42,
+    "4": 0.665
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.289
+   }
+  },
+  {
+   "no": "7.2",
+   "name": "SimpleQA Verified",
+   "category": "Revised version (Google DeepMind / Google Research)",
+   "url": "https://www.kaggle.com/benchmarks/deepmind/simpleqa-verified",
+   "focus": "1,000-prompt filtered version of SimpleQA (de-duplicated, topic-balanced, source-reconciled) for short-form factuality and parametric knowledge.",
+   "metrics": "quality*, uncertainty*, date*",
+   "metrics_detail": "Quality [data]: simpleqa_verified_task — fraction correct shown as percentage (displayType 'percentages') · https://www.kaggle.com/api/v1/benchmarks/deepmind/simpleqa-verified/leaderboard\nUncertainty [data]: confidenceInterval — CI half-width per result (hasConfidenceInterval true for the main score) · https://www.kaggle.com/api/v1/benchmarks/deepmind/simpleqa-verified/leaderboard\nDate [data]: evaluationDate — per-entry evaluation timestamp · https://www.kaggle.com/api/v1/benchmarks/deepmind/sim",
+   "notes": "Kaggle page is JS-rendered; values read from the rendered page in a browser on 2026-11-26. Board updated November 19, 2026; page says 'Showing 48 of 59 models' (default view). Epoch AI also runs SimpleQA Verified, but Kaggle is the authors' board.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 97%.\nPlaced from 96 models' published scores.\nBest observed: Claude Fable 5.2 (max) 94.0, GPT-6.2 Astra (max) 78.5, Gemini 4 Carbon (high) 77.7.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.26,
+    "3": 0.479,
+    "4": 0.739
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "2": 0.26,
+    "3": 0.479,
+    "4": 0.739
+   }
+  },
+  {
+   "no": "7.3",
+   "name": "FACTS Benchmark Suite (average)",
+   "category": "FACTS suite aggregate",
+   "url": "https://www.kaggle.com/benchmarks/google/facts",
+   "focus": "Average across the four FACTS dimensions (Parametric, Search, Multimodal, Grounding) for factual accuracy.",
+   "metrics": "quality*, uncertainty*, date*, breakdown*",
+   "metrics_detail": "Quality [data]: Average — mean of the four FACTS dimension scores, percentage · https://www.kaggle.com/api/v1/benchmarks/google/facts/leaderboard\nUncertainty [data]: confidenceInterval — present for the four dimension scores, NOT for Average (hasConfidenceInterval false) · https://www.kaggle.com/api/v1/benchmarks/google/facts/leaderboard\nDate [data]: evaluationDate — per-result evaluation timestamp · https://www.kaggle.com/api/v1/benchmarks/google/facts/leaderboard\nBreakdown [data]: Grounding Sc",
+   "notes": "Kaggle page is JS-rendered; values read from the rendered page in a browser on 2026-11-26. Board updated November 13, 2026; metric 'Average (Avg 4 dimensions)'.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: composite of other sub-benchmarks in this list (counted twice otherwise)",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "7.4",
+   "name": "FACTS Grounding",
+   "category": "FACTS suite component",
+   "url": "https://www.kaggle.com/benchmarks/google/facts-grounding",
+   "focus": "Whether long-form responses are factually accurate and fully grounded in a provided long context document (up to 32k tokens); 1,719 examples (860 public, 859 private).",
+   "metrics": "quality*, uncertainty*, date*, breakdown*",
+   "metrics_detail": "Quality [data]: Score — FACTS Grounding score (average over public+private sets), percentage · https://www.kaggle.com/api/v1/benchmarks/google/facts-grounding/leaderboard\nUncertainty [data]: confidenceInterval — CI half-width for Score, Public Score and Private Score · https://www.kaggle.com/api/v1/benchmarks/google/facts-grounding/leaderboard\nDate [data]: evaluationDate — per-entry timestamp (2026-10-23 to 2026-11-14) · https://www.kaggle.com/api/v1/benchmarks/google/facts-grounding/leaderboard",
+   "notes": "Kaggle page is JS-rendered; values read from the rendered page in a browser on 2026-11-26. Page is FACTS Grounding v3 of the Kaggle board (text mentions FACTS Grounding v2 judges); board updated November 13, 2026. Score = average over public+private sets, three-judge ensemble.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 96%.\nPlaced from 25 models' published scores.\nBest observed: GPT-6.1 Terra 84.2, GPT-6 Sol 83.3, GPT-6 Astra 80.1.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "7.5",
+   "name": "FACTS Parametric",
+   "category": "FACTS suite component",
+   "url": "https://www.kaggle.com/benchmarks/google/facts-parametric",
+   "focus": "Answering hard factoid questions from real Google Search user queries from internal knowledge without tools; 2,104 examples.",
+   "metrics": "quality*, uncertainty*, date*, breakdown*, other*",
+   "metrics_detail": "Quality [data]: Score — FACTS Parametric score, percentage · https://www.kaggle.com/api/v1/benchmarks/google/facts-parametric/leaderboard\nUncertainty [data]: confidenceInterval — for Score, Public Score, Private Score only · https://www.kaggle.com/api/v1/benchmarks/google/facts-parametric/leaderboard\nDate [data]: evaluationDate — per-entry timestamp · https://www.kaggle.com/api/v1/benchmarks/google/facts-parametric/leaderboard\nBreakdown [data]: Public Score / Private Score — score per public/pri",
+   "notes": "Kaggle page is JS-rendered; values read from the rendered page in a browser on 2026-11-26. Board updated November 19, 2026; 1st and 2nd tied at 83.8%.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 92%, L3 8%.\nPlaced from 25 models' published scores.\nBest observed: GPT-6.1 Sol 83.8, GPT-6 Astra 83.8, Gemini 4 Carbon 81.6.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.59
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "7.6",
+   "name": "FACTS Search V2",
+   "category": "FACTS suite component",
+   "url": "https://www.kaggle.com/benchmarks/google/facts-search",
+   "focus": "Using a shared web search tool (Brave Search API, up to 7 hops) to retrieve and synthesize facts; 1,842 questions in Hard Tail, Wiki Two-hops, Wiki Multi-hop and KG Hops subsets.",
+   "metrics": "quality*, uncertainty*, date*, breakdown*, other*",
+   "metrics_detail": "Quality [data]: Score — FACTS Search score, percentage · https://www.kaggle.com/api/v1/benchmarks/google/facts-search/leaderboard\nUncertainty [data]: confidenceInterval — for Score, Public Score, Private Score only · https://www.kaggle.com/api/v1/benchmarks/google/facts-search/leaderboard\nDate [data]: evaluationDate — per-entry timestamp · https://www.kaggle.com/api/v1/benchmarks/google/facts-search/leaderboard\nBreakdown [data]: Public Score / Private Score — score per public/private split · htt",
+   "notes": "Kaggle page is JS-rendered; values read from the rendered page in a browser on 2026-11-26. Board updated November 19, 2026. Leaderboard has no per-subset (Hard Tail etc.) columns.",
+   "team_difficulty": "≤3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L3 55%, L2 44%.\nPlaced from 25 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Gemini 4 Carbon 94.4, Gemini 4 Hydrogen 93.6, GPT-6 Astra 93.3.",
+   "computed_level_cdf": {
+    "1": 0.3567,
+    "2": 0.6533,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "7.7",
+   "name": "FACTS Multimodal",
+   "category": "FACTS suite component",
+   "url": "https://www.kaggle.com/benchmarks/google/facts-multimodal",
+   "focus": "Factually accurate answers to image-based queries, combining visual grounding with world knowledge, judged against human-authored fact rubrics (~1,500 examples).",
+   "metrics": "quality*, uncertainty*, date*, breakdown*, other*",
+   "metrics_detail": "Quality [data]: Score — FACTS Multimodal score, percentage · https://www.kaggle.com/api/v1/benchmarks/google/facts-multimodal/leaderboard\nUncertainty [data]: confidenceInterval — for Score, Public Score, Private Score only · https://www.kaggle.com/api/v1/benchmarks/google/facts-multimodal/leaderboard\nDate [data]: evaluationDate — per-entry timestamp · https://www.kaggle.com/api/v1/benchmarks/google/facts-multimodal/leaderboard\nBreakdown [data]: Public Score / Private Score — score per public/pri",
+   "notes": "Kaggle page is JS-rendered; values read from the rendered page in a browser on 2026-11-26. Board updated November 13, 2026.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 24 models' published scores.\nBest observed: Gemini 4 Hydrogen 63.1, Gemini 4 Carbon 60.2, Gemini 3.8 Flash 57.6.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.552
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.552
+   }
+  }
+ ]
+}

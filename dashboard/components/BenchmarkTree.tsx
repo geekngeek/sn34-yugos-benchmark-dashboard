@@ -11,6 +11,8 @@ import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
 import { MultiBenchmarkChart } from "@/components/MultiBenchmarkChart";
 import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { METRIC_INFO, METRIC_KEYS, reportedKeys, type MetricKey, type Metrics } from "@/lib/metrics";
+import { MatchBars, MatchDetail } from "@/components/Match";
+import { CAT_LABEL, MATCH_CATS, pct, type MatchCat, type MatchInfo, type MatchTargets, type MatchTriple } from "@/lib/yugosMatch";
 
 export interface TreeItem {
   difficulty: Difficulty;   // level 1..5 (research), see lib/difficulty.ts
@@ -27,6 +29,8 @@ export interface TreeItem {
   metrics: Metrics;     // reporting parameters (parent benchmarks)
   extra: [string, string][];   // any other CSV columns
   children: TreeItem[];
+  match?: MatchInfo | null;   // Yugos match of a sub-benchmark (lib/yugosMatch.ts)
+  fit?: MatchTriple | null;   // its 3 category scores; for a parent, the best of its sub-benchmarks
 }
 
 interface Ranked { name: string; score: string }
@@ -55,18 +59,19 @@ const yes = (v: string) => v.trim().toLowerCase() === "yes";
 // tree columns: default order and widths (px); dragged and resized by the user, saved on the server
 const TREE_COLS: ColDef[] = [
   { key: "no", width: 46, min: 30, fixed: true }, { key: "name", width: 270, min: 120 }, { key: "yugos", width: 60, min: 40, fixed: true }, { key: "difficulty", width: 92, min: 80, fixed: true },
-  { key: "category", width: 110 }, { key: "focus", width: 220 }, { key: "top", width: 300 },
+  { key: "fit", width: 150, min: 136, fixed: true }, { key: "category", width: 110 }, { key: "focus", width: 220 }, { key: "top", width: 300 },
   { key: "reports", width: 300 }, { key: "link", width: 28, min: 22, fixed: true }, { key: "notes", width: 28, min: 22, fixed: true },
 ];
 const TREE_HEADS: Record<string, { label: string; cls?: string; title?: string; aria?: string }> = {
   no: { label: "No", cls: "c-no" }, name: { label: "Benchmark" }, yugos: { label: "Yugos", cls: "c-yug", title: "Used by Yugos" },
   difficulty: { label: "Difficulty", title: "Difficulty level 1-5 from published scores (hover a row's stars for details)" },
+  fit: { label: "Yugos fit", title: "How well the questions could stand in for Yugos's questions: bars for chat · math & code · agentic, with the best %. On a benchmark row: its best sub-benchmark. Click a row for the breakdown." },
   category: { label: "Category" }, focus: { label: "Focus" }, top: { label: "Top ranked" },
   reports: { label: "Reports", title: "Parameters the benchmark reports besides its score" },
   link: { label: "", cls: "c-ico", aria: "Link" }, notes: { label: "", cls: "c-ico", aria: "Notes" },
 };
 
-export function BenchmarkTree({ items, expandAll = false, initialView = "tree", layout, query: initialQuery }: { items: TreeItem[]; expandAll?: boolean; initialView?: "tree" | "params"; layout?: SavedLayout; query?: Query }) {
+export function BenchmarkTree({ items, expandAll = false, initialView = "tree", layout, query: initialQuery, matchTargets = null }: { items: TreeItem[]; expandAll?: boolean; initialView?: "tree" | "params"; layout?: SavedLayout; query?: Query; matchTargets?: MatchTargets | null }) {
   const cl = useColumnLayout("benchmark-list", TREE_COLS, layout);
   const [tree, setTree] = useState(items);
   const [open, setOpen] = useState<Set<string>>(() => new Set(expandAll ? items.filter((p) => p.children.length).map((p) => p.no) : []));
@@ -79,6 +84,10 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   // difficulty levels 1..5 (?diff=3&diff=4): sub-benchmarks whose level (or range of levels) includes a checked one
   const [levels, setLevels] = useState<number[]>(() => qMany(initialQuery, "diff").map(Number).filter((n) => n >= 1 && n <= 5));
   const [params, setParams] = useState<string[]>(() => qMany(initialQuery, "param")); // benchmark must report all of these parameters
+  // Yugos fit (?fit=chat&fitmin=50): sub-benchmarks whose match for that category (or their best one, "any") is at least fitmin %
+  const [fitCat, setFitCat] = useState<"" | MatchCat | "any">(() => { const v = qOne(initialQuery, "fit"); return (["chat", "math_code", "agentic", "any"].includes(v) ? v : "") as "" | MatchCat | "any"; });
+  const [fitMin, setFitMin] = useState<number>(() => Number(qOne(initialQuery, "fitmin")) || 50);
+  const [noOverlap, setNoOverlap] = useState(() => qFlag(initialQuery, "nolive"));   // hide sub-benchmarks that share questions with a live Yugos set
   const [onSiteOnly, setOnSiteOnly] = useState(() => qFlag(initialQuery, "site"));    // …shown on the benchmark's own page
   const [selected, setSelected] = useState<string>(items[0]?.no ?? "");
   const [view, setView] = useState<"tree" | "params">(initialView);
@@ -99,7 +108,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
 
   const q = query.trim().toLowerCase();
   const textFiltering = q !== "" || onlyNoted;
-  const filtering = textFiltering || cats.length > 0 || levels.length > 0 || params.length > 0;   // filtered rows show their matching sub-benchmarks, open
+  const filtering = textFiltering || cats.length > 0 || levels.length > 0 || params.length > 0 || fitCat !== "" || noOverlap;   // filtered rows show their matching sub-benchmarks, open
   const text = (i: TreeItem) => [i.name, i.category, i.focus, i.top, i.yugosUse, i.notes, i.myNotes, i.url,
     ...i.metrics.params.map((m) => `${m.key} ${METRIC_INFO[m.key].title} ${m.label} ${m.detail}`)].join(" ").toLowerCase();
   const match = (i: TreeItem) => (!q || text(i).includes(q)) && (!onlyNoted || i.myNotes.trim() !== "");
@@ -112,8 +121,9 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   // Category filters sub-benchmarks by their own category; Reports filters the benchmark (parent) itself
   const levelOk = (c: TreeItem) => !levels.length || ((c.difficulty.kind === "firm" || c.difficulty.kind === "range")
     && levels.some((L) => L >= c.difficulty.lo && L <= c.difficulty.hi));      // "2-3" counts for 2 and for 3
-  const kidOk = (c: TreeItem) => (!cats.length || (topicsOf.get(c.no) ?? []).some((t) => cats.includes(t))) && levelOk(c);
-  const subFiltered = cats.length > 0 || levels.length > 0;
+  const fitOk = (c: TreeItem) => !(noOverlap && c.match?.live_overlap) && (!fitCat || (!!c.fit && (fitCat === "any" ? Math.max(...MATCH_CATS.map((k) => c.fit![k])) : c.fit[fitCat]) * 100 >= fitMin));
+  const kidOk = (c: TreeItem) => (!cats.length || (topicsOf.get(c.no) ?? []).some((t) => cats.includes(t))) && levelOk(c) && fitOk(c);
+  const subFiltered = cats.length > 0 || levels.length > 0 || fitCat !== "" || noOverlap;
   // Reports: a benchmark passes on what it reports itself; a sub-benchmark on what its own table reports (its
   // researched "Metrics detail"), or its parent's while it has none of its own
   const metricsOk = (m: Metrics) => {
@@ -122,10 +132,11 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   };
   const passes = (p: TreeItem) => !params.length || metricsOk(p.metrics);
   const subPasses = (c: TreeItem, p: TreeItem) => !params.length || metricsOk(ownMetrics(c) ?? p.metrics);
-  const narrowed = cats.length > 0 || params.length > 0 || levels.length > 0;
+  const narrowed = cats.length > 0 || params.length > 0 || levels.length > 0 || fitCat !== "" || noOverlap;
   const levelCounts = useMemo(() => [0, 1, 2, 3, 4, 5].map((L) => tree.reduce((n, p) => n + p.children.filter((c) =>
     (c.difficulty.kind === "firm" || c.difficulty.kind === "range") && L >= c.difficulty.lo && L <= c.difficulty.hi).length, 0)), [tree]);
   useQuerySync({ q: query.trim(), yugos: onlyYugos, notes: onlyNoted, cat: cats, diff: levels.map(String), param: params, site: onSiteOnly && params.length > 0,
+                 fit: fitCat || null, fitmin: fitCat ? String(fitMin) : null, nolive: noOverlap,
                  view: view === "params" ? "params" : null });
 
   // visible rows in order; while filtering, parents with matching children are shown open
@@ -144,7 +155,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
       if (filtering ? kids.length > 0 : open.has(p.no)) for (const c of kids) rows.push({ item: c, depth: 1, parent: p, shownKids: 0 });
     }
     return rows;
-  }, [tree, open, q, onlyYugos, onlyNoted, cats, levels, params, onSiteOnly, topicsOf]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [tree, open, q, onlyYugos, onlyNoted, cats, levels, params, onSiteOnly, topicsOf, fitCat, fitMin, noOverlap]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const byNo = useMemo(() => {
     const m = new Map<string, { item: TreeItem; parent?: TreeItem }>();
@@ -272,9 +283,25 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
                      options={[1, 2, 3, 4, 5].map((L) => ({ value: String(L), label: `${L} · ${LEVEL_NAMES[L]}`, short: `${L} ${LEVEL_NAMES[L]}`,
                        hint: `${levelCounts[L]}`, title: `${LEVEL_HELP[L]} (a range such as 2-3 counts for each level it covers)` }))}
                      selected={levels.map(String)} onChange={(v) => setLevels(v.map(Number).sort())} />
+        <div className="bl-fit" title="Keep sub-benchmarks whose Yugos match for this category is at least the chosen %">
+          <label htmlFor="bl-fit" className="bl-fit-label">Yugos fit</label>
+          <span className="bl-fit-row">
+            <select id="bl-fit" value={fitCat} onChange={(e) => setFitCat(e.target.value as "" | MatchCat | "any")}>
+              <option value="">Any</option>
+              <option value="any">Best of the three</option>
+              {MATCH_CATS.map((k) => <option key={k} value={k}>{CAT_LABEL[k]}</option>)}
+            </select>
+            {fitCat && <select aria-label="Minimum match" value={fitMin} onChange={(e) => setFitMin(Number(e.target.value))}>
+              {[30, 50, 60, 70, 80].map((v) => <option key={v} value={v}>≥ {v}%</option>)}
+            </select>}
+            <label className="bl-toggle" title="Hide sub-benchmarks marked ◆: they share questions with a live Yugos set">
+              <input type="checkbox" checked={noOverlap} onChange={(e) => setNoOverlap(e.target.checked)} /> No live-set overlap
+            </label>
+          </span>
+        </div>
         {narrowed && <>
           <span className="small">{shownParents} of {tree.length} benchmarks</span>
-          <button type="button" className="link" onClick={() => { setCats([]); setParams([]); setOnSiteOnly(false); setLevels([]); }}>Clear filters</button>
+          <button type="button" className="link" onClick={() => { setCats([]); setParams([]); setOnSiteOnly(false); setLevels([]); setFitCat(""); setNoOverlap(false); }}>Clear filters</button>
         </>}
       </div>
 
@@ -310,6 +337,13 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
               ),
               no: () => (
                   <span key="no" className="c-no num">{i.no}</span>
+              ),
+              fit: () => (
+                  <span key="fit" className="c-fit">
+                    {i.fit ? <MatchBars t={i.fit} faint={depth === 0} overlap={!!i.match?.live_overlap}
+                                        title={`${depth === 0 ? "Best sub-benchmark per category — " : ""}${MATCH_CATS.map((k) => `${CAT_LABEL[k]} ${pct(i.fit![k])}`).join(" · ")}${i.match ? ` · stands in for the ${i.match.best.part} part of ${CAT_LABEL[i.match.best.category]}` : ""}`} />
+                           : depth === 1 ? <span className="muted small" title="Not assessed yet">—</span> : null}
+                  </span>
               ),
               name: () => (
                   <span key="name" className="c-name">
@@ -378,7 +412,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
         </div>
         )}
 
-        {panel && current && <Details key={current.item.no} item={current.item} parent={current.parent} onClose={() => setPanel(false)}
+        {panel && current && <Details key={current.item.no} item={current.item} parent={current.parent} onClose={() => setPanel(false)} matchTargets={matchTargets}
                              width={panelW} onResize={resizePanel}
                              onSaved={(note) => updateNote(current.item.no, note)}
                              onPick={(no) => { setSelected(no); if (byNo.get(no)?.parent) toggle(byNo.get(no)!.parent!.no, true); }} />}
@@ -409,8 +443,8 @@ function PanelResizer({ width, onResize }: { width: number; onResize: (w: number
   );
 }
 
-function Details({ item, parent, onSaved, onPick, onClose, width, onResize }: {
-  width: number; onResize: (w: number, save?: boolean) => void;
+function Details({ item, parent, onSaved, onPick, onClose, width, onResize, matchTargets }: {
+  width: number; onResize: (w: number, save?: boolean) => void; matchTargets: MatchTargets | null;
   item: TreeItem; parent?: TreeItem; onSaved: (note: string) => void; onPick: (no: string) => void; onClose: () => void;
 }) {
   const ranked = parseTop(item.top);
@@ -459,6 +493,18 @@ function Details({ item, parent, onSaved, onPick, onClose, width, onResize }: {
         </Field>
       )}
       {item.focus && <Field label="Focus"><p>{item.focus}</p></Field>}
+      {item.match && <Field label="Yugos fit"><MatchDetail m={item.match} targets={matchTargets} /></Field>}
+      {!item.match && item.children.some((c) => c.match) && (
+        <Field label="Yugos fit: best sub-benchmarks">
+          <ul className="bl-fitlist small">
+            {MATCH_CATS.map((k) => {
+              const top = item.children.filter((c) => c.fit).sort((a, b) => b.fit![k] - a.fit![k]).slice(0, 3).filter((c) => c.fit![k] >= 0.1);
+              return top.length ? <li key={k}><b>{CAT_LABEL[k]}:</b> {top.map((c, n) => (
+                <Fragment key={c.no}>{n > 0 && ", "}<button type="button" className="link" onClick={() => onPick(c.no)}>{c.name}</button> {pct(c.fit![k])}</Fragment>))}</li> : null;
+            })}
+          </ul>
+        </Field>
+      )}
       {(() => {   // the topics the category filter uses, and where they came from
         const t = parent ? subTopics(item, parent) : { topics: parentTopics(item), from: "name" as const };
         if (!t.topics.length) return null;

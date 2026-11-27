@@ -1,0 +1,518 @@
+{
+ "batch": "S11",
+ "parents": [
+  {
+   "no": "22",
+   "name": "MASK",
+   "category": "Alignment & Honesty",
+   "url": "https://scale.com/leaderboard/mask",
+   "focus": "Measures whether a model lies or deceives when pressured or incentivized to do so.",
+   "notes": ""
+  },
+  {
+   "no": "23",
+   "name": "HealthBench",
+   "category": "Domain-Specific (Medical)",
+   "url": "https://openai.com/index/healthbench/",
+   "focus": "Clinical reasoning, patient communication, and medical safety evaluated by physicians.",
+   "notes": ""
+  },
+  {
+   "no": "24",
+   "name": "FinanceBench",
+   "category": "Domain-Specific (Finance)",
+   "url": "https://github.com/patronus-ai/financebench",
+   "focus": "Financial analysis and question answering over real SEC filings and earnings reports.",
+   "notes": ""
+  },
+  {
+   "no": "25",
+   "name": "LegalBench",
+   "category": "Domain-Specific (Legal)",
+   "url": "https://github.com/HazyResearch/legalbench",
+   "focus": "Legal reasoning, contract analysis, and statutory interpretation.",
+   "notes": ""
+  }
+ ],
+ "rows": [
+  {
+   "no": "22.1",
+   "name": "Honesty Score",
+   "category": "Metric",
+   "url": "https://labs.scale.com/leaderboard/mask",
+   "focus": "Probability the model does not lie (1 - P(Lie)) when pressured, comparing its statement under pressure against its elicited belief; Honest or Evasive both count.",
+   "metrics": "quality, uncertainty, runs*, effort, other",
+   "metrics_detail": "Quality [page]: Honesty Score — 1 - P(Lie), 0-100 (Honest + Evasive count as honest), 500-example private split · https://labs.scale.com/leaderboard/mask\nUncertainty [page]: ± — half-width of the 95% CI after each score (e.g. '96.28±0.41'), used for Rank (UB) · https://labs.scale.com/leaderboard/mask\nEffort [page]: Model name (e.g. '(Thinking)', '(Non-Thinking)', 'o3 (high)') — thinking/effort settings are separate rows identified only by name · https://labs.scale.com/leaderboard/mask\nRuns [pape",
+   "notes": "scale.com/leaderboard/mask redirects (308) to labs.scale.com. Leaderboard uses a 500-example private split; official rank is Rank (UB) by CI, list here is by score order shown. The only leaderboard metric.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: measures honesty (willingness to lie), not capability; listed separately",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "22.2",
+   "name": "Accuracy",
+   "category": "Metric",
+   "url": "https://www.mask-benchmark.ai/",
+   "focus": "Whether the model's beliefs align with factual reality (ground truth), disentangled from honesty.",
+   "metrics": "quality*",
+   "metrics_detail": "Quality [paper]: Accuracy — share of propositions where the model's elicited belief matches ground truth, per model in Table 3 (Appendix A.10, ~30 models) · https://arxiv.org/html/2503.03750\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Accuracy is not scored on the Scale leaderboard (https://labs.scale.com/leaderboard/mask) and mask-benchmark.ai shows it only in an image figure ('Honesty and accuracy comparison') with no readable values. Paper ",
+   "notes": "Defined on Scale page and project site; no official accuracy leaderboard (accuracy results only in paper arXiv:2503.03750).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: measures honesty (willingness to lie), not capability; listed separately",
+   "computed_level_cdf": {
+    "1": 0.62,
+    "2": 0.786,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "1": 0.62,
+    "2": 0.786
+   }
+  },
+  {
+   "no": "22.3",
+   "name": "Known Facts",
+   "category": "Archetype",
+   "url": "https://huggingface.co/datasets/cais/MASK/viewer/known_facts",
+   "focus": "Tests if the model honestly reports widely-documented facts picked up from pretraining, under situation-induced lying.",
+   "metrics": "none published",
+   "metrics_detail": "Not reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Known Facts is an archetype (dataset config 'known_facts', 209 rows, test split only) in the HF dataset; the viewer holds prompts/propositions/ground truth, not model scores. The Scale leaderboard shows only the overall Honesty Score (no per-archetype column). The paper gives archetype results only aggregated across all models (Figure 8; Lying@10 by question type in Figure 13), not per model",
+   "notes": "Archetype of the MASK dataset; Scale leaderboard reports only the overall Honesty Score, no per-archetype ranking (per-archetype results only in paper arXiv:2503.03750). URL is the public-split HF dataset config. HF config 'known_facts'. Share of private set: 20.6%.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Dataset split not scored separately per model: the Scale leaderboard reports only the overall Honesty Score; the paper (arXiv:2503.03750) shows archetypes only aggregated across all models (Figure 8), no per-model per-archetype table.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "22.4",
+   "name": "Situation-Provided Facts",
+   "category": "Archetype",
+   "url": "https://huggingface.co/datasets/cais/MASK/viewer/provided_facts",
+   "focus": "System prompt privately gives specific facts but encourages providing a false narrative to the user.",
+   "metrics": "none published",
+   "metrics_detail": "Not reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Situation-Provided Facts is an archetype (dataset config 'provided_facts', 274 rows, test split only) in the HF dataset; the viewer holds prompts/propositions/ground truth, not model scores. The Scale leaderboard shows only the overall Honesty Score (no per-archetype column). The paper gives archetype results only aggregated across all models (Figure 8; Lying@10 by question type in Figure 13",
+   "notes": "Archetype of the MASK dataset; Scale leaderboard reports only the overall Honesty Score, no per-archetype ranking (per-archetype results only in paper arXiv:2503.03750). URL is the public-split HF dataset config. HF config 'provided_facts'. Share of private set: 27%.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Dataset split not scored separately per model: the Scale leaderboard reports only the overall Honesty Score; the paper (arXiv:2503.03750) shows archetypes only aggregated across all models (Figure 8), no per-model per-archetype table.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "22.5",
+   "name": "Doubling Down",
+   "category": "Archetype",
+   "url": "https://huggingface.co/datasets/cais/MASK/viewer/doubling_down_known_facts",
+   "focus": "Tests if the model doubles down on a prior falsehood it generated.",
+   "metrics": "none published",
+   "metrics_detail": "Not reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Doubling Down is an archetype (dataset config 'doubling_down_known_facts', 120 rows, test split only) in the HF dataset; the viewer holds prompts/propositions/ground truth, not model scores. The Scale leaderboard shows only the overall Honesty Score (no per-archetype column). The paper gives archetype results only aggregated across all models (Figure 8; Lying@10 by question type in Figure 13",
+   "notes": "Archetype of the MASK dataset; Scale leaderboard reports only the overall Honesty Score, no per-archetype ranking (per-archetype results only in paper arXiv:2503.03750). URL is the public-split HF dataset config. HF config 'doubling_down_known_facts'. Share of private set: 11%.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Dataset split not scored separately per model: the Scale leaderboard reports only the overall Honesty Score; the paper (arXiv:2503.03750) shows archetypes only aggregated across all models (Figure 8), no per-model per-archetype table.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "22.6",
+   "name": "Fabricated Statistics",
+   "category": "Archetype",
+   "url": "https://huggingface.co/datasets/cais/MASK/viewer/statistics",
+   "focus": "Tests if the model invents or manipulates false numerical data.",
+   "metrics": "none published",
+   "metrics_detail": "Not reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Fabricated Statistics is an archetype (dataset config 'statistics', 96 rows, test split only) in the HF dataset; the viewer holds prompts/propositions/ground truth, not model scores. The Scale leaderboard shows only the overall Honesty Score (no per-archetype column). The paper gives archetype results only aggregated across all models (Figure 8; Lying@10 by question type in Figure 13), not p",
+   "notes": "Archetype of the MASK dataset; Scale leaderboard reports only the overall Honesty Score, no per-archetype ranking (per-archetype results only in paper arXiv:2503.03750). URL is the public-split HF dataset config. HF config 'statistics'. Share of private set: 8.4%.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Dataset split not scored separately per model: the Scale leaderboard reports only the overall Honesty Score; the paper (arXiv:2503.03750) shows archetypes only aggregated across all models (Figure 8), no per-model per-archetype table.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "22.7",
+   "name": "Continuations",
+   "category": "Archetype",
+   "url": "https://huggingface.co/datasets/cais/MASK/viewer/continuations",
+   "focus": "Partial drafts containing falsehoods with requests to continue writing.",
+   "metrics": "none published",
+   "metrics_detail": "Not reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Continuations is an archetype (dataset config 'continuations', 176 rows, test split only) in the HF dataset; the viewer holds prompts/propositions/ground truth, not model scores. The Scale leaderboard shows only the overall Honesty Score (no per-archetype column). The paper gives archetype results only aggregated across all models (Figure 8; Lying@10 by question type in Figure 13), not per m",
+   "notes": "Archetype of the MASK dataset; Scale leaderboard reports only the overall Honesty Score, no per-archetype ranking (per-archetype results only in paper arXiv:2503.03750). URL is the public-split HF dataset config. HF config 'continuations'. Share of private set: 20.6%.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Dataset split not scored separately per model: the Scale leaderboard reports only the overall Honesty Score; the paper (arXiv:2503.03750) shows archetypes only aggregated across all models (Figure 8), no per-model per-archetype table.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "22.8",
+   "name": "Disinformation Generation",
+   "category": "Archetype",
+   "url": "https://huggingface.co/datasets/cais/MASK/viewer/disinformation",
+   "focus": "Tests if the model willingly generates and amplifies misinformation when asked.",
+   "metrics": "none published",
+   "metrics_detail": "Not reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Disinformation Generation is an archetype (dataset config 'disinformation', 125 rows, test split only) in the HF dataset; the viewer holds prompts/propositions/ground truth, not model scores. The Scale leaderboard shows only the overall Honesty Score (no per-archetype column). The paper gives archetype results only aggregated across all models (Figure 8; Lying@10 by question type in Figure 1",
+   "notes": "Archetype of the MASK dataset; Scale leaderboard reports only the overall Honesty Score, no per-archetype ranking (per-archetype results only in paper arXiv:2503.03750). URL is the public-split HF dataset config. HF config 'disinformation'. Share of private set: 12.4%.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Dataset split not scored separately per model: the Scale leaderboard reports only the overall Honesty Score; the paper (arXiv:2503.03750) shows archetypes only aggregated across all models (Figure 8), no per-model per-archetype table.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "23.1",
+   "name": "HealthBench",
+   "category": "Variant",
+   "url": "https://github.com/openai/simple-evals/blob/main/healthbench_eval.py",
+   "focus": "5,000 realistic multi-turn health conversations graded against 48,562 physician-written rubric criteria.",
+   "metrics": "quality, cost, uncertainty, runs, effort, breakdown, other",
+   "metrics_detail": "Quality [page]: 'Overall: 0.xxx' — HealthBench score (rubric points met / max, 0-1, GPT-4.1 grader) per model in the 'HealthBench scores by theme' and 'HealthBench scores by axis' charts; 9 models · https://openai.com/index/healthbench/\nCost [page]: Inference cost per example ($) — 'Score vs. cost by model family' scatter (static SVG), ~22 OpenAI model/effort points · https://images.ctfassets.net/kftzwdyauwt9/7GQa8OmJiBcmbul4Hls5zn/3d0c0f15f7feb1b219155e17a2d47d7b/oai_Cost_vs_score_Desktop_Light",
+   "notes": "No official leaderboard: simple-evals README results table has no HealthBench column (repo frozen July 2025); blog shows model results only as chart images without numeric text (May 2025). Run with --eval=healthbench; data at https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 99%.\nPlaced from 8 models' published scores.\nBest observed: Claude Sonnet 5.5 69.4, Claude Opus 5.5 68.1, Claude Opus 5 67.1.",
+   "computed_level_cdf": {
+    "1": 0.16,
+    "2": 0.32,
+    "3": 0.32,
+    "4": 0.5699
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.16,
+    "2": 0.32,
+    "4": 0.5699
+   }
+  },
+  {
+   "no": "23.2",
+   "name": "HealthBench Hard",
+   "category": "Variant",
+   "url": "https://github.com/openai/simple-evals/blob/main/healthbench_eval.py",
+   "focus": "1,000-example subset that today's frontier models struggle with.",
+   "metrics": "quality, uncertainty, breakdown",
+   "metrics_detail": "Quality [page]: 'Overall: 0.xxx' — HealthBench Hard score (0-1) per model, shown above each model in the 'HealthBench Hard subset scores by axis' chart; same 9 models · https://openai.com/index/healthbench/\nUncertainty [page]: success_rate_lower / success_rate_upper — error bars per model per axis · https://openai.com/index/healthbench/\nBreakdown [page]: Accuracy, Communication quality, Completeness, Context awareness, Instruction following — per-axis scores on the Hard subset (no per-theme char",
+   "notes": "No official leaderboard: simple-evals README results table has no HealthBench column (repo frozen July 2025); blog shows model results only as chart images without numeric text (May 2025). Run with --eval=healthbench_hard; data INPUT_PATH_HARD in healthbench_eval.py.",
+   "team_difficulty": "≥4",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 66%, L4 34%.\nPlaced from 13 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Muse Spark 42.8, GPT-5.4 40.1, GPT-6 Astra 36.6.",
+   "computed_level_cdf": {
+    "1": 0.025,
+    "2": 0.05,
+    "3": 0.14,
+    "4": 0.362
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.362
+   }
+  },
+  {
+   "no": "23.3",
+   "name": "HealthBench Consensus",
+   "category": "Variant",
+   "url": "https://github.com/openai/simple-evals/blob/main/healthbench_eval.py",
+   "focus": "3,671 examples using a heavily-filtered subset of criteria validated by physician consensus, designed for a near-zero error floor.",
+   "metrics": "quality, uncertainty, breakdown, other",
+   "metrics_detail": "Quality [page]: Error rate (1-score) / 'Overall: 0.xxx' — Consensus error rate per model (lower is better), in the 'HealthBench Consensus error rate by theme' chart; same 9 models · https://openai.com/index/healthbench/\nUncertainty [page]: success_rate_lower / success_rate_upper — error bars per model per theme · https://openai.com/index/healthbench/\nBreakdown [page]: 7 themes (Emergency referrals, Responding under uncertainty, Health data tasks, Global health, Expertise-tailored communication, ",
+   "notes": "No official leaderboard: simple-evals README results table has no HealthBench column (repo frozen July 2025); blog shows model results only as chart images without numeric text (May 2025). Run with --eval=healthbench_consensus; data INPUT_PATH_CONSENSUS in healthbench_eval.py.",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 6 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: GPT-4.1 94.0, Grok 3 93.7, o3 92.8.",
+   "computed_level_cdf": {
+    "1": 0.7509,
+    "2": 0.8867,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.7509,
+    "2": 0.8867
+   }
+  },
+  {
+   "no": "23.4",
+   "name": "Emergency referrals",
+   "category": "Theme",
+   "url": "https://openai.com/index/healthbench/",
+   "focus": "Whether the model triages accurately, recognizes emergencies and recommends escalating care.",
+   "metrics": "quality, uncertainty",
+   "metrics_detail": "Quality [page]: Emergency referrals — HealthBench score (0-1) for this theme per model, one bar group in the 'HealthBench scores by theme' chart; 9 models · https://openai.com/index/healthbench/\nQuality [page]: Error rate (1-score) — Emergency referrals — Consensus error rate for this theme in the 'HealthBench Consensus error rate by theme' chart · https://openai.com/index/healthbench/\nUncertainty [page]: success_rate_lower / success_rate_upper — error bars per model for this theme in both chart",
+   "notes": "Theme of HealthBench; no per-theme page/anchor, closest is the blog. No official leaderboard: simple-evals README results table has no HealthBench column (repo frozen July 2025); blog shows model results only as chart images without numeric text (May 2025). Blog also defines 5 axes (communication quality, instruction following, accuracy, context awareness, completeness).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No numeric per-model scores for the \"Emergency referrals\" theme anywhere official: the paper shows performance by theme only as a chart (Figure 5, Section 6.1) and the blog only as images; simple-evals has no results table for HealthBench. Paper Table 8 gives per-criterion consensus scores inside themes, which are a different (consensus-criteria) measure.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "23.5",
+   "name": "Responding under uncertainty",
+   "category": "Theme",
+   "url": "https://openai.com/index/healthbench/",
+   "focus": "Whether the model identifies uncertainty and communicates it when present.",
+   "metrics": "quality, uncertainty",
+   "metrics_detail": "Quality [page]: Responding under uncertainty — HealthBench score (0-1) for this theme per model, one bar group in the 'HealthBench scores by theme' chart; 9 models · https://openai.com/index/healthbench/\nQuality [page]: Error rate (1-score) — Responding under uncertainty — Consensus error rate for this theme in the 'HealthBench Consensus error rate by theme' chart · https://openai.com/index/healthbench/\nUncertainty [page]: success_rate_lower / success_rate_upper — error bars per model for this t",
+   "notes": "Theme of HealthBench; no per-theme page/anchor, closest is the blog. No official leaderboard: simple-evals README results table has no HealthBench column (repo frozen July 2025); blog shows model results only as chart images without numeric text (May 2025). Blog also defines 5 axes (communication quality, instruction following, accuracy, context awareness, completeness).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No numeric per-model scores for the \"Responding under uncertainty\" theme anywhere official: the paper shows performance by theme only as a chart (Figure 5, Section 6.1) and the blog only as images; simple-evals has no results table for HealthBench. Paper Table 8 gives per-criterion consensus scores inside themes, which are a different (consensus-criteria) measure.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "23.6",
+   "name": "Health data tasks",
+   "category": "Theme",
+   "url": "https://openai.com/index/healthbench/",
+   "focus": "Whether the model safely completes tasks like medical documentation and clinical knowledge support.",
+   "metrics": "quality, uncertainty",
+   "metrics_detail": "Quality [page]: Health data tasks — HealthBench score (0-1) for this theme per model, one bar group in the 'HealthBench scores by theme' chart; 9 models · https://openai.com/index/healthbench/\nQuality [page]: Error rate (1-score) — Health data tasks — Consensus error rate for this theme in the 'HealthBench Consensus error rate by theme' chart · https://openai.com/index/healthbench/\nUncertainty [page]: success_rate_lower / success_rate_upper — error bars per model for this theme in both charts · ",
+   "notes": "Theme of HealthBench; no per-theme page/anchor, closest is the blog. No official leaderboard: simple-evals README results table has no HealthBench column (repo frozen July 2025); blog shows model results only as chart images without numeric text (May 2025). Blog also defines 5 axes (communication quality, instruction following, accuracy, context awareness, completeness).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No numeric per-model scores for the \"Health data tasks\" theme anywhere official: the paper shows performance by theme only as a chart (Figure 5, Section 6.1) and the blog only as images; simple-evals has no results table for HealthBench. Paper Table 8 gives per-criterion consensus scores inside themes, which are a different (consensus-criteria) measure.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "23.7",
+   "name": "Global health",
+   "category": "Theme",
+   "url": "https://openai.com/index/healthbench/",
+   "focus": "Whether the model adapts to differences in resources, epidemiology, practice norms and languages.",
+   "metrics": "quality, uncertainty",
+   "metrics_detail": "Quality [page]: Global health — HealthBench score (0-1) for this theme per model, one bar group in the 'HealthBench scores by theme' chart; 9 models · https://openai.com/index/healthbench/\nQuality [page]: Error rate (1-score) — Global health — Consensus error rate for this theme in the 'HealthBench Consensus error rate by theme' chart · https://openai.com/index/healthbench/\nUncertainty [page]: success_rate_lower / success_rate_upper — error bars per model for this theme in both charts · https://",
+   "notes": "Theme of HealthBench; no per-theme page/anchor, closest is the blog. No official leaderboard: simple-evals README results table has no HealthBench column (repo frozen July 2025); blog shows model results only as chart images without numeric text (May 2025). Blog also defines 5 axes (communication quality, instruction following, accuracy, context awareness, completeness).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No numeric per-model scores for the \"Global health\" theme anywhere official: the paper shows performance by theme only as a chart (Figure 5, Section 6.1) and the blog only as images; simple-evals has no results table for HealthBench. Paper Table 8 gives per-criterion consensus scores inside themes, which are a different (consensus-criteria) measure.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "23.8",
+   "name": "Expertise-tailored communication",
+   "category": "Theme",
+   "url": "https://openai.com/index/healthbench/",
+   "focus": "Whether the model infers if the user is a health professional and adjusts its communication.",
+   "metrics": "quality, uncertainty",
+   "metrics_detail": "Quality [page]: Expertise-tailored communication — HealthBench score (0-1) for this theme per model, one bar group in the 'HealthBench scores by theme' chart; 9 models · https://openai.com/index/healthbench/\nQuality [page]: Error rate (1-score) — Expertise-tailored communication — Consensus error rate for this theme in the 'HealthBench Consensus error rate by theme' chart · https://openai.com/index/healthbench/\nUncertainty [page]: success_rate_lower / success_rate_upper — error bars per model fo",
+   "notes": "Theme of HealthBench; no per-theme page/anchor, closest is the blog. No official leaderboard: simple-evals README results table has no HealthBench column (repo frozen July 2025); blog shows model results only as chart images without numeric text (May 2025). Blog also defines 5 axes (communication quality, instruction following, accuracy, context awareness, completeness).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No numeric per-model scores for the \"Expertise-tailored communication\" theme anywhere official: the paper shows performance by theme only as a chart (Figure 5, Section 6.1) and the blog only as images; simple-evals has no results table for HealthBench. Paper Table 8 gives per-criterion consensus scores inside themes, which are a different (consensus-criteria) measure.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "23.9",
+   "name": "Context seeking",
+   "category": "Theme",
+   "url": "https://openai.com/index/healthbench/",
+   "focus": "Whether the model asks for missing information only when needed.",
+   "metrics": "quality, uncertainty",
+   "metrics_detail": "Quality [page]: Context seeking — HealthBench score (0-1) for this theme per model, one bar group in the 'HealthBench scores by theme' chart; 9 models · https://openai.com/index/healthbench/\nQuality [page]: Error rate (1-score) — Context seeking — Consensus error rate for this theme in the 'HealthBench Consensus error rate by theme' chart · https://openai.com/index/healthbench/\nUncertainty [page]: success_rate_lower / success_rate_upper — error bars per model for this theme in both charts · http",
+   "notes": "Theme of HealthBench; no per-theme page/anchor, closest is the blog. No official leaderboard: simple-evals README results table has no HealthBench column (repo frozen July 2025); blog shows model results only as chart images without numeric text (May 2025). Blog also defines 5 axes (communication quality, instruction following, accuracy, context awareness, completeness).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No numeric per-model scores for the \"Context seeking\" theme anywhere official: the paper shows performance by theme only as a chart (Figure 5, Section 6.1) and the blog only as images; simple-evals has no results table for HealthBench. Paper Table 8 gives per-criterion consensus scores inside themes, which are a different (consensus-criteria) measure.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "23.10",
+   "name": "Response depth",
+   "category": "Theme",
+   "url": "https://openai.com/index/healthbench/",
+   "focus": "Whether the level of detail fits the user's situation.",
+   "metrics": "quality, uncertainty",
+   "metrics_detail": "Quality [page]: Response depth — HealthBench score (0-1) for this theme per model, one bar group in the 'HealthBench scores by theme' chart; 9 models · https://openai.com/index/healthbench/\nQuality [page]: Error rate (1-score) — Response depth — Consensus error rate for this theme in the 'HealthBench Consensus error rate by theme' chart · https://openai.com/index/healthbench/\nUncertainty [page]: success_rate_lower / success_rate_upper — error bars per model for this theme in both charts · https:",
+   "notes": "Theme of HealthBench; no per-theme page/anchor, closest is the blog. No official leaderboard: simple-evals README results table has no HealthBench column (repo frozen July 2025); blog shows model results only as chart images without numeric text (May 2025). Blog also defines 5 axes (communication quality, instruction following, accuracy, context awareness, completeness).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No numeric per-model scores for the \"Response depth\" theme anywhere official: the paper shows performance by theme only as a chart (Figure 5, Section 6.1) and the blog only as images; simple-evals has no results table for HealthBench. Paper Table 8 gives per-criterion consensus scores inside themes, which are a different (consensus-criteria) measure.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "24.1",
+   "name": "Domain-relevant questions",
+   "category": "Question type",
+   "url": "https://github.com/patronus-ai/financebench/blob/main/data/financebench_open_source.jsonl",
+   "focus": "25 generic financial-analysis questions (e.g., dividend paid, consistent operating margins) asked of each company.",
+   "metrics": "quality*, effort*, other*",
+   "metrics_detail": "Quality [paper]: Figure 4 'by type of question' — chart of correct/incorrect/failed per question type for the 8 model configurations on the n=150 sample; numbers not given in text or tables · https://arxiv.org/html/2311.11944\nEffort [paper]: Model Configuration (Closed Book, Shared/Single Vector Store, Long Context, Oracle) — the 8 configurations in Figure 4 · https://arxiv.org/html/2311.11944\nOther [data]: label (Correct Answer / Incorrect Answer / Refusal) — per-question human labels in result",
+   "notes": "question_type value in the open-source sample (50 of 150 each); no own page, URL is the data file (filter question_type). No official leaderboard; per-type results only as a chart (Figure 4) in the paper (Nov 2023), and human-annotated completions for paper configs (closedBook, singleStore, sharedStore, inContext, oracle, ...) in /results/. 925 in full set.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Question-type split not scored separately in any numeric official source: paper Table 2 gives only overall correct/incorrect/failed counts per configuration (8 configs, 5 models, n=150 sample); per question type appears only as a chart (Figure 4). No official leaderboard.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "24.2",
+   "name": "Novel-generated questions",
+   "category": "Question type",
+   "url": "https://github.com/patronus-ai/financebench/blob/main/data/financebench_open_source.jsonl",
+   "focus": "Annotator-written questions specific to the company, report and industry.",
+   "metrics": "quality*, effort*, other*",
+   "metrics_detail": "Quality [paper]: Figure 4 'by type of question' — chart of correct/incorrect/failed per question type for the 8 model configurations on the n=150 sample; numbers not given in text or tables · https://arxiv.org/html/2311.11944\nEffort [paper]: Model Configuration (Closed Book, Shared/Single Vector Store, Long Context, Oracle) — the 8 configurations in Figure 4 · https://arxiv.org/html/2311.11944\nOther [data]: label (Correct Answer / Incorrect Answer / Refusal) — per-question human labels in result",
+   "notes": "question_type value in the open-source sample (50 of 150 each); no own page, URL is the data file (filter question_type). No official leaderboard; per-type results only as a chart (Figure 4) in the paper (Nov 2023), and human-annotated completions for paper configs (closedBook, singleStore, sharedStore, inContext, oracle, ...) in /results/. 1,323 in full set.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Question-type split not scored separately in any numeric official source: paper Table 2 gives only overall correct/incorrect/failed counts per configuration (8 configs, 5 models, n=150 sample); per question type appears only as a chart (Figure 4). No official leaderboard.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "24.3",
+   "name": "Metrics-generated questions",
+   "category": "Question type",
+   "url": "https://github.com/patronus-ai/financebench/blob/main/data/financebench_open_source.jsonl",
+   "focus": "Templated questions requiring computing and reasoning about financial metrics built from 18 base metrics in 10-K statements.",
+   "metrics": "quality*, effort*, other*",
+   "metrics_detail": "Quality [paper]: Figure 4 'by type of question' — chart of correct/incorrect/failed per question type for the 8 model configurations on the n=150 sample; numbers not given in text or tables · https://arxiv.org/html/2311.11944\nEffort [paper]: Model Configuration (Closed Book, Shared/Single Vector Store, Long Context, Oracle) — the 8 configurations in Figure 4 · https://arxiv.org/html/2311.11944\nOther [data]: label (Correct Answer / Incorrect Answer / Refusal) — per-question human labels in result",
+   "notes": "question_type value in the open-source sample (50 of 150 each); no own page, URL is the data file (filter question_type). No official leaderboard; per-type results only as a chart (Figure 4) in the paper (Nov 2023), and human-annotated completions for paper configs (closedBook, singleStore, sharedStore, inContext, oracle, ...) in /results/. 7,983 in full set.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: Question-type split not scored separately in any numeric official source: paper Table 2 gives only overall correct/incorrect/failed counts per configuration (8 configs, 5 models, n=150 sample); per question type appears only as a chart (Figure 4). No official leaderboard.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "25.1",
+   "name": "Issue-spotting",
+   "category": "Reasoning type",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization",
+   "focus": "Determine if a set of facts raise particular legal questions, implicate an area of law, or are relevant to a specific party.",
+   "metrics": "quality*, breakdown*, other*",
+   "metrics_detail": "Quality [paper]: Issue — Table 2 column: average issue-spotting task performance (balanced accuracy, 0-100; F1 for a few multi-label tasks) for 20 LLMs · https://arxiv.org/pdf/2308.11462\nBreakdown [paper]: Appendix G Tables 64-67 — per-task scores for each issue-spotting task, one table per model size class · https://arxiv.org/pdf/2308.11462\nOther [paper]: Model size blocks (large commercial, 11B-13B, 6B-7B, 2B-3B) — Table 2 rows grouped by parameter class; best per class underlined · https://ar",
+   "notes": "One of six reasoning-type categories on the official Tasks page (anchor #task-organization; no separate per-category page). No official leaderboard on the site or GitHub repo; per-category model results only in paper arXiv:2308.11462 (2023).",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 70%, L2 26%.\nPlaced from 20 models' published scores.\nBest observed: GPT-4 82.9, Flan-T5-XXL 66.0, GPT-3.5 60.9.",
+   "computed_level_cdf": {
+    "1": 0.609,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.609
+   }
+  },
+  {
+   "no": "25.2",
+   "name": "Rule-recall",
+   "category": "Reasoning type",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization",
+   "focus": "Generate the correct legal rule on an issue in a jurisdiction, or answer what the law there does/does not permit.",
+   "metrics": "quality*, breakdown*, other*",
+   "metrics_detail": "Quality [paper]: Rule — Table 2 column: average rule-recall task performance (balanced accuracy, 0-100; F1 for a few multi-label tasks) for 20 LLMs · https://arxiv.org/pdf/2308.11462\nBreakdown [paper]: Appendix G Tables 60-63 — per-task scores for each rule-recall task, one table per model size class · https://arxiv.org/pdf/2308.11462\nOther [paper]: Model size blocks (large commercial, 11B-13B, 6B-7B, 2B-3B) — Table 2 rows grouped by parameter class; best per class underlined · https://arxiv.org",
+   "notes": "One of six reasoning-type categories on the official Tasks page (anchor #task-organization; no separate per-category page). No official leaderboard on the site or GitHub repo; per-category model results only in paper arXiv:2308.11462 (2023).",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 72%, L3 27%.\nPlaced from 20 models' published scores.\nBest observed: GPT-4 59.2, Claude-1 57.7, GPT-3.5 46.3.",
+   "computed_level_cdf": {
+    "1": 0.463,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.463
+   }
+  },
+  {
+   "no": "25.3",
+   "name": "Rule-application",
+   "category": "Reasoning type",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization",
+   "focus": "Explain reasoning in a manner exhibiting the correct legal inferences.",
+   "metrics": "quality*, breakdown*",
+   "metrics_detail": "Quality [paper]: Correctness / Analysis — Table 3: average manual (law-trained grader) scores on rule-application tasks for GPT-4, GPT-3.5, Claude-v1 only · https://arxiv.org/pdf/2308.11462\nBreakdown [paper]: Table 59 — per-task correctness/analysis for each rule-application task (e.g. abercrombie, diversity_1-6), commercial models only · https://arxiv.org/pdf/2308.11462\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, votes\nNote: Rule-application is NOT in the parent Ta",
+   "notes": "One of six reasoning-type categories on the official Tasks page (anchor #task-organization; no separate per-category page). No official leaderboard on the site or GitHub repo; per-category model results only in paper arXiv:2308.11462 (2023). Rule-application tasks are open-generation, graded with a manual gradebook.",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data now imported): only 3 distinct models, 2 of them with scores on at least 2 other benchmarks; the scale needs at least 6 such models to place a benchmark.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": {
+    "1": 0.585,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level (nearest level)",
+   "anchor_scores": {
+    "1": 0.585
+   }
+  },
+  {
+   "no": "25.4",
+   "name": "Rule-conclusion",
+   "category": "Reasoning type",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization",
+   "focus": "Determine the legal outcome of a set of facts under a specified rule.",
+   "metrics": "quality*, breakdown*, other*",
+   "metrics_detail": "Quality [paper]: Conclusion — Table 2 column: average rule-conclusion task performance (balanced accuracy, 0-100; F1 for a few multi-label tasks) for 20 LLMs · https://arxiv.org/pdf/2308.11462\nBreakdown [paper]: Appendix G Tables 68-71 — per-task scores for each rule-conclusion task, one table per model size class · https://arxiv.org/pdf/2308.11462\nOther [paper]: Model size blocks (large commercial, 11B-13B, 6B-7B, 2B-3B) — Table 2 rows grouped by parameter class; best per class underlined · htt",
+   "notes": "One of six reasoning-type categories on the official Tasks page (anchor #task-organization; no separate per-category page). No official leaderboard on the site or GitHub repo; per-category model results only in paper arXiv:2308.11462 (2023).",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 82%, L2 15%.\nPlaced from 20 models' published scores.\nBest observed: GPT-4 89.9, Claude-1 79.5, GPT-3.5 78.0.",
+   "computed_level_cdf": {
+    "1": 0.78,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.78
+   }
+  },
+  {
+   "no": "25.5",
+   "name": "Interpretation",
+   "category": "Reasoning type",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization",
+   "focus": "Parse and understand a legal text (e.g., classifying contractual clauses).",
+   "metrics": "quality*, breakdown*, other*",
+   "metrics_detail": "Quality [paper]: Interpretation — Table 2 column: average interpretation task performance (balanced accuracy, 0-100; F1 for a few multi-label tasks) for 20 LLMs · https://arxiv.org/pdf/2308.11462\nBreakdown [paper]: Appendix G Tables 76-79 — per-task scores for each interpretation task, one table per model size class · https://arxiv.org/pdf/2308.11462\nOther [paper]: Model size blocks (large commercial, 11B-13B, 6B-7B, 2B-3B) — Table 2 rows grouped by parameter class; best per class underlined · h",
+   "notes": "One of six reasoning-type categories on the official Tasks page (anchor #task-organization; no separate per-category page). No official leaderboard on the site or GitHub repo; per-category model results only in paper arXiv:2308.11462 (2023).",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 72%, L2 26%.\nPlaced from 20 models' published scores.\nBest observed: GPT-4 75.2, GPT-3.5 72.6, Claude-1 67.4.",
+   "computed_level_cdf": {
+    "1": 0.726,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.726
+   }
+  },
+  {
+   "no": "25.6",
+   "name": "Rhetorical-understanding",
+   "category": "Reasoning type",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization",
+   "focus": "Reason about legal argumentation and analysis (e.g., identifying textualist arguments).",
+   "metrics": "quality*, breakdown*, other*",
+   "metrics_detail": "Quality [paper]: Rhetorical — Table 2 column: average rhetorical-understanding task performance (balanced accuracy, 0-100; F1 for a few multi-label tasks) for 20 LLMs · https://arxiv.org/pdf/2308.11462\nBreakdown [paper]: Appendix G Tables 72-75 — per-task scores for each rhetorical-understanding task, one table per model size class · https://arxiv.org/pdf/2308.11462\nOther [paper]: Model size blocks (large commercial, 11B-13B, 6B-7B, 2B-3B) — Table 2 rows grouped by parameter class; best per clas",
+   "notes": "One of six reasoning-type categories on the official Tasks page (anchor #task-organization; no separate per-category page). No official leaderboard on the site or GitHub repo; per-category model results only in paper arXiv:2308.11462 (2023).",
+   "team_difficulty": "1-2",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 66%, L2 30%.\nPlaced from 20 models' published scores.\nBest observed: GPT-4 79.4, Flan-T5-XXL 70.7, Claude-1 68.9.",
+   "computed_level_cdf": {
+    "1": 0.667,
+    "2": 0.82,
+    "3": 0.935,
+    "4": 0.965
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.667
+   }
+  }
+ ]
+}

@@ -1,0 +1,984 @@
+{
+ "gpqa_diamond": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.5,
+    "why": "Expert-written graduate physics/chemistry/biology 4-option multiple choice (median ~140 tokens), the same kind of hard knowledge-plus-reasoning question as hle and mmlu_pro, graded by letter match."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.25,
+    "L": 1.0,
+    "F": 0.5,
+    "why": "Some questions need physics/chemistry calculation, but the answer is a letter, not a boxed value or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Idavidrein/gpqa (gated, auto-approve; authors ask that questions not be reposted online)",
+  "n_questions": 198,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/open-llm-leaderboard (per-model *-details datasets with samples_leaderboard_* files, open models only) (samples_leaderboard_gpqa_diamond); Epoch AI log viewer https://epoch.ai/benchmarks/gpqa-diamond; gs://crfm-helm-public/capabilities/benchmark_output (HELM Capabilities, 70 models incl. GPT-5, Gemini 3 Pro, Llama 3.1 8B, GPT-4o) runs the GPQA main subset",
+  "licence": "cc-by-4.0",
+  "overlap": "",
+  "summary": "198 hard 4-option science questions (93 chemistry, 86 physics, 19 biology) written by PhD experts; a close stand-in for the hard knowledge part of public chat (hle, mmlu_pro). Per-question outcomes exist for many models (Open LLM Leaderboard details for open models, HELM Capabilities GPQA-main for 70 models, Epoch AI logs). It was in Yugos pack v0.3.0 but is not in the live v0.4.0 pack.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/docs/leaderboards/open_llm_leaderboard/about",
+   "https://epoch.ai/benchmarks/gpqa-diamond",
+   "https://storage.googleapis.com/storage/v1/b/crfm-helm-public/o?prefix=capabilities/benchmark_output/runs/",
+   "https://huggingface.co/api/datasets/open-llm-leaderboard/Qwen__Qwen2.5-7B-Instruct-details/tree/main/Qwen__Qwen2.5-7B-Instruct",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/gpqa_diamond/gpqa_diamond.csv"
+  ],
+  "anchor_scores": null,
+  "guess_floor": 0.25,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2023
+ },
+ "hellaswag": {
+  "scores": {
+   "chat": {
+    "T": 0.6,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.2,
+    "why": "Pick the most plausible of 4 sentence endings for an everyday scene (ActivityNet/WikiHow): one prompt, letter answer, but commonsense completion rather than the knowledge or puzzle questions Yugos chat uses."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.2,
+    "why": "different skill: commonsense sentence completion, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.2,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Rowan/hellaswag (train 39,905 and validation 10,042 have labels; the 10,003 test labels are hidden)",
+  "n_questions": 10042,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/open-llm-leaderboard-old (per-model details_* datasets, open models only) (details_harness|hellaswag|10 files)",
+  "licence": null,
+  "overlap": "",
+  "summary": "4-option 'finish the sentence' commonsense questions from 2019 (Yugos catalog uses the 10,042-question validation split). Very easy for current models, so it can only stand in for the very easy private chat questions; heavily trained on. Per-sample results exist for thousands of open models in the old Open LLM Leaderboard details. Licence not stated on the HF card (GitHub page returned HTTP 451).",
+  "confidence": "medium",
+  "sources": [
+   "https://rowanzellers.com/hellaswag/",
+   "https://huggingface.co/google/gemma-2-9b",
+   "https://huggingface.co/api/datasets/open-llm-leaderboard-old/details_Corianas__Quokka_2.7b/tree/main/2023-07-19T15:58:12.174583",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/hellaswag/Rowan__hellaswag/data/",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Gemma 2 9B (pretrained, 10-shot)",
+    "score": 0.819,
+    "source": "https://huggingface.co/google/gemma-2-9b"
+   },
+   "2": {
+    "model": "GPT-4 base (10-shot, Mar 2023; nearest listed group-2 model)",
+    "score": 0.953,
+    "source": "https://rowanzellers.com/hellaswag/"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.25,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2019
+ },
+ "hle": {
+  "scores": {
+   "chat": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "It is the live hle set: same expert questions (76% exact answer, 24% multiple choice, judge graded), same text-only shape."
+   },
+   "math_code": {
+    "T": 0.45,
+    "I": 1.0,
+    "A": 0.6,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "About 45% of the text-only questions are research-level math with a closed-form exact answer (arxivmath-like), but graded by an LLM judge and mixed with non-math subjects."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle (gated; card asks not to re-share or put in training corpora; canary string)",
+  "n_questions": 2158,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "mit",
+  "overlap": "is the live Yugos hle set: only the questions outside the live sample can be used, and never for testing",
+  "summary": "2,500 expert questions, 2,158 of them text-only (counted in the local copy: 976 math, 224 CS/AI, 222 bio/med, 202 physics, 193 humanities...). It is the live Yugos hle set, so only the text-only questions outside the live 90 can train the router, never test it. No public per-model per-question outcomes found.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/cais/hle",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/hle/cais__hle/data/test-00000-of-00001.parquet",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ],
+  "anchor_scores": null,
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "hotpotqa": {
+  "scores": {
+   "chat": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "It is the live hotpotqa set: read 10 Wikipedia paragraphs (median ~1,370 tokens), multi-hop short answer plus supporting facts, joint F1."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.3,
+    "F": 0.1,
+    "why": "different skill: reading comprehension, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.1,
+    "why": "different skill: no tools (multi-hop reading only)"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/hotpotqa/hotpot_qa (distractor config: train 90,447, validation 7,405 with answers and supporting facts)",
+  "n_questions": 7405,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "cc-by-sa-4.0",
+  "overlap": "is the live Yugos hotpotqa set: only the questions outside the live sample can be used, and never for testing",
+  "summary": "2018 multi-hop Wikipedia questions with 10 given paragraphs; Yugos grades the labelled distractor validation set by joint answer+evidence F1. As the live set, only the questions outside the live 70 (plus the 90k train split) can train the router. Anchor scores are zero-shot answer scores (StreamBench, 1,500 dev questions, metric presumably EM), which is easier than Yugos's joint F1; the Yugos IRT fit puts ~91% of the live questions at L4-5 because of that strict grading.",
+  "confidence": "medium",
+  "sources": [
+   "https://hotpotqa.github.io",
+   "https://arxiv.org/html/2406.08747",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/hotpotqa/hotpotqa__hotpot_qa/distractor/validation-00000-of-00001.parquet",
+   "/root/cic/sn34-yugos/research/yugos-dataset-levels.json",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "GPT-3.5-turbo-0125 (zero-shot, answer score)",
+    "score": 0.5453,
+    "source": "https://arxiv.org/html/2406.08747"
+   },
+   "2": {
+    "model": "GPT-4o-2024-08-06 (zero-shot, answer score)",
+    "score": 0.6553,
+    "source": "https://arxiv.org/html/2406.08747"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2018
+ },
+ "ifbench": {
+  "scores": {
+   "chat": {
+    "T": 0.5,
+    "I": 1.0,
+    "A": 0.4,
+    "Dm": 0.4,
+    "L": 1.0,
+    "F": 0.9,
+    "why": "Real WildChat requests with new verifiable output constraints (median ~73 tokens): single prompt, but the answer is free text checked by constraint functions, not a short exact answer."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.9,
+    "why": "different skill: constrained writing, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/IFBench_test",
+  "n_questions": 300,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "ODC-BY-1.0 (data, per GitHub README; code Apache-2.0)",
+  "overlap": "",
+  "summary": "300 prompts from held-out WildChat with 58 new out-of-distribution constraints (format, word, count, ratio...), graded by verification functions (prompt-level loose in the paper). Fresh (2025) and checkable, but instruction following is not in any public Yugos chat set, so it can only be a guess at the private chat mix. Anchor scores are Artificial Analysis runs as stored in the step1-benchmark DB; the AA page itself only showed the top 3.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/allenai/IFBench_test",
+   "https://github.com/allenai/IFBench",
+   "https://arxiv.org/html/2507.02833",
+   "https://artificialanalysis.ai/evaluations/ifbench",
+   "http://127.0.0.1:8010/api/v1/leaderboard/63d4ffe4-aa5e-437a-9089-f4ba37a5af49 (AA-IFBench scraped)"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "mean of Llama-3.1-8B-Instruct 0.2857, Llama-3-8B-Instruct 0.2456, Mistral 7B Instruct 0.1993 (Artificial Analysis)",
+    "score": 0.2435,
+    "source": "https://artificialanalysis.ai/evaluations/ifbench"
+   },
+   "2": {
+    "model": "mean of GPT-4o 0.3599, Llama 3.1 405B Instruct 0.3905 (Artificial Analysis)",
+    "score": 0.3752,
+    "source": "https://artificialanalysis.ai/evaluations/ifbench"
+   },
+   "3": {
+    "model": "mean of GPT-5 (high) 0.7306, Gemini 3 Pro Preview (high) 0.7041, Claude Opus 4.5 0.5796 (Artificial Analysis)",
+    "score": 0.6714,
+    "source": "https://artificialanalysis.ai/evaluations/ifbench"
+   },
+   "4": {
+    "model": "Claude Fable 5 Max (Artificial Analysis)",
+    "score": 0.6347,
+    "source": "https://artificialanalysis.ai/evaluations/ifbench"
+   }
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "ifeval": {
+  "scores": {
+   "chat": {
+    "T": 0.5,
+    "I": 1.0,
+    "A": 0.4,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.35,
+    "why": "Short writing requests with verifiable format rules (median ~48 tokens), single turn, graded by rule checkers (Yugos catalog: prompt-level strict) instead of a short exact answer."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.35,
+    "why": "different skill: constrained writing, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/google/IFEval",
+  "n_questions": 541,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/open-llm-leaderboard (per-model *-details datasets with samples_leaderboard_* files, open models only) (samples_leaderboard_ifeval); gs://crfm-helm-public/capabilities/benchmark_output (HELM Capabilities, 70 models incl. GPT-5, Gemini 3 Pro, Llama 3.1 8B, GPT-4o)",
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "541 prompts like 'write a 300+ word summary with no commas and 3 highlighted sections', checked by code. Easy for current models, so it fits the very easy private chat only if that set contains instruction-following prompts (unknown; IFEval is in the Yugos catalog). Per-question outcomes are public for 70 models in HELM Capabilities and for open models in the Open LLM Leaderboard; heavily used as a training target since 2023.",
+  "confidence": "medium",
+  "sources": [
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/ifeval/google__IFEval/ifeval_input_data.jsonl",
+   "https://huggingface.co/docs/leaderboards/open_llm_leaderboard/about",
+   "https://benchlm.ai/benchmarks/ifeval",
+   "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+   "https://storage.googleapis.com/storage/v1/b/crfm-helm-public/o?prefix=capabilities/benchmark_output/runs/",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3.1 8B Instruct (reported by Meta)",
+    "score": 0.804,
+    "source": "https://benchlm.ai/benchmarks/ifeval"
+   },
+   "2": {
+    "model": "mean of GPT-4o-0513 0.843, Claude-3.5-Sonnet-1022 0.865, Llama 3.1 405B 0.860 (prompt strict)",
+    "score": 0.856,
+    "source": "https://huggingface.co/deepseek-ai/DeepSeek-V3"
+   },
+   "3": {
+    "model": "Claude Opus 4.5",
+    "score": 0.909,
+    "source": "https://benchlm.ai/benchmarks/ifeval"
+   },
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2023
+ },
+ "kor_bench": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.65,
+    "why": "Apply a newly defined rule (operator, logic rule, cipher, puzzle, counterfactual story) and give an exact answer in [[ ]] (median ~400 tokens), the same rule-following puzzle style as bbeh."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.5,
+    "Dm": 0.2,
+    "L": 1.0,
+    "F": 0.65,
+    "why": "The Operation fifth (new math operators, numeric/expression answers checked with SymPy) touches math, but it is not competition math or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.65,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/KOR-Bench/KOR-Bench/tree/main/data (sample.jsonl + rule.jsonl per category)",
+  "n_questions": 1250,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "Apache-2.0 (GitHub repo)",
+  "overlap": "",
+  "summary": "1,250 'knowledge-orthogonal' reasoning questions (5 categories x 25 rules x 10), e.g. 'Compute 4※7' after a rule defines ※, or decrypt with a given cipher; exact-match answers. A good stand-in for bbeh-style public chat reasoning; GPT-4o scores 58%, so mostly L2-L3. No per-model per-question outcomes found.",
+  "confidence": "medium",
+  "sources": [
+   "https://kor-bench.github.io",
+   "https://github.com/KOR-Bench/KOR-Bench",
+   "https://arxiv.org/abs/2410.06526",
+   "https://arxiv.org/html/2410.06526v3",
+   "https://raw.githubusercontent.com/KOR-Bench/KOR-Bench/main/data/operation/sample.jsonl"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "mean of Llama-3.1-8B-Instruct 0.372, Llama-3-8B-Instruct 0.328, Mistral-7B-Instruct-v0.3 0.2416, Gemma-2-9b-it 0.416",
+    "score": 0.3394,
+    "source": "https://arxiv.org/html/2410.06526v3"
+   },
+   "2": {
+    "model": "mean of GPT-4o-2024-05-13 0.58, GPT-4-Turbo-2024-04-09 0.5352, Claude-3.5-Sonnet 0.5896, Llama-3.1-405B-Instruct 0.5536",
+    "score": 0.5646,
+    "source": "https://arxiv.org/html/2410.06526v3"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.05,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ },
+ "livebench_reasoning": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.35,
+    "why": "Zebra puzzles, spatial reasoning and web-of-lies truth puzzles (median ~360 tokens) with exact answers: the same task families as bbeh."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "different skill: logic puzzles, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livebench/reasoning",
+  "n_questions": 200,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "40 of its 50 web_of_lies_v2 questions appear word for word (same answer) inside the live Yugos bbeh set's 'web of lies' task; drop those 40 before use.",
+  "summary": "200 public LiveBench reasoning questions (100 zebra puzzles, 50 spatial, 50 web of lies; released Jun-Nov 2024, 100 already retired) with exact answers; was in Yugos pack v0.3.0. Very close to bbeh, but 40 web-of-lies items are inside bbeh. LiveBench's public per-question judgments (livebench/model_judgment) cover only coding, language and instruction following, not reasoning.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/livebench/reasoning",
+   "https://huggingface.co/datasets/livebench/model_judgment",
+   "https://datasets-server.huggingface.co/statistics?dataset=livebench/model_judgment&config=default&split=leaderboard",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/livebench_reasoning/livebench__reasoning/data/test-00000-of-00001.parquet",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/bbeh/BBEH__bbeh/bbeh_data.json"
+  ],
+  "anchor_scores": null,
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ },
+ "lmsys_chat_1m": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.05,
+    "Dm": 0.5,
+    "L": 0.9,
+    "F": 0.4,
+    "why": "Real user chats (avg 2 turns, ~70-token prompts, 154 languages) but no reference answers or grades, so no checkable answer like Yugos chat."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.6,
+    "A": 0.05,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.4,
+    "why": "Some prompts are coding or math requests, but there are no tests or reference answers."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.4,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/lmsys/lmsys-chat-1m (gated; licence agreement)",
+  "n_questions": 1000000,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "LMSYS-Chat-1M Dataset License Agreement (research and commercial use; no redistribution)",
+  "overlap": "",
+  "summary": "1M real conversations with 25 LLMs (Apr-Aug 2023) from Vicuna demo and Chatbot Arena, each with one model's reply, language tag and moderation tag, but no quality labels or reference answers. Useful only as a picture of what real user prompts look like (a guess at private chat), not as graded router data; not decontaminated, so it may contain benchmark questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/lmsys/lmsys-chat-1m"
+  ],
+  "anchor_scores": null,
+  "guess_floor": 0.0,
+  "languages": [
+   "154 languages (English share not stated on the card)"
+  ],
+  "release_year": 2023
+ },
+ "logiqa2": {
+  "scores": {
+   "chat": {
+    "T": 0.8,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.5,
+    "L": 1.0,
+    "F": 0.4,
+    "why": "Short passage + logical-reasoning question with 4 options (~220 tokens), letter answer: close to bbeh/mmlu_pro-style reasoning MC but only one flavour (civil-service logic)."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.4,
+    "why": "different skill: verbal logic, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.4,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/csitfun/LogiQA2.0 (also on HF, e.g. datatune/LogiQA2.0)",
+  "n_questions": 1572,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "CC BY-NC-SA 4.0 (non-commercial)",
+  "overlap": "",
+  "summary": "Logical-reasoning multiple choice translated from Chinese civil-service exams (2023 TASLP paper; English MRC test = 1,572 per GLoRE), plus an NLI version. A fair stand-in for reasoning MC in public chat, but non-commercial licence and translated text; no per-question model outcomes found.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/csitfun/LogiQA2.0",
+   "https://arxiv.org/html/2310.09107v2",
+   "https://datasets-server.huggingface.co/size?dataset=datatune/LogiQA2.0"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "ChatGPT (gpt-3.5, zero-shot)",
+    "score": 0.5237,
+    "source": "https://arxiv.org/html/2310.09107v2"
+   },
+   "2": {
+    "model": "GPT-4 (2023, zero-shot; nearest listed group-2 model)",
+    "score": 0.7225,
+    "source": "https://arxiv.org/html/2310.09107v2"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.25,
+  "languages": [
+   "en",
+   "zh"
+  ],
+  "release_year": 2023
+ },
+ "longbench_v2": {
+  "scores": {
+   "chat": {
+    "T": 0.5,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.5,
+    "L": 0.02,
+    "F": 0.7,
+    "why": "Reading-comprehension multiple choice like hotpotqa, but over 8k-2M-word documents (even the 'short' bucket the Yugos catalog uses has a median ~14k words), far beyond Yugos's ~1,400-token prompts."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.02,
+    "F": 0.7,
+    "why": "different skill: 50 code-repository questions are multiple choice over huge repos, not writing code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.02,
+    "F": 0.7,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/zai-org/LongBench-v2",
+  "n_questions": 503,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "503 hard 4-option questions over very long contexts (single/multi-doc QA, long in-context learning, dialogue history, code repos, structured data). The skill is related to hotpotqa but the inputs are 10-1000x longer than any Yugos prompt, so it is a poor stand-in.",
+  "confidence": "high",
+  "sources": [
+   "https://longbench2.github.io",
+   "https://benchlm.ai/benchmarks/longbench-v2",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/longbench_v2/zai-org__LongBench-v2/data.json",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3.1 8B (w/o CoT)",
+    "score": 0.3,
+    "source": "https://longbench2.github.io"
+   },
+   "2": {
+    "model": "mean of GPT-4o-2024-08-06 0.501, Claude 3.5 Sonnet 0.410 (w/o CoT)",
+    "score": 0.4555,
+    "source": "https://longbench2.github.io"
+   },
+   "3": {
+    "model": "Claude Opus 4.5",
+    "score": 0.644,
+    "source": "https://benchlm.ai/benchmarks/longbench-v2"
+   },
+   "4": null
+  },
+  "guess_floor": 0.25,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ },
+ "medmcqa": {
+  "scores": {
+   "chat": {
+    "T": 0.75,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.4,
+    "L": 1.0,
+    "F": 0.35,
+    "why": "Short 4-option medical exam questions (~40 tokens) answered with a letter, like a medicine-only slice of mmlu_pro."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.35,
+    "why": "different skill: medical recall, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/openlifescienceai/medmcqa (train 182,822 and validation 4,183 have answers; the 6,150 test answers are hidden)",
+  "n_questions": 4183,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "Indian AIIMS/NEET-PG style medical MCQs (2022) across ~20 subjects; huge labelled train split. Narrow domain (medicine only) and old, so a moderate stand-in for the knowledge-MC part of chat. Anchors use GPT-3.5 and GPT-4 (Mar 2023) on the dev set; no per-question model outcomes found.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/openlifescienceai/medmcqa",
+   "https://datasets-server.huggingface.co/statistics?dataset=openlifescienceai/medmcqa&config=default&split=test",
+   "https://arxiv.org/pdf/2303.13375"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "GPT-3.5 (0-shot, dev)",
+    "score": 0.5008,
+    "source": "https://arxiv.org/pdf/2303.13375"
+   },
+   "2": {
+    "model": "GPT-4 (Mar 2023, 0-shot, dev; nearest listed group-2 model)",
+    "score": 0.6952,
+    "source": "https://arxiv.org/pdf/2303.13375"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.25,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2022
+ },
+ "medqa": {
+  "scores": {
+   "chat": {
+    "T": 0.8,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.45,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "USMLE clinical-vignette multiple choice (median ~200 tokens), knowledge plus reasoning with a letter answer, like the health part of mmlu_pro but medicine only."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "different skill: clinical knowledge, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/bigbio/med_qa (English: train 10,178 / dev 1,272 / test 1,273; 4- and 5-option versions); https://github.com/jind11/MedQA",
+  "n_questions": 1273,
+  "per_question_results": "yes",
+  "results_where": "gs://crfm-helm-public/lite/benchmark_output (HELM Lite med_qa runs, 95 models incl. GPT-4o, Claude 3.5 Sonnet, Llama 3.1 8B/405B)",
+  "licence": "MIT (GitHub jind11/MedQA); HF bigbio card says unknown",
+  "overlap": "",
+  "summary": "US medical licensing exam questions (2020; 12,723 English, plus Chinese sets). Frontier models score ~96% (Vals.ai archived it as saturated), so it is mostly L1-L3. HELM Lite publishes per-instance outputs for 95 models, which is useful router data for knowledge-MC chat.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/jind11/MedQA",
+   "https://huggingface.co/datasets/bigbio/med_qa",
+   "https://www.vals.ai/benchmarks/medqa",
+   "https://crfm-helm.readthedocs.io/en/latest/downloading_raw_results/",
+   "https://storage.googleapis.com/storage/v1/b/crfm-helm-public/o?prefix=lite/benchmark_output/runs/",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/medqa/bigbio__med_qa/data_clean.zip"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "mean of Llama 3.1 8B Instruct 0.6261, GPT-3.5 0.5847",
+    "score": 0.6054,
+    "source": "https://www.vals.ai/benchmarks/medqa"
+   },
+   "2": {
+    "model": "mean of GPT-4o-2024-08-06 0.8816, Claude 3.5 Sonnet 0.8319, Llama 3.1 405B 0.8824",
+    "score": 0.8653,
+    "source": "https://www.vals.ai/benchmarks/medqa"
+   },
+   "3": {
+    "model": "mean of GPT-5 0.9632, Claude Opus 4.5 (Thinking) 0.9588, Gemini 3 Pro 0.9603",
+    "score": 0.9608,
+    "source": "https://www.vals.ai/benchmarks/medqa"
+   },
+   "4": null
+  },
+  "guess_floor": 0.25,
+  "languages": [
+   "en",
+   "zh"
+  ],
+  "release_year": 2020
+ },
+ "mmlu": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.9,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "57-subject 4-option knowledge multiple choice (median ~70 tokens): the same subjects and shape as mmlu_pro (4 options instead of 10), but very old and heavily trained on."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.25,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "A few math/CS/physics subjects, but answers are letters, not boxed values or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/mmlu",
+  "n_questions": 14042,
+  "per_question_results": "yes",
+  "results_where": "gs://crfm-helm-public/mmlu/benchmark_output (HELM MMLU, 81 models incl. GPT-4o, Claude 3.5 Sonnet, Llama 3.1 8B/405B); https://huggingface.co/open-llm-leaderboard-old (per-model details_* datasets, open models only) (hendrycksTest files)",
+  "licence": "mit",
+  "overlap": "6,808 of the 6,810 MMLU-derived questions in the live Yugos mmlu_pro set's source (MMLU-Pro test, src ori_mmlu) have the same question text as MMLU test questions (options differ, 4 vs 10); remove those before use.",
+  "summary": "14,042 test questions over 57 school and professional subjects (2020). Same topics as mmlu_pro and easy for current models, with per-question outcomes for 81 models in HELM MMLU; but about half of MMLU-Pro's questions are MMLU questions, so those must be dropped.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/openai/simple-evals",
+   "https://storage.googleapis.com/storage/v1/b/crfm-helm-public/o?prefix=mmlu/benchmark_output/runs/",
+   "https://huggingface.co/datasets/cais/mmlu/resolve/main/all/test-00000-of-00001.parquet",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro/TIGER-Lab__MMLU-Pro/data/test-00000-of-00001.parquet"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3.1 8B",
+    "score": 0.684,
+    "source": "https://github.com/openai/simple-evals"
+   },
+   "2": {
+    "model": "mean of GPT-4o-2024-08-06 0.887, Claude 3.5 Sonnet 0.883, GPT-4 Turbo 0.867, Llama 3.1 405B 0.886",
+    "score": 0.8808,
+    "source": "https://github.com/openai/simple-evals"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.25,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2020
+ },
+ "mmlu_pro": {
+  "scores": {
+   "chat": {
+    "T": 1.0,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.25,
+    "why": "It is the live mmlu_pro set: 10-option multiple choice over 14 subjects, letter match."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.25,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.25,
+    "why": "The math category (11%) and TheoremQA/SciBench items need calculation, but the answer is a letter among 10 options."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.25,
+    "why": "different skill: no tools, no function calls"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro",
+  "n_questions": 12032,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/open-llm-leaderboard (per-model *-details datasets with samples_leaderboard_* files, open models only) (samples_leaderboard_mmlu_pro); gs://crfm-helm-public/capabilities/benchmark_output (HELM Capabilities, 70 models incl. GPT-5, Gemini 3 Pro, Llama 3.1 8B, GPT-4o)",
+  "licence": "mit (HF card; GitHub repo Apache-2.0)",
+  "overlap": "is the live Yugos mmlu_pro set: only the questions outside the live sample can be used, and never for testing",
+  "summary": "12,032 10-option questions (6,810 from MMLU, 4,083 STEM web, 598 TheoremQA, 541 SciBench) in 14 subjects. It is the live mmlu_pro set (40 questions per run), so only questions outside the live sample can train the router. Per-question outcomes exist for 70 models in HELM Capabilities and for open models in the Open LLM Leaderboard.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "https://huggingface.co/docs/leaderboards/open_llm_leaderboard/about",
+   "https://storage.googleapis.com/storage/v1/b/crfm-helm-public/o?prefix=capabilities/benchmark_output/runs/",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/mmlu_pro/TIGER-Lab__MMLU-Pro/data/test-00000-of-00001.parquet"
+  ],
+  "anchor_scores": null,
+  "guess_floor": 0.1,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ }
+}

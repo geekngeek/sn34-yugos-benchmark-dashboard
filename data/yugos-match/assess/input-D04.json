@@ -1,0 +1,375 @@
+{
+ "batch": "D04",
+ "rows": [
+  {
+   "id": "simpleqa_verified",
+   "name": "SimpleQA Verified",
+   "hf": "codelion/SimpleQA-Verified",
+   "url": "https://huggingface.co/datasets/codelion/SimpleQA-Verified",
+   "group": "chat",
+   "yugos": "live",
+   "list_no": "7.2",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2025-09-11",
+    "last_modified": "2025-09-11",
+    "downloads": 7018,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 1000,
+    "rows_by_split": {
+     "default/train": 1000
+    }
+   }
+  },
+  {
+   "id": "social_iqa",
+   "name": "Social IQa",
+   "hf": "allenai/social_i_qa",
+   "url": "https://allenai.org/data/socialiqa",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2025-12-01",
+    "downloads": 27689,
+    "size_category": null,
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "size_error": "timeout"
+   }
+  },
+  {
+   "id": "squad",
+   "name": "SQuAD 2.0",
+   "hf": "rajpurkar/squad_v2",
+   "url": "https://rajpurkar.github.io/SQuAD-explorer/",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "cc-by-sa-4.0"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-03-04",
+    "downloads": 51680,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 142192,
+    "rows_by_split": {
+     "squad_v2/train": 130319,
+     "squad_v2/validation": 11873
+    }
+   }
+  },
+  {
+   "id": "strategyqa",
+   "name": "StrategyQA",
+   "hf": "ChilleD/StrategyQA",
+   "url": "https://allenai.org/data/strategyqa",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2023-05-08",
+    "last_modified": "2023-08-26",
+    "downloads": 11354,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 2290,
+    "rows_by_split": {
+     "default/train": 1603,
+     "default/test": 687
+    }
+   }
+  },
+  {
+   "id": "supergpqa",
+   "name": "SuperGPQA",
+   "hf": "m-a-p/SuperGPQA",
+   "url": "https://supergpqa.github.io",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "odc-by",
+    "gated": false,
+    "created": "2025-02-20",
+    "last_modified": "2025-04-30",
+    "downloads": 26443,
+    "size_category": "10K<n<100K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 26529,
+    "rows_by_split": {
+     "default/train": 26529
+    }
+   }
+  },
+  {
+   "id": "triviaqa",
+   "name": "TriviaQA",
+   "hf": "mandarjoshi/trivia_qa",
+   "url": "https://nlp.cs.washington.edu/triviaqa/",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "unknown"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-05",
+    "downloads": 101709,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 913686,
+    "rows_by_split": {
+     "rc/train": 138384,
+     "rc/validation": 17944,
+     "rc/test": 17210,
+     "rc.nocontext/train": 138384,
+     "rc.nocontext/validation": 17944,
+     "rc.nocontext/test": 17210,
+     "rc.web/train": 76496,
+     "rc.web/validation": 9951,
+     "rc.web/test": 9509,
+     "rc.web.nocontext/train": 76496,
+     "rc.web.nocontext/validation": 9951,
+     "rc.web.nocontext/test": 9509,
+     "rc.wikipedia/train": 61888,
+     "rc.wikipedia/validation": 7993,
+     "rc.wikipedia/test": 7701,
+     "rc.wikipedia.nocontext/train": 61888,
+     "rc.wikipedia.nocontext/validation": 7993,
+     "rc.wikipedia.nocontext/test": 7701,
+     "unfiltered/train": 87622,
+     "unfiltered/validation": 11313,
+     "unfiltered/test": 10832,
+     "unfiltered.nocontext/train": 87622,
+     "unfiltered.nocontext/validation": 11313,
+     "unfiltered.nocontext/test": 10832
+    }
+   }
+  },
+  {
+   "id": "truthfulqa",
+   "name": "TruthfulQA",
+   "hf": "truthfulqa/truthful_qa",
+   "url": "https://github.com/sylinrl/TruthfulQA",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "apache-2.0"
+    ],
+    "gated": false,
+    "created": "2022-06-08",
+    "last_modified": "2024-01-04",
+    "downloads": 100727,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "multiple-choice",
+     "text-generation",
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 1634,
+    "rows_by_split": {
+     "generation/validation": 817,
+     "multiple_choice/validation": 817
+    }
+   }
+  },
+  {
+   "id": "two_wiki_multihop",
+   "name": "2WikiMultihopQA",
+   "hf": "",
+   "url": "https://github.com/Alab-NII/2wikimultihop",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "web_questions",
+   "name": "WebQuestions",
+   "hf": "stanfordnlp/web_questions",
+   "url": "https://nlp.stanford.edu/software/sempre/",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": [
+     "unknown"
+    ],
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2024-01-04",
+    "downloads": 17016,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 5810,
+    "rows_by_split": {
+     "default/train": 3778,
+     "default/test": 2032
+    }
+   }
+  },
+  {
+   "id": "wildchat",
+   "name": "WildChat-1M",
+   "hf": "allenai/WildChat-1M",
+   "url": "https://wildchat.allen.ai",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "odc-by",
+    "gated": false,
+    "created": "2024-05-03",
+    "last_modified": "2024-10-17",
+    "downloads": 37553,
+    "size_category": "100K<n<1M",
+    "task_categories": [
+     "text-generation",
+     "question-answering"
+    ],
+    "languages": [],
+    "rows_total": 837989,
+    "rows_by_split": {
+     "default/train": 837989
+    }
+   }
+  },
+  {
+   "id": "winogrande",
+   "name": "WinoGrande",
+   "hf": "allenai/winogrande",
+   "url": "https://winogrande.allenai.org",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2022-03-02",
+    "last_modified": "2025-07-11",
+    "downloads": 205808,
+    "size_category": "10K<n<100K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 81442,
+    "rows_by_split": {
+     "winogrande_debiased/train": 9248,
+     "winogrande_debiased/test": 1767,
+     "winogrande_debiased/validation": 1267,
+     "winogrande_l/train": 10234,
+     "winogrande_l/test": 1767,
+     "winogrande_l/validation": 1267,
+     "winogrande_m/train": 2558,
+     "winogrande_m/test": 1767,
+     "winogrande_m/validation": 1267,
+     "winogrande_s/train": 640,
+     "winogrande_s/test": 1767,
+     "winogrande_s/validation": 1267,
+     "winogrande_xl/train": 40398,
+     "winogrande_xl/test": 1767,
+     "winogrande_xl/validation": 1267,
+     "winogrande_xs/train": 160,
+     "winogrande_xs/test": 1767,
+     "winogrande_xs/validation": 1267
+    }
+   }
+  },
+  {
+   "id": "worldsense",
+   "name": "WorldSense",
+   "hf": "",
+   "url": "https://github.com/facebookresearch/worldsense",
+   "group": "chat",
+   "yugos": "catalog",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "zebralogic",
+   "name": "ZebraLogic",
+   "hf": "allenai/ZebraLogicBench",
+   "url": "https://huggingface.co/spaces/allenai/ZebraLogic",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2024-07-11",
+    "last_modified": "2024-07-11",
+    "downloads": 1617,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 4259,
+    "rows_by_split": {
+     "grid_mode/test": 1000,
+     "mc_mode/test": 3259
+    }
+   }
+  },
+  {
+   "id": "embedllm",
+   "name": "EmbedLLM (per-question correctness)",
+   "hf": "",
+   "url": "https://github.com/richardzhuang0412/EmbedLLM",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "helm_raw",
+   "name": "HELM raw per-instance results",
+   "hf": "",
+   "url": "https://crfm.stanford.edu/helm/",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  }
+ ]
+}

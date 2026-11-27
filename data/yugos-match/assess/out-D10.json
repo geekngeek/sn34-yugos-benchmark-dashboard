@@ -1,0 +1,717 @@
+{
+ "tau2_banking": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.2,
+    "F": 0.8,
+    "why": "different skill: multi-turn customer-service tool use, no short answer to a single question"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.2,
+    "F": 0.8,
+    "why": "different skill: policy-following tool calls, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.85,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.7,
+    "L": 0.4,
+    "F": 0.8,
+    "why": "Banking customer service with a simulated user, API tools and a 698-document knowledge base searched by a grep tool, graded on final DB state: the guessed private shape (Yugos itself ran it as a public set in v0.3.0), but retrieved documents make contexts far longer than ~2k tokens."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench (domain banking_knowledge; local copy /root/cic/sn34-yugos/research/benchmarks/catalog/tau2/inspect_evals_data/domains/banking_knowledge)",
+  "n_questions": 97,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json with task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "97 banking tasks (tau-Knowledge, 2026): the agent must find the right policy in 698 documents (~0.93 M characters, searched with grep, 10 docs per hit) and act with tools while a simulated user talks; the reward checks the final database. The hardest tau domain (mean per-task solve rate 0.28 across 25 models; 14% never solved) and costly (mean agent cost ~$2.45 per task in the public trials), with public per-trial rewards for 26 text submissions in our pull (Claude Opus 4.5 to Opus 5/Fable 5, GPT-5.2 to 5.6, Gemini 3, Qwen, GLM, Kimi, Grok). It was a Yugos public set in pack v0.3.0 (37 questions) and was removed in v0.4.0, so it is not live now.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "https://sierra-tau-bench-public.s3.amazonaws.com/?prefix=submissions/&delimiter=/",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/tau2/inspect_evals_data/domains (Yugos-pinned task files)",
+   "/root/cic/sn34-yugos/work/opendata/items.csv (family agentic, per-task solve rates)",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (per-trial rows pulled from the public S3 bucket)",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/inspect_evals/tau2 (dataset.py, banking/agents.py)"
+  ],
+  "anchor_scores": null,
+  "guess_floor": null,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2026
+ },
+ "tau2_retail": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.55,
+    "why": "different skill: multi-turn customer-service tool use, no short answer to a single question"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.55,
+    "why": "different skill: policy-following tool calls, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.9,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.7,
+    "L": 0.7,
+    "F": 0.55,
+    "why": "Retail customer service (orders, returns, exchanges) with a simulated user, 13 API tools and a 6.7 KB policy, graded on final DB state and actions: the guessed private shape and a former Yugos public set; tasks are the fixed 2025 versions of the 2024 tau-bench retail tasks, so partly seen."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench (domain retail; local copy /root/cic/sn34-yugos/research/benchmarks/catalog/tau2/inspect_evals_data/domains/retail)",
+  "n_questions": 114,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json with task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "114 retail tasks (base split; 74 train / 40 test): a simulated customer asks for exchanges, returns, cancellations or address changes and the agent must follow the policy with tool calls (1-13+ reference actions per task). Mean per-task solve rate 0.78 over 8 frontier text submissions (4 trials each, public per-trial rewards, cost and duration), about $0.11 per task. Yugos's own harness runs these exact files; it was a Yugos public set in pack v0.3.0 (14 questions), removed in v0.4.0.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "https://sierra-tau-bench-public.s3.amazonaws.com/?prefix=submissions/&delimiter=/",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/tau2/inspect_evals_data/domains (Yugos-pinned task files)",
+   "/root/cic/sn34-yugos/work/opendata/items.csv (family agentic, per-task solve rates)",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (per-trial rows pulled from the public S3 bucket)",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/inspect_evals/tau2 (dataset.py, banking/agents.py)"
+  ],
+  "anchor_scores": null,
+  "guess_floor": null,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "tau2_telecom": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.15,
+    "L": 0.2,
+    "F": 0.6,
+    "why": "different skill: multi-turn customer-service tool use, no short answer to a single question"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.2,
+    "F": 0.6,
+    "why": "different skill: policy-following tool calls, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.9,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.65,
+    "L": 0.55,
+    "F": 0.6,
+    "why": "Dual-control tech support: agent (12 tools) and simulated user (30 device tools) both act on a shared phone/account state, graded on the final state; the guessed private shape and a former Yugos public set, but policy + troubleshooting workflow (~22 KB) make the prompt several times the bfcl size."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench (domain telecom; local copy /root/cic/sn34-yugos/research/benchmarks/catalog/tau2/inspect_evals_data/domains/telecom)",
+  "n_questions": 114,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json with task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "114 base telecom tasks (2,285 in the full generated set; small split 20): mobile-data, roaming, billing and plan problems where the user must also run device actions the agent asks for. New in tau2 (2025); mean per-task solve rate 0.88 over 8 frontier submissions (no task below 0.5), so it mostly separates cheap from strong models. Per-trial results public. It was a Yugos public set in pack v0.3.0 (24 questions), removed in v0.4.0.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "https://sierra-tau-bench-public.s3.amazonaws.com/?prefix=submissions/&delimiter=/",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/tau2/inspect_evals_data/domains (Yugos-pinned task files)",
+   "/root/cic/sn34-yugos/work/opendata/items.csv (family agentic, per-task solve rates)",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (per-trial rows pulled from the public S3 bucket)",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/inspect_evals/tau2 (dataset.py, banking/agents.py)"
+  ],
+  "anchor_scores": null,
+  "guess_floor": null,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "tau_bench_v1": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.45,
+    "why": "different skill: multi-turn customer-service tool use, no short answer to a single question"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.45,
+    "why": "different skill: policy-following tool calls, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.85,
+    "I": 0.9,
+    "A": 0.7,
+    "Dm": 0.7,
+    "L": 0.7,
+    "F": 0.45,
+    "why": "Same shape as the guessed private set (airline/retail policy + API tools, simulated user, reward = final DB equals the ground-truth DB and required info said), but this is the 2024 task set the repo marks outdated (later fixed in tau2), so labels are noisier and the tasks are widely trained on."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau-bench (tau_bench/envs/airline/tasks_test.py, tau_bench/envs/retail/tasks_{test,dev,train}.py)",
+  "n_questions": 685,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/sierra-research/tau-bench/tree/main/historical_trajectories (gpt-4o and claude-3.5-sonnet-20241022 trajectories with per-task reward, airline and retail); HAL encrypted traces for 26 airline runs: https://hal.cs.princeton.edu/taubench_airline",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "Original tau-bench (June 2024): 50 airline test tasks plus retail 115 test, 20 dev and 500 train tasks (counted in the repo files), each a user instruction with the reference write actions. The 165 test tasks are the earlier versions of the tau2 airline/retail tasks (prefer tau2 for those); the 500 retail train tasks are extra tool-conversation data not in tau2. Historical per-task trajectories exist for GPT-4o and Claude 3.5 Sonnet (new).",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau-bench",
+   "https://api.github.com/repos/sierra-research/tau-bench/git/trees/main?recursive=1",
+   "https://raw.githubusercontent.com/sierra-research/tau-bench/main/tau_bench/envs/airline/tasks_test.py",
+   "https://arxiv.org/html/2406.12045",
+   "https://hal.cs.princeton.edu/taubench_airline",
+   "https://llm-stats.com/benchmarks/tau-bench-retail",
+   "https://llm-stats.com/benchmarks/tau-bench-airline"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "gpt-3.5-turbo (task-weighted: retail 0.200 x115, airline 0.108 x50)",
+    "score": 0.172,
+    "source": "https://arxiv.org/html/2406.12045"
+   },
+   "2": {
+    "model": "mean of GPT-4o (retail 0.604, airline 0.420) and Claude 3.5 Sonnet 2024-10-22 (retail 0.692, airline 0.460), task-weighted",
+    "score": 0.585,
+    "source": "https://github.com/sierra-research/tau-bench"
+   },
+   "3": {
+    "model": "Claude Sonnet 4.5, self-reported with Anthropic's prompt addendum (retail 0.862, airline 0.700), task-weighted; for comparison GPT-5 Medium airline only = 0.48 on HAL",
+    "score": 0.813,
+    "source": "https://llm-stats.com/benchmarks/tau-bench-retail"
+   },
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ },
+ "terminal_bench": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.7,
+    "why": "different skill: long shell sessions in a container, no question with a short answer"
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.7,
+    "why": "Much of it is coding/debugging/building checked by tests, but done as dozens of shell turns in a Docker container, not one prompt -> one Python function like bigcodebench/ds1000."
+   },
+   "agentic": {
+    "T": 0.5,
+    "I": 0.5,
+    "A": 0.75,
+    "Dm": 0.3,
+    "L": 0.25,
+    "F": 0.7,
+    "why": "Multi-step tool use graded on the final container state by tests, the same broad family as the guessed private set, but the tool is a full shell (no JSON schemas, no simulated user), topics are sysadmin/SWE/science, and runs grow to long contexts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench-2 (89 task folders: instruction.md, task.toml, Docker image, tests); Harbor dataset terminal-bench@2.0",
+  "n_questions": 89,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard (submissions/terminal-bench/2.0/<agent>__<model>/: 75 submission folders with per-trial result.json and verifier reward; agent harness + model pairs, mostly 2026 frontier)",
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "Terminal-Bench 2.0: 89 container tasks (e.g. 'recover lost git commits and merge them into master', compile CompCert, crack a 7z hash, train fastText) done by an agent in a terminal and checked by tests; each task carries expert/junior time estimates and its own timeouts (fix-git: 900 s). Per-trial results of 75 agent+model submissions are public on Hugging Face, but they measure harness+model pairs, and a few tasks use image/video files inside the container.",
+  "confidence": "medium",
+  "sources": [
+   "https://www.tbench.ai/",
+   "https://github.com/harbor-framework/terminal-bench-2",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2/main/README.md",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2/main/fix-git/instruction.md",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2/main/fix-git/task.toml",
+   "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+   "/root/cic/sn34-yugos/.venv/lib/python3.12/site-packages/yugos_evals/catalog.py (terminal_bench: planned)"
+  ],
+  "anchor_scores": null,
+  "guess_floor": null,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "toolace": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.5,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.5,
+    "why": "different skill: output is a function call, not an answer to a question"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.5,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.5,
+    "why": "different skill: function calling, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.8,
+    "I": 0.85,
+    "A": 0.75,
+    "Dm": 0.7,
+    "L": 0.9,
+    "F": 0.5,
+    "why": "Same task as Yugos bfcl: the system prompt is BFCL's own 'You are an expert in composing functions...' prompt with JSON tool schemas, the reply is [func(arg=val)] (AST-checkable) or a 'cannot / need more info' reply (~18% of rows); 93% single-turn, so little of the guessed multi-turn private shape."
+   }
+  },
+  "best_part": "agentic:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.6,
+    "2": 0.85,
+    "3": 0.92,
+    "4": 0.95
+   },
+   "why": "No model scores on this data (training set, no test split). Proxy: on BFCL non-live AST, which uses the same prompt and call format, GPT-4o scores 85.5% and the ToolACE-trained Llama-3.1-8B 89.3% (ToolACE paper), so most items should be L1-2; synthetic single references add some strict-match misses."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Team-ACE/ToolACE (data.json)",
+  "n_questions": 11300,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "11,300 synthetic function-calling dialogs (released subset of ToolACE, Sep 2024) over 26,507 generated APIs in 390 domains: 10,500 are one user turn -> one call/refusal; ~800 are multi-turn with tool results. Measured: median system+query ~2,350 characters, 1,993 rows whose first reply is not a call. A ready source of bfcl-style labelled items (incl. no-call cases), but no published per-model results and no stated decontamination against BFCL.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/Team-ACE/ToolACE",
+   "https://huggingface.co/datasets/Team-ACE/ToolACE/resolve/main/data.json (downloaded and profiled)",
+   "https://arxiv.org/html/2409.00920"
+  ],
+  "anchor_scores": null,
+  "guess_floor": null,
+  "languages": [
+   "en",
+   "zh"
+  ],
+  "release_year": 2024
+ },
+ "toolbench": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.3,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: multi-step real-API tool use"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.3,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: API calling, no math or code"
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.6,
+    "A": 0.35,
+    "Dm": 0.5,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "Multi-step calls to RapidAPI tools from a single user query, but no simulated user, no end-state or AST check (ChatGPT/GPT-4 judges 'pass' and 'win rate'), unstable live APIs (StableToolBench caches/simulates them), and 2023 data heavily used for training."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/OpenBMB/ToolBench (data download links in README; solvable test subsets in https://github.com/THUNLP-MT/StableToolBench)",
+  "n_questions": 1100,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/OpenBMB/ToolBench (reproduction_data.zip: per-query answers of chatgpt_cot, chatgpt_dfs, toolllama_dfs and others; 2023 models only)",
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "ToolBench (2023): 126,486 instruction instances over 16,464 RapidAPI APIs (3,451 tools, 49 categories) with ChatGPT DFSDT solution paths; the 6 test groups hold 1,100 queries, of which StableToolBench keeps 765 judged solvable. Grading is an LLM judge on pass/win rate, and scores barely rise with model strength (GPT-3.5 vs GPT-4-Turbo 0.47 vs 0.53), so it is a weak difficulty signal; mainly useful as extra multi-step tool-use prompts.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/OpenBMB/ToolBench",
+   "https://github.com/THUNLP-MT/StableToolBench",
+   "https://arxiv.org/html/2403.07714"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "GPT-3.5-Turbo-0613 (CoT), StableToolBench solvable pass rate, avg of 6 groups",
+    "score": 0.466,
+    "source": "https://github.com/THUNLP-MT/StableToolBench"
+   },
+   "2": {
+    "model": "GPT-4-Turbo-Preview (CoT), StableToolBench solvable pass rate, avg of 6 groups",
+    "score": 0.531,
+    "source": "https://github.com/THUNLP-MT/StableToolBench"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2023
+ },
+ "toolhop": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.55,
+    "L": 0.9,
+    "F": 0.45,
+    "why": "Without tools ('Direct' mode) each item is a closed-book multi-hop factual question with an extra arithmetic/letter-count hop and a short answer, like a mix of hotpotqa and simpleqa, though it is meant to be answered through tools."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.6,
+    "A": 0.3,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.5,
+    "why": "different skill: 60% of answers are numbers, but only simple counting/arithmetic after fact look-ups"
+   },
+   "agentic": {
+    "T": 0.65,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.8,
+    "F": 0.55,
+    "why": "Real multi-step tool use (3-7 locally executable tools per query, each hop depends on the last result), but no user conversation and the grade is the final short answer (containment match), not end state or call AST; tools are per-question synthetic trivia tools."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/bytedance-research/ToolHop (data/ToolHop.json)",
+  "n_questions": 995,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "CC BY 4.0 (data); Apache-2.0 (code)",
+  "overlap": "Possible: built on MoreHopQA, which extends HotpotQA / 2WikiMultihopQA / MuSiQue questions, so some base hops may be HotpotQA items that Yugos's live hotpotqa set also samples (not checked).",
+  "summary": "995 multi-hop questions (Jan 2025, ACL 2025) with 3,912 executable Python tools; e.g. 'How many letters (exclude the first and last) are in the first name of the person who designed the park linking Salisbury Woodland Gardens with a zoo?' -> '4'. Measured prompt ~5,500 characters (question + tool schemas). Scores plateau near 0.5 even for 2025-26 models in mandatory-tool mode (GPT-5.4 0.54, Claude Opus 4.6 0.54), which hints at noisy items; only aggregate scores are published.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/bytedance-research/ToolHop",
+   "https://huggingface.co/datasets/bytedance-research/ToolHop/resolve/main/data/ToolHop.json (downloaded and profiled)",
+   "https://huggingface.co/datasets/bytedance-research/ToolHop/resolve/main/code/evaluation_closed.py",
+   "https://huggingface.co/spaces/Junjie-Ye/ToolHop (index.html leaderboardData)",
+   "https://huggingface.co/datasets/alabnii/morehopqa"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "LLaMA3.1-Instruct-8B (Mandatory tool use)",
+    "score": 0.1276,
+    "source": "https://huggingface.co/spaces/Junjie-Ye/ToolHop"
+   },
+   "2": {
+    "model": "GPT-4o (Mandatory tool use; Claude 3.5 Sonnet 0.399)",
+    "score": 0.4904,
+    "source": "https://huggingface.co/spaces/Junjie-Ye/ToolHop"
+   },
+   "3": {
+    "model": "GPT-5.1 (Mandatory tool use)",
+    "score": 0.4734,
+    "source": "https://huggingface.co/spaces/Junjie-Ye/ToolHop"
+   },
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "toolsandbox": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.3,
+    "A": 0.1,
+    "Dm": 0.15,
+    "L": 0.6,
+    "F": 0.5,
+    "why": "different skill: stateful tool conversations with a simulated user"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.3,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.6,
+    "F": 0.5,
+    "why": "different skill: tool use (a math tool exists, but no math to solve)"
+   },
+   "agentic": {
+    "T": 0.85,
+    "I": 0.9,
+    "A": 0.7,
+    "Dm": 0.5,
+    "L": 0.8,
+    "F": 0.5,
+    "why": "Stateful, conversational tool use with an LLM user simulator, 34 Python tools and scoring on world-state milestones and minefields, close to the guessed private shape; but it scores partial similarity rather than pass/fail, and topics are phone-assistant tasks (contacts, messages, reminders, settings), not policy-bound customer service."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/apple/ToolSandbox (tool_sandbox/scenarios/*.py)",
+  "n_questions": 1032,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "Apple Software License (custom permissive terms in the repo LICENSE)",
+  "overlap": "",
+  "summary": "1,032 Apple-written scenarios (2024) over 34 tools in 11 domains: single/multiple tool calls, multi-turn users, state dependency (e.g. turn cellular on before sending a message), canonicalisation and insufficient-information cases; scenarios average ~14 turns (GPT-4o). Good extra source for multi-turn tool tasks with state checks; scenarios are defined in code and need its runner and a user-simulator LLM; no per-scenario results are published.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/apple/ToolSandbox",
+   "https://github.com/apple/ToolSandbox/tree/main/tool_sandbox/scenarios",
+   "https://raw.githubusercontent.com/apple/ToolSandbox/main/LICENSE",
+   "https://arxiv.org/html/2408.04682"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "mean of GPT-3.5-Turbo-0125 (0.656) and Mistral-7B-Instruct-v0.3 (0.298), average similarity",
+    "score": 0.477,
+    "source": "https://arxiv.org/html/2408.04682"
+   },
+   "2": {
+    "model": "GPT-4o-2024-05-13, average similarity",
+    "score": 0.73,
+    "source": "https://arxiv.org/html/2408.04682"
+   },
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ },
+ "when2call": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.25,
+    "why": "mostly different skill: the task is the tool-use decision, though the replies are short chat turns"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.3,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.25,
+    "why": "different skill: tool-use decisions"
+   },
+   "agentic": {
+    "T": 0.7,
+    "I": 0.85,
+    "A": 0.45,
+    "Dm": 0.85,
+    "L": 0.9,
+    "F": 0.25,
+    "why": "BFCL Live questions with JSON tool specs, rewritten so the right move is to call, ask for a missing parameter, or say it cannot be done: the core of bfcl's ~31% no-call items, but graded as a 4-way choice (log-prob MCQ or LLM judge), not a generated call matched by AST."
+   }
+  },
+  "best_part": "agentic:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/nvidia/When2Call (test/when2call_test_mcq.jsonl 3,652; test/when2call_test_llm_judge.jsonl 300; train_sft 15,000; train_pref 9,000)",
+  "n_questions": 3652,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "CC BY 4.0",
+  "overlap": "Every test item is built from a BFCL v2 Live question (source_id e.g. live_multiple_0-0-0: 2,901 Live Multiple, 751 Live Simple), the same pools Yugos's live bfcl set samples (live_simple, live_multiple); match source_id to the Yugos bfcl sample and never test on these.",
+  "summary": "NVIDIA When2Call (2025): 3,652 test items (1,295 tool_call, 1,062 request_for_info, 1,295 cannot_answer; 258 with no tools), each with four written candidate replies; median prompt ~2,500 characters. Teaches the 'call or not' choice behind bfcl's no-call cases; the 24k training rows come from xLAM-60k instead of BFCL, so they are free of overlap. Only aggregate scores found (paper/GitHub, Artificial Analysis).",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/nvidia/When2Call",
+   "https://huggingface.co/datasets/nvidia/When2Call/resolve/main/test/when2call_test_mcq.jsonl (downloaded and profiled)",
+   "https://github.com/NVIDIA/When2Call",
+   "https://artificialanalysis.ai/evaluations/when2call",
+   "/root/sjh/yugos/step1-benchmark/data/artificial-analysis/json/decision-index.json (from https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index, fetched 2026-11-25)"
+  ],
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3.1 8B Instruct (log-prob MCQ, length-normed accuracy)",
+    "score": 0.442,
+    "source": "https://github.com/NVIDIA/When2Call"
+   },
+   "2": {
+    "model": "GPT-4o (LLM-as-judge, 300-item subset)",
+    "score": 0.613,
+    "source": "https://github.com/NVIDIA/When2Call"
+   },
+   "3": null,
+   "4": {
+    "model": "GPT-6 Luna (Max), Artificial Analysis 3,423-task MCQ accuracy (Claude Haiku 5.5 Max 0.814)",
+    "score": 0.8177,
+    "source": "https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index"
+   }
+  },
+  "guess_floor": 0.25,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025
+ },
+ "xlam_fc60k": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.5,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: output is a function call, not an answer"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.5,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.8,
+    "F": 0.45,
+    "why": "different skill: function calling (some math-tool queries, but the call is the answer)"
+   },
+   "agentic": {
+    "T": 0.8,
+    "I": 0.85,
+    "A": 0.75,
+    "Dm": 0.65,
+    "L": 0.85,
+    "F": 0.45,
+    "why": "Same task as Yugos bfcl single-turn: query + JSON tool list -> list of calls with arguments (simple, multiple, parallel, parallel-multiple), checkable by AST against an execution-verified reference; but no no-call items (bfcl ~31%), no multi-turn, and 2024 data used widely for training."
+   }
+  },
+  "best_part": "agentic:public",
+  "level_guess": {
+   "cdf": {
+    "1": 0.7,
+    "2": 0.9,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "why": "No model scores on this data (training set). Every answer was generated by DeepSeek-V2-Chat or Mixtral-8x22B (2024 open models) and passed format, execution and semantic checks, and >95% of 600 sampled items were judged correct, so most items are solvable by L1-2 models; strict single-reference matching may lower that somewhat."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/Salesforce/xlam-function-calling-60k (gated: auto-approved after accepting terms; xlam_function_calling_60k.json)",
+  "n_questions": 60000,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "cc-by-4.0",
+  "overlap": "",
+  "summary": "APIGen xLAM-60k (June 2024): 60,000 synthetic single-turn function-calling items over 3,673 executable APIs in 21 categories (3,539 REST APIs from ToolBench/RapidAPI + 134 Python functions), each answer verified by format, execution and an LLM semantic check. A large, clean source of bfcl-style call items with references; it lacks irrelevance (no-call) cases and has no published per-model results; rows not opened here because the dataset is gated.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/Salesforce/xlam-function-calling-60k (README)",
+   "https://apigen-pipeline.github.io"
+  ],
+  "anchor_scores": null,
+  "guess_floor": null,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024
+ }
+}

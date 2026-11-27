@@ -1,0 +1,810 @@
+{
+ "llmrouterbench": {
+  "scores": {
+   "chat": {
+    "T": 0.75,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.85,
+    "L": 0.9,
+    "F": 0.2,
+    "why": "About three quarters of its ~23k questions are chat-style knowledge/reasoning sets with exact, MC or judge grading, and they include Yugos's own HLE text pool, SimpleQA and MMLU-Pro."
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.5,
+    "L": 0.85,
+    "F": 0.4,
+    "why": "Only ~18% is math or code (AIME, MATH500, MathBench, LiveMathBench, LiveCodeBench, HumanEval, MBPP, SWE-bench); no bigcodebench/ds1000-style library code."
+   },
+   "agentic": {
+    "T": 0.12,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.5,
+    "L": 0.2,
+    "F": 0.5,
+    "why": "Only 278 tau2-bench tasks (airline/retail/telecom, end-state reward, per-model cost) plus 500 SWE-bench runs; no single-turn function-calling items."
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench (bench-release.tar.gz, 1.28 GB; prompts and ground truth are inside each record)",
+  "n_questions": 22967,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+  "licence": "MIT",
+  "overlap": "Contains live Yugos sets: HLE text-only (all 2,158 = the whole Yugos hle pool), SimpleQA original (4,326, superset of simpleqa_verified), MMLU-Pro (3,000 and 1,000-question samples), MATH500 (from the MATH test set). Use them only as training signal, never for testing.",
+  "summary": "548,059 per-question records (computed from the release) over 27 dataset folders and ~39 model configs: 20 ~8B open models (Llama-3.1-8B, Qwen3-8B, Gemma-2-9B...) on 15 classic sets, and 13 flagship API models (GPT-5 medium, GPT-5-chat, Claude Sonnet 4, Gemini 2.5 Pro/Flash, DeepSeek V3/V3.1/R1, Qwen3-235B, GLM-4.6, Kimi K2, Intern-S1; plus GPT-4.1, Claude Opus 4.1 on SWE-bench, OpenRouter auto) on AIME, LiveMathBench, LiveCodeBench, SWE-bench Verified, GPQA, HLE, MMLU-Pro, SimpleQA, ArenaHard, tau2. Each record stores prompt, full raw answer, prediction, ground truth, score, prompt/completion tokens and cost (latency only per file). Newest models are late 2025; no 2026 models. Best modern outcome matrix with cost for chat-type questions.",
+  "confidence": "high",
+  "anchor_scores": {
+   "1": {
+    "model": "Llama-3.1-8B-Instruct",
+    "score": 0.237,
+    "source": "https://huggingface.co/datasets/NPULH/LLMRouterBench (computed from per-question files: 3,185 questions both models ran: AIME, GPQA, LiveCodeBench, LiveMathBench, MMLU-Pro 1k, ArenaHard)"
+   },
+   "2": null,
+   "3": {
+    "model": "GPT-5 (medium)",
+    "score": 0.819,
+    "source": "https://huggingface.co/datasets/NPULH/LLMRouterBench (same 3,185-question subset; on the full 12,446-question flagship set GPT-5 averages 0.585)"
+   },
+   "4": null
+  },
+  "guess_floor": 0.05,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025,
+  "sources": [
+   "https://github.com/ynulihao/LLMRouterBench (README)",
+   "https://huggingface.co/datasets/NPULH/LLMRouterBench",
+   "https://huggingface.co/datasets/NPULH/LLMRouterBench/resolve/main/LICENSE",
+   "bench-release.tar.gz downloaded and counted (records, models, fields, per-model scores, prompt tokens)"
+  ]
+ },
+ "routereval": {
+  "scores": {
+   "chat": {
+    "T": 0.65,
+    "I": 0.9,
+    "A": 0.55,
+    "Dm": 0.7,
+    "L": 0.8,
+    "F": 0.15,
+    "why": "Mostly old knowledge/reasoning multiple choice (MMLU, MMLU-Pro, HellaSwag, BBH, GPQA, ARC, Winogrande, TruthfulQA, MuSR) scored the Open LLM Leaderboard way (mostly log-likelihood option choice, few-shot), not generated short answers."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.9,
+    "A": 0.6,
+    "Dm": 0.4,
+    "L": 0.8,
+    "F": 0.15,
+    "why": "Only ~5% math (MATH Level 5 1,324, GSM8K 1,319) and no code."
+   },
+   "agentic": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.15,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": {
+   "cdf": {
+    "1": 0.55,
+    "2": 0.8,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "why": "Weighted by its question counts the mix is dominated by MMLU, MMLU-Pro and HellaSwag; seen small-model scores: Llama-3.1-8B-Instruct MMLU-Pro 0.44 (TIGER files), ARC-C 0.86, BBH 0.59, Winogrande 0.61 (LLMRouterBench files); GPT-4o MMLU-Pro 0.75; MATH Lvl5 and GPQA are the only hard parts."
+  },
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/linggm/RouterEval (leaderboard_prompt.zip, router_dataset.zip)",
+  "n_questions": 50265,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/linggm/RouterEval (leaderboard_score.zip: score records; full_data/: per-model raw answers, ~400 GB)",
+  "licence": "MIT",
+  "overlap": "Contains the full MMLU-Pro test (12,032, the live Yugos mmlu_pro pool) and MATH Level 5 (from the MATH test set, live math); BBH is not BBEH.",
+  "summary": "Per-question correctness for 8,576 open models (Open LLM Leaderboard v1/v2 'details', models up to early 2025: Qwen2.5, Phi-4, QwQ, R1 distills; no proprietary or late-2025 models) on 12 benchmarks, ~50k questions (paper Table 4), 200M+ records, plus pre-computed embeddings; Oct 2025 added raw answers per model (full_data, 3,284-5,116 model files per benchmark). No tokens, cost or latency. Useful only as a very sharp item-difficulty prior on old MC sets; scores are pickled (score/prompt zips are .pkl, which must be opened with care).",
+  "confidence": "medium",
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.2,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025,
+  "sources": [
+   "https://github.com/MilkThink-Lab/RouterEval (README)",
+   "https://arxiv.org/html/2503.10657 (Table 4)",
+   "https://huggingface.co/api/datasets/linggm/RouterEval/tree/main/full_data (file counts per benchmark)",
+   "https://huggingface.co/datasets/linggm/RouterEval"
+  ]
+ },
+ "matharena_outputs": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.6,
+    "why": "Hard competition and research math with a short exact answer resembles the math share of HLE, but chat is mostly puzzles, reading, facts and MC."
+   },
+   "math_code": {
+    "T": 0.8,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.7,
+    "L": 0.9,
+    "F": 0.6,
+    "why": "Boxed/closed-form competition math (AIME, HMMT, SMT, BRUMO, CMIMC, APEX, SmallMath) and the ArXivMath source of the live arxivmath set; ~7% is image-based Kangaroo, ~15% BrokenArxiv, and there is no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.6,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/MathArena (question sets such as MathArena/aime_2025, MathArena/smallmath, MathArena/arxivmath-MMYY)",
+  "n_questions": 11212,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/MathArena (50 *_outputs datasets)",
+  "licence": "cc-by-nc-sa-4.0 (competitions); cc-by-sa-4.0 (arxivmath, brokenarxiv, arxivlean); cc-by-4.0 (training sets); kangaroo_2025_5-6_outputs has no licence tag",
+  "overlap": "Contains the live Yugos arxivmath set: the 8 pinned monthly sets (arxivmath-1225, 0126, 0226, 0326, 0426, 0526, 0626, 0826 = 287 questions, 24,927 output rows); exclude them from testing. arxivmath-0926/1026 are newer and not in v0.4.0. No overlap with MATH found (2025-2026 competitions).",
+  "summary": "50 *_outputs datasets (counted 2026-11-27): 184,997 answer rows, 11,212 problem ids summed over sets (some sets repeat others, e.g. aime_2025 = I+II; training sets have 1 model), 178 model configs, up to 4 samples each. Families: 14 final-answer competitions (104,929 rows; incl. SmallMath: 600 graded-level 2026 problems answered by Yugos-menu-like models at low effort: GPT-6.1 Sol/Terra, GPT-6.2 Sol/Astra, GPT-6 Luna, Claude Haiku/Sonnet/Opus 5.5, Gemini 4 Hydrogen/Carbon, DeepSeek V4.1 Flash), 11 arxivmath (36,558), 10 brokenarxiv (27,815), 6 Kangaroo image sets (13,661), 6 proof contests (739), 3 arxivlean (1,295). Each row stores full messages, parsed answer, correct, input/output tokens, cost and prices (no latency). The best per-question math source, with Nov-2026 frontier models.",
+  "confidence": "high",
+  "anchor_scores": {
+   "1": null,
+   "2": {
+    "model": "GPT-4o",
+    "score": 0.117,
+    "source": "https://huggingface.co/datasets/MathArena/aime_2025_outputs (computed from per-answer 'correct'; AIME 2025, 30 problems)"
+   },
+   "3": {
+    "model": "GPT-5 (high)",
+    "score": 0.95,
+    "source": "https://huggingface.co/datasets/MathArena/aime_2025_outputs (computed; Gemini 3 Pro preview also 0.95)"
+   },
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2026,
+  "sources": [
+   "https://huggingface.co/api/datasets?author=MathArena (114 datasets, 50 *_outputs)",
+   "https://datasets-server.huggingface.co/parquet?dataset=MathArena/aime_2026_outputs (all 50 outputs parquet files downloaded and counted)",
+   "https://huggingface.co/datasets/MathArena/smallmath",
+   "https://matharena.ai/"
+  ]
+ },
+ "lcb_performances": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 1.0,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.8,
+    "F": 0.7,
+    "why": "different skill: competitive programming with hidden tests"
+   },
+   "math_code": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.55,
+    "L": 0.9,
+    "F": 0.7,
+    "why": "Contest coding problems (AtCoder 602, LeetCode 444, Codeforces 9) graded by hidden tests; Yugos code is library-heavy function writing (bigcodebench, ds1000), so domain overlap is partial."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+  "n_questions": 1055,
+  "per_question_results": "yes",
+  "results_where": "https://livecodebench.github.io/performances_generation.json (also build/v5.json in https://github.com/LiveCodeBench/livecodebench.github.io)",
+  "licence": null,
+  "overlap": "",
+  "summary": "Per-problem pass@1 (%) for 28 models on 1,055 LiveCodeBench problems (May 2023-Apr 2025; easy 322 / medium 383 / hard 350) - 29,540 rows; v5.json adds 880 problems x 35 models (o1, R1-Preview, Kimi k1.6...). Models: GPT-4o, GPT-4-Turbo, Claude 3.5 Sonnet, Claude 3 Haiku, o3/o4-mini (low-high), Gemini 2.5 Pro/Flash, Claude Opus/Sonnet 4 (+thinking), DeepSeek-R1-0528/V3, Qwen3-235B. Only question id, date, difficulty, platform and pass@1 are stored: no tokens, cost or answers. Site last updated 2025-08-01, so no late-2025/2026 models; licence of the results file not stated.",
+  "confidence": "high",
+  "anchor_scores": {
+   "1": {
+    "model": "Llama-3.1-8B-Instruct",
+    "score": 0.168,
+    "source": "https://huggingface.co/datasets/NPULH/LLMRouterBench (same 1,055 LiveCodeBench problems, computed from per-question files)"
+   },
+   "2": {
+    "model": "GPT-4o-2024-08-06",
+    "score": 0.383,
+    "source": "https://livecodebench.github.io/performances_generation.json (computed mean pass@1)"
+   },
+   "3": {
+    "model": "GPT-5 (medium)",
+    "score": 0.864,
+    "source": "https://huggingface.co/datasets/NPULH/LLMRouterBench (same 1,055 problems, computed)"
+   },
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025,
+  "sources": [
+   "https://github.com/LiveCodeBench/livecodebench.github.io (cloned; build/performances_generation.json, build/v5.json, leaderboard.html)",
+   "https://livecodebench.github.io/performances_generation.json",
+   "https://huggingface.co/api/datasets/livecodebench/code_generation_lite",
+   "https://huggingface.co/datasets/NPULH/LLMRouterBench"
+  ]
+ },
+ "tau2_submissions": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: multi-turn customer-service tool use"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: tool use, no math or code"
+   },
+   "agentic": {
+    "T": 0.9,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.7,
+    "L": 0.6,
+    "F": 0.6,
+    "why": "Multi-turn tasks with a simulated user, policies and tools, graded on end state (DB check plus action checks) - the guessed shape of private agentic; long policy+tool prompts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench (data/tau2/domains: airline, retail, telecom, banking_knowledge)",
+  "n_questions": 375,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/?list-type=2&prefix=submissions/ (submissions/<name>/trajectories/...)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "Public S3 bucket with 94 submission folders; 30 text submissions (tau2 v1.0.1) ship full trajectories: 4 trials per task, each simulation file has reward and reward_info, agent and user cost, duration, and all messages. 9 cover airline 50 / retail 114 / telecom 114 (Claude Opus 4.5, Sonnet 4.5, GPT-5.2 high and none, Gemini 3 Pro/Flash, GLM-5, Qwen3.5-397B; plus RAFT-30B retail); 21 more cover only banking_knowledge (97 tasks), incl. 2026 frontier models (GPT-5.4/5.5/5.6-Sol, Claude Opus 4.6-5, Fable 5, Kimi K3, GLM-5.2, Grok 4.5, Qwen 3.8 Max). 16 legacy submissions have scores only; ~40 voice submissions are audio. Best public per-task agentic outcomes, with cost and time.",
+  "confidence": "high",
+  "anchor_scores": {
+   "1": {
+    "model": "Llama 3.1 Instruct 8B",
+    "score": 0.1637,
+    "source": "https://artificialanalysis.ai (tau2-bench telecom as run by AA; data/artificial-analysis/benchmarks.csv (scraped from https://artificialanalysis.ai))"
+   },
+   "2": {
+    "model": "GPT-4o (Aug '24)",
+    "score": 0.2894,
+    "source": "https://artificialanalysis.ai (tau2 telecom; data/artificial-analysis/benchmarks.csv (scraped from https://artificialanalysis.ai))"
+   },
+   "3": {
+    "model": "GPT-5 (High)",
+    "score": 0.8479,
+    "source": "https://artificialanalysis.ai (tau2 telecom; data/artificial-analysis/benchmarks.csv (scraped from https://artificialanalysis.ai))"
+   },
+   "4": {
+    "model": "Claude Fable 5 (Max)",
+    "score": 0.9853,
+    "source": "https://artificialanalysis.ai (tau2 telecom; data/artificial-analysis/benchmarks.csv (scraped from https://artificialanalysis.ai))"
+   }
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2026,
+  "sources": [
+   "https://raw.githubusercontent.com/sierra-research/tau2-bench/main/README.md",
+   "https://raw.githubusercontent.com/sierra-research/tau2-bench/main/docs/leaderboard-submission.md",
+   "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/manifest.json",
+   "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/<name>/submission.json (all 46 text/legacy read)",
+   "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/claude-fable-5_sierra_2026-08-04/trajectories/banking_knowledge/results.json"
+  ]
+ },
+ "wildbench_results": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.7,
+    "A": 0.3,
+    "Dm": 0.5,
+    "L": 0.8,
+    "F": 0.4,
+    "why": "Real-user open-ended requests (27% multi-turn) scored 1-10 by a GPT-4o checklist judge with no reference answer, unlike Yugos's exact/MC/F1 chat items."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.7,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 0.8,
+    "F": 0.4,
+    "why": "About a quarter is coding/math help (Coding & Debugging 170, Math 87) but open-ended and judge-scored, not boxed answers or unit tests."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.4,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/allenai/WildBench (v2: 1,024; v2-hard: 256)",
+  "n_questions": 1024,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/allenai/WildBench/tree/main/eval_results (score.v2 per-task judge scores and outputs; pairwise.v2); outputs also in https://huggingface.co/datasets/allenai/WildBench-V2-Model-Outputs",
+  "licence": "CC BY 4.0",
+  "overlap": "",
+  "summary": "1,024 WildChat tasks (Info seeking 182, Coding 170, Creative 146, Reasoning 133, Planning 116, Math 87, Editing 82, ...; 748 single-turn, up to 9 turns) with per-task checklists. Per-task results: model output plus GPT-4o judge score (1-10) for ~63 models, and pairwise rewards vs GPT-4-Turbo/Claude-3-Haiku/Llama-2-70B; newest models are mid-2024 (GPT-4o, Claude 3.5 Sonnet, Gemini 1.5, Llama 3 70B, Mistral Large 2); repo last updated 2024-08-01. No tokens, cost or correctness. Weak router signal for the very easy private chat part only.",
+  "confidence": "medium",
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024,
+  "sources": [
+   "https://raw.githubusercontent.com/allenai/WildBench/main/README.md",
+   "https://github.com/allenai/WildBench (blobless clone: eval_results tree)",
+   "https://raw.githubusercontent.com/allenai/WildBench/main/eval_results/v2.0625/score.v2/eval=gpt-4o-2024-05-13/gpt-4o-2024-05-13.json",
+   "https://huggingface.co/datasets/allenai/WildBench (card, column stats)"
+  ]
+ },
+ "mmlu_pro_eval_results": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.7,
+    "L": 0.8,
+    "F": 0.2,
+    "why": "It is MMLU-Pro itself: 10-option MC over 14 subjects, the live mmlu_pro chat set; the TIGER runs use 5-shot CoT prompts (longer than Yugos's)."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 0.8,
+    "F": 0.2,
+    "why": "Math/physics/engineering MC questions only; no boxed answers or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.2,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro",
+  "n_questions": 12032,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results",
+  "licence": "MIT (dataset); Apache-2.0 (repo)",
+  "overlap": "is the live Yugos mmlu_pro set: only the questions outside the live sample can be used, and never for testing",
+  "summary": "48 zipped per-model result files, each with all 12,032 questions: question, options, answer, category, prediction and the full CoT output (no tokens or cost). Models are mostly 2024 (Llama 2/3/3.1, Mistral/Mixtral, Qwen1.5, Yi, Gemma, GPT-4o, GPT-4o-mini, Claude 3.5 Sonnet/Haiku, Gemini 1.5) plus Gemini 3.1 Pro (2026; accuracy 0.912 computed). Router-useful as a difficulty prior on the exact live question pool, not for testing.",
+  "confidence": "high",
+  "anchor_scores": {
+   "1": {
+    "model": "Llama-3.1-8B-Instruct",
+    "score": 0.442,
+    "source": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results (computed from model_outputs_Meta-Llama-3_1-8B-Instruct_5shots.zip)"
+   },
+   "2": {
+    "model": "GPT-4o-2024-08-06",
+    "score": 0.747,
+    "source": "https://github.com/TIGER-AI-Lab/MMLU-Pro/tree/main/eval_results (computed; Claude 3.5 Sonnet 1022: 0.776)"
+   },
+   "3": {
+    "model": "Gemini 3 Pro Preview (High)",
+    "score": 0.898,
+    "source": "https://artificialanalysis.ai (AA-MMLU-Pro; data/artificial-analysis-scraped.json, scraped from Artificial Analysis)"
+   },
+   "4": null
+  },
+  "guess_floor": 0.1,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2024,
+  "sources": [
+   "https://github.com/TIGER-AI-Lab/MMLU-Pro (blobless clone, eval_results listing; last commit 2026-03-18)",
+   "https://raw.githubusercontent.com/TIGER-AI-Lab/MMLU-Pro/main/eval_results/ (4 zips downloaded and scored)",
+   "https://huggingface.co/api/datasets/TIGER-Lab/MMLU-Pro"
+  ]
+ },
+ "aa_omniscience_public": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 1.0,
+    "why": "Closed-book expert fact questions with one short exact answer, judged against a gold answer like simpleqa_verified, but professional domains (finance, law, health, software, science) and abstaining is rewarded."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 1.0,
+    "why": "different skill: fact recall"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 1.0,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/ArtificialAnalysis/AA-Omniscience-Public",
+  "n_questions": 600,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "600 public questions (10% of 6,000; domain, topic, subtopic, question, short answer) across 6 domains / 42 topics, built by a question-generation agent to be expert-hard and unambiguous; graded correct/incorrect/partial/not-attempted by Gemini 2.5 Flash. A fresh hard stand-in for simpleqa-type and HLE-knowledge items; only aggregate scores are published (full set).",
+  "confidence": "high",
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": {
+    "model": "GPT-5 (high)",
+    "score": 0.39,
+    "source": "https://arxiv.org/html/2511.13029 (accuracy on the full 6,000; Grok 4 also 39%)"
+   },
+   "4": {
+    "model": "Claude Fable 5.2 (Max)",
+    "score": 0.791,
+    "source": "https://artificialanalysis.ai/evaluations/omniscience (AA-Omniscience accuracy, full set; data/artificial-analysis/benchmarks.csv (scraped from https://artificialanalysis.ai))"
+   }
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025,
+  "sources": [
+   "https://huggingface.co/datasets/ArtificialAnalysis/AA-Omniscience-Public (card, first rows)",
+   "https://arxiv.org/html/2511.13029",
+   "data/artificial-analysis/benchmarks.csv (scraped from https://artificialanalysis.ai)"
+  ]
+ },
+ "automationbench": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.95,
+    "why": "different skill: multi-step business tool workflows"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.95,
+    "why": "different skill: tool use"
+   },
+   "agentic": {
+    "T": 0.8,
+    "I": 0.75,
+    "A": 0.85,
+    "Dm": 0.6,
+    "L": 0.4,
+    "F": 0.95,
+    "why": "Autonomous multi-step workflows over 47 simulated SaaS tools graded by end-state assertions - close to the guessed private agentic shape, but no simulated user and large tool sets."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://github.com/zapier/AutomationBench (automationbench/domains/*/tasks.py)",
+  "n_questions": 600,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "Public set: 600 scored tasks (100 each in sales, marketing, operations, support, finance, HR) plus 200 'simple' 1-2 step tasks; each seeds a simulated business environment (CRM, inbox, calendar...) and checks final state with assertions (strict pass and partial credit). The official leaderboard uses a harder private set. Only aggregate pass rates are published (e.g. public set: Claude Opus 5 max 50.3%, GPT-5.6 Sol 45.8%).",
+  "confidence": "medium",
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": {
+    "model": "Claude Opus 5 (max)",
+    "score": 0.503,
+    "source": "https://github.com/zapier/AutomationBench (README, public 600-task set)"
+   }
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2026,
+  "sources": [
+   "https://raw.githubusercontent.com/zapier/AutomationBench/main/README.md",
+   "https://github.com/zapier/AutomationBench (blobless clone: domains/*/tasks.py, no result files)",
+   "https://raw.githubusercontent.com/zapier/AutomationBench/main/LICENSE"
+  ]
+ },
+ "enterpriseops_gym": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.95,
+    "why": "different skill: stateful enterprise tool use"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.95,
+    "why": "different skill: tool use"
+   },
+   "agentic": {
+    "T": 0.85,
+    "I": 0.8,
+    "A": 0.85,
+    "Dm": 0.6,
+    "L": 0.2,
+    "F": 0.95,
+    "why": "Long-horizon tool use over MCP servers (avg 9 steps) graded on final database state by SQL verifiers, like the guessed private agentic shape, but very long contexts (89k avg) and no simulated user."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/ServiceNow-AI/EnterpriseOps-Gym (configs oracle / plus_5/10/15_tools, 8 domain splits)",
+  "n_questions": 649,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "apache-2.0",
+  "overlap": "",
+  "summary": "ServiceNow benchmark (arXiv 2603.13594, Mar 2026): 1,150 tasks in 8 enterprise domains (Calendar, CSM, Drive, Email, HR, ITSM, Teams, Hybrid) with 512 tools and 164 tables; the HF release has 649 tasks in the oracle config (system prompt, user prompt, SQL verifiers, MCP server config, tool list), needing Docker MCP servers to run. Only aggregate scores are public.",
+  "confidence": "medium",
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": {
+    "model": "Claude Opus 4.5",
+    "score": 0.374,
+    "source": "https://arxiv.org/abs/2603.13594 (best of 14 models)"
+   },
+   "4": {
+    "model": "Claude Fable 5 (Max)",
+    "score": 0.511,
+    "source": "https://artificialanalysis.ai/evaluations/enterpriseops-gym (AA run; data/artificial-analysis/benchmarks.csv (scraped from https://artificialanalysis.ai))"
+   }
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2026,
+  "sources": [
+   "https://huggingface.co/datasets/ServiceNow-AI/EnterpriseOps-Gym (card and API)",
+   "https://arxiv.org/abs/2603.13594",
+   "data/artificial-analysis/benchmarks.csv (scraped from https://artificialanalysis.ai)"
+  ]
+ },
+ "facts_parametric": {
+  "scores": {
+   "chat": {
+    "T": 0.95,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 0.9,
+    "L": 1.0,
+    "F": 0.95,
+    "why": "Closed-book factoid questions with a short atomic answer judged correct/incorrect/not-attempted - the simpleqa_verified task."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.95,
+    "why": "different skill: fact recall"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.95,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://www.kaggle.com/benchmarks/google/facts (public half announced as public on Kaggle; exact download file not confirmed)",
+  "n_questions": 1052,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "FACTS Parametric (Google DeepMind, Dec 2025): 2,104 adversarially filtered factoid QA pairs (kept only if none of 5 open models answered), human-verified, split 1,052 public / 1,052 private; Gemini 2.5 Pro judge. A near-twin of simpleqa_verified with fresh questions; I could not confirm a direct download of the public half (Kaggle pages need login).",
+  "confidence": "medium",
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": {
+    "model": "Gemini 3 Pro",
+    "score": 0.764,
+    "source": "https://arxiv.org/html/2512.10791v1 (Table 6; GPT-5 0.557, Claude 4.5 Opus 0.305)"
+   },
+   "4": null
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2025,
+  "sources": [
+   "https://arxiv.org/html/2512.10791v1",
+   "https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/",
+   "https://www.kaggle.com/benchmarks/google/facts"
+  ]
+ },
+ "hle_diamond": {
+  "scores": {
+   "chat": {
+    "T": 0.75,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "HLE-format expert questions (exact answer or MC, judge graded) like the live hle set; about 27% need an image (text-only subset is 728), which Yugos cannot send."
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 1.0,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 1.0,
+    "F": 0.3,
+    "why": "Its reasoning half is likely math-heavy like HLE, but answers are judge-checked short answers and there is no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle-diamond (gated: accept terms; card asks not to redistribute)",
+  "n_questions": 1000,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "Refined subset of the HLE question collection, so it very likely shares questions with the live Yugos hle pool (HLE text-only, 2,158); exact ID overlap not checked because the data is gated.",
+  "summary": "CAIS and Scale AI, released 2026-09-22: 1,000 cleaned HLE questions, 500 reasoning + 500 knowledge (partition column), HLE format (question, image, answer, answer_type, category). Only aggregate scores are published (e.g. Claude Fable 5.2 74.3%, GPT-6.2 Astra 66.6%, Claude Opus 5.5 54.6% no tools). Useful as a cleaner hard-chat set, but likely overlaps live hle.",
+  "confidence": "medium",
+  "anchor_scores": {
+   "1": null,
+   "2": null,
+   "3": null,
+   "4": {
+    "model": "Claude Fable 5.2",
+    "score": 0.743,
+    "source": "https://lastexam.ai/blog/hle-diamond (no tools, reasoning high)"
+   }
+  },
+  "guess_floor": 0.0,
+  "languages": [
+   "en"
+  ],
+  "release_year": 2026,
+  "sources": [
+   "https://huggingface.co/api/datasets/cais/hle-diamond",
+   "https://huggingface.co/datasets/cais/hle-diamond/resolve/main/README.md",
+   "https://lastexam.ai/blog/hle-diamond",
+   "https://benchlm.ai/md/benchmarks/hle-diamond.md"
+  ]
+ }
+}

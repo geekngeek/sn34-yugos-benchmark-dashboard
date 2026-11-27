@@ -1,0 +1,77 @@
+/* Yugos match: category colours (fixed palette order: chat, math & code, agentic) and L1-L5 shades of one hue */
+:root {
+  --cat-chat: #2a78d6; --cat-math_code: #eb6834; --cat-agentic: #1baf7a;
+  --lv-1: #d6e6f8; --lv-2: #a3c6ee; --lv-3: #6aa2e2; --lv-4: #2a78d6; --lv-5: #174a8a;
+  --mx-track: rgba(11, 11, 11, 0.07);
+  --mx-warn-bg: #fdf3e1; --mx-warn-ink: #7a4b00;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cat-chat: #3987e5; --cat-math_code: #d95926; --cat-agentic: #199e70;
+    --lv-1: #1f3350; --lv-2: #2b5288; --lv-3: #3987e5; --lv-4: #7fb0ee; --lv-5: #c4dbf8;
+    --mx-track: rgba(255, 255, 255, 0.09);
+    --mx-warn-bg: #3a2a0e; --mx-warn-ink: #f2c879;
+  }
+}
+
+/* compact cell: three bars + the best category's % */
+.mx-bars { display: inline-flex; align-items: center; gap: 3px; width: 100%; min-width: 0; }
+.mx-bars.faint { opacity: 0.55; }
+.mx-bar { flex: 0 0 24px; display: inline-flex; }
+.mx-track { display: block; width: 100%; height: 6px; border-radius: 3px; background: var(--mx-track); overflow: hidden; }
+.mx-fill { display: block; height: 100%; border-radius: 3px; }
+.mx-chat .mx-fill, .mx-dot.mx-chat { background: var(--cat-chat); }
+.mx-math_code .mx-fill, .mx-dot.mx-math_code { background: var(--cat-math_code); }
+.mx-agentic .mx-fill, .mx-dot.mx-agentic { background: var(--cat-agentic); }
+.mx-bar:not(.top) .mx-fill { opacity: 0.45; }
+.mx-val { margin-left: 4px; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink); }
+.mx-none { font-size: 12px; }
+
+/* level mix */
+.lv-wrap { display: grid; grid-template-columns: 9em 1fr; align-items: center; gap: 6px; margin: 3px 0; }
+.lv-wrap:not(:has(.lv-label)) { grid-template-columns: 1fr; }
+.lv-label { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lv-bar { display: flex; height: 10px; border-radius: 4px; overflow: hidden; gap: 1px; background: var(--surface); min-width: 40px; }
+.lv-wrap.small .lv-bar { height: 7px; }
+.lv-seg { display: block; min-width: 2px; }
+.lv-1, .lv-sw.lv-1 { background: var(--lv-1); } .lv-2, .lv-sw.lv-2 { background: var(--lv-2); }
+.lv-3, .lv-sw.lv-3 { background: var(--lv-3); } .lv-4, .lv-sw.lv-4 { background: var(--lv-4); }
+.lv-5, .lv-sw.lv-5 { background: var(--lv-5); }
+.lv-key { display: inline-flex; gap: 8px; margin-left: 8px; }
+.lv-key > span { display: inline-flex; align-items: center; gap: 3px; }
+.lv-sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+
+/* details breakdown */
+.mx-detail { display: grid; gap: 10px; }
+.mx-overlap { background: var(--mx-warn-bg); color: var(--mx-warn-ink); border-radius: 6px; padding: 6px 8px; margin: 0; }
+.mx-cats { display: grid; gap: 10px; }
+.mx-cat { border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
+.mx-cat.weak { padding: 6px 10px; }
+.mx-cat.weak p { margin: 2px 0 0; }
+.mx-cat-head { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.mx-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; }
+.mx-cat-pct { font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.mx-cat.weak .mx-cat-pct { font-size: 13px; font-weight: 500; }
+.mx-factors { display: grid; grid-template-columns: auto 1fr 3em; gap: 3px 8px; align-items: center; margin: 6px 0 4px; font-size: 12px; }
+.mx-f-name { white-space: nowrap; cursor: help; }
+.mx-f-bar { height: 6px; border-radius: 3px; background: var(--mx-track); overflow: hidden; }
+.mx-f-bar > span { display: block; height: 100%; background: var(--muted); border-radius: 3px; }
+.mx-f-bar > span.none { background: repeating-linear-gradient(45deg, var(--muted) 0 2px, transparent 2px 5px); }
+.mx-f-val { text-align: right; }
+.mx-levels { display: grid; gap: 2px; }
+.mx-facts { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; margin: 0; }
+.mx-facts dt { color: var(--muted); }
+.mx-facts dd { margin: 0; overflow-wrap: anywhere; }
+.mx-src { margin: 4px 0 0; padding-left: 18px; overflow-wrap: anywhere; }
+
+/* Benchmark list: Yugos fit column, filter and parent summary */
+.c-fit { display: flex; align-items: center; min-width: 0; }
+.bl-fit { display: inline-flex; flex-direction: column; gap: 4px; flex: 0 0 auto; }
+.bl-fit-label { font-size: 13px; white-space: nowrap; }
+.bl-fit-row { display: inline-flex; align-items: center; gap: 6px; flex-wrap: nowrap; }
+.bl-fit select { width: auto !important; min-width: 0; flex: 0 0 auto; font: inherit; font-size: 13px; height: 32px; padding: 3px 8px;
+  border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--ink); }
+.bl-fit .bl-toggle { white-space: nowrap; padding-bottom: 0 !important; }
+.ds-filters .bl-fit { flex-direction: row; align-items: center; }
+.bl-fitlist { margin: 0; padding-left: 16px; display: grid; gap: 3px; }
+.mx-ov { color: #c98500; font-size: 10px; margin-left: 3px; cursor: help; }

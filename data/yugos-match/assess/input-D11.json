@@ -1,0 +1,195 @@
+{
+ "batch": "D11",
+ "rows": [
+  {
+   "id": "llmrouterbench",
+   "name": "LLMRouterBench (per-question outcomes)",
+   "hf": "NPULH/LLMRouterBench",
+   "url": "https://github.com/ynulihao/LLMRouterBench",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2025-12-08",
+    "last_modified": "2026-11-02",
+    "downloads": 2909,
+    "size_category": null,
+    "task_categories": [],
+    "languages": [],
+    "rows_total": 0,
+    "rows_by_split": {}
+   }
+  },
+  {
+   "id": "routereval",
+   "name": "RouterEval (per-question outcomes)",
+   "hf": "linggm/RouterEval",
+   "url": "https://github.com/MilkThink-Lab/RouterEval",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "mit",
+    "gated": false,
+    "created": "2025-03-08",
+    "last_modified": "2025-10-18",
+    "downloads": 20670,
+    "size_category": null,
+    "task_categories": [],
+    "languages": [],
+    "size_error": "timeout"
+   }
+  },
+  {
+   "id": "matharena_outputs",
+   "name": "MathArena model outputs (all competitions)",
+   "hf": "MathArena/aime_2025_outputs",
+   "url": "https://huggingface.co/MathArena",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "cc-by-nc-sa-4.0",
+    "gated": false,
+    "created": "2025-05-13",
+    "last_modified": "2026-09-11",
+    "downloads": 691,
+    "size_category": "1K<n<10K",
+    "task_categories": [],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 7915,
+    "rows_by_split": {
+     "default/train": 7915
+    }
+   }
+  },
+  {
+   "id": "lcb_performances",
+   "name": "LiveCodeBench per-problem performances",
+   "hf": "",
+   "url": "https://github.com/LiveCodeBench/livecodebench.github.io",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "tau2_submissions",
+   "name": "tau2-bench submissions (per-trial trajectories)",
+   "hf": "",
+   "url": "https://github.com/sierra-research/tau2-bench",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "wildbench_results",
+   "name": "WildBench per-task eval results",
+   "hf": "allenai/WildBench",
+   "url": "https://github.com/allenai/WildBench",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": null,
+    "gated": false,
+    "created": "2024-02-23",
+    "last_modified": "2025-03-04",
+    "downloads": 2170,
+    "size_category": "1K<n<10K",
+    "task_categories": [
+     "text-generation"
+    ],
+    "languages": [
+     "en"
+    ],
+    "rows_total": 2304,
+    "rows_by_split": {
+     "v1-legacy/test": 1024,
+     "v2/test": 1024,
+     "v2-hard/test": 256
+    }
+   }
+  },
+  {
+   "id": "mmlu_pro_eval_results",
+   "name": "MMLU-Pro per-model eval results",
+   "hf": "",
+   "url": "https://github.com/TIGER-AI-Lab/MMLU-Pro",
+   "group": "router",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "aa_omniscience_public",
+   "name": "AA-Omniscience public set",
+   "hf": "ArtificialAnalysis/AA-Omniscience-Public",
+   "url": "https://artificialanalysis.ai/evaluations/omniscience",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {
+    "licence": "apache-2.0",
+    "gated": false,
+    "created": "2025-11-17",
+    "last_modified": "2026-08-24",
+    "downloads": 18105,
+    "size_category": "n<1K",
+    "task_categories": [
+     "question-answering"
+    ],
+    "languages": [],
+    "rows_total": 600,
+    "rows_by_split": {
+     "default/train": 600
+    }
+   }
+  },
+  {
+   "id": "automationbench",
+   "name": "AutomationBench (public tasks)",
+   "hf": "",
+   "url": "https://github.com/zapier/AutomationBench",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "enterpriseops_gym",
+   "name": "EnterpriseOps-Gym",
+   "hf": "",
+   "url": "https://artificialanalysis.ai/evaluations/enterpriseops-gym",
+   "group": "agentic",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "facts_parametric",
+   "name": "FACTS Parametric (public half)",
+   "hf": "",
+   "url": "https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  },
+  {
+   "id": "hle_diamond",
+   "name": "HLE-Diamond",
+   "hf": "",
+   "url": "https://huggingface.co/datasets/cais/hle",
+   "group": "chat",
+   "yugos": "",
+   "list_no": "",
+   "hub": {}
+  }
+ ]
+}

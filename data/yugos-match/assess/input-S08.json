@@ -1,0 +1,663 @@
+{
+ "batch": "S08",
+ "parents": [
+  {
+   "no": "13",
+   "name": "Aider Polyglot",
+   "category": "Coding",
+   "url": "https://aider.chat/docs/leaderboards/",
+   "focus": "Code editing and refactoring across multiple programming languages (Python, C++, JS, etc.).",
+   "notes": ""
+  },
+  {
+   "no": "14",
+   "name": "Terminal-Bench",
+   "category": "Agentic & Tool Use",
+   "url": "https://www.tbench.ai/",
+   "focus": "Navigating Linux environments, executing shell commands, and fixing system issues.",
+   "notes": ""
+  },
+  {
+   "no": "15",
+   "name": "GAIA",
+   "category": "Agentic & Tool Use",
+   "url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+   "focus": "Multi-step real-world assistant tasks requiring web browsing and file manipulation.",
+   "notes": ""
+  },
+  {
+   "no": "16",
+   "name": "τ-bench (Tau-bench)",
+   "category": "Agentic & Tool Use",
+   "url": "https://github.com/sierra-research/tau-bench",
+   "focus": "Simulating dynamic customer service interactions while following strict policy rules.",
+   "notes": ""
+  }
+ ],
+ "rows": [
+  {
+   "no": "13.1",
+   "name": "Aider polyglot coding leaderboard",
+   "category": "",
+   "url": "https://aider.chat/docs/leaderboards/",
+   "focus": "225 challenging Exercism exercises across C++, Go, Java, JavaScript, Python and Rust, testing instruction following and code editing without human intervention.",
+   "metrics": "quality, cost, time, tokens, runs, effort, date, other",
+   "metrics_detail": "Quality [page]: Percent correct — % of 225 Exercism exercises solved within 2 attempts (pass_rate_2) · https://aider.chat/docs/leaderboards/\nCost [page]: Cost / Total cost — USD total cost of the full benchmark run (= this sub-benchmark) · https://aider.chat/docs/leaderboards/\nTime [page]: Seconds per case — average seconds per exercise (row detail) · https://aider.chat/docs/leaderboards/\nTokens [page]: Prompt tokens / Completion tokens / Thinking tokens — run totals; 23 of 69 entries (thinking ",
+   "notes": "Static HTML table (percent correct). Page last updated November 20, 2025. Scores are model + aider harness with listed edit format.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 36 models' published scores.\nBest observed: GPT-5 (high) 88.0, GPT-5 (medium) 86.7, o3 (high) 81.3.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.3735,
+    "3": 0.88,
+    "4": 0.88
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "2": 0.3735,
+    "3": 0.88
+   }
+  },
+  {
+   "no": "13.2",
+   "name": "Code editing leaderboard (legacy)",
+   "category": "",
+   "url": "https://aider.chat/docs/leaderboards/edit.html",
+   "focus": "Edit Python source files to complete 133 small Exercism exercises and apply changes correctly.",
+   "metrics": "quality, cost*, time*, runs*, effort, date*, other",
+   "metrics_detail": "Quality [page]: Percent completed correctly — % of 133 Python Exercism exercises solved · https://aider.chat/docs/leaderboards/edit.html\nCost [data]: total_cost — USD total cost of the run (97 of 98 entries) · https://github.com/Aider-AI/aider/blob/main/aider/website/_data/edit_leaderboard.yml\nTime [data]: seconds_per_case — average seconds per exercise · https://github.com/Aider-AI/aider/blob/main/aider/website/_data/edit_leaderboard.yml\nRuns [data]: pass_rate_1 / pass_rate_2 — first vs second ",
+   "notes": "Page says it has been replaced by the polyglot leaderboard; frozen (last updated April 12, 2025). Tie at 84.2% in page order.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 96%.\nPlaced from 19 models' published scores.\nBest observed: o1 84.2, claude-3-5-sonnet-20241022 84.2, o1-preview 79.7.",
+   "computed_level_cdf": {
+    "1": 0.504,
+    "2": 0.7855,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "1": 0.504,
+    "2": 0.7855
+   }
+  },
+  {
+   "no": "13.3",
+   "name": "Refactoring leaderboard",
+   "category": "",
+   "url": "https://aider.chat/docs/leaderboards/refactor.html",
+   "focus": "Refactor 89 large methods from large Python classes, testing output of long code without skipping sections ('lazy coding').",
+   "metrics": "quality, cost*, time*, effort, date*, other",
+   "metrics_detail": "Quality [page]: Percent completed correctly — % of 89 large-method refactoring tasks completed · https://aider.chat/docs/leaderboards/refactor.html\nCost [data]: total_cost — USD total cost of the run · https://github.com/Aider-AI/aider/blob/main/aider/website/_data/refactor_leaderboard.yml\nTime [data]: seconds_per_case — average seconds per task · https://github.com/Aider-AI/aider/blob/main/aider/website/_data/refactor_leaderboard.yml\nEffort [page]: Command / Edit format — separate entries per e",
+   "notes": "Old/frozen leaderboard (last updated April 12, 2025); linked from the leaderboards sidebar. A 'by release date' chart page (https://aider.chat/docs/leaderboards/by-release-date.html) also exists but is a chart, not a separate benchmark.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 91%, L3 8%.\nPlaced from 8 models' published scores.\nBest observed: claude-3-5-sonnet-20241022 92.1, o1-preview 75.3, Claude 3 Opus 72.3.",
+   "computed_level_cdf": {
+    "1": 0.33,
+    "2": 0.775,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.775
+   }
+  },
+  {
+   "no": "14.1",
+   "name": "Terminal-Bench 4.1",
+   "category": "Leaderboard version (default)",
+   "url": "https://www.tbench.ai/",
+   "focus": "Current official version; resolution rate of agent+model systems on Terminal-Bench 4.1 tasks in real terminal environments.",
+   "metrics": "quality, cost, time*, tokens, uncertainty, runs*, effort, date, other",
+   "metrics_detail": "Quality [page]: Accuracy (Resolution rate) — % of trials resolved on Terminal-Bench 4.1 (67 rows, e.g. '71.2% ± 2.9%') · https://www.tbench.ai/\nCost [page]: Cost — total USD for the full run (total_cost_usd, shown e.g. '$2.0k') · https://www.tbench.ai/\nTime [data]: avg_trial_duration_sec — average seconds per trial, in embedded data, not a column · https://www.tbench.ai/\nTokens [page]: Tokens — total tokens for the run (e.g. '3.3B'); data also has output_tokens, cached_input_tokens, uncached_inp",
+   "notes": "Entries are agent+model systems (agent in []). Page shows a tie at rank 2. /leaderboard redirects to the homepage.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 17 models' published scores.\nBest observed: Claude Fable 5.2 (max) 65.8, Gemini 4 Carbon (high) 64.5, GPT-6.2 Astra (max) 62.1.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.606
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.606
+   }
+  },
+  {
+   "no": "14.2",
+   "name": "Terminal-Bench 4.0",
+   "category": "Leaderboard version",
+   "url": "https://www.tbench.ai/?version=4.0",
+   "focus": "Recalibrates task resources (time/CPU/memory), fixes tasks and removes saturated tasks vs 3.0.",
+   "metrics": "quality*, cost*, time*, tokens*, uncertainty*, runs*, effort*, date*, other*",
+   "metrics_detail": "Quality [data]: Accuracy — % of trials resolved on Terminal-Bench 4.0 (display_accuracy e.g. '51.8% ± 3.4%'); column defined in the 4.0 leaderboard.yaml · https://github.com/harbor-framework/terminal-bench/blob/main/leaderboard/leaderboard.yaml\nCost [data]: Cost — total USD for the full run (total_cost_usd / display_cost) · https://github.com/harbor-framework/terminal-bench/blob/main/leaderboard/leaderboard.yaml\nTime [data]: avg_trial_duration_sec — average seconds per trial in each submission f",
+   "notes": "From 2026-11-25 snapshot of https://github.com/harbor-framework/terminal-bench/tree/main/leaderboard/submissions (accuracy over all trials). Per-version board rows load client-side from a Supabase function (leaderboard-read; version list found in the site's JS chunk); fetching it was blocked in this environment, so values could not be read. Caution: the same snapshot's 4.1 list does not fully match the live 4.1 board (e.g. live has Opus 5.5 at 65.8% in 4.1), so this 4.0 ranking may differ from the live page. Entries are agent+model systems.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 28 models' published scores.\nBest observed: Claude Opus 5.5 (max) 64.8, Claude Sonnet 5.5 (max) 61.8, Kimi K3.1 Pro (max) 60.9.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.5788
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.5788
+   }
+  },
+  {
+   "no": "14.3",
+   "name": "Terminal-Bench 3.0",
+   "category": "Leaderboard version",
+   "url": "https://www.tbench.ai/?version=3.0",
+   "focus": "Community-sourced diverse, difficult tasks; first release 74 tasks across 7 domains.",
+   "metrics": "quality*, cost*, tokens*, uncertainty*, effort*",
+   "metrics_detail": "Quality [data]: accuracy — mean pass rate % on Terminal-Bench 3.0 (official site-repo snapshot of the Hub leaderboard) · https://github.com/harbor-framework/terminal-bench-website/blob/main/lib/announcement-leaderboard-snapshot.ts\nCost [data]: totalCostUsd — aggregate trial cost in USD for the run (metrics.total_cost_usd) · https://github.com/harbor-framework/terminal-bench-website/blob/main/lib/announcement-leaderboard-snapshot.ts\nTokens [data]: totalTokens — aggregate token usage for the run (",
+   "notes": "Per-version board rows load client-side from a Supabase function (leaderboard-read; version list found in the site's JS chunk); fetching it was blocked in this environment, so values could not be read. Launch blog chart (not the live board) showed GPT-5.6 Sol (Codex) 34.4%, Fable 5 (Claude Code) 33.8%, Opus 4.8 (Claude Code) 21.1%.",
+   "team_difficulty": "5",
+   "difficulty_detail": "Fitted level L5 (Unsolved); bootstrap agreement: L5 87%, L4 13%.\nPlaced from 13 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Claude Opus 5 42.7, GPT-5.6 Sol 34.6, Claude Fable 5 34.0.",
+   "computed_level_cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.3837
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.3837
+   }
+  },
+  {
+   "no": "14.4",
+   "name": "Terminal-Bench 2.1",
+   "category": "Leaderboard version",
+   "url": "https://www.tbench.ai/?version=2.1",
+   "focus": "Revision of Terminal-Bench 2.0 that fixes 28 of its 89 tasks.",
+   "metrics": "quality*, cost*, time*, tokens*, uncertainty*, runs*, effort*, date*, other*",
+   "metrics_detail": "Quality [data]: Accuracy — mean pass rate % on Terminal-Bench 2.1 (display e.g. '68.9% ± 1.4%') · https://github.com/harbor-framework/terminal-bench-2-1/blob/main/leaderboard/leaderboard.yaml\nCost [data]: Cost — total USD for the run (total_cost_usd / display_total_cost_usd) · https://github.com/harbor-framework/terminal-bench-2-1/blob/main/leaderboard/leaderboard.yaml\nTime [data]: avg_trial_duration_sec — average seconds per trial, not a column · https://github.com/harbor-framework/terminal-ben",
+   "notes": "Per-version board rows load client-side from a Supabase function (leaderboard-read; version list found in the site's JS chunk); fetching it was blocked in this environment, so values could not be read. Old URL /leaderboard/terminal-bench/2.1 redirects here.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 81 models' published scores.\nBest observed: SWE-2 92.8, GPT-5.6 Sol 91.9, DeepSeek V4.1 Flash 1017 90.6.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.843
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.843
+   }
+  },
+  {
+   "no": "14.5",
+   "name": "Terminal-Bench 2.0",
+   "category": "Leaderboard version",
+   "url": "https://www.tbench.ai/?version=2.0",
+   "focus": "Harder, better-verified 89-task version of Terminal-Bench, released with the Harbor evaluation framework.",
+   "metrics": "quality",
+   "metrics_detail": "Quality [page]: Resolution rate — footer text 'Resolution rate of Terminal-Bench 2.0 tasks. The whiskers span the 95% confidence interval.' on the 2.0 view · https://www.tbench.ai/?version=2.0\nNot reported: speed, breakdown, votes\nNote: ?version=2.0 rows load client-side from Harbor Hub (package terminal-bench/terminal-bench-2, leaderboard '2-0', per https://github.com/harbor-framework/terminal-bench-website/blob/main/lib/leaderboard.ts); the server HTML shows only a skeleton table and the 2.0 t",
+   "notes": "Per-version board rows load client-side from a Supabase function (leaderboard-read; version list found in the site's JS chunk); fetching it was blocked in this environment, so values could not be read. Old URL /leaderboard/terminal-bench/2.0 redirects here.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 40 models' published scores.\nBest observed: GPT-5.5 82.0, GPT-5.3 Codex 77.3, GPT-5.4 75.1.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.593,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "3": 0.593
+   }
+  },
+  {
+   "no": "14.6",
+   "name": "Terminal-Bench 1.0",
+   "category": "Benchmark family (no leaderboard)",
+   "url": "https://github.com/harbor-framework/terminal-bench-1",
+   "focus": "Original benchmark of how well AI agents perform complex tasks in the terminal.",
+   "metrics": "none published",
+   "metrics_detail": "Not reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: No leaderboard for Terminal-Bench 1.0 on the current site (version selector offers 4.1/4.0/3.0/2.1/2.0 only, per lib/leaderboard.ts). The terminal-bench-1 README points to an older leaderboard for Terminal-Bench-Core v0.1.1, which is no longer on tbench.ai. The website repo still has a legacy data.ts with launch-era entries (accuracy, stderr, date, verified, integration method) but no page r",
+   "notes": "Listed on /benchmarks but not in the site's leaderboard version selector (?version=1.0 falls back to 4.1); no current official leaderboard.",
+   "team_difficulty": "3-4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 56%, L3 44%.\nPlaced from 19 models' published scores.\nBest observed: Claude Sonnet 4.5 64.5, Claude 4 Sonnet 54.8, GPT-5 52.5.",
+   "computed_level_cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.665
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "14.7",
+   "name": "Terminal-Bench-Science 0.1",
+   "category": "Benchmark family",
+   "url": "https://www.terminal-bench-science.ai/",
+   "focus": "Expert-curated scientific research workflows (70 tasks from life, physical, Earth, math and other sciences).",
+   "metrics": "quality, cost, tokens, runs, breakdown",
+   "metrics_detail": "Quality [page]: Resolution rate (%) — per system (model + agent) across 70 tasks, in the 0.1 announcement charts and text (e.g. Claude Opus 5 with Claude Code 30.0%) · https://www.terminal-bench-science.ai/announcement\nCost [page]: total evaluation cost (USD) — whole 70-task run, given in the text for a few systems only (e.g. $7.0k, $14.2k) · https://www.terminal-bench-science.ai/announcement\nTokens [page]: total tokens — whole run, in text for a few systems only (e.g. 6.4B) · https://www.termin",
+   "notes": "Own website with a client-side leaderboard; values not readable without its API.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 15 models' published scores.\nBest observed: GPT-6.2 Astra 77.1, Claude Mythos 5.2 75.3, Claude Fable 5.2 74.6.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2,
+    "4": 0.6165
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "4": 0.6165
+   }
+  },
+  {
+   "no": "14.8",
+   "name": "Terminal-Bench Challenges",
+   "category": "Benchmark family",
+   "url": "https://github.com/harbor-framework/terminal-bench-challenges",
+   "focus": "Long-horizon, token-intensive, single-task benchmarks (projects that would take expert teams months).",
+   "metrics": "none published",
+   "metrics_detail": "Not reported: quality, cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: GitHub repo with 3 single-task challenges (inference-engine-codegolf, rust-compiler-speedup, wasm-render); README and per-challenge READMEs describe verification metrics (e.g. throughput/TTFT/TPOT, instruction-count reduction, CTS pass rate) but publish no results or leaderboard. · https://github.com/harbor-framework/terminal-bench-challenges",
+   "notes": "Blog links 'challenge leaderboards' at /benchmarks/terminal-bench-challenges, which now just shows the /benchmarks list; no leaderboard values found.",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No per-model scores found: the challenge-leaderboard link now shows only the /benchmarks list, and each challenge is a single long-horizon task (pass/fail per run), so there is no task-share score to level.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "15.1",
+   "name": "Test set (Average score)",
+   "category": "Results: Test",
+   "url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+   "focus": "Average score (%) over the 301 test questions with private answers, across all three levels; quasi-exact-match scoring.",
+   "metrics": "quality, date, breakdown, other",
+   "metrics_detail": "Quality [page]: Average score (%) — % of the 301 test questions answered correctly (quasi-exact match); overall sum divided by fixed 301 · https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py\nDate [page]: Submission date — YYYY-MM-DD date the submission was scored · https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py\nOther [page]: Agent name (linked to url) / Model family / organisation — agent system, free-text underlying LLM(s), submitting org · https:/",
+   "notes": "Gradio page; values from the results_public dataset (config 2023, split test) that the space loads, sorted by score and limited to top 100 as app.py does. Entries are agent systems. Kun Agent v1.1 (DIDI Fintech) also scores 94.02 (tie for 2nd).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 93%, L2 5%.\nPlaced from 25 models' published scores.\nBest observed: Keen AgenticOS V1.1 94.3, Kun Agent v1.1 94.0, OmniSeek_Preview_v1.1 93.4.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "15.2",
+   "name": "Level 1",
+   "category": "Results: Test (Level 1 score column)",
+   "url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+   "focus": "Level 1 questions (93 in test), which 'should be breakable by very good LLMs'.",
+   "metrics": "quality",
+   "metrics_detail": "Quality [page]: Level 1 score (%) — accuracy on the 93 Level 1 test questions (score_level1 = correct / Level 1 question count, x100) · https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: No separate view: only a column of the 'Results: Test' table. Submission date, agent name, model family and organisation are per parent entry, not per level. Same layout for all three levels (ve",
+   "notes": "No separate page/URL: it is the 'Level 1 score (%)' column of the single test table. 18 entries tie at 98.92; listed in the leaderboard's (average-score) order. Questions: https://huggingface.co/datasets/gaia-benchmark/GAIA (config 2023_level1, gated).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 90%, L2 8%.\nPlaced from 25 models' published scores.\nBest observed: OmniSeek_Preview_v1.1 98.9, OPS-Agentic-Search 98.9, Kun Agent v1.1 98.9.\nOfficial difficulty: Level 1 (GAIA paper levels 1-3, increasing number of steps/tools)",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "15.3",
+   "name": "Level 2",
+   "category": "Results: Test (Level 2 score column)",
+   "url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+   "focus": "Level 2 questions (159 in test), intermediate tooling/autonomy difficulty.",
+   "metrics": "quality",
+   "metrics_detail": "Quality [page]: Level 2 score (%) — accuracy on the 159 Level 2 test questions (score_level2 = correct / Level 2 question count, x100) · https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: No separate view: only a column of the 'Results: Test' table. Submission date, agent name, model family and organisation are per parent entry, not per level. Same layout for all three levels (v",
+   "notes": "No separate page/URL: 'Level 2 score (%)' column of the test table. Entries are agent systems. Questions: dataset config 2023_level2 (gated).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 90%, L4 6%.\nPlaced from 25 models' published scores.\nBest observed: Keen AgenticOS V1.1 93.7, Co-Sight Pro v1.0.1 91.8, OmniSeek_Preview_v1.1 91.2.\nOfficial difficulty: Level 2 (GAIA paper levels 1-3, increasing number of steps/tools)",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "15.4",
+   "name": "Level 3",
+   "category": "Results: Test (Level 3 score column)",
+   "url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+   "focus": "Level 3 questions (49 in test), indicating 'a strong jump in model capabilities'.",
+   "metrics": "quality",
+   "metrics_detail": "Quality [page]: Level 3 score (%) — accuracy on the 49 Level 3 test questions (score_level3 = correct / Level 3 question count, x100) · https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: No separate view: only a column of the 'Results: Test' table. Submission date, agent name, model family and organisation are per parent entry, not per level. Same layout for all three levels (ve",
+   "notes": "No separate page/URL: 'Level 3 score (%)' column of the test table. Entries are agent systems. Questions: dataset config 2023_level3 (gated).",
+   "team_difficulty": "3-4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 52%, L3 48%.\nPlaced from 25 models' published scores.\nBest observed: Kun Agent v1.1 95.9, OmniSeek_Preview_v1.1 89.8, Nemotron-ToolOrchestra-0106 89.8.\nOfficial difficulty: Level 3 (GAIA paper levels 1-3, increasing number of steps/tools)",
+   "computed_level_cdf": {
+    "1": 0.06,
+    "2": 0.195,
+    "3": 0.42,
+    "4": 0.665
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "15.5",
+   "name": "Validation set (public dev set)",
+   "category": "Split",
+   "url": "https://huggingface.co/datasets/gaia-benchmark/GAIA",
+   "focus": "Fully public dev set (165 questions: 53 L1 / 86 L2 / 26 L3) for validation.",
+   "metrics": "quality*, date*, breakdown*, other*",
+   "metrics_detail": "Quality [data]: score / score_level1-3 — fraction correct over the 165 validation questions (overall divided by fixed 165) and per level · https://datasets-server.huggingface.co/first-rows?dataset=gaia-benchmark/results_public&config=2023&split=validation\nDate [data]: date — submission date per entry · https://huggingface.co/datasets/gaia-benchmark/results_public/resolve/main/2023/validation-00000-of-00001.parquet\nBreakdown [data]: score_level1 / score_level2 / score_level3 — accuracy per level ",
+   "notes": "Validation leaderboard is closed ('no longer informative') and no longer displayed; old validation results (latest 2025-05) remain only in results_public split validation. Dataset is gated.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 92%, L2 6%.\nPlaced from 12 models' published scores.\nBest observed: Trase Agent v0.3 70.3, h2oGPTe Agent v1.6.8 63.6, open Deep Research | pass@1 55.1.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "16.1",
+   "name": "τ-bench (original) — Airline",
+   "category": "τ-bench v1 (README leaderboard)",
+   "url": "https://github.com/sierra-research/tau-bench#airline",
+   "focus": "Agent handles airline customer-service tasks (original τ-bench task set) with tool calls while conversing with a simulated user; Pass^k reported.",
+   "metrics": "quality, runs, effort",
+   "metrics_detail": "Quality [page]: Pass^1 — Task success rate as a 0-1 fraction on the original τ-bench Airline tasks · https://github.com/sierra-research/tau-bench#airline\nRuns [page]: Pass^1 / Pass^2 / Pass^3 / Pass^4 — pass^k columns (all k trials succeed) · https://github.com/sierra-research/tau-bench#airline\nEffort [page]: Strategy (e.g. 'TC (gpt-4o)', 'Act (gpt-4o)', 'ReAct (gpt-4o)') — Separate rows per agent strategy + model · https://github.com/sierra-research/tau-bench#airline\nNot reported: cost, time, s",
+   "notes": "Static README table (Pass^1). The repo is marked outdated: tasks not updated; it points to τ³-bench (tau2-bench repo). Taubench.com also has a 'legacy' toggle for τ-bench v1 submissions, not comparable to current.",
+   "team_difficulty": "≥3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 96%.\nPlaced from 13 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: claude-3-5-sonnet-20241022 46.0, GPT-4o 35.2, Claude 3 Opus 34.7.",
+   "computed_level_cdf": {
+    "1": 0.0433,
+    "2": 0.44,
+    "3": 0.44,
+    "4": 0.5433
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.44
+   }
+  },
+  {
+   "no": "16.2",
+   "name": "τ-bench (original) — Retail",
+   "category": "τ-bench v1 (README leaderboard)",
+   "url": "https://github.com/sierra-research/tau-bench#retail",
+   "focus": "Agent handles retail customer-service tasks (original τ-bench task set); Pass^k reported.",
+   "metrics": "quality, runs, effort",
+   "metrics_detail": "Quality [page]: Pass^1 — Task success rate as a 0-1 fraction on the original τ-bench Retail tasks · https://github.com/sierra-research/tau-bench#retail\nRuns [page]: Pass^1 / Pass^2 / Pass^3 / Pass^4 — pass^k columns (all k trials succeed) · https://github.com/sierra-research/tau-bench#retail\nEffort [page]: Strategy (e.g. 'TC (gpt-4o)', 'Act (gpt-4o)', 'ReAct (gpt-4o)') — Separate rows per agent strategy + model · https://github.com/sierra-research/tau-bench#retail\nNot reported: cost, time, speed",
+   "notes": "Static README table (Pass^1); outdated task set per the repo's warning.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 12 models' published scores.\nBest observed: claude-3-5-sonnet-20241022 69.2, GPT-4o 61.2, GPT-4 Turbo 57.7.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.648,
+    "3": 0.648,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.648
+   }
+  },
+  {
+   "no": "16.3",
+   "name": "τ²-bench — Overall",
+   "category": "τ²-bench (Text · retail, airline, telecom)",
+   "url": "https://taubench.com/leaderboard?benchmark=core",
+   "focus": "Text agents on retail, airline and telecom customer-service tasks, where the agent and the user both act on the world; Overall = average of the three domains.",
+   "metrics": "quality, runs, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: Pass^1 (Overall) — mean task success (%) over retail, airline, telecom · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx\nRuns [page]: Pass^1 / Pass^2 / Pass^3 / Pass^4 — pass^k toggle in the table header (4 trials per task) · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx\nEffort [page]: Reasoning — reasoning_effort per entry (e.g. high, max, none); separate submissions p",
+   "notes": "JS page (taubench.com); values computed from the submission.json files the page loads (S3 manifest), replicating Leaderboard.jsx: default filter = Standard only, non-legacy, ranked by pass^1. Overall shown only for submissions with all three domains. Reasoning column: enabled / high / high.",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": {
+    "1": 0.0,
+    "2": 0.2398,
+    "3": 0.8713,
+    "4": 0.8713
+   },
+   "level_source": "scores (nearest level)",
+   "anchor_scores": {
+    "1": 0.0,
+    "2": 0.2398,
+    "3": 0.8713
+   }
+  },
+  {
+   "no": "16.4",
+   "name": "τ²-bench — Retail",
+   "category": "τ²-bench domain tab",
+   "url": "https://taubench.com/leaderboard?benchmark=core",
+   "focus": "Order cancellations, returns, exchanges, address changes, and product inquiries.",
+   "metrics": "quality, cost, runs, effort, date, other",
+   "metrics_detail": "Quality [page]: Pass^1 (Retail tab) — task success rate (%) on τ²-bench retail · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx\nCost [page]: Avg Cost — average USD per retail trajectory (results.retail.cost, e.g. 0.07156 for GPT-5.2), only in the details panel; null for many entries · https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gpt-5-2_sierra_2026-02-26/submission.json\nRuns [page]: Pass^1 / Pass^2 / Pass^3 / Pass^",
+   "notes": "JS page (taubench.com); values computed from the submission.json files the page loads (S3 manifest), replicating Leaderboard.jsx: default filter = Standard only, non-legacy, ranked by pass^1. Domain tab has no URL parameter; click 'Retail' on the core page.",
+   "team_difficulty": "≤3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 96%.\nPlaced from 22 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Claude Sonnet 4.5 86.2, Gemini 3 Pro 85.3, Qwen3.5-397B-A17B 84.4.",
+   "computed_level_cdf": {
+    "1": 0.3567,
+    "2": 0.6533,
+    "3": 0.8158,
+    "4": 0.89
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "3": 0.8158
+   }
+  },
+  {
+   "no": "16.5",
+   "name": "τ²-bench — Airline",
+   "category": "τ²-bench domain tab",
+   "url": "https://taubench.com/leaderboard?benchmark=core",
+   "focus": "Flight bookings, modifications, cancellations, refunds, baggage, and compensation.",
+   "metrics": "quality, cost, runs, effort, date, other",
+   "metrics_detail": "Quality [page]: Pass^1 (Airline tab) — task success rate (%) on τ²-bench airline · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx\nCost [page]: Avg Cost — average USD per airline trajectory (results.airline.cost, e.g. 0.11379 for GPT-5.2), only in the details panel; null for many entries · https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gpt-5-2_sierra_2026-02-26/submission.json\nRuns [page]: Pass^1 / Pass^2 / Pass^3 / P",
+   "notes": "JS page (taubench.com); values computed from the submission.json files the page loads (S3 manifest), replicating Leaderboard.jsx: default filter = Standard only, non-legacy, ranked by pass^1. Gemini 3 Flash also 82.5% (tie; GLM-5 listed first in manifest order). Domain tab has no URL parameter; click 'Airline'.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 92%, L2 6%.\nPlaced from 22 models' published scores.\nBest observed: Claude 4.5 Opus 84.0, GPT-5.2 83.0, Gemini 3 Flash 82.5.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.805,
+    "4": 0.805
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "3": 0.805
+   }
+  },
+  {
+   "no": "16.6",
+   "name": "τ²-bench — Telecom",
+   "category": "τ²-bench domain tab",
+   "url": "https://taubench.com/leaderboard?benchmark=core",
+   "focus": "Technical support for connectivity issues, bill payments, and plan management.",
+   "metrics": "quality, cost, runs, effort, date, other",
+   "metrics_detail": "Quality [page]: Pass^1 (Telecom tab) — task success rate (%) on τ²-bench telecom · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx\nCost [page]: Avg Cost — average USD per telecom trajectory (results.telecom.cost, e.g. 0.09312 for GPT-5.2), only in the details panel; null for many entries · https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gpt-5-2_sierra_2026-02-26/submission.json\nRuns [page]: Pass^1 / Pass^2 / Pass^3 / P",
+   "notes": "JS page (taubench.com); values computed from the submission.json files the page loads (S3 manifest), replicating Leaderboard.jsx: default filter = Standard only, non-legacy, ranked by pass^1. Domain tab has no URL parameter; click 'Telecom'.",
+   "team_difficulty": "2-3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L3 54%, L2 40%, L1 6%.\nPlaced from 18 models' published scores.\nBest observed: Qwen3-Max-Thinking 98.2, Gemini 3 Pro 98.0, Claude Sonnet 4.5 98.0.",
+   "computed_level_cdf": {
+    "1": 0.205,
+    "2": 0.535,
+    "3": 0.9583,
+    "4": 0.9583
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "3": 0.9583
+   }
+  },
+  {
+   "no": "16.7",
+   "name": "τ³-Banking (τ-knowledge)",
+   "category": "τ³-Banking (Text · knowledge retrieval)",
+   "url": "https://taubench.com/leaderboard?benchmark=knowledge",
+   "focus": "Text agents resolving banking customer-service tasks over a ~700-document knowledge base; published as τ-knowledge.",
+   "metrics": "quality, cost*, runs, effort, date, other",
+   "metrics_detail": "Quality [page]: Pass^1 (Banking tab) — task success rate (%) on banking_knowledge · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx\nCost [data]: cost (results.banking_knowledge.cost) — Avg Cost field exists per domain, but it was null in both submissions checked (GPT-5.2, Claude Opus 5) · https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/claude-opus-5_sierra_2026-08-04/submission.json\nRuns [page]: Pass^1 / Pass^2 / Pass^",
+   "notes": "JS page (taubench.com); values computed from the submission.json files the page loads (S3 manifest), replicating Leaderboard.jsx: default filter = Standard only, non-legacy, ranked by pass^1. Reasoning column: xhigh / max / high. With 'Custom' also ticked, PrincipledMachines Cortex 0.1 (custom) leads at 73.2%. This is the site's default leaderboard tab.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 25 models' published scores.\nBest observed: Qwen3.8 Max 55.2, Claude Opus 5 48.7, Grok 4.5 47.9.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.07,
+    "3": 0.2139,
+    "4": 0.442
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "3": 0.2139,
+    "4": 0.442
+   }
+  },
+  {
+   "no": "16.8",
+   "name": "τ³-Voice — Overall (Multilingual)",
+   "category": "τ³-Voice (Real-time voice)",
+   "url": "https://taubench.com/leaderboard?benchmark=voice",
+   "focus": "Real-time, full-duplex voice agents on retail, airline, and telecom customer-service tasks (published as τ-voice); Overall covers the three core domains.",
+   "metrics": "quality, date*, breakdown, other",
+   "metrics_detail": "Quality [page]: Task completion — pass@1 (%) over the frame, each language-domain cell weighted equally; Overall = Airline, Retail, Telecom · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/MultilingualVoice.jsx\nBreakdown [page]: Language map — per-language scores (en, es, pt, hi, zh, ...) per metric; click-a-score breakdown; by_language / by_domain in data · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Multilingual",
+   "notes": "JS page; default voice view on /leaderboard is the Multilingual edition, values from https://taubench.com/voice-leaderboard.json (snapshot the page loads) computed with the site's voiceV2Rows.js; Standard-only default filter (no custom multilingual rows exist). Task completion = pass@1 over all languages (en, es, pt, hi, ko, zh cells). Also shows Interaction and Generation quality columns.",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data now imported): only 5 distinct models, 4 of them with scores on at least 2 other benchmarks; the scale needs at least 6 such models to place a benchmark.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "16.9",
+   "name": "τ³-Voice — Retail",
+   "category": "τ³-Voice domain tab",
+   "url": "https://taubench.com/leaderboard?benchmark=voice&domain=retail",
+   "focus": "Voice agents on retail customer-service tasks.",
+   "metrics": "quality, date*, breakdown, other",
+   "metrics_detail": "Quality [page]: Task completion (Retail tab) — pass@1 (%) on retail across languages · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/MultilingualVoice.jsx\nBreakdown [page]: Language map — per-language scores for this domain · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/MultilingualVoice.jsx\nOther [page]: Generation quality (%) / Interaction (%) — shown for core domains · https://github.com/sierra-research/tau2-be",
+   "notes": "JS page; default voice view on /leaderboard is the Multilingual edition, values from https://taubench.com/voice-leaderboard.json (snapshot the page loads) computed with the site's voiceV2Rows.js; Standard-only default filter (no custom multilingual rows exist). Task completion = pass@1 over all languages (en, es, pt, hi, ko, zh cells).",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data): its 18 models are voice models scored only on the τ²/τ³ voice boards, so they are not connected to the text models that define the levels; a fitted level would be arbitrary.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "16.10",
+   "name": "τ³-Voice — Airline",
+   "category": "τ³-Voice domain tab",
+   "url": "https://taubench.com/leaderboard?benchmark=voice&domain=airline",
+   "focus": "Voice agents on airline customer-service tasks.",
+   "metrics": "quality, date*, breakdown, other",
+   "metrics_detail": "Quality [page]: Task completion (Airline tab) — pass@1 (%) on airline across languages · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/MultilingualVoice.jsx\nBreakdown [page]: Language map — per-language scores for this domain · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/MultilingualVoice.jsx\nOther [page]: Generation quality (%) / Interaction (%) — shown for core domains · https://github.com/sierra-research/tau2-",
+   "notes": "JS page; default voice view on /leaderboard is the Multilingual edition, values from https://taubench.com/voice-leaderboard.json (snapshot the page loads) computed with the site's voiceV2Rows.js; Standard-only default filter (no custom multilingual rows exist). Task completion = pass@1 over all languages (en, es, pt, hi, ko, zh cells).",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data): its 18 models are voice models scored only on the τ²/τ³ voice boards, so they are not connected to the text models that define the levels; a fitted level would be arbitrary.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "16.11",
+   "name": "τ³-Voice — Telecom",
+   "category": "τ³-Voice domain tab",
+   "url": "https://taubench.com/leaderboard?benchmark=voice&domain=telecom",
+   "focus": "Voice agents on telecom technical-support tasks.",
+   "metrics": "quality, date*, breakdown, other",
+   "metrics_detail": "Quality [page]: Task completion (Telecom tab) — pass@1 (%) on telecom across languages · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/MultilingualVoice.jsx\nBreakdown [page]: Language map — per-language scores for this domain · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/MultilingualVoice.jsx\nOther [page]: Generation quality (%) / Interaction (%) — shown for core domains · https://github.com/sierra-research/tau2-",
+   "notes": "JS page; default voice view on /leaderboard is the Multilingual edition, values from https://taubench.com/voice-leaderboard.json (snapshot the page loads) computed with the site's voiceV2Rows.js; Standard-only default filter (no custom multilingual rows exist). Task completion = pass@1 over all languages (en, es, pt, hi, ko, zh cells).",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data): its 18 models are voice models scored only on the τ²/τ³ voice boards, so they are not connected to the text models that define the levels; a fitted level would be arbitrary.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "16.12",
+   "name": "τ³-Voice — Banking",
+   "category": "τ³-Voice domain tab",
+   "url": "https://taubench.com/leaderboard?benchmark=voice&domain=banking_knowledge",
+   "focus": "Voice agents on banking customer service with knowledge retrieval over policy documents; excluded from voice Overall.",
+   "metrics": "quality, date*, breakdown, other",
+   "metrics_detail": "Quality [page]: Task completion (Banking tab) — pass@1 (%) on banking_knowledge over voice · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/MultilingualVoice.jsx\nBreakdown [page]: Language map — per-language task completion · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/MultilingualVoice.jsx\nDate [data]: submission_date — in benchmark-metadata.json; not a column of the multilingual table · https://sierra-tau-bench-",
+   "notes": "JS page; default voice view on /leaderboard is the Multilingual edition, values from https://taubench.com/voice-leaderboard.json (snapshot the page loads) computed with the site's voiceV2Rows.js; Standard-only default filter (no custom multilingual rows exist). Task completion = pass@1 over all languages (en, es, pt, hi, ko, zh cells). Task completion only.",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data now imported): only 4 distinct models, 3 of them with scores on at least 2 other benchmarks; the scale needs at least 6 such models to place a benchmark.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "16.13",
+   "name": "τ³-Voice — Intake (τ-Entity)",
+   "category": "τ³-Voice domain tab",
+   "url": "https://taubench.com/leaderboard?benchmark=voice&domain=intake",
+   "focus": "Capturing entities over voice (τ-Elicitation: multi-turn entity extraction); scored by crossed pass^3 across regular, heavy-noise and heavy-speech-effect conditions.",
+   "metrics": "quality, runs, date*, breakdown, other",
+   "metrics_detail": "Quality [page]: Task completion (pass^3) — share of intake tasks passed in all three voice conditions (regular, heavy channel noise, heavy speech effects) · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/MultilingualVoice.jsx\nRuns [page]: pass^3 across three conditions — crossed pass^3; data file benchmark-pass3.json has conditions, passed_all, scored_tasks · https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gpt-live-1_openai_2026-10-2",
+   "notes": "JS page; default voice view on /leaderboard is the Multilingual edition, values from https://taubench.com/voice-leaderboard.json (snapshot the page loads) computed with the site's voiceV2Rows.js; Standard-only default filter (no custom multilingual rows exist). Task completion = pass@1 over all languages (en, es, pt, hi, ko, zh cells). Score is Task completion (pass^3).",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data now imported): only 3 distinct models, 2 of them with scores on at least 2 other benchmarks; the scale needs at least 6 such models to place a benchmark.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "16.14",
+   "name": "τ³-Voice — English edition",
+   "category": "τ³-Voice (edition toggle: English)",
+   "url": "https://taubench.com/progress?benchmark=voice",
+   "focus": "English-only voice leaderboard (older voice submissions) with Overall/Retail/Airline/Telecom/Banking tabs; Overall = mean of the three core domains.",
+   "metrics": "quality, time, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: Pass^1 — task success (%) per domain tab; Overall = mean of retail, airline, telecom · https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/components/Leaderboard.jsx\nTime [page]: Latency — mean seconds from end of user turn to start of agent response (interaction_metrics.overall / domains.<d>.response_latency_mean) · https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gpt-realtime-2_openai_2026-06-29/submission.json\nEffort [page]: Reason",
+   "notes": "JS page; computed from voice_submissions in the S3 manifest, Standard-only (direct-load default; clicking the Voice toggle turns Custom on too, then phonic-1 custom 89.4% ranks 2nd). /progress opens the English edition; on /leaderboard it is the 'English' toggle. Ava Zero row = ava-zero-user-sim-v1-1 submission (2026-11-18).",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 96%.\nPlaced from 6 models' published scores.\nBest observed: qwen3.5-omni-plus-realtime 53.7, grok-voice-fast-1.0 38.3, gpt-realtime-1.5 35.3.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "16.15",
+   "name": "τ^τ-bench (hyper-tau-bench)",
+   "category": "Sibling leaderboard (Agent-building agents)",
+   "url": "https://sierra-research.github.io/hyper-tau-bench/",
+   "focus": "Coding harnesses (harness + builder model) building customer-service agents; Overall = mean over all 53 tasks (airline 6, retail 6, telecom 6, banking 35).",
+   "metrics": "quality, cost, time, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: Overall — mean score (%) over all 53 tasks of the agent built by harness + builder model (e.g. 52.2%; human 82.2%) · https://sierra-research.github.io/hyper-tau-bench/\nCost [page]: Build cost — '$X / task' USD to build the agent, in the expanded row (build_cost_usd) · https://github.com/sierra-research/hyper-tau-bench/blob/main/web/leaderboard/src/components/HyperTau.jsx\nTime [page]: Build time — 'X min / task' (build_time_min), in the expanded row · https://github.com/sierra-res",
+   "notes": "Separate sibling site linked from taubench.com's Leaderboards menu (not a τ²/τ³ domain). JS page; Overall scores from hyper-submissions/*/submission.json, matching the prerendered table. Harnesses: Google Arc (high), Claude Code (max), Codex (xhigh). Human performance shown as 82.2%. Board version 'release-v1 · 53 tasks'.",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed (re-checked 2026-11-27 with the full official data now imported): only 6 distinct models, 5 of them with scores on at least 2 other benchmarks; the scale needs at least 6 such models to place a benchmark.\nNot placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": {
+    "1": 0.01,
+    "2": 0.03,
+    "3": 0.08,
+    "4": 0.2761
+   },
+   "level_source": "scores+team-level (nearest level)",
+   "anchor_scores": {
+    "4": 0.2761
+   }
+  }
+ ]
+}

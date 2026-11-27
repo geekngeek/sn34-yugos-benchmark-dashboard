@@ -1,0 +1,1030 @@
+{
+ "1.21": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based (screenshot) browser agent task, not a one-shot text question"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based browser agent task, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.6,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "multi-step web-app task checked on the app's end state like the guessed private agentic set (shop / scheduler / helpdesk apps are close to tau2-style customer-ops domains), but the model must see screenshots so T is capped at 0.05 (Yugos is text-only)"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 25,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "LiveBench 2.0 Browser Use suite: 25 multi-step jobs in working web apps (online shop, project boards, appointment scheduler, expense ledger, helpdesk, wiki) done through a real browser seen by screenshot; answer and app data checked against the expected outcome. Tasks are private (no LiveBench 2.0 questions on Hugging Face or GitHub; the site publishes only suite/subcategory means), need screenshots (text-only models score 0) and cost-file estimates put each run at over a million input tokens, so it cannot stand in for Yugos text questions.",
+  "confidence": "high",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.22": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based (screenshot) browser agent task, not a one-shot text question"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based browser agent task, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.5,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "multi-step web-app task checked on the app's end state like the guessed private agentic set (exhaustive record traversal and totals, some overlap with retail/ops tool tasks), but the model must see screenshots so T is capped at 0.05 (Yugos is text-only)"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 6,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Browser subcategory Data Aggregation (6 tasks): roll-ups that need every record read, e.g. category or workload totals across many pages of a web app, done by screenshot. Tasks are private (no LiveBench 2.0 questions on Hugging Face or GitHub; the site publishes only suite/subcategory means), need screenshots (text-only models score 0) and cost-file estimates put each run at over a million input tokens, so it cannot stand in for Yugos text questions.",
+  "confidence": "high",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.23": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based (screenshot) browser agent task, not a one-shot text question"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based browser agent task, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.7,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "multi-step web-app task checked on the app's end state like the guessed private agentic set (ordering and rebooking under constraints is very close to tau2 retail/airline tasks), but the model must see screenshots so T is capped at 0.05 (Yugos is text-only)"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 4,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Browser subcategory Sequential Planning (4 tasks): order-dependent plans such as placing several orders under shared constraints or rebooking a day's appointments, done by screenshot in a web app. Tasks are private (no LiveBench 2.0 questions on Hugging Face or GitHub; the site publishes only suite/subcategory means), need screenshots (text-only models score 0) and cost-file estimates put each run at over a million input tokens, so it cannot stand in for Yugos text questions.",
+  "confidence": "high",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.24": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based (screenshot) browser agent task, not a one-shot text question"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based browser agent task, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.55,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "multi-step web-app task checked on the app's end state like the guessed private agentic set (rule-based edits of records after analysis, partly like tool-based ops tasks), but the model must see screenshots so T is capped at 0.05 (Yugos is text-only)"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 7,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Browser subcategory Analysis-Driven Action (7 tasks): work out a result from app data, then act on it (e.g. flag and recategorise transactions by rule), done by screenshot. Tasks are private (no LiveBench 2.0 questions on Hugging Face or GitHub; the site publishes only suite/subcategory means), need screenshots (text-only models score 0) and cost-file estimates put each run at over a million input tokens, so it cannot stand in for Yugos text questions.",
+  "confidence": "high",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.25": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based (screenshot) browser agent task, not a one-shot text question"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based browser agent task, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.5,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "multi-step web-app task checked on the app's end state like the guessed private agentic set (ticket/wiki record edits, some overlap with ops tool tasks), but the model must see screenshots so T is capped at 0.05 (Yugos is text-only)"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 5,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Browser subcategory Structural Integrity (5 tasks): edits that must keep structure intact, e.g. merging duplicate helpdesk tickets or moving a wiki page subtree and fixing its links, done by screenshot. Tasks are private (no LiveBench 2.0 questions on Hugging Face or GitHub; the site publishes only suite/subcategory means), need screenshots (text-only models score 0) and cost-file estimates put each run at over a million input tokens, so it cannot stand in for Yugos text questions.",
+  "confidence": "high",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.26": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based (screenshot) browser agent task, not a one-shot text question"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.1,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: image-based browser agent task, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.6,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "multi-step web-app task checked on the app's end state like the guessed private agentic set (exact inputs and declining disallowed actions resemble policy adherence / no-call cases), but the model must see screenshots so T is capped at 0.05 (Yugos is text-only)"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Browser subcategory Constraint Adherence (3 tasks): exact input, plus correctly declining an action the app does not permit, done by screenshot. Tasks are private (no LiveBench 2.0 questions on Hugging Face or GitHub; the site publishes only suite/subcategory means), need screenshots (text-only models score 0) and cost-file estimates put each run at over a million input tokens, so it cannot stand in for Yugos text questions.",
+  "confidence": "high",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.27": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "one text prompt -> one ground-truth answer (partial-credit F1/Jaccard like hotpotqa) on table reasoning; topics are tabular data, not the chat mix; ~4k-token prompts (estimated)"
+   },
+   "math_code": {
+    "T": 0.5,
+    "I": 1.0,
+    "A": 0.45,
+    "Dm": 0.55,
+    "L": 0.2,
+    "F": 0.8,
+    "why": "pandas-style data wrangling like ds1000 (streaks, joins, format conversion) but answered directly, not as executed code; prompts ~10x the math_code typical (estimated)"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.8,
+    "why": "different skill: no tools (site: 'Not agentic: no tools, one answer per question')"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/livebench/data_analysis",
+  "n_questions": 150,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "LiveBench 2.0 Data Analysis: 150 single-answer questions on small tables (47 consecutive-growth runs, 52 table joins, 51 table reformats), graded against ground truth. Only older 2024 versions of table join/reformat (50 each, plus retired cta) are on Hugging Face; the 2025-04 refresh and consecutive events (added 2026-01) are not public, and no per-question results exist. Average input is about 4k tokens per question (our estimate from cost.csv: cost minus output-token cost, at list input price; not stated by LiveBench).",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/datasets/livebench/data_analysis",
+   "https://github.com/LiveBench/LiveBench/blob/main/changelog.md",
+   "https://github.com/LiveBench/LiveBench/tree/main/livebench/process_results/data_analysis",
+   "https://huggingface.co/datasets/livebench/model_judgment"
+  ]
+ },
+ "1.28": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "one prompt -> exact JSON answer scored by Jaccard; multi-step counting over a messy table is BBEH-like reasoning, but topics are tabular data"
+   },
+   "math_code": {
+    "T": 0.5,
+    "I": 1.0,
+    "A": 0.45,
+    "Dm": 0.6,
+    "L": 0.2,
+    "F": 0.9,
+    "why": "finding consecutive-growth streaks per user is a classic pandas/ds1000-type task, but the answer is the result (JSON list), not code; prompts likely well above 400 tokens (estimated)"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.9,
+    "why": "different skill: no tools, one answer per question"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 47,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Data Analysis subcategory Consecutive events (47 questions): given a small table of dated values in mixed formats, list the users with runs of consecutive growth and their max run length, answered in <solution> JSON and scored by Jaccard against ground truth (grader on GitHub). Added to LiveBench on 2026-01-08; no question file found on Hugging Face (last updated 2025-04-07), and no per-question results. Average input is about 4k tokens per question (our estimate from cost.csv: cost minus output-token cost, at list input price; not stated by LiveBench).",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/datasets/livebench/data_analysis",
+   "https://github.com/LiveBench/LiveBench/blob/main/changelog.md",
+   "https://github.com/LiveBench/LiveBench/tree/main/livebench/process_results/data_analysis",
+   "https://huggingface.co/datasets/livebench/model_judgment"
+  ]
+ },
+ "1.29": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.25,
+    "L": 0.45,
+    "F": 0.75,
+    "why": "one prompt -> dict answer scored by F1; inferring which obfuscated columns match is reasoning over data, far from the chat topic mix; two tables make prompts long"
+   },
+   "math_code": {
+    "T": 0.45,
+    "I": 1.0,
+    "A": 0.45,
+    "Dm": 0.55,
+    "L": 0.15,
+    "F": 0.75,
+    "why": "column mapping for a join is ds1000/pandas-merge territory but answered as a dict, not executed code; prompts much longer than math_code typical"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.75,
+    "why": "different skill: no tools, one answer per question"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/livebench/data_analysis",
+  "n_questions": 52,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Data Analysis subcategory Table join (52 questions): given CSV table A and table B with obfuscated column names, return a Python dict mapping A's columns to B's, scored by F1 against ground truth. 50 older questions (2024-06-24 release) are public on Hugging Face (sample prompt ~2.2k characters of numbers); the 2.0 questions (refreshed 2025-04-25) are not, and no per-question results are public. Hard: fitted L4.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/datasets/livebench/data_analysis",
+   "https://github.com/LiveBench/LiveBench/blob/main/changelog.md",
+   "https://github.com/LiveBench/LiveBench/tree/main/livebench/process_results/data_analysis",
+   "https://huggingface.co/datasets/livebench/model_judgment"
+  ]
+ },
+ "1.30": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 1.0,
+    "A": 0.6,
+    "Dm": 0.3,
+    "L": 0.5,
+    "F": 0.75,
+    "why": "a typical easy assistant utility request (convert this table to JSON/HTML), one prompt -> one answer checked against ground truth, but the answer is a whole table rather than a short answer"
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 1.0,
+    "A": 0.4,
+    "Dm": 0.5,
+    "L": 0.2,
+    "F": 0.75,
+    "why": "format conversion like pandas to_json/to_html, answered as the converted table rather than code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.75,
+    "why": "different skill: no tools, one answer per question"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/livebench/data_analysis",
+  "n_questions": 51,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Data Analysis subcategory Table reformat (51 questions): convert a table between CSV, TSV, JSON, JSONL, Markdown and HTML and reply with only the table, checked against ground truth. Near-saturated (L1). 50 older questions (2024-06-24 release) are public on Hugging Face; the 2.0 questions (refreshed 2025-04-25) are not, and no per-question results are public. Could add very easy routing examples where the cheapest model is enough.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/datasets/livebench/data_analysis",
+   "https://github.com/LiveBench/LiveBench/blob/main/changelog.md",
+   "https://github.com/LiveBench/LiveBench/tree/main/livebench/process_results/data_analysis",
+   "https://huggingface.co/datasets/livebench/model_judgment"
+  ]
+ },
+ "1.31": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.35,
+    "Dm": 0.45,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "expert-knowledge questions (regulation, law, tax, strategy, science; some mmlu_pro/hle overlap) but answered as a long sourced report graded by a task rubric, after a long research run with attached files, unlike short-answer chat"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: written research report, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.5,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "long multi-call research run (tools not stated) graded by a rubric on the report, not by tool-call or end-state checks"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "unknown",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 22,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "LiveBench 2.0 Research suite: 22 open-ended briefs from a named person in a situation (e.g. which flight disruptions in a claims log are owed compensation), often with files attached, answered by researching and writing a report with sources, graded against a task-specific rubric. Briefs are private (no LiveBench 2.0 question files on Hugging Face or GitHub) and only subcategory means are published. Cost-file estimates put each run at roughly a million input tokens, i.e. a long multi-call agent run; the tool set and attachment file types are not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.32": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.35,
+    "Dm": 0.4,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "expert-knowledge questions (regulation and compliance; some overlap with mmlu_pro law/business) but answered as a long sourced report graded by a task rubric, after a long research run with attached files, unlike short-answer chat"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: written research report, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.5,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "long multi-call research run (tools not stated) graded by a rubric on the report, not by tool-call or end-state checks"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "unknown",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 7,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Research subcategory Regulatory & Compliance (7 tasks): rules, filings and compliance questions answered from primary sources in a sourced report, rubric-graded. Briefs are private (no LiveBench 2.0 question files on Hugging Face or GitHub) and only subcategory means are published. Cost-file estimates put each run at roughly a million input tokens, i.e. a long multi-call agent run; the tool set and attachment file types are not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.33": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.35,
+    "Dm": 0.45,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "expert-knowledge questions (law; overlaps mmlu_pro law) but answered as a long sourced report graded by a task rubric, after a long research run with attached files, unlike short-answer chat"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: written research report, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.5,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "long multi-call research run (tools not stated) graded by a rubric on the report, not by tool-call or end-state checks"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "unknown",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 4,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Research subcategory Legal (4 tasks): statutes, cases and contractual questions answered with cited authority in a report, rubric-graded. Briefs are private (no LiveBench 2.0 question files on Hugging Face or GitHub) and only subcategory means are published. Cost-file estimates put each run at roughly a million input tokens, i.e. a long multi-call agent run; the tool set and attachment file types are not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.34": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.35,
+    "Dm": 0.45,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "expert-knowledge questions (tax and finance; some overlap with mmlu_pro economics/business) but answered as a long sourced report graded by a task rubric, after a long research run with attached files, unlike short-answer chat"
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.3,
+    "A": 0.15,
+    "Dm": 0.15,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "some arithmetic inside the report, but no closed-form or boxed answer and no code"
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.5,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "long multi-call research run (tools not stated) graded by a rubric on the report, not by tool-call or end-state checks"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "unknown",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 5,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Research subcategory Tax & Finance (5 tasks): tax rules and financial figures with the arithmetic shown, in a rubric-graded report. Briefs are private (no LiveBench 2.0 question files on Hugging Face or GitHub) and only subcategory means are published. Cost-file estimates put each run at roughly a million input tokens, i.e. a long multi-call agent run; the tool set and attachment file types are not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.35": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.35,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "expert-knowledge questions (business strategy; little overlap with the chat mix) but answered as a long sourced report graded by a task rubric, after a long research run with attached files, unlike short-answer chat"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: written research report, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.5,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "long multi-call research run (tools not stated) graded by a rubric on the report, not by tool-call or end-state checks"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "unknown",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Research subcategory Strategy (3 tasks): market and competitive analysis with sourced evidence in a rubric-graded report. Briefs are private (no LiveBench 2.0 question files on Hugging Face or GitHub) and only subcategory means are published. Cost-file estimates put each run at roughly a million input tokens, i.e. a long multi-call agent run; the tool set and attachment file types are not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.36": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.3,
+    "A": 0.35,
+    "Dm": 0.5,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "expert-knowledge questions (science; overlaps hle/mmlu_pro science topics) but answered as a long sourced report graded by a task rubric, after a long research run with attached files, unlike short-answer chat"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: written research report, no math or code answer"
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.5,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "long multi-call research run (tools not stated) graded by a rubric on the report, not by tool-call or end-state checks"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "unknown",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Research subcategory Science & Evidence (3 tasks): scientific and empirical questions weighed on the published evidence in a rubric-graded report. Briefs are private (no LiveBench 2.0 question files on Hugging Face or GitHub) and only subcategory means are published. Cost-file estimates put each run at roughly a million input tokens, i.e. a long multi-call agent run; the tool set and attachment file types are not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.37": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: producing a formatted document file, no short answer"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.15,
+    "Dm": 0.15,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: document layout production, possibly by writing code to build files (not stated), graded on the rendered file not unit tests"
+   },
+   "agentic": {
+    "T": 0.15,
+    "I": 0.5,
+    "A": 0.35,
+    "Dm": 0.15,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "long multi-call run whose produced file is checked (a kind of end-state check), but the skill is visual document design, not tool calling"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "unknown",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 25,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "LiveBench 2.0 Design suite: 25 tasks producing or reworking finished Word documents, PDFs and slide decks to a brief; the produced file is rendered and scored on visual and structural checks. Tasks are private (no LiveBench 2.0 question files on Hugging Face or GitHub); only subcategory means are published. Cost-file estimates put each run at ~200k+ input tokens (multi-call agent run); the tools given and whether the model sees rendered pages are not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.38": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: producing a formatted document file, no short answer"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.15,
+    "Dm": 0.15,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: document layout production, possibly by writing code to build files (not stated), graded on the rendered file not unit tests"
+   },
+   "agentic": {
+    "T": 0.15,
+    "I": 0.5,
+    "A": 0.35,
+    "Dm": 0.15,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "long multi-call run whose produced file is checked (a kind of end-state check), but the skill is visual document design, not tool calling"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "unknown",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 5,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Design subcategory Documents (DOCX) (5 tasks): restyle an existing document, turn Markdown notes into a formatted one, lay out a one-pager or redesign a document; rendered and checked visually/structurally. Tasks are private (no LiveBench 2.0 question files on Hugging Face or GitHub); only subcategory means are published. Cost-file estimates put each run at ~200k+ input tokens (multi-call agent run); the tools given and whether the model sees rendered pages are not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.39": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: producing a formatted document file, no short answer"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.15,
+    "Dm": 0.15,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: document layout production, possibly by writing code to build files (not stated), graded on the rendered file not unit tests"
+   },
+   "agentic": {
+    "T": 0.15,
+    "I": 0.5,
+    "A": 0.35,
+    "Dm": 0.15,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "long multi-call run whose produced file is checked (a kind of end-state check), but the skill is visual document design, not tool calling"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "unknown",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 8,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Design subcategory PDF (8 tasks): an annual report, brand sheet, handbook, menu, poster or gallery, and rebrands/restyles of existing PDFs; rendered and checked visually/structurally. Tasks are private (no LiveBench 2.0 question files on Hugging Face or GitHub); only subcategory means are published. Cost-file estimates put each run at ~200k+ input tokens (multi-call agent run); the tools given and whether the model sees rendered pages are not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ },
+ "1.40": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: producing a formatted document file, no short answer"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.3,
+    "A": 0.15,
+    "Dm": 0.15,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: document layout production, possibly by writing code to build files (not stated), graded on the rendered file not unit tests"
+   },
+   "agentic": {
+    "T": 0.15,
+    "I": 0.5,
+    "A": 0.35,
+    "Dm": 0.15,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "long multi-call run whose produced file is checked (a kind of end-state check), but the skill is visual document design, not tool calling"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "unknown",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 12,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Design subcategory Presentations (PPT) (12 tasks): build a talk or status (RAG) report, chart data on slides, apply a brand, redesign, cut down or localise a deck; rendered and checked visually/structurally. Tasks are private (no LiveBench 2.0 question files on Hugging Face or GitHub); only subcategory means are published. Cost-file estimates put each run at ~200k+ input tokens (multi-call agent run); the tools given and whether the model sees rendered pages are not stated.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/cost.csv",
+   "https://livebench.ai/static/js/main.099aad9b.js",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "https://github.com/LiveBench/LiveBench/blob/main/README.md"
+  ]
+ }
+}

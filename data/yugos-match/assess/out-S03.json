@@ -1,0 +1,1504 @@
+{
+ "2.1": {
+  "scores": {
+   "chat": {
+    "T": 0.25,
+    "I": 0.5,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "Composite: only its AA-Omniscience (15%) and HLE-Diamond (10%) parts are chat-style short-answer questions; the other 75% is long agentic or long-document work."
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.3,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.3,
+    "F": 0.7,
+    "why": "Its coding and science parts (FrontierCode, Terminal-Bench 4.1, Terminal-Bench-Science, CritPt) are agentic repo/terminal/sandbox tasks, not single-prompt functions or boxed math."
+   },
+   "agentic": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.2,
+    "F": 0.8,
+    "why": "About half its weight is multi-step tool work (Briefcase, AutomationBench, terminal and repo agents) graded by tests, state checks or rubric, mostly long-horizon sandbox work unlike tau2-style API tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "components only: huggingface.co/datasets/cais/hle-diamond, huggingface.co/datasets/ArtificialAnalysis/AA-Omniscience-Public-v1.1, github.com/harbor-framework/terminal-bench, huggingface.co/datasets/surgeai/GDP.pdf",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "HLE-Diamond component is a refined subset of HLE, the pool Yugos hle draws from.",
+  "summary": "A weighted score over 9 AA evaluations (knowledge work, coding, science, general), not a question set of its own. Useful as a general model-strength prior; for question data use the component rows.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+   "/root/cic/sn34-yugos/research/open-benchmark-sources.md"
+  ]
+ },
+ "2.2": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: long-horizon agentic deliverables graded by rubric and pairwise Elo"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.2,
+    "A": 0.2,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Uses code execution for data-science style deliverables, but the output is spreadsheets, decks and memos judged by rubric and pairwise Elo, not checked code or a closed-form answer."
+   },
+   "agentic": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.3,
+    "Dm": 0.4,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Multi-step tool use (code execution, up to 500 turns, thousands of input files) on business workflows, but graded by rubric plus pairwise judging rather than end-state checks, and far longer than Yugos tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/ArtificialAnalysis/AA-Briefcase-Lite (one demo scenario only; the 91 scored tasks are private)",
+  "n_questions": 91,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "91 private multi-week business tasks where an agent produces spreadsheets, presentations and memos, scored as an Elo from rubric checks and pairwise comparisons. Too long and too loosely graded to stand in for Yugos questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/aa-briefcase",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.3": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.9,
+    "why": "different skill: multi-step SaaS tool tasks, no Q&A"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.9,
+    "why": "different skill: business tool automation, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.8,
+    "I": 0.75,
+    "A": 0.85,
+    "Dm": 0.6,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "Multi-step REST-API tool tasks on simulated SaaS apps (~50-turn budget) graded programmatically on final state, with any guardrail (policy) violation scoring 0: the same family as the guessed private agentic set, though with no simulated user; tool-schema size per task is not stated."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://github.com/zapier/AutomationBench (600 public tasks, 100 per domain; AA scores a private held-out set of 657)",
+  "n_questions": 657,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Agent tasks in six business domains (finance, HR, marketing, operations, sales, support) over 47 simulated SaaS tools, graded on the end state with guardrails. The public 600-task split is a strong source of tau2-like training tasks for the private agentic part.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/automationbench-aa",
+   "https://github.com/zapier/AutomationBench",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.4": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 1.0,
+    "A": 0.4,
+    "Dm": 0.4,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "One prompt over a long professional PDF with a free-form answer: reading comprehension like hotpotqa, but about 46 pages per task (far above 1,400 tokens) and graded by an all-criteria rubric judge."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "mostly different skill: document reasoning in professional domains, not math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/surgeai/GDP.pdf (AA flags it public; our fetch got HTTP 401, so access may need a login)",
+  "n_questions": 100,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "100 tasks over long real-world PDFs (4,592 pages in total, 1,275 rubric criteria) across 10 professional domains; text is extracted, page images are optional. Inputs are far longer than any Yugos question.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/gdp-pdf",
+   "https://huggingface.co/datasets/surgeai/GDP.pdf",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.5": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: agentic repo coding"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Code changes to real open-source repos by an agent over up to 500 turns, graded by held-out tests and a maintainer-merge rubric: coding skill, but repo-scale and agentic rather than a single function prompt."
+   },
+   "agentic": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Multi-step tool use with end-state (tests) grading, but software engineering in a repo rather than API or customer-service tool tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 132,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Cognition's private FrontierCode 2.0: 132 agentic coding tasks in real repos. Not downloadable and far from Yugos's function-level code questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/frontiercode-2-0",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.6": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.7,
+    "why": "different skill: terminal agent tasks"
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 0.2,
+    "A": 0.6,
+    "Dm": 0.4,
+    "L": 0.4,
+    "F": 0.7,
+    "why": "Terminal tasks often need code (software, ML, science), checked by executed tests, but solved by an agent over many shell steps, not by one prompt with one function."
+   },
+   "agentic": {
+    "T": 0.4,
+    "I": 0.6,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 0.4,
+    "F": 0.7,
+    "why": "Multi-step tool use (shell) graded on end state by per-task tests, close to the guessed private agentic shape, but topics are sysadmin/software, not API or customer-service tools; terminal_bench is only a planned Yugos catalog entry."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench (v4.1.0 tag)",
+  "n_questions": 66,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "66 terminal tasks (software, ML, science, ops, security, hardware, media) run with mini-swe-agent and checked by test suites. Public tasks; a related but different flavour of agentic work from Yugos.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/terminalbench-4-1",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.7": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.8,
+    "why": "different skill: terminal research workflows"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.2,
+    "A": 0.6,
+    "Dm": 0.4,
+    "L": 0.4,
+    "F": 0.8,
+    "why": "Scientific-computing workflows (life, physical, earth, mathematical, engineering sciences) checked by tests: code and math content, but done by a terminal agent over up to 1,000 steps."
+   },
+   "agentic": {
+    "T": 0.4,
+    "I": 0.6,
+    "A": 0.8,
+    "Dm": 0.25,
+    "L": 0.4,
+    "F": 0.8,
+    "why": "Multi-step shell tool use graded on end state by tests, but science research topics rather than API or customer-service tools."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench-science",
+  "n_questions": 70,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "70 expert-written science research workflows completed in a terminal and checked by tests. Public, but agentic and long-horizon, so only a loose match.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/terminal-bench-science",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.8": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.4,
+    "L": 0.7,
+    "F": 0.7,
+    "why": "Research-level physics with machine-checkable answers is HLE-like expert reasoning (HLE is 9% physics), but models work with a code-execution tool and answers are code or symbolic expressions, not short text."
+   },
+   "math_code": {
+    "T": 0.55,
+    "I": 0.6,
+    "A": 0.7,
+    "Dm": 0.5,
+    "L": 0.7,
+    "F": 0.7,
+    "why": "Closest to arxivmath: research-level problems with verifiable symbolic, numeric or Python-function answers, but in physics and solved with a code tool in a sandbox rather than in one answer."
+   },
+   "agentic": {
+    "T": 0.1,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.7,
+    "F": 0.7,
+    "why": "different skill: the tool is only a code sandbox for computation"
+   }
+  },
+  "best_part": "math_code:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/CritPt-Benchmark/CritPt (70 challenges; whether full answers are included is unclear; AA's 40-question hard subset is a private list and grading is through an approval-only API)",
+  "n_questions": 40,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "Apache-2.0 (HF dataset card)",
+  "overlap": "",
+  "summary": "Research-level physics challenges (70; the Index uses a 40-question hard subset) with guess-resistant, machine-verifiable answers. A plausible extra source of hard closed-form problems for the arxivmath route.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/critpt-v2",
+   "https://huggingface.co/datasets/CritPt-Benchmark/CritPt/blob/main/README.md",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.9": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.9,
+    "why": "Short factual-recall questions with one correct answer, judge-graded with abstention allowed: the same task as simpleqa_verified, in six economically relevant domains rather than general trivia."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.9,
+    "why": "mostly different skill: factual recall; a few science/maths facts"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/ArtificialAnalysis/AA-Omniscience-Public-v1.1 (300 of 3,000)",
+  "n_questions": 3000,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "Apache-2.0 (public set)",
+  "overlap": "",
+  "summary": "3,000 short factual questions (business, humanities, science/engineering/maths, health, law, software) graded correct / incorrect / partial / not attempted. A close stand-in for simpleqa_verified, but only 300 questions are public.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/omniscience",
+   "https://huggingface.co/datasets/ArtificialAnalysis/AA-Omniscience-Public-v1.1",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.10": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 1.0,
+    "Dm": 1.0,
+    "L": 1.0,
+    "F": 0.1,
+    "why": "A refined subset of Humanity's Last Exam, judge-graded open answers: the same benchmark as Yugos hle; 272 of 1,000 questions need images, so only the 728 text questions fit."
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 1.0,
+    "A": 0.6,
+    "Dm": 0.5,
+    "L": 0.9,
+    "F": 0.15,
+    "why": "HLE is about 45% math with exact answers, a fair stand-in for arxivmath-style hard math, but judge-graded and mixed with non-math knowledge questions."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.1,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle-diamond (gated: accept terms)",
+  "n_questions": 1000,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "Refined subset of HLE; Yugos hle samples HLE's 2,158 text-only questions, so part of these 728 text questions are in the live pool (exact overlap not checked).",
+  "summary": "1,000 cleaned HLE questions (500 reasoning, 500 knowledge). Excellent format match for Yugos hle, but it overlaps the live set, so use it for difficulty and model priors more than as fresh training questions.",
+  "confidence": "high",
+  "sources": [
+   "https://huggingface.co/datasets/cais/hle-diamond",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.11": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.7,
+    "A": 0.6,
+    "Dm": 0.5,
+    "L": 0.5,
+    "F": 0.6,
+    "why": "Composite: 55% is short-answer knowledge (Omniscience Business 30%, HLE-Diamond 25%), close to simpleqa/hle; the rest is agentic deliverables and long PDFs."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "mostly different skill: economics knowledge and agentic work, little math or code"
+   },
+   "agentic": {
+    "T": 0.15,
+    "I": 0.5,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Only the AA-Briefcase part (30%) is tool-using agent work, graded by rubric and pairwise Elo."
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "components only (AA-Omniscience public 300, cais/hle-diamond, surgeai/GDP.pdf, zapier/AutomationBench public split); AA-Briefcase is private",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "HLE-Diamond component is a refined subset of HLE, the pool Yugos hle draws from.",
+  "summary": "Economics Index: a weighted score over other AA evaluations (Omniscience Business 30%, Briefcase 30%, HLE-Diamond 25%, GDP.pdf 15%), not a question set of its own. Use the component rows for questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/indexes/economics",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.12": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.7,
+    "A": 0.6,
+    "Dm": 0.5,
+    "L": 0.6,
+    "F": 0.6,
+    "why": "Composite: half is short-answer knowledge (Omniscience SEM 30%, HLE-Diamond 20%); the rest is science, coding and knowledge-work agents."
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.5,
+    "A": 0.6,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "CritPt and Terminal-Bench-Science (20%), HLE math and SEM recall carry hard math/science, but much is agentic or recall rather than boxed math or function code."
+   },
+   "agentic": {
+    "T": 0.2,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.2,
+    "L": 0.2,
+    "F": 0.8,
+    "why": "Agentic coding (15%) and knowledge work (15%) are long sandbox tasks, not API tool tasks."
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "components only (AA-Omniscience public 300, cais/hle-diamond, surgeai/GDP.pdf, zapier/AutomationBench public split); AA-Briefcase is private",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "HLE-Diamond component is a refined subset of HLE, the pool Yugos hle draws from.",
+  "summary": "Engineering Index: a weighted score over other AA evaluations (Omniscience SEM 30%, CritPt + Terminal-Bench-Science 20%, HLE-Diamond 20%, Terminal-Bench + FrontierCode 15%, Briefcase 15%), not a question set of its own. Use the component rows for questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/indexes/engineering",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.13": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.7,
+    "A": 0.6,
+    "Dm": 0.4,
+    "L": 0.6,
+    "F": 0.6,
+    "why": "Composite: 55% is knowledge and non-hallucination on Omniscience Business plus HLE-Diamond (simpleqa/hle-like); the rest is agentic."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: finance knowledge and agentic work"
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.2,
+    "F": 0.9,
+    "why": "Briefcase (30%) and AutomationBench Finance (10%) are multi-step tool work; only the AutomationBench part is end-state graded."
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "components only (AA-Omniscience public 300, cais/hle-diamond, surgeai/GDP.pdf, zapier/AutomationBench public split); AA-Briefcase is private",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "HLE-Diamond component is a refined subset of HLE, the pool Yugos hle draws from.",
+  "summary": "Finance & Accounting Index: a weighted score over other AA evaluations (Briefcase 30%, Omniscience Business accuracy 25% and non-hallucination 15%, HLE-Diamond 15%, AutomationBench Finance 10%, GDP.pdf 5%), not a question set of its own. Use the component rows for questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/indexes/finance-and-accounting",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.14": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.7,
+    "A": 0.6,
+    "Dm": 0.4,
+    "L": 0.4,
+    "F": 0.6,
+    "why": "Composite: 45% is Omniscience Health recall/non-hallucination and HLE-Diamond (chat-like); MLCR-AA (15%) uses 25k-64k-token medical cases."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.8,
+    "why": "different skill: medical knowledge and agentic work"
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.2,
+    "F": 0.9,
+    "why": "Briefcase (25%) and AutomationBench Support and Operations (15%) are multi-step tool work; only the latter is end-state graded."
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "components only (AA-Omniscience public 300, cais/hle-diamond, surgeai/GDP.pdf, zapier/AutomationBench public split); AA-Briefcase is private",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "HLE-Diamond component is a refined subset of HLE, the pool Yugos hle draws from.",
+  "summary": "Healthcare & Medical Index: a weighted score over other AA evaluations (Omniscience Health 25% + non-hallucination 10%, Briefcase 25%, MLCR-AA 15%, AutomationBench Support/Ops 15%, HLE-Diamond 10%), not a question set of its own. Use the component rows for questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/indexes/healthcare-and-medical",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.15": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.7,
+    "A": 0.6,
+    "Dm": 0.4,
+    "L": 0.6,
+    "F": 0.6,
+    "why": "Composite: 60% is Omniscience Law recall/non-hallucination and HLE-Diamond (chat-like); the rest is agentic deliverables and long PDFs."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: legal knowledge and agentic work"
+   },
+   "agentic": {
+    "T": 0.15,
+    "I": 0.6,
+    "A": 0.4,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Briefcase (25%) and a 5% AutomationBench part are the only tool-using components."
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "components only (AA-Omniscience public 300, cais/hle-diamond, surgeai/GDP.pdf, zapier/AutomationBench public split); AA-Briefcase is private",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "HLE-Diamond component is a refined subset of HLE, the pool Yugos hle draws from.",
+  "summary": "Legal Index: a weighted score over other AA evaluations (Omniscience Law 30% + non-hallucination 15%, Briefcase 25%, HLE-Diamond 15%, GDP.pdf 10%, AutomationBench Support/Ops 5%), not a question set of its own. Use the component rows for questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/indexes/legal",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.16": {
+  "scores": {
+   "chat": {
+    "T": 0.25,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.7,
+    "why": "Composite: only 30% is Omniscience Business recall/non-hallucination (simpleqa-like); 65% is agentic."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.8,
+    "why": "different skill: business operations and agentic work"
+   },
+   "agentic": {
+    "T": 0.45,
+    "I": 0.7,
+    "A": 0.6,
+    "Dm": 0.5,
+    "L": 0.3,
+    "F": 0.9,
+    "why": "35% is AutomationBench (ops, HR, marketing, sales, support), end-state graded multi-step tool tasks like the guessed private set; 30% Briefcase is rubric/Elo graded."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "components only (AA-Omniscience public 300, cais/hle-diamond, surgeai/GDP.pdf, zapier/AutomationBench public split); AA-Briefcase is private",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "HLE-Diamond component is a refined subset of HLE, the pool Yugos hle draws from.",
+  "summary": "Strategy & Ops Index: a weighted score over other AA evaluations (AutomationBench Ops/HR/Marketing/Sales/Support 35%, Briefcase 30%, Omniscience Business 25% + non-hallucination 5%, GDP.pdf 5%), not a question set of its own. Use the component rows for questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/indexes/strategy-and-ops",
+   "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ]
+ },
+ "2.17": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.8,
+    "why": "different skill: cyber-defense agents in code repos"
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.8,
+    "why": "Finding and patching vulnerabilities in real repos (much of it C/C++) is coding work, but agentic and security-specific, not single Python functions."
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.15,
+    "L": 0.1,
+    "F": 0.8,
+    "why": "Multi-step sandbox agents graded by verifiers or a judge; a different flavour from API/customer-service tool tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "CyberGym-E2E is public (https://cybergym.io/cybergym-e2e); CWE-Bench-AA and DeepsecBench-AA are private",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Equal-weight composite of three cyber-defense agent evaluations (CWE-Bench-AA, DeepsecBench-AA, CyberGym-E2E-AA). Not a question set of its own and far from Yugos content.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+   "https://artificialanalysis.ai/methodology/cyber-index"
+  ]
+ },
+ "2.18": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: repo security audit and patch"
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.2,
+    "A": 0.6,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Auditing a repo and patching a web-security flaw (OWASP Top 10) is coding with a deterministic verifier, but agentic over 2 hours, not a single function prompt."
+   },
+   "agentic": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.7,
+    "Dm": 0.15,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "ReAct tool loop in a sandbox with an end-state verifier (exploit blocked, behaviour kept), but security engineering rather than API tool tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 120,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "120 private tasks where a coding agent audits a real repository and patches a described class of vulnerability, checked by a deterministic verifier. Not downloadable.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/cwe-bench-aa",
+   "https://artificialanalysis.ai/methodology/cyber-index"
+  ]
+ },
+ "2.19": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: vulnerability hunting in repos"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "mostly different skill: reading code to report vulnerabilities, judged by an LLM, no code to pass tests"
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.6,
+    "A": 0.3,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Multi-step sandbox agent that submits findings through a tool, but graded by an LLM judge against a golden set (F2), not by end state."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Private Vercel benchmark: agents look for vulnerabilities in real application code; findings are judged against expert-verified bugs. Task count not stated; not downloadable.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/deepsecbench-aa",
+   "https://artificialanalysis.ai/methodology/cyber-index"
+  ]
+ },
+ "2.20": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.7,
+    "why": "different skill: C/C++ vulnerability reproduction and patching"
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.2,
+    "A": 0.6,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.7,
+    "why": "Writing proof-of-concept inputs and patches for C/C++ memory-safety bugs is execution-checked code, but agentic and far from Python data-science libraries."
+   },
+   "agentic": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.7,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.7,
+    "why": "Multi-step sandbox agent with staged execution checks on the end state, but cyber security in OSS-Fuzz projects, not API tool tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://cybergym.io/cybergym-e2e (original dataset on Hugging Face; AA lists its 131-task subset)",
+  "n_questions": 131,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "131 OSS-Fuzz C/C++ projects: the agent must find a memory-safety bug, reproduce it with a crashing input and patch it without breaking tests. Public, but unrelated to Yugos content.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/cybergym-e2e-aa",
+   "https://artificialanalysis.ai/methodology/cyber-index"
+  ]
+ },
+ "2.21": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.2,
+    "F": 0.8,
+    "why": "mostly different skill: coding agents; only SWE-Atlas-QnA is technical Q&A, via an agent"
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.2,
+    "F": 0.8,
+    "why": "Repo-scale software engineering, terminal tasks and codebase Q&A done by agent harnesses, graded by tests or rubric; coding skill but not single-function prompts."
+   },
+   "agentic": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.2,
+    "L": 0.2,
+    "F": 0.8,
+    "why": "Multi-step agent runs with test-based end-state grading, but software engineering rather than API tool tasks; entries are agent+model setups (including routers)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "Terminal-Bench (github.com/harbor-framework/terminal-bench) and SWE-Atlas-QnA (Hugging Face, linked on page) are public; FrontierCode-AA 2.0 is private",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Equal-weight mean of FrontierCode-AA 2.0 (132), Terminal-Bench 4.1 (66) and SWE-Atlas-QnA-AA (124), scored per agent+model configuration. Interesting because some entries are router setups, but not a Yugos-style question set; difficulty left null (one component's level unknown).",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/agents/coding-agents"
+  ]
+ },
+ "2.22": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.7,
+    "Dm": 0.5,
+    "L": 0.7,
+    "F": 0.7,
+    "why": "Fact-finding questions with short or list answers (BrowseComp, DeepSearchQA, AA-Omniscience) are simpleqa-like, but are meant to be answered with web search, which Yugos models do not get."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.7,
+    "F": 0.7,
+    "why": "different skill: web research questions"
+   },
+   "agentic": {
+    "T": 0.25,
+    "I": 0.6,
+    "A": 0.4,
+    "Dm": 0.3,
+    "L": 0.6,
+    "F": 0.7,
+    "why": "An agent loop with one web_search tool, graded on the final answer rather than end state; entries are search providers with a fixed answer model."
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "page says only the AA-Omniscience part (600) is private; it does not say whether DeepSearchQA (900) and BrowseComp (200-sample subset) questions are public",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Ranks Search API providers, all paired with the same answer model, on DeepSearchQA, BrowseComp and AA-Omniscience. The scores say nothing about which model to route to; the questions are search-dependent recall.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/agents/search-api"
+  ]
+ },
+ "2.23": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 0.9,
+    "A": 0.6,
+    "Dm": 0.5,
+    "L": 0.6,
+    "F": 0.5,
+    "why": "Composite of multiple-choice and yes/no decisions over documents and knowledge (Paperclip, EvalSafe, Omniscience-Decision, HLE-MultiChoice), answered as option probabilities: close to mmlu_pro/hle MC, but calibration-scored."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.6,
+    "F": 0.6,
+    "why": "different skill: document and knowledge decisions"
+   },
+   "agentic": {
+    "T": 0.15,
+    "I": 0.7,
+    "A": 0.3,
+    "Dm": 0.5,
+    "L": 0.7,
+    "F": 0.6,
+    "why": "Only When2Call (10%) and part of AA-Symmetry involve tools, as a choice between candidate replies, not a generated call."
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "components: cais/hle (HLE-MultiChoice), nvidia/When2Call, typesafeAI/evalsafe-onet are public; AA-Paperclip, AA-Omniscience-Decision and AA-Symmetry are private",
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "HLE-MultiChoice component (15%) is HLE text multiple choice (Yugos hle pool); When2Call component is built from BFCL v2 Live questions (Yugos bfcl family).",
+  "summary": "Weighted Decision Score over six decision evaluations, ranking mostly specialised decision models (language models behind a toggle). Use the component rows for questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index",
+   "https://artificialanalysis.ai/methodology/decision-index"
+  ]
+ },
+ "2.24": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 0.9,
+    "A": 0.6,
+    "Dm": 0.4,
+    "L": 0.4,
+    "F": 0.9,
+    "why": "Read a document (resume, receipt/invoice, AI/ML paper) and answer 5 yes/no decisions and 10 multiple-choice extractions in JSON: short, exactly checkable answers like structured-field private chat, but on long documents."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.9,
+    "why": "different skill: document decisions and extraction"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.9,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 1500,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "1,500 private documents (500 each of resumes, receipts/invoices, research papers), each with 5 decisions and 10 extraction questions, all-pass scored. Shape fits structured private-chat questions, but documents and answer keys are private.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/aa-paperclip",
+   "https://artificialanalysis.ai/methodology/decision-index"
+  ]
+ },
+ "2.25": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 1.0,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.6,
+    "F": 0.9,
+    "why": "One document plus one yes/no, score or choice question: short checkable answers about a given text (like easy reading questions), but the reference is two frontier models' consensus, not a human key; document length not stated."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.6,
+    "F": 0.9,
+    "why": "different skill: workplace document judgements"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.6,
+    "F": 0.9,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/typesafeAI/evalsafe-onet",
+  "n_questions": 6582,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "6,582 judgements (yes/no, score, choice) about 150 synthetic O*NET workplace documents; AA keeps only items where GPT-6 Astra and Claude Fable 5.1 agree. Public and plentiful, a possible source of easy document-grounded questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/evalsafe-onet-aa",
+   "https://artificialanalysis.ai/methodology/decision-index"
+  ]
+ },
+ "2.26": {
+  "scores": {
+   "chat": {
+    "T": 0.75,
+    "I": 1.0,
+    "A": 0.8,
+    "Dm": 0.6,
+    "L": 1.0,
+    "F": 0.9,
+    "why": "Factual-knowledge questions (from AA-Omniscience) posed as 4 options plus 'I don't know': simpleqa-like recall in mmlu_pro-like multiple-choice form, scored on calibrated option probabilities."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.9,
+    "why": "mostly different skill: factual recall"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 500,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "500 private knowledge questions in six domains as 4-choice plus decline; a good format match for recall and multiple-choice chat questions, but not downloadable.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/aa-omniscience-decision",
+   "https://artificialanalysis.ai/methodology/decision-index"
+  ]
+ },
+ "2.27": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.85,
+    "Dm": 0.9,
+    "L": 1.0,
+    "F": 0.05,
+    "why": "HLE's text-only multiple-choice questions: exactly the 24% multiple-choice part of Yugos hle (AA adds an 'I don't know' option and scores option probabilities)."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.1,
+    "why": "Some HLE MC questions are hard math, but the answer is a letter, not a boxed or closed-form result."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.05,
+    "why": "different skill: no tools"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/cais/hle (gated; AA's 509-question list is not published separately)",
+  "n_questions": 509,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "509 of HLE's text-only multiple-choice questions; Yugos hle samples the same text-only HLE pool (24% of its 90 are MC), so it likely contains the live set's MC questions.",
+  "summary": "Nearly all text-only multiple-choice HLE questions. Perfect format and topic match for Yugos hle's MC part, but it overlaps the live set, so it is better for model priors than as fresh training questions.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/hle-multichoice",
+   "https://artificialanalysis.ai/methodology/decision-index"
+  ]
+ },
+ "2.28": {
+  "scores": {
+   "chat": {
+    "T": 0.2,
+    "I": 0.9,
+    "A": 0.15,
+    "Dm": 0.4,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Same questions asked in reworded, reordered or negated forms and scored on answer consistency, not correctness."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: answer invariance"
+   },
+   "agentic": {
+    "T": 0.1,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "mostly different skill: consistency of tool-or-not choices (When2Call items), not tool calling"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 120,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "Includes When2Call items, which are built from BFCL v2 Live questions (Yugos bfcl family).",
+  "summary": "120 questions (from When2Call, WildGuardTest and AA-Omniscience-Decision) asked as 460 equivalent forms; measures whether the choice stays the same. Private forms; not a correctness benchmark.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/aa-symmetry",
+   "https://artificialanalysis.ai/methodology/decision-index"
+  ]
+ },
+ "2.29": {
+  "scores": {
+   "chat": {
+    "T": 0.15,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.4,
+    "why": "mostly different skill: a few items are 'answer directly' questions, but the task is the tool-use decision"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.4,
+    "why": "different skill: tool-use decisions"
+   },
+   "agentic": {
+    "T": 0.7,
+    "I": 0.9,
+    "A": 0.45,
+    "Dm": 0.8,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "Tool specs in JSON plus a user turn, deciding whether to call a tool, answer, ask or decline: the core of bfcl's no-call cases, but posed as a choice among four written replies rather than a generated call matched by AST."
+   }
+  },
+  "best_part": "agentic:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/nvidia/When2Call (mcq test split 3,652; AA uses 3,423)",
+  "n_questions": 3423,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": "CC BY 4.0",
+  "overlap": "Test items are built from BFCL v2 Live Simple / Live Multiple questions (dataset 'source' column), so some prompts may share base questions with Yugos bfcl.",
+  "summary": "NVIDIA's When2Call: single-turn tool-use decisions with JSON tool specs (call, answer, ask for info, cannot answer). Public with training splits too; a good extra source for bfcl's 'no call expected' behaviour.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/when2call",
+   "https://huggingface.co/datasets/nvidia/When2Call",
+   "https://artificialanalysis.ai/methodology/decision-index"
+  ]
+ },
+ "2.30": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: not a question set; an IRT ability estimate over AA evaluations"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: not a question set; an IRT ability estimate"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: not a question set; an IRT ability estimate"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "One item-response-theory capability score per model over current and retired AA evaluations; it shows estimated chance of solving example tasks, not per-question results. Useful as a cross-generation ability prior, not as questions.",
+  "confidence": "high",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/artificial-analysis-progress-index"
+  ]
+ },
+ "2.31": {
+  "scores": {
+   "chat": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.5,
+    "why": "different skill: scores model openness (weights, data, methods), no questions"
+   },
+   "math_code": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.5,
+    "why": "different skill: openness score, no questions"
+   },
+   "agentic": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.5,
+    "why": "different skill: openness score, no questions"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": null,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Rates how open each model is (weights, data, methodology); not a capability test and has no questions.",
+  "confidence": "high",
+  "sources": []
+ },
+ "2.32": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "different skill: build interactive 3D scenes, judged by pairwise human votes (Elo)"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.9,
+    "why": "Writes three.js/JavaScript code, but graded by blind pairwise votes on the rendered scene, not by tests."
+   },
+   "agentic": {
+    "T": 0.15,
+    "I": 0.6,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.4,
+    "F": 0.9,
+    "why": "Agent works in an offline sandbox, but the result is judged by human preference Elo, not end state."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "unknown",
+  "questions_where": null,
+  "n_questions": 55,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "55 briefs where an agent builds an interactive three.js scene; ranked by Elo from blind pairwise votes. Visual, preference-graded; no fit to Yugos.",
+  "confidence": "medium",
+  "sources": [
+   "https://artificialanalysis.ai/evaluations/aa-3d"
+  ]
+ }
+}

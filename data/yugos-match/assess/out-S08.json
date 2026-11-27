@@ -1,0 +1,1484 @@
+{
+ "13.1": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.9,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.6,
+    "F": 0.4,
+    "why": "different skill: writing/editing code, no factual or reasoning answer"
+   },
+   "math_code": {
+    "T": 0.7,
+    "I": 0.75,
+    "A": 0.85,
+    "Dm": 0.4,
+    "L": 0.7,
+    "F": 0.45,
+    "why": "Write/edit code to pass hidden unit tests like bigcodebench, but in 6 languages (C++, Go, Java, JS, Python, Rust) on algorithmic Exercism puzzles rather than Python data-science libraries; aider edit format and a 2nd attempt add a harness layer; Dec 2024 and Exercism solutions are widely online."
+   },
+   "agentic": {
+    "T": 0.08,
+    "I": 0.2,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.4,
+    "why": "different skill: code editing inside a harness, no tool calls or conversation"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/Aider-AI/polyglot-benchmark",
+  "n_questions": 225,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "225 hard Exercism exercises in 6 languages; the model edits stub files and is graded by the exercise unit tests (pass within 2 attempts). Useful as extra code questions with executed tests, but only part is Python and none uses the pandas/numpy-style libraries Yugos's public code sets use; no per-exercise per-model results were found (leaderboard shows run totals only). Repo says exercise content is copyright Exercism.",
+  "confidence": "medium",
+  "sources": [
+   "https://aider.chat/docs/leaderboards/",
+   "https://github.com/Aider-AI/polyglot-benchmark"
+  ]
+ },
+ "13.2": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.9,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.6,
+    "F": 0.4,
+    "why": "different skill: writing/editing code, no factual or reasoning answer"
+   },
+   "math_code": {
+    "T": 0.8,
+    "I": 0.8,
+    "A": 0.85,
+    "Dm": 0.45,
+    "L": 0.7,
+    "F": 0.3,
+    "why": "Python-only coding exercises graded by success on the exercise (Exercism tests), close to MBPP/bigcodebench-style code writing but done as file edits in aider's edit format; small, 2023-era and heavily memorized Exercism problems."
+   },
+   "agentic": {
+    "T": 0.08,
+    "I": 0.2,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.4,
+    "why": "different skill: code editing inside a harness, no tool calls or conversation"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "Exercism Python track (page names Exercism as the source; exact 133-exercise list not confirmed)",
+  "n_questions": 133,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Legacy aider benchmark: 133 small Python Exercism exercises solved by editing source files. Shape is close to simple Python function tasks, but it is old, easy for current models, and frozen; only aggregate results per model are published.",
+  "confidence": "medium",
+  "sources": [
+   "https://aider.chat/docs/leaderboards/edit.html"
+  ]
+ },
+ "13.3": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.9,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.2,
+    "F": 0.35,
+    "why": "different skill: mechanical code refactoring of large files"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.8,
+    "A": 0.3,
+    "Dm": 0.35,
+    "L": 0.15,
+    "F": 0.35,
+    "why": "Code task but mechanical (move one large method out of a class into a top-level function) and checked only by AST sanity checks, not by running tests; inputs are whole large source files from Django/pandas/PyTorch etc., far longer than Yugos code prompts."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.2,
+    "F": 0.35,
+    "why": "different skill: long code output, no tools"
+   }
+  },
+  "best_part": "math_code:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/Aider-AI/refactor-benchmark",
+  "n_questions": 89,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "89 refactoring tasks built from large classes in 9 open-source Python projects; success = AST checks that the method moved intact (tests 'lazy coding'). Weak stand-in: the skill is long faithful code output, not solving a problem, and prompts are very long.",
+  "confidence": "medium",
+  "sources": [
+   "https://aider.chat/docs/leaderboards/refactor.html",
+   "https://github.com/Aider-AI/refactor-benchmark"
+  ]
+ },
+ "14.1": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.8,
+    "why": "different skill: hours-long autonomous terminal work, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Many tasks are coding/debugging/data work checked by tests, but solved as a long autonomous shell session in a container, not one prompt -> one function; very long trajectories (a 4.0 Opus 5.5 submission averaged ~24M tokens and ~80 min per trial)."
+   },
+   "agentic": {
+    "T": 0.45,
+    "I": 0.5,
+    "A": 0.75,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Multi-step tool use graded on the final environment state (task tests), the same broad family as the guessed private agentic set, but the tool is a full shell in a Docker container, there is no simulated user or JSON tool schemas, and topics are sysadmin/SWE/science; an example task on main allows 8 h (28,800 s) and runs use tens of millions of tokens per trial, far beyond Yugos agentic prompts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench (tasks/; also Harbor Hub dataset terminal-bench/terminal-bench)",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "Current Terminal-Bench: expert tasks (e.g. process a claims packet and submit through a local portal) done by an agent harness (Claude Code, Codex...) in a container, checked by tests. Fresh 2026 and end-state graded, but extremely long and costly to run; GitHub submission files give aggregate metrics plus trial IDs only, so per-task outcomes were not found. Yugos lists terminal_bench as a 'planned' catalog entry.",
+  "confidence": "medium",
+  "sources": [
+   "https://www.tbench.ai/",
+   "https://github.com/harbor-framework/terminal-bench",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/leaderboard/submissions/2026-09-30-anthropic-claude-opus-5-5-max-claude-code.json",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/tasks/heat-pump-warranty/instruction.md",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md"
+  ]
+ },
+ "14.2": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.8,
+    "why": "different skill: hours-long autonomous terminal work, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Many tasks are coding/debugging/data work checked by tests, but solved as a long autonomous shell session in a container, not one prompt -> one function; example 4.0 submission averages ~80 min and ~24M tokens per trial."
+   },
+   "agentic": {
+    "T": 0.45,
+    "I": 0.5,
+    "A": 0.75,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Multi-step tool use graded on the final environment state (task tests), the same broad family as the guessed private agentic set, but the tool is a full shell in a Docker container, there is no simulated user or JSON tool schemas, and topics are sysadmin/SWE/science; 4.0 runs (5 trials/task) average ~80 min and ~24M tokens per trial."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench (Harbor Hub package terminal-bench/terminal-bench, dataset version 4)",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "Terminal-Bench 4.0: same task style as 4.1 (recalibrated resources, saturated tasks removed). End-state graded agent tasks, fresh, but very long-horizon; submissions on GitHub list aggregate accuracy/pass@k, cost and tokens with trial IDs, not per-task outcomes.",
+  "confidence": "medium",
+  "sources": [
+   "https://www.tbench.ai/",
+   "https://github.com/harbor-framework/terminal-bench",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/leaderboard/submissions/2026-09-30-anthropic-claude-opus-5-5-max-claude-code.json",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/tasks/heat-pump-warranty/instruction.md",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/leaderboard/leaderboard.yaml"
+  ]
+ },
+ "14.3": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.8,
+    "why": "different skill: hours-long autonomous terminal work, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.15,
+    "F": 0.85,
+    "why": "Many tasks are coding/debugging/data work checked by tests, but solved as a long autonomous shell session in a container, not one prompt -> one function; 2026 community-sourced tasks across 7 domains."
+   },
+   "agentic": {
+    "T": 0.45,
+    "I": 0.5,
+    "A": 0.75,
+    "Dm": 0.3,
+    "L": 0.15,
+    "F": 0.85,
+    "why": "Multi-step tool use graded on the final environment state (task tests), the same broad family as the guessed private agentic set, but the tool is a full shell in a Docker container, there is no simulated user or JSON tool schemas, and topics are sysadmin/SWE/science; 74 hard community tasks; frontier systems solve under half."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench (tagged release / Harbor Hub version 3)",
+  "n_questions": 74,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "Terminal-Bench 3.0: 74 diverse, difficult community tasks in 7 domains run as terminal agent sessions and checked by tests. Good freshness and end-state grading, but far longer and harder than typical Yugos agentic items; only run-level numbers found.",
+  "confidence": "medium",
+  "sources": [
+   "https://www.tbench.ai/",
+   "https://github.com/harbor-framework/terminal-bench",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/leaderboard/submissions/2026-09-30-anthropic-claude-opus-5-5-max-claude-code.json",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/tasks/heat-pump-warranty/instruction.md",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md"
+  ]
+ },
+ "14.4": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.8,
+    "why": "different skill: hours-long autonomous terminal work, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.25,
+    "F": 0.75,
+    "why": "Many tasks are coding/debugging/data work checked by tests, but solved as a long autonomous shell session in a container, not one prompt -> one function; 89 tasks, many are coding/build/debug jobs."
+   },
+   "agentic": {
+    "T": 0.5,
+    "I": 0.5,
+    "A": 0.75,
+    "Dm": 0.3,
+    "L": 0.25,
+    "F": 0.75,
+    "why": "Multi-step tool use graded on the final environment state (task tests), the same broad family as the guessed private agentic set, but the tool is a full shell in a Docker container, there is no simulated user or JSON tool schemas, and topics are sysadmin/SWE/science; shorter tasks than 3.x/4.x, but still dozens of shell turns with growing context."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench-2-1",
+  "n_questions": 89,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Terminal-Bench 2.1 = 2.0's 89 tasks with 28 fixed. Container tasks (build, debug, data, security, ML) graded by tests; closer in length to an agent benchmark than 3.x/4.x, widely reported in 2025-26 model cards; per-task outcomes not found.",
+  "confidence": "medium",
+  "sources": [
+   "https://www.tbench.ai/",
+   "https://github.com/harbor-framework/terminal-bench",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/leaderboard/submissions/2026-09-30-anthropic-claude-opus-5-5-max-claude-code.json",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/tasks/heat-pump-warranty/instruction.md",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md"
+  ]
+ },
+ "14.5": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.8,
+    "why": "different skill: hours-long autonomous terminal work, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.25,
+    "F": 0.75,
+    "why": "Many tasks are coding/debugging/data work checked by tests, but solved as a long autonomous shell session in a container, not one prompt -> one function; 89 verified tasks, many coding/build/debug."
+   },
+   "agentic": {
+    "T": 0.5,
+    "I": 0.5,
+    "A": 0.75,
+    "Dm": 0.3,
+    "L": 0.25,
+    "F": 0.75,
+    "why": "Multi-step tool use graded on the final environment state (task tests), the same broad family as the guessed private agentic set, but the tool is a full shell in a Docker container, there is no simulated user or JSON tool schemas, and topics are sysadmin/SWE/science; released with Harbor (late 2025), widely reported in model cards."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "Harbor Hub package terminal-bench/terminal-bench-2 (per row facts)",
+  "n_questions": 89,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Terminal-Bench 2.0: 89 harder, verified terminal tasks graded by tests on the container state. A reasonable multi-step tool-use analogue but with a shell instead of API tools and no user conversation; heavily reported, so partly targeted by labs.",
+  "confidence": "medium",
+  "sources": [
+   "https://www.tbench.ai/",
+   "https://github.com/harbor-framework/terminal-bench",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/leaderboard/submissions/2026-09-30-anthropic-claude-opus-5-5-max-claude-code.json",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/tasks/heat-pump-warranty/instruction.md",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md"
+  ]
+ },
+ "14.6": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.8,
+    "why": "different skill: hours-long autonomous terminal work, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "Many tasks are coding/debugging/data work checked by tests, but solved as a long autonomous shell session in a container, not one prompt -> one function; 2025 original task set."
+   },
+   "agentic": {
+    "T": 0.5,
+    "I": 0.5,
+    "A": 0.75,
+    "Dm": 0.3,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "Multi-step tool use graded on the final environment state (task tests), the same broad family as the guessed private agentic set, but the tool is a full shell in a Docker container, there is no simulated user or JSON tool schemas, and topics are sysadmin/SWE/science; original 2025 task set, superseded."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench-1",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Original Terminal-Bench: agent tasks in a terminal graded by tests. No current official leaderboard; older and partly saturated, so less useful than 2.x.",
+  "confidence": "low",
+  "sources": [
+   "https://www.tbench.ai/",
+   "https://github.com/harbor-framework/terminal-bench",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/leaderboard/submissions/2026-09-30-anthropic-claude-opus-5-5-max-claude-code.json",
+   "https://raw.githubusercontent.com/harbor-framework/terminal-bench/main/tasks/heat-pump-warranty/instruction.md",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "https://github.com/harbor-framework/terminal-bench-1"
+  ]
+ },
+ "14.7": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.15,
+    "Dm": 0.3,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: long scientific research workflows in a terminal, graded on produced artefacts"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.2,
+    "A": 0.45,
+    "Dm": 0.35,
+    "L": 0.15,
+    "F": 0.9,
+    "why": "Includes mathematical-sciences tasks (theorem proving, model fitting, simulation) and code, but as long autonomous workflows over data files with task-specific tests, not single math/code prompts."
+   },
+   "agentic": {
+    "T": 0.35,
+    "I": 0.5,
+    "A": 0.7,
+    "Dm": 0.2,
+    "L": 0.15,
+    "F": 0.9,
+    "why": "Multi-step tool use in a terminal graded by tests, but the content is expert science research (life/physical/earth/math/engineering), unlike customer-service style tool tasks; very long runs (several $k per 70-task run)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench-science",
+  "n_questions": 70,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "Apache-2.0",
+  "overlap": "",
+  "summary": "70 expert science research workflows (Aug 2026) run as terminal agent tasks with reproducible tests. Fresh but far from Yugos's question shapes and extremely costly to run; only aggregate scores are published.",
+  "confidence": "medium",
+  "sources": [
+   "https://www.terminal-bench-science.ai/announcement"
+  ]
+ },
+ "14.8": {
+  "scores": {
+   "chat": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.05,
+    "Dm": 0.1,
+    "L": 0.02,
+    "F": 0.9,
+    "why": "different skill: months-long engineering projects"
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.1,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.02,
+    "F": 0.9,
+    "why": "different skill: single huge optimisation projects (codegolf inference engine, compiler speedup, wasm renderer), graded by performance metrics"
+   },
+   "agentic": {
+    "T": 0.15,
+    "I": 0.3,
+    "A": 0.3,
+    "Dm": 0.1,
+    "L": 0.02,
+    "F": 0.9,
+    "why": "Long-horizon agent work, but only 3 single tasks measured by throughput/instruction-count style metrics, nothing like a tool-call question set."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/harbor-framework/terminal-bench-challenges",
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "Three single-task, expert-team-months challenges with no published results. Not usable as router training questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/harbor-framework/terminal-bench-challenges"
+  ]
+ },
+ "15.1": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "Short question with one exact short answer (quasi-exact match), like HLE/SimpleQA in format and general-knowledge topics, but it needs web browsing, file reading or code to answer, so a plain chat model mostly fails; all three levels."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.15,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "different skill: web/file research questions, a few need arithmetic or code but are not math/code problems"
+   },
+   "agentic": {
+    "T": 0.5,
+    "I": 0.45,
+    "A": 0.4,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "Multi-step tool use (search, browse, read files, run code) but tools come from the agent harness (no schemas in the prompt), no user conversation, and grading is the final answer string, not end state or call AST; average over 301 test questions."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/gaia-benchmark/GAIA (gated; test answers withheld)",
+  "n_questions": 301,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "GAIA test set: 301 real-world assistant questions needing web/file tools, short exact answers. Test-set answers are private (scored only through the leaderboard) and per-question test outputs go to a private dataset, so these rows give questions without answers. Some questions carry image/audio/document attachments (Yugos is text-only). 2023 benchmark.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/gaia-benchmark/GAIA",
+   "https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py"
+  ]
+ },
+ "15.2": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 0.6,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "Short question with one exact short answer (quasi-exact match), like HLE/SimpleQA in format and general-knowledge topics, but it needs web browsing, file reading or code to answer, so a plain chat model mostly fails; Level 1 needs few steps and is 'breakable by very good LLMs', so closest to a chat question."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.15,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "different skill: web/file research questions, a few need arithmetic or code but are not math/code problems"
+   },
+   "agentic": {
+    "T": 0.45,
+    "I": 0.45,
+    "A": 0.4,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "Multi-step tool use (search, browse, read files, run code) but tools come from the agent harness (no schemas in the prompt), no user conversation, and grading is the final answer string, not end state or call AST; Level 1 needs only a few tool steps."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/gaia-benchmark/GAIA (config 2023_level1, gated; test answers withheld)",
+  "n_questions": 93,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "GAIA Level 1 test questions (93): short tool-assisted lookups with exact answers. Test-set answers are private (scored only through the leaderboard) and per-question test outputs go to a private dataset, so these rows give questions without answers. Some questions carry image/audio/document attachments (Yugos is text-only). 2023 benchmark.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/gaia-benchmark/GAIA",
+   "https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py"
+  ]
+ },
+ "15.3": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "Short question with one exact short answer (quasi-exact match), like HLE/SimpleQA in format and general-knowledge topics, but it needs web browsing, file reading or code to answer, so a plain chat model mostly fails; Level 2 needs several tools/steps."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.15,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "different skill: web/file research questions, a few need arithmetic or code but are not math/code problems"
+   },
+   "agentic": {
+    "T": 0.5,
+    "I": 0.45,
+    "A": 0.4,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "Multi-step tool use (search, browse, read files, run code) but tools come from the agent harness (no schemas in the prompt), no user conversation, and grading is the final answer string, not end state or call AST; Level 2 needs several tools and steps."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/gaia-benchmark/GAIA (config 2023_level2, gated; test answers withheld)",
+  "n_questions": 159,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "GAIA Level 2 test questions (159): multi-step research with tools, exact answers. Test-set answers are private (scored only through the leaderboard) and per-question test outputs go to a private dataset, so these rows give questions without answers. Some questions carry image/audio/document attachments (Yugos is text-only). 2023 benchmark.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/gaia-benchmark/GAIA",
+   "https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py"
+  ]
+ },
+ "15.4": {
+  "scores": {
+   "chat": {
+    "T": 0.2,
+    "I": 0.6,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "Short question with one exact short answer (quasi-exact match), like HLE/SimpleQA in format and general-knowledge topics, but it needs web browsing, file reading or code to answer, so a plain chat model mostly fails; Level 3 needs long tool sequences, far from a chat answer."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.15,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "different skill: web/file research questions, a few need arithmetic or code but are not math/code problems"
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.45,
+    "A": 0.4,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "Multi-step tool use (search, browse, read files, run code) but tools come from the agent harness (no schemas in the prompt), no user conversation, and grading is the final answer string, not end state or call AST; Level 3 is the most agentic (long action sequences)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/gaia-benchmark/GAIA (config 2023_level3, gated; test answers withheld)",
+  "n_questions": 49,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "GAIA Level 3 test questions (49): long multi-tool research tasks. Test-set answers are private (scored only through the leaderboard) and per-question test outputs go to a private dataset, so these rows give questions without answers. Some questions carry image/audio/document attachments (Yugos is text-only). 2023 benchmark.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/gaia-benchmark/GAIA",
+   "https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py"
+  ]
+ },
+ "15.5": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.9,
+    "Dm": 0.6,
+    "L": 0.9,
+    "F": 0.3,
+    "why": "Short exact-answer questions on general topics (format like HLE/SimpleQA) but they need browsing/files/code; validation answers are public since 2023 and widely seen, so memorization is likely."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.6,
+    "A": 0.6,
+    "Dm": 0.15,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "different skill: web/file research questions, a few need arithmetic or code but are not math/code problems"
+   },
+   "agentic": {
+    "T": 0.5,
+    "I": 0.45,
+    "A": 0.4,
+    "Dm": 0.4,
+    "L": 0.5,
+    "F": 0.3,
+    "why": "Multi-step tool use with harness tools, graded on the final answer string rather than end state; public answers since 2023."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/gaia-benchmark/GAIA (validation split, gated: accept terms, no resharing)",
+  "n_questions": 165,
+  "per_question_results": "yes",
+  "results_where": "https://huggingface.co/datasets/gaia-benchmark/submissions_public (gated; scored validation submissions, per app.py these hold id/model_answer/score per question)",
+  "licence": null,
+  "overlap": "",
+  "summary": "GAIA validation: 165 questions with public answers (53 L1 / 86 L2 / 26 L3); the only GAIA part usable as labelled data, and scored per-question submissions exist (gated). Still a tool-research task, some with image/audio/file attachments, from 2023.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/gaia-benchmark/GAIA",
+   "https://huggingface.co/spaces/gaia-benchmark/leaderboard/raw/main/app.py",
+   "https://huggingface.co/datasets/gaia-benchmark/submissions_public"
+  ]
+ },
+ "16.1": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: multi-turn tool-using agent tasks, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: customer-service tool use, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.85,
+    "I": 0.9,
+    "A": 0.7,
+    "Dm": 0.7,
+    "L": 0.7,
+    "F": 0.5,
+    "why": "Same shape as the guessed private agentic set (airline policy + API tools, simulated user, end-state DB check), but this is the original 2024 task set that the repo marks outdated (errors later fixed in tau2), so grading is noisier and it is older/more trained on."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau-bench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/sierra-research/tau-bench/tree/main/historical_trajectories",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "Original tau-bench airline tasks: multi-turn customer service with tool calls, graded on the final database state. Superseded by the fixed tau2 airline set (row 16.5), which should be preferred; the repo ships historical trajectories for airline and retail.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau-bench"
+  ]
+ },
+ "16.2": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: multi-turn tool-using agent tasks, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: customer-service tool use, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.85,
+    "I": 0.9,
+    "A": 0.7,
+    "Dm": 0.7,
+    "L": 0.7,
+    "F": 0.5,
+    "why": "Retail customer-service tool tasks with simulated user and end-state check, same shape as the guessed private agentic set; original 2024 set marked outdated (tasks later fixed in tau2)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau-bench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/sierra-research/tau-bench/tree/main/historical_trajectories",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "Original tau-bench retail tasks (returns, exchanges, cancellations). Good shape, but the fixed tau2 retail set (row 16.4) is the better copy of the same tasks.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau-bench"
+  ]
+ },
+ "16.3": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: multi-turn tool-using agent tasks, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: customer-service tool use, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.9,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.7,
+    "L": 0.65,
+    "F": 0.6,
+    "why": "The closest public analogue of the guessed private agentic set: multi-turn conversations with a simulated user, domain policy + API tools, graded on final DB state and required info; prompts with policy + tool schemas run a few thousand tokens."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench (local Yugos-pinned copy: /root/cic/sn34-yugos/research/benchmarks/catalog/tau2)",
+  "n_questions": 278,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau2 core = airline (50) + retail (114) + telecom (114 base) customer-service tool tasks; Overall is their mean. Public per-trial rewards, cost and duration for every submission make it the best router-training source for agentic. tau2 retail/telecom/banking were Yugos public sets in pack v0.3.0 (removed in v0.4.0; not a live public set now), and Yugos's own harness runs these task files.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/tau2 (Yugos-pinned inspect_evals task files)",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (per-trial rows from the public S3 bucket)"
+  ]
+ },
+ "16.4": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: multi-turn tool-using agent tasks, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: customer-service tool use, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.9,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.7,
+    "L": 0.7,
+    "F": 0.6,
+    "why": "Retail customer-service tool tasks with simulated user and end-state grading, same shape as the guessed private agentic set (and the same family Yugos itself used in v0.3.0); 2025 fixed version of 2024 tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench (local Yugos-pinned copy: /root/cic/sn34-yugos/research/benchmarks/catalog/tau2)",
+  "n_questions": 114,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau2 retail: 114 tasks (orders, returns, exchanges, address changes); policy ~6.7 KB plus tools. Per-trial results public (8 text submissions in the local S3 pull). tau2 retail/telecom/banking were Yugos public sets in pack v0.3.0 (removed in v0.4.0; not a live public set now), and Yugos's own harness runs these task files.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/tau2 (Yugos-pinned inspect_evals task files)",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (per-trial rows from the public S3 bucket)"
+  ]
+ },
+ "16.5": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: multi-turn tool-using agent tasks, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: customer-service tool use, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.9,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.7,
+    "L": 0.7,
+    "F": 0.6,
+    "why": "Calibration row: airline customer-service tool tasks with simulated user, end-state checks; closest public analogue to the guessed private agentic set."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench (local Yugos-pinned copy: /root/cic/sn34-yugos/research/benchmarks/catalog/tau2)",
+  "n_questions": 50,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau2 airline: 50 tasks (bookings, changes, cancellations, baggage, compensation); policy ~7.7 KB plus tools. Per-trial results public. Was not in Yugos v0.3.0's pack but is a Yugos catalog entry (tau2_airline).",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/tau2 (Yugos-pinned inspect_evals task files)",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (per-trial rows from the public S3 bucket)"
+  ]
+ },
+ "16.6": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: multi-turn tool-using agent tasks, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: customer-service tool use, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.9,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.65,
+    "L": 0.6,
+    "F": 0.65,
+    "why": "Dual-control tech-support tasks: agent and simulated user both call tools on the shared world, graded on final state; same family as the guessed private set, but the policy + tech-support manual (~23 KB) make prompts longer."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench (local Yugos-pinned copy: /root/cic/sn34-yugos/research/benchmarks/catalog/tau2)",
+  "n_questions": 114,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau2 telecom: 114 base tasks (2,285 in the full generated set) on connectivity, billing and plan issues, new in tau2 (2025). Per-trial results public; mostly saturated by frontier models but useful for cheap-model routing. tau2 retail/telecom/banking were Yugos public sets in pack v0.3.0 (removed in v0.4.0; not a live public set now), and Yugos's own harness runs these task files.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/tau2 (Yugos-pinned inspect_evals task files)",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (per-trial rows from the public S3 bucket)"
+  ]
+ },
+ "16.7": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: multi-turn tool-using agent tasks, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.6,
+    "why": "different skill: customer-service tool use, no math or code to write"
+   },
+   "agentic": {
+    "T": 0.85,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.7,
+    "L": 0.4,
+    "F": 0.8,
+    "why": "Banking customer service with tools plus search over a ~700-document knowledge base, simulated user, graded on state/assertions; same family as the guessed private set and the hardest tau domain, but retrieval makes contexts much longer (hundreds of k tokens per task)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench (local Yugos-pinned copy: /root/cic/sn34-yugos/research/benchmarks/catalog/tau2)",
+  "n_questions": 97,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau3 banking_knowledge (tau-Knowledge, 2026): 97 tasks over 698 policy documents. Fresh, hard (L4) and with per-trial results from many submissions (26 text submissions in the local pull); expensive to run. tau2 retail/telecom/banking were Yugos public sets in pack v0.3.0 (removed in v0.4.0; not a live public set now), and Yugos's own harness runs these task files.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/tau2 (Yugos-pinned inspect_evals task files)",
+   "/root/cic/sn34-yugos/research/yugos-question-sets-v0.4.0.md",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (per-trial rows from the public S3 bucket)"
+  ]
+ },
+ "16.8": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: real-time voice customer service; requires audio"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: voice customer service; requires audio"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.6,
+    "A": 0.7,
+    "Dm": 0.7,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "Requires audio (full-duplex speech), Yugos is text-only; multilingual voice version of the retail/airline/telecom tasks."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "audio",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau3 voice, multilingual edition (en, es, pt, hi, ko, zh): voice agents on the core customer-service domains. The underlying task definitions are the same frozen tau tasks as the text boards (rows 16.3-16.7 cover them as text); results here are of speech models, so they do not transfer to text routing.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (voice submissions also have per-trial rows)"
+  ]
+ },
+ "16.9": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: real-time voice customer service; requires audio"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: voice customer service; requires audio"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.6,
+    "A": 0.7,
+    "Dm": 0.7,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "Requires audio (full-duplex speech), Yugos is text-only; retail tasks over speech."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "audio",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau3 voice retail. The underlying task definitions are the same frozen tau tasks as the text boards (rows 16.3-16.7 cover them as text); results here are of speech models, so they do not transfer to text routing.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (voice submissions also have per-trial rows)"
+  ]
+ },
+ "16.10": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: real-time voice customer service; requires audio"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: voice customer service; requires audio"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.6,
+    "A": 0.7,
+    "Dm": 0.7,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "Requires audio (full-duplex speech), Yugos is text-only; airline tasks over speech."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "audio",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau3 voice airline. The underlying task definitions are the same frozen tau tasks as the text boards (rows 16.3-16.7 cover them as text); results here are of speech models, so they do not transfer to text routing.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (voice submissions also have per-trial rows)"
+  ]
+ },
+ "16.11": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: real-time voice customer service; requires audio"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: voice customer service; requires audio"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.6,
+    "A": 0.7,
+    "Dm": 0.7,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "Requires audio (full-duplex speech), Yugos is text-only; telecom tasks over speech."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "audio",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau3 voice telecom. The underlying task definitions are the same frozen tau tasks as the text boards (rows 16.3-16.7 cover them as text); results here are of speech models, so they do not transfer to text routing.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (voice submissions also have per-trial rows)"
+  ]
+ },
+ "16.12": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: real-time voice customer service; requires audio"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: voice customer service; requires audio"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.6,
+    "A": 0.7,
+    "Dm": 0.7,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "Requires audio (full-duplex speech), Yugos is text-only; banking knowledge tasks over speech."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "audio",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau3 voice banking (knowledge retrieval over policy documents). The underlying task definitions are the same frozen tau tasks as the text boards (rows 16.3-16.7 cover them as text); results here are of speech models, so they do not transfer to text routing.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (voice submissions also have per-trial rows)"
+  ]
+ },
+ "16.13": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: real-time voice customer service; requires audio"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: voice customer service; requires audio"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.5,
+    "A": 0.5,
+    "Dm": 0.4,
+    "L": 0.3,
+    "F": 0.85,
+    "why": "Requires audio (entity capture from speech under noise/speech effects), Yugos is text-only; multi-turn entity extraction, not tool tasks."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "audio",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench (intake domain, 200+ tasks)",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau-Entity intake (2026): multi-turn entity extraction over voice, scored by crossed pass^3 across three audio conditions. Audio-only skill; no text analogue for Yugos.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench"
+  ]
+ },
+ "16.14": {
+  "scores": {
+   "chat": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.2,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: real-time voice customer service; requires audio"
+   },
+   "math_code": {
+    "T": 0.03,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "different skill: voice customer service; requires audio"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.6,
+    "A": 0.7,
+    "Dm": 0.7,
+    "L": 0.3,
+    "F": 0.8,
+    "why": "Requires audio (full-duplex speech), Yugos is text-only; English voice frame (voice-v1: 50 airline / 114 retail / 114 telecom tasks)."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "audio",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/tau2-bench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://sierra-tau-bench-public.s3.amazonaws.com/submissions/ (per submission: trajectories/<domain>/results.json simulation_index = task_id, trial, reward, cost, duration)",
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau3 voice, English edition (older voice submissions). The underlying task definitions are the same frozen tau tasks as the text boards (rows 16.3-16.7 cover them as text); results here are of speech models, so they do not transfer to text routing.",
+  "confidence": "high",
+  "sources": [
+   "https://github.com/sierra-research/tau2-bench",
+   "/root/cic/sn34-yugos/work/opendata/raw/tau2/tau2_trials.csv (voice submissions also have per-trial rows)"
+  ]
+ },
+ "16.15": {
+  "scores": {
+   "chat": {
+    "T": 0.02,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.85,
+    "why": "different skill: building a whole agent as a software project"
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.1,
+    "A": 0.2,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.85,
+    "why": "A coding harness writes a complete executable customer-service agent from evidence (policies, transcripts, recordings, screenshots, a client API); graded by the built agent's pass rate, not by tests on a function."
+   },
+   "agentic": {
+    "T": 0.2,
+    "I": 0.3,
+    "A": 0.4,
+    "Dm": 0.5,
+    "L": 0.05,
+    "F": 0.85,
+    "why": "Same customer-service domains and tau3 inner-loop grading, but the model under test is the developer building the agent over a long build session, not the agent answering turns with tools; evidence includes recordings/screenshots."
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "mixed",
+  "questions_public": "yes",
+  "questions_where": "https://github.com/sierra-research/hyper-tau-bench",
+  "n_questions": 53,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "MIT",
+  "overlap": "",
+  "summary": "tau^tau-bench (Sept 2026): 53 'build an agent' tasks (airline 6, retail 6, telecom 6, banking 35). Board publishes aggregate scores only; the skill (agent engineering) does not match any Yugos question type.",
+  "confidence": "medium",
+  "sources": [
+   "https://sierra-research.github.io/hyper-tau-bench/",
+   "https://github.com/sierra-research/hyper-tau-bench"
+  ]
+ }
+}

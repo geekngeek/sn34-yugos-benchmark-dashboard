@@ -1,0 +1,1343 @@
+{
+ "22.1": {
+  "scores": {
+   "chat": {
+    "T": 0.2,
+    "I": 0.8,
+    "A": 0.25,
+    "Dm": 0.4,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Role-play pressure prompts (system prompt + user turn, ~80-150 words) where the score is whether the pressured statement contradicts the model's own elicited belief, not whether an answer is correct - honesty, not QA."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/cais/MASK",
+  "n_questions": 1500,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "CC BY 4.0 (HF dataset tag)",
+  "overlap": "",
+  "summary": "Leaderboard honesty metric over MASK pressure prompts (1,500 total: 1,000 public on HF, the Scale leaderboard uses the 500 private ones); an LLM judge extracts a yes/no proposition and compares it to the model's belief. Useful to the router only as easy chat-like prompts; the metric itself is not a correctness score.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/cais/MASK",
+   "https://arxiv.org/html/2503.03750",
+   "https://datasets-server.huggingface.co/rows?dataset=cais/MASK (sample rows of all 6 configs)"
+  ]
+ },
+ "22.2": {
+  "scores": {
+   "chat": {
+    "T": 0.5,
+    "I": 0.9,
+    "A": 0.65,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.8,
+    "why": "Belief-elicitation prompts are short neutral yes/no (or numeric) factual questions checked against ground truth - close to easy fact QA, but binary answers and judge extraction."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/cais/MASK",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "CC BY 4.0 (HF dataset tag)",
+  "overlap": "",
+  "summary": "Accuracy uses MASK's neutral belief questions (e.g. 'Is sea moss an effective treatment for hair loss? answer yes or no') scored against ground truth; about 726 public rows carry such questions (all configs except provided_facts, which has none). Short, easy English fact checks that could stand in for easy private chat; per-model per-question outcomes not found.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/cais/MASK",
+   "https://arxiv.org/html/2503.03750",
+   "https://datasets-server.huggingface.co/rows?dataset=cais/MASK (sample rows of all 6 configs)"
+  ]
+ },
+ "22.3": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.8,
+    "A": 0.4,
+    "Dm": 0.5,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Pressure prompts about documented public facts (politics, companies) with a yes/no proposition and ground truth; native grading is honesty, but the yes/no truth could be re-graded."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/cais/MASK",
+  "n_questions": 209,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "CC BY 4.0 (HF dataset tag)",
+  "overlap": "",
+  "summary": "209 public rows: a role-play system prompt pushes the model to deny a known fact, the user asks a yes/no question; ground truth plus neutral belief questions are given. Could be reused as easy yes/no fact questions (the belief questions) more than as the pressure prompts themselves.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/cais/MASK",
+   "https://arxiv.org/html/2503.03750",
+   "https://datasets-server.huggingface.co/rows?dataset=cais/MASK (sample rows of all 6 configs)"
+  ]
+ },
+ "22.4": {
+  "scores": {
+   "chat": {
+    "T": 0.25,
+    "I": 0.8,
+    "A": 0.35,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Facts are given privately in the system prompt and the model is pushed to lie about them; answer checkable against the scenario's ground truth, but the skill is resisting deception, not QA."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/cais/MASK",
+  "n_questions": 274,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "CC BY 4.0 (HF dataset tag)",
+  "overlap": "",
+  "summary": "274 public rows of fictional scenarios (e.g. a guard asked if documents were stolen) where the truth is in the system prompt; no neutral belief questions. Weak stand-in: in-context fact reading under a pressure to lie.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/cais/MASK",
+   "https://arxiv.org/html/2503.03750",
+   "https://datasets-server.huggingface.co/rows?dataset=cais/MASK (sample rows of all 6 configs)"
+  ]
+ },
+ "22.5": {
+  "scores": {
+   "chat": {
+    "T": 0.2,
+    "I": 0.5,
+    "A": 0.35,
+    "Dm": 0.45,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Multi-turn: a prior assistant turn already contains a falsehood and the user asks it to confirm; graded on honesty vs belief."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/cais/MASK",
+  "n_questions": 120,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "CC BY 4.0 (HF dataset tag)",
+  "overlap": "",
+  "summary": "120 public rows with a scripted earlier turn (dd_turn_1 prompt/response) where the assistant lied, then a follow-up yes/no confirmation. Multi-turn honesty test; little resemblance to Yugos single-turn QA.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/cais/MASK",
+   "https://arxiv.org/html/2503.03750",
+   "https://datasets-server.huggingface.co/rows?dataset=cais/MASK (sample rows of all 6 configs)"
+  ]
+ },
+ "22.6": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.8,
+    "A": 0.4,
+    "Dm": 0.45,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Pressure to misstate a number (e.g. grams of sugar in raisins); ground-truth numeric range and a neutral numeric belief question exist, so short numeric fact answers are recoverable."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: numeric fact recall, no calculation"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/cais/MASK",
+  "n_questions": 96,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "CC BY 4.0 (HF dataset tag)",
+  "overlap": "",
+  "summary": "96 public rows where the user pushes the model to cite a wrong statistic; a neutral numeric belief question with ground-truth range is included. Small; the neutral questions resemble short factual recall.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/cais/MASK",
+   "https://arxiv.org/html/2503.03750",
+   "https://datasets-server.huggingface.co/rows?dataset=cais/MASK (sample rows of all 6 configs)"
+  ]
+ },
+ "22.7": {
+  "scores": {
+   "chat": {
+    "T": 0.15,
+    "I": 0.8,
+    "A": 0.25,
+    "Dm": 0.4,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Writing task: continue a draft that contains a falsehood; graded on whether the model asserts the falsehood, no reference answer to match."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/cais/MASK",
+  "n_questions": 176,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "CC BY 4.0 (HF dataset tag)",
+  "overlap": "",
+  "summary": "176 public rows asking to continue persuasive drafts (e.g. a sea-moss hair-loss ad); a long-form writing/honesty test, not question answering.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/cais/MASK",
+   "https://arxiv.org/html/2503.03750",
+   "https://datasets-server.huggingface.co/rows?dataset=cais/MASK (sample rows of all 6 configs)"
+  ]
+ },
+ "22.8": {
+  "scores": {
+   "chat": {
+    "T": 0.1,
+    "I": 0.8,
+    "A": 0.2,
+    "Dm": 0.35,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: asked to write misinformation (blog posts); graded on honesty/refusal, no answer to check."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "none",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/cais/MASK",
+  "n_questions": 125,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "CC BY 4.0 (HF dataset tag)",
+  "overlap": "",
+  "summary": "125 public rows asking the model to write disinformation (e.g. 'birds are not real' blog); measures refusal/honesty in generation, nothing like Yugos questions.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/cais/MASK",
+   "https://arxiv.org/html/2503.03750",
+   "https://datasets-server.huggingface.co/rows?dataset=cais/MASK (sample rows of all 6 configs)"
+  ]
+ },
+ "23.1": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.7,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Open-ended health advice answers scored by a GPT-4.1 grader against 10-13 physician rubric items per conversation - judge-graded chat, but long-form advice rather than a short answer; 58% single-turn, some prompts not English."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: health conversation, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl",
+  "n_questions": 5000,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "5,000 health conversations (58% single-turn, median ~60 words; part of global-health prompts are non-English) with physician-written rubrics graded by an LLM. A possible stand-in for easy open-ended private chat if Yugos uses judge grading there; format differs from short-answer QA.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/healthbench_eval.py",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (downloaded, measured)",
+   "h",
+   "i",
+   "g",
+   "h"
+  ]
+ },
+ "23.2": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.65,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Same rubric-graded open-ended health conversations, hardest 1,000; 52% single-turn, 28% global-health (more non-English)."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: health conversation, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/hard_2025-05-08-21-00-10.jsonl",
+  "n_questions": 1000,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "1,000 hardest HealthBench conversations (top models score ~40%), same rubric/LLM-grader format. Too hard and too open-ended to resemble Yugos's very easy private chat.",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/healthbench_eval.py",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (downloaded, measured)",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/hard_2025-05-08-21-00-10.jsonl"
+  ]
+ },
+ "23.3": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.7,
+    "A": 0.55,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Same conversations but graded on a median of only 2 physician-consensus rubric items each - closer to a pass/fail judge check; 60% single-turn."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: health conversation, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/consensus_2025-05-09-20-00-46.jsonl",
+  "n_questions": 3671,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "3,671 HealthBench conversations graded only on physician-validated consensus criteria (median 2 items), so scores are near ceiling (L1-heavy). Easiest HealthBench form; could mimic easy judge-graded private chat, still long-form advice answers.",
+  "confidence": "high",
+  "sources": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/healthbench_eval.py",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (downloaded, measured)",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/consensus_2025-05-09-20-00-46.jsonl"
+  ]
+ },
+ "23.4": {
+  "scores": {
+   "chat": {
+    "T": 0.35,
+    "I": 0.8,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Triage questions ('chest pain - should I go to the ER?'), 71% single-turn, median ~40 words; rubric/LLM-judge graded advice."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: health conversation, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (tag theme:emergency_referrals)",
+  "n_questions": 482,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "482 conversations (tag emergency_referrals) about whether to seek emergency care; short user messages, open-ended rubric-graded answers. Among the more chat-like HealthBench themes.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/healthbench_eval.py",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (downloaded, measured)"
+  ]
+ },
+ "23.5": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.65,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Rewards hedging/communicating uncertainty in open-ended advice; 53% single-turn; rubric-judged, no single correct answer."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: health conversation, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (tag theme:hedging)",
+  "n_questions": 1071,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "1,071 conversations (data tag 'hedging', taken to be this theme by name and count) where the model should flag uncertainty. Behaviour-style grading, weak match to Yugos answer checking.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/healthbench_eval.py",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (downloaded, measured)"
+  ]
+ },
+ "23.6": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.8,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Clinical text tasks (rewrite notes, review a record, draft an algorithm), 70% single-turn; rubric-judged transformations, not QA."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: health conversation, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (tag theme:health_data_tasks)",
+  "n_questions": 477,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "477 prompts asking to rewrite, check or structure clinical documentation. Instruction-following/writing tasks graded by rubric; limited resemblance to Yugos chat.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/healthbench_eval.py",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (downloaded, measured)"
+  ]
+ },
+ "23.7": {
+  "scores": {
+   "chat": {
+    "T": 0.25,
+    "I": 0.75,
+    "A": 0.5,
+    "Dm": 0.2,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Health advice adapted to low-resource settings; many prompts are in Spanish, French and other languages (Yugos is English-only); rubric-judged."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: health conversation, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (tag theme:global_health)",
+  "n_questions": 1097,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "1,097 conversations on care in varied regions and languages; a rough word check suggests ~40% are not English. Least suitable HealthBench theme for English-only Yugos.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/healthbench_eval.py",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (downloaded, measured)"
+  ]
+ },
+ "23.8": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.65,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Grades whether the answer is pitched to a lay person vs a clinician; 52% single-turn; style-focused rubric judge."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: health conversation, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (tag theme:communication)",
+  "n_questions": 919,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "919 conversations (data tag 'communication', taken to be this theme by name and count) testing tailoring to user expertise. Style criteria rather than a checkable answer.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/healthbench_eval.py",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (downloaded, measured)"
+  ]
+ },
+ "23.9": {
+  "scores": {
+   "chat": {
+    "T": 0.25,
+    "I": 0.65,
+    "A": 0.45,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Rewards asking for missing information instead of answering; 51% single-turn; opposite of answering a self-contained question."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: health conversation, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (tag theme:context_seeking)",
+  "n_questions": 594,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "594 conversations where the right move is often a clarifying question. Poor stand-in for Yugos questions, which expect a direct answer.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/healthbench_eval.py",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (downloaded, measured)"
+  ]
+ },
+ "23.10": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.6,
+    "A": 0.5,
+    "Dm": 0.3,
+    "L": 0.85,
+    "F": 0.8,
+    "why": "Grades whether detail level fits the user; median 3 messages (49% single-turn); rubric-judged long-form."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "different skill: health conversation, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (tag theme:complex_responses)",
+  "n_questions": 360,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "360 conversations (data tag 'complex_responses', taken to be this theme by name and count) about answer depth; more multi-turn and longer than other themes.",
+  "confidence": "medium",
+  "sources": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://raw.githubusercontent.com/openai/simple-evals/main/healthbench_eval.py",
+   "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (downloaded, measured)"
+  ]
+ },
+ "24.1": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 0.9,
+    "A": 0.55,
+    "Dm": 0.3,
+    "L": 0.6,
+    "F": 0.5,
+    "why": "Open-book finance questions ('Is 3M capital-intensive in FY2022?') answered from a 10-K page; prose answers (~18 words) judged correct/incorrect - reading QA like hotpotqa but in finance, free-form judged."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.9,
+    "A": 0.2,
+    "Dm": 0.15,
+    "L": 0.6,
+    "F": 0.5,
+    "why": "Some ratio arithmetic, but answers are prose judgments, not closed-form math."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: no tool calls (retrieval was done by the authors' pipeline, not by the model)"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": {
+   "cdf": {
+    "1": 0.35,
+    "2": 0.8,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "why": "With the evidence page given (oracle), GPT-4 and GPT-4-Turbo (2023) got 40-42/50 of the public domain-relevant questions right (per-question labels in /results); without the page they mostly fail, so this assumes the oracle setting."
+  },
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://github.com/patronus-ai/financebench/blob/main/data/financebench_open_source.jsonl (also HF PatronusAI/financebench); only 150 of 10,231 open, 50 per type",
+  "n_questions": 925,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/patronus-ai/financebench/tree/main/results",
+  "licence": "CC BY-NC 4.0 (HF PatronusAI/financebench); GitHub repo states none",
+  "overlap": "",
+  "summary": "925 questions (50 public) asking 25 standard analyst questions per company over SEC filings; gold prose answers and the evidence page (~450 words) are given, and human correct/incorrect labels exist for 16 2023-era model configs. Fits easy-to-medium chat if the evidence page is included; full-document setting is far too long.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/patronus-ai/financebench",
+   "https://raw.githubusercontent.com/patronus-ai/financebench/main/data/financebench_open_source.jsonl (downloaded, measured)",
+   "https://github.com/patronus-ai/financebench/tree/main/results (7 result files downloaded)",
+   "https://huggingface.co/api/datasets/PatronusAI/financebench"
+  ]
+ },
+ "24.2": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 0.9,
+    "A": 0.55,
+    "Dm": 0.3,
+    "L": 0.6,
+    "F": 0.5,
+    "why": "Annotator-written company-specific questions with short prose answers (~12 words) from filings; judged correct/incorrect, open-book."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.9,
+    "A": 0.15,
+    "Dm": 0.1,
+    "L": 0.6,
+    "F": 0.5,
+    "why": "different skill: mostly fact extraction and judgment from filings"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: no tool calls (retrieval was done by the authors' pipeline, not by the model)"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": {
+   "cdf": {
+    "1": 0.35,
+    "2": 0.8,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "why": "Oracle (evidence page given): GPT-4 / GPT-4-Turbo (2023) got 40-41/50 public novel-generated questions right per /results labels; closed-book GPT-4-Turbo got 4/50, so this assumes the evidence page is supplied."
+  },
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://github.com/patronus-ai/financebench/blob/main/data/financebench_open_source.jsonl (also HF PatronusAI/financebench); only 150 of 10,231 open, 50 per type",
+  "n_questions": 1323,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/patronus-ai/financebench/tree/main/results",
+  "licence": "CC BY-NC 4.0 (HF PatronusAI/financebench); GitHub repo states none",
+  "overlap": "",
+  "summary": "1,323 questions (50 public) written by annotators about a specific company's report (e.g. which segment dragged growth), with evidence pages and per-question human labels for 2023 models. Usable as easy reading-QA chat with the evidence page.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/patronus-ai/financebench",
+   "https://raw.githubusercontent.com/patronus-ai/financebench/main/data/financebench_open_source.jsonl (downloaded, measured)",
+   "https://github.com/patronus-ai/financebench/tree/main/results (7 result files downloaded)",
+   "https://huggingface.co/api/datasets/PatronusAI/financebench"
+  ]
+ },
+ "24.3": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 0.9,
+    "A": 0.75,
+    "Dm": 0.3,
+    "L": 0.7,
+    "F": 0.5,
+    "why": "Templated metric questions ('FY2018 capex in USD millions?', 'fixed asset turnover, 2 decimals') with a single numeric answer from a statement page - short exact answer, reading + arithmetic."
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.9,
+    "A": 0.6,
+    "Dm": 0.25,
+    "L": 0.75,
+    "F": 0.5,
+    "why": "Numeric answer from simple ratio arithmetic on a financial statement page - closed-form but far easier and narrower than MATH/arxivmath, no code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.5,
+    "why": "different skill: no tool calls (retrieval was done by the authors' pipeline, not by the model)"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": {
+   "cdf": {
+    "1": 0.4,
+    "2": 0.85,
+    "3": 0.94,
+    "4": 0.97
+   },
+   "why": "Oracle (evidence page given): GPT-4 and GPT-4-Turbo (2023) got 45-46/50 public metrics-generated questions right per /results labels; closed-book 0/50, so this assumes the statement page is supplied."
+  },
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://github.com/patronus-ai/financebench/blob/main/data/financebench_open_source.jsonl (also HF PatronusAI/financebench); only 150 of 10,231 open, 50 per type",
+  "n_questions": 7983,
+  "per_question_results": "yes",
+  "results_where": "https://github.com/patronus-ai/financebench/tree/main/results",
+  "licence": "CC BY-NC 4.0 (HF PatronusAI/financebench); GitHub repo states none",
+  "overlap": "",
+  "summary": "7,983 templated questions (50 public) computing or extracting a financial metric (capex, PP&E, turnover ratios) from 10-K statements, with a single numeric gold answer and the ~290-word evidence page. Best FinanceBench part: exact numeric answers, easy with the page given; per-question 2023-model labels available.",
+  "confidence": "medium",
+  "sources": [
+   "https://github.com/patronus-ai/financebench",
+   "https://raw.githubusercontent.com/patronus-ai/financebench/main/data/financebench_open_source.jsonl (downloaded, measured)",
+   "https://github.com/patronus-ai/financebench/tree/main/results (7 result files downloaded)",
+   "https://huggingface.co/api/datasets/PatronusAI/financebench"
+  ]
+ },
+ "25.1": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.35,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "Yes/No classification of whether a r/legaladvice post (~230-290 words) raises a given area of law, plus corporate_lobbying (~880 words); exact label, easy (L1-heavy)."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "different skill: legal text classification, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/nguha/legalbench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json (HELM Lite: corporate_lobbying only, 91 models with per-instance stats)",
+  "licence": "varies by task (HF card tagged CC BY 4.0; card says per-task licences differ)",
+  "overlap": "",
+  "summary": "17 issue-spotting tasks (16 Learned Hands binary tasks + corporate_lobbying), all with exact Yes/No labels and few-shot train examples. Easy, short-label English classification that could stand in for easy private chat; HELM Lite has per-question results for corporate_lobbying across 91 models (up to 2024).",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/nguha/legalbench",
+   "https://hazyresearch.stanford.edu/legalbench/tasks/",
+   "https://arxiv.org/pdf/2308.11462 (Sections 4.2-4.3, Table 13 task sizes/lengths)",
+   "https://raw.githubusercontent.com/stanford-crfm/helm/main/src/helm/benchmark/scenarios/legalbench_scenario.py",
+   "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json"
+  ]
+ },
+ "25.2": {
+  "scores": {
+   "chat": {
+    "T": 0.5,
+    "I": 1.0,
+    "A": 0.7,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.35,
+    "why": "Short law-knowledge questions (~12-36 words): yes/no on citizenship rules and judicial ethics, citation checks; rule_qa is open and manually graded - factual recall like simpleqa in a legal domain."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "different skill: legal knowledge recall"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/nguha/legalbench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json (HELM Lite: international_citizenship_questions only)",
+  "licence": "varies by task (HF card tagged CC BY 4.0; card says per-task licences differ)",
+  "overlap": "",
+  "summary": "5 rule-recall tasks; most samples are international_citizenship_questions (9,310 yes/no) plus nys_judicial_ethics, citation prediction and the small open-ended rule_qa. Short recall questions with exact answers, mostly L1-L2; a plausible easy-chat stand-in apart from the yes/no 50% guess floor.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/nguha/legalbench",
+   "https://hazyresearch.stanford.edu/legalbench/tasks/",
+   "https://arxiv.org/pdf/2308.11462 (Sections 4.2-4.3, Table 13 task sizes/lengths)",
+   "https://raw.githubusercontent.com/stanford-crfm/helm/main/src/helm/benchmark/scenarios/legalbench_scenario.py",
+   "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json"
+  ]
+ },
+ "25.3": {
+  "scores": {
+   "chat": {
+    "T": 0.3,
+    "I": 0.9,
+    "A": 0.2,
+    "Dm": 0.35,
+    "L": 1.0,
+    "F": 0.35,
+    "why": "Same short fact patterns as rule-conclusion but the model must write an explanation, graded manually by a law-trained grader (no automatic checker; only 3 models scored)."
+   },
+   "math_code": {
+    "T": 0.1,
+    "I": 0.9,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 1.0,
+    "F": 0.35,
+    "why": "different skill: legal explanation (diversity tasks have a little arithmetic)"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/nguha/legalbench",
+  "n_questions": null,
+  "per_question_results": "unknown",
+  "results_where": null,
+  "licence": "varies by task (HF card tagged CC BY 4.0; card says per-task licences differ)",
+  "overlap": "",
+  "summary": "16 rule-application tasks: open-generation explanations of how a legal rule applies (diversity jurisdiction, hearsay, Abercrombie...), graded by hand for correctness and analysis. No reproducible grader, so weak as router data even though the facts are short.",
+  "confidence": "low",
+  "sources": [
+   "https://huggingface.co/datasets/nguha/legalbench",
+   "https://hazyresearch.stanford.edu/legalbench/tasks/",
+   "https://arxiv.org/pdf/2308.11462 (Sections 4.2-4.3, Table 13 task sizes/lengths)",
+   "https://raw.githubusercontent.com/stanford-crfm/helm/main/src/helm/benchmark/scenarios/legalbench_scenario.py",
+   "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json"
+  ]
+ },
+ "25.4": {
+  "scores": {
+   "chat": {
+    "T": 0.55,
+    "I": 0.9,
+    "A": 0.85,
+    "Dm": 0.35,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "Apply a stated rule to a short fact pattern (7-70 words) and output a label (UCC vs common law, hearsay yes/no, diversity jurisdiction with arithmetic) - rule-following reasoning with exact answers, easy."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 0.9,
+    "A": 0.2,
+    "Dm": 0.1,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "Diversity tasks need small arithmetic, but answers are legal labels, not math or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/nguha/legalbench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json (HELM Lite: abercrombie only)",
+  "licence": "varies by task (HF card tagged CC BY 4.0; card says per-task licences differ)",
+  "overlap": "",
+  "summary": "16 rule-conclusion tasks where the rule is given in the prompt and the model picks the outcome label; short inputs, exact-match grading, L1-heavy. Good easy-chat-like reasoning items; HELM Lite gives per-question results for abercrombie.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/nguha/legalbench",
+   "https://hazyresearch.stanford.edu/legalbench/tasks/",
+   "https://arxiv.org/pdf/2308.11462 (Sections 4.2-4.3, Table 13 task sizes/lengths)",
+   "https://raw.githubusercontent.com/stanford-crfm/helm/main/src/helm/benchmark/scenarios/legalbench_scenario.py",
+   "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json"
+  ]
+ },
+ "25.5": {
+  "scores": {
+   "chat": {
+    "T": 0.4,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.25,
+    "L": 0.85,
+    "F": 0.35,
+    "why": "Classify or answer MC about contract/privacy-policy/merger clauses (mostly 30-700 words; sara_numeric ~12k words); exact labels."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "different skill: legal clause classification"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/nguha/legalbench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json (HELM Lite: proa only)",
+  "licence": "varies by task (HF card tagged CC BY 4.0; card says per-task licences differ)",
+  "overlap": "",
+  "summary": "118-119 interpretation tasks (CUAD 38, MAUD 34, ContractNLI 14, OPP-115 9, supply-chain 10, privacy QA...) classifying legal clauses with exact labels. Large, easy, but narrow contract-law topics; MAUD multi-choice and supply-chain items are the harder, longer ones.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/nguha/legalbench",
+   "https://hazyresearch.stanford.edu/legalbench/tasks/",
+   "https://arxiv.org/pdf/2308.11462 (Sections 4.2-4.3, Table 13 task sizes/lengths)",
+   "https://raw.githubusercontent.com/stanford-crfm/helm/main/src/helm/benchmark/scenarios/legalbench_scenario.py",
+   "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json"
+  ]
+ },
+ "25.6": {
+  "scores": {
+   "chat": {
+    "T": 0.45,
+    "I": 0.9,
+    "A": 0.8,
+    "Dm": 0.3,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "Identify the function of court-opinion excerpts, overruling sentences, textualist tools, best holding (scalr MC); short-to-medium excerpts with exact labels."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 0.8,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.9,
+    "F": 0.35,
+    "why": "different skill: legal argument analysis"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.05,
+    "L": 0.5,
+    "F": 0.35,
+    "why": "different skill: no tools or function calls"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "yes",
+  "questions_where": "https://huggingface.co/datasets/nguha/legalbench",
+  "n_questions": null,
+  "per_question_results": "yes",
+  "results_where": "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json (HELM Lite: function_of_decision_section only)",
+  "licence": "varies by task (HF card tagged CC BY 4.0; card says per-task licences differ)",
+  "overlap": "",
+  "summary": "10 rhetorical-understanding tasks (overruling, definition classification/extraction, function_of_decision_section, oral-argument question purpose, scalr, textualism tools, Canada tax outcomes). Exact-label reading comprehension on legal opinions; easy-ish, could fill easy chat.",
+  "confidence": "medium",
+  "sources": [
+   "https://huggingface.co/datasets/nguha/legalbench",
+   "https://hazyresearch.stanford.edu/legalbench/tasks/",
+   "https://arxiv.org/pdf/2308.11462 (Sections 4.2-4.3, Table 13 task sizes/lengths)",
+   "https://raw.githubusercontent.com/stanford-crfm/helm/main/src/helm/benchmark/scenarios/legalbench_scenario.py",
+   "https://storage.googleapis.com/crfm-helm-public/lite/benchmark_output/releases/v1.13.0/runs_to_run_suites.json"
+  ]
+ }
+}

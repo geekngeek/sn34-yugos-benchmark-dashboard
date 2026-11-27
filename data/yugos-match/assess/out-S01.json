@@ -1,0 +1,1010 @@
+{
+ "1.1": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: long multi-turn agentic software work with tools, not one question with a short answer"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.25,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Coding is central but it is hours-long multi-turn app and codebase work graded by scripts, far from one-prompt function writing (bigcodebench/ds1000)."
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.7,
+    "A": 0.7,
+    "Dm": 0.35,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Multi-turn tool work graded on end state against hidden reference data, like the guessed private agentic shape, but long-horizon software work with very long contexts (tens of calls)."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 18,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "18 long-running agentic tasks (take over business apps through rounds of changing rules, run a codebase through simulated months, build a compiler, optimise programs), graded by scripts against hidden data. Could only inform the router as a coarse prior for hard private agentic work; Not public: LiveBench 2.0 publishes only per-suite and per-subcategory scores (single run per model); the tasks, harness and per-task results are not released (no 2.0 data on Hugging Face, whose livebench datasets were last updated 2025-04-07; GitHub repo has no task files).",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)"
+  ]
+ },
+ "1.2": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: long multi-turn agentic software work with tools, not one question with a short answer"
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "App maintenance coding over many turns, not single-prompt coding or math."
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.7,
+    "A": 0.7,
+    "Dm": 0.45,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Multi-turn tool work on payroll/budget/tax/audit apps graded on resulting figures and records (end state); business-rule domain is close to tau2-style tasks but contexts are very long."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "3 tasks: take over a working app for payroll, council budgets, charity tax claims or audit evidence and keep figures and paper trail correct through rounds of changing rules; graded by scripts against hidden reference data. Not public: LiveBench 2.0 publishes only per-suite and per-subcategory scores (single run per model); the tasks, harness and per-task results are not released (no 2.0 data on Hugging Face, whose livebench datasets were last updated 2025-04-07; GitHub repo has no task files).",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)"
+  ]
+ },
+ "1.3": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: long multi-turn agentic software work with tools, not one question with a short answer"
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "App maintenance coding over many turns, not single-prompt coding or math."
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.7,
+    "A": 0.7,
+    "Dm": 0.45,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Multi-turn tool work keeping ticketing/hire/stock/waste-site apps correct, end-state graded; retail-like business domain, but very long horizon."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 4,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "4 tasks: take over a working app for theatre ticketing, equipment hire, stock traceability or waste-site records and keep it correct as the business changes; script-graded against hidden data. Not public: LiveBench 2.0 publishes only per-suite and per-subcategory scores (single run per model); the tasks, harness and per-task results are not released (no 2.0 data on Hugging Face, whose livebench datasets were last updated 2025-04-07; GitHub repo has no task files).",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)"
+  ]
+ },
+ "1.4": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: long multi-turn agentic software work with tools, not one question with a short answer"
+   },
+   "math_code": {
+    "T": 0.3,
+    "I": 0.2,
+    "A": 0.5,
+    "Dm": 0.25,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Codebase operation over simulated months; coding skill but nothing like a single function or data-science fill-in."
+   },
+   "agentic": {
+    "T": 0.5,
+    "I": 0.7,
+    "A": 0.7,
+    "Dm": 0.35,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Multi-step tool use with end-state grading, but simulated months of releases and change tickets make it far longer and more compounding than Yugos agentic tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "3 tasks: run an existing codebase through simulated months of data releases, billing closes and change tickets where early shortcuts surface later; script-graded. Not public: LiveBench 2.0 publishes only per-suite and per-subcategory scores (single run per model); the tasks, harness and per-task results are not released (no 2.0 data on Hugging Face, whose livebench datasets were last updated 2025-04-07; GitHub repo has no task files).",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)"
+  ]
+ },
+ "1.5": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: long multi-turn agentic software work with tools, not one question with a short answer"
+   },
+   "math_code": {
+    "T": 0.2,
+    "I": 0.2,
+    "A": 0.45,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Bookkeeping operations via commands; little math or code-writing in the Yugos sense."
+   },
+   "agentic": {
+    "T": 0.55,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.45,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Keep a small business's books and duties right for weeks via a command someone follows to the letter; graded only on the resulting data (end state), close to the guessed private agentic grading, but very long."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 4,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "4 tasks: keep a small business's books and duties right for weeks while the owner is away, through a command someone else follows to the letter; only the resulting data is checked. Not public: LiveBench 2.0 publishes only per-suite and per-subcategory scores (single run per model); the tasks, harness and per-task results are not released (no 2.0 data on Hugging Face, whose livebench datasets were last updated 2025-04-07; GitHub repo has no task files).",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)"
+  ]
+ },
+ "1.6": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: long multi-turn agentic software work with tools, not one question with a short answer"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.2,
+    "A": 0.55,
+    "Dm": 0.3,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Build a compiler from a spec and repair a numerical physics simulator: real code and some numerics, but project-scale and multi-turn, checked by hidden test programs."
+   },
+   "agentic": {
+    "T": 0.45,
+    "I": 0.7,
+    "A": 0.65,
+    "Dm": 0.2,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Agentic engineering with tools and hidden-test/simulated-outcome grading, but systems domain (compilers, simulators, service fleet incidents) is far from customer-service or function-calling tasks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 2,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "2 tasks: build a compiler from a written specification, repair a numerical physics simulator, keep a service fleet healthy through incidents; graded by hidden test programs or simulated outcomes. Not public: LiveBench 2.0 publishes only per-suite and per-subcategory scores (single run per model); the tasks, harness and per-task results are not released (no 2.0 data on Hugging Face, whose livebench datasets were last updated 2025-04-07; GitHub repo has no task files).",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)"
+  ]
+ },
+ "1.7": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "different skill: long multi-turn agentic software work with tools, not one question with a short answer"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.2,
+    "A": 0.45,
+    "Dm": 0.25,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Optimisation coding (faster compiler output, tighter schedules) scored on measured results, not pass/fail answers or unit tests on one function."
+   },
+   "agentic": {
+    "T": 0.4,
+    "I": 0.7,
+    "A": 0.5,
+    "Dm": 0.15,
+    "L": 0.05,
+    "F": 0.9,
+    "why": "Long tool-driven optimisation work with continuous measured scores; domain and grading differ from Yugos agentic end-state checks."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 2,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "2 tasks: make existing compilers emit faster code and produce tighter workshop schedules, scored on measured results. Not public: LiveBench 2.0 publishes only per-suite and per-subcategory scores (single run per model); the tasks, harness and per-task results are not released (no 2.0 data on Hugging Face, whose livebench datasets were last updated 2025-04-07; GitHub repo has no task files).",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)"
+  ]
+ },
+ "1.8": {
+  "scores": {
+   "chat": {
+    "T": 0.88,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.65,
+    "L": 1.0,
+    "F": 0.8,
+    "why": "Short single-turn logic, zebra, spatial and theory-of-mind puzzles with one ground-truth answer: the same kind of task as bbeh (which has Zebra Puzzles, Web of Lies and Spatial Reasoning tasks); prompts roughly 100-700 tokens."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.15,
+    "L": 1.0,
+    "F": 0.8,
+    "why": "Logic puzzles with exact answers, not math problems or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools, one short answer"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/livebench/reasoning",
+  "n_questions": 202,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "202 short reasoning questions (theory of mind 52, zebra 50, spatial 50, logic with navigation 50), single answer in <solution> tags checked against ground truth; very close in kind to bbeh and easy enough (computed L1-2) to also resemble the private chat profile. The 2.0 questions themselves are not released (GitHub has graders only; Hugging Face livebench/reasoning, last updated 2025-04-07, holds only older v1 zebra_puzzle, spatial and web_of_lies_v2 questions). Yugos's own catalog lists livebench_reasoning (that HF set) as a chat_qa dataset used in pack v0.3.0, not in live v0.4.0.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "https://huggingface.co/datasets/livebench/reasoning",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)",
+   "https://github.com/LiveBench/LiveBench/blob/main/changelog.md"
+  ]
+ },
+ "1.9": {
+  "scores": {
+   "chat": {
+    "T": 0.8,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.45,
+    "L": 1.0,
+    "F": 0.85,
+    "why": "Single-turn short story question asking who believes what (e.g. which container), exact-match answer; reasoning QA like chat, though bbeh has no theory-of-mind task."
+   },
+   "math_code": {
+    "T": 0.05,
+    "I": 1.0,
+    "A": 0.2,
+    "Dm": 0.05,
+    "L": 1.0,
+    "F": 0.85,
+    "why": "different skill: belief tracking in stories, no math or code"
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools, one short answer"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 52,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "52 theory-of-mind questions (added to LiveBench 2025-11-25): track who knows or believes what in a short story; the grader extracts the <solution> text and matches a short ground truth such as a container name. Easy (computed L1-2), so it resembles the private chat profile. The 2.0 questions themselves are not released (GitHub has graders only; Hugging Face livebench/reasoning, last updated 2025-04-07, holds only older v1 zebra_puzzle, spatial and web_of_lies_v2 questions). Yugos's own catalog lists livebench_reasoning (that HF set) as a chat_qa dataset used in pack v0.3.0, not in live v0.4.0.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "https://huggingface.co/datasets/livebench/reasoning",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)",
+   "https://raw.githubusercontent.com/LiveBench/LiveBench/main/livebench/process_results/reasoning/theory_of_mind/utils.py"
+  ]
+ },
+ "1.10": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.9,
+    "Dm": 0.7,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Zebra logic grid puzzles with a short exact answer, single-turn; bbeh itself has a Zebra Puzzles task (bbeh's are much longer, ~2,600 words vs ~250-380 words in older LiveBench versions)."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.3,
+    "Dm": 0.15,
+    "L": 0.9,
+    "F": 0.8,
+    "why": "Constraint-satisfaction logic, not math or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools, one short answer"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/livebench/reasoning",
+  "n_questions": 50,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "50 zebra puzzles (deduce who has which attribute from clues), refreshed with harder puzzles 2025-11-25; answers in <solution> tags vs ground truth. Older v1 zebra questions (100, from 2024) are public on HF livebench/reasoning and are a usable bbeh-like stand-in; the 2.0 set is not released. The 2.0 questions themselves are not released (GitHub has graders only; Hugging Face livebench/reasoning, last updated 2025-04-07, holds only older v1 zebra_puzzle, spatial and web_of_lies_v2 questions). Yugos's own catalog lists livebench_reasoning (that HF set) as a chat_qa dataset used in pack v0.3.0, not in live v0.4.0.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "https://huggingface.co/datasets/livebench/reasoning",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)",
+   "https://github.com/LiveBench/LiveBench/blob/main/changelog.md"
+  ]
+ },
+ "1.11": {
+  "scores": {
+   "chat": {
+    "T": 0.85,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.55,
+    "L": 1.0,
+    "F": 0.65,
+    "why": "Short single-turn 2D/3D shape questions with an integer or one-word bold answer; reasoning QA like bbeh's geometry/spatial tasks but a different puzzle style; task family public since 2024."
+   },
+   "math_code": {
+    "T": 0.25,
+    "I": 1.0,
+    "A": 0.4,
+    "Dm": 0.3,
+    "L": 1.0,
+    "F": 0.65,
+    "why": "Shape-cutting and counting questions with integer answers are near elementary geometry, but no \\boxed{} competition math."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools, one short answer"
+   }
+  },
+  "best_part": "chat:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "partial",
+  "questions_where": "https://huggingface.co/datasets/livebench/reasoning",
+  "n_questions": 50,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "50 spatial questions (e.g. cut a square along its diagonals, how many triangles), ~90-word prompts in the public v1 version, integer or word answer. Easy (computed L1 0.66), matching the very easy private chat profile; 50 older v1 questions (2024-07-26) are public on HF, whether 2.0 reuses them is not stated. The 2.0 questions themselves are not released (GitHub has graders only; Hugging Face livebench/reasoning, last updated 2025-04-07, holds only older v1 zebra_puzzle, spatial and web_of_lies_v2 questions). Yugos's own catalog lists livebench_reasoning (that HF set) as a chat_qa dataset used in pack v0.3.0, not in live v0.4.0.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "https://huggingface.co/datasets/livebench/reasoning",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)",
+   "https://github.com/LiveBench/LiveBench/blob/main/changelog.md"
+  ]
+ },
+ "1.12": {
+  "scores": {
+   "chat": {
+    "T": 0.9,
+    "I": 1.0,
+    "A": 0.95,
+    "Dm": 0.7,
+    "L": 1.0,
+    "F": 0.85,
+    "why": "Truth-teller/liar chain plus 2D navigation, single-turn with an exact (x, y) answer: closely matches bbeh's Web of Lies and Spatial Reasoning tasks."
+   },
+   "math_code": {
+    "T": 0.15,
+    "I": 1.0,
+    "A": 0.35,
+    "Dm": 0.15,
+    "L": 1.0,
+    "F": 0.85,
+    "why": "Logic with a coordinate answer; slight arithmetic, not math problems or code."
+   },
+   "agentic": {
+    "T": 0.05,
+    "I": 0.1,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.5,
+    "F": 0.8,
+    "why": "different skill: no tools, one short answer"
+   }
+  },
+  "best_part": "chat:public",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 50,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "50 questions (task added 2025-12-23): work out who tells the truth from a chain of statements, then navigate in 2D; graded by exact match of the final (x, y) coordinate. A bbeh-like puzzle type at easier difficulty (computed L1-2). The 2.0 questions themselves are not released (GitHub has graders only; Hugging Face livebench/reasoning, last updated 2025-04-07, holds only older v1 zebra_puzzle, spatial and web_of_lies_v2 questions). Yugos's own catalog lists livebench_reasoning (that HF set) as a chat_qa dataset used in pack v0.3.0, not in live v0.4.0.",
+  "confidence": "medium",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "https://huggingface.co/datasets/livebench/reasoning",
+   "https://huggingface.co/api/datasets?author=livebench",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)",
+   "https://raw.githubusercontent.com/LiveBench/LiveBench/main/livebench/process_results/reasoning/logic_with_navigation/utils.py"
+  ]
+ },
+ "1.13": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: agentic bug fixing in a large repository, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 0.25,
+    "A": 0.75,
+    "Dm": 0.25,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Python/production coding checked by hidden tests, but repository-level agentic bug fixing rather than writing one function (bigcodebench) or a data-science fill-in (ds1000)."
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.35,
+    "L": 0.15,
+    "F": 0.9,
+    "why": "Multi-step tool use in a repository, graded on end state by hidden tests; SWE-bench style, which Yugos's catalog files under agentic, but not the tau2/BFCL flavour and with long repo contexts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 24,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "24 bug-fix tasks across 7 areas of one production codebase (LLM API integration, agent loop, billing, cloud, product/UX, memory and tools, hard multi-site fixes). Tasks are bugs fixed by real merged pull requests in one large production codebase frozen at a snapshot; the model gets a bug report and the repository and works with tools; hidden tests check the fix, and a fix that breaks existing behaviour scores 0. Not public: only per-subcategory scores per model are published; no task files on Hugging Face or GitHub. Yugos's catalog lists SWE-bench Verified (the same task type) under agentic.",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)"
+  ]
+ },
+ "1.14": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: agentic bug fixing in a large repository, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 0.25,
+    "A": 0.75,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Python/production coding checked by hidden tests, but repository-level agentic bug fixing rather than writing one function (bigcodebench) or a data-science fill-in (ds1000)."
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.45,
+    "L": 0.15,
+    "F": 0.9,
+    "why": "Agentic repo bug fixing (end-state hidden tests); the subject, provider wire formats and request/response handling, touches tool/function-call plumbing."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "3 bug-fix tasks on provider wire formats and request/response handling (e.g. normalise image content for a provider's API). Tasks are bugs fixed by real merged pull requests in one large production codebase frozen at a snapshot; the model gets a bug report and the repository and works with tools; hidden tests check the fix, and a fix that breaks existing behaviour scores 0. Not public: only per-subcategory scores per model are published; no task files on Hugging Face or GitHub. Yugos's catalog lists SWE-bench Verified (the same task type) under agentic.",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)"
+  ]
+ },
+ "1.15": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: agentic bug fixing in a large repository, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 0.25,
+    "A": 0.75,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Python/production coding checked by hidden tests, but repository-level agentic bug fixing rather than writing one function (bigcodebench) or a data-science fill-in (ds1000)."
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.5,
+    "L": 0.15,
+    "F": 0.9,
+    "why": "Agentic repo bug fixing with hidden tests; the subject, agent runtime control flow, is about tool-calling loops, closer to agentic topics than most coding rows."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "3 bug-fix tasks in agent runtime control flow. Tasks are bugs fixed by real merged pull requests in one large production codebase frozen at a snapshot; the model gets a bug report and the repository and works with tools; hidden tests check the fix, and a fix that breaks existing behaviour scores 0. Not public: only per-subcategory scores per model are published; no task files on Hugging Face or GitHub. Yugos's catalog lists SWE-bench Verified (the same task type) under agentic.",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)"
+  ]
+ },
+ "1.16": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: agentic bug fixing in a large repository, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 0.25,
+    "A": 0.75,
+    "Dm": 0.25,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Python/production coding checked by hidden tests, but repository-level agentic bug fixing rather than writing one function (bigcodebench) or a data-science fill-in (ds1000)."
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.35,
+    "L": 0.15,
+    "F": 0.9,
+    "why": "Multi-step tool use in a repository, graded on end state by hidden tests; SWE-bench style, which Yugos's catalog files under agentic, but not the tau2/BFCL flavour and with long repo contexts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "3 bug-fix tasks on metering, quotas and limit enforcement (e.g. stop a credit throttle double-counting usage). Tasks are bugs fixed by real merged pull requests in one large production codebase frozen at a snapshot; the model gets a bug report and the repository and works with tools; hidden tests check the fix, and a fix that breaks existing behaviour scores 0. Not public: only per-subcategory scores per model are published; no task files on Hugging Face or GitHub. Yugos's catalog lists SWE-bench Verified (the same task type) under agentic.",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)"
+  ]
+ },
+ "1.17": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: agentic bug fixing in a large repository, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 0.25,
+    "A": 0.75,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Python/production coding checked by hidden tests, but repository-level agentic bug fixing rather than writing one function (bigcodebench) or a data-science fill-in (ds1000)."
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.3,
+    "L": 0.15,
+    "F": 0.9,
+    "why": "Multi-step tool use in a repository, graded on end state by hidden tests; SWE-bench style, which Yugos's catalog files under agentic, but not the tau2/BFCL flavour and with long repo contexts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "3 bug-fix tasks on storage, compute and cloud service plumbing (e.g. refuse shared storage buckets in a cloud connector). Tasks are bugs fixed by real merged pull requests in one large production codebase frozen at a snapshot; the model gets a bug report and the repository and works with tools; hidden tests check the fix, and a fix that breaks existing behaviour scores 0. Not public: only per-subcategory scores per model are published; no task files on Hugging Face or GitHub. Yugos's catalog lists SWE-bench Verified (the same task type) under agentic.",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)"
+  ]
+ },
+ "1.18": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: agentic bug fixing in a large repository, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 0.25,
+    "A": 0.75,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Python/production coding checked by hidden tests, but repository-level agentic bug fixing rather than writing one function (bigcodebench) or a data-science fill-in (ds1000)."
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.3,
+    "L": 0.15,
+    "F": 0.9,
+    "why": "Multi-step tool use in a repository, graded on end state by hidden tests; SWE-bench style, which Yugos's catalog files under agentic, but not the tau2/BFCL flavour and with long repo contexts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 4,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "4 bug-fix tasks on user-facing product behaviour. Tasks are bugs fixed by real merged pull requests in one large production codebase frozen at a snapshot; the model gets a bug report and the repository and works with tools; hidden tests check the fix, and a fix that breaks existing behaviour scores 0. Not public: only per-subcategory scores per model are published; no task files on Hugging Face or GitHub. Yugos's catalog lists SWE-bench Verified (the same task type) under agentic.",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)"
+  ]
+ },
+ "1.19": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: agentic bug fixing in a large repository, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.4,
+    "I": 0.25,
+    "A": 0.75,
+    "Dm": 0.2,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Python/production coding checked by hidden tests, but repository-level agentic bug fixing rather than writing one function (bigcodebench) or a data-science fill-in (ds1000)."
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.45,
+    "L": 0.15,
+    "F": 0.9,
+    "why": "Agentic repo bug fixing with hidden tests; memory handling and tool integrations are close to agentic tool-use topics."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 3,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "3 bug-fix tasks on memory handling and tool integrations (e.g. keep a memory index in a stable order). Tasks are bugs fixed by real merged pull requests in one large production codebase frozen at a snapshot; the model gets a bug report and the repository and works with tools; hidden tests check the fix, and a fix that breaks existing behaviour scores 0. Not public: only per-subcategory scores per model are published; no task files on Hugging Face or GitHub. Yugos's catalog lists SWE-bench Verified (the same task type) under agentic.",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)"
+  ]
+ },
+ "1.20": {
+  "scores": {
+   "chat": {
+    "T": 0.05,
+    "I": 0.2,
+    "A": 0.1,
+    "Dm": 0.1,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "different skill: agentic bug fixing in a large repository, not a question with a short answer"
+   },
+   "math_code": {
+    "T": 0.35,
+    "I": 0.25,
+    "A": 0.7,
+    "Dm": 0.25,
+    "L": 0.08,
+    "F": 0.9,
+    "why": "Multi-site repository fixes with hidden tests per requirement (partial credit halves per broken one); coding with tests, but far larger scope than one-prompt function writing."
+   },
+   "agentic": {
+    "T": 0.6,
+    "I": 0.7,
+    "A": 0.75,
+    "Dm": 0.35,
+    "L": 0.1,
+    "F": 0.9,
+    "why": "Hard multi-site agentic bug fixing graded by hidden tests on every brief-stated requirement; end-state style grading, SWE-bench flavour, long contexts."
+   }
+  },
+  "best_part": "agentic:private",
+  "level_guess": null,
+  "modality": "text",
+  "questions_public": "no",
+  "questions_where": null,
+  "n_questions": 5,
+  "per_question_results": "no",
+  "results_where": null,
+  "licence": null,
+  "overlap": "",
+  "summary": "5 hard multi-site product fixes whose hidden tests cover every requirement in the brief; partial credit halves per broken requirement. Computed L4, a rare hard-coding signal. Tasks are bugs fixed by real merged pull requests in one large production codebase frozen at a snapshot; the model gets a bug report and the repository and works with tools; hidden tests check the fix, and a fix that breaks existing behaviour scores 0. Not public: only per-subcategory scores per model are published; no task files on Hugging Face or GitHub. Yugos's catalog lists SWE-bench Verified (the same task type) under agentic.",
+  "confidence": "low",
+  "sources": [
+   "https://livebench.ai/ (Methodology page text in https://livebench.ai/static/js/main.099aad9b.js)",
+   "https://livebench.ai/data/20261106/breakdown.json",
+   "https://livebench.ai/data/20261106/notes.json",
+   "https://github.com/LiveBench/LiveBench (README.md, changelog.md, repo tree)",
+   "/root/cic/sn34-yugos/research/benchmarks/catalog/README.md (Yugos catalog: livebench_reasoning chat_qa v0.3.0; swe_bench_verified listed as agentic)"
+  ]
+ }
+}

@@ -1,0 +1,744 @@
+{
+ "batch": "S10",
+ "parents": [
+  {
+   "no": "19",
+   "name": "MMMU-Pro",
+   "category": "Multimodal (Vision)",
+   "url": "https://github.com/MMMU-Benchmark/MMMU",
+   "focus": "College-level multimodal reasoning across charts, diagrams, and images.",
+   "notes": ""
+  },
+  {
+   "no": "20",
+   "name": "OCRBench v2",
+   "category": "Multimodal (Vision)",
+   "url": "https://github.com/Yuliang-Liu/MultimodalOCR",
+   "focus": "Text recognition, document parsing, and visual information extraction.",
+   "notes": ""
+  },
+  {
+   "no": "21",
+   "name": "MRCR / RULER",
+   "category": "Long Context",
+   "url": "https://github.com/NVIDIA/RULER",
+   "focus": "Multi-needle retrieval and reasoning across massive context windows (128k–2M+ tokens).",
+   "notes": ""
+  }
+ ],
+ "rows": [
+  {
+   "no": "19.1",
+   "name": "MMMU-Pro (Overall)",
+   "category": "MMMU-Pro",
+   "url": "https://mmmu-benchmark.github.io/#leaderboard",
+   "focus": "Robust version of MMMU that adds a vision-only input setting and increases candidate options from 4 to 10.",
+   "metrics": "quality, effort, date, breakdown, other",
+   "metrics_detail": "Quality [page]: MMMU-Pro Overall — accuracy 0-100 (no unit printed); 74 of 213 rows have it · https://mmmu-benchmark.github.io/leaderboard_data.json\nEffort [page]: Name — settings as separate rows via the model name (e.g. 'w/ tools' vs 'w/o tools', 'Thinking (High)') · https://mmmu-benchmark.github.io/leaderboard_data.json\nDate [page]: Date — date per entry (YYYY-MM-DD) · https://mmmu-benchmark.github.io/leaderboard_data.json\nOther [page]: Size / row type — parameter count; rows colour-coded hum",
+   "notes": "JS-rendered table; values from https://mmmu-benchmark.github.io/leaderboard_data.json (loaded by static/js/index.js). Human Expert rows excluded from top-3. Page says 'Last updated: 09/05/2025' though JSON contains later entries. No per-sub anchor; click 'MMMU-Pro' header to expand.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 93%, L2 6%.\nPlaced from 58 models' published scores; guessing floor 13% removed.\nBest observed: GPT-6.1 Terra 85.5, Kimi K3.1 Pro 84.1, Gemini 3.1 Pro 83.9.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.08,
+    "3": 0.2609,
+    "4": 0.2609
+   },
+   "level_source": "scores",
+   "anchor_scores": {
+    "2": 0.0056,
+    "3": 0.357,
+    "4": 0.0087
+   }
+  },
+  {
+   "no": "19.2",
+   "name": "MMMU-Pro Vision",
+   "category": "MMMU-Pro",
+   "url": "https://huggingface.co/datasets/MMMU/MMMU_Pro/viewer/vision",
+   "focus": "Questions are embedded within screenshots or photos; no separate text is fed into the model.",
+   "metrics": "quality",
+   "metrics_detail": "Quality [page]: Vision — accuracy 0-100 under the expanded MMMU-Pro header (field pro.vision); only 37 of 213 rows have it · https://mmmu-benchmark.github.io/leaderboard_data.json\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: No separate view: a hidden column shown when the MMMU-Pro header is expanded. Name/effort, Size and Date are per parent row, not per sub-setting. The author-reported asterisk is applied only to Overall, not to Vision (https",
+   "notes": "JS-rendered table; values from https://mmmu-benchmark.github.io/leaderboard_data.json (loaded by static/js/index.js). Human Expert rows excluded from top-3. Page says 'Last updated: 09/05/2025' though JSON contains later entries. URL is the HF dataset config; scores are the leaderboard 'Vision' column (expand MMMU-Pro at https://mmmu-benchmark.github.io/#leaderboard); only 34 models report it.",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "19.3",
+   "name": "MMMU-Pro Standard (10 options)",
+   "category": "MMMU-Pro",
+   "url": "https://huggingface.co/datasets/MMMU/MMMU_Pro/viewer/standard%20(10%20options)",
+   "focus": "Standard subset that increases the number of candidate answers to 10 to make guessing harder.",
+   "metrics": "quality",
+   "metrics_detail": "Quality [page]: Standard — accuracy 0-100 under the expanded MMMU-Pro header (field pro.original); only 37 of 213 rows have it · https://mmmu-benchmark.github.io/leaderboard_data.json\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: No separate view: a hidden column shown when the MMMU-Pro header is expanded. Name/effort, Size and Date are per parent row, not per sub-setting. The author-reported asterisk is applied only to Overall, not to Standard ",
+   "notes": "JS-rendered table; values from https://mmmu-benchmark.github.io/leaderboard_data.json (loaded by static/js/index.js). Human Expert rows excluded from top-3. Page says 'Last updated: 09/05/2025' though JSON contains later entries. URL is the HF dataset config; scores are the leaderboard 'Standard' column (JSON key 'original'); only 34 models report it. A 'standard (4 options)' config also exists but is not on the leaderboard.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 7 models' published scores; guessing floor 10% removed.\nBest observed: Claude 3.5 Sonnet 55.0, InternVL2.5-78B 51.4, Qwen2-VL-72B 49.2.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.32,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "team-level",
+   "anchor_scores": {}
+  },
+  {
+   "no": "19.4",
+   "name": "MMMU (Val)",
+   "category": "MMMU",
+   "url": "https://huggingface.co/datasets/MMMU/MMMU",
+   "focus": "11.5K college-level multimodal questions across six disciplines and 30 subjects; validation split.",
+   "metrics": "quality, breakdown, other",
+   "metrics_detail": "Quality [page]: MMMU(Val) Overall — accuracy 0-100 (field validation.overall); 194 of 213 rows have it · https://mmmu-benchmark.github.io/leaderboard_data.json\nBreakdown [page]: Art & Design / Business / Science / Health & Medicine / Human. & Social Sci. / Tech & Eng. — six discipline scores in the expanded MMMU(Val) header; 59 rows · https://mmmu-benchmark.github.io/leaderboard_data.json\nOther [page]: * (results provided by the authors) — asterisk after MMMU(Val) Overall when validation.source=",
+   "notes": "JS-rendered table; values from https://mmmu-benchmark.github.io/leaderboard_data.json (loaded by static/js/index.js). Human Expert rows excluded from top-3. Page says 'Last updated: 09/05/2025' though JSON contains later entries. Leaderboard 'MMMU(Val)' column has per-discipline sub-columns (Art & Design, Business, Science, Health & Medicine, Human. & Social Sci., Tech & Eng.). URL is HF dataset (validation split per subject config).",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 90%, L3 10%.\nPlaced from 31 models' published scores; guessing floor 22% removed.\nBest observed: Gemini 3 Pro 87.2, GPT-5.2 86.7, Qwen3.6 Plus 86.0.",
+   "computed_level_cdf": {
+    "1": 0.33,
+    "2": 0.75,
+    "3": 0.7942,
+    "4": 0.96
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "3": 0.8395
+   }
+  },
+  {
+   "no": "19.5",
+   "name": "MMMU (Test)",
+   "category": "MMMU",
+   "url": "https://huggingface.co/datasets/MMMU/MMMU",
+   "focus": "MMMU test split (answers released 2026-02-12; previously scored via EvalAI server).",
+   "metrics": "quality, breakdown, other",
+   "metrics_detail": "Quality [page]: MMMU(Test) Overall — accuracy 0-100 (field test.overall); 57 of 213 rows have it · https://mmmu-benchmark.github.io/leaderboard_data.json\nBreakdown [page]: Art & Design / Business / Science / Health & Medicine / Human. & Social Sci. / Tech & Eng. — six discipline scores in the expanded MMMU(Test) header; 51 rows · https://mmmu-benchmark.github.io/leaderboard_data.json\nOther [page]: * (results provided by the authors) — asterisk after MMMU(Test) Overall when test.source='author' (",
+   "notes": "JS-rendered table; values from https://mmmu-benchmark.github.io/leaderboard_data.json (loaded by static/js/index.js). Human Expert rows excluded from top-3. Page says 'Last updated: 09/05/2025' though JSON contains later entries. Only 57 models report Test.",
+   "team_difficulty": "",
+   "difficulty_detail": "Not placed: too few of its models could be matched to models with other scores (needs at least 6).",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "20.1",
+   "name": "OCRBench v2 English (Average)",
+   "category": "English tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Average over the 8 capability categories of the English subset of the bilingual text-centric benchmark.",
+   "metrics": "quality, breakdown, other",
+   "metrics_detail": "Quality [page]: Average — mean score (0-100) over the 8 English capability columns · https://99franklin.github.io/ocrbench_v2/\nBreakdown [page]: Recognition, Referring, Spotting, Extraction, Parsing, Calculation, Understanding, Reasoning — per-capability columns · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effo",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. 26 entries in English table.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 96%.\nPlaced from 25 models' published scores.\nBest observed: KDL Frontier (2026-10, EN) 76.9, SEEU DOC 76.2, Yaochi-DTS-A2T-1.9 73.4.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.4585,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.4585
+   }
+  },
+  {
+   "no": "20.2",
+   "name": "English: Text Recognition",
+   "category": "English tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Perceiving textual content via (fine-grained) text recognition and full-page OCR.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Recognition — capability score (0-100) as a column of the English table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Checked the table headers directly. No separate page or sub-task scores. Rank is by Average, not by this column. Venue/size belong to the mode",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Recognition' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "≤3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 90%, L3 8%.\nPlaced from 25 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: KDL Frontier (2026-10, EN) 79.5, SEEU DOC 77.9, TeleMM-2.0 76.4.",
+   "computed_level_cdf": {
+    "1": 0.3567,
+    "2": 0.617,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.617
+   }
+  },
+  {
+   "no": "20.3",
+   "name": "English: Text Referring",
+   "category": "English tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Locating texts accurately, evaluated with text grounding and VQA-with-position tasks.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Referring — capability score (0-100) as a column of the English table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same English-table column layout as 20.2. No separate page or sub-task scores. Rank is by Average, not by this column. Venue/size belong to the ",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Referring' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 25 models' published scores.\nBest observed: KDL Frontier (2026-10, EN) 71.6, U2-OCR 69.7, TeleMM-2.0 68.1.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.2755,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.2755
+   }
+  },
+  {
+   "no": "20.4",
+   "name": "English: Text Spotting",
+   "category": "English tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Outputting both the location and content of text.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Spotting — capability score (0-100) as a column of the English table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same English-table column layout as 20.2. No separate page or sub-task scores. Rank is by Average, not by this column. Venue/size belong to the m",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Spotting' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 25 models' published scores.\nBest observed: U2-OCR 81.4, Gemini 3 Pro Preview 80.8, SEEU DOC 80.6.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.08,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.0065
+   }
+  },
+  {
+   "no": "20.5",
+   "name": "English: Relation Extraction",
+   "category": "English tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Extracting and mapping visual components via key information extraction/mapping and handwritten content extraction.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Extraction — capability score (0-100) as a column of the English table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same English-table column layout as 20.2. No separate page or sub-task scores. Rank is by Average, not by this column. Venue/size belong to the",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Extraction' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "≤3",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 25 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: KDL Frontier (2026-10, EN) 94.4, Muse Glimmer 30B 94.3, Gemini 3 Pro Preview 93.9.",
+   "computed_level_cdf": {
+    "1": 0.3567,
+    "2": 0.6705,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.6705
+   }
+  },
+  {
+   "no": "20.6",
+   "name": "English: Element Parsing",
+   "category": "English tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Parsing complex elements: tables, charts, documents and formula recognition.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Parsing — capability score (0-100) as a column of the English table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same English-table column layout as 20.2. No separate page or sub-task scores. Rank is by Average, not by this column. Venue/size belong to the mo",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Parsing' on leaderboard; full name from paper/HF Space. Tie at 40.9: Yaochi-DTS-A2T-1.9 and TeleMM-2.0.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 25 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: KDL Frontier (2026-10, EN) 45.7, SEEU DOC 42.4, Yaochi-DTS-A2T-1.9 40.9.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.3705,
+    "3": 0.3705,
+    "4": 0.59
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.3705
+   }
+  },
+  {
+   "no": "20.7",
+   "name": "English: Mathematical Calculation",
+   "category": "English tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Numerical reasoning via text counting and math QA rendered into images with geometric figures.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Calculation — capability score (0-100) as a column of the English table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same English-table column layout as 20.2. No separate page or sub-task scores. Rank is by Average, not by this column. Venue/size belong to th",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Calculation' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "2-3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 70%, L3 28%.\nPlaced from 25 models' published scores.\nBest observed: Yaochi-DTS-A2T-1.9 94.2, Posicube_DVLM 93.2, KDL Frontier (2026-10, EN) 92.2.",
+   "computed_level_cdf": {
+    "1": 0.205,
+    "2": 0.421,
+    "3": 0.78,
+    "4": 0.85
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.421
+   }
+  },
+  {
+   "no": "20.8",
+   "name": "English: Visual Text Understanding",
+   "category": "English tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Comprehending semantic information of texts: document classification, diagram QA and cognition VQA.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Understanding — capability score (0-100) as a column of the English table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same English-table column layout as 20.2. No separate page or sub-task scores. Rank is by Average, not by this column. Venue/size belong to ",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Understanding' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "≤3",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L2 76%, L1 24%.\nPlaced from 25 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: KDL Frontier (2026-10, EN) 85.6, Yaochi-DTS-A2T-1.9 84.7, U2-OCR 84.4.",
+   "computed_level_cdf": {
+    "1": 0.3567,
+    "2": 0.723,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.723
+   }
+  },
+  {
+   "no": "20.9",
+   "name": "English: Knowledge Reasoning",
+   "category": "English tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Complex inference and world knowledge: science QA, app agent, ASCII art classification, translation, reasoning VQA.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Reasoning — capability score (0-100) as a column of the English table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same English-table column layout as 20.2. No separate page or sub-task scores. Rank is by Average, not by this column. Venue/size belong to the ",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Reasoning' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 25 models' published scores.\nBest observed: SEEU DOC 74.6, KDL Frontier (2026-10, EN) 68.0, Muse Glimmer 30B 67.0.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.582,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.582
+   }
+  },
+  {
+   "no": "20.10",
+   "name": "OCRBench v2 Chinese (Average)",
+   "category": "Chinese tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Average over the 5 capability categories of the Chinese subset of the bilingual text-centric benchmark.",
+   "metrics": "quality, breakdown, other",
+   "metrics_detail": "Quality [page]: Average — mean score (0-100) over the 5 Chinese capability columns · https://99franklin.github.io/ocrbench_v2/\nBreakdown [page]: Recognition, Extraction, Parsing, Understanding, Reasoning — per-capability columns · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, votes\nNote: Chinese tabl",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. 24 entries in Chinese table.",
+   "team_difficulty": "3",
+   "difficulty_detail": "Fitted level L3 (Advanced); bootstrap agreement: L3 98%.\nPlaced from 24 models' published scores.\nBest observed: U2-OCR 66.7, TeleMM-2.0 66.2, Qwen3.5-9B 64.1.",
+   "computed_level_cdf": {
+    "1": 0.08,
+    "2": 0.359,
+    "3": 0.64,
+    "4": 0.74
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.359
+   }
+  },
+  {
+   "no": "20.11",
+   "name": "Chinese: Text Recognition",
+   "category": "Chinese tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Perceiving textual content via (fine-grained) text recognition and full-page OCR.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Recognition — capability score (0-100) as a column of the Chinese table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Checked the Chinese table headers directly. No separate page. Rank is by Average. Venue/size belong to the model entry.",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Recognition' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "2-3",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 55%, L3 44%.\nPlaced from 24 models' published scores.\nBest observed: NVIDIA Nemotron 3.5 Super VL 73.6, U2-OCR 73.3, SEEU DOC 73.1.",
+   "computed_level_cdf": {
+    "1": 0.205,
+    "2": 0.213,
+    "3": 0.78,
+    "4": 0.85
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.213
+   }
+  },
+  {
+   "no": "20.12",
+   "name": "Chinese: Relation Extraction",
+   "category": "Chinese tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Extracting and mapping visual components via key information extraction/mapping and handwritten content extraction.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Extraction — capability score (0-100) as a column of the Chinese table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same Chinese-table column layout as 20.11. No separate page. Rank is by Average. Venue/size belong to the model entry.",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Extraction' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 100%.\nPlaced from 24 models' published scores.\nBest observed: Yaochi-DTS-A2T-1.9 86.5, SEEU DOC 84.1, Qwen3.8-27B 83.9.",
+   "computed_level_cdf": {
+    "1": 0.33,
+    "2": 0.546,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.546
+   }
+  },
+  {
+   "no": "20.13",
+   "name": "Chinese: Element Parsing",
+   "category": "Chinese tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Parsing complex elements: tables, charts, documents and formula recognition.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Parsing — capability score (0-100) as a column of the Chinese table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same Chinese-table column layout as 20.11. No separate page. Rank is by Average. Venue/size belong to the model entry.",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Parsing' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 100%.\nPlaced from 24 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: MiniCPM-o-4.5 48.8, U2-OCR 42.9, TeleMM-2.0 37.6.",
+   "computed_level_cdf": {
+    "1": 0.04,
+    "2": 0.325,
+    "3": 0.325,
+    "4": 0.59
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.325
+   }
+  },
+  {
+   "no": "20.14",
+   "name": "Chinese: Visual Text Understanding",
+   "category": "Chinese tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Comprehending semantic information of texts: document classification, diagram QA and cognition VQA.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Understanding — capability score (0-100) as a column of the Chinese table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same Chinese-table column layout as 20.11. No separate page. Rank is by Average. Venue/size belong to the model entry.",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Understanding' on leaderboard; full name from paper/HF Space. Tie at 94.0: Gemini 3 Pro Preview and MiniCPM-o-4.5.",
+   "team_difficulty": "≤3",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 81%, L2 19%.\nPlaced from 24 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: TeleMM-2.0 96.0, MiniCPM-o-4.5 94.0, Gemini 3 Pro Preview 94.0.",
+   "computed_level_cdf": {
+    "1": 0.3567,
+    "2": 0.4675,
+    "3": 0.8367,
+    "4": 0.89
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.4675
+   }
+  },
+  {
+   "no": "20.15",
+   "name": "Chinese: Knowledge Reasoning",
+   "category": "Chinese tasks",
+   "url": "https://99franklin.github.io/ocrbench_v2/",
+   "focus": "Complex inference and world knowledge: science QA, app agent, ASCII art classification, translation, reasoning VQA.",
+   "metrics": "quality, other",
+   "metrics_detail": "Quality [page]: Reasoning — capability score (0-100) as a column of the Chinese table · https://99franklin.github.io/ocrbench_v2/\nOther [page]: Rank, Venue, Open-source, LLM Size — row attributes of the table entry · https://99franklin.github.io/ocrbench_v2/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, breakdown, votes\nNote: Same Chinese-table column layout as 20.11. No separate page. Rank is by Average. Venue/size belong to the model entry.",
+   "notes": "Official leaderboard on private data, period 2026.09 (default tab; static HTML tables). Medal emojis stripped from names. No per-category URL; closest page is the leaderboard (column in the track's table). Older HF Space https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard (public data) is stale. Column labelled 'Reasoning' on leaderboard; full name from paper/HF Space.",
+   "team_difficulty": "≥4",
+   "difficulty_detail": "Fitted level L4 (Expert); bootstrap agreement: L4 68%, L3 32%.\nPlaced from 24 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: SEEU DOC 48.9, Qwen3.5-9B 47.3, Qwen3-Omni-30B-A3B-Instruct 47.0.",
+   "computed_level_cdf": {
+    "1": 0.025,
+    "2": 0.2435,
+    "3": 0.2435,
+    "4": 0.445
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "2": 0.2435
+   }
+  },
+  {
+   "no": "21.1",
+   "name": "Retrieval (NIAH)",
+   "category": "RULER task category",
+   "url": "https://github.com/NVIDIA/RULER#-optional-customize-task-complexity",
+   "focus": "Needle-in-a-haystack retrieval with configurable haystack type (noise/essay/distractor needles) and needle key/value types and counts.",
+   "metrics": "quality*, breakdown*, other*",
+   "metrics_detail": "Quality [paper]: 4K–128K / Avg. — Retrieval (NIAH), averaged over 8 NIAH tasks: accuracy (%) per model averaged over the category's tasks, in Table 13 of the RULER paper appendix; not on the GitHub README · https://arxiv.org/html/2404.06654\nBreakdown [paper]: 4K, 8K, 16K, 32K, 64K, 128K — score per context length in the same table (Tables 10–11 additionally give single-NIAH subtasks passkey and vanilla NIAH; Figure 2 gives NIAH variants for Yi-34B only) · https://arxiv.org/html/2404.06654\nOther ",
+   "notes": "Official README results table reports only per-context-length totals over all 13 tasks, not per category; no per-category leaderboard (per-task results only in paper arXiv:2404.06654).",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 17 models' published scores.\nBest observed: Gemini-1.5 99.7, Llama3.1 (8B) 98.4, GLM4 (9B) 98.2.",
+   "computed_level_cdf": {
+    "1": 0.984,
+    "2": 0.984,
+    "3": 0.984,
+    "4": 0.984
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.984
+   }
+  },
+  {
+   "no": "21.2",
+   "name": "Multi-hop Tracing (variable_tracking)",
+   "category": "RULER task category",
+   "url": "https://github.com/NVIDIA/RULER#-optional-customize-task-complexity",
+   "focus": "Tracing variable name-binding chains across multiple hops.",
+   "metrics": "quality*, breakdown*, other*",
+   "metrics_detail": "Quality [paper]: 4K–128K / Avg. — Multi-hop tracing (variable tracking): accuracy (%) per model averaged over the category's tasks, in Table 14 of the RULER paper appendix; not on the GitHub README · https://arxiv.org/html/2404.06654\nBreakdown [paper]: 4K, 8K, 16K, 32K, 64K, 128K — score per context length in the same table (Figure 3 shows complexity variations for Yi-34B only) · https://arxiv.org/html/2404.06654\nOther [paper]: Claimed Length / Effective Length / wAvg. (inc) / wAvg. (dec) — same",
+   "notes": "Official README results table reports only per-context-length totals over all 13 tasks, not per category; no per-category leaderboard (per-task results only in paper arXiv:2404.06654).",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 17 models' published scores.\nBest observed: Gemini-1.5 99.9, GPT-4 99.9, Command-R-plus 104B 99.5.",
+   "computed_level_cdf": {
+    "1": 0.944,
+    "2": 0.944,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.944
+   }
+  },
+  {
+   "no": "21.3",
+   "name": "Aggregation (common_words_extraction, freq_words_extraction)",
+   "category": "RULER task category",
+   "url": "https://github.com/NVIDIA/RULER#-optional-customize-task-complexity",
+   "focus": "Extracting the most common / most frequent words from long synthetic word lists.",
+   "metrics": "quality*, breakdown*, other*",
+   "metrics_detail": "Quality [paper]: 4K–128K / Avg. — Aggregation, averaged over CWE and FWE: accuracy (%) per model averaged over the category's tasks, in Table 15 of the RULER paper appendix; not on the GitHub README · https://arxiv.org/html/2404.06654\nBreakdown [paper]: 4K, 8K, 16K, 32K, 64K, 128K — score per context length in the same table · https://arxiv.org/html/2404.06654\nOther [paper]: Claimed Length / Effective Length / wAvg. (inc) / wAvg. (dec) — same extra columns as the README main table, computed for ",
+   "notes": "Official README results table reports only per-context-length totals over all 13 tasks, not per category; no per-category leaderboard (per-task results only in paper arXiv:2404.06654).",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 17 models' published scores.\nBest observed: Gemini-1.5 96.6, GPT-4 93.4, Qwen2 72B 89.4.",
+   "computed_level_cdf": {
+    "1": 0.667,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.667
+   }
+  },
+  {
+   "no": "21.4",
+   "name": "Question Answering (qa)",
+   "category": "RULER task category",
+   "url": "https://github.com/NVIDIA/RULER#-optional-customize-task-complexity",
+   "focus": "Short-context QA (SQuAD or HotpotQA) embedded in long context.",
+   "metrics": "quality*, breakdown*, other*",
+   "metrics_detail": "Quality [paper]: 4K–128K / Avg. — Question Answering, averaged over 2 QA tasks: accuracy (%) per model averaged over the category's tasks, in Table 16 of the RULER paper appendix; not on the GitHub README · https://arxiv.org/html/2404.06654\nBreakdown [paper]: 4K, 8K, 16K, 32K, 64K, 128K — score per context length in the same table · https://arxiv.org/html/2404.06654\nOther [paper]: Claimed Length / Effective Length / wAvg. (inc) / wAvg. (dec) — same extra columns as the README main table, compute",
+   "notes": "Official README results table reports only per-context-length totals over all 13 tasks, not per category; no per-category leaderboard (per-task results only in paper arXiv:2404.06654).",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 95%, L2 5%.\nPlaced from 17 models' published scores.\nBest observed: Gemini-1.5 77.2, GPT-4 70.3, GradientAI/Llama3 70B 69.6.",
+   "computed_level_cdf": {
+    "1": 0.666,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.666
+   }
+  },
+  {
+   "no": "21.5",
+   "name": "RULER @ 4K context",
+   "category": "Context length",
+   "url": "https://github.com/NVIDIA/RULER/blob/main/README.md",
+   "focus": "Performance on the 13 RULER tasks at 4K sequence length.",
+   "metrics": "quality, breakdown*, other",
+   "metrics_detail": "Quality [page]: 4K — average score (0-100, no unit shown) over the 13 RULER tasks at 4K, a column of the README results table; underlined when above the 85.6 threshold · https://github.com/NVIDIA/RULER\nOther [page]: Models (size in parentheses), * after model name (author-reported), Claimed Length — row-level fields of the same parent table · https://github.com/NVIDIA/RULER\nBreakdown [paper]: per-category scores at 4K (Retrieval, Multi-hop tracing, Aggregation, QA) — Tables 13–16 of the paper, o",
+   "notes": "Column of the results table in the official README (https://github.com/NVIDIA/RULER/blob/main/README.md); scores are averages over 13 tasks. Names copied as shown incl. size suffix; '*' marks results reported by model authors. No per-column URL; closest is README top.",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 45 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Qwen 3 32B 98.4, Qwen 3 14B 98.0, Qwen3 235B-A22B 97.7.",
+   "computed_level_cdf": {
+    "1": 0.9455,
+    "2": 0.9455,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.9455
+   }
+  },
+  {
+   "no": "21.6",
+   "name": "RULER @ 8K context",
+   "category": "Context length",
+   "url": "https://github.com/NVIDIA/RULER/blob/main/README.md",
+   "focus": "Performance on the 13 RULER tasks at 8K sequence length.",
+   "metrics": "quality, breakdown*, other",
+   "metrics_detail": "Quality [page]: 8K — average score (0-100, no unit shown) over the 13 RULER tasks at 8K, a column of the README results table; underlined when above the 85.6 threshold · https://github.com/NVIDIA/RULER\nOther [page]: Models (size in parentheses), * after model name (author-reported), Claimed Length — row-level fields of the same parent table · https://github.com/NVIDIA/RULER\nBreakdown [paper]: per-category scores at 8K (Retrieval, Multi-hop tracing, Aggregation, QA) — Tables 13–16 of the paper, o",
+   "notes": "Column of the results table in the official README (https://github.com/NVIDIA/RULER/blob/main/README.md); scores are averages over 13 tasks. Names copied as shown incl. size suffix; '*' marks results reported by model authors. No per-column URL; closest is README top.",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 44 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Qwen 3 14B 97.8, Qwen3 235B-A22B 97.2, Qwen2.5-14B-Instruct-1M 97.1.",
+   "computed_level_cdf": {
+    "1": 0.925,
+    "2": 0.925,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.925
+   }
+  },
+  {
+   "no": "21.7",
+   "name": "RULER @ 16K context",
+   "category": "Context length",
+   "url": "https://github.com/NVIDIA/RULER/blob/main/README.md",
+   "focus": "Performance on the 13 RULER tasks at 16K sequence length.",
+   "metrics": "quality, breakdown*, other",
+   "metrics_detail": "Quality [page]: 16K — average score (0-100, no unit shown) over the 13 RULER tasks at 16K, a column of the README results table; underlined when above the 85.6 threshold · https://github.com/NVIDIA/RULER\nOther [page]: Models (size in parentheses), * after model name (author-reported), Claimed Length — row-level fields of the same parent table · https://github.com/NVIDIA/RULER\nBreakdown [paper]: per-category scores at 16K (Retrieval, Multi-hop tracing, Aggregation, QA) — Tables 13–16 of the paper",
+   "notes": "Column of the results table in the official README (https://github.com/NVIDIA/RULER/blob/main/README.md); scores are averages over 13 tasks. Names copied as shown incl. size suffix; '*' marks results reported by model authors. No per-column URL; closest is README top. Three-way tie at 96.4 (order = README row order).",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 44 models' published scores — only models on one side of its difficulty were tested, so this is a bound.\nBest observed: Qwen3 235B-A22B 96.4, Qwen 3 14B 96.4, Jamba-1.5-large 94B/398B 96.4.",
+   "computed_level_cdf": {
+    "1": 0.894,
+    "2": 0.894,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.894
+   }
+  },
+  {
+   "no": "21.8",
+   "name": "RULER @ 32K context",
+   "category": "Context length",
+   "url": "https://github.com/NVIDIA/RULER/blob/main/README.md",
+   "focus": "Performance on the 13 RULER tasks at 32K sequence length.",
+   "metrics": "quality, breakdown*, other",
+   "metrics_detail": "Quality [page]: 32K — average score (0-100, no unit shown) over the 13 RULER tasks at 32K, a column of the README results table; underlined when above the 85.6 threshold · https://github.com/NVIDIA/RULER\nOther [page]: Models (size in parentheses), * after model name (author-reported), Claimed Length — row-level fields of the same parent table · https://github.com/NVIDIA/RULER\nBreakdown [paper]: per-category scores at 32K (Retrieval, Multi-hop tracing, Aggregation, QA) — Tables 13–16 of the paper",
+   "notes": "Column of the results table in the official README (https://github.com/NVIDIA/RULER/blob/main/README.md); scores are averages over 13 tasks. Names copied as shown incl. size suffix; '*' marks results reported by model authors. No per-column URL; closest is README top.",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 44 models' published scores.\nBest observed: Qwen 3 14B 96.1, Jamba-1.5-large 94B/398B 96.0, Gemini 1.5 Pro 95.9.",
+   "computed_level_cdf": {
+    "1": 0.814,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.814
+   }
+  },
+  {
+   "no": "21.9",
+   "name": "RULER @ 64K context",
+   "category": "Context length",
+   "url": "https://github.com/NVIDIA/RULER/blob/main/README.md",
+   "focus": "Performance on the 13 RULER tasks at 64K sequence length.",
+   "metrics": "quality, breakdown*, other",
+   "metrics_detail": "Quality [page]: 64K — average score (0-100, no unit shown) over the 13 RULER tasks at 64K, a column of the README results table; underlined when above the 85.6 threshold · https://github.com/NVIDIA/RULER\nOther [page]: Models (size in parentheses), * after model name (author-reported), Claimed Length — row-level fields of the same parent table · https://github.com/NVIDIA/RULER\nBreakdown [paper]: per-category scores at 64K (Retrieval, Multi-hop tracing, Aggregation, QA) — Tables 13–16 of the paper",
+   "notes": "Column of the results table in the official README (https://github.com/NVIDIA/RULER/blob/main/README.md); scores are averages over 13 tasks. Names copied as shown incl. size suffix; '*' marks results reported by model authors. No per-column URL; closest is README top.",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 87%, L2 13%.\nPlaced from 44 models' published scores.\nBest observed: Gemini 1.5 Pro 95.9, Jamba-1.5-large 94B/398B 95.4, Qwen2.5-14B-Instruct-1M 94.9.",
+   "computed_level_cdf": {
+    "1": 0.6685,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.6685
+   }
+  },
+  {
+   "no": "21.10",
+   "name": "RULER @ 128K context",
+   "category": "Context length",
+   "url": "https://github.com/NVIDIA/RULER/blob/main/README.md",
+   "focus": "Performance on the 13 RULER tasks at 128K sequence length.",
+   "metrics": "quality, breakdown*, other",
+   "metrics_detail": "Quality [page]: 128K — average score (0-100, no unit shown) over the 13 RULER tasks at 128K, a column of the README results table; underlined when above the 85.6 threshold · https://github.com/NVIDIA/RULER\nOther [page]: Models (size in parentheses), * after model name (author-reported), Claimed Length — row-level fields of the same parent table · https://github.com/NVIDIA/RULER\nBreakdown [paper]: per-category scores at 128K (Retrieval, Multi-hop tracing, Aggregation, QA) — Tables 13–16 of the pa",
+   "notes": "Column of the results table in the official README (https://github.com/NVIDIA/RULER/blob/main/README.md); scores are averages over 13 tasks. Names copied as shown incl. size suffix; '*' marks results reported by model authors. No per-column URL; closest is README top.",
+   "team_difficulty": "2",
+   "difficulty_detail": "Fitted level L2 (Standard); bootstrap agreement: L2 94%, L1 6%.\nPlaced from 43 models' published scores.\nBest observed: Jamba-1.5-large 94B/398B 95.1, Gemini 1.5 Pro 94.4, Qwen2.5-14B-Instruct-1M 92.2.",
+   "computed_level_cdf": {
+    "1": 0.454,
+    "2": 0.75,
+    "3": 0.92,
+    "4": 0.96
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.454
+   }
+  },
+  {
+   "no": "21.11",
+   "name": "RULER average (4K-128K)",
+   "category": "Context length",
+   "url": "https://github.com/NVIDIA/RULER/blob/main/README.md",
+   "focus": "Mean of the 4K-128K scores across the 13 RULER tasks.",
+   "metrics": "quality, breakdown, other",
+   "metrics_detail": "Quality [page]: Avg. — mean of the 4K–128K scores over the 13 tasks (0-100) · https://github.com/NVIDIA/RULER\nQuality [page]: wAvg. (inc) / wAvg. (dec) — length-weighted averages with rank in brackets, e.g. '95.7 (1st)'; 'TBD' for newer rows · https://github.com/NVIDIA/RULER\nBreakdown [page]: 4K, 8K, 16K, 32K, 64K, 128K — per-length scores in the same row · https://github.com/NVIDIA/RULER\nOther [page]: Claimed Length / Effective Length / model size / * author-reported marker · https://github.com",
+   "notes": "Column of the results table in the official README (https://github.com/NVIDIA/RULER/blob/main/README.md); scores are averages over 13 tasks. Names copied as shown incl. size suffix; '*' marks results reported by model authors. No per-column URL; closest is README top. README also has wAvg. (inc) and wAvg. (dec) columns (top: Jamba-1.5-large*, Gemini-1.5-pro, Jamba-1.5-mini) and claimed/effective length.",
+   "team_difficulty": "1",
+   "difficulty_detail": "Fitted level L1 (Basic); bootstrap agreement: L1 100%.\nPlaced from 44 models' published scores.\nBest observed: Jamba-1.5-large 94B/398B 96.0, Gemini 1.5 Pro 95.8, Qwen2.5-14B-Instruct-1M 95.7.",
+   "computed_level_cdf": {
+    "1": 0.7835,
+    "2": 0.89,
+    "3": 0.95,
+    "4": 0.97
+   },
+   "level_source": "scores+team-level",
+   "anchor_scores": {
+    "1": 0.7835
+   }
+  },
+  {
+   "no": "21.12",
+   "name": "OpenAI-MRCR 2-needle",
+   "category": "OpenAI-MRCR (needle count)",
+   "url": "https://huggingface.co/datasets/openai/mrcr/tree/main/2needle",
+   "focus": "Long multi-turn conversation hides 2 identical asks; model must return the i-th instance of one of them (multi-round co-reference resolution).",
+   "metrics": "quality, effort, breakdown",
+   "metrics_detail": "Quality [page]: OpenAI-MRCR: 2 needle 128k / OpenAI-MRCR: 2 needle 1M — accuracy % (SequenceMatcher ratio) in the GPT-4.1 post's long-context appendix table; 128k for 8 OpenAI models, 1M only for the 3 GPT-4.1 models · https://openai.com/index/gpt-4-1/\nBreakdown [page]: accuracy vs input length — '2 needle' tab of the 'OpenAI MRCR accuracy' chart (values not readable as text) · https://openai.com/index/gpt-4-1/\nEffort [page]: OpenAI o1 (high), OpenAI o3-mini (high) — effort only in the model col",
+   "notes": "No official leaderboard; dataset card says 'See OpenAI's blog post (https://openai.com/index/gpt-4-1/) for full results'. 100 samples per token bin, bins 4K-1M tokens; metric = SequenceMatcher ratio. Inspired by Gemini's MRCR from the Michelangelo paper (arXiv:2409.12640).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No official per-model score for the 2-needle split as a whole: no leaderboard; the dataset card points to the GPT-4.1 blog, which reports per context bin (and mostly as charts). The only numeric official values for 2-needle are per-bin: GPT-4.1 blog table \"OpenAI-MRCR: 2 needle 128k\" - GPT-4.1 57.2, GPT-4.1 mini 47.2, GPT-4.1 nano 36.6, GPT-4o (2024-11-20) 31.9, GPT-4o mini 24.5, OpenAI o1 (high) 22.1, OpenAI o3-mini (high) 18.7, GPT-4.5 38.5; \"2 needle 1M\" - GPT-4.1 46.3, mi",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "21.13",
+   "name": "OpenAI-MRCR 4-needle",
+   "category": "OpenAI-MRCR (needle count)",
+   "url": "https://huggingface.co/datasets/openai/mrcr/tree/main/4needle",
+   "focus": "Long multi-turn conversation hides 4 identical asks; model must return the i-th instance of one of them (multi-round co-reference resolution).",
+   "metrics": "quality, breakdown",
+   "metrics_detail": "Quality [page]: OpenAI MRCR accuracy, 4 needle — accuracy vs input length, only as the '4 needle' tab of the chart in the GPT-4.1 post; numbers not available as text · https://openai.com/index/gpt-4-1/\nBreakdown [page]: accuracy by input length (chart x-axis) — chart only · https://openai.com/index/gpt-4-1/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, votes\nNote: The appendix table has 2-needle rows only; no 4-needle table values. Dataset card (https://huggingface.co",
+   "notes": "No official leaderboard; dataset card says 'See OpenAI's blog post (https://openai.com/index/gpt-4-1/) for full results'. 100 samples per token bin, bins 4K-1M tokens; metric = SequenceMatcher ratio. Inspired by Gemini's MRCR from the Michelangelo paper (arXiv:2409.12640).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No official per-model score for the 4-needle split as a whole: no leaderboard; the dataset card points to the GPT-4.1 blog, which reports per context bin (and mostly as charts). GPT-4.1 blog shows 4-needle only as chart images (SVG), no numeric table.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  },
+  {
+   "no": "21.14",
+   "name": "OpenAI-MRCR 8-needle",
+   "category": "OpenAI-MRCR (needle count)",
+   "url": "https://huggingface.co/datasets/openai/mrcr/tree/main/8needle",
+   "focus": "Long multi-turn conversation hides 8 identical asks; model must return the i-th instance of one of them (multi-round co-reference resolution).",
+   "metrics": "quality, breakdown",
+   "metrics_detail": "Quality [page]: OpenAI MRCR accuracy, 8 needle — accuracy vs input length, only as the '8 needle' tab of the chart in the GPT-4.1 post; numbers not available as text · https://openai.com/index/gpt-4-1/\nBreakdown [page]: accuracy by input length (chart x-axis) — chart only · https://openai.com/index/gpt-4-1/\nNot reported: cost, time, speed, tokens, uncertainty, runs, effort, date, votes\nNote: The appendix table has 2-needle rows only; no 8-needle table values. Dataset card (https://huggingface.co",
+   "notes": "No official leaderboard; dataset card says 'See OpenAI's blog post (https://openai.com/index/gpt-4-1/) for full results'. 100 samples per token bin, bins 4K-1M tokens; metric = SequenceMatcher ratio. Inspired by Gemini's MRCR from the Michelangelo paper (arXiv:2409.12640).",
+   "team_difficulty": "n/a",
+   "difficulty_detail": "Cannot be levelled: No official per-model score for the 8-needle split as a whole: no leaderboard; the dataset card points to the GPT-4.1 blog, which reports per context bin (and mostly as charts). GPT-4.1 blog shows 8-needle only as charts. Later OpenAI posts report \"MRCRv2, 8 needles\" per bin (e.g. GPT-5.2 page: GPT-5.2 Thinking / GPT-5.1 Thinking at 4k-8k ... 128k-256k), i.e. version 2 of the data and per-bin only.",
+   "computed_level_cdf": null,
+   "level_source": "none",
+   "anchor_scores": {}
+  }
+ ]
+}
