@@ -62,6 +62,108 @@ Aider,o4-mini,openai/o4-mini,,,,,o4-mini,yugos-exact,,1
 Aider,openhands-lm-32b-v0.1,unknown/openhands-lm-32b-v0.1,,,,,openhands-lm-32b-v0.1,rule,,1
 Aider,qwen-max-2025-01-25,alibaba/qwen-max,,,2025-01-25,,qwen-max,yugos-exact,,1
 Aider,yi-lightning,01-ai/yi-lightning,,,,,yi-lightning,rule,,1
+Aider (legacy leaderboards),Codestral-22B-v0.1-Q4_K_M,mistral/codestral-22b-v0.1-q4-k-m,,,,,Codestral-22B-v0.1-Q4_K_M,rule,,1
+Aider (legacy leaderboards),Command R (08-24),cohere/command-r,,,08-24,,Command R,yugos-exact,,1
+Aider (legacy leaderboards),Command R+ (08-24),cohere/command-r-plus,,,08-24,,Command R+,yugos-exact,,1
+Aider (legacy leaderboards),DeepSeek Chat V2 0628,deepseek/deepseek-v2-chat-0628,,,,,DeepSeek Chat V2 0628,rule,,1
+Aider (legacy leaderboards),DeepSeek Chat V2.5,deepseek/deepseek-chat-v2-5,,,,,DeepSeek Chat V2.5,rule,,1
+Aider (legacy leaderboards),DeepSeek Coder V2 0724,deepseek/deepseek-coder-v2-0724,,,,,DeepSeek Coder V2 0724,rule,,1
+Aider (legacy leaderboards),DeepSeek Coder V2 0724 (deprecated),deepseek/deepseek-coder-v2-0724-deprecated,,,,,DeepSeek Coder V2 0724 deprecated,rule,,1
+Aider (legacy leaderboards),DeepSeek V2.5,deepseek/deepseek-v2.5,,,,,DeepSeek V2.5,rule,,1
+Aider (legacy leaderboards),DeepSeek-V2.5-1210,deepseek/deepseek-v2.5-1210,,,,,DeepSeek-V2.5-1210,rule,,1
+Aider (legacy leaderboards),Dracarys2-72B-Instruct,abacus-ai/dracarys2-72b-instruct,,,,,Dracarys2-72B-Instruct,rule,,1
+Aider (legacy leaderboards),Grok-2,xai/grok-2,,,,,Grok-2,rule,,1
+Aider (legacy leaderboards),Grok-2-mini,xai/grok-2-mini,,,,,Grok-2-mini,rule,,1
+Aider (legacy leaderboards),Llama-3.1-Nemotron-70B-Instruct-HF,nvidia/llama-3.1-nemotron-70b-instruct-hf,,,,,Llama-3.1-Nemotron-70B-Instruct-HF,rule,,1
+Aider (legacy leaderboards),Mistral Large (2411),mistral/mistral-large-2411,,,,,Mistral Large 2411,override,mistral-large-2411 (Large 2.1),1
+Aider (legacy leaderboards),Mistral Large 2 (2407),mistral/mistral-large-2407,,,,,Mistral Large 2 2407,override,same model: version number plus its date tag,1
+Aider (legacy leaderboards),Nova Pro,amazon/nova-pro,,,,,Nova Pro,rule,,1
+Aider (legacy leaderboards),Qwen2 72B Instruct,alibaba/qwen2-72b-instruct,,,,,Qwen2 72B Instruct,rule,,1
+Aider (legacy leaderboards),Qwen2.5-Coder-0.5B-Instruct,alibaba/qwen2.5-coder-0.5b-instruct,,,,,Qwen2.5-Coder-0.5B-Instruct,rule,,1
+Aider (legacy leaderboards),Qwen2.5-Coder-1.5B-Instruct,alibaba/qwen2.5-coder-1.5b-instruct,,,,,Qwen2.5-Coder-1.5B-Instruct,rule,,1
+Aider (legacy leaderboards),Qwen2.5-Coder-14B-Instruct,alibaba/qwen2.5-coder-14b-instruct,,,,,Qwen2.5-Coder-14B-Instruct,rule,,1
+Aider (legacy leaderboards),Qwen2.5-Coder-32B-Instruct,alibaba/qwen-2.5-coder-32b-instruct,,,,,Qwen2.5-Coder-32B-Instruct,yugos-exact,,1
+Aider (legacy leaderboards),Qwen2.5-Coder-3B-Instruct,alibaba/qwen2.5-coder-3b-instruct,,,,,Qwen2.5-Coder-3B-Instruct,rule,,1
+Aider (legacy leaderboards),Qwen2.5-Coder-7B-Instruct,alibaba/qwen2.5-coder-7b-instruct,,,,,Qwen2.5-Coder-7B-Instruct,rule,,1
+Aider (legacy leaderboards),Reflection-70B,unknown/reflection-70b,,,,,Reflection-70B,rule,,1
+Aider (legacy leaderboards),WizardLM-2 8x22B,microsoft/wizardlm-2-8x22b,,,,,WizardLM-2 8x22B,rule,,1
+Aider (legacy leaderboards),Yi Coder 9B Chat,01-ai/yi-coder-9b-chat,,,,,Yi Coder 9B Chat,rule,,1
+Aider (legacy leaderboards),claude-3-5-haiku-20241022,anthropic/claude-3.5-haiku,,,20241022,,claude-3-5-haiku,rule,,1
+Aider (legacy leaderboards),claude-3-5-sonnet-20241022,anthropic/claude-3.5-sonnet,,,20241022,,claude-3-5-sonnet,rule,,2
+Aider (legacy leaderboards),claude-3-haiku-20240307,anthropic/claude-3-haiku,,,20240307,,claude-3-haiku,rule,,1
+Aider (legacy leaderboards),claude-3-opus-20240229,anthropic/claude-3-opus,,,20240229,,claude-3-opus,rule,,2
+Aider (legacy leaderboards),claude-3-sonnet-20240229,anthropic/claude-3-sonnet,,,20240229,,claude-3-sonnet,rule,,1
+Aider (legacy leaderboards),claude-3.5-sonnet-20240620,anthropic/claude-3.5-sonnet,,,20240620,,claude-3.5-sonnet,rule,,2
+Aider (legacy leaderboards),codeqwen:7b-chat-v1.5-q8_0,unknown/codeqwen-7b-chat-v1.5-q8-0,,,,,codeqwen:7b-chat-v1.5-q8_0,rule,,1
+Aider (legacy leaderboards),codestral-2405,mistral/codestral-2405,,,,,codestral-2405,rule,,1
+Aider (legacy leaderboards),codestral:22b-v0.1-q8_0,mistral/codestral-22b-v0.1-q8-0,,,,,codestral:22b-v0.1-q8_0,rule,,1
+Aider (legacy leaderboards),command-r-plus,cohere/command-r-plus,,,,,command-r-plus,yugos-exact,,1
+Aider (legacy leaderboards),gemini-1.5-flash-002 (0924),google/gemini-1.5-flash-002-0924,,,,,gemini-1.5-flash-002 0924,rule,,1
+Aider (legacy leaderboards),gemini-1.5-flash-8b-exp-0827,google/gemini-1.5-flash-8b-exp-0827,,,,,gemini-1.5-flash-8b-exp-0827,rule,,1
+Aider (legacy leaderboards),gemini-1.5-flash-8b-exp-0924,google/gemini-1.5-flash-8b-exp-0924,,,,,gemini-1.5-flash-8b-exp-0924,rule,,1
+Aider (legacy leaderboards),gemini-1.5-flash-exp-0827,google/gemini-1.5-flash-exp-0827,,,,,gemini-1.5-flash-exp-0827,rule,,1
+Aider (legacy leaderboards),gemini-1.5-flash-latest,google/gemini-1.5-flash-latest,,,,,gemini-1.5-flash-latest,rule,,1
+Aider (legacy leaderboards),gemini-1.5-pro-001,google/gemini-1.5-pro-001,,,,,gemini-1.5-pro-001,rule,,1
+Aider (legacy leaderboards),gemini-1.5-pro-002,google/gemini-1.5-pro-002,,,,,gemini-1.5-pro-002,rule,,1
+Aider (legacy leaderboards),gemini-1.5-pro-exp-0827,google/gemini-1.5-pro-exp-0827,,,,,gemini-1.5-pro-exp-0827,rule,,1
+Aider (legacy leaderboards),gemini-2.0-flash-exp,google/gemini-2.0-flash-exp,,,,,gemini-2.0-flash-exp,rule,,1
+Aider (legacy leaderboards),gemini-exp-1114,google/gemini-experimental-1114,,,,,gemini-exp-1114,rule,,1
+Aider (legacy leaderboards),gemini-exp-1121,google/gemini-experimental-1121,,,,,gemini-exp-1121,rule,,1
+Aider (legacy leaderboards),gemini-exp-1206 (diff),google/gemini-exp-1206-diff,,,,,gemini-exp-1206 diff,rule,,1
+Aider (legacy leaderboards),gemini-exp-1206 (whole),google/gemini-exp-1206-whole,,,,,gemini-exp-1206 whole,rule,,1
+Aider (legacy leaderboards),gemini/gemini-1.5-pro-latest,google/gemini-gemini-1.5-pro-latest,,,,,gemini/gemini-1.5-pro-latest,rule,,1
+Aider (legacy leaderboards),gemma2:27b-instruct-q8_0,google/gemma2-27b-instruct-q8-0,,,,,gemma2:27b-instruct-q8_0,rule,,1
+Aider (legacy leaderboards),gpt-3.5-turbo-0125,openai/gpt-3.5-turbo-0125,,,,,gpt-3.5-turbo-0125,rule,,1
+Aider (legacy leaderboards),gpt-3.5-turbo-0301,openai/gpt-3.5-turbo-0301,,,,,gpt-3.5-turbo-0301,rule,,1
+Aider (legacy leaderboards),gpt-3.5-turbo-0613,openai/gpt-3.5-turbo-0613,,,,,gpt-3.5-turbo-0613,rule,,1
+Aider (legacy leaderboards),gpt-3.5-turbo-1106,openai/gpt-3.5-turbo-1106,,,,,gpt-3.5-turbo-1106,rule,,1
+Aider (legacy leaderboards),gpt-4-0125-preview,openai/gpt-4-0125-preview,,,,,gpt-4-0125-preview,rule,,2
+Aider (legacy leaderboards),gpt-4-0314,openai/gpt-4-0314,,,,,gpt-4-0314,rule,,1
+Aider (legacy leaderboards),gpt-4-0613,openai/gpt-4-0613,,,,,gpt-4-0613,rule,,1
+Aider (legacy leaderboards),gpt-4-1106-preview,openai/gpt-4-1106-preview,,,,,gpt-4-1106-preview,rule,,2
+Aider (legacy leaderboards),gpt-4-turbo-2024-04-09 (diff),openai/gpt-4-turbo-diff,,,2024-04-09,,gpt-4-turbo diff,rule,,2
+Aider (legacy leaderboards),gpt-4-turbo-2024-04-09 (udiff),openai/gpt-4-turbo-udiff,,,2024-04-09,,gpt-4-turbo udiff,rule,,2
+Aider (legacy leaderboards),gpt-4o,openai/gpt-4o,,,,,gpt-4o,yugos-exact,,1
+Aider (legacy leaderboards),gpt-4o-2024-05-13,openai/gpt-4o,,,2024-05-13,,gpt-4o,yugos-exact,,1
+Aider (legacy leaderboards),gpt-4o-2024-08-06,openai/gpt-4o,,,2024-08-06,,gpt-4o,yugos-exact,,2
+Aider (legacy leaderboards),gpt-4o-2024-11-20,openai/gpt-4o,,,2024-11-20,,gpt-4o,yugos-exact,,1
+Aider (legacy leaderboards),gpt-4o-mini,openai/gpt-4o-mini,,,,,gpt-4o-mini,yugos-exact,,1
+Aider (legacy leaderboards),llama-3.1-405b-instruct (diff),meta/llama-3.1-405b-instruct-diff,,,,,llama-3.1-405b-instruct diff,rule,,1
+Aider (legacy leaderboards),llama-3.1-405b-instruct (whole),meta/llama-3.1-405b-instruct-whole,,,,,llama-3.1-405b-instruct whole,rule,,1
+Aider (legacy leaderboards),llama-3.1-70b-instruct,meta/llama-3.1-70b-instruct,,,,,llama-3.1-70b-instruct,yugos-exact,,1
+Aider (legacy leaderboards),llama-3.1-8b-instruct,meta/llama-3.1-8b-instruct,,,,,llama-3.1-8b-instruct,yugos-exact,,1
+Aider (legacy leaderboards),llama-3.3-70b-instruct,meta/llama-3.3-70b-instruct,,,,,llama-3.3-70b-instruct,yugos-exact,,1
+Aider (legacy leaderboards),llama3-70b-8192,meta/llama3-70b-8192,,,,,llama3-70b-8192,rule,,1
+Aider (legacy leaderboards),nousresearch/hermes-3-llama-3.1-405b,unknown/nousresearch-hermes-3-llama-3.1-405b,,,,,nousresearch/hermes-3-llama-3.1-405b,rule,,1
+Aider (legacy leaderboards),o1,openai/o1,,,,,o1,rule,,1
+Aider (legacy leaderboards),o1-mini,openai/o1-mini,,,,,o1-mini,rule,,2
+Aider (legacy leaderboards),o1-mini (whole),openai/o1-mini-whole,,,,,o1-mini whole,rule,,1
+Aider (legacy leaderboards),o1-mini-2024-09-12,openai/o1-mini,,,2024-09-12,,o1-mini,rule,,1
+Aider (legacy leaderboards),o1-preview,openai/o1-preview,,,,,o1-preview,rule,,2
+Aider (legacy leaderboards),ollama/Qwen2.5.1-Coder-7B-Instruct-GGUF:Q8_0-32k,unknown/ollama-qwen2.5.1-coder-7b-instruct-gguf-q8-0-32k,,,,,ollama/Qwen2.5.1-Coder-7B-Instruct-GGUF:Q8_0-32k,rule,,1
+Aider (legacy leaderboards),ollama/codegeex4,unknown/ollama-codegeex4,,,,,ollama/codegeex4,rule,,1
+Aider (legacy leaderboards),ollama/codestral,unknown/ollama-codestral,,,,,ollama/codestral,rule,,1
+Aider (legacy leaderboards),ollama/granite3-dense:8b,unknown/ollama-granite3-dense-8b,,,,,ollama/granite3-dense:8b,rule,,1
+Aider (legacy leaderboards),ollama/hermes3,unknown/ollama-hermes3,,,,,ollama/hermes3,rule,,1
+Aider (legacy leaderboards),ollama/hermes3:8b-llama3.1-fp16,unknown/ollama-hermes3-8b-llama3.1,,fp16,,,ollama/hermes3:8b-llama3.1,rule,,1
+Aider (legacy leaderboards),ollama/llama3.2:3b-instruct-fp16,unknown/ollama-llama3.2-3b-instruct,,fp16,,,ollama/llama3.2:3b-instruct,rule,,1
+Aider (legacy leaderboards),ollama/mistral-nemo:12b-instruct-2407-q4_K_M,unknown/ollama-mistral-nemo-12b-instruct-2407-q4-k-m,,,,,ollama/mistral-nemo:12b-instruct-2407-q4_K_M,rule,,1
+Aider (legacy leaderboards),ollama/mistral-small,unknown/ollama-mistral-small,,,,,ollama/mistral-small,rule,,1
+Aider (legacy leaderboards),ollama/qwen2.5-coder:14b,unknown/ollama-qwen2.5-coder-14b,,,,,ollama/qwen2.5-coder:14b,rule,,1
+Aider (legacy leaderboards),ollama/qwen2.5-coder:32b,unknown/ollama-qwen2.5-coder-32b,,,,,ollama/qwen2.5-coder:32b,rule,,1
+Aider (legacy leaderboards),ollama/qwen2.5:32b,unknown/ollama-qwen2.5-32b,,,,,ollama/qwen2.5:32b,rule,,1
+Aider (legacy leaderboards),ollama/qwen2.5:32b-instruct-q8_0,unknown/ollama-qwen2.5-32b-instruct-q8-0,,,,,ollama/qwen2.5:32b-instruct-q8_0,rule,,1
+Aider (legacy leaderboards),ollama/tulu3,unknown/ollama-tulu3,,,,,ollama/tulu3,rule,,1
+Aider (legacy leaderboards),ollama/wojtek/opencodeinterpreter:6.7b,unknown/ollama-wojtek-opencodeinterpreter-6.7b,,,,,ollama/wojtek/opencodeinterpreter:6.7b,rule,,1
+Aider (legacy leaderboards),ollama/yi-coder:9b-chat-fp16,unknown/ollama-yi-coder-9b-chat,,fp16,,,ollama/yi-coder:9b-chat,rule,,1
+Aider (legacy leaderboards),openai/chatgpt-4o-latest,unknown/openai-chatgpt-4o-latest,,,,,openai/chatgpt-4o-latest,rule,,1
+Aider (legacy leaderboards),openrouter/qwen/qwen-2.5-coder-32b-instruct,unknown/openrouter-qwen-qwen-2.5-coder-32b-instruct,,,,,openrouter/qwen/qwen-2.5-coder-32b-instruct,rule,,1
+Aider (legacy leaderboards),qwen-2.5-72b-instruct (bf16),alibaba/qwen-2.5-72b-instruct,,bf16,,,qwen-2.5-72b-instruct,yugos-exact,,1
+Aider (legacy leaderboards),qwen1.5-110b-chat,alibaba/qwen1.5-110b-chat,,,,,qwen1.5-110b-chat,rule,,1
+Aider (legacy leaderboards),qwen2.5-coder:7b-instruct-q8_0,alibaba/qwen2.5-coder-7b-instruct-q8-0,,,,,qwen2.5-coder:7b-instruct-q8_0,rule,,1
+Aider (legacy leaderboards),qwen2:72b-instruct-q8_0,alibaba/qwen2-72b-instruct-q8-0,,,,,qwen2:72b-instruct-q8_0,rule,,1
+Aider (legacy leaderboards),yi-coder:9b-chat-q4_0,01-ai/yi-coder-9b-chat-q4-0,,,,,yi-coder:9b-chat-q4_0,rule,,1
+Aider (legacy leaderboards),yi-lightning,01-ai/yi-lightning,,,,,yi-lightning,rule,,1
 Artificial Analysis,A.X-K2,sk-telecom/a-x-k2,,,,,A.X-K2,rule,,6
 Artificial Analysis,Agnes 2.5 Pro Theta,sapiens-ai/agnes-2.5-pro-theta,,,,,Agnes 2.5 Pro Theta,rule,,6
 Artificial Analysis,Apodex 1.1,apodex/apodex-1.1,,,,,Apodex 1.1,rule,,6
@@ -1057,6 +1159,95 @@ Epoch AI,o4-mini,openai/o4-mini,,,,,o4-mini,yugos-exact,,11
 GPQA (official repository),GPT-3.5 Turbo,openai/gpt-3.5-turbo,,,,,GPT-3.5 Turbo,rule,,4
 GPQA (official repository),GPT-4,openai/gpt-4,,,,,GPT-4,rule,,5
 GPQA (official repository),Llama 2 70B Chat,meta/llama-2-70b-chat,,,,,Llama 2 70B Chat,rule,,4
+GPQA (paper),GPT-3.5-turbo-16k,openai/gpt-3.5-turbo-16k,,,,,GPT-3.5-turbo-16k,rule,,8
+GPQA (paper),GPT-4,openai/gpt-4,,,,,GPT-4,rule,,12
+GPQA (paper),Llama-2-70B-chat,meta/llama-2-70b-chat,,,,,Llama-2-70B-chat,rule,,8
+"HLE-Diamond (official, lastexam.ai)",Claude Fable 5.1,anthropic/claude-fable-5.1,,,,,Claude Fable 5.1,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Claude Fable 5.2,anthropic/claude-fable-5.2,,,,,Claude Fable 5.2,yugos-exact,,6
+"HLE-Diamond (official, lastexam.ai)",Claude Haiku 5.5,anthropic/claude-haiku-5.5,,,,,Claude Haiku 5.5,yugos-exact,,6
+"HLE-Diamond (official, lastexam.ai)",Claude Opus 5,anthropic/claude-opus-5,,,,,Claude Opus 5,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Claude Opus 5.5,anthropic/claude-opus-5.5,,,,,Claude Opus 5.5,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Claude Sonnet 5.5,anthropic/claude-sonnet-5.5,,,,,Claude Sonnet 5.5,yugos-exact,,6
+"HLE-Diamond (official, lastexam.ai)",DeepSeek 3.2,deepseek/deepseek-v3.2,,,,,DeepSeek 3.2,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",DeepSeek 4 Pro,deepseek/deepseek-v4-pro,,,,,DeepSeek 4 Pro,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",DeepSeek R1,deepseek/deepseek-r1,,,,,DeepSeek R1,rule,,1
+"HLE-Diamond (official, lastexam.ai)",DeepSeek V4 Pro,deepseek/deepseek-v4-pro,,,,,DeepSeek V4 Pro,yugos-exact,,6
+"HLE-Diamond (official, lastexam.ai)",Fable 5,anthropic/fable-5,,,,,Fable 5,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Fable 5.1,anthropic/fable-5.1,,,,,Fable 5.1,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Fable 5.2,anthropic/fable-5.2,,,,,Fable 5.2,rule,,1
+"HLE-Diamond (official, lastexam.ai)",GLM 5.1,zhipu/glm-5.1,,,,,GLM 5.1,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GLM 5.2,zhipu/glm-5.2,,,,,GLM 5.2,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GLM 5.3,zhipu/glm-5.3,,,,,GLM 5.3,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",GPT-4o,openai/gpt-4o,,,,,GPT-4o,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GPT-5,openai/gpt-5,,,,,GPT-5,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GPT-5-mini,openai/gpt-5-mini,,,,,GPT-5-mini,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GPT-5.1,openai/gpt-5.1,,,,,GPT-5.1,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GPT-5.2,openai/gpt-5.2,,,,,GPT-5.2,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GPT-5.4,openai/gpt-5.4,,,,,GPT-5.4,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GPT-5.4-mini,openai/gpt-5.4-mini,,,,,GPT-5.4-mini,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GPT-5.5,openai/gpt-5.5,,,,,GPT-5.5,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GPT-5.6 Luna,openai/gpt-5.6-luna,,,,,GPT-5.6 Luna,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GPT-5.6 Sol,openai/gpt-5.6-sol,,,,,GPT-5.6 Sol,yugos-exact,,8
+"HLE-Diamond (official, lastexam.ai)",GPT-5.6 Terra,openai/gpt-5.6-terra,,,,,GPT-5.6 Terra,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",GPT-6 Astra,openai/gpt-6-astra,,,,,GPT-6 Astra,yugos-exact,,8
+"HLE-Diamond (official, lastexam.ai)",GPT-6 Sol,openai/gpt-6-sol,,,,,GPT-6 Sol,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",GPT-6.1 Sol,openai/gpt-6.1-sol,,,,,GPT-6.1 Sol,yugos-exact,,8
+"HLE-Diamond (official, lastexam.ai)",GPT-6.2 Astra,openai/gpt-6.2-astra,,,,,GPT-6.2 Astra,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",GPT-6.2 Sol,openai/gpt-6.2-sol,,,,,GPT-6.2 Sol,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Gemini 2.5 Flash,google/gemini-2.5-flash,,,,,Gemini 2.5 Flash,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Gemini 2.5 Pro,google/gemini-2.5-pro,,,,,Gemini 2.5 Pro,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Gemini 3 Flash,google/gemini-3-flash,,,,,Gemini 3 Flash,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Gemini 3 Pro,google/gemini-3-pro,,,,,Gemini 3 Pro,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Gemini 3.1 Pro,google/gemini-3.1-pro,,,,,Gemini 3.1 Pro,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Gemini 3.5 Flash,google/gemini-3.5-flash,,,,,Gemini 3.5 Flash,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Gemini 3.7 Flash,google/gemini-3.7-flash,,,,,Gemini 3.7 Flash,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Gemini 3.8 Flash,google/gemini-3.8-flash,,,,,Gemini 3.8 Flash,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Gemini 4 Argon,google/gemini-4-argon,,,,,Gemini 4 Argon,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Gemini 4 Carbon,google/gemini-4-carbon,,,,,Gemini 4 Carbon,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Gemini 4 Hydrogen,google/gemini-4-hydrogen,,,,,Gemini 4 Hydrogen,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Gemini 4 Neon,google/gemini-4-neon,,,,,Gemini 4 Neon,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Grok 4,xai/grok-4,,,,,Grok 4,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Grok 4 Fast,xai/grok-4-fast,,,,,Grok 4 Fast,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Grok 4.1 Fast,xai/grok-4.1-fast,,,,,Grok 4.1 Fast,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Grok 4.2,xai/grok-4.2,,,,,Grok 4.2,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Grok 4.3,xai/grok-4.3,,,,,Grok 4.3,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Grok 4.5,xai/grok-4.5,,,,,Grok 4.5,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Grok 4.6,xai/grok-4.6,,,,,Grok 4.6,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Grok 4.7,xai/grok-4.7,,,,,Grok 4.7,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Haiku 4.5,anthropic/haiku-4.5,,,,,Haiku 4.5,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Haiku 5.5,anthropic/haiku-5.5,,,,,Haiku 5.5,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Kimi K2,moonshot/kimi-k2,,,,,Kimi K2,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Kimi K2.5,moonshot/kimi-k2.5,,,,,Kimi K2.5,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Kimi K2.6,moonshot/kimi-k2.6,,,,,Kimi K2.6,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Kimi K3,moonshot/kimi-k3,,,,,Kimi K3,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Kimi K3.1 Pro,moonshot/kimi-k3.1-pro,,,,,Kimi K3.1 Pro,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Muse Spark 1.1,meta/muse-spark-1.1,,,,,Muse Spark 1.1,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",Muse Spark 1.3,meta/muse-spark-1.3,,,,,Muse Spark 1.3,yugos-exact,,8
+"HLE-Diamond (official, lastexam.ai)",Muse Spark Open,meta/muse-spark-open,,,,,Muse Spark Open,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Muse Wonder,meta/muse-wonder,,,,,Muse Wonder,yugos-exact,,7
+"HLE-Diamond (official, lastexam.ai)",Opus 4.5,anthropic/opus-4.5,,,,,Opus 4.5,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Opus 4.6,anthropic/opus-4.6,,,,,Opus 4.6,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Opus 4.7,anthropic/opus-4.7,,,,,Opus 4.7,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Opus 4.8,anthropic/opus-4.8,,,,,Opus 4.8,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Opus 5,anthropic/opus-5,,,,,Opus 5,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Opus 5.5,anthropic/opus-5.5,,,,,Opus 5.5,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Sonnet 3.7,anthropic/sonnet-3.7,,,,,Sonnet 3.7,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Sonnet 4,anthropic/sonnet-4,,,,,Sonnet 4,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Sonnet 4.5,anthropic/sonnet-4.5,,,,,Sonnet 4.5,rule,,1
+"HLE-Diamond (official, lastexam.ai)",Sonnet 4.6,anthropic/sonnet-4.6,,,,,Sonnet 4.6,rule,,1
+"HLE-Diamond (official, lastexam.ai)",o1,openai/o1,,,,,o1,rule,,1
+"HLE-Diamond (official, lastexam.ai)",o3,openai/o3,,,,,o3,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",o3-mini,openai/o3-mini,,,,,o3-mini,yugos-exact,,1
+"HLE-Diamond (official, lastexam.ai)",o4-mini,openai/o4-mini,,,,,o4-mini,yugos-exact,,1
+HealthBench (OpenAI paper),Claude 3.7 Sonnet (extended thinking),anthropic/claude-3.7-sonnet-extended,enabled,,,,Claude 3.7 Sonnet extended,rule,,2
+HealthBench (OpenAI paper),GPT-3.5 Turbo,openai/gpt-3.5-turbo,,,,,GPT-3.5 Turbo,rule,,2
+HealthBench (OpenAI paper),GPT-4.1,openai/gpt-4.1,,,,,GPT-4.1,yugos-exact,,2
+HealthBench (OpenAI paper),GPT-4o (Aug 2024),openai/gpt-4o,,,Aug 2024,,GPT-4o,yugos-exact,,2
+HealthBench (OpenAI paper),Gemini 2.5 Pro (Mar 2025),google/gemini-2.5-pro,,,Mar 2025,,Gemini 2.5 Pro,yugos-exact,,2
+HealthBench (OpenAI paper),Grok 3,xai/grok-3,,,,,Grok 3,rule,,2
+HealthBench (OpenAI paper),Llama 4 Maverick,meta/llama-4-maverick,,,,,Llama 4 Maverick,yugos-exact,,2
+HealthBench (OpenAI paper),o1,openai/o1,,,,,o1,rule,,2
+HealthBench (OpenAI paper),o3,openai/o3,,,,,o3,yugos-exact,,2
 Humanity's Last Exam (official),Claude 4.5 Sonnet,anthropic/claude-sonnet-4.5,,,,,Claude 4.5 Sonnet,yugos-exact,,1
 Humanity's Last Exam (official),DeepSeek-R1,deepseek/deepseek-r1,,,,,DeepSeek-R1,rule,,1
 Humanity's Last Exam (official),GPT-4o,openai/gpt-4o,,,,,GPT-4o,yugos-exact,,1
@@ -1067,6 +1258,14 @@ Humanity's Last Exam (official),Gemini 2.5 Pro,google/gemini-2.5-pro,,,,,Gemini 
 Humanity's Last Exam (official),Gemini 3 Pro,google/gemini-3-pro,,,,,Gemini 3 Pro,rule,,1
 Humanity's Last Exam (official),Grok 4,xai/grok-4,,,,,Grok 4,rule,,1
 Humanity's Last Exam (official),o1,openai/o1,,,,,o1,rule,,1
+Humanity's Last Exam (paper),Claude 3.5 Sonnet,anthropic/claude-3.5-sonnet,,,,,Claude 3.5 Sonnet,rule,,17
+Humanity's Last Exam (paper),DeepSeek-R1,deepseek/deepseek-r1,,,,,DeepSeek-R1,rule,,9
+Humanity's Last Exam (paper),GPT-4o,openai/gpt-4o,,,,,GPT-4o,yugos-exact,,17
+Humanity's Last Exam (paper),Gemini 1.5 Pro,google/gemini-1.5-pro,,,,,Gemini 1.5 Pro,rule,,17
+Humanity's Last Exam (paper),Gemini 2.0 Flash Thinking,google/gemini-2.0-flash-thinking,,,,,Gemini 2.0 Flash Thinking,rule,,17
+Humanity's Last Exam (paper),Grok 2,xai/grok-2,,,,,Grok 2,rule,,17
+Humanity's Last Exam (paper),o1,openai/o1,,,,,o1,rule,,17
+Humanity's Last Exam (paper),o3-mini (high),openai/o3-mini,high,,,,o3-mini,yugos-exact,,9
 LMArena,Alpaca 13B,stanford/alpaca-13b,,,,,Alpaca 13B,rule,,1
 LMArena,Amazon Nova 2 Lite,amazon/amazon-nova-2-lite,,,,,Amazon Nova 2 Lite,rule,,1
 LMArena,Amazon Nova Lite 1.0,amazon/nova-lite-v1,,,,,Amazon Nova Lite 1.0,yugos-exact,,2
@@ -1556,6 +1755,650 @@ LMArena,o3 (2025-04-16),openai/o3,,,2025-04-16,,o3,yugos-exact,,2
 LMArena,o3 (Search),openai/o3,,search,,,o3,yugos-exact,,1
 LMArena,o3-mini,openai/o3-mini,,,,,o3-mini,yugos-exact,,2
 LMArena,o4-mini (2025-04-16),openai/o4-mini,,,2025-04-16,,o4-mini,yugos-exact,,2
+LMArena (categories and other arenas),Alpaca 13B,stanford/alpaca-13b,,,,,Alpaca 13B,rule,,19
+LMArena (categories and other arenas),Amazon Nova 2 Lite,amazon/amazon-nova-2-lite,,,,,Amazon Nova 2 Lite,rule,,28
+LMArena (categories and other arenas),Amazon Nova Lite 1.0,amazon/nova-lite-v1,,,,,Amazon Nova Lite 1.0,yugos-exact,,27
+LMArena (categories and other arenas),Amazon Nova Micro 1.0,amazon/nova-micro-v1,,,,,Amazon Nova Micro 1.0,yugos-exact,,27
+LMArena (categories and other arenas),Amazon Nova Pro 1.0,amazon/nova-pro-v1,,,,,Amazon Nova Pro 1.0,yugos-exact,,27
+LMArena (categories and other arenas),Athene 70B (0725),nexusflow/athene-70b-0725,,,,,Athene 70B 0725,rule,,27
+LMArena (categories and other arenas),Athene V2 Chat,nexusflow/athene-v2-chat,,,,,Athene V2 Chat,rule,,27
+LMArena (categories and other arenas),Aya Expanse 32B,cohere/aya-expanse-32b,,,,,Aya Expanse 32B,rule,,27
+LMArena (categories and other arenas),Aya Expanse 8B,cohere/aya-expanse-8b,,,,,Aya Expanse 8B,rule,,24
+LMArena (categories and other arenas),BAGEL,bytedance/bagel,,,,,BAGEL,rule,,2
+LMArena (categories and other arenas),Beam 1.0 501B A23B,reflection-ai/beam-1.0-501b-a23b,,,,,Beam 1.0 501B A23B,yugos-exact,,23
+LMArena (categories and other arenas),ChatGLM 6B,zhipu/chatglm-6b,,,,,ChatGLM 6B,rule,,19
+LMArena (categories and other arenas),ChatGLM2 6B,zhipu/chatglm2-6b,,,,,ChatGLM2 6B,rule,,15
+LMArena (categories and other arenas),ChatGLM3 6B,zhipu/chatglm3-6b,,,,,ChatGLM3 6B,rule,,20
+LMArena (categories and other arenas),"ChatGPT Image Latest (High Fidelity, 20251216)",openai/chatgpt-image-latest,high,,"High Fidelity, 20251216",,ChatGPT Image Latest,rule,,1
+LMArena (categories and other arenas),ChatGPT-4o Latest (20250326),openai/chatgpt-4o-latest,,,20250326,,ChatGPT-4o Latest,rule,,28
+LMArena (categories and other arenas),Claude 3 Haiku (20240307),anthropic/claude-3-haiku,,,20240307,,Claude 3 Haiku,rule,,28
+LMArena (categories and other arenas),Claude 3 Opus (20240229),anthropic/claude-3-opus,,,20240229,,Claude 3 Opus,rule,,28
+LMArena (categories and other arenas),Claude 3 Sonnet (20240229),anthropic/claude-3-sonnet,,,20240229,,Claude 3 Sonnet,rule,,28
+LMArena (categories and other arenas),Claude 3.5 Haiku (20241022),anthropic/claude-3.5-haiku,,,20241022,,Claude 3.5 Haiku,rule,,28
+LMArena (categories and other arenas),Claude 3.5 Sonnet (20240620),anthropic/claude-3.5-sonnet,,,20240620,,Claude 3.5 Sonnet,rule,,28
+LMArena (categories and other arenas),Claude 3.5 Sonnet (20241022),anthropic/claude-3.5-sonnet,,,20241022,,Claude 3.5 Sonnet,rule,,28
+LMArena (categories and other arenas),Claude 3.7 Sonnet (20250219),anthropic/claude-3.7-sonnet,,,20250219,,Claude 3.7 Sonnet,rule,,28
+LMArena (categories and other arenas),"Claude 3.7 Sonnet (Thinking 32K, 20250219)",anthropic/claude-3.7-sonnet-32k,enabled,,"Thinking 32K, 20250219",,"Claude 3.7 Sonnet 32K,",rule,,28
+LMArena (categories and other arenas),Claude Fable 5 (High),anthropic/claude-fable-5,high,,,,Claude Fable 5,yugos-exact,,30
+LMArena (categories and other arenas),Claude Fable 5.1 (Max),anthropic/claude-fable-5.1,max,,,,Claude Fable 5.1,yugos-exact,,30
+LMArena (categories and other arenas),Claude Fable 5.2 (Max),anthropic/claude-fable-5.2,max,,,,Claude Fable 5.2,yugos-exact,,25
+LMArena (categories and other arenas),Claude Haiku 4.5 (20251001),anthropic/claude-haiku-4.5,,,20251001,,Claude Haiku 4.5,yugos-exact,,28
+LMArena (categories and other arenas),Claude Haiku 5.5 (High),anthropic/claude-haiku-5.5,high,,,,Claude Haiku 5.5,yugos-exact,,29
+LMArena (categories and other arenas),Claude Opus 4 (20250514),anthropic/claude-4-opus,,,20250514,,Claude Opus 4,rule,,28
+LMArena (categories and other arenas),"Claude Opus 4 (Thinking 16K, 20250514)",anthropic/claude-opus-4-16k,enabled,,"Thinking 16K, 20250514",,"Claude Opus 4 16K,",rule,,28
+LMArena (categories and other arenas),Claude Opus 4.1 (20250805),anthropic/claude-opus-4.1,,,20250805,,Claude Opus 4.1,yugos-exact,,28
+LMArena (categories and other arenas),"Claude Opus 4.1 (Thinking 16K, 20250805)",anthropic/claude-opus-4.1-16k,enabled,,"Thinking 16K, 20250805",,"Claude Opus 4.1 16K,",rule,,28
+LMArena (categories and other arenas),Claude Opus 4.5 (20251101),anthropic/claude-opus-4.5,,,20251101,,Claude Opus 4.5,yugos-exact,,28
+LMArena (categories and other arenas),"Claude Opus 4.5 (High, 32K, 20251101)",anthropic/claude-opus-4.5-high-32k,high,,"High, 32K, 20251101",,"Claude Opus 4.5 High, 32K,",rule,,28
+LMArena (categories and other arenas),Claude Opus 4.6,anthropic/claude-opus-4.6,,,,,Claude Opus 4.6,yugos-exact,,29
+LMArena (categories and other arenas),Claude Opus 4.6 (High),anthropic/claude-opus-4.6,high,,,,Claude Opus 4.6,yugos-exact,,29
+LMArena (categories and other arenas),Claude Opus 4.7,anthropic/claude-opus-4.7,,,,,Claude Opus 4.7,yugos-exact,,29
+LMArena (categories and other arenas),Claude Opus 4.7 (High),anthropic/claude-opus-4.7,high,,,,Claude Opus 4.7,yugos-exact,,29
+LMArena (categories and other arenas),Claude Opus 4.8,anthropic/claude-opus-4.8,,,,,Claude Opus 4.8,yugos-exact,,28
+LMArena (categories and other arenas),Claude Opus 4.8 (High),anthropic/claude-opus-4.8,high,,,,Claude Opus 4.8,yugos-exact,,28
+LMArena (categories and other arenas),Claude Opus 5 (High),anthropic/claude-opus-5,high,,,,Claude Opus 5,yugos-exact,,28
+LMArena (categories and other arenas),Claude Opus 5 (Max),anthropic/claude-opus-5,max,,,,Claude Opus 5,yugos-exact,,30
+LMArena (categories and other arenas),Claude Opus 5.5 (High),anthropic/claude-opus-5.5,high,,,,Claude Opus 5.5,yugos-exact,,29
+LMArena (categories and other arenas),Claude Opus 5.5 (Max),anthropic/claude-opus-5.5,max,,,,Claude Opus 5.5,yugos-exact,,2
+LMArena (categories and other arenas),Claude Sonnet 4 (20250514),anthropic/claude-4-sonnet,,,20250514,,Claude Sonnet 4,rule,,28
+LMArena (categories and other arenas),"Claude Sonnet 4 (Thinking 32K, 20250514)",anthropic/claude-sonnet-4-32k,enabled,,"Thinking 32K, 20250514",,"Claude Sonnet 4 32K,",rule,,28
+LMArena (categories and other arenas),Claude Sonnet 4.5 (20250929),anthropic/claude-sonnet-4.5,,,20250929,,Claude Sonnet 4.5,yugos-exact,,28
+LMArena (categories and other arenas),"Claude Sonnet 4.5 (High, 32K, 20250929)",anthropic/claude-sonnet-4.5-high-32k,high,,"High, 32K, 20250929",,"Claude Sonnet 4.5 High, 32K,",rule,,28
+LMArena (categories and other arenas),Claude Sonnet 4.6,anthropic/claude-sonnet-4.6,,,,,Claude Sonnet 4.6,yugos-exact,,29
+LMArena (categories and other arenas),Claude Sonnet 5 (High),anthropic/claude-sonnet-5,high,,,,Claude Sonnet 5,yugos-exact,,30
+LMArena (categories and other arenas),Claude Sonnet 5.5 (High),anthropic/claude-sonnet-5.5,high,,,,Claude Sonnet 5.5,yugos-exact,,1
+LMArena (categories and other arenas),Claude Sonnet 5.5 (Max),anthropic/claude-sonnet-5.5,max,,,,Claude Sonnet 5.5,yugos-exact,,1
+LMArena (categories and other arenas),Claude Sonnet 5.5 (xHigh),anthropic/claude-sonnet-5.5,xhigh,,,,Claude Sonnet 5.5,yugos-exact,,29
+LMArena (categories and other arenas),Code Llama 34B Instruct,meta/code-llama-34b-instruct,,,,,Code Llama 34B Instruct,rule,,20
+LMArena (categories and other arenas),Code Llama 70B Instruct,meta/code-llama-70b-instruct,,,,,Code Llama 70B Instruct,rule,,8
+LMArena (categories and other arenas),Command A (03-2025),cohere/command-a,,,03-2025,,Command A,yugos-exact,,28
+LMArena (categories and other arenas),Command R,cohere/command-r,,,,,Command R,yugos-exact,,28
+LMArena (categories and other arenas),Command R (08-2024),cohere/command-r,,,08-2024,,Command R,yugos-exact,,25
+LMArena (categories and other arenas),Command R+,cohere/command-r-plus,,,,,Command R+,yugos-exact,,28
+LMArena (categories and other arenas),Command R+ (08-2024),cohere/command-r-plus,,,08-2024,,Command R+,yugos-exact,,24
+LMArena (categories and other arenas),Cosmos3-Super-Text2Image,nvidia/cosmos3-super-text2image,,,,,Cosmos3-Super-Text2Image,rule,,1
+LMArena (categories and other arenas),Cosmos3-Super-Text2Image (Agentic),nvidia/cosmos3-super-text2image-agentic,,,,,Cosmos3-Super-Text2Image Agentic,rule,,1
+LMArena (categories and other arenas),DALL-E 3,openai/dall-e-3,,,,,DALL-E 3,rule,,1
+LMArena (categories and other arenas),DBRX Instruct Preview,databricks/dbrx-instruct-preview,,,,,DBRX Instruct Preview,rule,,27
+LMArena (categories and other arenas),DeepSeek LLM 67B Chat,deepseek/deepseek-llm-67b-chat,,,,,DeepSeek LLM 67B Chat,rule,,20
+LMArena (categories and other arenas),DeepSeek-Coder-V2,deepseek/deepseek-coder-v2,,,,,DeepSeek-Coder-V2,rule,,27
+LMArena (categories and other arenas),DeepSeek-R1,deepseek/deepseek-r1,,,,,DeepSeek-R1,rule,,27
+LMArena (categories and other arenas),DeepSeek-R1 (0528),deepseek/deepseek-r1-0528,,,,,DeepSeek-R1 0528,yugos-exact,,28
+LMArena (categories and other arenas),DeepSeek-V2.5,deepseek/deepseek-v2.5,,,,,DeepSeek-V2.5,rule,,27
+LMArena (categories and other arenas),DeepSeek-V2.5 (1210),deepseek/deepseek-v2.5-1210,,,,,DeepSeek-V2.5 1210,rule,,24
+LMArena (categories and other arenas),DeepSeek-V3,deepseek/deepseek-v3,,,,,DeepSeek-V3,rule,,27
+LMArena (categories and other arenas),DeepSeek-V3 (0324),deepseek/deepseek-chat-v3-0324,,,,,DeepSeek-V3 0324,yugos-loose,,28
+LMArena (categories and other arenas),DeepSeek-V3.1,deepseek/deepseek-chat-v3.1,,,,,DeepSeek-V3.1,yugos-loose,,28
+LMArena (categories and other arenas),DeepSeek-V3.1 (Thinking),deepseek/deepseek-chat-v3.1,enabled,,,,DeepSeek-V3.1,yugos-loose,,28
+LMArena (categories and other arenas),DeepSeek-V3.1-Terminus,deepseek/deepseek-v3.1-terminus,,,,,DeepSeek-V3.1-Terminus,yugos-exact,,20
+LMArena (categories and other arenas),DeepSeek-V3.1-Terminus (Thinking),deepseek/deepseek-v3.1-terminus,enabled,,,,DeepSeek-V3.1-Terminus,yugos-exact,,19
+LMArena (categories and other arenas),DeepSeek-V3.2,deepseek/deepseek-v3.2,,,,,DeepSeek-V3.2,yugos-exact,,28
+LMArena (categories and other arenas),DeepSeek-V3.2 (Thinking),deepseek/deepseek-v3.2,enabled,,,,DeepSeek-V3.2,yugos-exact,,28
+LMArena (categories and other arenas),DeepSeek-V3.2-Exp,deepseek/deepseek-v3.2-exp,,,,,DeepSeek-V3.2-Exp,yugos-exact,,28
+LMArena (categories and other arenas),DeepSeek-V3.2-Exp (Thinking),deepseek/deepseek-v3.2-exp,enabled,,,,DeepSeek-V3.2-Exp,yugos-exact,,27
+LMArena (categories and other arenas),DeepSeek-V4-Flash,deepseek/deepseek-v4-flash,,,,,DeepSeek-V4-Flash,yugos-exact,,28
+LMArena (categories and other arenas),DeepSeek-V4-Flash Preview (High),deepseek/deepseek-v4-flash-preview,high,,,,DeepSeek-V4-Flash Preview,rule,,28
+LMArena (categories and other arenas),DeepSeek-V4-Pro,deepseek/deepseek-v4-pro,,,,,DeepSeek-V4-Pro,yugos-exact,,28
+LMArena (categories and other arenas),"DeepSeek-V4-Pro (High, 20260813)",deepseek/deepseek-v4-pro,high,,"High, 20260813",,DeepSeek-V4-Pro,yugos-exact,,24
+LMArena (categories and other arenas),DeepSeek-V4-Pro Preview (High),deepseek/deepseek-v4-pro-preview,high,,,,DeepSeek-V4-Pro Preview,rule,,28
+LMArena (categories and other arenas),DeepSeek-V4.1-Flash-20260910 (Max),deepseek/deepseek-v4.1-flash,max,,20260910,,DeepSeek-V4.1-Flash,yugos-exact,,29
+LMArena (categories and other arenas),DeepSeek-V4.1-Flash-20261017 (Max),deepseek/deepseek-v4.1-flash,max,,20261017,,DeepSeek-V4.1-Flash,yugos-exact,,2
+LMArena (categories and other arenas),Dola Seed 2.0 Pro,bytedance/dola-seed-2.0-pro,,,,,Dola Seed 2.0 Pro,rule,,28
+LMArena (categories and other arenas),Dolly 2.0 12B,databricks/dolly-2.0-12b,,,,,Dolly 2.0 12B,rule,,17
+LMArena (categories and other arenas),Dolphin 2.2.1 Mistral 7B,unknown/dolphin-2.2.1-mistral-7b,,,,,Dolphin 2.2.1 Mistral 7B,rule,,14
+LMArena (categories and other arenas),Dreamina Seedance 2.0 (720p),bytedance/dreamina-seedance-2.0-720p,,,,,Dreamina Seedance 2.0 720p,rule,,3
+LMArena (categories and other arenas),Dreamina Seedance 2.5 (720p),bytedance/dreamina-seedance-2.5-720p,,,,,Dreamina Seedance 2.5 720p,rule,,3
+LMArena (categories and other arenas),ERNIE 5.0 (0110),baidu/ernie-5.0-0110,,,,,ERNIE 5.0 0110,rule,,28
+LMArena (categories and other arenas),ERNIE 5.1,baidu/ernie-5.1,,,,,ERNIE 5.1,yugos-exact,,28
+LMArena (categories and other arenas),ERNIE-5.0-Preview (1022),baidu/ernie-5.0-preview-1022,,,,,ERNIE-5.0-Preview 1022,rule,,24
+LMArena (categories and other arenas),ERNIE-5.0-Preview (1203),baidu/ernie-5.0-preview-1203,,,,,ERNIE-5.0-Preview 1203,rule,,27
+LMArena (categories and other arenas),FLUX 3 Video,bfl/flux-3-video,,,,,FLUX 3 Video,rule,,1
+LMArena (categories and other arenas),FLUX 3 Video (20260811),bfl/flux-3-video,,,20260811,,FLUX 3 Video,rule,,1
+LMArena (categories and other arenas),FLUX.1 Kontext [dev],bfl/flux-1-kontext-dev,,,,,FLUX.1 Kontext [dev],rule,,2
+LMArena (categories and other arenas),FLUX.1 Kontext [max],bfl/flux-1-kontext-max,,,,,FLUX.1 Kontext [max],rule,,2
+LMArena (categories and other arenas),FLUX.1 Kontext [pro],bfl/flux-1-kontext-pro,,,,,FLUX.1 Kontext [pro],rule,,2
+LMArena (categories and other arenas),FLUX.1 [dev] (FP8),bfl/flux-1-dev,,fp8,,,FLUX.1 [dev],rule,,1
+LMArena (categories and other arenas),FLUX.2 [dev],bfl/flux-2-dev,,,,,FLUX.2 [dev],rule,,2
+LMArena (categories and other arenas),FLUX.2 [flex],bfl/flux-2-flex,,,,,FLUX.2 [flex],rule,,2
+LMArena (categories and other arenas),FLUX.2 [klein] 4B,bfl/flux-2-klein-4b,,,,,FLUX.2 [klein] 4B,rule,,2
+LMArena (categories and other arenas),FLUX.2 [klein] 9B,bfl/flux-2-klein-9b,,,,,FLUX.2 [klein] 9B,rule,,2
+LMArena (categories and other arenas),FLUX.2 [max],bfl/flux-2-max,,,,,FLUX.2 [max],rule,,2
+LMArena (categories and other arenas),FLUX.2 [pro],bfl/flux-2-pro,,,,,FLUX.2 [pro],rule,,2
+LMArena (categories and other arenas),FLUX1.1 [pro],bfl/flux1.1-pro,,,,,FLUX1.1 [pro],rule,,1
+LMArena (categories and other arenas),Falcon 180B Chat,tii/falcon-180b-chat,,,,,Falcon 180B Chat,rule,,11
+LMArena (categories and other arenas),FastChat-T5 3B,lmsys/fastchat-t5-3b,,,,,FastChat-T5 3B,rule,,18
+LMArena (categories and other arenas),GLM-4 (0520),zhipu/glm-4-0520,,,,,GLM-4 0520,rule,,24
+LMArena (categories and other arenas),GLM-4-Plus,zhipu/glm-4-plus,,,,,GLM-4-Plus,rule,,27
+LMArena (categories and other arenas),GLM-4-Plus (0111),zhipu/glm-4-plus-0111,,,,,GLM-4-Plus 0111,rule,,24
+LMArena (categories and other arenas),GLM-4.5,zhipu/glm-4.5,,,,,GLM-4.5,yugos-exact,,28
+LMArena (categories and other arenas),GLM-4.5-Air,zhipu/glm-4.5-air,,,,,GLM-4.5-Air,yugos-exact,,28
+LMArena (categories and other arenas),GLM-4.5V,zhipu/glm-4.5v,,,,,GLM-4.5V,yugos-exact,,24
+LMArena (categories and other arenas),GLM-4.6,zhipu/glm-4.6,,,,,GLM-4.6,yugos-exact,,28
+LMArena (categories and other arenas),GLM-4.6V,zhipu/glm-4.6v,,,,,GLM-4.6V,yugos-exact,,20
+LMArena (categories and other arenas),GLM-4.7,zhipu/glm-4.7,,,,,GLM-4.7,yugos-exact,,28
+LMArena (categories and other arenas),GLM-4.7-Flash,zhipu/glm-4.7-flash,,,,,GLM-4.7-Flash,yugos-exact,,27
+LMArena (categories and other arenas),GLM-5,zhipu/glm-5,,,,,GLM-5,yugos-exact,,28
+LMArena (categories and other arenas),GLM-5.1,zhipu/glm-5.1,,,,,GLM-5.1,yugos-exact,,28
+LMArena (categories and other arenas),GLM-5.2 (Max),zhipu/glm-5.2,max,,,,GLM-5.2,yugos-exact,,29
+LMArena (categories and other arenas),GLM-5.3 (Max),zhipu/glm-5.3,max,,,,GLM-5.3,yugos-exact,,29
+LMArena (categories and other arenas),GLM-5.3-Flash,zhipu/glm-5.3-flash,,,,,GLM-5.3-Flash,yugos-exact,,30
+LMArena (categories and other arenas),GLM-Image,zhipu/glm-image,,,,,GLM-Image,rule,,1
+LMArena (categories and other arenas),GPT-3.5 Turbo (0125),openai/gpt-3.5-turbo-0125,,,,,GPT-3.5 Turbo 0125,rule,,28
+LMArena (categories and other arenas),GPT-3.5 Turbo (1106),openai/gpt-3.5-turbo-1106,,,,,GPT-3.5 Turbo 1106,rule,,25
+LMArena (categories and other arenas),GPT-4 (0314),openai/gpt-4-0314,,,,,GPT-4 0314,rule,,28
+LMArena (categories and other arenas),GPT-4 (0613),openai/gpt-4-0613,,,,,GPT-4 0613,rule,,28
+LMArena (categories and other arenas),GPT-4 Turbo (2024-04-09),openai/gpt-4-turbo,,,2024-04-09,,GPT-4 Turbo,rule,,28
+LMArena (categories and other arenas),GPT-4 Turbo Preview (0125),openai/gpt-4-turbo-preview-0125,,,,,GPT-4 Turbo Preview 0125,rule,,28
+LMArena (categories and other arenas),GPT-4 Turbo Preview (1106),openai/gpt-4-turbo-preview-1106,,,,,GPT-4 Turbo Preview 1106,rule,,28
+LMArena (categories and other arenas),GPT-4.1 (2025-04-14),openai/gpt-4.1,,,2025-04-14,,GPT-4.1,yugos-exact,,28
+LMArena (categories and other arenas),GPT-4.1 mini (2025-04-14),openai/gpt-4.1-mini,,,2025-04-14,,GPT-4.1 mini,yugos-exact,,28
+LMArena (categories and other arenas),GPT-4.1 nano (2025-04-14),openai/gpt-4.1-nano,,,2025-04-14,,GPT-4.1 nano,yugos-exact,,24
+LMArena (categories and other arenas),GPT-4.5 Preview (2025-02-27),openai/gpt-4.5-preview,,,2025-02-27,,GPT-4.5 Preview,rule,,26
+LMArena (categories and other arenas),GPT-4o (2024-05-13),openai/gpt-4o,,,2024-05-13,,GPT-4o,yugos-exact,,28
+LMArena (categories and other arenas),GPT-4o (2024-08-06),openai/gpt-4o,,,2024-08-06,,GPT-4o,yugos-exact,,27
+LMArena (categories and other arenas),GPT-4o mini (2024-07-18),openai/gpt-4o-mini,,,2024-07-18,,GPT-4o mini,yugos-exact,,28
+LMArena (categories and other arenas),GPT-5 (High),openai/gpt-5,high,,,,GPT-5,yugos-exact,,28
+LMArena (categories and other arenas),GPT-5 Chat,openai/gpt-5-chat,,,,,GPT-5 Chat,rule,,28
+LMArena (categories and other arenas),GPT-5 mini (High),openai/gpt-5-mini,high,,,,GPT-5 mini,yugos-exact,,28
+LMArena (categories and other arenas),GPT-5 nano (High),openai/gpt-5-nano,high,,,,GPT-5 nano,yugos-exact,,27
+LMArena (categories and other arenas),GPT-5.1,openai/gpt-5.1,,,,,GPT-5.1,yugos-exact,,29
+LMArena (categories and other arenas),GPT-5.1 (High),openai/gpt-5.1,high,,,,GPT-5.1,yugos-exact,,29
+LMArena (categories and other arenas),GPT-5.2,openai/gpt-5.2,,,,,GPT-5.2,yugos-exact,,28
+LMArena (categories and other arenas),GPT-5.2 (High),openai/gpt-5.2,high,,,,GPT-5.2,yugos-exact,,28
+LMArena (categories and other arenas),GPT-5.2 Chat (20260210),openai/gpt-5.2-chat,,,20260210,,GPT-5.2 Chat,rule,,28
+LMArena (categories and other arenas),GPT-5.3 Chat,openai/gpt-5.3-chat,,,,,GPT-5.3 Chat,rule,,28
+LMArena (categories and other arenas),GPT-5.3-Codex (Codex Harness),openai/gpt-5.3-codex,,codex-harness,,,GPT-5.3-Codex,yugos-exact,,1
+LMArena (categories and other arenas),GPT-5.4,openai/gpt-5.4,,,,,GPT-5.4,yugos-exact,,29
+LMArena (categories and other arenas),GPT-5.4 (High),openai/gpt-5.4,high,,,,GPT-5.4,yugos-exact,,28
+LMArena (categories and other arenas),GPT-5.4 mini (High),openai/gpt-5.4-mini,high,,,,GPT-5.4 mini,yugos-exact,,28
+LMArena (categories and other arenas),GPT-5.4 nano (High),openai/gpt-5.4-nano,high,,,,GPT-5.4 nano,yugos-exact,,28
+LMArena (categories and other arenas),GPT-5.5,openai/gpt-5.5,,,,,GPT-5.5,yugos-exact,,28
+LMArena (categories and other arenas),GPT-5.5 (Codex Harness),openai/gpt-5.5,,codex-harness,,,GPT-5.5,yugos-exact,,1
+LMArena (categories and other arenas),GPT-5.5 (High),openai/gpt-5.5,high,,,,GPT-5.5,yugos-exact,,28
+LMArena (categories and other arenas),"GPT-5.5 (High, Codex Harness)",openai/gpt-5.5,high,codex-harness,,,GPT-5.5,yugos-exact,,1
+LMArena (categories and other arenas),"GPT-5.5 (xHigh, Codex Harness)",openai/gpt-5.5,xhigh,codex-harness,,,GPT-5.5,yugos-exact,,1
+LMArena (categories and other arenas),GPT-5.5 Instant,openai/gpt-5.5-instant,,,,,GPT-5.5 Instant,rule,,28
+LMArena (categories and other arenas),GPT-5.6 Luna (xHigh),openai/gpt-5.6-luna,xhigh,,,,GPT-5.6 Luna,yugos-exact,,28
+LMArena (categories and other arenas),"GPT-5.6 Luna (xHigh, Codex Harness)",openai/gpt-5.6-luna,xhigh,codex-harness,,,GPT-5.6 Luna,yugos-exact,,1
+LMArena (categories and other arenas),GPT-5.6 Sol (xHigh),openai/gpt-5.6-sol,xhigh,,,,GPT-5.6 Sol,yugos-exact,,29
+LMArena (categories and other arenas),"GPT-5.6 Sol (xHigh, Codex Harness)",openai/gpt-5.6-sol,xhigh,codex-harness,,,GPT-5.6 Sol,yugos-exact,,1
+LMArena (categories and other arenas),GPT-5.6 Terra (xHigh),openai/gpt-5.6-terra,xhigh,,,,GPT-5.6 Terra,yugos-exact,,29
+LMArena (categories and other arenas),"GPT-5.6 Terra (xHigh, Codex Harness)",openai/gpt-5.6-terra,xhigh,codex-harness,,,GPT-5.6 Terra,yugos-exact,,1
+LMArena (categories and other arenas),GPT-6 Astra (Max),openai/gpt-6-astra,max,,,,GPT-6 Astra,yugos-exact,,30
+LMArena (categories and other arenas),GPT-6 Luna (Low),openai/gpt-6-luna,low,,,,GPT-6 Luna,yugos-exact,,1
+LMArena (categories and other arenas),GPT-6 Luna (Max),openai/gpt-6-luna,max,,,,GPT-6 Luna,yugos-exact,,30
+LMArena (categories and other arenas),GPT-6 Luna (Medium),openai/gpt-6-luna,medium,,,,GPT-6 Luna,yugos-exact,,1
+LMArena (categories and other arenas),GPT-6 Sol (Max),openai/gpt-6-sol,max,,,,GPT-6 Sol,yugos-exact,,30
+LMArena (categories and other arenas),GPT-6.1 Sol (Max),openai/gpt-6.1-sol,max,,,,GPT-6.1 Sol,yugos-exact,,30
+LMArena (categories and other arenas),GPT-6.1 Sol (Medium),openai/gpt-6.1-sol,medium,,,,GPT-6.1 Sol,yugos-exact,,1
+LMArena (categories and other arenas),GPT-6.1 Terra (Max),openai/gpt-6.1-terra,max,,,,GPT-6.1 Terra,yugos-exact,,26
+LMArena (categories and other arenas),GPT-6.1 Terra (Medium),openai/gpt-6.1-terra,medium,,,,GPT-6.1 Terra,yugos-exact,,1
+LMArena (categories and other arenas),GPT-6.2 Astra (Max),openai/gpt-6.2-astra,max,,,,GPT-6.2 Astra,yugos-exact,,24
+LMArena (categories and other arenas),GPT-6.2 Sol (Max),openai/gpt-6.2-sol,max,,,,GPT-6.2 Sol,yugos-exact,,25
+LMArena (categories and other arenas),GPT-Image-1,openai/gpt-image-1,,,,,GPT-Image-1,rule,,2
+LMArena (categories and other arenas),GPT-Image-1 mini,openai/gpt-image-1-mini,,,,,GPT-Image-1 mini,rule,,2
+LMArena (categories and other arenas),GPT-Image-1.5 (High Fidelity),openai/gpt-image-1.5,high,,,,GPT-Image-1.5,rule,,2
+LMArena (categories and other arenas),GPT-Image-2 (Medium),openai/gpt-image-2,medium,,,,GPT-Image-2,rule,,2
+LMArena (categories and other arenas),GPT-Image-2.5 Flare,openai/gpt-image-2.5-flare,,,,,GPT-Image-2.5 Flare,rule,,2
+LMArena (categories and other arenas),GPT-Image-2.5 Sunburst,openai/gpt-image-2.5-sunburst,,,,,GPT-Image-2.5 Sunburst,rule,,2
+LMArena (categories and other arenas),GPT-Image-2.6 Flare (Medium),openai/gpt-image-2.6-flare,medium,,,,GPT-Image-2.6 Flare,rule,,2
+LMArena (categories and other arenas),GPT-Image-2.6 Sunburst (Medium),openai/gpt-image-2.6-sunburst,medium,,,,GPT-Image-2.6 Sunburst,rule,,2
+LMArena (categories and other arenas),GPT4All 13B Snoozy,openai/gpt4all-13b-snoozy,,,,,GPT4All 13B Snoozy,rule,,13
+LMArena (categories and other arenas),Gemini 1.5 Flash (001),google/gemini-1.5-flash-001,,,,,Gemini 1.5 Flash 001,rule,,28
+LMArena (categories and other arenas),Gemini 1.5 Flash (002),google/gemini-1.5-flash-002,,,,,Gemini 1.5 Flash 002,rule,,27
+LMArena (categories and other arenas),Gemini 1.5 Flash-8B (001),google/gemini-1.5-flash-8b-001,,,,,Gemini 1.5 Flash-8B 001,rule,,27
+LMArena (categories and other arenas),Gemini 1.5 Pro (001),google/gemini-1.5-pro-001,,,,,Gemini 1.5 Pro 001,rule,,28
+LMArena (categories and other arenas),Gemini 1.5 Pro (002),google/gemini-1.5-pro-002,,,,,Gemini 1.5 Pro 002,rule,,27
+LMArena (categories and other arenas),Gemini 2.0 Flash (001),google/gemini-2.0-flash-001,,,,,Gemini 2.0 Flash 001,rule,,28
+LMArena (categories and other arenas),Gemini 2.0 Flash Preview Image Generation,google/gemini-2.0-flash-preview-image-generation,,,,,Gemini 2.0 Flash Preview Image Generation,rule,,2
+LMArena (categories and other arenas),Gemini 2.0 Flash-Lite Preview (02-05),google/gemini-2.0-flash-lite-preview,,,02-05,,Gemini 2.0 Flash-Lite Preview,rule,,27
+LMArena (categories and other arenas),Gemini 2.5 Flash,google/gemini-2.5-flash,,,,,Gemini 2.5 Flash,yugos-exact,,28
+LMArena (categories and other arenas),Gemini 2.5 Flash Image Preview (nano-banana),google/gemini-2.5-flash-image-preview-nano-banana,,,,,Gemini 2.5 Flash Image Preview nano-banana,rule,,2
+LMArena (categories and other arenas),Gemini 2.5 Flash Preview (09-2025),google/gemini-2.5-flash-preview,,,09-2025,,Gemini 2.5 Flash Preview,rule,,28
+LMArena (categories and other arenas),"Gemini 2.5 Flash-Lite Preview (Non-Thinking, 09-2025)",google/gemini-2.5-flash-lite-preview,none,,"Non-Thinking, 09-2025",,Gemini 2.5 Flash-Lite Preview,rule,,28
+LMArena (categories and other arenas),"Gemini 2.5 Flash-Lite Preview (Thinking, 06-17)",google/gemini-2.5-flash-lite-preview,enabled,,"Thinking, 06-17",,Gemini 2.5 Flash-Lite Preview,rule,,28
+LMArena (categories and other arenas),Gemini 2.5 Pro,google/gemini-2.5-pro,,,,,Gemini 2.5 Pro,yugos-exact,,29
+LMArena (categories and other arenas),Gemini 3 Flash,google/gemini-3-flash,,,,,Gemini 3 Flash,rule,,29
+LMArena (categories and other arenas),Gemini 3 Flash (Minimal),google/gemini-3-flash,minimal,,,,Gemini 3 Flash,rule,,29
+LMArena (categories and other arenas),Gemini 3 Pro,google/gemini-3-pro,,,,,Gemini 3 Pro,rule,,29
+LMArena (categories and other arenas),"Gemini 3 Pro Image (nano-banana-pro, 2K)",google/gemini-3-pro-image-nano-banana-pro-2k,,,,,"Gemini 3 Pro Image nano-banana-pro, 2K",rule,,2
+LMArena (categories and other arenas),Gemini 3 Pro Image Preview (nano-banana-pro),google/gemini-3-pro-image-preview-nano-banana-pro,,,,,Gemini 3 Pro Image Preview nano-banana-pro,rule,,2
+LMArena (categories and other arenas),"Gemini 3.1 Flash Image (nano-banana-2, Web Search)",google/gemini-3.1-flash-image-nano-banana-2-web-search,,search,,,"Gemini 3.1 Flash Image nano-banana-2, Web Search",rule,,2
+LMArena (categories and other arenas),Gemini 3.1 Flash-Lite Image (nano-banana-2-lite),google/gemini-3.1-flash-lite-image-nano-banana-2-lite,,,,,Gemini 3.1 Flash-Lite Image nano-banana-2-lite,rule,,2
+LMArena (categories and other arenas),Gemini 3.1 Flash-Lite Preview,google/gemini-3.1-flash-lite-preview,,,,,Gemini 3.1 Flash-Lite Preview,yugos-exact,,29
+LMArena (categories and other arenas),Gemini 3.1 Pro Preview,google/gemini-3.1-pro-preview,,,,,Gemini 3.1 Pro Preview,yugos-exact,,30
+LMArena (categories and other arenas),Gemini 3.5 Flash (High),google/gemini-3.5-flash,high,,,,Gemini 3.5 Flash,yugos-exact,,29
+LMArena (categories and other arenas),Gemini 3.5 Flash (Medium),google/gemini-3.5-flash,medium,,,,Gemini 3.5 Flash,yugos-exact,,29
+LMArena (categories and other arenas),Gemini 3.5 Flash-Lite,google/gemini-3.5-flash-lite,,,,,Gemini 3.5 Flash-Lite,yugos-exact,,29
+LMArena (categories and other arenas),Gemini 3.6 Flash (High),google/gemini-3.6-flash,high,,,,Gemini 3.6 Flash,yugos-exact,,29
+LMArena (categories and other arenas),Gemini 3.7 Flash (High),google/gemini-3.7-flash,high,,,,Gemini 3.7 Flash,yugos-exact,,30
+LMArena (categories and other arenas),Gemini 3.8 Flash (High),google/gemini-3.8-flash,high,,,,Gemini 3.8 Flash,yugos-exact,,30
+LMArena (categories and other arenas),Gemini 4 Argon (High),google/gemini-4-argon,high,,,,Gemini 4 Argon,yugos-exact,,29
+LMArena (categories and other arenas),Gemini 4 Carbon (High),google/gemini-4-carbon,high,,,,Gemini 4 Carbon,yugos-exact,,22
+LMArena (categories and other arenas),Gemini 4 Hydrogen (High),google/gemini-4-hydrogen,high,,,,Gemini 4 Hydrogen,yugos-exact,,25
+LMArena (categories and other arenas),Gemini 4 Neon (High),google/gemini-4-neon,high,,,,Gemini 4 Neon,yugos-exact,,25
+LMArena (categories and other arenas),Gemini Advanced (0514),google/gemini-advanced-0514,,,,,Gemini Advanced 0514,rule,,27
+LMArena (categories and other arenas),Gemini Nano Banana 2.1,google/gemini-nano-banana-2.1,,,,,Gemini Nano Banana 2.1,rule,,2
+LMArena (categories and other arenas),Gemini Omni 1.1 Flash,google/gemini-omni-1.1-flash,,,,,Gemini Omni 1.1 Flash,rule,,2
+LMArena (categories and other arenas),Gemini Omni 1.2 Flash,google/gemini-omni-1.2-flash,,,,,Gemini Omni 1.2 Flash,rule,,3
+LMArena (categories and other arenas),Gemini Pro,google/gemini-pro,,,,,Gemini Pro,rule,,19
+LMArena (categories and other arenas),Gemini Pro (Dev API),google/gemini-pro-dev-api,,,,,Gemini Pro Dev API,rule,,26
+LMArena (categories and other arenas),Gemma 1.1 2B IT,google/gemma-1.1-2b-it,,,,,Gemma 1.1 2B IT,rule,,24
+LMArena (categories and other arenas),Gemma 1.1 7B IT,google/gemma-1.1-7b-it,,,,,Gemma 1.1 7B IT,rule,,27
+LMArena (categories and other arenas),Gemma 2 27B IT,google/gemma-2-27b-it,,,,,Gemma 2 27B IT,yugos-exact,,28
+LMArena (categories and other arenas),Gemma 2 2B IT,google/gemma-2-2b-it,,,,,Gemma 2 2B IT,rule,,27
+LMArena (categories and other arenas),Gemma 2 9B IT,google/gemma-2-9b-it,,,,,Gemma 2 9B IT,rule,,27
+LMArena (categories and other arenas),Gemma 2 9B IT SimPO,google/gemma-2-9b-it-simpo,,,,,Gemma 2 9B IT SimPO,rule,,24
+LMArena (categories and other arenas),Gemma 2B IT,google/gemma-2b-it,,,,,Gemma 2B IT,rule,,21
+LMArena (categories and other arenas),Gemma 3 12B IT,google/gemma-3-12b-it,,,,,Gemma 3 12B IT,yugos-exact,,22
+LMArena (categories and other arenas),Gemma 3 27B IT,google/gemma-3-27b-it,,,,,Gemma 3 27B IT,yugos-exact,,28
+LMArena (categories and other arenas),Gemma 3 4B IT,google/gemma-3-4b-it,,,,,Gemma 3 4B IT,yugos-exact,,22
+LMArena (categories and other arenas),Gemma 3n E4B IT,google/gemma-3n-e4b-it,,,,,Gemma 3n E4B IT,rule,,28
+LMArena (categories and other arenas),Gemma 4 26B A4B,google/gemma-4-26b-a4b-it,,,,,Gemma 4 26B A4B,yugos-loose,,24
+LMArena (categories and other arenas),Gemma 4 31B,google/gemma-4-31b,,,,,Gemma 4 31B,rule,,25
+LMArena (categories and other arenas),Gemma 7B IT,google/gemma-7b-it,,,,,Gemma 7B IT,rule,,23
+LMArena (categories and other arenas),Granite 3.0 2B Instruct,ibm/granite-3.0-2b-instruct,,,,,Granite 3.0 2B Instruct,rule,,22
+LMArena (categories and other arenas),Granite 3.0 8B Instruct,ibm/granite-3.0-8b-instruct,,,,,Granite 3.0 8B Instruct,rule,,22
+LMArena (categories and other arenas),Granite 3.1 2B Instruct,ibm/granite-3.1-2b-instruct,,,,,Granite 3.1 2B Instruct,rule,,20
+LMArena (categories and other arenas),Granite 3.1 8B Instruct,ibm/granite-3.1-8b-instruct,,,,,Granite 3.1 8B Instruct,rule,,21
+LMArena (categories and other arenas),Granite 4.1 8B,ibm/granite-4.1-8b,,,,,Granite 4.1 8B,rule,,22
+LMArena (categories and other arenas),Granite 4.2 30B,ibm/granite-4.2-30b,,,,,Granite 4.2 30B,rule,,20
+LMArena (categories and other arenas),Granite 4.2 3B,ibm/granite-4.2-3b,,,,,Granite 4.2 3B,rule,,19
+LMArena (categories and other arenas),Granite 4.2 8B,ibm/granite-4.2-8b,,,,,Granite 4.2 8B,yugos-exact,,20
+LMArena (categories and other arenas),Granite-4.0-H-Small,ibm/granite-4.0-h-small,,,,,Granite-4.0-H-Small,rule,,24
+LMArena (categories and other arenas),Grok 2 (2024-08-13),xai/grok-2,,,2024-08-13,,Grok 2,rule,,27
+LMArena (categories and other arenas),Grok 2 mini (2024-08-13),xai/grok-2-mini,,,2024-08-13,,Grok 2 mini,rule,,27
+LMArena (categories and other arenas),Grok 3 Mini (High),xai/grok-3-mini,high,,,,Grok 3 Mini,rule,,28
+LMArena (categories and other arenas),Grok 3 Mini Beta,xai/grok-3-mini-beta,,,,,Grok 3 Mini Beta,rule,,28
+LMArena (categories and other arenas),Grok 3 Preview (02-24),xai/grok-3-preview,,,02-24,,Grok 3 Preview,rule,,28
+LMArena (categories and other arenas),Grok 4 (0709),xai/grok-4-0709,,,,,Grok 4 0709,rule,,28
+LMArena (categories and other arenas),Grok 4 Fast (Non-Reasoning),xai/grok-4-fast,none,,,,Grok 4 Fast,rule,,25
+LMArena (categories and other arenas),Grok 4 Fast (Reasoning),xai/grok-4-fast,enabled,,,,Grok 4 Fast,rule,,28
+LMArena (categories and other arenas),Grok 4.1,xai/grok-4.1,,,,,Grok 4.1,rule,,28
+LMArena (categories and other arenas),Grok 4.1 (Thinking),xai/grok-4.1,enabled,,,,Grok 4.1,rule,,28
+LMArena (categories and other arenas),Grok 4.1 Fast (Reasoning),xai/grok-4.1-fast,enabled,,,,Grok 4.1 Fast,rule,,28
+LMArena (categories and other arenas),"Grok 4.20 Beta (Reasoning, 0309)",xai/grok-4.20-beta-reasoning-0309,enabled,,,,"Grok 4.20 Beta Reasoning, 0309",rule,,28
+LMArena (categories and other arenas),Grok 4.20 Beta 1,xai/grok-4.20-beta-1,,,,,Grok 4.20 Beta 1,rule,,28
+LMArena (categories and other arenas),Grok 4.20 Multi-Agent Beta (0309),xai/grok-4.20-multi-agent-beta-0309,,,,,Grok 4.20 Multi-Agent Beta 0309,rule,,28
+LMArena (categories and other arenas),Grok 4.3,xai/grok-4.3,,,,,Grok 4.3,yugos-exact,,29
+LMArena (categories and other arenas),Grok 4.5,xai/grok-4.5,,,,,Grok 4.5,yugos-exact,,29
+LMArena (categories and other arenas),Grok 4.6 (High),xai/grok-4.6,high,,,,Grok 4.6,yugos-exact,,29
+LMArena (categories and other arenas),Grok 4.6 (xHigh),xai/grok-4.6,xhigh,,,,Grok 4.6,yugos-exact,,1
+LMArena (categories and other arenas),Grok 4.7 (xHigh),xai/grok-4.7,xhigh,,,,Grok 4.7,yugos-exact,,30
+LMArena (categories and other arenas),Grok Imagine Image,xai/grok-imagine-image,,,,,Grok Imagine Image,rule,,2
+LMArena (categories and other arenas),"Grok Imagine Image (Quality, 20260519)",xai/grok-imagine-image-quality,,,"Quality, 20260519",,"Grok Imagine Image Quality,",rule,,1
+LMArena (categories and other arenas),Grok Imagine Image 2.0,xai/grok-imagine-image-2.0,,,,,Grok Imagine Image 2.0,rule,,2
+LMArena (categories and other arenas),Grok Imagine Image 2.0 (20260801),xai/grok-imagine-image-2.0,,,20260801,,Grok Imagine Image 2.0,rule,,2
+LMArena (categories and other arenas),Grok Imagine Image Pro,xai/grok-imagine-image-pro,,,,,Grok Imagine Image Pro,rule,,1
+LMArena (categories and other arenas),Grok Imagine Video,xai/grok-imagine-video,,,,,Grok Imagine Video,rule,,1
+LMArena (categories and other arenas),Grok Imagine Video (480p),xai/grok-imagine-video-480p,,,,,Grok Imagine Video 480p,rule,,1
+LMArena (categories and other arenas),Grok Imagine Video (720p),xai/grok-imagine-video-720p,,,,,Grok Imagine Video 720p,rule,,2
+LMArena (categories and other arenas),Grok Imagine Video 1.5,xai/grok-imagine-video-1.5,,,,,Grok Imagine Video 1.5,rule,,1
+LMArena (categories and other arenas),Grok Imagine Video 1.5 (720p),xai/grok-imagine-video-1.5-720p,,,,,Grok Imagine Video 1.5 720p,rule,,1
+LMArena (categories and other arenas),Guanaco 33B,unknown/guanaco-33b,,,,,Guanaco 33B,rule,,16
+LMArena (categories and other arenas),Hailuo 02 Fast,minimax/hailuo-02-fast,,,,,Hailuo 02 Fast,rule,,1
+LMArena (categories and other arenas),Hailuo 02 Pro,minimax/hailuo-02-pro,,,,,Hailuo 02 Pro,rule,,2
+LMArena (categories and other arenas),Hailuo 02 Standard,minimax/hailuo-02-standard,,,,,Hailuo 02 Standard,rule,,2
+LMArena (categories and other arenas),Hailuo 2.3,minimax/hailuo-2.3,,,,,Hailuo 2.3,rule,,2
+LMArena (categories and other arenas),HappyHorse 1.0,aorizon/happyhorse-1.0,,,,,HappyHorse 1.0,rule,,3
+LMArena (categories and other arenas),HiDream-O1-Image,hidream/hidream-o1-image,,,,,HiDream-O1-Image,rule,,1
+LMArena (categories and other arenas),HiDream-O1-Video-1.0,hidream/hidream-o1-video-1.0,,,,,HiDream-O1-Video-1.0,rule,,1
+LMArena (categories and other arenas),Hunyuan Large (2025-02-10),tencent/hunyuan-large,,,2025-02-10,,Hunyuan Large,rule,,22
+LMArena (categories and other arenas),Hunyuan Large Vision,tencent/hunyuan-large-vision,,,,,Hunyuan Large Vision,rule,,23
+LMArena (categories and other arenas),Hunyuan Standard (2025-02-10),tencent/hunyuan-standard,,,2025-02-10,,Hunyuan Standard,rule,,22
+LMArena (categories and other arenas),Hunyuan Standard 256K,tencent/hunyuan-standard-256k,,,,,Hunyuan Standard 256K,rule,,19
+LMArena (categories and other arenas),Hunyuan T1 (20250711),tencent/hunyuan-t1,,,20250711,,Hunyuan T1,rule,,24
+LMArena (categories and other arenas),Hunyuan Turbo (0110),tencent/hunyuan-turbo-0110,,,,,Hunyuan Turbo 0110,rule,,19
+LMArena (categories and other arenas),Hunyuan TurboS (20250226),tencent/hunyuan-turbos,,,20250226,,Hunyuan TurboS,rule,,19
+LMArena (categories and other arenas),Hunyuan TurboS (20250416),tencent/hunyuan-turbos,,,20250416,,Hunyuan TurboS,rule,,27
+LMArena (categories and other arenas),Hunyuan Vision 1.5 Thinking,tencent/hunyuan-vision-1.5,enabled,,,,Hunyuan Vision 1.5,rule,,15
+LMArena (categories and other arenas),HunyuanImage 3.0,tencent/hunyuanimage-3.0,,,,,HunyuanImage 3.0,rule,,1
+LMArena (categories and other arenas),HunyuanImage 3.0 Instruct,tencent/hunyuanimage-3.0-instruct,,,,,HunyuanImage 3.0 Instruct,rule,,1
+LMArena (categories and other arenas),HunyuanVideo 1.5,tencent/hunyuanvideo-1.5,,,,,HunyuanVideo 1.5,rule,,2
+LMArena (categories and other arenas),Hy3,tencent/hy3,,,,,Hy3,yugos-exact,,29
+LMArena (categories and other arenas),Hy3 preview,tencent/hy3-preview,,,,,Hy3 preview,rule,,24
+LMArena (categories and other arenas),Hy4,tencent/hy4,,,,,Hy4,yugos-exact,,2
+LMArena (categories and other arenas),Hy4 preview,tencent/hy4-preview,,,,,Hy4 preview,yugos-exact,,1
+LMArena (categories and other arenas),INTELLECT-3,prime-intellect/intellect-3,,,,,INTELLECT-3,rule,,23
+LMArena (categories and other arenas),Ideogram 2.0,ideogram/ideogram-2.0,,,,,Ideogram 2.0,rule,,1
+LMArena (categories and other arenas),Ideogram 3.0 (Quality),ideogram/ideogram-3.0-quality,,,,,Ideogram 3.0 Quality,rule,,1
+LMArena (categories and other arenas),Ideogram 4.0 (Quality),ideogram/ideogram-4.0-quality,,,,,Ideogram 4.0 Quality,rule,,1
+LMArena (categories and other arenas),Ideogram 4.5,ideogram/ideogram-4.5,,,,,Ideogram 4.5,rule,,1
+LMArena (categories and other arenas),Imagen 3 (generate-002),google/imagen-3-generate-002,,,,,Imagen 3 generate-002,rule,,1
+LMArena (categories and other arenas),Imagen 4 (generate-001),google/imagen-4-generate-001,,,,,Imagen 4 generate-001,rule,,1
+LMArena (categories and other arenas),Imagen 4 Ultra (generate-001),google/imagen-4-ultra-generate-001,,,,,Imagen 4 Ultra generate-001,rule,,1
+LMArena (categories and other arenas),Inkling,thinking-machines-lab/inkling,,,,,Inkling,yugos-exact,,29
+LMArena (categories and other arenas),Inkling 2 Mini,thinking-machines-lab/inkling-2-mini,,,,,Inkling 2 Mini,yugos-exact,,17
+LMArena (categories and other arenas),Inkling 2 Small,thinking-machines-lab/inkling-2-small,,,,,Inkling 2 Small,yugos-exact,,18
+LMArena (categories and other arenas),Inkling-Small,thinking-machines-lab/inkling-small,,,,,Inkling-Small,yugos-exact,,30
+LMArena (categories and other arenas),InternLM2.5 20B Chat,shanghai-ai-lab/internlm2.5-20b-chat,,,,,InternLM2.5 20B Chat,rule,,23
+LMArena (categories and other arenas),Jamba 1.5 Large,ai21/jamba-1.5-large,,,,,Jamba 1.5 Large,rule,,24
+LMArena (categories and other arenas),Jamba 1.5 Mini,ai21/jamba-1.5-mini,,,,,Jamba 1.5 Mini,rule,,24
+LMArena (categories and other arenas),Kandinsky 5.0 Video Lite,kandinsky/kandinsky-5.0-video-lite,,,,,Kandinsky 5.0 Video Lite,rule,,1
+LMArena (categories and other arenas),Kandinsky 5.0 Video Pro,kandinsky/kandinsky-5.0-video-pro,,,,,Kandinsky 5.0 Video Pro,rule,,1
+LMArena (categories and other arenas),Kimi K2 Preview (0711),moonshot/kimi-k2-preview-0711,,,,,Kimi K2 Preview 0711,rule,,28
+LMArena (categories and other arenas),Kimi K2 Preview (0905),moonshot/kimi-k2-preview-0905,,,,,Kimi K2 Preview 0905,rule,,28
+LMArena (categories and other arenas),Kimi K2 Thinking Turbo,moonshot/kimi-k2-thinking-turbo,,,,,Kimi K2 Thinking Turbo,rule,,28
+LMArena (categories and other arenas),Kimi K2.5 (Instant),moonshot/kimi-k2.5-instant,,,,,Kimi K2.5 Instant,rule,,28
+LMArena (categories and other arenas),Kimi K2.5 (Thinking),moonshot/kimi-k2.5,enabled,,,,Kimi K2.5,yugos-exact,,29
+LMArena (categories and other arenas),Kimi K2.6,moonshot/kimi-k2.6,,,,,Kimi K2.6,yugos-exact,,29
+LMArena (categories and other arenas),Kimi K2.7 Code,moonshot/kimi-k2.7-code,,,,,Kimi K2.7 Code,yugos-exact,,1
+LMArena (categories and other arenas),Kimi K3 (Max),moonshot/kimi-k3,max,,,,Kimi K3,yugos-exact,,30
+LMArena (categories and other arenas),Kimi K3.1 Pro (Max),moonshot/kimi-k3.1-pro,max,,,,Kimi K3.1 Pro,yugos-exact,,26
+LMArena (categories and other arenas),Kling 2.1 Master,kling/kling-2.1-master,,,,,Kling 2.1 Master,rule,,2
+LMArena (categories and other arenas),Kling 2.1 Standard,kling/kling-2.1-standard,,,,,Kling 2.1 Standard,rule,,1
+LMArena (categories and other arenas),Kling 2.5 Turbo (1080p),kling/kling-2.5-turbo-1080p,,,,,Kling 2.5 Turbo 1080p,rule,,2
+LMArena (categories and other arenas),Kling 2.6 Pro,kling/kling-2.6-pro,,,,,Kling 2.6 Pro,rule,,2
+LMArena (categories and other arenas),Kling 3.0 Pro,kling/kling-3.0-pro,,,,,Kling 3.0 Pro,rule,,1
+LMArena (categories and other arenas),Kling Image O1,kling/kling-image-o1,,,,,Kling Image O1,rule,,1
+LMArena (categories and other arenas),Kling O1 Pro,kling/kling-o1-pro,,,,,Kling O1 Pro,rule,,2
+LMArena (categories and other arenas),Kling O3 Pro,kling/kling-o3-pro,,,,,Kling O3 Pro,rule,,1
+LMArena (categories and other arenas),Koala 13B,berkeley/koala-13b,,,,,Koala 13B,rule,,19
+LMArena (categories and other arenas),Krea 2 Large,krea/krea-2-large,,,,,Krea 2 Large,rule,,1
+LMArena (categories and other arenas),Krea 2 Medium,krea/krea-2,medium,,,,Krea 2,rule,,1
+LMArena (categories and other arenas),Krea 2 Turbo,krea/krea-2-turbo,,,,,Krea 2 Turbo,rule,,1
+LMArena (categories and other arenas),Krea 3 Ultra,krea/krea-3-ultra,,,,,Krea 3 Ultra,rule,,1
+LMArena (categories and other arenas),LLaMA 13B,meta/llama-13b,,,,,LLaMA 13B,rule,,15
+LMArena (categories and other arenas),LTX-2 19B,unknown/ltx-2-19b,,,,,LTX-2 19B,rule,,2
+LMArena (categories and other arenas),Ling-flash-2.0,inclusionai/ling-flash-2.0,,,,,Ling-flash-2.0,rule,,25
+LMArena (categories and other arenas),Llama 2 13B Chat,meta/llama-2-13b-chat,,,,,Llama 2 13B Chat,rule,,27
+LMArena (categories and other arenas),Llama 2 70B Chat,meta/llama-2-70b-chat,,,,,Llama 2 70B Chat,rule,,27
+LMArena (categories and other arenas),Llama 2 70B SteerLM Chat,nvidia/llama-2-70b-steerlm-chat,,,,,Llama 2 70B SteerLM Chat,rule,,17
+LMArena (categories and other arenas),Llama 2 7B Chat,meta/llama-2-7b-chat,,,,,Llama 2 7B Chat,rule,,25
+LMArena (categories and other arenas),Llama 3 70B Instruct,meta/llama-3-70b-instruct,,,,,Llama 3 70B Instruct,rule,,28
+LMArena (categories and other arenas),Llama 3 8B Instruct,meta/llama-3-8b-instruct,,,,,Llama 3 8B Instruct,rule,,28
+LMArena (categories and other arenas),Llama 3.1 405B Instruct (BF16),meta/llama-3.1-405b-instruct,,bf16,,,Llama 3.1 405B Instruct,rule,,27
+LMArena (categories and other arenas),Llama 3.1 405B Instruct (FP8),meta/llama-3.1-405b-instruct,,fp8,,,Llama 3.1 405B Instruct,rule,,27
+LMArena (categories and other arenas),Llama 3.1 70B Instruct,meta/llama-3.1-70b-instruct,,,,,Llama 3.1 70B Instruct,yugos-exact,,27
+LMArena (categories and other arenas),Llama 3.1 8B Instruct,meta/llama-3.1-8b-instruct,,,,,Llama 3.1 8B Instruct,yugos-exact,,27
+LMArena (categories and other arenas),Llama 3.1 Nemotron 51B Instruct,nvidia/llama-3.1-nemotron-51b-instruct,,,,,Llama 3.1 Nemotron 51B Instruct,rule,,22
+LMArena (categories and other arenas),Llama 3.1 Nemotron 70B Instruct,nvidia/llama-3.1-nemotron-70b-instruct,,,,,Llama 3.1 Nemotron 70B Instruct,rule,,22
+LMArena (categories and other arenas),Llama 3.1 Nemotron Ultra 253B v1,nvidia/llama-3.1-nemotron-ultra-253b-v1,,,,,Llama 3.1 Nemotron Ultra 253B v1,rule,,17
+LMArena (categories and other arenas),Llama 3.1 Tulu 3 70B,allenai/llama-3.1-tulu-3-70b,,,,,Llama 3.1 Tulu 3 70B,rule,,19
+LMArena (categories and other arenas),Llama 3.1 Tulu 3 8B,allenai/llama-3.1-tulu-3-8b,,,,,Llama 3.1 Tulu 3 8B,rule,,19
+LMArena (categories and other arenas),Llama 3.2 1B Instruct,meta/llama-3.2-1b-instruct,,,,,Llama 3.2 1B Instruct,rule,,23
+LMArena (categories and other arenas),Llama 3.2 3B Instruct,meta/llama-3.2-3b-instruct,,,,,Llama 3.2 3B Instruct,yugos-exact,,23
+LMArena (categories and other arenas),Llama 3.3 70B Instruct,meta/llama-3.3-70b-instruct,,,,,Llama 3.3 70B Instruct,yugos-exact,,28
+LMArena (categories and other arenas),Llama 3.3 Nemotron Super 49B v1,nvidia/llama-3.3-nemotron-super-49b-v1,,,,,Llama 3.3 Nemotron Super 49B v1,rule,,18
+LMArena (categories and other arenas),Llama 3.3 Nemotron Super 49B v1.5,nvidia/llama-3.3-nemotron-super-49b-v1.5,,,,,Llama 3.3 Nemotron Super 49B v1.5,rule,,23
+LMArena (categories and other arenas),Llama 4 Maverick 17B 128E Instruct,meta/llama-4-maverick-17b-128e-instruct,,,,,Llama 4 Maverick 17B 128E Instruct,rule,,28
+LMArena (categories and other arenas),Llama 4 Scout 17B 16E Instruct,meta/llama-4-scout-17b-16e-instruct,,,,,Llama 4 Scout 17B 16E Instruct,rule,,28
+LMArena (categories and other arenas),LongCat-Flash-Chat,meituan/longcat-flash-chat,,,,,LongCat-Flash-Chat,rule,,28
+LMArena (categories and other arenas),LongCat-Flash-Chat Exp (2602),meituan/longcat-flash-chat-exp-2602,,,,,LongCat-Flash-Chat Exp 2602,rule,,28
+LMArena (categories and other arenas),Lucid Origin,leonardo-ai/lucid-origin,,,,,Lucid Origin,rule,,1
+LMArena (categories and other arenas),Luma Photon,luma-ai/luma-photon,,,,,Luma Photon,rule,,1
+LMArena (categories and other arenas),Luma Ray2,luma-ai/luma-ray2,,,,,Luma Ray2,rule,,2
+LMArena (categories and other arenas),Luma Ray3,luma-ai/luma-ray3,,,,,Luma Ray3,rule,,2
+LMArena (categories and other arenas),MAI-Image-1,microsoft-ai/mai-image-1,,,,,MAI-Image-1,rule,,1
+LMArena (categories and other arenas),MAI-Image-2,microsoft-ai/mai-image-2,,,,,MAI-Image-2,rule,,1
+LMArena (categories and other arenas),MAI-Image-2.5,microsoft-ai/mai-image-2.5,,,,,MAI-Image-2.5,rule,,2
+LMArena (categories and other arenas),MAI-Image-2.6,microsoft-ai/mai-image-2.6,,,,,MAI-Image-2.6,rule,,2
+LMArena (categories and other arenas),MAI-Image-2.7,microsoft-ai/mai-image-2.7,,,,,MAI-Image-2.7,rule,,2
+LMArena (categories and other arenas),MPT 30B Chat,unknown/mpt-30b-chat,,,,,MPT 30B Chat,rule,,16
+LMArena (categories and other arenas),MPT 7B Chat,unknown/mpt-7b-chat,,,,,MPT 7B Chat,rule,,17
+LMArena (categories and other arenas),Magistral Medium (2506),mistral/magistral-medium-2506,,,,,Magistral Medium 2506,rule,,28
+LMArena (categories and other arenas),Mercury,inception-ai/mercury,,,,,Mercury,rule,,15
+LMArena (categories and other arenas),Mercury 2,inception/mercury-2,,,,,Mercury 2,rule,,19
+LMArena (categories and other arenas),MiMo-V2-Flash (Non-Thinking),xiaomi/mimo-v2-flash,none,,,,MiMo-V2-Flash,rule,,28
+LMArena (categories and other arenas),MiMo-V2-Flash (Thinking),xiaomi/mimo-v2-flash,enabled,,,,MiMo-V2-Flash,rule,,27
+LMArena (categories and other arenas),MiMo-V2-Omni,xiaomi/mimo-v2-omni,,,,,MiMo-V2-Omni,rule,,28
+LMArena (categories and other arenas),MiMo-V2-Pro,xiaomi/mimo-v2-pro,,,,,MiMo-V2-Pro,rule,,28
+LMArena (categories and other arenas),MiMo-V2.5,xiaomi/mimo-v2.5,,,,,MiMo-V2.5,yugos-exact,,28
+LMArena (categories and other arenas),MiMo-V2.5-Pro,xiaomi/mimo-v2.5-pro,,,,,MiMo-V2.5-Pro,yugos-exact,,28
+LMArena (categories and other arenas),MiMo-V2.6-Flash,xiaomi/mimo-v2.6-flash,,,,,MiMo-V2.6-Flash,yugos-exact,,30
+LMArena (categories and other arenas),MiMo-V2.6-Pro,xiaomi/mimo-v2.6-pro,,,,,MiMo-V2.6-Pro,yugos-exact,,24
+LMArena (categories and other arenas),MiniMax H3,minimax/minimax-h3,,,,,MiniMax H3,rule,,3
+LMArena (categories and other arenas),MiniMax H3-Image,minimax/minimax-h3-image,,,,,MiniMax H3-Image,rule,,2
+LMArena (categories and other arenas),MiniMax-M1,minimax/minimax-m1,,,,,MiniMax-M1,rule,,28
+LMArena (categories and other arenas),MiniMax-M2,minimax/minimax-m2,,,,,MiniMax-M2,rule,,26
+LMArena (categories and other arenas),MiniMax-M2.1 Preview,minimax/minimax-m2.1-preview,,,,,MiniMax-M2.1 Preview,rule,,28
+LMArena (categories and other arenas),MiniMax-M2.5,minimax/minimax-m2.5,,,,,MiniMax-M2.5,yugos-exact,,28
+LMArena (categories and other arenas),MiniMax-M2.7,minimax/minimax-m2.7,,,,,MiniMax-M2.7,yugos-exact,,28
+LMArena (categories and other arenas),MiniMax-M3,minimax/minimax-m3,,,,,MiniMax-M3,yugos-exact,,30
+LMArena (categories and other arenas),MiniMax-M3.1-Flash,minimax/minimax-m3.1-flash,,,,,MiniMax-M3.1-Flash,yugos-exact,,1
+LMArena (categories and other arenas),Ministral 8B (2410),mistral/ministral-8b-2410,,,,,Ministral 8B 2410,rule,,22
+LMArena (categories and other arenas),Mistral 7B Instruct,mistral/mistral-7b-instruct,,,,,Mistral 7B Instruct,rule,,24
+LMArena (categories and other arenas),Mistral 7B Instruct v0.2,mistral/mistral-7b-instruct-v0.2,,,,,Mistral 7B Instruct v0.2,rule,,26
+LMArena (categories and other arenas),Mistral Large (2402),mistral/mistral-large-2402,,,,,Mistral Large 2402,rule,,28
+LMArena (categories and other arenas),Mistral Large (2411),mistral/mistral-large-2411,,,,,Mistral Large 2411,override,mistral-large-2411 (Large 2.1),27
+LMArena (categories and other arenas),Mistral Large 2 (2407),mistral/mistral-large-2407,,,,,Mistral Large 2 2407,override,same model: version number plus its date tag,27
+LMArena (categories and other arenas),Mistral Large 3,mistral/mistral-large-3,,,,,Mistral Large 3,rule,,29
+LMArena (categories and other arenas),Mistral Large 4,mistral/mistral-large-4-0,,,,,Mistral Large 4,yugos-exact,,25
+LMArena (categories and other arenas),Mistral Medium,mistral/mistral-medium,,,,,Mistral Medium,rule,,27
+LMArena (categories and other arenas),Mistral Medium 3 (2505),mistral/mistral-medium-3-2505,,,,,Mistral Medium 3 2505,rule,,28
+LMArena (categories and other arenas),Mistral Medium 3.1 (2508),mistral/mistral-medium-3.1-2508,,,,,Mistral Medium 3.1 2508,rule,,28
+LMArena (categories and other arenas),Mistral Medium 3.5,mistral/mistral-medium-3-5,,,,,Mistral Medium 3.5,yugos-exact,,28
+LMArena (categories and other arenas),Mistral Small 24B Instruct (2501),mistral/mistral-small-24b-instruct-2501,,,,,Mistral Small 24B Instruct 2501,yugos-exact,,26
+LMArena (categories and other arenas),Mistral Small 3.1 24B Instruct (2503),mistral/mistral-small-3.1-24b-instruct,,,,,Mistral Small 3.1 24B Instruct 2503,override,Mistral Small 3.1 is mistral-small-2503 (24B instruct),28
+LMArena (categories and other arenas),Mistral Small 3.2 (2506),mistral/mistral-small-3.2-24b-instruct,,,,,Mistral Small 3.2 2506,override,Mistral Small 3.2 is mistral-small-2506 (24B instruct),28
+LMArena (categories and other arenas),Mixtral 8x22B Instruct v0.1,mistral/mixtral-8x22b-instruct-v0.1,,,,,Mixtral 8x22B Instruct v0.1,rule,,28
+LMArena (categories and other arenas),Mixtral 8x7B Instruct v0.1,mistral/mixtral-8x7b-instruct-v0.1,,,,,Mixtral 8x7B Instruct v0.1,rule,,28
+LMArena (categories and other arenas),Mochi 1,genmo/mochi-1,,,,,Mochi 1,rule,,1
+LMArena (categories and other arenas),Molmo 2 8B,allenai/molmo-2-8b,,,,,Molmo 2 8B,rule,,6
+LMArena (categories and other arenas),Muse Ember (Max),meta/muse-ember,max,,,,Muse Ember,yugos-exact,,1
+LMArena (categories and other arenas),Muse Glimmer,meta/muse-glimmer,,,,,Muse Glimmer,rule,,22
+LMArena (categories and other arenas),Muse Image,meta/muse-image,,,,,Muse Image,rule,,2
+LMArena (categories and other arenas),Muse Spark,meta/muse-spark,,,,,Muse Spark,rule,,27
+LMArena (categories and other arenas),Muse Spark 1.1,meta/muse-spark-1.1,,,,,Muse Spark 1.1,yugos-exact,,30
+LMArena (categories and other arenas),Muse Spark 1.2 (xHigh),meta/muse-spark-1.2,xhigh,,,,Muse Spark 1.2,yugos-exact,,29
+LMArena (categories and other arenas),Muse Spark 1.3 (Max),meta/muse-spark-1.3,max,,,,Muse Spark 1.3,yugos-exact,,30
+LMArena (categories and other arenas),Muse Spark 1.3 (xHigh),meta/muse-spark-1.3,xhigh,,,,Muse Spark 1.3,yugos-exact,,1
+LMArena (categories and other arenas),Muse Video,meta/muse-video,,,,,Muse Video,rule,,1
+LMArena (categories and other arenas),Muse Wonder (Max),meta/muse-wonder,max,,,,Muse Wonder,yugos-exact,,29
+LMArena (categories and other arenas),Muse Wonder Full (Max),meta/muse-wonder-full,max,,,,Muse Wonder Full,rule,,1
+LMArena (categories and other arenas),NVIDIA-Nemotron-3-Nano-30B-A3B (BF16),nvidia/nemotron-3-nano-30b-a3b,,bf16,,,NVIDIA-Nemotron-3-Nano-30B-A3B,yugos-exact,,28
+LMArena (categories and other arenas),NVIDIA-Nemotron-3-Super-120B-A12B,nvidia/nemotron-3-super-120b-a12b,,,,,NVIDIA-Nemotron-3-Super-120B-A12B,yugos-exact,,26
+LMArena (categories and other arenas),NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4),nvidia/nemotron-3-ultra-550b-a55b,,nvfp4,,,NVIDIA-Nemotron-3-Ultra-550B-A55B,yugos-exact,,27
+LMArena (categories and other arenas),NVIDIA-Nemotron-3.5-Lightning-30B-A3B (NVFP4),nvidia/nemotron-3.5-lightning-30b-a3b,,nvfp4,,,NVIDIA-Nemotron-3.5-Lightning-30B-A3B,rule,,28
+LMArena (categories and other arenas),NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4),nvidia/nemotron-3.5-super-vl-120b-a12b,,nvfp4,,,NVIDIA-Nemotron-3.5-Super-VL-120B-A12B,rule,,24
+LMArena (categories and other arenas),Nemotron 3 Ultra,nvidia/nemotron-3-ultra,,,,,Nemotron 3 Ultra,rule,,1
+LMArena (categories and other arenas),Nemotron-4 340B Instruct,nvidia/nemotron-4-340b-instruct,,,,,Nemotron-4 340B Instruct,rule,,27
+LMArena (categories and other arenas),Nous Hermes 2 Mixtral 8x7B DPO,nous-research/nous-hermes-2-mixtral-8x7b-dpo,,,,,Nous Hermes 2 Mixtral 8x7B DPO,rule,,18
+LMArena (categories and other arenas),OLMo 2 32B Instruct (0325),allenai/olmo-2-32b-instruct-0325,,,,,OLMo 2 32B Instruct 0325,rule,,21
+LMArena (categories and other arenas),OLMo 7B Instruct,allenai/olmo-7b-instruct,,,,,OLMo 7B Instruct,rule,,20
+LMArena (categories and other arenas),Olmo 3 32B Think,allenai/olmo-3-32b-think,,,,,Olmo 3 32B Think,rule,,25
+LMArena (categories and other arenas),Olmo 3.1 32B Instruct,allenai/olmo-3.1-32b-instruct,,,,,Olmo 3.1 32B Instruct,rule,,27
+LMArena (categories and other arenas),Olmo 3.1 32B Think,allenai/olmo-3.1-32b-think,,,,,Olmo 3.1 32B Think,rule,,26
+LMArena (categories and other arenas),OpenAssistant Pythia 12B,laion/openassistant-pythia-12b,,,,,OpenAssistant Pythia 12B,rule,,19
+LMArena (categories and other arenas),OpenChat 3.5,openchat/openchat-3.5,,,,,OpenChat 3.5,rule,,22
+LMArena (categories and other arenas),OpenChat 3.5 (0106),openchat/openchat-3.5-0106,,,,,OpenChat 3.5 0106,rule,,24
+LMArena (categories and other arenas),OpenHermes 2.5 Mistral 7B,unknown/openhermes-2.5-mistral-7b,,,,,OpenHermes 2.5 Mistral 7B,rule,,20
+LMArena (categories and other arenas),P-Image,unknown/p-image,,,,,P-Image,rule,,1
+LMArena (categories and other arenas),P-Image-Edit,unknown/p-image-edit,,,,,P-Image-Edit,rule,,1
+LMArena (categories and other arenas),P-Video,unknown/p-video,,,,,P-Video,rule,,2
+LMArena (categories and other arenas),PaLM 2,google/palm-2,,,,,PaLM 2,rule,,20
+LMArena (categories and other arenas),Phi-3 Medium 4K Instruct,microsoft/phi-3-medium-4k-instruct,,,,,Phi-3 Medium 4K Instruct,rule,,27
+LMArena (categories and other arenas),Phi-3 Mini 128K Instruct,microsoft/phi-3-mini-128k-instruct,,,,,Phi-3 Mini 128K Instruct,rule,,27
+LMArena (categories and other arenas),Phi-3 Mini 4K Instruct,microsoft/phi-3-mini-4k-instruct,,,,,Phi-3 Mini 4K Instruct,rule,,27
+LMArena (categories and other arenas),Phi-3 Mini 4K Instruct (June 2024),microsoft/phi-3-mini-4k-instruct,,,June 2024,,Phi-3 Mini 4K Instruct,rule,,25
+LMArena (categories and other arenas),Phi-3 Small 8K Instruct,microsoft/phi-3-small-8k-instruct,,,,,Phi-3 Small 8K Instruct,rule,,27
+LMArena (categories and other arenas),Phi-4,microsoft/phi-4,,,,,Phi-4,yugos-exact,,27
+LMArena (categories and other arenas),Pika 2.2,pika/pika-2.2,,,,,Pika 2.2,rule,,2
+LMArena (categories and other arenas),PixVerse V5.6,unknown/pixverse-v5.6,,,,,PixVerse V5.6,rule,,2
+LMArena (categories and other arenas),QwQ-32B,alibaba/qwq-32b,,,,,QwQ-32B,rule,,28
+LMArena (categories and other arenas),QwQ-32B-Preview,alibaba/qwq-32b-preview,,,,,QwQ-32B-Preview,rule,,21
+LMArena (categories and other arenas),Qwen-14B-Chat,alibaba/qwen-14b-chat,,,,,Qwen-14B-Chat,rule,,20
+LMArena (categories and other arenas),Qwen-Image,alibaba/qwen-image,,,,,Qwen-Image,rule,,1
+LMArena (categories and other arenas),Qwen-Image (2512),alibaba/qwen-image-2512,,,,,Qwen-Image 2512,rule,,1
+LMArena (categories and other arenas),Qwen-Image (Prompt Extend),alibaba/qwen-image-prompt-extend,,,,,Qwen-Image Prompt Extend,rule,,1
+LMArena (categories and other arenas),Qwen-Image-2.0-Pro (2026-06-22),alibaba/qwen-image-2.0-pro,,,2026-06-22,,Qwen-Image-2.0-Pro,rule,,2
+LMArena (categories and other arenas),Qwen-Image-2.1,alibaba/qwen-image-2.1,,,,,Qwen-Image-2.1,rule,,2
+LMArena (categories and other arenas),Qwen-Image-3.0-Pro,alibaba/qwen-image-3.0-pro,,,,,Qwen-Image-3.0-Pro,rule,,1
+LMArena (categories and other arenas),Qwen-Image-Edit,alibaba/qwen-image-edit,,,,,Qwen-Image-Edit,rule,,1
+LMArena (categories and other arenas),Qwen-Image-Edit (2511),alibaba/qwen-image-edit-2511,,,,,Qwen-Image-Edit 2511,rule,,1
+LMArena (categories and other arenas),Qwen-Max (0919),alibaba/qwen-max-0919,,,,,Qwen-Max 0919,rule,,27
+LMArena (categories and other arenas),Qwen-Plus (0125),alibaba/qwen-plus-0125,,,,,Qwen-Plus 0125,rule,,23
+LMArena (categories and other arenas),Qwen1.5-110B-Chat,alibaba/qwen1.5-110b-chat,,,,,Qwen1.5-110B-Chat,rule,,27
+LMArena (categories and other arenas),Qwen1.5-14B-Chat,alibaba/qwen1.5-14b-chat,,,,,Qwen1.5-14B-Chat,rule,,26
+LMArena (categories and other arenas),Qwen1.5-32B-Chat,alibaba/qwen1.5-32b-chat,,,,,Qwen1.5-32B-Chat,rule,,27
+LMArena (categories and other arenas),Qwen1.5-4B-Chat,alibaba/qwen1.5-4b-chat,,,,,Qwen1.5-4B-Chat,rule,,23
+LMArena (categories and other arenas),Qwen1.5-72B-Chat,alibaba/qwen1.5-72b-chat,,,,,Qwen1.5-72B-Chat,rule,,27
+LMArena (categories and other arenas),Qwen1.5-7B-Chat,alibaba/qwen1.5-7b-chat,,,,,Qwen1.5-7B-Chat,rule,,22
+LMArena (categories and other arenas),Qwen2-72B-Instruct,alibaba/qwen2-72b-instruct,,,,,Qwen2-72B-Instruct,rule,,27
+LMArena (categories and other arenas),Qwen2.5-72B-Instruct,alibaba/qwen-2.5-72b-instruct,,,,,Qwen2.5-72B-Instruct,yugos-exact,,27
+LMArena (categories and other arenas),Qwen2.5-Coder-32B-Instruct,alibaba/qwen-2.5-coder-32b-instruct,,,,,Qwen2.5-Coder-32B-Instruct,yugos-exact,,22
+LMArena (categories and other arenas),Qwen2.5-Max,alibaba/qwen2.5-max,,,,,Qwen2.5-Max,rule,,28
+LMArena (categories and other arenas),Qwen2.5-Plus (1127),alibaba/qwen2.5-plus-1127,,,,,Qwen2.5-Plus 1127,rule,,24
+LMArena (categories and other arenas),Qwen3-235B-A22B,alibaba/qwen3-235b-a22b,,,,,Qwen3-235B-A22B,rule,,28
+LMArena (categories and other arenas),Qwen3-235B-A22B (Non-Thinking),alibaba/qwen3-235b-a22b,none,,,,Qwen3-235B-A22B,rule,,28
+LMArena (categories and other arenas),Qwen3-235B-A22B-Instruct (2507),alibaba/qwen3-235b-a22b-2507,,,,,Qwen3-235B-A22B-Instruct 2507,yugos-loose,,28
+LMArena (categories and other arenas),Qwen3-235B-A22B-Thinking (2507),alibaba/qwen3-235b-a22b-thinking-2507,,,,,Qwen3-235B-A22B-Thinking 2507,yugos-exact,,27
+LMArena (categories and other arenas),Qwen3-30B-A3B,alibaba/qwen3-30b-a3b,,,,,Qwen3-30B-A3B,yugos-exact,,28
+LMArena (categories and other arenas),Qwen3-30B-A3B-Instruct (2507),alibaba/qwen3-30b-a3b-instruct-2507,,,,,Qwen3-30B-A3B-Instruct 2507,yugos-exact,,28
+LMArena (categories and other arenas),Qwen3-32B,alibaba/qwen3-32b,,,,,Qwen3-32B,yugos-exact,,23
+LMArena (categories and other arenas),Qwen3-Coder-480B-A35B-Instruct,alibaba/qwen-3-coder-480b-a35b-instruct,,,,,Qwen3-Coder-480B-A35B-Instruct,rule,,28
+LMArena (categories and other arenas),Qwen3-Max (2025-09-23),alibaba/qwen3-max,,,2025-09-23,,Qwen3-Max,rule,,26
+LMArena (categories and other arenas),Qwen3-Max-Preview,alibaba/qwen3-max-preview,,,,,Qwen3-Max-Preview,rule,,28
+LMArena (categories and other arenas),Qwen3-Next-80B-A3B-Instruct,alibaba/qwen3-next-80b-a3b-instruct,,,,,Qwen3-Next-80B-A3B-Instruct,yugos-exact,,28
+LMArena (categories and other arenas),Qwen3-Next-80B-A3B-Thinking,alibaba/qwen-3-next-80b-a3b-thinking,,,,,Qwen3-Next-80B-A3B-Thinking,rule,,28
+LMArena (categories and other arenas),Qwen3-VL-235B-A22B-Instruct,alibaba/qwen3-vl-235b-a22b-instruct,,,,,Qwen3-VL-235B-A22B-Instruct,yugos-exact,,28
+LMArena (categories and other arenas),Qwen3-VL-235B-A22B-Thinking,alibaba/qwen3-vl-235b-a22b-thinking,,,,,Qwen3-VL-235B-A22B-Thinking,rule,,26
+LMArena (categories and other arenas),Qwen3.5-122B-A10B,alibaba/qwen3.5-122b-a10b,,,,,Qwen3.5-122B-A10B,yugos-exact,,28
+LMArena (categories and other arenas),Qwen3.5-27B,alibaba/qwen3.5-27b,,,,,Qwen3.5-27B,yugos-exact,,28
+LMArena (categories and other arenas),Qwen3.5-35B-A3B,alibaba/qwen3.5-35b-a3b,,,,,Qwen3.5-35B-A3B,yugos-exact,,28
+LMArena (categories and other arenas),Qwen3.5-397B-A17B,alibaba/qwen3.5-397b-a17b,,,,,Qwen3.5-397B-A17B,yugos-exact,,29
+LMArena (categories and other arenas),Qwen3.5-Flash,alibaba/qwen3.5-flash,,,,,Qwen3.5-Flash,yugos-exact,,28
+LMArena (categories and other arenas),Qwen3.5-Max-Preview,alibaba/qwen3.5-max-preview,,,,,Qwen3.5-Max-Preview,rule,,28
+LMArena (categories and other arenas),Qwen3.6-Max-Preview,alibaba/qwen-3.6-max-preview,,,,,Qwen3.6-Max-Preview,rule,,24
+LMArena (categories and other arenas),Qwen3.6-Plus,alibaba/qwen3.6-plus,,,,,Qwen3.6-Plus,yugos-exact,,29
+LMArena (categories and other arenas),Qwen3.7-Max,alibaba/qwen3.7-max,,,,,Qwen3.7-Max,yugos-exact,,1
+LMArena (categories and other arenas),Qwen3.7-Max-Preview,alibaba/qwen3.7-max-preview,,,,,Qwen3.7-Max-Preview,rule,,22
+LMArena (categories and other arenas),Qwen3.7-Plus,alibaba/qwen3.7-plus,,,,,Qwen3.7-Plus,yugos-exact,,29
+LMArena (categories and other arenas),Qwen3.8-27B,alibaba/qwen3.8-27b,,,,,Qwen3.8-27B,yugos-exact,,30
+LMArena (categories and other arenas),Qwen3.8-Flash-Next,alibaba/qwen3.8-flash-next,,,,,Qwen3.8-Flash-Next,rule,,1
+LMArena (categories and other arenas),Qwen3.8-Max,alibaba/qwen3.8-max,,,,,Qwen3.8-Max,yugos-exact,,30
+LMArena (categories and other arenas),Qwen3.8-Max (0902),alibaba/qwen3.8-max-0902,,,,,Qwen3.8-Max 0902,yugos-exact,,1
+LMArena (categories and other arenas),Qwen4-Max (xHigh),alibaba/qwen4-max,xhigh,,,,Qwen4-Max,yugos-exact,,2
+LMArena (categories and other arenas),RWKV-4 Raven 14B,rwkv/rwkv-4-raven-14b,,,,,RWKV-4 Raven 14B,rule,,19
+LMArena (categories and other arenas),Recraft V3,recraft/recraft-v3,,,,,Recraft V3,rule,,1
+LMArena (categories and other arenas),Recraft V4,recraft/recraft-v4,,,,,Recraft V4,rule,,1
+LMArena (categories and other arenas),Recraft V4.1 Flash,recraft/recraft-v4.1-flash,,,,,Recraft V4.1 Flash,rule,,1
+LMArena (categories and other arenas),Recraft V4.1 Flash V2,recraft/recraft-v4.1-flash-v2,,,,,Recraft V4.1 Flash V2,rule,,1
+LMArena (categories and other arenas),Recraft V4.1 Pro,recraft/recraft-v4.1-pro,,,,,Recraft V4.1 Pro,rule,,1
+LMArena (categories and other arenas),Recraft V4.1 Utility Pro,recraft/recraft-v4.1-utility-pro,,,,,Recraft V4.1 Utility Pro,rule,,1
+LMArena (categories and other arenas),Reka Core (20240904),reka/reka-core,,,20240904,,Reka Core,rule,,23
+LMArena (categories and other arenas),Reka Flash (20240904),reka/reka-flash,,,20240904,,Reka Flash,rule,,23
+LMArena (categories and other arenas),Reka Flash 21B (20240226),reka/reka-flash-21b,,,20240226,,Reka Flash 21B,rule,,27
+LMArena (categories and other arenas),"Reka Flash 21B (Online, 20240226)",reka/reka-flash-21b-online,,,"Online, 20240226",,"Reka Flash 21B Online,",rule,,27
+LMArena (categories and other arenas),Reve 2.0,reve/reve-2.0,,,,,Reve 2.0,rule,,2
+LMArena (categories and other arenas),Reve 2.1,reve/reve-2.1,,,,,Reve 2.1,rule,,2
+LMArena (categories and other arenas),Reve Edit Fast,reve/reve-edit-fast,,,,,Reve Edit Fast,rule,,1
+LMArena (categories and other arenas),Reve v1,reve/reve-v1,,,,,Reve v1,rule,,1
+LMArena (categories and other arenas),Reve v1.1,reve/reve-v1.1,,,,,Reve v1.1,rule,,1
+LMArena (categories and other arenas),Reve v1.1 Fast,reve/reve-v1.1-fast,,,,,Reve v1.1 Fast,rule,,1
+LMArena (categories and other arenas),Reve v1.5,reve/reve-v1.5,,,,,Reve v1.5,rule,,1
+LMArena (categories and other arenas),Ring-flash-2.0,ant-group/ring-flash-2.0,,,,,Ring-flash-2.0,rule,,25
+LMArena (categories and other arenas),Runway Gen-4,runway/runway-gen-4,,,,,Runway Gen-4,rule,,1
+LMArena (categories and other arenas),Runway Gen-4 Aleph,runway/runway-gen-4-aleph,,,,,Runway Gen-4 Aleph,rule,,1
+LMArena (categories and other arenas),Runway Gen-4 Turbo,runway/runway-gen-4-turbo,,,,,Runway Gen-4 Turbo,rule,,1
+LMArena (categories and other arenas),Runway Gen-4.5,runway/runway-gen-4.5,,,,,Runway Gen-4.5,rule,,1
+LMArena (categories and other arenas),SOLAR 10.7B Instruct v1.0,upstage/solar-10.7b-instruct-v1.0,,,,,SOLAR 10.7B Instruct v1.0,rule,,18
+LMArena (categories and other arenas),Seed2.1 Pro Preview,bytedance/seed2.1-pro-preview,,,,,Seed2.1 Pro Preview,rule,,1
+LMArena (categories and other arenas),SeedEdit 3.0,bytedance/seededit-3.0,,,,,SeedEdit 3.0,rule,,1
+LMArena (categories and other arenas),Seedance 1.0 Lite,bytedance/seedance-1.0-lite,,,,,Seedance 1.0 Lite,rule,,2
+LMArena (categories and other arenas),Seedance 1.0 Pro,bytedance/seedance-1.0-pro,,,,,Seedance 1.0 Pro,rule,,2
+LMArena (categories and other arenas),Seedance 1.5 Pro,bytedance/seedance-1.5-pro,,,,,Seedance 1.5 Pro,rule,,2
+LMArena (categories and other arenas),Seedream 3.0,bytedance/seedream-3.0,,,,,Seedream 3.0,rule,,1
+LMArena (categories and other arenas),Seedream 4.0 (2K),bytedance/seedream-4.0-2k,,,,,Seedream 4.0 2K,rule,,2
+LMArena (categories and other arenas),"Seedream 4.0 (High Res, fal)",bytedance/seedream-4.0-high-res-fal,high,,,,"Seedream 4.0 High Res, fal",rule,,2
+LMArena (categories and other arenas),Seedream 4.0 (fal),bytedance/seedream-4.0-fal,,,,,Seedream 4.0 fal,rule,,2
+LMArena (categories and other arenas),Seedream 4.5,bytedance/seedream-4.5,,,,,Seedream 4.5,rule,,2
+LMArena (categories and other arenas),Seedream 5.0 Lite,bytedance/seedream-5.0-lite,,,,,Seedream 5.0 Lite,rule,,2
+LMArena (categories and other arenas),Seedream 5.0 Pro,bytedance/seedream-5.0-pro,,,,,Seedream 5.0 Pro,rule,,2
+LMArena (categories and other arenas),SkyReels V4,skyreel/skyreels-v4,,,,,SkyReels V4,rule,,3
+LMArena (categories and other arenas),SmolLM2 1.7B Instruct,huggingface/smollm2-1.7b-instruct,,,,,SmolLM2 1.7B Instruct,rule,,18
+LMArena (categories and other arenas),Snowflake Arctic Instruct,snowflake/snowflake-arctic-instruct,,,,,Snowflake Arctic Instruct,rule,,27
+LMArena (categories and other arenas),Solar Pro 4,upstage/solar-pro4,,,,,Solar Pro 4,yugos-exact,,29
+LMArena (categories and other arenas),Sora,openai/sora,,,,,Sora,rule,,1
+LMArena (categories and other arenas),Sora 2,openai/sora-2,,,,,Sora 2,rule,,1
+LMArena (categories and other arenas),Sora 2 Pro,openai/sora-2-pro,,,,,Sora 2 Pro,rule,,1
+LMArena (categories and other arenas),Spark-X2.6,synlan/spark-x2.6,,,,,Spark-X2.6,rule,,1
+LMArena (categories and other arenas),Stable Diffusion 3.5 Large,unknown/stable-diffusion-3.5-large,,,,,Stable Diffusion 3.5 Large,rule,,1
+LMArena (categories and other arenas),StableLM Tuned Alpha 7B,stability-ai/stablelm-tuned-alpha-7b,,,,,StableLM Tuned Alpha 7B,rule,,16
+LMArena (categories and other arenas),Starling LM 7B Alpha,unknown/starling-lm-7b-alpha,,,,,Starling LM 7B Alpha,rule,,24
+LMArena (categories and other arenas),Starling LM 7B Beta,unknown/starling-lm-7b-beta,,,,,Starling LM 7B Beta,rule,,25
+LMArena (categories and other arenas),Step 5 Preview,stepfun/step-5-preview,,,,,Step 5 Preview,yugos-exact,,29
+LMArena (categories and other arenas),Step 5 Preview (High),stepfun/step-5-preview,high,,,,Step 5 Preview,yugos-exact,,1
+LMArena (categories and other arenas),Step-1o Turbo (202506),stepfun/step-1o-turbo-202506,,,,,Step-1o Turbo 202506,rule,,24
+LMArena (categories and other arenas),Step-2 16K Exp (202412),stepfun/step-2-16k-exp-202412,,,,,Step-2 16K Exp 202412,rule,,22
+LMArena (categories and other arenas),Step-3,stepfun/step-3,,,,,Step-3,rule,,26
+LMArena (categories and other arenas),Step-3.5-Flash,stepfun/step-3.5-flash,,,,,Step-3.5-Flash,rule,,28
+LMArena (categories and other arenas),Step1X-Edit,stepfun/step1x-edit,,,,,Step1X-Edit,rule,,1
+LMArena (categories and other arenas),StripedHyena Nous 7B,unknown/stripedhyena-nous-7b,,,,,StripedHyena Nous 7B,rule,,20
+LMArena (categories and other arenas),Trinity Large Preview,arcee-ai/trinity-large-preview,,,,,Trinity Large Preview,rule,,28
+LMArena (categories and other arenas),Trinity Large Thinking,arcee-ai/trinity-large-thinking,,,,,Trinity Large Thinking,rule,,28
+LMArena (categories and other arenas),Tulu 2 DPO 70B,allenai/tulu-2-dpo-70b,,,,,Tulu 2 DPO 70B,rule,,20
+LMArena (categories and other arenas),UNI-1.1,luma-ai/uni-1.1,,,,,UNI-1.1,rule,,2
+LMArena (categories and other arenas),UNI-1.1 Max,luma-ai/uni-1.1-max,,,,,UNI-1.1 Max,rule,,2
+LMArena (categories and other arenas),Veo 2,google/veo-2,,,,,Veo 2,rule,,2
+LMArena (categories and other arenas),Veo 3,google/veo-3,,,,,Veo 3,rule,,2
+LMArena (categories and other arenas),Veo 3 (Audio),google/veo-3-audio,,,,,Veo 3 Audio,rule,,2
+LMArena (categories and other arenas),Veo 3 Fast,google/veo-3-fast,,,,,Veo 3 Fast,rule,,2
+LMArena (categories and other arenas),Veo 3 Fast (Audio),google/veo-3-fast-audio,,,,,Veo 3 Fast Audio,rule,,2
+LMArena (categories and other arenas),Veo 3.1 (Audio),google/veo-3.1-audio,,,,,Veo 3.1 Audio,rule,,2
+LMArena (categories and other arenas),"Veo 3.1 (Audio, 1080p)",google/veo-3.1-audio-1080p,,,,,"Veo 3.1 Audio, 1080p",rule,,2
+LMArena (categories and other arenas),Veo 3.1 Fast (Audio),google/veo-3.1-fast-audio,,,,,Veo 3.1 Fast Audio,rule,,2
+LMArena (categories and other arenas),"Veo 3.1 Fast (Audio, 1080p)",google/veo-3.1-fast-audio-1080p,,,,,"Veo 3.1 Fast Audio, 1080p",rule,,2
+LMArena (categories and other arenas),Vicuna 13B,lmsys/vicuna-13b,,,,,Vicuna 13B,rule,,26
+LMArena (categories and other arenas),Vicuna 33B,lmsys/vicuna-33b,,,,,Vicuna 33B,rule,,26
+LMArena (categories and other arenas),Vicuna 7B,lmsys/vicuna-7b,,,,,Vicuna 7B,rule,,20
+LMArena (categories and other arenas),Vidu Q2 Pro,shengshu/vidu-q2-pro,,,,,Vidu Q2 Pro,rule,,1
+LMArena (categories and other arenas),Vidu Q2 Turbo,shengshu/vidu-q2-turbo,,,,,Vidu Q2 Turbo,rule,,1
+LMArena (categories and other arenas),Vidu Q3 Pro,shengshu/vidu-q3-pro,,,,,Vidu Q3 Pro,rule,,1
+LMArena (categories and other arenas),Wan 2.2 A14B,alibaba/wan-2.2-a14b,,,,,Wan 2.2 A14B,rule,,2
+LMArena (categories and other arenas),Wan 2.5 Preview,alibaba/wan-2.5-preview,,,,,Wan 2.5 Preview,rule,,4
+LMArena (categories and other arenas),Wan 2.6,alibaba/wan-2.6,,,,,Wan 2.6,rule,,3
+LMArena (categories and other arenas),Wan 2.6 Image,alibaba/wan-2.6-image,,,,,Wan 2.6 Image,rule,,1
+LMArena (categories and other arenas),Wan 2.7,alibaba/wan-2.7,,,,,Wan 2.7,rule,,2
+LMArena (categories and other arenas),Wan 2.7 Image,alibaba/wan-2.7-image,,,,,Wan 2.7 Image,rule,,2
+LMArena (categories and other arenas),Wan 2.7 Image Pro,alibaba/wan-2.7-image-pro,,,,,Wan 2.7 Image Pro,rule,,2
+LMArena (categories and other arenas),Wan 3.0,alibaba/wan-3.0,,,,,Wan 3.0,rule,,3
+LMArena (categories and other arenas),WizardLM 13B,microsoft/wizardlm-13b,,,,,WizardLM 13B,rule,,20
+LMArena (categories and other arenas),WizardLM 70B,microsoft/wizardlm-70b,,,,,WizardLM 70B,rule,,22
+LMArena (categories and other arenas),Yi 1.5 34B Chat,01-ai/yi-1.5-34b-chat,,,,,Yi 1.5 34B Chat,rule,,27
+LMArena (categories and other arenas),Yi 34B Chat,01-ai/yi-34b-chat,,,,,Yi 34B Chat,rule,,27
+LMArena (categories and other arenas),Yi Lightning,01-ai/yi-lightning,,,,,Yi Lightning,rule,,27
+LMArena (categories and other arenas),Z-Image-Turbo,alibaba/z-image-turbo,,,,,Z-Image-Turbo,rule,,1
+LMArena (categories and other arenas),Zephyr 7B Alpha,huggingface/zephyr-7b-alpha,,,,,Zephyr 7B Alpha,rule,,13
+LMArena (categories and other arenas),Zephyr 7B Beta,huggingface/zephyr-7b-beta,,,,,Zephyr 7B Beta,rule,,25
+LMArena (categories and other arenas),Zephyr ORPO 141B A35B v0.1,huggingface/zephyr-orpo-141b-a35b-v0.1,,,,,Zephyr ORPO 141B A35B v0.1,rule,,22
+LMArena (categories and other arenas),amazon-nova-experimental-chat (10-09),amazon/amazon-nova-experimental-chat,,,10-09,,amazon-nova-experimental-chat,rule,,17
+LMArena (categories and other arenas),amazon-nova-experimental-chat (10-20),amazon/amazon-nova-experimental-chat,,,10-20,,amazon-nova-experimental-chat,rule,,28
+LMArena (categories and other arenas),amazon-nova-experimental-chat (11-10),amazon/amazon-nova-experimental-chat,,,11-10,,amazon-nova-experimental-chat,rule,,28
+LMArena (categories and other arenas),amazon-nova-experimental-chat (12-10),amazon/amazon-nova-experimental-chat,,,12-10,,amazon-nova-experimental-chat,rule,,22
+LMArena (categories and other arenas),amazon-nova-experimental-chat (26-01-10),amazon/amazon-nova-experimental-chat,,,26-01-10,,amazon-nova-experimental-chat,rule,,23
+LMArena (categories and other arenas),amazon-nova-experimental-chat (26-02-10),amazon/amazon-nova-experimental-chat,,,26-02-10,,amazon-nova-experimental-chat,rule,,21
+LMArena (categories and other arenas),gemini-omni-flash,google/gemini-omni-flash,,,,,gemini-omni-flash,rule,,3
+LMArena (categories and other arenas),gpt-oss-120b,openai/gpt-oss-120b,,,,,gpt-oss-120b,yugos-exact,,28
+LMArena (categories and other arenas),gpt-oss-20b,openai/gpt-oss-20b,,,,,gpt-oss-20b,yugos-exact,,27
+LMArena (categories and other arenas),o1 (2024-12-17),openai/o1,,,2024-12-17,,o1,rule,,27
+LMArena (categories and other arenas),o1-mini,openai/o1-mini,,,,,o1-mini,rule,,27
+LMArena (categories and other arenas),o1-preview,openai/o1-preview,,,,,o1-preview,rule,,27
+LMArena (categories and other arenas),o3 (2025-04-16),openai/o3,,,2025-04-16,,o3,yugos-exact,,28
+LMArena (categories and other arenas),o3-mini,openai/o3-mini,,,,,o3-mini,yugos-exact,,28
+LMArena (categories and other arenas),o3-mini (High),openai/o3-mini,high,,,,o3-mini,yugos-exact,,27
+LMArena (categories and other arenas),o4-mini (2025-04-16),openai/o4-mini,,,2025-04-16,,o4-mini,yugos-exact,,28
+LegalBench (paper),BLOOM-3B,unknown/bloom-3b,,,,,BLOOM-3B,rule,,5
+LegalBench (paper),BLOOM-7B,unknown/bloom-7b,,,,,BLOOM-7B,rule,,5
+LegalBench (paper),Claude-1,anthropic/claude-1,,,,,Claude-1,rule,,5
+LegalBench (paper),Claude-v1,anthropic/claude-1,,,,,Claude-v1,rule,,1
+LegalBench (paper),Falcon-7B-Instruct,tii/falcon-7b-instruct,,,,,Falcon-7B-Instruct,rule,,5
+LegalBench (paper),Flan-T5-XL,google/flan-t5-xl,,,,,Flan-T5-XL,rule,,5
+LegalBench (paper),Flan-T5-XXL,google/flan-t5-xxl,,,,,Flan-T5-XXL,rule,,5
+LegalBench (paper),GPT-3.5,openai/gpt-3.5,,,,,GPT-3.5,rule,,6
+LegalBench (paper),GPT-4,openai/gpt-4,,,,,GPT-4,rule,,6
+LegalBench (paper),Incite-3B-Instruct,unknown/incite-3b-instruct,,,,,Incite-3B-Instruct,rule,,5
+LegalBench (paper),Incite-7B-Base,unknown/incite-7b-base,,,,,Incite-7B-Base,rule,,5
+LegalBench (paper),Incite-7B-Instruct,unknown/incite-7b-instruct,,,,,Incite-7B-Instruct,rule,,5
+LegalBench (paper),LLaMA-2-13B,meta/llama-2-13b,,,,,LLaMA-2-13B,rule,,5
+LegalBench (paper),LLaMA-2-7B,meta/llama-2-7b,,,,,LLaMA-2-7B,rule,,5
+LegalBench (paper),MPT-7B-8k-Instruct,databricks/mpt-7b-8k-instruct,,,,,MPT-7B-8k-Instruct,rule,,5
+LegalBench (paper),OPT-13B,unknown/opt-13b,,,,,OPT-13B,rule,,5
+LegalBench (paper),OPT-2.7B,unknown/opt-2.7b,,,,,OPT-2.7B,rule,,5
+LegalBench (paper),OPT-6.7B,unknown/opt-6.7b,,,,,OPT-6.7B,rule,,5
+LegalBench (paper),Vicuna-13B-16k,lmsys/vicuna-13b-16k,,,,,Vicuna-13B-16k,rule,,5
+LegalBench (paper),Vicuna-7B-16k,lmsys/vicuna-7b-16k,,,,,Vicuna-7B-16k,rule,,5
+LegalBench (paper),WizardLM-13B,microsoft/wizardlm-13b,,,,,WizardLM-13B,rule,,5
 LiveBench,AzeroGPT,soundai/azerogpt,,,,,AzeroGPT,rule,,14
 LiveBench,Beam 1.0,reflection/beam-1.0,,,,,Beam 1.0,rule,,8
 LiveBench,ChatGPT-4o,openai/chatgpt-4o,,,,,ChatGPT-4o,rule,,49
@@ -1905,18 +2748,181 @@ LiveBench,o3-Mini Medium,openai/o3-mini,medium,,,,o3-Mini,yugos-exact,,14
 LiveBench,o4-Mini High,openai/o4-mini,high,,,,o4-Mini,yugos-exact,,14
 LiveBench,o4-Mini Medium,openai/o4-mini,medium,,,,o4-Mini,yugos-exact,,14
 LiveBench,ox-alpha-max,stealth/ox-alpha-max,,,,,ox-alpha-max,rule,,8
-MMLU (Hendrycks et al.),"Chinchilla (70B, few-shot)",google/chinchilla-70b-few-shot,,,,,"Chinchilla 70B, few-shot",rule,,1
-MMLU (Hendrycks et al.),GPT-2,openai/gpt-2,,,,,GPT-2,rule,,1
-MMLU (Hendrycks et al.),"GPT-3 (175B, few-shot)",openai/gpt-3-175b-few-shot,,,,,"GPT-3 175B, few-shot",rule,,1
-MMLU (Hendrycks et al.),"GPT-3 (175B, fine-tuned)",openai/gpt-3-175b-fine-tuned,,,,,"GPT-3 175B, fine-tuned",rule,,1
-MMLU (Hendrycks et al.),"GPT-3 (6.7B, fine-tuned)",openai/gpt-3-6.7b-fine-tuned,,,,,"GPT-3 6.7B, fine-tuned",rule,,1
-MMLU (Hendrycks et al.),"Gopher (280B, few-shot)",google/gopher-280b-few-shot,,,,,"Gopher 280B, few-shot",rule,,1
-MMLU (Hendrycks et al.),Random Baseline,unknown/random-baseline,,,,,Random Baseline,rule,,1
-MMLU (Hendrycks et al.),UnifiedQA,unknown/unifiedqa,,,,,UnifiedQA,rule,,1
-MMLU (Hendrycks et al.),flan-T5-base,google/flan-t5-base,,,,,flan-T5-base,rule,,1
-MMLU (Hendrycks et al.),flan-T5-large,google/flan-t5-large,,,,,flan-T5-large,rule,,1
-MMLU (Hendrycks et al.),flan-T5-small,google/flan-t5-small,,,,,flan-T5-small,rule,,1
-MMLU (Hendrycks et al.),flan-T5-xl,google/flan-t5-xl,,,,,flan-T5-xl,rule,,1
+LiveBench (sub-categories),Claude Fable 5.1,anthropic/claude-fable-5.1,,,,,Claude Fable 5.1,yugos-exact,,33
+LiveBench (sub-categories),Claude Fable 5.2 (xhigh),anthropic/claude-fable-5.2,xhigh,,,,Claude Fable 5.2,yugos-exact,,33
+LiveBench (sub-categories),Claude Haiku 5.5,anthropic/claude-haiku-5.5,,,,,Claude Haiku 5.5,yugos-exact,,33
+LiveBench (sub-categories),Claude Opus 5.5,anthropic/claude-opus-5.5,,,,,Claude Opus 5.5,yugos-exact,,33
+LiveBench (sub-categories),Claude Sonnet 5.5,anthropic/claude-sonnet-5.5,,,,,Claude Sonnet 5.5,yugos-exact,,33
+LiveBench (sub-categories),DeepSeek V4.1 Flash 1017,deepseek/deepseek-v4.1-flash-1017,,,,,DeepSeek V4.1 Flash 1017,yugos-exact,,33
+LiveBench (sub-categories),GLM-5.3 Flash,zhipu/glm-5.3-flash,,,,,GLM-5.3 Flash,yugos-exact,,33
+LiveBench (sub-categories),GPT-5.6 Terra,openai/gpt-5.6-terra,,,,,GPT-5.6 Terra,yugos-exact,,33
+LiveBench (sub-categories),GPT-6 Astra,openai/gpt-6-astra,,,,,GPT-6 Astra,yugos-exact,,33
+LiveBench (sub-categories),GPT-6 Luna,openai/gpt-6-luna,,,,,GPT-6 Luna,yugos-exact,,33
+LiveBench (sub-categories),GPT-6.1 Sol,openai/gpt-6.1-sol,,,,,GPT-6.1 Sol,yugos-exact,,33
+LiveBench (sub-categories),GPT-6.1 Terra,openai/gpt-6.1-terra,,,,,GPT-6.1 Terra,yugos-exact,,33
+LiveBench (sub-categories),GPT-6.2 Astra,openai/gpt-6.2-astra,,,,,GPT-6.2 Astra,yugos-exact,,33
+LiveBench (sub-categories),GPT-6.2 Sol,openai/gpt-6.2-sol,,,,,GPT-6.2 Sol,yugos-exact,,33
+LiveBench (sub-categories),Gemini 3.8 Flash,google/gemini-3.8-flash,,,,,Gemini 3.8 Flash,yugos-exact,,33
+LiveBench (sub-categories),Gemini 4 Argon,google/gemini-4-argon,,,,,Gemini 4 Argon,yugos-exact,,33
+LiveBench (sub-categories),Gemini 4 Carbon,google/gemini-4-carbon,,,,,Gemini 4 Carbon,yugos-exact,,33
+LiveBench (sub-categories),Gemini 4 Hydrogen,google/gemini-4-hydrogen,,,,,Gemini 4 Hydrogen,yugos-exact,,33
+LiveBench (sub-categories),Gemini 4 Neon,google/gemini-4-neon,,,,,Gemini 4 Neon,yugos-exact,,33
+LiveBench (sub-categories),Gemma 4 31B,google/gemma-4-31b,,,,,Gemma 4 31B,rule,,33
+LiveBench (sub-categories),Grok 4.6,xai/grok-4.6,,,,,Grok 4.6,yugos-exact,,33
+LiveBench (sub-categories),Grok 4.7,xai/grok-4.7,,,,,Grok 4.7,yugos-exact,,33
+LiveBench (sub-categories),Inkling,thinking-machines-lab/inkling,,,,,Inkling,yugos-exact,,33
+LiveBench (sub-categories),Inkling 2 Mini,thinking-machines-lab/inkling-2-mini,,,,,Inkling 2 Mini,yugos-exact,,33
+LiveBench (sub-categories),Inkling 2 Small,thinking-machines-lab/inkling-2-small,,,,,Inkling 2 Small,yugos-exact,,33
+LiveBench (sub-categories),Kimi K3,moonshot/kimi-k3,,,,,Kimi K3,yugos-exact,,33
+LiveBench (sub-categories),Kimi K3.1 Pro,moonshot/kimi-k3.1-pro,,,,,Kimi K3.1 Pro,yugos-exact,,33
+LiveBench (sub-categories),MiMo V2.6 Pro,xiaomi/mimo-v2.6-pro,,,,,MiMo V2.6 Pro,yugos-exact,,33
+LiveBench (sub-categories),MiniMax M3.1 Flash,minimax/minimax-m3.1-flash,,,,,MiniMax M3.1 Flash,yugos-exact,,33
+LiveBench (sub-categories),Mistral Large 4,mistral/mistral-large-4-0,,,,,Mistral Large 4,yugos-exact,,33
+LiveBench (sub-categories),Mistral Large 4 1029,mistral/mistral-large-4-1029,,,,,Mistral Large 4 1029,rule,,33
+LiveBench (sub-categories),Muse Spark 1.3,meta/muse-spark-1.3,,,,,Muse Spark 1.3,yugos-exact,,33
+LiveBench (sub-categories),Muse Spark Open,meta/muse-spark-open,,,,,Muse Spark Open,yugos-exact,,33
+LiveBench (sub-categories),Muse Wonder 1.0,meta/muse-wonder-1.0,,,,,Muse Wonder 1.0,rule,,33
+LiveBench (sub-categories),Nemotron 3.5 Super VL,nvidia/nemotron-3.5-super-vl,,,,,Nemotron 3.5 Super VL,yugos-exact,,33
+LiveBench (sub-categories),Nemotron 3.5 Super VL (NVFP4),nvidia/nemotron-3.5-super-vl,,nvfp4,,,Nemotron 3.5 Super VL,yugos-exact,,33
+LiveBench (sub-categories),Qwen3.8 27B,alibaba/qwen3.8-27b,,,,,Qwen3.8 27B,yugos-exact,,33
+LiveBench (sub-categories),Qwen3.8 Max,alibaba/qwen3.8-max,,,,,Qwen3.8 Max,yugos-exact,,33
+LiveBench (sub-categories),Qwen4-Max,alibaba/qwen4-max,,,,,Qwen4-Max,yugos-exact,,33
+LiveBench (sub-categories),Smaug-Nemotron-3.5-NVFP4,abacus-ai/smaug-nemotron-3.5,,nvfp4,,,Smaug-Nemotron-3.5,rule,,33
+LiveBench (sub-categories),Step 5 (Preview),stepfun/step-5-preview,,,,,Step 5 Preview,yugos-exact,,33
+LiveCodeBench (official),AzeroGPT-64b,unknown/azerogpt-64b,,,,,AzeroGPT-64b,rule,,4
+LiveCodeBench (official),Claude-2,anthropic/claude-2,,,,,Claude-2,rule,,4
+LiveCodeBench (official),Claude-3-Haiku,anthropic/claude-3-haiku,,,,,Claude-3-Haiku,rule,,12
+LiveCodeBench (official),Claude-3-Opus,anthropic/claude-3-opus,,,,,Claude-3-Opus,rule,,4
+LiveCodeBench (official),Claude-3-Sonnet,anthropic/claude-3-sonnet,,,,,Claude-3-Sonnet,rule,,4
+LiveCodeBench (official),Claude-3.5-Sonnet-20240620,anthropic/claude-3.5-sonnet,,,20240620,,Claude-3.5-Sonnet,rule,,4
+LiveCodeBench (official),Claude-3.5-Sonnet-20241022,anthropic/claude-3.5-sonnet,,,20241022,,Claude-3.5-Sonnet,rule,,8
+LiveCodeBench (official),Claude-Instant-1,anthropic/claude-instant-1,,,,,Claude-Instant-1,rule,,4
+LiveCodeBench (official),Claude-Opus-4,anthropic/claude-4-opus,,,,,Claude-Opus-4,rule,,4
+LiveCodeBench (official),Claude-Opus-4 (Thinking),anthropic/claude-4-opus,enabled,,,,Claude-Opus-4,rule,,4
+LiveCodeBench (official),Claude-Sonnet-4,anthropic/claude-4-sonnet,,,,,Claude-Sonnet-4,rule,,4
+LiveCodeBench (official),Claude-Sonnet-4 (Thinking),anthropic/claude-4-sonnet,enabled,,,,Claude-Sonnet-4,rule,,4
+LiveCodeBench (official),Cllama-13b-Ins,unknown/cllama-13b-ins,,,,,Cllama-13b-Ins,rule,,2
+LiveCodeBench (official),Cllama-34b-Ins,unknown/cllama-34b-ins,,,,,Cllama-34b-Ins,rule,,2
+LiveCodeBench (official),Cllama-7b-Ins,unknown/cllama-7b-ins,,,,,Cllama-7b-Ins,rule,,2
+LiveCodeBench (official),CodeLlama-13b-Ins,meta/codellama-13b-ins,,,,,CodeLlama-13b-Ins,rule,,2
+LiveCodeBench (official),CodeLlama-34b-Ins,meta/codellama-34b-ins,,,,,CodeLlama-34b-Ins,rule,,2
+LiveCodeBench (official),CodeLlama-70b-Ins,meta/codellama-70b-ins,,,,,CodeLlama-70b-Ins,rule,,2
+LiveCodeBench (official),CodeLlama-7b-Ins,meta/codellama-7b-ins,,,,,CodeLlama-7b-Ins,rule,,2
+LiveCodeBench (official),Codestral-Latest,mistral/codestral-latest,,,,,Codestral-Latest,rule,,8
+LiveCodeBench (official),DSCoder-1.3b-Base,unknown/dscoder-1.3b-base,,,,,DSCoder-1.3b-Base,rule,,2
+LiveCodeBench (official),DSCoder-1.3b-Ins,unknown/dscoder-1.3b-ins,,,,,DSCoder-1.3b-Ins,rule,,4
+LiveCodeBench (official),DSCoder-33b-Base,unknown/dscoder-33b-base,,,,,DSCoder-33b-Base,rule,,2
+LiveCodeBench (official),DSCoder-33b-Ins,unknown/dscoder-33b-ins,,,,,DSCoder-33b-Ins,rule,,4
+LiveCodeBench (official),DSCoder-6.7b-Base,unknown/dscoder-6.7b-base,,,,,DSCoder-6.7b-Base,rule,,2
+LiveCodeBench (official),DSCoder-6.7b-Ins,unknown/dscoder-6.7b-ins,,,,,DSCoder-6.7b-Ins,rule,,4
+LiveCodeBench (official),DeepCoder-14B-Preview,unknown/deepcoder-14b-preview,,,,,DeepCoder-14B-Preview,rule,,4
+LiveCodeBench (official),DeepSeek-R1-0528,deepseek/deepseek-r1-0528,,,,,DeepSeek-R1-0528,yugos-exact,,4
+LiveCodeBench (official),DeepSeek-R1-Lite-Preview,deepseek/deepseek-r1-lite-preview,,,,,DeepSeek-R1-Lite-Preview,rule,,4
+LiveCodeBench (official),DeepSeek-R1-Preview,deepseek/deepseek-r1-preview,,,,,DeepSeek-R1-Preview,rule,,4
+LiveCodeBench (official),DeepSeek-V3,deepseek/deepseek-v3,,,,,DeepSeek-V3,rule,,8
+LiveCodeBench (official),EXAONE-4.0-32B,lg/exaone-4.0-32b,,,,,EXAONE-4.0-32B,rule,,4
+LiveCodeBench (official),GPT-3.5-Turbo-0125,openai/gpt-3.5-turbo-0125,,,,,GPT-3.5-Turbo-0125,rule,,2
+LiveCodeBench (official),GPT-3.5-Turbo-0301,openai/gpt-3.5-turbo-0301,,,,,GPT-3.5-Turbo-0301,rule,,4
+LiveCodeBench (official),GPT-4-0613,openai/gpt-4-0613,,,,,GPT-4-0613,rule,,4
+LiveCodeBench (official),GPT-4-Turbo-1106,openai/gpt-4-turbo-1106,,,,,GPT-4-Turbo-1106,rule,,4
+LiveCodeBench (official),GPT-4-Turbo-2024-04-09,openai/gpt-4-turbo,,,2024-04-09,,GPT-4-Turbo,rule,,12
+LiveCodeBench (official),GPT-4O-2024-05-13,openai/gpt-4o,,,2024-05-13,,GPT-4O,yugos-exact,,8
+LiveCodeBench (official),GPT-4O-2024-08-06,openai/gpt-4o,,,2024-08-06,,GPT-4O,yugos-exact,,8
+LiveCodeBench (official),GPT-4O-mini-2024-07-18,openai/gpt-4o-mini,,,2024-07-18,,GPT-4O-mini,yugos-exact,,8
+LiveCodeBench (official),Gemini-2.5-Flash-04-17,google/gemini-2.5-flash-04-17,,,,,Gemini-2.5-Flash-04-17,rule,,4
+LiveCodeBench (official),Gemini-2.5-Flash-05-20,google/gemini-2.5-flash-05-20,,,,,Gemini-2.5-Flash-05-20,rule,,4
+LiveCodeBench (official),Gemini-2.5-Pro,google/gemini-2.5-pro,,,,,Gemini-2.5-Pro,yugos-exact,,4
+LiveCodeBench (official),Gemini-2.5-Pro-05-06,google/gemini-2.5-pro-05-06,,,,,Gemini-2.5-Pro-05-06,rule,,4
+LiveCodeBench (official),Gemini-2.5-Pro-06-05,google/gemini-2.5-pro-06-05,,,,,Gemini-2.5-Pro-06-05,rule,,4
+LiveCodeBench (official),Gemini-Flash-1.5-002,google/gemini-1.5-flash-002,,,,,Gemini-Flash-1.5-002,rule,,4
+LiveCodeBench (official),Gemini-Flash-1.5-May,google/gemini-flash-1.5-may,,,,,Gemini-Flash-1.5-May,rule,,4
+LiveCodeBench (official),Gemini-Flash-2.0-Exp,google/gemini-2.0-flash-exp,,,,,Gemini-Flash-2.0-Exp,rule,,4
+LiveCodeBench (official),Gemini-Pro,google/gemini-pro,,,,,Gemini-Pro,rule,,4
+LiveCodeBench (official),Gemini-Pro-1.5 (April) (n=1),google/gemini-pro-1.5-april-n-1,,,,,Gemini-Pro-1.5 April n=1,rule,,2
+LiveCodeBench (official),Gemini-Pro-1.5-002,google/gemini-1.5-pro-002,,,,,Gemini-Pro-1.5-002,rule,,4
+LiveCodeBench (official),Gemini-Pro-1.5-April (n=1),google/gemini-pro-1.5-april-n-1,,,,,Gemini-Pro-1.5-April n=1,rule,,2
+LiveCodeBench (official),Gemini-Pro-1.5-May,google/gemini-pro-1.5-may,,,,,Gemini-Pro-1.5-May,rule,,4
+LiveCodeBench (official),Grok-3-Mini (High),xai/grok-3-mini,high,,,,Grok-3-Mini,rule,,8
+LiveCodeBench (official),Kimi-k1.6-IOI,moonshot/kimi-k1.6-ioi,,,,,Kimi-k1.6-IOI,rule,,4
+LiveCodeBench (official),Kimi-k1.6-IOI-high,moonshot/kimi-k1.6-ioi-high,,,,,Kimi-k1.6-IOI-high,rule,,4
+LiveCodeBench (official),LLama3-70b-Ins,meta/llama3-70b-ins,,,,,LLama3-70b-Ins,rule,,4
+LiveCodeBench (official),LLama3-8b-Ins,meta/llama3-8b-ins,,,,,LLama3-8b-Ins,rule,,4
+LiveCodeBench (official),Llama-3_1-Nemotron-Nano-8B-v1,nvidia/llama-3-1-nemotron-nano-8b-v1,,,,,Llama-3_1-Nemotron-Nano-8B-v1,rule,,4
+LiveCodeBench (official),Llama-3_1-Nemotron-Ultra-253B-v1,nvidia/llama-3.1-nemotron-ultra-253b-v1,,,,,Llama-3_1-Nemotron-Ultra-253B-v1,rule,,4
+LiveCodeBench (official),MagiCoderS-CL-7B,unknown/magicoders-cl-7b,,,,,MagiCoderS-CL-7B,rule,,3
+LiveCodeBench (official),MagiCoderS-DS-6.7B,unknown/magicoders-ds-6.7b,,,,,MagiCoderS-DS-6.7B,rule,,3
+LiveCodeBench (official),MetaStone-L1-7B,unknown/metastone-l1-7b,,,,,MetaStone-L1-7B,rule,,4
+LiveCodeBench (official),Mistral-Large,mistral/mistral-large,,,,,Mistral-Large,yugos-exact,,8
+LiveCodeBench (official),Mixtral-8x22B-Ins,mistral/mixtral-8x22b-ins,,,,,Mixtral-8x22B-Ins,rule,,1
+LiveCodeBench (official),Mixtral-8x7B-Ins,mistral/mixtral-8x7b-ins,,,,,Mixtral-8x7B-Ins,rule,,1
+LiveCodeBench (official),O1-2024-12-17 (High),openai/o1,high,,2024-12-17,,O1,rule,,4
+LiveCodeBench (official),O1-2024-12-17 (Low),openai/o1,low,,2024-12-17,,O1,rule,,4
+LiveCodeBench (official),O1-2024-12-17 (Med),openai/o1-med,,,2024-12-17,,O1 Med,rule,,4
+LiveCodeBench (official),O1-Mini-2024-09-12,openai/o1-mini,,,2024-09-12,,O1-Mini,rule,,4
+LiveCodeBench (official),O1-Preview-2024-09-12,openai/o1-preview,,,2024-09-12,,O1-Preview,rule,,4
+LiveCodeBench (official),O3 (High),openai/o3,high,,,,O3,yugos-exact,,4
+LiveCodeBench (official),O3-Mini-2025-01-31 (High),openai/o3-mini,high,,2025-01-31,,O3-Mini,yugos-exact,,8
+LiveCodeBench (official),O3-Mini-2025-01-31 (Low),openai/o3-mini,low,,2025-01-31,,O3-Mini,yugos-exact,,8
+LiveCodeBench (official),O3-Mini-2025-01-31 (Med),openai/o3-mini-med,,,2025-01-31,,O3-Mini Med,rule,,8
+LiveCodeBench (official),O4-Mini (High),openai/o4-mini,high,,,,O4-Mini,yugos-exact,,8
+LiveCodeBench (official),O4-Mini (Low),openai/o4-mini,low,,,,O4-Mini,yugos-exact,,4
+LiveCodeBench (official),O4-Mini (Medium),openai/o4-mini,medium,,,,O4-Mini,yugos-exact,,4
+LiveCodeBench (official),OC-DS-1.3B,unknown/oc-ds-1.3b,,,,,OC-DS-1.3B,rule,,2
+LiveCodeBench (official),OC-DS-33B,unknown/oc-ds-33b,,,,,OC-DS-33B,rule,,2
+LiveCodeBench (official),OC-DS-6.7B,unknown/oc-ds-6.7b,,,,,OC-DS-6.7B,rule,,2
+LiveCodeBench (official),OpenCodeReasoning-Nemotron-1.1-32B,nvidia/opencodereasoning-nemotron-1.1-32b,,,,,OpenCodeReasoning-Nemotron-1.1-32B,rule,,4
+LiveCodeBench (official),OpenReasoning-Nemotron-32B,nvidia/openreasoning-nemotron-32b,,,,,OpenReasoning-Nemotron-32B,rule,,4
+LiveCodeBench (official),Phind-34B-V2,microsoft/phind-34b-v2,,,,,Phind-34B-V2,rule,,3
+LiveCodeBench (official),QwQ-32B-Preview,alibaba/qwq-32b-preview,,,,,QwQ-32B-Preview,rule,,4
+LiveCodeBench (official),QwQ-Max-Preview,alibaba/qwq-max-preview,,,,,QwQ-Max-Preview,rule,,4
+LiveCodeBench (official),Qwen3-235B-A22B,alibaba/qwen3-235b-a22b,,,,,Qwen3-235B-A22B,rule,,4
+LiveCodeBench (official),StarCoder,unknown/starcoder,,,,,StarCoder,rule,,1
+LiveCodeBench (official),WCoder-34B-V1,unknown/wcoder-34b-v1,,,,,WCoder-34B-V1,rule,,1
+LiveCodeBench (official),XBai-o4-medium,unknown/xbai-o4-medium,,,,,XBai-o4-medium,rule,,4
+MASK (paper),claude-3-5-sonnet-20240620,anthropic/claude-3.5-sonnet,,,20240620,,claude-3-5-sonnet,rule,,1
+MASK (paper),claude-3-7-sonnet-20250219,anthropic/claude-3.7-sonnet,,,20250219,,claude-3-7-sonnet,rule,,1
+MASK (paper),deepseek-llm-67b-chat,deepseek/deepseek-llm-67b-chat,,,,,deepseek-llm-67b-chat,rule,,1
+MASK (paper),deepseek-r1,deepseek/deepseek-r1,,,,,deepseek-r1,rule,,1
+MASK (paper),deepseek-v3,deepseek/deepseek-v3,,,,,deepseek-v3,rule,,1
+MASK (paper),gemini-2.0-flash,google/gemini-2.0-flash,,,,,gemini-2.0-flash,rule,,1
+MASK (paper),gpt-4.5-preview-2025-02-27,openai/gpt-4.5-preview,,,2025-02-27,,gpt-4.5-preview,rule,,1
+MASK (paper),gpt-4o-2024-08-06,openai/gpt-4o,,,2024-08-06,,gpt-4o,yugos-exact,,1
+MASK (paper),gpt-4o-mini-2024-07-18,openai/gpt-4o-mini,,,2024-07-18,,gpt-4o-mini,yugos-exact,,1
+MASK (paper),grok-2-1212,xai/grok-2-1212,,,,,grok-2-1212,rule,,1
+MASK (paper),llama-2-13b-chat,meta/llama-2-13b-chat,,,,,llama-2-13b-chat,rule,,1
+MASK (paper),llama-2-70b-chat,meta/llama-2-70b-chat,,,,,llama-2-70b-chat,rule,,1
+MASK (paper),llama-2-7b-chat,meta/llama-2-7b-chat,,,,,llama-2-7b-chat,rule,,1
+MASK (paper),llama-31-405b-instruct,meta/llama-3.1-405b-instruct,,,,,llama-31-405b-instruct,rule,,1
+MASK (paper),llama-31-70b-instruct,meta/llama-3.1-70b-instruct,,,,,llama-31-70b-instruct,yugos-exact,,1
+MASK (paper),llama-31-8b-instruct,meta/llama-3.1-8b-instruct,,,,,llama-31-8b-instruct,yugos-exact,,1
+MASK (paper),llama-32-1b-instruct,meta/llama-3.2-1b-instruct,,,,,llama-32-1b-instruct,rule,,1
+MASK (paper),llama-32-3b-instruct,meta/llama-3.2-3b-instruct,,,,,llama-32-3b-instruct,yugos-exact,,1
+MASK (paper),llama-33-70b-instruct,meta/llama-3.3-70b-instruct,,,,,llama-33-70b-instruct,yugos-exact,,1
+MASK (paper),o3-mini-2025-01-31,openai/o3-mini,,,2025-01-31,,o3-mini,yugos-exact,,1
+MASK (paper),qwen15-110b-chat,alibaba/qwen1.5-110b-chat,,,,,qwen15-110b-chat,rule,,1
+MASK (paper),qwen15-32b-chat,alibaba/qwen1.5-32b-chat,,,,,qwen15-32b-chat,rule,,1
+MASK (paper),qwen15-72b-chat,alibaba/qwen1.5-72b-chat,,,,,qwen15-72b-chat,rule,,1
+MASK (paper),qwen15-7b-chat,alibaba/qwen1.5-7b-chat,,,,,qwen15-7b-chat,rule,,1
+MASK (paper),qwen25-05b-instruct,alibaba/qwen25-05b-instruct,,,,,qwen25-05b-instruct,rule,,1
+MASK (paper),qwen25-14b-instruct,alibaba/qwen25-14b-instruct,,,,,qwen25-14b-instruct,rule,,1
+MASK (paper),qwen25-15b-instruct,alibaba/qwen25-15b-instruct,,,,,qwen25-15b-instruct,rule,,1
+MASK (paper),qwen25-32b-instruct,alibaba/qwen25-32b-instruct,,,,,qwen25-32b-instruct,rule,,1
+MASK (paper),qwen25-3b-instruct,alibaba/qwen25-3b-instruct,,,,,qwen25-3b-instruct,rule,,1
+MASK (paper),qwen25-72b-instruct,alibaba/qwen-2.5-72b-instruct,,,,,qwen25-72b-instruct,yugos-exact,,1
+MASK (paper),qwen25-7b-instruct,alibaba/qwen25-7b-instruct,,,,,qwen25-7b-instruct,rule,,1
+MASK (paper),qwq-32b-preview,alibaba/qwq-32b-preview,,,,,qwq-32b-preview,rule,,1
+MMLU (Hendrycks et al.),"Chinchilla (70B, few-shot)",google/chinchilla-70b-few-shot,,,,,"Chinchilla 70B, few-shot",rule,,5
+MMLU (Hendrycks et al.),GPT-2,openai/gpt-2,,,,,GPT-2,rule,,5
+MMLU (Hendrycks et al.),"GPT-3 (175B, few-shot)",openai/gpt-3-175b-few-shot,,,,,"GPT-3 175B, few-shot",rule,,5
+MMLU (Hendrycks et al.),"GPT-3 (175B, fine-tuned)",openai/gpt-3-175b-fine-tuned,,,,,"GPT-3 175B, fine-tuned",rule,,5
+MMLU (Hendrycks et al.),"GPT-3 (6.7B, fine-tuned)",openai/gpt-3-6.7b-fine-tuned,,,,,"GPT-3 6.7B, fine-tuned",rule,,5
+MMLU (Hendrycks et al.),"Gopher (280B, few-shot)",google/gopher-280b-few-shot,,,,,"Gopher 280B, few-shot",rule,,5
+MMLU (Hendrycks et al.),Random Baseline,unknown/random-baseline,,,,,Random Baseline,rule,,5
+MMLU (Hendrycks et al.),UnifiedQA,unknown/unifiedqa,,,,,UnifiedQA,rule,,5
+MMLU (Hendrycks et al.),flan-T5-base,google/flan-t5-base,,,,,flan-T5-base,rule,,5
+MMLU (Hendrycks et al.),flan-T5-large,google/flan-t5-large,,,,,flan-T5-large,rule,,5
+MMLU (Hendrycks et al.),flan-T5-small,google/flan-t5-small,,,,,flan-T5-small,rule,,5
+MMLU (Hendrycks et al.),flan-T5-xl,google/flan-t5-xl,,,,,flan-T5-xl,rule,,5
 MMLU-Pro (TIGER-Lab),Athene-V2-Chat,nexusflow/athene-v2-chat,,,,,Athene-V2-Chat,rule,,15
 MMLU-Pro (TIGER-Lab),Athene-V2-Chat (0-shot),nexusflow/athene-v2-chat-0-shot,,,,,Athene-V2-Chat 0-shot,rule,,15
 MMLU-Pro (TIGER-Lab),Aya-Expanse-32B,cohere/aya-expanse-32b,,,,,Aya-Expanse-32B,rule,,15
@@ -2381,6 +3387,30 @@ RULER (NVIDIA),Qwen3-4B,alibaba/qwen3-4b,,,,,Qwen3-4B,rule,,7
 RULER (NVIDIA),Qwen3-8B,alibaba/qwen3-8b,,,,,Qwen3-8B,rule,,7
 RULER (NVIDIA),Together (7B),unknown/together-7b,,,,,Together 7B,rule,,7
 RULER (NVIDIA),Yi (34B),01-ai/yi-34b,,,,,Yi 34B,rule,,7
+"RULER (paper, NVIDIA)",Command-R-plus (104B),cohere/command-r-plus-104b,,,,,Command-R-plus 104B,rule,,4
+"RULER (paper, NVIDIA)",DBRX (36B/132B),databricks/dbrx-36b-132b,,,,,DBRX 36B/132B,rule,,4
+"RULER (paper, NVIDIA)",GLM4 (9B),zhipu/glm-4-9b,,,,,GLM4 9B,rule,,4
+"RULER (paper, NVIDIA)",GPT-4,openai/gpt-4,,,,,GPT-4,rule,,4
+"RULER (paper, NVIDIA)",Gemini-1.5,google/gemini-1.5,,,,,Gemini-1.5,rule,,4
+"RULER (paper, NVIDIA)",GradientAI/Llama3 (70B),unknown/gradientai-llama3-70b,,,,,GradientAI/Llama3 70B,rule,,4
+"RULER (paper, NVIDIA)",Jamba-base (52B),ai21/jamba-base-52b,,,,,Jamba-base 52B,rule,,4
+"RULER (paper, NVIDIA)",LWM (7B),unknown/lwm-7b,,,,,LWM 7B,rule,,4
+"RULER (paper, NVIDIA)",LWM-base (7B),unknown/lwm-base-7b,,,,,LWM-base 7B,rule,,4
+"RULER (paper, NVIDIA)",Llama3.1 (70B),meta/llama-3.1-70b,,,,,Llama3.1 70B,rule,,4
+"RULER (paper, NVIDIA)",Llama3.1 (8B),meta/llama-3.1-8b,,,,,Llama3.1 8B,rule,,4
+"RULER (paper, NVIDIA)",LongAlpaca (13B),unknown/longalpaca-13b,,,,,LongAlpaca 13B,rule,,4
+"RULER (paper, NVIDIA)",LongChat (7B),lmsys/longchat-7b,,,,,LongChat 7B,rule,,4
+"RULER (paper, NVIDIA)",LongLoRA-base (7B),unknown/longlora-base-7b,,,,,LongLoRA-base 7B,rule,,4
+"RULER (paper, NVIDIA)",Mistral-base (7B),mistral/mistral-base-7b,,,,,Mistral-base 7B,rule,,4
+"RULER (paper, NVIDIA)",Mistral-v0.2 (7B),mistral/mistral-v0.2-7b,,,,,Mistral-v0.2 7B,rule,,4
+"RULER (paper, NVIDIA)",Mixtral-8x22B (39B/141B),mistral/mixtral-8x22b,,,,39B/141B,Mixtral-8x22B,rule,,4
+"RULER (paper, NVIDIA)",Mixtral-base (8x7B),mistral/mixtral-base-8x7b,,,,,Mixtral-base 8x7B,rule,,4
+"RULER (paper, NVIDIA)",Phi3-medium (14B),microsoft/phi3-medium-14b,,,,,Phi3-medium 14B,rule,,4
+"RULER (paper, NVIDIA)",Qwen2 (72B),alibaba/qwen2-72b,,,,,Qwen2 72B,rule,,4
+"RULER (paper, NVIDIA)",Together (7B),unknown/together-7b,,,,,Together 7B,rule,,4
+"RULER (paper, NVIDIA)",Together-base (7B),unknown/together-base-7b,,,,,Together-base 7B,rule,,4
+"RULER (paper, NVIDIA)",Yarn-base (7B),unknown/yarn-base-7b,,,,,Yarn-base 7B,rule,,4
+"RULER (paper, NVIDIA)",Yi (34B),01-ai/yi-34b,,,,,Yi 34B,rule,,4
 SWE-bench (official),4x Scaled,unknown/4x-scaled,,,,,4x Scaled,rule,,1
 SWE-bench (official),Amazon.nova Premier v1:0,amazon/nova-premier-v1,,,,,Amazon.nova Premier v1:0,yugos-exact,,1
 SWE-bench (official),Claude 2,anthropic/claude-2,,,,,Claude 2,rule,,3
@@ -2388,14 +3418,14 @@ SWE-bench (official),Claude 3 Opus,anthropic/claude-3-opus,,,,,Claude 3 Opus,rul
 SWE-bench (official),Claude 3.5 Haiku,anthropic/claude-3.5-haiku,,,,,Claude 3.5 Haiku,rule,,1
 SWE-bench (official),Claude 3.5 Sonnet,anthropic/claude-3.5-sonnet,,,,,Claude 3.5 Sonnet,rule,,29
 SWE-bench (official),Claude 3.5-Sonnet-20241022,anthropic/claude-3.5-sonnet,,,20241022,,Claude 3.5-Sonnet,rule,,3
-SWE-bench (official),Claude 3.7 Sonnet,anthropic/claude-3.7-sonnet,,,,,Claude 3.7 Sonnet,rule,,7
+SWE-bench (official),Claude 3.7 Sonnet,anthropic/claude-3.7-sonnet,,,,,Claude 3.7 Sonnet,rule,,8
 SWE-bench (official),Claude 3.7 Sonnet w/ Review Heavy,anthropic/claude-3.7-sonnet-w-review-heavy,,,,,Claude 3.7 Sonnet w/ Review Heavy,rule,,1
-SWE-bench (official),Claude 4 Opus,anthropic/claude-4-opus,,,,,Claude 4 Opus,rule,,2
-SWE-bench (official),Claude 4 Sonnet,anthropic/claude-4-sonnet,,,,,Claude 4 Sonnet,rule,,12
-SWE-bench (official),Claude 4.5 Haiku,anthropic/claude-haiku-4.5,,,,,Claude 4.5 Haiku,yugos-exact,,2
-SWE-bench (official),Claude 4.5 Opus,anthropic/claude-opus-4.5,,,,,Claude 4.5 Opus,yugos-exact,,6
-SWE-bench (official),Claude 4.5 Sonnet,anthropic/claude-sonnet-4.5,,,,,Claude 4.5 Sonnet,yugos-exact,,4
-SWE-bench (official),Claude 4.6 Opus,anthropic/claude-opus-4.6,,,,,Claude 4.6 Opus,yugos-exact,,2
+SWE-bench (official),Claude 4 Opus,anthropic/claude-4-opus,,,,,Claude 4 Opus,rule,,3
+SWE-bench (official),Claude 4 Sonnet,anthropic/claude-4-sonnet,,,,,Claude 4 Sonnet,rule,,13
+SWE-bench (official),Claude 4.5 Haiku,anthropic/claude-haiku-4.5,,,,,Claude 4.5 Haiku,yugos-exact,,3
+SWE-bench (official),Claude 4.5 Opus,anthropic/claude-opus-4.5,,,,,Claude 4.5 Opus,yugos-exact,,8
+SWE-bench (official),Claude 4.5 Sonnet,anthropic/claude-sonnet-4.5,,,,,Claude 4.5 Sonnet,yugos-exact,,6
+SWE-bench (official),Claude 4.6 Opus,anthropic/claude-opus-4.6,,,,,Claude 4.6 Opus,yugos-exact,,3
 SWE-bench (official),Claude Sonnet 3.5,anthropic/claude-3.5-sonnet,,,,,Claude Sonnet 3.5,rule,,2
 SWE-bench (official),Claude Sonnet 4,anthropic/claude-4-sonnet,,,,,Claude Sonnet 4,rule,,3
 SWE-bench (official),Co-PatcheR,unknown/co-patcher,,,,,Co-PatcheR,rule,,1
@@ -2404,31 +3434,31 @@ SWE-bench (official),CodeAct v2.1 (claude-3-5-sonnet-20241022),anthropic/codeact
 SWE-bench (official),DeepSWE-Preview,unknown/deepswe-preview,,,,,DeepSWE-Preview,rule,,1
 SWE-bench (official),DeepSeek V3,deepseek/deepseek-v3,,,,,DeepSeek V3,rule,,1
 SWE-bench (official),DeepSeek V3 0324,deepseek/deepseek-chat-v3-0324,,,,,DeepSeek V3 0324,yugos-loose,,1
-SWE-bench (official),DeepSeek V3.2,deepseek/deepseek-v3.2,,,,,DeepSeek V3.2,yugos-exact,,2
-SWE-bench (official),DeepSeek V3.2 Reasoner,deepseek/deepseek-v3.2,enabled,,,,DeepSeek V3.2,yugos-exact,,1
+SWE-bench (official),DeepSeek V3.2,deepseek/deepseek-v3.2,,,,,DeepSeek V3.2,yugos-exact,,3
+SWE-bench (official),DeepSeek V3.2 Reasoner,deepseek/deepseek-v3.2,enabled,,,,DeepSeek V3.2,yugos-exact,,2
 SWE-bench (official),Deepseek V3,deepseek/deepseek-v3,,,,,Deepseek V3,rule,,1
 SWE-bench (official),DevStral Small 2505,mistral/devstral-small-2505,,,,,DevStral Small 2505,rule,,1
 SWE-bench (official),DevStral Small 2507,mistral/devstral-small-2507,,,,,DevStral Small 2507,rule,,1
-SWE-bench (official),Devstral (2512),mistral/devstral-2512,,,,,Devstral 2512,yugos-exact,,1
-SWE-bench (official),Devstral Small (2512),mistral/devstral-small-2512,,,,,Devstral Small 2512,rule,,1
+SWE-bench (official),Devstral (2512),mistral/devstral-2512,,,,,Devstral 2512,yugos-exact,,2
+SWE-bench (official),Devstral Small (2512),mistral/devstral-small-2512,,,,,Devstral Small 2512,rule,,2
 SWE-bench (official),Doubao-Seed-Code,bytedance/doubao-seed-code,,,,,Doubao-Seed-Code,rule,,1
 SWE-bench (official),Frogboss 32B 2510,unknown/frogboss-32b-2510,,,,,Frogboss 32B 2510,rule,,1
 SWE-bench (official),Frogmini 14B 2510,unknown/frogmini-14b-2510,,,,,Frogmini 14B 2510,rule,,1
-SWE-bench (official),GLM 4.5,zhipu/glm-4.5,,,,,GLM 4.5,yugos-exact,,1
-SWE-bench (official),GLM 4.6,zhipu/glm-4.6,,,,,GLM 4.6,yugos-exact,,1
-SWE-bench (official),GLM 5,zhipu/glm-5,,,,,GLM 5,yugos-exact,,2
+SWE-bench (official),GLM 4.5,zhipu/glm-4.5,,,,,GLM 4.5,yugos-exact,,2
+SWE-bench (official),GLM 4.6,zhipu/glm-4.6,,,,,GLM 4.6,yugos-exact,,2
+SWE-bench (official),GLM 5,zhipu/glm-5,,,,,GLM 5,yugos-exact,,3
 SWE-bench (official),GLM-4.5,zhipu/glm-4.5,,,,,GLM-4.5,yugos-exact,,1
 SWE-bench (official),GLM-4.6,zhipu/glm-4.6,,,,,GLM-4.6,yugos-exact,,1
-SWE-bench (official),GPT 4.1,openai/gpt-4.1,,,,,GPT 4.1,yugos-exact,,1
-SWE-bench (official),GPT 4.1 mini,openai/gpt-4.1-mini,,,,,GPT 4.1 mini,yugos-exact,,1
-SWE-bench (official),GPT 4o,openai/gpt-4o,,,,,GPT 4o,yugos-exact,,1
-SWE-bench (official),GPT 5,openai/gpt-5,,,,,GPT 5,yugos-exact,,1
-SWE-bench (official),GPT 5 mini,openai/gpt-5-mini,,,,,GPT 5 mini,yugos-exact,,3
-SWE-bench (official),GPT 5 nano,openai/gpt-5-nano,,,,,GPT 5 nano,yugos-exact,,1
-SWE-bench (official),GPT 5.1,openai/gpt-5.1,,,,,GPT 5.1,yugos-exact,,1
-SWE-bench (official),GPT 5.1 Codex,openai/gpt-5.1-codex,,,,,GPT 5.1 Codex,yugos-exact,,1
-SWE-bench (official),GPT 5.2,openai/gpt-5.2,,,,,GPT 5.2,yugos-exact,,4
-SWE-bench (official),GPT 5.2 Codex,openai/gpt-5.2-codex,,,,,GPT 5.2 Codex,yugos-exact,,2
+SWE-bench (official),GPT 4.1,openai/gpt-4.1,,,,,GPT 4.1,yugos-exact,,2
+SWE-bench (official),GPT 4.1 mini,openai/gpt-4.1-mini,,,,,GPT 4.1 mini,yugos-exact,,2
+SWE-bench (official),GPT 4o,openai/gpt-4o,,,,,GPT 4o,yugos-exact,,2
+SWE-bench (official),GPT 5,openai/gpt-5,,,,,GPT 5,yugos-exact,,2
+SWE-bench (official),GPT 5 mini,openai/gpt-5-mini,,,,,GPT 5 mini,yugos-exact,,5
+SWE-bench (official),GPT 5 nano,openai/gpt-5-nano,,,,,GPT 5 nano,yugos-exact,,2
+SWE-bench (official),GPT 5.1,openai/gpt-5.1,,,,,GPT 5.1,yugos-exact,,2
+SWE-bench (official),GPT 5.1 Codex,openai/gpt-5.1-codex,,,,,GPT 5.1 Codex,yugos-exact,,2
+SWE-bench (official),GPT 5.2,openai/gpt-5.2,,,,,GPT 5.2,yugos-exact,,7
+SWE-bench (official),GPT 5.2 Codex,openai/gpt-5.2-codex,,,,,GPT 5.2 Codex,yugos-exact,,3
 SWE-bench (official),GPT-3.5,openai/gpt-3.5,,,,,GPT-3.5,rule,,3
 SWE-bench (official),GPT-4 (0125),openai/gpt-4-0125,,,,,GPT-4 0125,rule,,1
 SWE-bench (official),GPT-4 (0613),openai/gpt-4-0613,,,,,GPT-4 0613,rule,,1
@@ -2438,32 +3468,32 @@ SWE-bench (official),GPT-4.1,openai/gpt-4.1,,,,,GPT-4.1,yugos-exact,,1
 SWE-bench (official),GPT-4o,openai/gpt-4o,,,,,GPT-4o,yugos-exact,,30
 SWE-bench (official),GPT-4o & Claude 3 Opus,system/gpt-4o-claude-3-opus,,,,,GPT-4o & Claude 3 Opus,rule,,1
 SWE-bench (official),GPT-5,openai/gpt-5,,,,,GPT-5,yugos-exact,,3
-SWE-bench (official),Gemini 2.0 Flash,google/gemini-2.0-flash,,,,,Gemini 2.0 Flash,rule,,1
+SWE-bench (official),Gemini 2.0 Flash,google/gemini-2.0-flash,,,,,Gemini 2.0 Flash,rule,,2
 SWE-bench (official),Gemini 2.0 Flash (Experimental),google/gemini-2.0-flash-exp,,,,,Gemini 2.0 Flash Experimental,rule,,1
 SWE-bench (official),Gemini 2.0 Flash (v20241212-experimental),google/gemini-2.0-flash-exp,,,,,Gemini 2.0 Flash v20241212-experimental,rule,,1
-SWE-bench (official),Gemini 2.5 Flash,google/gemini-2.5-flash,,,,,Gemini 2.5 Flash,yugos-exact,,1
-SWE-bench (official),Gemini 2.5 Pro,google/gemini-2.5-pro,,,,,Gemini 2.5 Pro,yugos-exact,,1
-SWE-bench (official),Gemini 3 Flash,google/gemini-3-flash,,,,,Gemini 3 Flash,rule,,2
-SWE-bench (official),Gemini 3 Pro,google/gemini-3-pro,,,,,Gemini 3 Pro,rule,,2
-SWE-bench (official),Gemini 3 Pro Preview,google/gemini-3-pro-preview,,,,,Gemini 3 Pro Preview,rule,,2
-SWE-bench (official),Kimi K2,moonshot/kimi-k2,,,,,Kimi K2,yugos-exact,,3
-SWE-bench (official),Kimi K2 Instruct,moonshot/kimi-k2-instruct,,,,,Kimi K2 Instruct,rule,,2
-SWE-bench (official),Kimi K2.5,moonshot/kimi-k2.5,,,,,Kimi K2.5,yugos-exact,,2
+SWE-bench (official),Gemini 2.5 Flash,google/gemini-2.5-flash,,,,,Gemini 2.5 Flash,yugos-exact,,2
+SWE-bench (official),Gemini 2.5 Pro,google/gemini-2.5-pro,,,,,Gemini 2.5 Pro,yugos-exact,,2
+SWE-bench (official),Gemini 3 Flash,google/gemini-3-flash,,,,,Gemini 3 Flash,rule,,3
+SWE-bench (official),Gemini 3 Pro,google/gemini-3-pro,,,,,Gemini 3 Pro,rule,,3
+SWE-bench (official),Gemini 3 Pro Preview,google/gemini-3-pro-preview,,,,,Gemini 3 Pro Preview,rule,,3
+SWE-bench (official),Kimi K2,moonshot/kimi-k2,,,,,Kimi K2,yugos-exact,,4
+SWE-bench (official),Kimi K2 Instruct,moonshot/kimi-k2-instruct,,,,,Kimi K2 Instruct,rule,,3
+SWE-bench (official),Kimi K2.5,moonshot/kimi-k2.5,,,,,Kimi K2.5,yugos-exact,,3
 SWE-bench (official),Lingma SWE-GPT 72b (v0918),openai/lingma-swe-gpt-72b-v0918,,,,,Lingma SWE-GPT 72b v0918,rule,,1
 SWE-bench (official),Lingma SWE-GPT 72b (v0925),openai/lingma-swe-gpt-72b-v0925,,,,,Lingma SWE-GPT 72b v0925,rule,,1
 SWE-bench (official),Lingma SWE-GPT 7b (v0918),openai/lingma-swe-gpt-7b-v0918,,,,,Lingma SWE-GPT 7b v0918,rule,,1
 SWE-bench (official),Lingma SWE-GPT 7b (v0925),openai/lingma-swe-gpt-7b-v0925,,,,,Lingma SWE-GPT 7b v0925,rule,,1
-SWE-bench (official),Llama 4 Maverick Instruct,meta/llama-4-maverick-instruct,,,,,Llama 4 Maverick Instruct,rule,,1
-SWE-bench (official),Llama 4 Scout Instruct,meta/llama-4-scout-instruct,,,,,Llama 4 Scout Instruct,rule,,1
+SWE-bench (official),Llama 4 Maverick Instruct,meta/llama-4-maverick-instruct,,,,,Llama 4 Maverick Instruct,rule,,2
+SWE-bench (official),Llama 4 Scout Instruct,meta/llama-4-scout-instruct,,,,,Llama 4 Scout Instruct,rule,,2
 SWE-bench (official),Llama3-SWE-RL-70B,meta/llama3-swe-rl-70b,,,,,Llama3-SWE-RL-70B,rule,,1
 SWE-bench (official),MCTS Refine 7B,unknown/mcts-refine-7b,,,,,MCTS Refine 7B,rule,,2
-SWE-bench (official),MiniMax M2,minimax/minimax-m2,,,,,MiniMax M2,rule,,1
-SWE-bench (official),MiniMax M2.5,minimax/minimax-m2.5,,,,,MiniMax M2.5,yugos-exact,,2
+SWE-bench (official),MiniMax M2,minimax/minimax-m2,,,,,MiniMax M2,rule,,2
+SWE-bench (official),MiniMax M2.5,minimax/minimax-m2.5,,,,,MiniMax M2.5,yugos-exact,,3
 SWE-bench (official),O3 Mini,openai/o3-mini,,,,,O3 Mini,yugos-exact,,2
 SWE-bench (official),Qwen2.5 (7B + 72B),system/qwen2.5-7b-+-72b,,,,,Qwen2.5 7B + 72B,rule,,4
 SWE-bench (official),Qwen2.5 Coder 32B Instruct,alibaba/qwen-2.5-coder-32b-instruct,,,,,Qwen2.5 Coder 32B Instruct,yugos-exact,,1
-SWE-bench (official),Qwen2.5-Coder 32B Instruct,alibaba/qwen-2.5-coder-32b-instruct,,,,,Qwen2.5-Coder 32B Instruct,yugos-exact,,1
-SWE-bench (official),Qwen3-Coder 480B/A35B Instruct,alibaba/qwen-3-coder-480b-a35b-instruct,,,,,Qwen3-Coder 480B/A35B Instruct,rule,,1
+SWE-bench (official),Qwen2.5-Coder 32B Instruct,alibaba/qwen-2.5-coder-32b-instruct,,,,,Qwen2.5-Coder 32B Instruct,yugos-exact,,2
+SWE-bench (official),Qwen3-Coder 480B/A35B Instruct,alibaba/qwen-3-coder-480b-a35b-instruct,,,,,Qwen3-Coder 480B/A35B Instruct,rule,,2
 SWE-bench (official),Qwen3-Coder-30B-A3B-Instruct,alibaba/qwen3-coder-30b-a3b-instruct,,,,,Qwen3-Coder-30B-A3B-Instruct,yugos-exact,,5
 SWE-bench (official),Qwen3-Coder-480B-A35B-Instruct,alibaba/qwen-3-coder-480b-a35b-instruct,,,,,Qwen3-Coder-480B-A35B-Instruct,rule,,1
 SWE-bench (official),SWE-Llama 13B,meta/swe-llama-13b,,,,,SWE-Llama 13B,rule,,3
@@ -2472,11 +3502,11 @@ SWE-bench (official),SWE-agent-LM-32B,alibaba/swe-agent-lm-32b,,,,,SWE-agent-LM-
 SWE-bench (official),TTS(Bo16),openai/tts-bo16,,,,,TTS Bo16,rule,,1
 SWE-bench (official),TTS(Bo8),alibaba/tts-bo8,,,,,TTS Bo8,rule,,1
 SWE-bench (official),claude-3-5-sonnet-20241022,anthropic/claude-3.5-sonnet,,,20241022,,claude-3-5-sonnet,rule,,1
-SWE-bench (official),gpt-oss-120b,openai/gpt-oss-120b,,,,,gpt-oss-120b,yugos-exact,,1
+SWE-bench (official),gpt-oss-120b,openai/gpt-oss-120b,,,,,gpt-oss-120b,yugos-exact,,2
 SWE-bench (official),o1-preview,openai/o1-preview,,,,,o1-preview,rule,,1
-SWE-bench (official),o3,openai/o3,,,,,o3,yugos-exact,,3
+SWE-bench (official),o3,openai/o3,,,,,o3,yugos-exact,,4
 SWE-bench (official),o3-mini_1.0,openai/o3-mini-1.0,,,,,o3-mini_1.0,rule,,1
-SWE-bench (official),o4-mini,openai/o4-mini,,,,,o4-mini,yugos-exact,,3
+SWE-bench (official),o4-mini,openai/o4-mini,,,,,o4-mini,yugos-exact,,4
 SWE-bench (official),swe-search,anthropic/swe-search,,,,,swe-search,rule,,1
 SWE-bench Pro (Scale AI open source),Claude Opus 4.1,anthropic/claude-opus-4.1,,,,,Claude Opus 4.1,yugos-exact,,1
 SWE-bench Pro (Scale AI open source),Claude Sonnet 4,anthropic/claude-4-sonnet,,,,,Claude Sonnet 4,rule,,2
@@ -2599,6 +3629,69 @@ WildBench (AI2),reka-flash-20240226,reka/reka-flash,,,20240226,,reka-flash,rule,
 WildBench (AI2),tulu-2-dpo-70b,allenai/tulu-2-dpo-70b,,,,,tulu-2-dpo-70b,rule,,2
 WildBench (AI2),yi-large,01-ai/yi-large,,,,,yi-large,rule,,2
 WildBench (AI2),yi-large-preview,01-ai/yi-large-preview,,,,,yi-large-preview,rule,,2
+"WildBench (AI2, Hugging Face Space)",Athene-70B,nexusflow/athene-70b,,,,,Athene-70B,rule,,7
+"WildBench (AI2, Hugging Face Space)",Hermes-2-Theta-Llama-3-8B,nous-research/hermes-2-theta-llama-3-8b,,,,,Hermes-2-Theta-Llama-3-8B,rule,,8
+"WildBench (AI2, Hugging Face Space)",Llama-2-70b-chat-hf,meta/llama-2-70b-chat-hf,,,,,Llama-2-70b-chat-hf,rule,,8
+"WildBench (AI2, Hugging Face Space)",Llama-2-7b-chat-hf,meta/llama-2-7b-chat-hf,,,,,Llama-2-7b-chat-hf,rule,,8
+"WildBench (AI2, Hugging Face Space)",Llama-3-8B-Magpie-Align-v0.1,meta/llama-3-8b-magpie-align-v0.1,,,,,Llama-3-8B-Magpie-Align-v0.1,rule,,8
+"WildBench (AI2, Hugging Face Space)",Llama-3-Instruct-8B-SimPO,meta/llama-3-instruct-8b-simpo,,,,,Llama-3-Instruct-8B-SimPO,rule,,8
+"WildBench (AI2, Hugging Face Space)",Llama-3-Instruct-8B-SimPO-ExPO,meta/llama-3-instruct-8b-simpo-expo,,,,,Llama-3-Instruct-8B-SimPO-ExPO,rule,,8
+"WildBench (AI2, Hugging Face Space)",Llama-3-Instruct-8B-SimPO-v0.2,meta/llama-3-instruct-8b-simpo-v0.2,,,,,Llama-3-Instruct-8B-SimPO-v0.2,rule,,7
+"WildBench (AI2, Hugging Face Space)",Meta-Llama-3-70B-Instruct,meta/llama-3-70b-instruct,,,,,Meta-Llama-3-70B-Instruct,rule,,8
+"WildBench (AI2, Hugging Face Space)",Meta-Llama-3-8B-Instruct,meta/llama-3-8b-instruct,,,,,Meta-Llama-3-8B-Instruct,rule,,8
+"WildBench (AI2, Hugging Face Space)",Mistral-7B-Instruct-v0.2,mistral/mistral-7b-instruct-v0.2,,,,,Mistral-7B-Instruct-v0.2,rule,,8
+"WildBench (AI2, Hugging Face Space)",Mistral-Large-2,mistral/mistral-large-2407,,,,,Mistral-Large-2,override,Mistral Large 2 is mistral-large-2407 (July 2024 release),7
+"WildBench (AI2, Hugging Face Space)",Mistral-Nemo-Instruct-2407,mistral/mistral-nemo-instruct-2407,,,,,Mistral-Nemo-Instruct-2407,rule,,7
+"WildBench (AI2, Hugging Face Space)",Mixtral-8x7B-Instruct-v0.1,mistral/mixtral-8x7b-instruct-v0.1,,,,,Mixtral-8x7B-Instruct-v0.1,rule,,8
+"WildBench (AI2, Hugging Face Space)",Nous-Hermes-2-Mixtral-8x7B-DPO,nous-research/nous-hermes-2-mixtral-8x7b-dpo,,,,,Nous-Hermes-2-Mixtral-8x7B-DPO,rule,,8
+"WildBench (AI2, Hugging Face Space)",Phi-3-medium-128k-instruct,microsoft/phi-3-medium-128k-instruct,,,,,Phi-3-medium-128k-instruct,rule,,8
+"WildBench (AI2, Hugging Face Space)",Phi-3-mini-128k-instruct,microsoft/phi-3-mini-128k-instruct,,,,,Phi-3-mini-128k-instruct,rule,,8
+"WildBench (AI2, Hugging Face Space)",Qwen1.5-72B-Chat-greedy,alibaba/qwen1.5-72b-chat-greedy,,,,,Qwen1.5-72B-Chat-greedy,rule,,8
+"WildBench (AI2, Hugging Face Space)",Qwen1.5-7B-Chat,alibaba/qwen1.5-7b-chat,,,,,Qwen1.5-7B-Chat,rule,,8
+"WildBench (AI2, Hugging Face Space)",Qwen2-72B-Instruct,alibaba/qwen2-72b-instruct,,,,,Qwen2-72B-Instruct,rule,,8
+"WildBench (AI2, Hugging Face Space)",SELM-Llama-3-8B-Instruct-iter-3,unknown/selm-llama-3-8b-instruct-iter-3,,,,,SELM-Llama-3-8B-Instruct-iter-3,rule,,8
+"WildBench (AI2, Hugging Face Space)",SELM-Zephyr-7B-iter-3,unknown/selm-zephyr-7b-iter-3,,,,,SELM-Zephyr-7B-iter-3,rule,,8
+"WildBench (AI2, Hugging Face Space)",Starling-LM-7B-beta,unknown/starling-lm-7b-beta,,,,,Starling-LM-7B-beta,rule,,8
+"WildBench (AI2, Hugging Face Space)",Starling-LM-7B-beta-ExPO,unknown/starling-lm-7b-beta-expo,,,,,Starling-LM-7B-beta-ExPO,rule,,8
+"WildBench (AI2, Hugging Face Space)",Yi-1.5-34B-Chat,01-ai/yi-1.5-34b-chat,,,,,Yi-1.5-34B-Chat,rule,,8
+"WildBench (AI2, Hugging Face Space)",Yi-1.5-6B-Chat,01-ai/yi-1.5-6b-chat,,,,,Yi-1.5-6B-Chat,rule,,8
+"WildBench (AI2, Hugging Face Space)",Yi-1.5-9B-Chat,01-ai/yi-1.5-9b-chat,,,,,Yi-1.5-9B-Chat,rule,,8
+"WildBench (AI2, Hugging Face Space)",claude-3-5-sonnet-20240620,anthropic/claude-3.5-sonnet,,,20240620,,claude-3-5-sonnet,rule,,8
+"WildBench (AI2, Hugging Face Space)",claude-3-haiku-20240307,anthropic/claude-3-haiku,,,20240307,,claude-3-haiku,rule,,8
+"WildBench (AI2, Hugging Face Space)",claude-3-opus-20240229,anthropic/claude-3-opus,,,20240229,,claude-3-opus,rule,,8
+"WildBench (AI2, Hugging Face Space)",claude-3-sonnet-20240229,anthropic/claude-3-sonnet,,,20240229,,claude-3-sonnet,rule,,8
+"WildBench (AI2, Hugging Face Space)",command-r,cohere/command-r,,,,,command-r,yugos-exact,,8
+"WildBench (AI2, Hugging Face Space)",command-r-plus,cohere/command-r-plus,,,,,command-r-plus,yugos-exact,,8
+"WildBench (AI2, Hugging Face Space)",dbrx-instruct,databricks/dbrx-instruct,,,,,dbrx-instruct,rule,,8
+"WildBench (AI2, Hugging Face Space)",deepseek-coder-v2,deepseek/deepseek-coder-v2,,,,,deepseek-coder-v2,rule,,8
+"WildBench (AI2, Hugging Face Space)",deepseek-v2-chat-0628,deepseek/deepseek-v2-chat-0628,,,,,deepseek-v2-chat-0628,rule,,7
+"WildBench (AI2, Hugging Face Space)",deepseek-v2-coder-0628,deepseek/deepseek-v2-coder-0628,,,,,deepseek-v2-coder-0628,rule,,7
+"WildBench (AI2, Hugging Face Space)",deepseekv2-chat,deepseek/deepseek-v2-chat,,,,,deepseekv2-chat,rule,,8
+"WildBench (AI2, Hugging Face Space)",gemini-1.5-flash,google/gemini-1.5-flash,,,,,gemini-1.5-flash,rule,,8
+"WildBench (AI2, Hugging Face Space)",gemini-1.5-pro,google/gemini-1.5-pro,,,,,gemini-1.5-pro,rule,,8
+"WildBench (AI2, Hugging Face Space)",gemma-2-27b-it,google/gemma-2-27b-it,,,,,gemma-2-27b-it,yugos-exact,,7
+"WildBench (AI2, Hugging Face Space)",gemma-2-2b-it,google/gemma-2-2b-it,,,,,gemma-2-2b-it,rule,,7
+"WildBench (AI2, Hugging Face Space)",gemma-2-9b-it,google/gemma-2-9b-it,,,,,gemma-2-9b-it,rule,,7
+"WildBench (AI2, Hugging Face Space)",gemma-2-9b-it-DPO,google/gemma-2-9b-it-dpo,,,,,gemma-2-9b-it-DPO,rule,,7
+"WildBench (AI2, Hugging Face Space)",gemma-2-9b-it-SimPO,google/gemma-2-9b-it-simpo,,,,,gemma-2-9b-it-SimPO,rule,,7
+"WildBench (AI2, Hugging Face Space)",gemma-2b-it,google/gemma-2b-it,,,,,gemma-2b-it,rule,,8
+"WildBench (AI2, Hugging Face Space)",gemma-7b-it,google/gemma-7b-it,,,,,gemma-7b-it,rule,,8
+"WildBench (AI2, Hugging Face Space)",glm-4-9b-chat,zhipu/glm-4-9b-chat,,,,,glm-4-9b-chat,rule,,8
+"WildBench (AI2, Hugging Face Space)",gpt-3.5-turbo-0125,openai/gpt-3.5-turbo-0125,,,,,gpt-3.5-turbo-0125,rule,,8
+"WildBench (AI2, Hugging Face Space)",gpt-4-0125-preview,openai/gpt-4-0125-preview,,,,,gpt-4-0125-preview,rule,,8
+"WildBench (AI2, Hugging Face Space)",gpt-4-turbo-2024-04-09,openai/gpt-4-turbo,,,2024-04-09,,gpt-4-turbo,rule,,8
+"WildBench (AI2, Hugging Face Space)",gpt-4o-2024-05-13,openai/gpt-4o,,,2024-05-13,,gpt-4o,yugos-exact,,8
+"WildBench (AI2, Hugging Face Space)",gpt-4o-mini-2024-07-18,openai/gpt-4o-mini,,,2024-07-18,,gpt-4o-mini,yugos-exact,,7
+"WildBench (AI2, Hugging Face Space)",mistral-large-2402,mistral/mistral-large-2402,,,,,mistral-large-2402,rule,,8
+"WildBench (AI2, Hugging Face Space)",nemotron-4-340b-instruct,nvidia/nemotron-4-340b-instruct,,,,,nemotron-4-340b-instruct,rule,,8
+"WildBench (AI2, Hugging Face Space)",neo_7b_instruct_v0.1,unknown/neo-7b-instruct-v0.1,,,,,neo_7b_instruct_v0.1,rule,,8
+"WildBench (AI2, Hugging Face Space)",neo_7b_instruct_v0.1-ExPO,unknown/neo-7b-instruct-v0.1-expo,,,,,neo_7b_instruct_v0.1-ExPO,rule,,8
+"WildBench (AI2, Hugging Face Space)",reka-core-20240501,reka/reka-core,,,20240501,,reka-core,rule,,8
+"WildBench (AI2, Hugging Face Space)",reka-edge,reka/reka-edge,,,,,reka-edge,yugos-exact,,8
+"WildBench (AI2, Hugging Face Space)",reka-flash-20240226,reka/reka-flash,,,20240226,,reka-flash,rule,,8
+"WildBench (AI2, Hugging Face Space)",tulu-2-dpo-70b,allenai/tulu-2-dpo-70b,,,,,tulu-2-dpo-70b,rule,,8
+"WildBench (AI2, Hugging Face Space)",yi-large,01-ai/yi-large,,,,,yi-large,rule,,8
+"WildBench (AI2, Hugging Face Space)",yi-large-preview,01-ai/yi-large-preview,,,,,yi-large-preview,rule,,8
 tau2-bench (Sierra),Ava Zero,avartha/ava-zero,,,,,Ava Zero,rule,,6
 tau2-bench (Sierra),Cascaded baseline,multiple-providers/cascaded-baseline,,,,,Cascaded baseline,rule,,3
 tau2-bench (Sierra),Claude Fable 5,anthropic/claude-fable-5,,,,,Claude Fable 5,yugos-exact,,1
@@ -2665,3 +3758,29 @@ tau2-bench (Sierra),o4-mini,openai/o4-mini,,,,,o4-mini,yugos-exact,,3
 tau2-bench (Sierra),phonic-1,phonic/phonic-1,,,,,phonic-1,rule,,6
 tau2-bench (Sierra),qwen3.5-omni-plus-realtime,alibaba/qwen3.5-omni-plus-realtime,,,,,qwen3.5-omni-plus-realtime,rule,,3
 tau2-bench (Sierra),xai-realtime,xai/xai-realtime,,,,,xai-realtime,rule,,1
+τ-bench original (Sierra),claude-3-5-sonnet-20240620,anthropic/claude-3.5-sonnet,,,20240620,,claude-3-5-sonnet,rule,,2
+τ-bench original (Sierra),claude-3-5-sonnet-20241022,anthropic/claude-3.5-sonnet,,,20241022,,claude-3-5-sonnet,rule,,2
+τ-bench original (Sierra),claude-3-haiku,anthropic/claude-3-haiku,,,,,claude-3-haiku,rule,,2
+τ-bench original (Sierra),claude-3-opus,anthropic/claude-3-opus,,,,,claude-3-opus,rule,,2
+τ-bench original (Sierra),claude-3-sonnet,anthropic/claude-3-sonnet,,,,,claude-3-sonnet,rule,,2
+τ-bench original (Sierra),gemini-1.5-flash,google/gemini-1.5-flash,,,,,gemini-1.5-flash,rule,,2
+τ-bench original (Sierra),gemini-1.5-pro,google/gemini-1.5-pro,,,,,gemini-1.5-pro,rule,,2
+τ-bench original (Sierra),gpt-3.5-turbo,openai/gpt-3.5-turbo,,,,,gpt-3.5-turbo,rule,,2
+τ-bench original (Sierra),gpt-4-32k,openai/gpt-4-32k,,,,,gpt-4-32k,rule,,2
+τ-bench original (Sierra),gpt-4-turbo,openai/gpt-4-turbo,,,,,gpt-4-turbo,rule,,2
+τ-bench original (Sierra),gpt-4o,openai/gpt-4o,,,,,gpt-4o,yugos-exact,,6
+τ-bench original (Sierra),gpt-4o-mini,openai/gpt-4o-mini,,,,,gpt-4o-mini,yugos-exact,,1
+τ-bench original (Sierra),meta-llama-3-70B,meta/llama-3-70b,,,,,meta-llama-3-70B,rule,,2
+τ-bench original (Sierra),mistral-large,mistral/mistral-large,,,,,mistral-large,yugos-exact,,2
+τ-bench original (Sierra),mixtral-8x22b,mistral/mixtral-8x22b,,,,,mixtral-8x22b,rule,,2
+"τ^τ-bench (hyper-tau-bench, Sierra)",Claude Opus 5,anthropic/claude-opus-5,,,,,Claude Opus 5,yugos-exact,,1
+"τ^τ-bench (hyper-tau-bench, Sierra)",Claude Sonnet 5,anthropic/claude-sonnet-5,,,,,Claude Sonnet 5,yugos-exact,,1
+"τ^τ-bench (hyper-tau-bench, Sierra)",GPT-5.6-sol,openai/gpt-5.6-sol,,,,,GPT-5.6-sol,yugos-exact,,1
+"τ^τ-bench (hyper-tau-bench, Sierra)",GPT-5.6-terra,openai/gpt-5.6-terra,,,,,GPT-5.6-terra,yugos-exact,,1
+"τ^τ-bench (hyper-tau-bench, Sierra)",Gemini 3.8 Flash,google/gemini-3.8-flash,,,,,Gemini 3.8 Flash,yugos-exact,,1
+"τ^τ-bench (hyper-tau-bench, Sierra)",Kimi K3,moonshot/kimi-k3,,,,,Kimi K3,yugos-exact,,2
+τ³-Voice multilingual (Sierra),Ava Zero,avartha/ava-zero,,,,,Ava Zero,rule,,1
+τ³-Voice multilingual (Sierra),gemini-3.8-live-extended-thinking,google/gemini-3.8-live-extended,enabled,,,,gemini-3.8-live-extended,rule,,2
+τ³-Voice multilingual (Sierra),gpt-live-1,openai/gpt-live-1,,,,,gpt-live-1,rule,,2
+τ³-Voice multilingual (Sierra),grok-voice-think-fast-2.0,xai/grok-voice-think-fast-2.0,,,,,grok-voice-think-fast-2.0,rule,,2
+τ³-Voice multilingual (Sierra),phonic-1,phonic/phonic-1,,,,,phonic-1,rule,,1

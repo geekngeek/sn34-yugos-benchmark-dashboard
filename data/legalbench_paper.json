@@ -1,0 +1,1217 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "LegalBench (paper)",
+  "site": "https://hazyresearch.stanford.edu/legalbench/",
+  "publisher": "Guha et al. (Stanford HazyResearch and collaborators)",
+  "description": "LegalBench: 162 legal-reasoning tasks in six categories; per-category average scores from the paper.",
+  "license": "Paper CC BY 4.0 (https://arxiv.org/abs/2308.11462, https://creativecommons.org/licenses/by/4.0/)",
+  "attribution": "Guha et al., 'LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models', arXiv:2308.11462 (CC BY 4.0).",
+  "retrieved_from": [
+   "https://arxiv.org/html/2308.11462 (Table 2, Table 3)"
+  ],
+  "notes": [
+   "Table 2 scores = average task performance per category (balanced accuracy 0-100; F1 for a few multi-label tasks), 20 LLMs, grouped by size block (extra.size_block).",
+   "Rule-application is scored differently: Table 3 manual grading, score = Correctness, extra.analysis = Analysis; only 3 commercial models.",
+   "Model names exactly as in the paper (2023 models)."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "issue",
+   "name": "LegalBench",
+   "version": "Issue-spotting",
+   "area": "legal",
+   "sub_area": "issue-spotting",
+   "unit": "percent",
+   "description": "Average performance on LegalBench issue-spotting tasks (Table 2, column Issue).",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization"
+  },
+  {
+   "key": "rule",
+   "name": "LegalBench",
+   "version": "Rule-recall",
+   "area": "legal",
+   "sub_area": "rule-recall",
+   "unit": "percent",
+   "description": "Average performance on LegalBench rule-recall tasks (Table 2, column Rule).",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization"
+  },
+  {
+   "key": "application",
+   "name": "LegalBench",
+   "version": "Rule-application",
+   "area": "legal",
+   "sub_area": "rule-application",
+   "unit": "percent",
+   "description": "Average manual Correctness score on LegalBench rule-application tasks (Table 3); Analysis score in extra.",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization"
+  },
+  {
+   "key": "conclusion",
+   "name": "LegalBench",
+   "version": "Rule-conclusion",
+   "area": "legal",
+   "sub_area": "rule-conclusion",
+   "unit": "percent",
+   "description": "Average performance on LegalBench rule-conclusion tasks (Table 2, column Conclusion).",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization"
+  },
+  {
+   "key": "interpretation",
+   "name": "LegalBench",
+   "version": "Interpretation",
+   "area": "legal",
+   "sub_area": "interpretation",
+   "unit": "percent",
+   "description": "Average performance on LegalBench interpretation tasks (Table 2, column Interpretation).",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization"
+  },
+  {
+   "key": "rhetorical",
+   "name": "LegalBench",
+   "version": "Rhetorical-understanding",
+   "area": "legal",
+   "sub_area": "rhetorical-understanding",
+   "unit": "percent",
+   "description": "Average performance on LegalBench rhetorical-understanding tasks (Table 2, column Rhetorical).",
+   "url": "https://hazyresearch.stanford.edu/legalbench/tasks/#task-organization"
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "issue",
+   "model": "GPT-4",
+   "score": 82.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "GPT-4@issue@82.9",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "GPT-4",
+   "score": 59.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "GPT-4@rule@59.2",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "GPT-4",
+   "score": 89.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "GPT-4@conclusion@89.9",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "GPT-4",
+   "score": 75.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "GPT-4@interpretation@75.2",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "GPT-4",
+   "score": 79.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "GPT-4@rhetorical@79.4",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "GPT-3.5",
+   "score": 60.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "GPT-3.5@issue@60.9",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "GPT-3.5",
+   "score": 46.3,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "GPT-3.5@rule@46.3",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "GPT-3.5",
+   "score": 78.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "GPT-3.5@conclusion@78.0",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "GPT-3.5",
+   "score": 72.6,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "GPT-3.5@interpretation@72.6",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "GPT-3.5",
+   "score": 66.7,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "GPT-3.5@rhetorical@66.7",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "Claude-1",
+   "score": 58.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Claude-1@issue@58.1",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "Claude-1",
+   "score": 57.7,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Claude-1@rule@57.7",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "Claude-1",
+   "score": 79.5,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Claude-1@conclusion@79.5",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "Claude-1",
+   "score": 67.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Claude-1@interpretation@67.4",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "Claude-1",
+   "score": 68.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Claude-1@rhetorical@68.9",
+   "extra": {
+    "size_block": "large commercial",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "Flan-T5-XXL",
+   "score": 66.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Flan-T5-XXL@issue@66.0",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "Flan-T5-XXL",
+   "score": 36.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Flan-T5-XXL@rule@36.0",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "Flan-T5-XXL",
+   "score": 63.3,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Flan-T5-XXL@conclusion@63.3",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "Flan-T5-XXL",
+   "score": 64.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Flan-T5-XXL@interpretation@64.4",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "Flan-T5-XXL",
+   "score": 70.7,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Flan-T5-XXL@rhetorical@70.7",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "LLaMA-2-13B",
+   "score": 50.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "LLaMA-2-13B@issue@50.2",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "LLaMA-2-13B",
+   "score": 37.7,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "LLaMA-2-13B@rule@37.7",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "LLaMA-2-13B",
+   "score": 59.3,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "LLaMA-2-13B@conclusion@59.3",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "LLaMA-2-13B",
+   "score": 50.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "LLaMA-2-13B@interpretation@50.9",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "LLaMA-2-13B",
+   "score": 54.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "LLaMA-2-13B@rhetorical@54.9",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "OPT-13B",
+   "score": 52.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-13B@issue@52.9",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "OPT-13B",
+   "score": 28.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-13B@rule@28.4",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "OPT-13B",
+   "score": 45.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-13B@conclusion@45.0",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "OPT-13B",
+   "score": 45.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-13B@interpretation@45.1",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "OPT-13B",
+   "score": 43.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-13B@rhetorical@43.2",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "Vicuna-13B-16k",
+   "score": 34.3,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Vicuna-13B-16k@issue@34.3",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "Vicuna-13B-16k",
+   "score": 29.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Vicuna-13B-16k@rule@29.4",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "Vicuna-13B-16k",
+   "score": 34.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Vicuna-13B-16k@conclusion@34.9",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "Vicuna-13B-16k",
+   "score": 40.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Vicuna-13B-16k@interpretation@40.0",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "Vicuna-13B-16k",
+   "score": 30.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Vicuna-13B-16k@rhetorical@30.1",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "WizardLM-13B",
+   "score": 24.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "WizardLM-13B@issue@24.1",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "WizardLM-13B",
+   "score": 38.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "WizardLM-13B@rule@38.0",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "WizardLM-13B",
+   "score": 62.6,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "WizardLM-13B@conclusion@62.6",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "WizardLM-13B",
+   "score": 50.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "WizardLM-13B@interpretation@50.9",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "WizardLM-13B",
+   "score": 59.8,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "WizardLM-13B@rhetorical@59.8",
+   "extra": {
+    "size_block": "11B-13B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "BLOOM-7B",
+   "score": 50.6,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "BLOOM-7B@issue@50.6",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "BLOOM-7B",
+   "score": 24.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "BLOOM-7B@rule@24.1",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "BLOOM-7B",
+   "score": 47.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "BLOOM-7B@conclusion@47.2",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "BLOOM-7B",
+   "score": 42.8,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "BLOOM-7B@interpretation@42.8",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "BLOOM-7B",
+   "score": 40.7,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "BLOOM-7B@rhetorical@40.7",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "Falcon-7B-Instruct",
+   "score": 51.3,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Falcon-7B-Instruct@issue@51.3",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "Falcon-7B-Instruct",
+   "score": 25.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Falcon-7B-Instruct@rule@25.0",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "Falcon-7B-Instruct",
+   "score": 52.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Falcon-7B-Instruct@conclusion@52.9",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "Falcon-7B-Instruct",
+   "score": 46.3,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Falcon-7B-Instruct@interpretation@46.3",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "Falcon-7B-Instruct",
+   "score": 44.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Falcon-7B-Instruct@rhetorical@44.2",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "Incite-7B-Base",
+   "score": 50.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-7B-Base@issue@50.1",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "Incite-7B-Base",
+   "score": 36.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-7B-Base@rule@36.2",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "Incite-7B-Base",
+   "score": 47.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-7B-Base@conclusion@47.0",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "Incite-7B-Base",
+   "score": 46.6,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-7B-Base@interpretation@46.6",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "Incite-7B-Base",
+   "score": 40.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-7B-Base@rhetorical@40.9",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "Incite-7B-Instruct",
+   "score": 54.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-7B-Instruct@issue@54.9",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "Incite-7B-Instruct",
+   "score": 35.6,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-7B-Instruct@rule@35.6",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "Incite-7B-Instruct",
+   "score": 52.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-7B-Instruct@conclusion@52.9",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "Incite-7B-Instruct",
+   "score": 54.5,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-7B-Instruct@interpretation@54.5",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "Incite-7B-Instruct",
+   "score": 45.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-7B-Instruct@rhetorical@45.1",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "LLaMA-2-7B",
+   "score": 50.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "LLaMA-2-7B@issue@50.2",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "LLaMA-2-7B",
+   "score": 33.7,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "LLaMA-2-7B@rule@33.7",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "LLaMA-2-7B",
+   "score": 55.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "LLaMA-2-7B@conclusion@55.9",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "LLaMA-2-7B",
+   "score": 47.7,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "LLaMA-2-7B@interpretation@47.7",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "LLaMA-2-7B",
+   "score": 47.7,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "LLaMA-2-7B@rhetorical@47.7",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "MPT-7B-8k-Instruct",
+   "score": 54.3,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "MPT-7B-8k-Instruct@issue@54.3",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "MPT-7B-8k-Instruct",
+   "score": 25.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "MPT-7B-8k-Instruct@rule@25.9",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "MPT-7B-8k-Instruct",
+   "score": 48.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "MPT-7B-8k-Instruct@conclusion@48.9",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "MPT-7B-8k-Instruct",
+   "score": 42.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "MPT-7B-8k-Instruct@interpretation@42.1",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "MPT-7B-8k-Instruct",
+   "score": 44.3,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "MPT-7B-8k-Instruct@rhetorical@44.3",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "OPT-6.7B",
+   "score": 52.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-6.7B@issue@52.4",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "OPT-6.7B",
+   "score": 23.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-6.7B@rule@23.1",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "OPT-6.7B",
+   "score": 46.3,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-6.7B@conclusion@46.3",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "OPT-6.7B",
+   "score": 48.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-6.7B@interpretation@48.9",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "OPT-6.7B",
+   "score": 42.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-6.7B@rhetorical@42.2",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "Vicuna-7B-16k",
+   "score": 3.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Vicuna-7B-16k@issue@3.9",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "Vicuna-7B-16k",
+   "score": 14.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Vicuna-7B-16k@rule@14.0",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "Vicuna-7B-16k",
+   "score": 35.6,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Vicuna-7B-16k@conclusion@35.6",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "Vicuna-7B-16k",
+   "score": 28.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Vicuna-7B-16k@interpretation@28.1",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "Vicuna-7B-16k",
+   "score": 14.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Vicuna-7B-16k@rhetorical@14.0",
+   "extra": {
+    "size_block": "6B-7B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "BLOOM-3B",
+   "score": 47.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "BLOOM-3B@issue@47.4",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "BLOOM-3B",
+   "score": 20.6,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "BLOOM-3B@rule@20.6",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "BLOOM-3B",
+   "score": 45.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "BLOOM-3B@conclusion@45.0",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "BLOOM-3B",
+   "score": 45.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "BLOOM-3B@interpretation@45.0",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "BLOOM-3B",
+   "score": 36.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "BLOOM-3B@rhetorical@36.4",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "Flan-T5-XL",
+   "score": 56.8,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Flan-T5-XL@issue@56.8",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "Flan-T5-XL",
+   "score": 31.7,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Flan-T5-XL@rule@31.7",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "Flan-T5-XL",
+   "score": 52.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Flan-T5-XL@conclusion@52.1",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "Flan-T5-XL",
+   "score": 51.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Flan-T5-XL@interpretation@51.4",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "Flan-T5-XL",
+   "score": 67.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Flan-T5-XL@rhetorical@67.4",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "Incite-3B-Instruct",
+   "score": 51.1,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-3B-Instruct@issue@51.1",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "Incite-3B-Instruct",
+   "score": 26.9,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-3B-Instruct@rule@26.9",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "Incite-3B-Instruct",
+   "score": 47.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-3B-Instruct@conclusion@47.4",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "Incite-3B-Instruct",
+   "score": 49.6,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-3B-Instruct@interpretation@49.6",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "Incite-3B-Instruct",
+   "score": 40.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "Incite-3B-Instruct@rhetorical@40.2",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "issue",
+   "model": "OPT-2.7B",
+   "score": 53.7,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-2.7B@issue@53.7",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rule",
+   "model": "OPT-2.7B",
+   "score": 22.2,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-2.7B@rule@22.2",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "conclusion",
+   "model": "OPT-2.7B",
+   "score": 46.0,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-2.7B@conclusion@46.0",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "interpretation",
+   "model": "OPT-2.7B",
+   "score": 44.4,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-2.7B@interpretation@44.4",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "rhetorical",
+   "model": "OPT-2.7B",
+   "score": 39.8,
+   "evaluation_method": "LegalBench paper, Table 2 (few-shot prompting)",
+   "external_id": "OPT-2.7B@rhetorical@39.8",
+   "extra": {
+    "size_block": "2B-3B",
+    "table": "Table 2"
+   }
+  },
+  {
+   "benchmark": "application",
+   "model": "GPT-4",
+   "score": 82.2,
+   "evaluation_method": "LegalBench paper, Table 3 (manual grading by law-trained graders)",
+   "external_id": "GPT-4@application@82.2",
+   "extra": {
+    "analysis": 79.7,
+    "table": "Table 3"
+   }
+  },
+  {
+   "benchmark": "application",
+   "model": "GPT-3.5",
+   "score": 58.5,
+   "evaluation_method": "LegalBench paper, Table 3 (manual grading by law-trained graders)",
+   "external_id": "GPT-3.5@application@58.5",
+   "extra": {
+    "analysis": 44.2,
+    "table": "Table 3"
+   }
+  },
+  {
+   "benchmark": "application",
+   "model": "Claude-v1",
+   "score": 61.4,
+   "evaluation_method": "LegalBench paper, Table 3 (manual grading by law-trained graders)",
+   "external_id": "Claude-v1@application@61.4",
+   "extra": {
+    "analysis": 59.0,
+    "table": "Table 3"
+   }
+  }
+ ]
+}

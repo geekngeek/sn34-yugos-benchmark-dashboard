@@ -43,7 +43,11 @@ files; nothing is fetched from the network.
     data/hle.json data/mmlu_pro.json data/gpqa.json data/epoch_ai.json data/openai_simple_evals.json \
     data/aider_polyglot.json data/terminal_bench.json data/tau2_bench.json data/lmarena.json \
     data/wildbench.json data/ocrbench_v2.json data/ruler.json data/swebench.json data/swebench_pro.json \
-    data/matharena_aime.json data/mmlu_original.json
+    data/matharena_aime.json data/mmlu_original.json \
+    data/livebench_2_subcategories.json data/hle_diamond.json data/hle_paper.json data/ruler_paper_categories.json \
+    data/gpqa_paper_subsets.json data/tau_bench_original.json data/tau3_voice_multilingual.json data/hyper_tau_bench.json \
+    data/livecodebench.json data/healthbench_paper.json data/lmarena_more.json data/wildbench_space.json \
+    data/aider_legacy.json data/mask_paper.json data/legalbench_paper.json
 .venv/bin/python -m importer data/livebench.json --dry-run   # full import, then rolled back
 .venv/bin/python -m importer data/livebench.json --replace   # delete that source's rows first
 ```
@@ -67,7 +71,29 @@ files; nothing is fetched from the network.
 | `data/swebench.json` | `SWE-bench` / `Verified (official)`, `Lite`, `Test`, `Multilingual`, `Multimodal` | swebench.com `leaderboards.json` (**CC BY-NC 4.0**); entries without a single model skipped. |
 | `data/swebench_pro.json` | `SWE-bench Pro` / `Scale open-source runs` | resolve rate computed from the 9 runs in scaleapi/SWE-bench_Pro-os (MIT); runs cover different instance counts. |
 | `data/matharena_aime.json` | `AIME` / `2025 (MathArena)`, `2026 (MathArena)` | accuracy per model config from MathArena's output datasets (**CC BY-NC-SA 4.0**); configs missing problems are excluded. |
-| `data/mmlu_original.json` | `MMLU` / `Original leaderboard` | table in hendrycks/test (MIT); historical (to 2023). |
+| `data/mmlu_original.json` | `MMLU` / `Original leaderboard` + `Original leaderboard — <group>` (Humanities, Social Sciences, STEM, Other) | table in hendrycks/test (MIT); historical (to 2023). The group versions are the table's per-group columns. |
+
+Added 2026-11-27 for the Benchmark list's sub-benchmarks (one-off research; every number copied from the official file, page or paper; each file's `source` block has the license and exact URLs). Each file has **its own source name**, so a `--replace` of one never deletes another's rows. Outcome per sub-benchmark, including what could not be fetched and why: `docs/subbenchmark-data-report.md`.
+
+| File | Source name | What | License |
+|---|---|---|---|
+| `data/livebench_2_subcategories.json` | LiveBench (sub-categories) | the 33 LiveBench 2.0 sub-categories (release 2026-11-06, `breakdown.json`) | no license on the data files; repo Apache-2.0 (same basis as `livebench.json`) |
+| `data/hle_diamond.json` | HLE-Diamond (official, lastexam.ai) | HLE-Diamond overall, partitions, with tools | dataset/repo MIT |
+| `data/hle_paper.json` | Humanity's Last Exam (paper) | text-only subset and the subject categories (paper tables) | CC BY 4.0 |
+| `data/ruler_paper_categories.json` | RULER (paper, NVIDIA) | RULER task categories (paper tables 13–16) | CC BY 4.0 |
+| `data/gpqa_paper_subsets.json` | GPQA (paper) | GPQA main and extended sets | CC BY 4.0 |
+| `data/tau_bench_original.json` | τ-bench original (Sierra) | original τ-bench airline/retail (README board; paper table as separate versions) | MIT |
+| `data/tau3_voice_multilingual.json` | τ³-Voice multilingual (Sierra) | multilingual voice board and Intake | MIT |
+| `data/hyper_tau_bench.json` | τ^τ-bench (hyper-tau-bench, Sierra) | 7 submissions; the agent's build cost per task is in `extra`, not price per task | MIT |
+| `data/livecodebench.json` | LiveCodeBench (official) | release_v6/v5 overall + Easy/Medium/Hard, **computed from the official per-problem files with the page's own window, averaging and rounding**; Self-Repair, Test Output Prediction, Code Execution from the paper | MIT; paper CC BY 4.0 |
+| `data/healthbench_paper.json` | HealthBench (OpenAI paper) | overall and Consensus (paper) | CC BY 4.0 |
+| `data/lmarena_more.json` | LMArena (categories and other arenas) | all text categories, Image-to-WebDev, image, video, Agent (with median cost per task) | CC BY 4.0 |
+| `data/wildbench_space.json` | WildBench (AI2, Hugging Face Space) | WB-Elo LC/raw, WB-Reward, per-task WB-Scores (a newer snapshot than `wildbench.json`) | Space states no license; project repo Apache-2.0 |
+| `data/aider_legacy.json` | Aider (legacy leaderboards) | code editing (133 exercises) and refactoring | Apache-2.0 |
+| `data/mask_paper.json` | MASK (paper) | accuracy on the 1,500 public examples | CC BY 4.0 |
+| `data/legalbench_paper.json` | LegalBench (paper) | the six reasoning categories | CC BY 4.0 |
+
+`data/swebench.json` also has `Bash Only (mini-SWE-agent, official)`: the Verified rows with agent = mini-SWE-agent, which is how swebench.com's Bash Only view is defined.
 | `data/artificial_analysis.json` | `Artificial Analysis Intelligence Index v5` + six capability indices | no evaluation dates: `external_id` = `<AA id>@<score>`, so a new row appears only when a score changes. Model-level prices go to `model_pricing` dated by collection date (history kept; `effective_to` set automatically). Attribution required when shown. |
 
 - `hle.json`, `mmlu_pro.json` and `gpqa.json` use a generic format, `"format": "benchmark-results/v1"`

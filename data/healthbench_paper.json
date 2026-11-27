@@ -1,0 +1,256 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "HealthBench (OpenAI paper)",
+  "site": "https://openai.com/index/healthbench/",
+  "publisher": "OpenAI",
+  "description": "HealthBench: 5,000 multi-turn health conversations graded against physician-written rubrics; scores from the official paper.",
+  "license": "arXiv 2505.08775 is CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); eval code MIT (https://github.com/openai/simple-evals)",
+  "attribution": "Arora et al., HealthBench: Evaluating Large Language Models Towards Improved Human Health, arXiv:2505.08775 (https://arxiv.org/abs/2505.08775)",
+  "retrieved_from": [
+   "https://arxiv.org/abs/2505.08775",
+   "https://arxiv.org/html/2505.08775 (Table 7, Table 8)",
+   "https://arxiv.org/html/2505.08775v1/figures/theme.png (Figure 5, printed overall labels)"
+  ],
+  "notes": [
+   "Score is a fraction 0-1 (rubric points met / max, clipped), higher is better.",
+   "HealthBench overall: the 2-decimal overall label printed on Figure 5 for each of the 9 models; for the 5 OpenAI models Table 7 also gives mean/min/max/std over 16 runs (in extra).",
+   "HealthBench Consensus: 'Overall score' row of Table 8 (4 decimals); error rate = 1 - score.",
+   "Same benchmark as BenchLM's 'HealthBench (raw)' already in the DB, but BenchLM holds only newer models' self-reported scores, not these paper results."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "healthbench",
+   "name": "HealthBench",
+   "version": "overall (paper, May 2025)",
+   "area": "medical",
+   "unit": "fraction",
+   "total_tasks": 5000,
+   "description": "Overall HealthBench score on 5,000 conversations, GPT-4.1 grader.",
+   "url": "https://arxiv.org/abs/2505.08775"
+  },
+  {
+   "key": "healthbench_consensus",
+   "name": "HealthBench Consensus",
+   "version": "overall (paper, May 2025)",
+   "area": "medical",
+   "unit": "fraction",
+   "total_tasks": 3671,
+   "description": "Score on the physician-consensus-validated criteria subset (3,671 examples); error rate = 1 - score.",
+   "url": "https://arxiv.org/abs/2505.08775"
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "healthbench",
+   "model": "o3",
+   "score": 0.6,
+   "evaluation_method": "HealthBench, GPT-4.1 rubric grader",
+   "external_id": "healthbench:o3@0.60",
+   "extra": {
+    "source_location": "Figure 5 overall label (2 decimals)",
+    "mean_16_runs": 0.599,
+    "min_16_runs": 0.5951,
+    "max_16_runs": 0.6014,
+    "std_16_runs": 0.0016
+   }
+  },
+  {
+   "benchmark": "healthbench",
+   "model": "Grok 3",
+   "score": 0.54,
+   "evaluation_method": "HealthBench, GPT-4.1 rubric grader",
+   "external_id": "healthbench:Grok 3@0.54",
+   "extra": {
+    "source_location": "Figure 5 overall label (2 decimals)"
+   }
+  },
+  {
+   "benchmark": "healthbench",
+   "model": "Gemini 2.5 Pro (Mar 2025)",
+   "score": 0.52,
+   "evaluation_method": "HealthBench, GPT-4.1 rubric grader",
+   "external_id": "healthbench:Gemini 2.5 Pro (Mar 2025)@0.52",
+   "extra": {
+    "source_location": "Figure 5 overall label (2 decimals)"
+   }
+  },
+  {
+   "benchmark": "healthbench",
+   "model": "GPT-4.1",
+   "score": 0.48,
+   "evaluation_method": "HealthBench, GPT-4.1 rubric grader",
+   "external_id": "healthbench:GPT-4.1@0.48",
+   "extra": {
+    "source_location": "Figure 5 overall label (2 decimals)",
+    "mean_16_runs": 0.4778,
+    "min_16_runs": 0.4742,
+    "max_16_runs": 0.4815,
+    "std_16_runs": 0.0022
+   }
+  },
+  {
+   "benchmark": "healthbench",
+   "model": "o1",
+   "score": 0.42,
+   "evaluation_method": "HealthBench, GPT-4.1 rubric grader",
+   "external_id": "healthbench:o1@0.42",
+   "extra": {
+    "source_location": "Figure 5 overall label (2 decimals)",
+    "mean_16_runs": 0.42,
+    "min_16_runs": 0.4153,
+    "max_16_runs": 0.423,
+    "std_16_runs": 0.0022
+   }
+  },
+  {
+   "benchmark": "healthbench",
+   "model": "Claude 3.7 Sonnet (extended thinking)",
+   "score": 0.35,
+   "evaluation_method": "HealthBench, GPT-4.1 rubric grader",
+   "external_id": "healthbench:Claude 3.7 Sonnet (extended thinking)@0.35",
+   "extra": {
+    "source_location": "Figure 5 overall label (2 decimals)"
+   }
+  },
+  {
+   "benchmark": "healthbench",
+   "model": "GPT-4o (Aug 2024)",
+   "score": 0.32,
+   "evaluation_method": "HealthBench, GPT-4.1 rubric grader",
+   "external_id": "healthbench:GPT-4o (Aug 2024)@0.32",
+   "extra": {
+    "source_location": "Figure 5 overall label (2 decimals)",
+    "mean_16_runs": 0.3233,
+    "min_16_runs": 0.3188,
+    "max_16_runs": 0.3257,
+    "std_16_runs": 0.002
+   }
+  },
+  {
+   "benchmark": "healthbench",
+   "model": "Llama 4 Maverick",
+   "score": 0.25,
+   "evaluation_method": "HealthBench, GPT-4.1 rubric grader",
+   "external_id": "healthbench:Llama 4 Maverick@0.25",
+   "extra": {
+    "source_location": "Figure 5 overall label (2 decimals)"
+   }
+  },
+  {
+   "benchmark": "healthbench",
+   "model": "GPT-3.5 Turbo",
+   "score": 0.16,
+   "evaluation_method": "HealthBench, GPT-4.1 rubric grader",
+   "external_id": "healthbench:GPT-3.5 Turbo@0.16",
+   "extra": {
+    "source_location": "Figure 5 overall label (2 decimals)",
+    "mean_16_runs": 0.1554,
+    "min_16_runs": 0.1505,
+    "max_16_runs": 0.1611,
+    "std_16_runs": 0.0029
+   }
+  },
+  {
+   "benchmark": "healthbench_consensus",
+   "model": "GPT-4.1",
+   "score": 0.9398,
+   "evaluation_method": "HealthBench Consensus, GPT-4.1 grader",
+   "external_id": "healthbench_consensus:GPT-4.1@0.9398",
+   "extra": {
+    "error_rate": 0.0602,
+    "source_location": "Table 8, 'Overall score' row"
+   }
+  },
+  {
+   "benchmark": "healthbench_consensus",
+   "model": "Grok 3",
+   "score": 0.9372,
+   "evaluation_method": "HealthBench Consensus, GPT-4.1 grader",
+   "external_id": "healthbench_consensus:Grok 3@0.9372",
+   "extra": {
+    "error_rate": 0.0628,
+    "source_location": "Table 8, 'Overall score' row"
+   }
+  },
+  {
+   "benchmark": "healthbench_consensus",
+   "model": "o3",
+   "score": 0.9282,
+   "evaluation_method": "HealthBench Consensus, GPT-4.1 grader",
+   "external_id": "healthbench_consensus:o3@0.9282",
+   "extra": {
+    "error_rate": 0.0718,
+    "source_location": "Table 8, 'Overall score' row"
+   }
+  },
+  {
+   "benchmark": "healthbench_consensus",
+   "model": "Gemini 2.5 Pro (Mar 2025)",
+   "score": 0.9189,
+   "evaluation_method": "HealthBench Consensus, GPT-4.1 grader",
+   "external_id": "healthbench_consensus:Gemini 2.5 Pro (Mar 2025)@0.9189",
+   "extra": {
+    "error_rate": 0.0811,
+    "source_location": "Table 8, 'Overall score' row"
+   }
+  },
+  {
+   "benchmark": "healthbench_consensus",
+   "model": "o1",
+   "score": 0.9154,
+   "evaluation_method": "HealthBench Consensus, GPT-4.1 grader",
+   "external_id": "healthbench_consensus:o1@0.9154",
+   "extra": {
+    "error_rate": 0.0846,
+    "source_location": "Table 8, 'Overall score' row"
+   }
+  },
+  {
+   "benchmark": "healthbench_consensus",
+   "model": "GPT-4o (Aug 2024)",
+   "score": 0.8867,
+   "evaluation_method": "HealthBench Consensus, GPT-4.1 grader",
+   "external_id": "healthbench_consensus:GPT-4o (Aug 2024)@0.8867",
+   "extra": {
+    "error_rate": 0.1133,
+    "source_location": "Table 8, 'Overall score' row"
+   }
+  },
+  {
+   "benchmark": "healthbench_consensus",
+   "model": "Claude 3.7 Sonnet (extended thinking)",
+   "score": 0.8814,
+   "evaluation_method": "HealthBench Consensus, GPT-4.1 grader",
+   "external_id": "healthbench_consensus:Claude 3.7 Sonnet (extended thinking)@0.8814",
+   "extra": {
+    "error_rate": 0.1186,
+    "source_location": "Table 8, 'Overall score' row"
+   }
+  },
+  {
+   "benchmark": "healthbench_consensus",
+   "model": "Llama 4 Maverick",
+   "score": 0.8391,
+   "evaluation_method": "HealthBench Consensus, GPT-4.1 grader",
+   "external_id": "healthbench_consensus:Llama 4 Maverick@0.8391",
+   "extra": {
+    "error_rate": 0.1609,
+    "source_location": "Table 8, 'Overall score' row"
+   }
+  },
+  {
+   "benchmark": "healthbench_consensus",
+   "model": "GPT-3.5 Turbo",
+   "score": 0.7509,
+   "evaluation_method": "HealthBench Consensus, GPT-4.1 grader",
+   "external_id": "healthbench_consensus:GPT-3.5 Turbo@0.7509",
+   "extra": {
+    "error_rate": 0.2491,
+    "source_location": "Table 8, 'Overall score' row"
+   }
+  }
+ ]
+}

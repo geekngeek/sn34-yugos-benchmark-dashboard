@@ -1,0 +1,431 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "τ-bench original (Sierra)",
+  "site": "https://github.com/sierra-research/tau-bench",
+  "publisher": "Sierra Research",
+  "description": "Original τ-bench (2024) Airline and Retail results: the repository README leaderboard and the paper's Table 2.",
+  "license": "Repository MIT (https://github.com/sierra-research/tau-bench/blob/main/LICENSE); paper CC BY 4.0 (https://arxiv.org/abs/2406.12045)",
+  "attribution": "Yao et al., τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains, Sierra (https://github.com/sierra-research/tau-bench, arXiv:2406.12045).",
+  "retrieved_from": [
+   "https://raw.githubusercontent.com/sierra-research/tau-bench/main/README.md",
+   "https://arxiv.org/html/2406.12045"
+  ],
+  "notes": [
+   "Score = pass^1 (%). README gives 0-1 fractions (shown x100 here; raw value and pass^2-4 in extra). README rows marked ?? are left out.",
+   "README and paper are separate runs (e.g. gpt-4o airline 42.0 in the README vs 35.2 in the paper), so they are kept as separate benchmark versions.",
+   "This is the original task set; τ²-bench re-released the domains with fixed tasks (already in the DB as τ²-bench). The repo itself says the original tasks are outdated."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "airline_readme",
+   "name": "τ-bench (original)",
+   "version": "Airline (README leaderboard)",
+   "area": "agentic",
+   "sub_area": "tool use (customer service)",
+   "unit": "percent",
+   "description": "Original τ-bench airline domain, pass^1 (%), README leaderboard.",
+   "url": "https://github.com/sierra-research/tau-bench#airline"
+  },
+  {
+   "key": "retail_readme",
+   "name": "τ-bench (original)",
+   "version": "Retail (README leaderboard)",
+   "area": "agentic",
+   "sub_area": "tool use (customer service)",
+   "unit": "percent",
+   "description": "Original τ-bench retail domain, pass^1 (%), README leaderboard.",
+   "url": "https://github.com/sierra-research/tau-bench#retail"
+  },
+  {
+   "key": "airline_paper",
+   "name": "τ-bench (original)",
+   "version": "Airline (paper, Table 2)",
+   "area": "agentic",
+   "sub_area": "tool use (customer service)",
+   "unit": "percent",
+   "description": "Original τ-bench airline domain, pass^1 (%), paper Table 2.",
+   "url": "https://arxiv.org/html/2406.12045#S5"
+  },
+  {
+   "key": "retail_paper",
+   "name": "τ-bench (original)",
+   "version": "Retail (paper, Table 2)",
+   "area": "agentic",
+   "sub_area": "tool use (customer service)",
+   "unit": "percent",
+   "description": "Original τ-bench retail domain, pass^1 (%), paper Table 2.",
+   "url": "https://arxiv.org/html/2406.12045#S5"
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "airline_readme",
+   "model": "claude-3-5-sonnet-20241022",
+   "score": 46.0,
+   "evaluation_method": "tool-calling agent",
+   "external_id": "tau-bench-readme:airline:TC (claude-3-5-sonnet-20241022)",
+   "extra": {
+    "strategy_as_published": "TC (claude-3-5-sonnet-20241022)",
+    "pass_1_fraction": 0.46,
+    "pass_2": 0.326,
+    "pass_3": 0.263,
+    "pass_4": 0.225
+   }
+  },
+  {
+   "benchmark": "airline_readme",
+   "model": "gpt-4o",
+   "score": 42.0,
+   "evaluation_method": "tool-calling agent",
+   "external_id": "tau-bench-readme:airline:TC (gpt-4o)",
+   "extra": {
+    "strategy_as_published": "TC (gpt-4o)",
+    "pass_1_fraction": 0.42,
+    "pass_2": 0.273,
+    "pass_3": 0.22,
+    "pass_4": 0.2
+   }
+  },
+  {
+   "benchmark": "airline_readme",
+   "model": "claude-3-5-sonnet-20240620",
+   "score": 36.0,
+   "evaluation_method": "tool-calling agent",
+   "external_id": "tau-bench-readme:airline:TC (claude-3-5-sonnet-20240620)",
+   "extra": {
+    "strategy_as_published": "TC (claude-3-5-sonnet-20240620)",
+    "pass_1_fraction": 0.36,
+    "pass_2": 0.224,
+    "pass_3": 0.169,
+    "pass_4": 0.139
+   }
+  },
+  {
+   "benchmark": "airline_readme",
+   "model": "gpt-4o-mini",
+   "score": 22.5,
+   "evaluation_method": "tool-calling agent",
+   "external_id": "tau-bench-readme:airline:TC (gpt-4o-mini)",
+   "extra": {
+    "strategy_as_published": "TC (gpt-4o-mini)",
+    "pass_1_fraction": 0.225,
+    "pass_2": 0.14,
+    "pass_3": 0.11,
+    "pass_4": 0.1
+   }
+  },
+  {
+   "benchmark": "airline_readme",
+   "model": "gpt-4o",
+   "score": 36.5,
+   "evaluation_method": "Act agent (text)",
+   "external_id": "tau-bench-readme:airline:Act (gpt-4o)",
+   "extra": {
+    "strategy_as_published": "Act (gpt-4o)",
+    "pass_1_fraction": 0.365,
+    "pass_2": 0.217,
+    "pass_3": 0.16,
+    "pass_4": 0.14
+   }
+  },
+  {
+   "benchmark": "airline_readme",
+   "model": "gpt-4o",
+   "score": 32.5,
+   "evaluation_method": "ReAct agent (text)",
+   "external_id": "tau-bench-readme:airline:ReAct (gpt-4o)",
+   "extra": {
+    "strategy_as_published": "ReAct (gpt-4o)",
+    "pass_1_fraction": 0.325,
+    "pass_2": 0.233,
+    "pass_3": 0.185,
+    "pass_4": 0.16
+   }
+  },
+  {
+   "benchmark": "retail_readme",
+   "model": "claude-3-5-sonnet-20241022",
+   "score": 69.2,
+   "evaluation_method": "tool-calling agent",
+   "external_id": "tau-bench-readme:retail:TC (claude-3-5-sonnet-20241022)",
+   "extra": {
+    "strategy_as_published": "TC (claude-3-5-sonnet-20241022)",
+    "pass_1_fraction": 0.692,
+    "pass_2": 0.576,
+    "pass_3": 0.509,
+    "pass_4": 0.462
+   }
+  },
+  {
+   "benchmark": "retail_readme",
+   "model": "gpt-4o",
+   "score": 60.4,
+   "evaluation_method": "tool-calling agent",
+   "external_id": "tau-bench-readme:retail:TC (gpt-4o)",
+   "extra": {
+    "strategy_as_published": "TC (gpt-4o)",
+    "pass_1_fraction": 0.604,
+    "pass_2": 0.491,
+    "pass_3": 0.43,
+    "pass_4": 0.383
+   }
+  },
+  {
+   "benchmark": "retail_readme",
+   "model": "claude-3-5-sonnet-20240620",
+   "score": 62.6,
+   "evaluation_method": "tool-calling agent",
+   "external_id": "tau-bench-readme:retail:TC (claude-3-5-sonnet-20240620)",
+   "extra": {
+    "strategy_as_published": "TC (claude-3-5-sonnet-20240620)",
+    "pass_1_fraction": 0.626,
+    "pass_2": 0.506,
+    "pass_3": 0.435,
+    "pass_4": 0.387
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "gpt-4o",
+   "score": 61.2,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:gpt-4o",
+   "extra": {
+    "paper_average_both_domains": 48.2
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "gpt-4o",
+   "score": 35.2,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:gpt-4o",
+   "extra": {
+    "paper_average_both_domains": 48.2
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "gpt-4-turbo",
+   "score": 57.7,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:gpt-4-turbo",
+   "extra": {
+    "paper_average_both_domains": 45.1
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "gpt-4-turbo",
+   "score": 32.4,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:gpt-4-turbo",
+   "extra": {
+    "paper_average_both_domains": 45.1
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "gpt-4-32k",
+   "score": 56.5,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:gpt-4-32k",
+   "extra": {
+    "paper_average_both_domains": 44.8
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "gpt-4-32k",
+   "score": 33.0,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:gpt-4-32k",
+   "extra": {
+    "paper_average_both_domains": 44.8
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "gpt-3.5-turbo",
+   "score": 20.0,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:gpt-3.5-turbo",
+   "extra": {
+    "paper_average_both_domains": 15.4
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "gpt-3.5-turbo",
+   "score": 10.8,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:gpt-3.5-turbo",
+   "extra": {
+    "paper_average_both_domains": 15.4
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "claude-3-opus",
+   "score": 44.2,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:claude-3-opus",
+   "extra": {
+    "paper_average_both_domains": 39.5
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "claude-3-opus",
+   "score": 34.7,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:claude-3-opus",
+   "extra": {
+    "paper_average_both_domains": 39.5
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "claude-3-sonnet",
+   "score": 26.3,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:claude-3-sonnet",
+   "extra": {
+    "paper_average_both_domains": 27.0
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "claude-3-sonnet",
+   "score": 27.6,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:claude-3-sonnet",
+   "extra": {
+    "paper_average_both_domains": 27.0
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "claude-3-haiku",
+   "score": 19.0,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:claude-3-haiku",
+   "extra": {
+    "paper_average_both_domains": 16.7
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "claude-3-haiku",
+   "score": 14.4,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:claude-3-haiku",
+   "extra": {
+    "paper_average_both_domains": 16.7
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "gemini-1.5-pro",
+   "score": 21.7,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:gemini-1.5-pro",
+   "extra": {
+    "paper_average_both_domains": 17.9
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "gemini-1.5-pro",
+   "score": 14.0,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:gemini-1.5-pro",
+   "extra": {
+    "paper_average_both_domains": 17.9
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "gemini-1.5-flash",
+   "score": 17.4,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:gemini-1.5-flash",
+   "extra": {
+    "paper_average_both_domains": 21.7
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "gemini-1.5-flash",
+   "score": 26.0,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:gemini-1.5-flash",
+   "extra": {
+    "paper_average_both_domains": 21.7
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "mistral-large",
+   "score": 30.7,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:mistral-large",
+   "extra": {
+    "paper_average_both_domains": 26.6
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "mistral-large",
+   "score": 22.4,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:mistral-large",
+   "extra": {
+    "paper_average_both_domains": 26.6
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "mixtral-8x22b",
+   "score": 17.7,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:retail:mixtral-8x22b",
+   "extra": {
+    "paper_average_both_domains": 24.7
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "mixtral-8x22b",
+   "score": 31.6,
+   "evaluation_method": "function-calling agent",
+   "external_id": "tau-bench-paper:airline:mixtral-8x22b",
+   "extra": {
+    "paper_average_both_domains": 24.7
+   }
+  },
+  {
+   "benchmark": "retail_paper",
+   "model": "meta-llama-3-70B",
+   "score": 14.8,
+   "evaluation_method": "text-ReAct agent",
+   "external_id": "tau-bench-paper:retail:meta-llama-3-70B",
+   "extra": {
+    "paper_average_both_domains": 14.6
+   }
+  },
+  {
+   "benchmark": "airline_paper",
+   "model": "meta-llama-3-70B",
+   "score": 14.4,
+   "evaluation_method": "text-ReAct agent",
+   "external_id": "tau-bench-paper:airline:meta-llama-3-70B",
+   "extra": {
+    "paper_average_both_domains": 14.6
+   }
+  }
+ ]
+}

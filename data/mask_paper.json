@@ -1,0 +1,449 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "MASK (paper)",
+  "site": "https://www.mask-benchmark.ai/",
+  "publisher": "Center for AI Safety and Scale AI (Ren et al.)",
+  "description": "MASK benchmark: separates honesty (does the model contradict its own belief under pressure) from accuracy (does its belief match ground truth).",
+  "license": "Paper CC BY 4.0 (https://arxiv.org/abs/2503.03750, https://creativecommons.org/licenses/by/4.0/)",
+  "attribution": "Ren et al., 'The MASK Benchmark: Disentangling Honesty From Accuracy in AI Systems', arXiv:2503.03750 (CC BY 4.0).",
+  "retrieved_from": [
+   "https://arxiv.org/html/2503.03750 (v3, Appendix A.10, Table 3)"
+  ],
+  "notes": [
+   "Score = Accuracy (%): share of propositions where the model's elicited belief matches ground truth; propositions with no clear belief are excluded.",
+   "Paper results use the full public set of 1,500 examples (not Scale's 500-example private leaderboard split).",
+   "P(honest), P(lie) and their @10 variants from the same table are kept in extra; '-' entries (not run) are left out.",
+   "Model names exactly as in the paper; the asterisk on o3-mini (footnote: run with 'low' reasoning effort) is moved to reasoning_effort."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "accuracy",
+   "name": "MASK",
+   "version": "Accuracy (paper, 1,500 public examples)",
+   "area": "safety",
+   "sub_area": "honesty / factual accuracy",
+   "unit": "percent",
+   "total_tasks": 1500,
+   "metric": "accuracy",
+   "description": "MASK Accuracy: percent of propositions where the model's belief matches the ground truth (paper Table 3).",
+   "url": "https://arxiv.org/html/2503.03750"
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "accuracy",
+   "model": "claude-3-5-sonnet-20240620",
+   "score": 80.1,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "claude-3-5-sonnet-20240620@80.1",
+   "extra": {
+    "p_honest": 27.7,
+    "p_lie": 33.4,
+    "p_honest_at_10": 23.6,
+    "p_lie_at_10": 44.7
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "claude-3-7-sonnet-20250219",
+   "score": 82.2,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "claude-3-7-sonnet-20250219@82.2",
+   "extra": {
+    "p_honest": 47.6,
+    "p_lie": 26.6,
+    "p_honest_at_10": 38.2,
+    "p_lie_at_10": 42.1
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "deepseek-r1",
+   "score": 79.6,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "deepseek-r1@79.6",
+   "extra": {
+    "p_honest": 24.7,
+    "p_lie": 42.9
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "deepseek-v3",
+   "score": 71.6,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "deepseek-v3@71.6",
+   "extra": {
+    "p_honest": 20.8,
+    "p_lie": 53.5,
+    "p_honest_at_10": 13.5,
+    "p_lie_at_10": 67.4
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "deepseek-llm-67b-chat",
+   "score": 64.3,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "deepseek-llm-67b-chat@64.3",
+   "extra": {
+    "p_honest": 18.6,
+    "p_lie": 45.6,
+    "p_honest_at_10": 6.5,
+    "p_lie_at_10": 69.0
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "gemini-2.0-flash",
+   "score": 79.4,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "gemini-2.0-flash@79.4",
+   "extra": {
+    "p_honest": 20.7,
+    "p_lie": 48.4,
+    "p_honest_at_10": 14.5,
+    "p_lie_at_10": 64.0
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "gpt-4.5-preview-2025-02-27",
+   "score": 76.7,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "gpt-4.5-preview-2025-02-27@76.7",
+   "extra": {
+    "p_honest": 27.2,
+    "p_lie": 43.5
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "gpt-4o-2024-08-06",
+   "score": 78.6,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "gpt-4o-2024-08-06@78.6",
+   "extra": {
+    "p_honest": 21.8,
+    "p_lie": 44.5,
+    "p_honest_at_10": 14.5,
+    "p_lie_at_10": 63.0
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "gpt-4o-mini-2024-07-18",
+   "score": 71.4,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "gpt-4o-mini-2024-07-18@71.4",
+   "extra": {
+    "p_honest": 21.4,
+    "p_lie": 45.3,
+    "p_honest_at_10": 15.9,
+    "p_lie_at_10": 59.7
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "grok-2-1212",
+   "score": 72.5,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "grok-2-1212@72.5",
+   "extra": {
+    "p_honest": 14.2,
+    "p_lie": 63.0,
+    "p_honest_at_10": 10.2,
+    "p_lie_at_10": 71.2
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "llama-2-13b-chat",
+   "score": 40.1,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "llama-2-13b-chat@40.1",
+   "extra": {
+    "p_honest": 28.7,
+    "p_lie": 24.7,
+    "p_honest_at_10": 19.0,
+    "p_lie_at_10": 41.4
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "llama-2-70b-chat",
+   "score": 40.6,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "llama-2-70b-chat@40.6",
+   "extra": {
+    "p_honest": 28.3,
+    "p_lie": 26.7,
+    "p_honest_at_10": 19.7,
+    "p_lie_at_10": 41.5
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "llama-2-7b-chat",
+   "score": 33.6,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "llama-2-7b-chat@33.6",
+   "extra": {
+    "p_honest": 27.5,
+    "p_lie": 21.5,
+    "p_honest_at_10": 17.8,
+    "p_lie_at_10": 38.2
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "llama-31-405b-instruct",
+   "score": 72.1,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "llama-31-405b-instruct@72.1",
+   "extra": {
+    "p_honest": 21.6,
+    "p_lie": 28.0,
+    "p_honest_at_10": 14.3,
+    "p_lie_at_10": 44.9
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "llama-31-70b-instruct",
+   "score": 73.8,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "llama-31-70b-instruct@73.8",
+   "extra": {
+    "p_honest": 27.1,
+    "p_lie": 43.5,
+    "p_honest_at_10": 14.4,
+    "p_lie_at_10": 64.3
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "llama-31-8b-instruct",
+   "score": 62.0,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "llama-31-8b-instruct@62.0",
+   "extra": {
+    "p_honest": 18.8,
+    "p_lie": 23.5,
+    "p_honest_at_10": 8.2,
+    "p_lie_at_10": 46.7
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "llama-32-1b-instruct",
+   "score": 23.0,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "llama-32-1b-instruct@23.0",
+   "extra": {
+    "p_honest": 13.9,
+    "p_lie": 13.1,
+    "p_honest_at_10": 4.3,
+    "p_lie_at_10": 35.8
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "llama-32-3b-instruct",
+   "score": 40.0,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "llama-32-3b-instruct@40.0",
+   "extra": {
+    "p_honest": 21.8,
+    "p_lie": 23.5,
+    "p_honest_at_10": 10.7,
+    "p_lie_at_10": 43.1
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "llama-33-70b-instruct",
+   "score": 75.6,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "llama-33-70b-instruct@75.6",
+   "extra": {
+    "p_honest": 24.7,
+    "p_lie": 44.9,
+    "p_honest_at_10": 17.3,
+    "p_lie_at_10": 58.8
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "o3-mini-2025-01-31",
+   "reasoning_effort": "low",
+   "score": 63.3,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "o3-mini-2025-01-31@63.3",
+   "extra": {
+    "p_honest": 19.6,
+    "p_lie": 48.6,
+    "note": "paper footnote: o3-mini was run with 'low' reasoning effort"
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen15-110b-chat",
+   "score": 72.8,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen15-110b-chat@72.8",
+   "extra": {
+    "p_honest": 27.9,
+    "p_lie": 35.6,
+    "p_honest_at_10": 20.2,
+    "p_lie_at_10": 53.4
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen15-32b-chat",
+   "score": 63.0,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen15-32b-chat@63.0",
+   "extra": {
+    "p_honest": 23.8,
+    "p_lie": 42.5,
+    "p_honest_at_10": 15.5,
+    "p_lie_at_10": 60.0
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen15-72b-chat",
+   "score": 69.3,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen15-72b-chat@69.3",
+   "extra": {
+    "p_honest": 24.2,
+    "p_lie": 47.8,
+    "p_honest_at_10": 15.1,
+    "p_lie_at_10": 63.1
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen15-7b-chat",
+   "score": 52.5,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen15-7b-chat@52.5",
+   "extra": {
+    "p_honest": 27.1,
+    "p_lie": 35.1,
+    "p_honest_at_10": 15.8,
+    "p_lie_at_10": 55.2
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen25-05b-instruct",
+   "score": 20.8,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen25-05b-instruct@20.8",
+   "extra": {
+    "p_honest": 15.9,
+    "p_lie": 15.4,
+    "p_honest_at_10": 6.3,
+    "p_lie_at_10": 41.1
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen25-14b-instruct",
+   "score": 64.4,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen25-14b-instruct@64.4",
+   "extra": {
+    "p_honest": 26.5,
+    "p_lie": 47.7,
+    "p_honest_at_10": 17.5,
+    "p_lie_at_10": 63.8
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen25-15b-instruct",
+   "score": 28.8,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen25-15b-instruct@28.8",
+   "extra": {
+    "p_honest": 25.7,
+    "p_lie": 26.9,
+    "p_honest_at_10": 10.5,
+    "p_lie_at_10": 57.7
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen25-32b-instruct",
+   "score": 63.7,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen25-32b-instruct@63.7",
+   "extra": {
+    "p_honest": 28.7,
+    "p_lie": 43.9,
+    "p_honest_at_10": 20.2,
+    "p_lie_at_10": 59.5
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen25-3b-instruct",
+   "score": 46.8,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen25-3b-instruct@46.8",
+   "extra": {
+    "p_honest": 30.7,
+    "p_lie": 33.8,
+    "p_honest_at_10": 18.6,
+    "p_lie_at_10": 54.3
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen25-72b-instruct",
+   "score": 66.0,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen25-72b-instruct@66.0",
+   "extra": {
+    "p_honest": 23.2,
+    "p_lie": 49.2,
+    "p_honest_at_10": 15.9,
+    "p_lie_at_10": 61.9
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwen25-7b-instruct",
+   "score": 51.6,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwen25-7b-instruct@51.6",
+   "extra": {
+    "p_honest": 28.9,
+    "p_lie": 39.0,
+    "p_honest_at_10": 18.6,
+    "p_lie_at_10": 55.3
+   }
+  },
+  {
+   "benchmark": "accuracy",
+   "model": "qwq-32b-preview",
+   "score": 49.2,
+   "evaluation_method": "MASK paper, Table 3 (belief elicitation, 1,500 public examples)",
+   "external_id": "qwq-32b-preview@49.2",
+   "extra": {
+    "p_honest": 20.3,
+    "p_lie": 25.2,
+    "p_honest_at_10": 11.1,
+    "p_lie_at_10": 46.3
+   }
+  }
+ ]
+}

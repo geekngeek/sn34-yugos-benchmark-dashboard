@@ -1,0 +1,1988 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "RULER (paper, NVIDIA)",
+  "site": "https://arxiv.org/abs/2404.06654",
+  "publisher": "NVIDIA",
+  "description": "Per-category RULER results from the paper appendix (arXiv:2404.06654v3, Tables 13-16).",
+  "license": "CC BY 4.0 (https://arxiv.org/abs/2404.06654); code Apache-2.0 (https://github.com/NVIDIA/RULER)",
+  "attribution": "Hsieh et al., RULER: What's the Real Context Size of Your Long-Context Language Models? arXiv:2404.06654 (https://arxiv.org/abs/2404.06654).",
+  "retrieved_from": [
+   "https://arxiv.org/html/2404.06654"
+  ],
+  "notes": [
+   "Score = the table's Avg. column (mean of 4K-128K). Per-length scores, claimed/effective length and weighted averages (with the paper's rank) in extra.",
+   "Both aligned and base models are included (extra.model_type). Llama2-7B (chat/base) rows were left out: the paper gives only a 4K score and no average.",
+   "These are the paper's 2024 models; the README's newer models have only 13-task totals (already in the DB as RULER)."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "niah",
+   "name": "RULER - Retrieval (NIAH)",
+   "version": "Average (4K-128K), paper",
+   "area": "long_context",
+   "sub_area": "Retrieval (NIAH)",
+   "unit": "percent",
+   "description": "RULER Retrieval (NIAH) (average of 8 NIAH tasks): accuracy (%) averaged over 4K-128K context lengths, from the RULER paper appendix (Table 13).",
+   "url": "https://arxiv.org/html/2404.06654#A6.T13",
+   "metric": "accuracy"
+  },
+  {
+   "key": "vt",
+   "name": "RULER - Multi-hop Tracing (VT)",
+   "version": "Average (4K-128K), paper",
+   "area": "long_context",
+   "sub_area": "Multi-hop Tracing (VT)",
+   "unit": "percent",
+   "description": "RULER Multi-hop Tracing (VT) (variable tracking): accuracy (%) averaged over 4K-128K context lengths, from the RULER paper appendix (Table 14).",
+   "url": "https://arxiv.org/html/2404.06654#A6.T14",
+   "metric": "accuracy"
+  },
+  {
+   "key": "agg",
+   "name": "RULER - Aggregation (CWE/FWE)",
+   "version": "Average (4K-128K), paper",
+   "area": "long_context",
+   "sub_area": "Aggregation (CWE/FWE)",
+   "unit": "percent",
+   "description": "RULER Aggregation (CWE/FWE) (average of CWE and FWE): accuracy (%) averaged over 4K-128K context lengths, from the RULER paper appendix (Table 15).",
+   "url": "https://arxiv.org/html/2404.06654#A6.T15",
+   "metric": "accuracy"
+  },
+  {
+   "key": "qa",
+   "name": "RULER - Question Answering",
+   "version": "Average (4K-128K), paper",
+   "area": "long_context",
+   "sub_area": "Question Answering",
+   "unit": "percent",
+   "description": "RULER Question Answering (average of 2 QA tasks): accuracy (%) averaged over 4K-128K context lengths, from the RULER paper appendix (Table 16).",
+   "url": "https://arxiv.org/html/2404.06654#A6.T16",
+   "metric": "accuracy"
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "niah",
+   "model": "Gemini-1.5",
+   "score": 99.7,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Gemini-1.5",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": ">128K",
+    "score_4K": 99.8,
+    "score_8K": 99.9,
+    "score_16K": 99.6,
+    "score_32K": 99.7,
+    "score_64K": 99.7,
+    "score_128K": 99.6,
+    "wavg_inc": "99.7(1st)",
+    "wavg_dec": "99.7(1st)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Llama3.1 (8B)",
+   "score": 98.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Llama3.1 (8B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "64K",
+    "score_4K": 99.9,
+    "score_8K": 99.9,
+    "score_16K": 99.8,
+    "score_32K": 99.6,
+    "score_64K": 98.7,
+    "score_128K": 92.6,
+    "wavg_inc": "97.5(3rd)",
+    "wavg_dec": "99.4(2nd)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "GLM4 (9B)",
+   "score": 98.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:GLM4 (9B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": "64K",
+    "score_4K": 99.4,
+    "score_8K": 99.2,
+    "score_16K": 99.5,
+    "score_32K": 99.4,
+    "score_64K": 97.3,
+    "score_128K": 94.4,
+    "wavg_inc": "97.5(2nd)",
+    "wavg_dec": "98.9(3rd)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Llama3.1 (70B)",
+   "score": 96.1,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Llama3.1 (70B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "64K",
+    "score_4K": 100.0,
+    "score_8K": 100.0,
+    "score_16K": 99.9,
+    "score_32K": 99.6,
+    "score_64K": 98.5,
+    "score_128K": 78.9,
+    "wavg_inc": "93.5(5th)",
+    "wavg_dec": "98.8(4th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "GPT-4",
+   "score": 95.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:GPT-4",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "32K",
+    "score_4K": 99.9,
+    "score_8K": 99.9,
+    "score_16K": 98.7,
+    "score_32K": 98.3,
+    "score_64K": 90.9,
+    "score_128K": 84.8,
+    "wavg_inc": "92.9(6th)",
+    "wavg_dec": "97.9(5th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Command-R-plus (104B)",
+   "score": 92.1,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Command-R-plus (104B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "32K",
+    "score_4K": 99.9,
+    "score_8K": 99.9,
+    "score_16K": 99.4,
+    "score_32K": 97.9,
+    "score_64K": 89.6,
+    "score_128K": 65.7,
+    "wavg_inc": "87.3(8th)",
+    "wavg_dec": "96.9(6th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "GradientAI/Llama3 (70B)",
+   "score": 94.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:GradientAI/Llama3 (70B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": "16K",
+    "score_4K": 99.0,
+    "score_8K": 98.8,
+    "score_16K": 98.3,
+    "score_32K": 94.5,
+    "score_64K": 91.2,
+    "score_128K": 84.9,
+    "wavg_inc": "92.1(7th)",
+    "wavg_dec": "96.8(7th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Yi (34B)",
+   "score": 95.1,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Yi (34B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "200K",
+    "effective_length": "16K",
+    "score_4K": 98.2,
+    "score_8K": 96.8,
+    "score_16K": 97.3,
+    "score_32K": 95.1,
+    "score_64K": 93.0,
+    "score_128K": 90.2,
+    "wavg_inc": "93.8(4th)",
+    "wavg_dec": "96.4(8th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Qwen2 (72B)",
+   "score": 88.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Qwen2 (72B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "32K",
+    "score_4K": 100.0,
+    "score_8K": 99.9,
+    "score_16K": 99.9,
+    "score_32K": 99.4,
+    "score_64K": 84.5,
+    "score_128K": 48.0,
+    "wavg_inc": "81.3(11th)",
+    "wavg_dec": "95.9(9th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Phi3-medium (14B)",
+   "score": 88.7,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Phi3-medium (14B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "8K",
+    "score_4K": 98.7,
+    "score_8K": 98.5,
+    "score_16K": 96.6,
+    "score_32K": 95.4,
+    "score_64K": 91.9,
+    "score_128K": 51.3,
+    "wavg_inc": "82.6(10th)",
+    "wavg_dec": "94.9(10th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Mixtral-8x22B (39B/141B)",
+   "score": 84.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Mixtral-8x22B (39B/141B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "64K",
+    "effective_length": "16K",
+    "score_4K": 99.3,
+    "score_8K": 99.1,
+    "score_16K": 97.7,
+    "score_32K": 96.7,
+    "score_64K": 89.9,
+    "score_128K": 23.8,
+    "wavg_inc": "74.8(12th)",
+    "wavg_dec": "94.1(11th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "LWM (7B)",
+   "score": 87.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:LWM (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": "<4K",
+    "score_4K": 92.5,
+    "score_8K": 92.1,
+    "score_16K": 87.6,
+    "score_32K": 83.7,
+    "score_64K": 84.1,
+    "score_128K": 83.4,
+    "wavg_inc": "85.5(9th)",
+    "wavg_dec": "89.0(12th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Mistral-v0.2 (7B)",
+   "score": 72.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Mistral-v0.2 (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "4K",
+    "score_4K": 98.1,
+    "score_8K": 96.2,
+    "score_16K": 94.3,
+    "score_32K": 85.5,
+    "score_64K": 51.1,
+    "score_128K": 10.7,
+    "wavg_inc": "58.8(13th)",
+    "wavg_dec": "86.5(13th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "DBRX (36B/132B)",
+   "score": 61.0,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:DBRX (36B/132B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "8K",
+    "score_4K": 99.4,
+    "score_8K": 99.0,
+    "score_16K": 93.5,
+    "score_32K": 73.4,
+    "score_64K": 0.5,
+    "score_128K": 0.0,
+    "wavg_inc": "41.6(14th)",
+    "wavg_dec": "80.3(14th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Together (7B)",
+   "score": 58.1,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Together (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "<4K",
+    "score_4K": 96.2,
+    "score_8K": 89.9,
+    "score_16K": 82.3,
+    "score_32K": 80.2,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "40.2(15th)",
+    "wavg_dec": "76.0(15th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "LongChat (7B)",
+   "score": 55.7,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:LongChat (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "<4K",
+    "score_4K": 93.3,
+    "score_8K": 92.2,
+    "score_16K": 81.1,
+    "score_32K": 67.3,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "37.6(16th)",
+    "wavg_dec": "73.7(16th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "LongAlpaca (13B)",
+   "score": 45.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:LongAlpaca (13B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "<4K",
+    "score_4K": 74.9,
+    "score_8K": 72.2,
+    "score_16K": 70.8,
+    "score_32K": 53.2,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "30.7(17th)",
+    "wavg_dec": "59.7(17th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Mixtral-base (8x7B)",
+   "score": 82.3,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Mixtral-base (8x7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "32K",
+    "score_4K": 99.9,
+    "score_8K": 99.7,
+    "score_16K": 98.4,
+    "score_32K": 94.8,
+    "score_64K": 72.1,
+    "score_128K": 29.1,
+    "wavg_inc": "71.8(2nd)",
+    "wavg_dec": "92.8(1st)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Mistral-base (7B)",
+   "score": 74.9,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Mistral-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "16K",
+    "score_4K": 99.3,
+    "score_8K": 97.5,
+    "score_16K": 95.7,
+    "score_32K": 89.8,
+    "score_64K": 56.8,
+    "score_128K": 10.2,
+    "wavg_inc": "61.2(4th)",
+    "wavg_dec": "88.6(2nd)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Jamba-base (52B)",
+   "score": 73.0,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Jamba-base (52B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "256K",
+    "effective_length": "<4K",
+    "score_4K": 86.4,
+    "score_8K": 80.5,
+    "score_16K": 73.7,
+    "score_32K": 72.3,
+    "score_64K": 68.1,
+    "score_128K": 56.9,
+    "wavg_inc": "68.5(3th)",
+    "wavg_dec": "77.4(5th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "LWM-base (7B)",
+   "score": 81.8,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:LWM-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "1M",
+    "effective_length": "<4K",
+    "score_4K": 88.5,
+    "score_8K": 87.7,
+    "score_16K": 84.5,
+    "score_32K": 79.6,
+    "score_64K": 76.1,
+    "score_128K": 74.2,
+    "wavg_inc": "79.1(1st)",
+    "wavg_dec": "84.4(4th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "LongLoRA-base (7B)",
+   "score": 73.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:LongLoRA-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "100K",
+    "effective_length": "16K",
+    "score_4K": 95.3,
+    "score_8K": 95.6,
+    "score_16K": 92.7,
+    "score_32K": 81.5,
+    "score_64K": 76.2,
+    "score_128K": 0.0,
+    "wavg_inc": "60.6(5th)",
+    "wavg_dec": "86.5(3rd)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Yarn-base (7B)",
+   "score": 63.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Yarn-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "128K",
+    "effective_length": "<4K",
+    "score_4K": 89.9,
+    "score_8K": 86.1,
+    "score_16K": 78.4,
+    "score_32K": 59.0,
+    "score_64K": 49.5,
+    "score_128K": 17.5,
+    "wavg_inc": "51.7(6th)",
+    "wavg_dec": "75.1(7th)"
+   }
+  },
+  {
+   "benchmark": "niah",
+   "model": "Together-base (7B)",
+   "score": 58.0,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:niah:Together-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "8K",
+    "score_4K": 95.4,
+    "score_8K": 91.5,
+    "score_16K": 86.1,
+    "score_32K": 75.1,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "39.9(7th)",
+    "wavg_dec": "76.2(6th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "GPT-4",
+   "score": 99.9,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:GPT-4",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "128K",
+    "score_4K": 100.0,
+    "score_8K": 100.0,
+    "score_16K": 100.0,
+    "score_32K": 100.0,
+    "score_64K": 100.0,
+    "score_128K": 99.6,
+    "wavg_inc": "99.9(2nd)",
+    "wavg_dec": "100.0(1st)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Gemini-1.5",
+   "score": 99.9,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Gemini-1.5",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": ">128K",
+    "score_4K": 100.0,
+    "score_8K": 100.0,
+    "score_16K": 100.0,
+    "score_32K": 100.0,
+    "score_64K": 99.6,
+    "score_128K": 100.0,
+    "wavg_inc": "99.9(1st)",
+    "wavg_dec": "100.0(2nd)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Command-R-plus (104B)",
+   "score": 99.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Command-R-plus (104B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "128K",
+    "score_4K": 100.0,
+    "score_8K": 100.0,
+    "score_16K": 100.0,
+    "score_32K": 100.0,
+    "score_64K": 99.9,
+    "score_128K": 97.2,
+    "wavg_inc": "99.2(3rd)",
+    "wavg_dec": "99.8(3rd)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "GLM4 (9B)",
+   "score": 99.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:GLM4 (9B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": ">128K",
+    "score_4K": 99.9,
+    "score_8K": 99.6,
+    "score_16K": 99.8,
+    "score_32K": 99.8,
+    "score_64K": 99.6,
+    "score_128K": 97.7,
+    "wavg_inc": "99.1(4th)",
+    "wavg_dec": "99.7(4th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Qwen2 (72B)",
+   "score": 95.7,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Qwen2 (72B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "64K",
+    "score_4K": 100.0,
+    "score_8K": 100.0,
+    "score_16K": 100.0,
+    "score_32K": 100.0,
+    "score_64K": 95.2,
+    "score_128K": 79.0,
+    "wavg_inc": "92.9(5th)",
+    "wavg_dec": "98.5(5th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Llama3.1 (70B)",
+   "score": 93.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Llama3.1 (70B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "64K",
+    "score_4K": 100.0,
+    "score_8K": 100.0,
+    "score_16K": 100.0,
+    "score_32K": 100.0,
+    "score_64K": 99.9,
+    "score_128K": 59.2,
+    "wavg_inc": "88.3(8th)",
+    "wavg_dec": "98.0(6th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Llama3.1 (8B)",
+   "score": 94.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Llama3.1 (8B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "64K",
+    "score_4K": 99.9,
+    "score_8K": 99.7,
+    "score_16K": 99.7,
+    "score_32K": 98.8,
+    "score_64K": 97.6,
+    "score_128K": 70.4,
+    "wavg_inc": "90.7(6th)",
+    "wavg_dec": "98.0(7th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "GradientAI/Llama3 (70B)",
+   "score": 92.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:GradientAI/Llama3 (70B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": "64K",
+    "score_4K": 100.0,
+    "score_8K": 100.0,
+    "score_16K": 100.0,
+    "score_32K": 100.0,
+    "score_64K": 99.7,
+    "score_128K": 56.2,
+    "wavg_inc": "87.4(9th)",
+    "wavg_dec": "97.9(8th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Yi (34B)",
+   "score": 93.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Yi (34B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "200K",
+    "effective_length": "64K",
+    "score_4K": 99.8,
+    "score_8K": 99.2,
+    "score_16K": 98.8,
+    "score_32K": 94.5,
+    "score_64K": 92.5,
+    "score_128K": 76.8,
+    "wavg_inc": "90.3(7th)",
+    "wavg_dec": "96.9(9th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Mixtral-8x22B (39B/141B)",
+   "score": 82.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Mixtral-8x22B (39B/141B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "64K",
+    "effective_length": "64K",
+    "score_4K": 100.0,
+    "score_8K": 100.0,
+    "score_16K": 99.8,
+    "score_32K": 98.6,
+    "score_64K": 96.4,
+    "score_128K": 0.0,
+    "wavg_inc": "70.3(10th)",
+    "wavg_dec": "94.7(10th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Phi3-medium (14B)",
+   "score": 76.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Phi3-medium (14B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "16K",
+    "score_4K": 99.6,
+    "score_8K": 99.2,
+    "score_16K": 98.4,
+    "score_32K": 82.1,
+    "score_64K": 53.6,
+    "score_128K": 26.0,
+    "wavg_inc": "64.1(11th)",
+    "wavg_dec": "88.9(11th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Mistral-v0.2 (7B)",
+   "score": 74.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Mistral-v0.2 (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "16K",
+    "score_4K": 98.9,
+    "score_8K": 96.0,
+    "score_16K": 92.2,
+    "score_32K": 85.0,
+    "score_64K": 74.5,
+    "score_128K": 0.0,
+    "wavg_inc": "60.9(12th)",
+    "wavg_dec": "87.9(12th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "LongChat (7B)",
+   "score": 56.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:LongChat (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "8K",
+    "score_4K": 97.6,
+    "score_8K": 93.5,
+    "score_16K": 83.4,
+    "score_32K": 62.4,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "37.4(14th)",
+    "wavg_dec": "75.0(13th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "DBRX (36B/132B)",
+   "score": 52.9,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:DBRX (36B/132B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "8K",
+    "score_4K": 100.0,
+    "score_8K": 99.0,
+    "score_16K": 72.5,
+    "score_32K": 45.8,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "33.3(15th)",
+    "wavg_dec": "72.5(14th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "LWM (7B)",
+   "score": 57.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:LWM (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": "<4K",
+    "score_4K": 84.4,
+    "score_8K": 80.1,
+    "score_16K": 67.2,
+    "score_32K": 52.2,
+    "score_64K": 45.9,
+    "score_128K": 15.2,
+    "wavg_inc": "46.5(13th)",
+    "wavg_dec": "68.6(15th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Together (7B)",
+   "score": 40.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Together (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "<4K",
+    "score_4K": 89.2,
+    "score_8K": 88.8,
+    "score_16K": 48.3,
+    "score_32K": 16.6,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "22.8(16th)",
+    "wavg_dec": "58.2(16th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "LongAlpaca (13B)",
+   "score": 7.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:LongAlpaca (13B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "<4K",
+    "score_4K": 8.5,
+    "score_8K": 2.1,
+    "score_16K": 18.2,
+    "score_32K": 17.0,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "6.5(17th)",
+    "wavg_dec": "8.8(17th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Mixtral-base (8x7B)",
+   "score": 88.1,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Mixtral-base (8x7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "64K",
+    "score_4K": 100.0,
+    "score_8K": 99.9,
+    "score_16K": 100.0,
+    "score_32K": 98.4,
+    "score_64K": 87.3,
+    "score_128K": 43.3,
+    "wavg_inc": "80.5(2nd)",
+    "wavg_dec": "95.8(1st)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Mistral-base (7B)",
+   "score": 78.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Mistral-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "64K",
+    "score_4K": 99.0,
+    "score_8K": 98.4,
+    "score_16K": 96.5,
+    "score_32K": 89.1,
+    "score_64K": 86.1,
+    "score_128K": 0.0,
+    "wavg_inc": "65.4(4th)",
+    "wavg_dec": "91.0(2nd)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Jamba-base (52B)",
+   "score": 85.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Jamba-base (52B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "256K",
+    "effective_length": "128K",
+    "score_4K": 87.5,
+    "score_8K": 87.6,
+    "score_16K": 86.2,
+    "score_32K": 88.1,
+    "score_64K": 86.0,
+    "score_128K": 77.8,
+    "wavg_inc": "84.3(1st)",
+    "wavg_dec": "86.7(3rd)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "LWM-base (7B)",
+   "score": 75.9,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:LWM-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "1M",
+    "effective_length": "128K",
+    "score_4K": 80.2,
+    "score_8K": 82.7,
+    "score_16K": 79.3,
+    "score_32K": 76.4,
+    "score_64K": 70.7,
+    "score_128K": 66.1,
+    "wavg_inc": "73.3(3th)",
+    "wavg_dec": "78.5(4th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "LongLoRA-base (7B)",
+   "score": 63.0,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:LongLoRA-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "100K",
+    "effective_length": "64K",
+    "score_4K": 92.5,
+    "score_8K": 87.4,
+    "score_16K": 73.1,
+    "score_32K": 56.0,
+    "score_64K": 69.2,
+    "score_128K": 0.0,
+    "wavg_inc": "50.3(5th)",
+    "wavg_dec": "75.8(5th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Yarn-base (7B)",
+   "score": 36.1,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Yarn-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "128K",
+    "effective_length": "4K",
+    "score_4K": 84.6,
+    "score_8K": 43.6,
+    "score_16K": 24.8,
+    "score_32K": 43.0,
+    "score_64K": 20.9,
+    "score_128K": 0.0,
+    "wavg_inc": "24.9(7th)",
+    "wavg_dec": "47.4(7th)"
+   }
+  },
+  {
+   "benchmark": "vt",
+   "model": "Together-base (7B)",
+   "score": 49.7,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:vt:Together-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "16K",
+    "score_4K": 95.0,
+    "score_8K": 90.6,
+    "score_16K": 69.6,
+    "score_32K": 43.2,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "31.3(6th)",
+    "wavg_dec": "68.1(6th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Gemini-1.5",
+   "score": 96.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Gemini-1.5",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": ">128K",
+    "score_4K": 97.7,
+    "score_8K": 97.7,
+    "score_16K": 97.6,
+    "score_32K": 98.6,
+    "score_64K": 97.3,
+    "score_128K": 90.9,
+    "wavg_inc": "95.8(1st)",
+    "wavg_dec": "97.4(1st)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "GPT-4",
+   "score": 93.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:GPT-4",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "64K",
+    "score_4K": 99.0,
+    "score_8K": 98.3,
+    "score_16K": 98.0,
+    "score_32K": 95.0,
+    "score_64K": 90.1,
+    "score_128K": 79.7,
+    "wavg_inc": "90.4(2nd)",
+    "wavg_dec": "96.3(2nd)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Qwen2 (72B)",
+   "score": 89.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Qwen2 (72B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "32K",
+    "score_4K": 99.3,
+    "score_8K": 98.0,
+    "score_16K": 93.1,
+    "score_32K": 97.4,
+    "score_64K": 78.5,
+    "score_128K": 70.3,
+    "wavg_inc": "84.7(3rd)",
+    "wavg_dec": "94.2(3rd)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Mixtral-8x22B (39B/141B)",
+   "score": 88.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Mixtral-8x22B (39B/141B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "64K",
+    "effective_length": "32K",
+    "score_4K": 97.8,
+    "score_8K": 96.9,
+    "score_16K": 94.8,
+    "score_32K": 88.2,
+    "score_64K": 83.3,
+    "score_128K": 69.7,
+    "wavg_inc": "84.0(4th)",
+    "wavg_dec": "92.9(4th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Command-R-plus (104B)",
+   "score": 87.1,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Command-R-plus (104B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "32K",
+    "score_4K": 98.2,
+    "score_8K": 96.9,
+    "score_16K": 95.2,
+    "score_32K": 90.3,
+    "score_64K": 82.5,
+    "score_128K": 59.5,
+    "wavg_inc": "81.3(5th)",
+    "wavg_dec": "92.8(5th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Llama3.1 (70B)",
+   "score": 83.3,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Llama3.1 (70B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "32K",
+    "score_4K": 99.9,
+    "score_8K": 98.3,
+    "score_16K": 98.4,
+    "score_32K": 97.1,
+    "score_64K": 66.3,
+    "score_128K": 39.8,
+    "wavg_inc": "73.8(6th)",
+    "wavg_dec": "92.8(6th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Phi3-medium (14B)",
+   "score": 77.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Phi3-medium (14B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "16K",
+    "score_4K": 90.8,
+    "score_8K": 95.1,
+    "score_16K": 90.3,
+    "score_32K": 82.4,
+    "score_64K": 62.1,
+    "score_128K": 43.8,
+    "wavg_inc": "69.3(7th)",
+    "wavg_dec": "85.6(7th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Yi (34B)",
+   "score": 74.3,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Yi (34B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "200K",
+    "effective_length": "16K",
+    "score_4K": 91.4,
+    "score_8K": 90.9,
+    "score_16K": 86.2,
+    "score_32K": 75.3,
+    "score_64K": 58.5,
+    "score_128K": 43.4,
+    "wavg_inc": "66.0(8th)",
+    "wavg_dec": "82.6(8th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "GLM4 (9B)",
+   "score": 72.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:GLM4 (9B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": "8K",
+    "score_4K": 93.5,
+    "score_8K": 85.2,
+    "score_16K": 78.5,
+    "score_32K": 68.1,
+    "score_64K": 58.3,
+    "score_128K": 49.7,
+    "wavg_inc": "64.8(9th)",
+    "wavg_dec": "79.6(9th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "GradientAI/Llama3 (70B)",
+   "score": 68.3,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:GradientAI/Llama3 (70B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": "8K",
+    "score_4K": 96.4,
+    "score_8K": 94.7,
+    "score_16K": 74.9,
+    "score_32K": 57.0,
+    "score_64K": 45.1,
+    "score_128K": 41.4,
+    "wavg_inc": "57.7(10th)",
+    "wavg_dec": "78.8(10th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Llama3.1 (8B)",
+   "score": 66.7,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Llama3.1 (8B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "8K",
+    "score_4K": 97.0,
+    "score_8K": 90.1,
+    "score_16K": 79.2,
+    "score_32K": 54.1,
+    "score_64K": 43.5,
+    "score_128K": 36.2,
+    "wavg_inc": "55.5(11th)",
+    "wavg_dec": "77.8(11th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Mistral-v0.2 (7B)",
+   "score": 64.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Mistral-v0.2 (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "8K",
+    "score_4K": 94.3,
+    "score_8K": 90.4,
+    "score_16K": 77.4,
+    "score_32K": 48.5,
+    "score_64K": 42.4,
+    "score_128K": 33.7,
+    "wavg_inc": "53.1(12th)",
+    "wavg_dec": "75.8(12th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "DBRX (36B/132B)",
+   "score": 52.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:DBRX (36B/132B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "8K",
+    "score_4K": 94.5,
+    "score_8K": 94.7,
+    "score_16K": 73.7,
+    "score_32K": 48.7,
+    "score_64K": 4.1,
+    "score_128K": 0.0,
+    "wavg_inc": "34.3(13th)",
+    "wavg_dec": "70.9(13th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Together (7B)",
+   "score": 37.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Together (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "<4K",
+    "score_4K": 82.3,
+    "score_8K": 64.5,
+    "score_16K": 43.3,
+    "score_32K": 34.8,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "22.9(16th)",
+    "wavg_dec": "52.1(14th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "LongChat (7B)",
+   "score": 37.1,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:LongChat (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "<4K",
+    "score_4K": 74.3,
+    "score_8K": 50.7,
+    "score_16K": 46.7,
+    "score_32K": 51.1,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "24.8(15th)",
+    "wavg_dec": "49.5(15th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "LWM (7B)",
+   "score": 39.0,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:LWM (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": "<4K",
+    "score_4K": 61.3,
+    "score_8K": 43.6,
+    "score_16K": 38.3,
+    "score_32K": 32.8,
+    "score_64K": 29.1,
+    "score_128K": 29.1,
+    "wavg_inc": "34.0(14th)",
+    "wavg_dec": "44.0(16th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "LongAlpaca (13B)",
+   "score": 18.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:LongAlpaca (13B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "<4K",
+    "score_4K": 33.0,
+    "score_8K": 27.0,
+    "score_16K": 26.0,
+    "score_32K": 23.2,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "12.3(17th)",
+    "wavg_dec": "24.1(17th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Mixtral-base (8x7B)",
+   "score": 77.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Mixtral-base (8x7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "32K",
+    "score_4K": 96.5,
+    "score_8K": 94.8,
+    "score_16K": 93.1,
+    "score_32K": 87.8,
+    "score_64K": 68.6,
+    "score_128K": 24.3,
+    "wavg_inc": "66.9(1st)",
+    "wavg_dec": "88.1(1st)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Mistral-base (7B)",
+   "score": 61.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Mistral-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "16K",
+    "score_4K": 94.8,
+    "score_8K": 93.1,
+    "score_16K": 81.6,
+    "score_32K": 53.3,
+    "score_64K": 36.7,
+    "score_128K": 9.2,
+    "wavg_inc": "46.5(2nd)",
+    "wavg_dec": "76.3(2nd)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Jamba-base (52B)",
+   "score": 48.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Jamba-base (52B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "256K",
+    "effective_length": "4K",
+    "score_4K": 75.9,
+    "score_8K": 63.5,
+    "score_16K": 51.7,
+    "score_32K": 38.5,
+    "score_64K": 33.3,
+    "score_128K": 28.0,
+    "wavg_inc": "40.3(3rd)",
+    "wavg_dec": "56.6(3rd)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "LWM-base (7B)",
+   "score": 36.3,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:LWM-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "1M",
+    "effective_length": "<4K",
+    "score_4K": 67.1,
+    "score_8K": 48.4,
+    "score_16K": 36.0,
+    "score_32K": 26.3,
+    "score_64K": 21.5,
+    "score_128K": 18.7,
+    "wavg_inc": "28.4(5th)",
+    "wavg_dec": "44.2(5th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "LongLoRA-base (7B)",
+   "score": 42.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:LongLoRA-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "100K",
+    "effective_length": "<4K",
+    "score_4K": 70.3,
+    "score_8K": 64.4,
+    "score_16K": 50.7,
+    "score_32K": 39.9,
+    "score_64K": 29.4,
+    "score_128K": 0.0,
+    "wavg_inc": "31.3(4th)",
+    "wavg_dec": "53.6(4th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Yarn-base (7B)",
+   "score": 31.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Yarn-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "128K",
+    "effective_length": "<4K",
+    "score_4K": 70.6,
+    "score_8K": 49.2,
+    "score_16K": 28.9,
+    "score_32K": 20.5,
+    "score_64K": 17.0,
+    "score_128K": 2.1,
+    "wavg_inc": "20.7(6th)",
+    "wavg_dec": "42.0(6th)"
+   }
+  },
+  {
+   "benchmark": "agg",
+   "model": "Together-base (7B)",
+   "score": 27.1,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:agg:Together-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "<4K",
+    "score_4K": 69.1,
+    "score_8K": 53.0,
+    "score_16K": 19.9,
+    "score_32K": 20.6,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "15.1(7th)",
+    "wavg_dec": "39.1(7th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Gemini-1.5",
+   "score": 77.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Gemini-1.5",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": ">128K",
+    "score_4K": 81.9,
+    "score_8K": 75.9,
+    "score_16K": 77.8,
+    "score_32K": 75.9,
+    "score_64K": 77.6,
+    "score_128K": 74.1,
+    "wavg_inc": "76.3(1st)",
+    "wavg_dec": "78.0(1st)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "GPT-4",
+   "score": 70.3,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:GPT-4",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "128K",
+    "score_4K": 79.0,
+    "score_8K": 78.0,
+    "score_16K": 76.0,
+    "score_32K": 68.0,
+    "score_64K": 61.6,
+    "score_128K": 59.0,
+    "wavg_inc": "66.5(4th)",
+    "wavg_dec": "74.0(2nd)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Qwen2 (72B)",
+   "score": 66.7,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Qwen2 (72B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "64K",
+    "score_4K": 80.8,
+    "score_8K": 76.9,
+    "score_16K": 74.1,
+    "score_32K": 66.9,
+    "score_64K": 54.5,
+    "score_128K": 47.2,
+    "wavg_inc": "61.0(8th)",
+    "wavg_dec": "72.5(3rd)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "GradientAI/Llama3 (70B)",
+   "score": 69.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:GradientAI/Llama3 (70B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": ">128K",
+    "score_4K": 75.6,
+    "score_8K": 73.9,
+    "score_16K": 72.4,
+    "score_32K": 69.9,
+    "score_64K": 66.0,
+    "score_128K": 59.8,
+    "wavg_inc": "67.1(3rd)",
+    "wavg_dec": "72.1(4th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Llama3.1 (70B)",
+   "score": 67.8,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Llama3.1 (70B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "64K",
+    "score_4K": 77.2,
+    "score_8K": 74.8,
+    "score_16K": 72.3,
+    "score_32K": 70.4,
+    "score_64K": 64.2,
+    "score_128K": 47.6,
+    "wavg_inc": "63.4(7th)",
+    "wavg_dec": "72.1(5th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "GLM4 (9B)",
+   "score": 69.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:GLM4 (9B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": ">128K",
+    "score_4K": 74.7,
+    "score_8K": 71.3,
+    "score_16K": 71.9,
+    "score_32K": 68.5,
+    "score_64K": 66.3,
+    "score_128K": 63.6,
+    "wavg_inc": "67.6(2nd)",
+    "wavg_dec": "71.1(6th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Mixtral-8x22B (39B/141B)",
+   "score": 64.8,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Mixtral-8x22B (39B/141B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "64K",
+    "effective_length": "64K",
+    "score_4K": 76.6,
+    "score_8K": 73.5,
+    "score_16K": 71.8,
+    "score_32K": 66.5,
+    "score_64K": 59.7,
+    "score_128K": 40.8,
+    "wavg_inc": "59.4(9th)",
+    "wavg_dec": "70.2(7th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Yi (34B)",
+   "score": 67.1,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Yi (34B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "200K",
+    "effective_length": ">128K",
+    "score_4K": 72.7,
+    "score_8K": 71.5,
+    "score_16K": 68.4,
+    "score_32K": 66.2,
+    "score_64K": 64.1,
+    "score_128K": 59.9,
+    "wavg_inc": "65.0(5th)",
+    "wavg_dec": "69.2(8th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Llama3.1 (8B)",
+   "score": 66.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Llama3.1 (8B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "128K",
+    "score_4K": 74.1,
+    "score_8K": 70.1,
+    "score_16K": 67.3,
+    "score_32K": 65.8,
+    "score_64K": 63.7,
+    "score_128K": 58.8,
+    "wavg_inc": "64.3(6th)",
+    "wavg_dec": "68.9(9th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Command-R-plus (104B)",
+   "score": 62.9,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Command-R-plus (104B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "64K",
+    "score_4K": 73.4,
+    "score_8K": 72.3,
+    "score_16K": 69.4,
+    "score_32K": 65.9,
+    "score_64K": 57.0,
+    "score_128K": 39.2,
+    "wavg_inc": "57.6(10th)",
+    "wavg_dec": "68.1(10th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Phi3-medium (14B)",
+   "score": 59.3,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Phi3-medium (14B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "128K",
+    "effective_length": "64K",
+    "score_4K": 70.9,
+    "score_8K": 67.2,
+    "score_16K": 66.1,
+    "score_32K": 59.3,
+    "score_64K": 54.2,
+    "score_128K": 38.0,
+    "wavg_inc": "54.3(12th)",
+    "wavg_dec": "64.3(11th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Mistral-v0.2 (7B)",
+   "score": 52.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Mistral-v0.2 (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "32K",
+    "score_4K": 72.4,
+    "score_8K": 70.0,
+    "score_16K": 65.7,
+    "score_32K": 57.6,
+    "score_64K": 34.4,
+    "score_128K": 13.3,
+    "wavg_inc": "42.5(13th)",
+    "wavg_dec": "62.0(12th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "LWM (7B)",
+   "score": 56.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:LWM (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "1M",
+    "effective_length": ">128K",
+    "score_4K": 61.2,
+    "score_8K": 57.8,
+    "score_16K": 56.7,
+    "score_32K": 55.4,
+    "score_64K": 54.7,
+    "score_128K": 52.6,
+    "wavg_inc": "55.1(11th)",
+    "wavg_dec": "57.7(13th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "DBRX (36B/132B)",
+   "score": 43.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:DBRX (36B/132B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "16K",
+    "score_4K": 76.0,
+    "score_8K": 69.4,
+    "score_16K": 59.4,
+    "score_32K": 45.0,
+    "score_64K": 9.6,
+    "score_128K": 0.0,
+    "wavg_inc": "29.6(14th)",
+    "wavg_dec": "56.9(14th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Together (7B)",
+   "score": 36.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Together (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "16K",
+    "score_4K": 61.1,
+    "score_8K": 58.3,
+    "score_16K": 54.2,
+    "score_32K": 45.6,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "24.9(15th)",
+    "wavg_dec": "48.2(15th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "LongAlpaca (13B)",
+   "score": 33.2,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:LongAlpaca (13B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "16K",
+    "score_4K": 57.2,
+    "score_8K": 53.5,
+    "score_16K": 49.7,
+    "score_32K": 39.0,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "22.3(16th)",
+    "wavg_dec": "44.1(16th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "LongChat (7B)",
+   "score": 31.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:LongChat (7B)",
+   "extra": {
+    "model_type": "aligned",
+    "claimed_length": "32K",
+    "effective_length": "8K",
+    "score_4K": 54.5,
+    "score_8K": 53.6,
+    "score_16K": 47.6,
+    "score_32K": 34.0,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "21.0(17th)",
+    "wavg_dec": "42.3(17th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Mixtral-base (8x7B)",
+   "score": 41.0,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Mixtral-base (8x7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "4K",
+    "score_4K": 50.8,
+    "score_8K": 47.7,
+    "score_16K": 45.3,
+    "score_32K": 41.3,
+    "score_64K": 34.4,
+    "score_128K": 26.4,
+    "wavg_inc": "37.0(3rd)",
+    "wavg_dec": "44.9(3rd)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Mistral-base (7B)",
+   "score": 38.8,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Mistral-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "8K",
+    "score_4K": 53.5,
+    "score_8K": 51.0,
+    "score_16K": 48.4,
+    "score_32K": 44.7,
+    "score_64K": 32.8,
+    "score_128K": 2.2,
+    "wavg_inc": "31.3(4th)",
+    "wavg_dec": "46.3(2nd)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Jamba-base (52B)",
+   "score": 53.5,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Jamba-base (52B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "256K",
+    "effective_length": "32K",
+    "score_4K": 62.7,
+    "score_8K": 60.6,
+    "score_16K": 57.9,
+    "score_32K": 52.6,
+    "score_64K": 47.5,
+    "score_128K": 39.6,
+    "wavg_inc": "49.7(1st)",
+    "wavg_dec": "57.3(1st)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "LWM-base (7B)",
+   "score": 38.4,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:LWM-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "1M",
+    "effective_length": "<4K",
+    "score_4K": 42.7,
+    "score_8K": 40.2,
+    "score_16K": 38.7,
+    "score_32K": 37.1,
+    "score_64K": 37.3,
+    "score_128K": 34.6,
+    "wavg_inc": "37.2(2nd)",
+    "wavg_dec": "39.6(4th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "LongLoRA-base (7B)",
+   "score": 26.0,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:LongLoRA-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "100K",
+    "effective_length": "<4K",
+    "score_4K": 34.5,
+    "score_8K": 32.1,
+    "score_16K": 33.6,
+    "score_32K": 29.4,
+    "score_64K": 26.1,
+    "score_128K": 0.0,
+    "wavg_inc": "21.3(6th)",
+    "wavg_dec": "30.6(6th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Yarn-base (7B)",
+   "score": 25.9,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Yarn-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "128K",
+    "effective_length": "<4K",
+    "score_4K": 29.7,
+    "score_8K": 23.5,
+    "score_16K": 28.6,
+    "score_32K": 29.7,
+    "score_64K": 25.5,
+    "score_128K": 18.1,
+    "wavg_inc": "24.6(5th)",
+    "wavg_dec": "27.1(7th)"
+   }
+  },
+  {
+   "benchmark": "qa",
+   "model": "Together-base (7B)",
+   "score": 29.6,
+   "evaluation_method": "RULER paper, greedy decoding, 500 examples per length",
+   "external_id": "ruler-paper:qa:Together-base (7B)",
+   "extra": {
+    "model_type": "base",
+    "claimed_length": "32K",
+    "effective_length": "4K",
+    "score_4K": 52.0,
+    "score_8K": 47.5,
+    "score_16K": 44.6,
+    "score_32K": 33.6,
+    "score_64K": 0.0,
+    "score_128K": 0.0,
+    "wavg_inc": "19.8(7th)",
+    "wavg_dec": "39.5(5th)"
+   }
+  }
+ ]
+}

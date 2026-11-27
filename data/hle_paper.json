@@ -1,0 +1,1427 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "Humanity's Last Exam (paper)",
+  "site": "https://arxiv.org/abs/2501.14249",
+  "publisher": "Center for AI Safety, Scale AI and HLE Contributors Consortium",
+  "description": "Result tables of the HLE paper (arXiv:2501.14249v12): text-only accuracy (Table 2) and accuracy per subject category (Table 3).",
+  "license": "CC BY 4.0 (https://arxiv.org/abs/2501.14249)",
+  "attribution": "Phan et al., Humanity's Last Exam, arXiv:2501.14249 (https://arxiv.org/abs/2501.14249).",
+  "retrieved_from": [
+   "https://arxiv.org/html/2501.14249"
+  ],
+  "notes": [
+   "Models are the paper's early-2025 set; exact model versions (Table 4) in extra.model_version.",
+   "Table 3 has two blocks: Text-Only (8 models) and Full Dataset (6 models; DeepSeek-R1 and o3-mini are text-only models). Both are kept as separate benchmark versions.",
+   "The Scale SEAL text-only board (labs.scale.com/leaderboard/humanitys_last_exam_text_only) was not used: Scale's website terms allow use only via supported browsers for internal purposes and claim ownership of its data compilation."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "text_only",
+   "name": "Humanity's Last Exam",
+   "version": "Text-only subset (paper, Table 2)",
+   "area": "knowledge",
+   "sub_area": "expert multi-discipline QA",
+   "unit": "percent",
+   "description": "Accuracy (%) on HLE's text-only questions, from the HLE paper appendix C.2.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS2",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_math_full",
+   "name": "Humanity's Last Exam - Math",
+   "version": "Full dataset (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Math",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Math category of HLE (full dataset), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_math_text",
+   "name": "Humanity's Last Exam - Math",
+   "version": "Text-only (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Math",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Math category of HLE (text-only), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_bio_med_full",
+   "name": "Humanity's Last Exam - Bio/Med",
+   "version": "Full dataset (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Bio/Med",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Bio/Med category of HLE (full dataset), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_bio_med_text",
+   "name": "Humanity's Last Exam - Bio/Med",
+   "version": "Text-only (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Bio/Med",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Bio/Med category of HLE (text-only), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_physics_full",
+   "name": "Humanity's Last Exam - Physics",
+   "version": "Full dataset (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Physics",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Physics category of HLE (full dataset), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_physics_text",
+   "name": "Humanity's Last Exam - Physics",
+   "version": "Text-only (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Physics",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Physics category of HLE (text-only), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_cs_ai_full",
+   "name": "Humanity's Last Exam - CS/AI",
+   "version": "Full dataset (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "CS/AI",
+   "unit": "percent",
+   "description": "Accuracy (%) on the CS/AI category of HLE (full dataset), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_cs_ai_text",
+   "name": "Humanity's Last Exam - CS/AI",
+   "version": "Text-only (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "CS/AI",
+   "unit": "percent",
+   "description": "Accuracy (%) on the CS/AI category of HLE (text-only), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_humanities_full",
+   "name": "Humanity's Last Exam - Humanities",
+   "version": "Full dataset (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Humanities",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Humanities category of HLE (full dataset), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_humanities_text",
+   "name": "Humanity's Last Exam - Humanities",
+   "version": "Text-only (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Humanities",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Humanities category of HLE (text-only), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_chemistry_full",
+   "name": "Humanity's Last Exam - Chemistry",
+   "version": "Full dataset (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Chemistry",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Chemistry category of HLE (full dataset), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_chemistry_text",
+   "name": "Humanity's Last Exam - Chemistry",
+   "version": "Text-only (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Chemistry",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Chemistry category of HLE (text-only), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_engineering_full",
+   "name": "Humanity's Last Exam - Engineering",
+   "version": "Full dataset (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Engineering",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Engineering category of HLE (full dataset), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_engineering_text",
+   "name": "Humanity's Last Exam - Engineering",
+   "version": "Text-only (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Engineering",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Engineering category of HLE (text-only), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_other_full",
+   "name": "Humanity's Last Exam - Other",
+   "version": "Full dataset (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Other",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Other category of HLE (full dataset), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  },
+  {
+   "key": "cat_other_text",
+   "name": "Humanity's Last Exam - Other",
+   "version": "Text-only (paper, Table 3)",
+   "area": "knowledge",
+   "sub_area": "Other",
+   "unit": "percent",
+   "description": "Accuracy (%) on the Other category of HLE (text-only), from the HLE paper appendix C.3, Table 3.",
+   "url": "https://arxiv.org/html/2501.14249#A3.SS3",
+   "metric": "accuracy"
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "text_only",
+   "model": "GPT-4o",
+   "score": 2.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:text_only:GPT-4o",
+   "extra": {
+    "calibration_error_pct": 88.0,
+    "calibration_error_lower_is_better": true,
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "text_only",
+   "model": "Grok 2",
+   "score": 3.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:text_only:Grok 2",
+   "extra": {
+    "calibration_error_pct": 89.0,
+    "calibration_error_lower_is_better": true,
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "text_only",
+   "model": "Claude 3.5 Sonnet",
+   "score": 4.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:text_only:Claude 3.5 Sonnet",
+   "extra": {
+    "calibration_error_pct": 83.0,
+    "calibration_error_lower_is_better": true,
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "text_only",
+   "model": "Gemini 1.5 Pro",
+   "score": 4.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:text_only:Gemini 1.5 Pro",
+   "extra": {
+    "calibration_error_pct": 87.0,
+    "calibration_error_lower_is_better": true,
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "text_only",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 6.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:text_only:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "calibration_error_pct": 82.0,
+    "calibration_error_lower_is_better": true,
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "text_only",
+   "model": "o1",
+   "score": 7.8,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:text_only:o1",
+   "extra": {
+    "calibration_error_pct": 84.0,
+    "calibration_error_lower_is_better": true,
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "text_only",
+   "model": "DeepSeek-R1",
+   "score": 8.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:text_only:DeepSeek-R1",
+   "extra": {
+    "calibration_error_pct": 73.0,
+    "calibration_error_lower_is_better": true,
+    "model_version": "January 20, 2025 release"
+   }
+  },
+  {
+   "benchmark": "text_only",
+   "model": "o3-mini (high)",
+   "score": 13.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:text_only:o3-mini (high)",
+   "extra": {
+    "calibration_error_pct": 80.0,
+    "calibration_error_lower_is_better": true,
+    "model_version": "o3-mini-2025-01-31"
+   }
+  },
+  {
+   "benchmark": "cat_math_text",
+   "model": "GPT-4o",
+   "score": 2.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_text:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_text",
+   "model": "GPT-4o",
+   "score": 5.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_text:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_physics_text",
+   "model": "GPT-4o",
+   "score": 1.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_text:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_text",
+   "model": "GPT-4o",
+   "score": 0.9,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_text:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_text",
+   "model": "GPT-4o",
+   "score": 2.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_text:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_text",
+   "model": "GPT-4o",
+   "score": 2.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_text:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_text",
+   "model": "GPT-4o",
+   "score": 1.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_text:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_other_text",
+   "model": "GPT-4o",
+   "score": 2.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_text:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_math_text",
+   "model": "Grok 2",
+   "score": 3.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_text:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_text",
+   "model": "Grok 2",
+   "score": 5.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_text:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_physics_text",
+   "model": "Grok 2",
+   "score": 4.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_text:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_text",
+   "model": "Grok 2",
+   "score": 3.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_text:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_text",
+   "model": "Grok 2",
+   "score": 1.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_text:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_text",
+   "model": "Grok 2",
+   "score": 1.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_text:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_text",
+   "model": "Grok 2",
+   "score": 4.8,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_text:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_other_text",
+   "model": "Grok 2",
+   "score": 1.1,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_text:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_math_text",
+   "model": "Claude 3.5 Sonnet",
+   "score": 3.8,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_text:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_text",
+   "model": "Claude 3.5 Sonnet",
+   "score": 5.9,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_text:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_physics_text",
+   "model": "Claude 3.5 Sonnet",
+   "score": 4.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_text:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_text",
+   "model": "Claude 3.5 Sonnet",
+   "score": 2.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_text:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_text",
+   "model": "Claude 3.5 Sonnet",
+   "score": 6.7,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_text:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_text",
+   "model": "Claude 3.5 Sonnet",
+   "score": 5.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_text:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_text",
+   "model": "Claude 3.5 Sonnet",
+   "score": 9.7,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_text:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_other_text",
+   "model": "Claude 3.5 Sonnet",
+   "score": 2.9,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_text:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_math_text",
+   "model": "Gemini 1.5 Pro",
+   "score": 5.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_text:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_text",
+   "model": "Gemini 1.5 Pro",
+   "score": 5.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_text:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_physics_text",
+   "model": "Gemini 1.5 Pro",
+   "score": 2.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_text:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_text",
+   "model": "Gemini 1.5 Pro",
+   "score": 4.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_text:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_text",
+   "model": "Gemini 1.5 Pro",
+   "score": 3.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_text:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_text",
+   "model": "Gemini 1.5 Pro",
+   "score": 6.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_text:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_text",
+   "model": "Gemini 1.5 Pro",
+   "score": 3.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_text:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_other_text",
+   "model": "Gemini 1.5 Pro",
+   "score": 3.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_text:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_math_text",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 8.1,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_text:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_text",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 7.7,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_text:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_physics_text",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 4.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_text:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_text",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 4.9,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_text:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_text",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 6.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_text:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_text",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 5.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_text:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_text",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 4.8,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_text:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_other_text",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 2.9,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_text:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_math_text",
+   "model": "o1",
+   "score": 7.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_text:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_text",
+   "model": "o1",
+   "score": 8.1,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_text:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_physics_text",
+   "model": "o1",
+   "score": 6.9,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_text:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_text",
+   "model": "o1",
+   "score": 8.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_text:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_text",
+   "model": "o1",
+   "score": 8.8,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_text:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_text",
+   "model": "o1",
+   "score": 10.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_text:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_text",
+   "model": "o1",
+   "score": 4.8,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_text:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_other_text",
+   "model": "o1",
+   "score": 8.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_text:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_math_text",
+   "model": "DeepSeek-R1",
+   "score": 9.1,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_text:DeepSeek-R1",
+   "extra": {
+    "model_version": "January 20, 2025 release"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_text",
+   "model": "DeepSeek-R1",
+   "score": 9.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_text:DeepSeek-R1",
+   "extra": {
+    "model_version": "January 20, 2025 release"
+   }
+  },
+  {
+   "benchmark": "cat_physics_text",
+   "model": "DeepSeek-R1",
+   "score": 5.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_text:DeepSeek-R1",
+   "extra": {
+    "model_version": "January 20, 2025 release"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_text",
+   "model": "DeepSeek-R1",
+   "score": 7.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_text:DeepSeek-R1",
+   "extra": {
+    "model_version": "January 20, 2025 release"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_text",
+   "model": "DeepSeek-R1",
+   "score": 10.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_text:DeepSeek-R1",
+   "extra": {
+    "model_version": "January 20, 2025 release"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_text",
+   "model": "DeepSeek-R1",
+   "score": 5.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_text:DeepSeek-R1",
+   "extra": {
+    "model_version": "January 20, 2025 release"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_text",
+   "model": "DeepSeek-R1",
+   "score": 14.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_text:DeepSeek-R1",
+   "extra": {
+    "model_version": "January 20, 2025 release"
+   }
+  },
+  {
+   "benchmark": "cat_other_text",
+   "model": "DeepSeek-R1",
+   "score": 7.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_text:DeepSeek-R1",
+   "extra": {
+    "model_version": "January 20, 2025 release"
+   }
+  },
+  {
+   "benchmark": "cat_math_text",
+   "model": "o3-mini (high)",
+   "score": 18.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_text:o3-mini (high)",
+   "extra": {
+    "model_version": "o3-mini-2025-01-31"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_text",
+   "model": "o3-mini (high)",
+   "score": 10.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_text:o3-mini (high)",
+   "extra": {
+    "model_version": "o3-mini-2025-01-31"
+   }
+  },
+  {
+   "benchmark": "cat_physics_text",
+   "model": "o3-mini (high)",
+   "score": 15.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_text:o3-mini (high)",
+   "extra": {
+    "model_version": "o3-mini-2025-01-31"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_text",
+   "model": "o3-mini (high)",
+   "score": 8.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_text:o3-mini (high)",
+   "extra": {
+    "model_version": "o3-mini-2025-01-31"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_text",
+   "model": "o3-mini (high)",
+   "score": 5.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_text:o3-mini (high)",
+   "extra": {
+    "model_version": "o3-mini-2025-01-31"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_text",
+   "model": "o3-mini (high)",
+   "score": 9.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_text:o3-mini (high)",
+   "extra": {
+    "model_version": "o3-mini-2025-01-31"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_text",
+   "model": "o3-mini (high)",
+   "score": 6.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_text:o3-mini (high)",
+   "extra": {
+    "model_version": "o3-mini-2025-01-31"
+   }
+  },
+  {
+   "benchmark": "cat_other_text",
+   "model": "o3-mini (high)",
+   "score": 6.9,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_text:o3-mini (high)",
+   "extra": {
+    "model_version": "o3-mini-2025-01-31"
+   }
+  },
+  {
+   "benchmark": "cat_math_full",
+   "model": "GPT-4o",
+   "score": 2.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_full:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_full",
+   "model": "GPT-4o",
+   "score": 6.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_full:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_physics_full",
+   "model": "GPT-4o",
+   "score": 1.7,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_full:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_full",
+   "model": "GPT-4o",
+   "score": 0.8,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_full:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_full",
+   "model": "GPT-4o",
+   "score": 3.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_full:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_full",
+   "model": "GPT-4o",
+   "score": 3.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_full:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_full",
+   "model": "GPT-4o",
+   "score": 1.8,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_full:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_other_full",
+   "model": "GPT-4o",
+   "score": 2.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_full:GPT-4o",
+   "extra": {
+    "model_version": "gpt-4o-2024-11-20"
+   }
+  },
+  {
+   "benchmark": "cat_math_full",
+   "model": "Grok 2",
+   "score": 3.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_full:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_full",
+   "model": "Grok 2",
+   "score": 4.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_full:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_physics_full",
+   "model": "Grok 2",
+   "score": 3.9,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_full:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_full",
+   "model": "Grok 2",
+   "score": 3.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_full:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_full",
+   "model": "Grok 2",
+   "score": 1.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_full:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_full",
+   "model": "Grok 2",
+   "score": 2.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_full:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_full",
+   "model": "Grok 2",
+   "score": 3.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_full:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_other_full",
+   "model": "Grok 2",
+   "score": 1.7,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_full:Grok 2",
+   "extra": {
+    "model_version": "grok-2-latest"
+   }
+  },
+  {
+   "benchmark": "cat_math_full",
+   "model": "Claude 3.5 Sonnet",
+   "score": 4.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_full:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_full",
+   "model": "Claude 3.5 Sonnet",
+   "score": 4.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_full:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_physics_full",
+   "model": "Claude 3.5 Sonnet",
+   "score": 3.9,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_full:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_full",
+   "model": "Claude 3.5 Sonnet",
+   "score": 2.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_full:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_full",
+   "model": "Claude 3.5 Sonnet",
+   "score": 5.9,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_full:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_full",
+   "model": "Claude 3.5 Sonnet",
+   "score": 4.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_full:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_full",
+   "model": "Claude 3.5 Sonnet",
+   "score": 7.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_full:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_other_full",
+   "model": "Claude 3.5 Sonnet",
+   "score": 2.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_full:Claude 3.5 Sonnet",
+   "extra": {
+    "model_version": "claude-3-5-sonnet-20241022"
+   }
+  },
+  {
+   "benchmark": "cat_math_full",
+   "model": "Gemini 1.5 Pro",
+   "score": 5.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_full:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_full",
+   "model": "Gemini 1.5 Pro",
+   "score": 5.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_full:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_physics_full",
+   "model": "Gemini 1.5 Pro",
+   "score": 3.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_full:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_full",
+   "model": "Gemini 1.5 Pro",
+   "score": 3.7,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_full:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_full",
+   "model": "Gemini 1.5 Pro",
+   "score": 4.1,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_full:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_full",
+   "model": "Gemini 1.5 Pro",
+   "score": 6.1,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_full:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_full",
+   "model": "Gemini 1.5 Pro",
+   "score": 3.6,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_full:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_other_full",
+   "model": "Gemini 1.5 Pro",
+   "score": 3.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_full:Gemini 1.5 Pro",
+   "extra": {
+    "model_version": "gemini-1.5-pro-002"
+   }
+  },
+  {
+   "benchmark": "cat_math_full",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 8.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_full:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_full",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 8.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_full:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_physics_full",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 4.8,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_full:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_full",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 4.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_full:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_full",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 6.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_full:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_full",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 5.5,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_full:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_full",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 6.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_full:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_other_full",
+   "model": "Gemini 2.0 Flash Thinking",
+   "score": 3.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_full:Gemini 2.0 Flash Thinking",
+   "extra": {
+    "model_version": "gemini-2.0-flash-thinking-exp-01-21∗"
+   }
+  },
+  {
+   "benchmark": "cat_math_full",
+   "model": "o1",
+   "score": 7.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_math_full:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_bio_med_full",
+   "model": "o1",
+   "score": 10.4,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_bio_med_full:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_physics_full",
+   "model": "o1",
+   "score": 7.0,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_physics_full:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_cs_ai_full",
+   "model": "o1",
+   "score": 8.2,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_cs_ai_full:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_humanities_full",
+   "model": "o1",
+   "score": 8.7,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_humanities_full:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_chemistry_full",
+   "model": "o1",
+   "score": 9.7,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_chemistry_full:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_engineering_full",
+   "model": "o1",
+   "score": 6.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_engineering_full:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  },
+  {
+   "benchmark": "cat_other_full",
+   "model": "o1",
+   "score": 7.3,
+   "evaluation_method": "HLE paper evaluation, judge o3-mini, no tools",
+   "external_id": "hle-paper:cat_other_full:o1",
+   "extra": {
+    "model_version": "o1-2024-12-17"
+   }
+  }
+ ]
+}

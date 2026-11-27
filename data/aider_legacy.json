@@ -1,0 +1,2275 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "Aider (legacy leaderboards)",
+  "site": "https://aider.chat/docs/leaderboards/",
+  "publisher": "Aider (Paul Gauthier)",
+  "description": "Aider's older leaderboards: code editing (133 Python Exercism exercises) and refactoring (89 large Python methods).",
+  "license": "Apache-2.0 (https://github.com/Aider-AI/aider/blob/main/LICENSE.txt)",
+  "attribution": "Aider LLM leaderboards (https://aider.chat/docs/leaderboards/).",
+  "retrieved_from": [
+   "https://raw.githubusercontent.com/Aider-AI/aider/main/aider/website/_data/edit_leaderboard.yml",
+   "https://raw.githubusercontent.com/Aider-AI/aider/main/aider/website/_data/refactor_leaderboard.yml"
+  ],
+  "notes": [
+   "Code editing score = pass_rate_2 (solved within two attempts), the field the edit.html page shows as 'Percent completed correctly'.",
+   "Refactoring score = pass_rate_1, the field the refactor.html page shows.",
+   "Model names are aider's model strings as published (e.g. 'claude-3-opus-20240229'). total_cost_usd is the cost of the whole run.",
+   "Legacy boards: these benchmarks are no longer updated by aider."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "edit",
+   "name": "Aider code editing",
+   "version": "Legacy edit leaderboard (133 Python exercises)",
+   "area": "coding",
+   "sub_area": "code editing (Python)",
+   "unit": "percent",
+   "total_tasks": 133,
+   "metric": "accuracy",
+   "description": "Percent of 133 small Python Exercism exercises solved and correctly edited by the model within two attempts.",
+   "url": "https://aider.chat/docs/leaderboards/edit.html"
+  },
+  {
+   "key": "refactor",
+   "name": "Aider refactoring",
+   "version": "Refactoring leaderboard (89 methods)",
+   "area": "coding",
+   "sub_area": "code refactoring (Python)",
+   "unit": "percent",
+   "total_tasks": 89,
+   "metric": "accuracy",
+   "description": "Percent of 89 large Python methods the model refactored correctly (tests it lazy-coding / long outputs).",
+   "url": "https://aider.chat/docs/leaderboards/refactor.html"
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "edit",
+   "model": "claude-3-opus-20240229",
+   "score": 68.4,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-05-01-20-05-59--direct-opus-filenames-outside-fence@68.4",
+   "extra": {
+    "pass_rate_1": 53.4,
+    "pass_rate_2": 68.4,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 32.4,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --opus",
+    "dirname": "2024-05-01-20-05-59--direct-opus-filenames-outside-fence",
+    "versions": "0.30.2-dev",
+    "total_cost_usd": 13.8395
+   },
+   "evaluation_date": "2024-05-01"
+  },
+  {
+   "benchmark": "edit",
+   "model": "claude-3-sonnet-20240229",
+   "score": 54.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-03-06-16-42-00--claude3-sonnet-whole@54.9",
+   "extra": {
+    "pass_rate_1": 43.6,
+    "pass_rate_2": 54.9,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 23.1,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --sonnet",
+    "dirname": "2024-03-06-16-42-00--claude3-sonnet-whole",
+    "versions": "0.25.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-03-06"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-1.5-pro-001",
+   "score": 57.1,
+   "evaluation_method": "aider, edit format 'diff-fenced', 2 attempts",
+   "external_id": "2024-05-03-20-47-24--gemini-1.5-pro-diff-fenced@57.1",
+   "extra": {
+    "pass_rate_1": 45.9,
+    "pass_rate_2": 57.1,
+    "percent_cases_well_formed": 87.2,
+    "seconds_per_case": 21.3,
+    "test_cases": 133,
+    "edit_format": "diff-fenced",
+    "command": "aider --model gemini/gemini-1.5-pro-latest",
+    "dirname": "2024-05-03-20-47-24--gemini-1.5-pro-diff-fenced",
+    "versions": "0.31.2-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-05-03"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-3.5-turbo-0125",
+   "score": 50.4,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-05-08-20-59-15--may-gpt-3.5-turbo-whole@50.4",
+   "extra": {
+    "pass_rate_1": 41.4,
+    "pass_rate_2": 50.4,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 6.5,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider -3",
+    "dirname": "2024-05-08-20-59-15--may-gpt-3.5-turbo-whole",
+    "versions": "0.33.1-dev",
+    "total_cost_usd": 0.5032
+   },
+   "evaluation_date": "2024-05-08"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-3.5-turbo-0301",
+   "score": 57.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2023-11-06-21-23-59--gpt-3.5-turbo-0301@57.9",
+   "extra": {
+    "pass_rate_1": 50.4,
+    "pass_rate_2": 57.9,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 6.5,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model gpt-3.5-turbo-0301",
+    "dirname": "2023-11-06-21-23-59--gpt-3.5-turbo-0301",
+    "versions": "0.16.4-dev",
+    "total_cost_usd": 0.4822
+   },
+   "evaluation_date": "2023-11-06"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-3.5-turbo-0613",
+   "score": 50.4,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2023-11-07-02-41-07--gpt-3.5-turbo-0613@50.4",
+   "extra": {
+    "pass_rate_1": 38.3,
+    "pass_rate_2": 50.4,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 18.0,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model gpt-3.5-turbo-0613",
+    "dirname": "2023-11-07-02-41-07--gpt-3.5-turbo-0613",
+    "versions": "0.16.4-dev",
+    "total_cost_usd": 0.5366
+   },
+   "evaluation_date": "2023-11-07"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-3.5-turbo-1106",
+   "score": 56.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-04-30-21-40-51--litellm-gpt-3.5-turbo-1106-again@56.1",
+   "extra": {
+    "pass_rate_1": 45.5,
+    "pass_rate_2": 56.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 5.3,
+    "test_cases": 132,
+    "edit_format": "whole",
+    "command": "aider --model gpt-3.5-turbo-1106",
+    "dirname": "2024-04-30-21-40-51--litellm-gpt-3.5-turbo-1106-again",
+    "versions": "0.30.2-dev",
+    "total_cost_usd": 0.3261
+   },
+   "evaluation_date": "2024-04-30"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-4-0125-preview",
+   "score": 66.2,
+   "evaluation_method": "aider, edit format 'udiff', 2 attempts",
+   "external_id": "2024-01-25-23-37-15--jan-exercism-gpt-4-0125-preview-udiff@66.2",
+   "extra": {
+    "pass_rate_1": 55.6,
+    "pass_rate_2": 66.2,
+    "percent_cases_well_formed": 97.7,
+    "seconds_per_case": 44.8,
+    "test_cases": 133,
+    "edit_format": "udiff",
+    "command": "aider --model gpt-4-0125-preview",
+    "dirname": "2024-01-25-23-37-15--jan-exercism-gpt-4-0125-preview-udiff",
+    "versions": "0.22.1-dev",
+    "total_cost_usd": 14.6428
+   },
+   "evaluation_date": "2024-01-25"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-4-0314",
+   "score": 66.2,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-05-04-15-07-30--redo-gpt-4-0314-diff-reminder-rules@66.2",
+   "extra": {
+    "pass_rate_1": 50.4,
+    "pass_rate_2": 66.2,
+    "percent_cases_well_formed": 93.2,
+    "seconds_per_case": 19.8,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model gpt-4-0314",
+    "dirname": "2024-05-04-15-07-30--redo-gpt-4-0314-diff-reminder-rules",
+    "versions": "0.31.2-dev",
+    "total_cost_usd": 16.2689
+   },
+   "evaluation_date": "2024-05-04"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-4-0613",
+   "score": 67.7,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2023-12-16-21-24-28--editblock-gpt-4-0613-actual-main@67.7",
+   "extra": {
+    "pass_rate_1": 46.6,
+    "pass_rate_2": 67.7,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 33.6,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider -4",
+    "dirname": "2023-12-16-21-24-28--editblock-gpt-4-0613-actual-main",
+    "versions": "0.18.2-dev",
+    "total_cost_usd": 17.4657
+   },
+   "evaluation_date": "2023-12-16"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-4-1106-preview",
+   "score": 65.4,
+   "evaluation_method": "aider, edit format 'udiff', 2 attempts",
+   "external_id": "2024-05-08-21-16-03--may-gpt-4-1106-preview-udiff@65.4",
+   "extra": {
+    "pass_rate_1": 51.9,
+    "pass_rate_2": 65.4,
+    "percent_cases_well_formed": 92.5,
+    "seconds_per_case": 20.4,
+    "test_cases": 133,
+    "edit_format": "udiff",
+    "command": "aider --model gpt-4-1106-preview",
+    "dirname": "2024-05-08-21-16-03--may-gpt-4-1106-preview-udiff",
+    "versions": "0.33.1-dev",
+    "total_cost_usd": 6.6061
+   },
+   "evaluation_date": "2024-05-08"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-4-turbo-2024-04-09 (udiff)",
+   "score": 63.9,
+   "evaluation_method": "aider, edit format 'udiff', 2 attempts",
+   "external_id": "2024-05-01-02-09-20--gpt-4-turbo-examples@63.9",
+   "extra": {
+    "pass_rate_1": 48.1,
+    "pass_rate_2": 63.9,
+    "percent_cases_well_formed": 97.0,
+    "seconds_per_case": 22.8,
+    "test_cases": 133,
+    "edit_format": "udiff",
+    "command": "aider --gpt-4-turbo",
+    "dirname": "2024-05-01-02-09-20--gpt-4-turbo-examples",
+    "versions": "0.30.2-dev",
+    "total_cost_usd": 6.3337
+   },
+   "evaluation_date": "2024-05-01"
+  },
+  {
+   "benchmark": "edit",
+   "model": "llama3-70b-8192",
+   "score": 49.2,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-05-03-22-24-48--openrouter--llama3-diff-examples-sys-msg@49.2",
+   "extra": {
+    "pass_rate_1": 38.6,
+    "pass_rate_2": 49.2,
+    "percent_cases_well_formed": 73.5,
+    "seconds_per_case": 14.5,
+    "test_cases": 132,
+    "edit_format": "diff",
+    "command": "aider --model groq/llama3-70b-8192",
+    "dirname": "2024-05-03-22-24-48--openrouter--llama3-diff-examples-sys-msg",
+    "versions": "0.31.2-dev",
+    "total_cost_usd": 0.4311
+   },
+   "evaluation_date": "2024-05-03"
+  },
+  {
+   "benchmark": "edit",
+   "model": "command-r-plus",
+   "score": 31.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-05-06-18-31-08--command-r-plus-whole-final@31.6",
+   "extra": {
+    "pass_rate_1": 21.8,
+    "pass_rate_2": 31.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 22.9,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model command-r-plus",
+    "dirname": "2024-05-06-18-31-08--command-r-plus-whole-final",
+    "versions": "0.31.2-dev",
+    "total_cost_usd": 2.7494
+   },
+   "evaluation_date": "2024-05-06"
+  },
+  {
+   "benchmark": "edit",
+   "model": "qwen1.5-110b-chat",
+   "score": 37.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-05-07-20-32-37--qwen1.5-110b-chat-whole@37.6",
+   "extra": {
+    "pass_rate_1": 30.8,
+    "pass_rate_2": 37.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 46.9,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model together_ai/qwen/qwen1.5-110b-chat",
+    "dirname": "2024-05-07-20-32-37--qwen1.5-110b-chat-whole",
+    "versions": "0.31.2-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-05-07"
+  },
+  {
+   "benchmark": "edit",
+   "model": "WizardLM-2 8x22B",
+   "score": 44.4,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-05-07-20-57-04--wizardlm-2-8x22b-whole@44.4",
+   "extra": {
+    "pass_rate_1": 27.8,
+    "pass_rate_2": 44.4,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 36.6,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openrouter/microsoft/wizardlm-2-8x22b",
+    "dirname": "2024-05-07-20-57-04--wizardlm-2-8x22b-whole",
+    "versions": "0.31.2-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-05-07"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-4o-2024-05-13",
+   "score": 72.9,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-05-13-17-39-05--gpt-4o-diff@72.9",
+   "extra": {
+    "pass_rate_1": 60.2,
+    "pass_rate_2": 72.9,
+    "percent_cases_well_formed": 96.2,
+    "seconds_per_case": 6.0,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider",
+    "dirname": "2024-05-13-17-39-05--gpt-4o-diff",
+    "versions": "0.34.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-05-13"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-4-turbo-2024-04-09 (diff)",
+   "score": 57.6,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-04-12-22-18-20--gpt-4-turbo-2024-04-09-plain-diff@57.6",
+   "extra": {
+    "pass_rate_1": 48.5,
+    "pass_rate_2": 57.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 17.6,
+    "test_cases": 33,
+    "edit_format": "diff",
+    "command": "aider --model gpt-4-turbo-2024-04-09",
+    "dirname": "2024-04-12-22-18-20--gpt-4-turbo-2024-04-09-plain-diff",
+    "versions": "0.28.1-dev",
+    "total_cost_usd": 1.6205
+   },
+   "evaluation_date": "2024-04-12"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Qwen2 72B Instruct",
+   "score": 55.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-06-08-22-37-55--qwen2-72b-instruct-whole@55.6",
+   "extra": {
+    "pass_rate_1": 44.4,
+    "pass_rate_2": 55.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 14.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model together_ai/qwen/Qwen2-72B-Instruct",
+    "dirname": "2024-06-08-22-37-55--qwen2-72b-instruct-whole",
+    "versions": "0.37.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-06-08"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-1.5-flash-latest",
+   "score": 44.4,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-06-08-23-45-41--gemini-1.5-flash-latest-whole@44.4",
+   "extra": {
+    "pass_rate_1": 33.8,
+    "pass_rate_2": 44.4,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 7.2,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model gemini/gemini-1.5-flash-latest",
+    "dirname": "2024-06-08-23-45-41--gemini-1.5-flash-latest-whole",
+    "versions": "0.37.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-06-08"
+  },
+  {
+   "benchmark": "edit",
+   "model": "codestral-2405",
+   "score": 51.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-06-09-03-28-21--codestral-whole@51.1",
+   "extra": {
+    "pass_rate_1": 35.3,
+    "pass_rate_2": 51.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 7.5,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model mistral/codestral-2405",
+    "dirname": "2024-06-09-03-28-21--codestral-whole",
+    "versions": "0.37.1-dev",
+    "total_cost_usd": 0.6805
+   },
+   "evaluation_date": "2024-06-09"
+  },
+  {
+   "benchmark": "edit",
+   "model": "codeqwen:7b-chat-v1.5-q8_0",
+   "score": 34.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-06-08-19-25-26--codeqwen:7b-chat-v1.5-q8_0-whole@34.6",
+   "extra": {
+    "pass_rate_1": 32.3,
+    "pass_rate_2": 34.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 15.6,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/codeqwen:7b-chat-v1.5-q8_0",
+    "dirname": "2024-06-08-19-25-26--codeqwen:7b-chat-v1.5-q8_0-whole",
+    "versions": "0.37.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-06-08"
+  },
+  {
+   "benchmark": "edit",
+   "model": "codestral:22b-v0.1-q8_0",
+   "score": 48.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-06-08-16-12-31--codestral:22b-v0.1-q8_0-whole@48.1",
+   "extra": {
+    "pass_rate_1": 35.3,
+    "pass_rate_2": 48.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 46.4,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/codestral:22b-v0.1-q8_0",
+    "dirname": "2024-06-08-16-12-31--codestral:22b-v0.1-q8_0-whole",
+    "versions": "0.37.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-06-08"
+  },
+  {
+   "benchmark": "edit",
+   "model": "qwen2:72b-instruct-q8_0",
+   "score": 49.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-06-08-17-54-04--qwen2:72b-instruct-q8_0-whole@49.6",
+   "extra": {
+    "pass_rate_1": 43.6,
+    "pass_rate_2": 49.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 280.6,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/qwen2:72b-instruct-q8_0",
+    "dirname": "2024-06-08-17-54-04--qwen2:72b-instruct-q8_0-whole",
+    "versions": "0.37.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-06-08"
+  },
+  {
+   "benchmark": "edit",
+   "model": "claude-3.5-sonnet-20240620",
+   "score": 77.4,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-07-04-14-32-08--claude-3.5-sonnet-diff-continue@77.4",
+   "extra": {
+    "pass_rate_1": 57.1,
+    "pass_rate_2": 77.4,
+    "percent_cases_well_formed": 99.2,
+    "seconds_per_case": 17.6,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model claude-3.5-sonnet-20240620",
+    "dirname": "2024-07-04-14-32-08--claude-3.5-sonnet-diff-continue",
+    "versions": "0.42.1-dev",
+    "total_cost_usd": 3.6346
+   },
+   "evaluation_date": "2024-07-04"
+  },
+  {
+   "benchmark": "edit",
+   "model": "claude-3-haiku-20240307",
+   "score": 47.4,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-07-01-21-41-48--haiku-whole@47.4",
+   "extra": {
+    "pass_rate_1": 40.6,
+    "pass_rate_2": 47.4,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 7.1,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model claude-3-haiku-20240307",
+    "dirname": "2024-07-01-21-41-48--haiku-whole",
+    "versions": "0.41.1-dev",
+    "total_cost_usd": 0.1946
+   },
+   "evaluation_date": "2024-07-01"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemma2:27b-instruct-q8_0",
+   "score": 36.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-07-09-10-12-27--gemma2:27b-instruct-q8_0@36.1",
+   "extra": {
+    "pass_rate_1": 31.6,
+    "pass_rate_2": 36.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 101.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/gemma2:27b-instruct-q8_0",
+    "dirname": "2024-07-09-10-12-27--gemma2:27b-instruct-q8_0",
+    "versions": "0.43.0",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-07-09"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-4o-mini",
+   "score": 55.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-07-18-18-57-46--gpt-4o-mini-whole@55.6",
+   "extra": {
+    "pass_rate_1": 40.6,
+    "pass_rate_2": 55.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 7.8,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model gpt-4o-mini",
+    "dirname": "2024-07-18-18-57-46--gpt-4o-mini-whole",
+    "versions": "0.44.1-dev",
+    "total_cost_usd": 0.0916
+   },
+   "evaluation_date": "2024-07-18"
+  },
+  {
+   "benchmark": "edit",
+   "model": "DeepSeek Chat V2 0628",
+   "score": 69.9,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-07-19-08-57-13--openrouter-deepseek-chat-v2-0628@69.9",
+   "extra": {
+    "pass_rate_1": 60.9,
+    "pass_rate_2": 69.9,
+    "percent_cases_well_formed": 97.7,
+    "seconds_per_case": 37.1,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model deepseek/deepseek-chat",
+    "dirname": "2024-07-19-08-57-13--openrouter-deepseek-chat-v2-0628",
+    "versions": "0.45.2-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-07-19"
+  },
+  {
+   "benchmark": "edit",
+   "model": "llama-3.1-405b-instruct (diff)",
+   "score": 63.9,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-07-23-22-07-08--llama-205b-diff@63.9",
+   "extra": {
+    "pass_rate_1": 46.6,
+    "pass_rate_2": 63.9,
+    "percent_cases_well_formed": 92.5,
+    "seconds_per_case": 56.8,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model openrouter/meta-llama/llama-3.1-405b-instruct",
+    "dirname": "2024-07-23-22-07-08--llama-205b-diff",
+    "versions": "0.45.2-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-07-23"
+  },
+  {
+   "benchmark": "edit",
+   "model": "llama-3.1-405b-instruct (whole)",
+   "score": 66.2,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-07-24-06-30-29--llama-405b-whole@66.2",
+   "extra": {
+    "pass_rate_1": 48.9,
+    "pass_rate_2": 66.2,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 18.1,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openrouter/meta-llama/llama-3.1-405b-instruct",
+    "dirname": "2024-07-24-06-30-29--llama-405b-whole",
+    "versions": "0.45.2-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-07-24"
+  },
+  {
+   "benchmark": "edit",
+   "model": "DeepSeek Coder V2 0724",
+   "score": 72.9,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-07-24-07-10-58--deepseek-coder2-0724-diff-direct@72.9",
+   "extra": {
+    "pass_rate_1": 57.9,
+    "pass_rate_2": 72.9,
+    "percent_cases_well_formed": 97.7,
+    "seconds_per_case": 36.2,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model deepseek/deepseek-coder",
+    "dirname": "2024-07-24-07-10-58--deepseek-coder2-0724-diff-direct",
+    "versions": "0.45.2-dev",
+    "total_cost_usd": 0.0981
+   },
+   "evaluation_date": "2024-07-24"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Mistral Large 2 (2407)",
+   "score": 60.2,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-07-24-19-08-47--mistral-large-2407-whole@60.2",
+   "extra": {
+    "pass_rate_1": 39.8,
+    "pass_rate_2": 60.2,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 26.6,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model mistral/mistral-large-2407",
+    "dirname": "2024-07-24-19-08-47--mistral-large-2407-whole",
+    "versions": "0.45.2-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-07-24"
+  },
+  {
+   "benchmark": "edit",
+   "model": "llama-3.1-8b-instruct",
+   "score": 37.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-07-25-08-12-27--fireworks-llama-8b-whole@37.6",
+   "extra": {
+    "pass_rate_1": 26.3,
+    "pass_rate_2": 37.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 3.8,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model fireworks_ai/accounts/fireworks/models/llama-v3p1-8b-instruct",
+    "dirname": "2024-07-25-08-12-27--fireworks-llama-8b-whole",
+    "versions": "0.45.2-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-07-25"
+  },
+  {
+   "benchmark": "edit",
+   "model": "llama-3.1-70b-instruct",
+   "score": 58.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-07-25-08-07-45--fireworks-llama-70b-whole@58.6",
+   "extra": {
+    "pass_rate_1": 43.6,
+    "pass_rate_2": 58.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 7.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model fireworks_ai/accounts/fireworks/models/llama-v3p1-70b-instruct",
+    "dirname": "2024-07-25-08-07-45--fireworks-llama-70b-whole",
+    "versions": "0.45.2-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-07-25"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-4o-2024-08-06",
+   "score": 71.4,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-08-06-18-28-39--gpt-4o-2024-08-06-diff-again@71.4",
+   "extra": {
+    "pass_rate_1": 57.1,
+    "pass_rate_2": 71.4,
+    "percent_cases_well_formed": 98.5,
+    "seconds_per_case": 6.5,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model openai/gpt-4o-2024-08-06",
+    "dirname": "2024-08-06-18-28-39--gpt-4o-2024-08-06-diff-again",
+    "versions": "0.48.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-08-06"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-1.5-pro-exp-0827",
+   "score": 66.9,
+   "evaluation_method": "aider, edit format 'diff-fenced', 2 attempts",
+   "external_id": "2024-08-28-07-10-50--gemini-1.5-pro-exp-0827-diff-fenced@66.9",
+   "extra": {
+    "pass_rate_1": 54.9,
+    "pass_rate_2": 66.9,
+    "percent_cases_well_formed": 94.7,
+    "seconds_per_case": 14.5,
+    "test_cases": 133,
+    "edit_format": "diff-fenced",
+    "command": "aider --model gemini/gemini-1.5-pro-exp-0827",
+    "dirname": "2024-08-28-07-10-50--gemini-1.5-pro-exp-0827-diff-fenced",
+    "versions": "0.53.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-08-28"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-1.5-flash-exp-0827",
+   "score": 52.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-08-27-19-20-19--gemini-1.5-flash-exp-0827@52.6",
+   "extra": {
+    "pass_rate_1": 40.6,
+    "pass_rate_2": 52.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 6.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model gemini/gemini-1.5-flash-exp-0827",
+    "dirname": "2024-08-27-19-20-19--gemini-1.5-flash-exp-0827",
+    "versions": "0.53.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-08-27"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-1.5-flash-8b-exp-0827",
+   "score": 38.3,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-08-27-19-42-05--gemini-1.5-flash-8b-exp-0827@38.3",
+   "extra": {
+    "pass_rate_1": 31.6,
+    "pass_rate_2": 38.3,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 7.2,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model gemini/gemini-1.5-flash-8b-exp-0827",
+    "dirname": "2024-08-27-19-42-05--gemini-1.5-flash-8b-exp-0827",
+    "versions": "0.53.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-08-27"
+  },
+  {
+   "benchmark": "edit",
+   "model": "nousresearch/hermes-3-llama-3.1-405b",
+   "score": 63.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-08-30-15-02-05--nous405b-whole@63.9",
+   "extra": {
+    "pass_rate_1": 51.1,
+    "pass_rate_2": 63.9,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 38.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openrouter/nousresearch/hermes-3-llama-3.1-405b",
+    "dirname": "2024-08-30-15-02-05--nous405b-whole",
+    "versions": "0.54.8-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-08-30"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Yi Coder 9B Chat",
+   "score": 54.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-04-16-08-09--yi-coder-9b-whole@54.1",
+   "extra": {
+    "pass_rate_1": 46.6,
+    "pass_rate_2": 54.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 8.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openai/hf:01-ai/Yi-Coder-9B-Chat --openai-api-base https://glhf.chat/api/openai/v1",
+    "dirname": "2024-09-04-16-08-09--yi-coder-9b-whole",
+    "versions": "0.54.13.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-04"
+  },
+  {
+   "benchmark": "edit",
+   "model": "yi-coder:9b-chat-q4_0",
+   "score": 45.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-04-16-17-33--yi-coder-9b-chat-q4_0-whole@45.1",
+   "extra": {
+    "pass_rate_1": 41.4,
+    "pass_rate_2": 45.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 125.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/yi-coder:9b-chat-q4_0",
+    "dirname": "2024-09-04-16-17-33--yi-coder-9b-chat-q4_0-whole",
+    "versions": "0.54.13.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-04"
+  },
+  {
+   "benchmark": "edit",
+   "model": "DeepSeek V2.5",
+   "score": 72.2,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-09-05-14-50-11--deepseek-sep5-no-shell@72.2",
+   "extra": {
+    "pass_rate_1": 54.9,
+    "pass_rate_2": 72.2,
+    "percent_cases_well_formed": 96.2,
+    "seconds_per_case": 49.6,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --deepseek",
+    "dirname": "2024-09-05-14-50-11--deepseek-sep5-no-shell",
+    "versions": "0.55.1.dev",
+    "total_cost_usd": 0.0998
+   },
+   "evaluation_date": "2024-09-05"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Reflection-70B",
+   "score": 42.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-06-19-55-17--reflection-hyperbolic-whole-output2@42.1",
+   "extra": {
+    "pass_rate_1": 33.1,
+    "pass_rate_2": 42.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 61.6,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "(not currently supported)",
+    "dirname": "2024-09-06-19-55-17--reflection-hyperbolic-whole-output2",
+    "versions": "0.55.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-06"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Command R+ (08-24)",
+   "score": 38.3,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-11-15-42-17--command-r-plus-08-2024-whole@38.3",
+   "extra": {
+    "pass_rate_1": 27.1,
+    "pass_rate_2": 38.3,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 20.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model command-r-plus-08-2024",
+    "dirname": "2024-09-11-15-42-17--command-r-plus-08-2024-whole",
+    "versions": "0.56.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-11"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Command R (08-24)",
+   "score": 38.3,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-11-15-47-02--command-r-08-2024-whole@38.3",
+   "extra": {
+    "pass_rate_1": 30.1,
+    "pass_rate_2": 38.3,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 7.6,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model command-r-08-2024",
+    "dirname": "2024-09-11-15-47-02--command-r-08-2024-whole",
+    "versions": "0.56.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-11"
+  },
+  {
+   "benchmark": "edit",
+   "model": "o1-mini (whole)",
+   "score": 70.7,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-12-19-57-35--o1-mini-whole@70.7",
+   "extra": {
+    "pass_rate_1": 49.6,
+    "pass_rate_2": 70.7,
+    "percent_cases_well_formed": 90.0,
+    "seconds_per_case": 103.0,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model o1-mini",
+    "dirname": "2024-09-12-19-57-35--o1-mini-whole",
+    "versions": "0.56.1.dev",
+    "total_cost_usd": 5.3725
+   },
+   "evaluation_date": "2024-09-12"
+  },
+  {
+   "benchmark": "edit",
+   "model": "o1-mini",
+   "score": 61.1,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-09-21-16-40-56--o1-mini-flex-sr-markers@61.1",
+   "extra": {
+    "pass_rate_1": 50.0,
+    "pass_rate_2": 61.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 26.7,
+    "test_cases": 36,
+    "edit_format": "diff",
+    "command": "aider --model o1-mini",
+    "dirname": "2024-09-21-16-40-56--o1-mini-flex-sr-markers",
+    "versions": "0.56.1.dev",
+    "total_cost_usd": 2.4226
+   },
+   "evaluation_date": "2024-09-21"
+  },
+  {
+   "benchmark": "edit",
+   "model": "o1-preview",
+   "score": 79.7,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-09-21-16-45-11--o1-preview-flex-sr-markers@79.7",
+   "extra": {
+    "pass_rate_1": 57.9,
+    "pass_rate_2": 79.7,
+    "percent_cases_well_formed": 93.2,
+    "seconds_per_case": 80.9,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model o1-preview",
+    "dirname": "2024-09-21-16-45-11--o1-preview-flex-sr-markers",
+    "versions": "0.56.1.dev",
+    "total_cost_usd": 63.919
+   },
+   "evaluation_date": "2024-09-21"
+  },
+  {
+   "benchmark": "edit",
+   "model": "qwen2.5-coder:7b-instruct-q8_0",
+   "score": 51.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-19-16-58-29--qwen2.5-coder:7b-instruct-q8_0@51.9",
+   "extra": {
+    "pass_rate_1": 45.1,
+    "pass_rate_2": 51.9,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 9.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/qwen2.5-coder:7b-instruct-q8_0",
+    "dirname": "2024-09-19-16-58-29--qwen2.5-coder:7b-instruct-q8_0",
+    "versions": "0.56.0",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-19"
+  },
+  {
+   "benchmark": "edit",
+   "model": "qwen-2.5-72b-instruct (bf16)",
+   "score": 65.4,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-09-20-20-20-19--qwen-2.5-72b-instruct-diff@65.4",
+   "extra": {
+    "pass_rate_1": 53.4,
+    "pass_rate_2": 65.4,
+    "percent_cases_well_formed": 96.2,
+    "seconds_per_case": 39.8,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model openrouter/qwen/qwen-2.5-72b-instruct",
+    "dirname": "2024-09-20-20-20-19--qwen-2.5-72b-instruct-diff",
+    "versions": "0.56.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-20"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Codestral-22B-v0.1-Q4_K_M",
+   "score": 48.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-21-11-56-43--Codestral-22B-v0.1-Q4_K_M.gguf_whole@48.1",
+   "extra": {
+    "pass_rate_1": 36.1,
+    "pass_rate_2": 48.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 656.4,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model Codestral-22B-v0.1-Q4_K_M",
+    "dirname": "2024-09-21-11-56-43--Codestral-22B-v0.1-Q4_K_M.gguf_whole",
+    "versions": "0.56.1.dev",
+    "total_cost_usd": 0.9108
+   },
+   "evaluation_date": "2024-09-21"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-1.5-pro-002",
+   "score": 65.4,
+   "evaluation_method": "aider, edit format 'diff-fenced', 2 attempts",
+   "external_id": "2024-09-24-16-26-45--gemini-1.5-pro-002-diff-fenced@65.4",
+   "extra": {
+    "pass_rate_1": 49.6,
+    "pass_rate_2": 65.4,
+    "percent_cases_well_formed": 96.2,
+    "seconds_per_case": 11.6,
+    "test_cases": 133,
+    "edit_format": "diff-fenced",
+    "command": "aider --model gemini/gemini-1.5-pro-002",
+    "dirname": "2024-09-24-16-26-45--gemini-1.5-pro-002-diff-fenced",
+    "versions": "0.57.2.dev",
+    "total_cost_usd": 2.8166
+   },
+   "evaluation_date": "2024-09-24"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-1.5-flash-002 (0924)",
+   "score": 51.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-24-16-33-23--gemini-1.5-flash-002-whole@51.1",
+   "extra": {
+    "pass_rate_1": 37.6,
+    "pass_rate_2": 51.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 5.1,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model gemini/gemini-1.5-flash-002",
+    "dirname": "2024-09-24-16-33-23--gemini-1.5-flash-002-whole",
+    "versions": "0.57.2.dev",
+    "total_cost_usd": 0.0515
+   },
+   "evaluation_date": "2024-09-24"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-1.5-flash-8b-exp-0924",
+   "score": 38.3,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-24-15-18-59--gemini-1.5-flash-8b-exp-0924-whole@38.3",
+   "extra": {
+    "pass_rate_1": 33.1,
+    "pass_rate_2": 38.3,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 6.6,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model gemini/gemini-1.5-flash-8b-exp-0924",
+    "dirname": "2024-09-24-15-18-59--gemini-1.5-flash-8b-exp-0924-whole",
+    "versions": "0.57.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-24"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/codestral",
+   "score": 45.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-28-18-30-20--codestral-whole@45.9",
+   "extra": {
+    "pass_rate_1": 33.8,
+    "pass_rate_2": 45.9,
+    "percent_cases_well_formed": 98.5,
+    "seconds_per_case": 67.2,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/codestral",
+    "dirname": "2024-09-28-18-30-20--codestral-whole",
+    "versions": "0.57.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-28"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/codegeex4",
+   "score": 32.3,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-29-17-51-11--codegeex4-whole-2@32.3",
+   "extra": {
+    "pass_rate_1": 28.6,
+    "pass_rate_2": 32.3,
+    "percent_cases_well_formed": 97.0,
+    "seconds_per_case": 128.1,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/codegeex4",
+    "dirname": "2024-09-29-17-51-11--codegeex4-whole-2",
+    "versions": "0.57.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-29"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/wojtek/opencodeinterpreter:6.7b",
+   "score": 30.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-30-00-09-00--wojtek-opencodeinterpreter-6.7b-whole-2@30.1",
+   "extra": {
+    "pass_rate_1": 26.3,
+    "pass_rate_2": 30.1,
+    "percent_cases_well_formed": 91.0,
+    "seconds_per_case": 59.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/wojtek/opencodeinterpreter:6.7b",
+    "dirname": "2024-09-30-00-09-00--wojtek-opencodeinterpreter-6.7b-whole-2",
+    "versions": "0.58.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-30"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/mistral-nemo:12b-instruct-2407-q4_K_M",
+   "score": 33.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-30-03-49-01--mistral-nemo-12b-instruct-2407-q4_K_M-whole-1@33.1",
+   "extra": {
+    "pass_rate_1": 22.6,
+    "pass_rate_2": 33.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 34.7,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/mistral-nemo:12b-instruct-2407-q4_K_M",
+    "dirname": "2024-09-30-03-49-01--mistral-nemo-12b-instruct-2407-q4_K_M-whole-1",
+    "versions": "0.58.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-30"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/qwen2.5:32b",
+   "score": 54.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-30-14-09-43--qwen2.5-32b-whole-2@54.1",
+   "extra": {
+    "pass_rate_1": 44.4,
+    "pass_rate_2": 54.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 134.9,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/qwen2.5:32b",
+    "dirname": "2024-09-30-14-09-43--qwen2.5-32b-whole-2",
+    "versions": "0.58.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-30"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/llama3.2:3b-instruct-fp16",
+   "score": 26.3,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-30-19-35-40--llama3.2-3b-instruct-fp16-whole-1@26.3",
+   "extra": {
+    "pass_rate_1": 20.3,
+    "pass_rate_2": 26.3,
+    "percent_cases_well_formed": 97.0,
+    "seconds_per_case": 66.6,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/llama3.2:3b-instruct-fp16",
+    "dirname": "2024-09-30-19-35-40--llama3.2-3b-instruct-fp16-whole-1",
+    "versions": "0.58.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-30"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/hermes3:8b-llama3.1-fp16",
+   "score": 30.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-30-23-01-24--hermes3-8b-llama3.1-fp16-whole-2@30.1",
+   "extra": {
+    "pass_rate_1": 24.1,
+    "pass_rate_2": 30.1,
+    "percent_cases_well_formed": 98.5,
+    "seconds_per_case": 64.7,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/hermes3:8b-llama3.1-fp16",
+    "dirname": "2024-09-30-23-01-24--hermes3-8b-llama3.1-fp16-whole-2",
+    "versions": "0.58.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-30"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/mistral-small",
+   "score": 38.3,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-10-01-02-33-11--mistral-small-whole-1@38.3",
+   "extra": {
+    "pass_rate_1": 30.1,
+    "pass_rate_2": 38.3,
+    "percent_cases_well_formed": 99.2,
+    "seconds_per_case": 84.6,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/mistral-small",
+    "dirname": "2024-10-01-02-33-11--mistral-small-whole-1",
+    "versions": "0.58.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-01"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/yi-coder:9b-chat-fp16",
+   "score": 43.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-10-01-07-05-40--yi-coder-9b-chat-fp16-whole-1@43.6",
+   "extra": {
+    "pass_rate_1": 39.8,
+    "pass_rate_2": 43.6,
+    "percent_cases_well_formed": 99.2,
+    "seconds_per_case": 63.7,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/yi-coder:9b-chat-fp16",
+    "dirname": "2024-10-01-07-05-40--yi-coder-9b-chat-fp16-whole-1",
+    "versions": "0.58.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-01"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/hermes3",
+   "score": 22.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-10-01-16-50-09--hermes3-whole-4@22.6",
+   "extra": {
+    "pass_rate_1": 21.1,
+    "pass_rate_2": 22.6,
+    "percent_cases_well_formed": 98.5,
+    "seconds_per_case": 24.8,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/hermes3",
+    "dirname": "2024-10-01-16-50-09--hermes3-whole-4",
+    "versions": "0.58.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-01"
+  },
+  {
+   "benchmark": "edit",
+   "model": "openai/chatgpt-4o-latest",
+   "score": 72.2,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-10-04-16-30-08--chatgpt-4o-latest-diff-oct4@72.2",
+   "extra": {
+    "pass_rate_1": 56.4,
+    "pass_rate_2": 72.2,
+    "percent_cases_well_formed": 97.0,
+    "seconds_per_case": 23.7,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model openai/chatgpt-4o-latest",
+    "dirname": "2024-10-04-16-30-08--chatgpt-4o-latest-diff-oct4",
+    "versions": "0.58.2.dev",
+    "total_cost_usd": 4.0641
+   },
+   "evaluation_date": "2024-10-04"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Dracarys2-72B-Instruct",
+   "score": 66.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-10-05-20-03-10--dracarys-glhf-whole@66.9",
+   "extra": {
+    "pass_rate_1": 55.6,
+    "pass_rate_2": 66.9,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 46.7,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "(via glhf.chat)",
+    "dirname": "2024-10-05-20-03-10--dracarys-glhf-whole",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-05"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Grok-2",
+   "score": 58.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-10-13-21-33-42--grok2-whole@58.6",
+   "extra": {
+    "pass_rate_1": 45.9,
+    "pass_rate_2": 58.6,
+    "percent_cases_well_formed": 98.5,
+    "seconds_per_case": 34.6,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openrouter/x-ai/grok-2",
+    "dirname": "2024-10-13-21-33-42--grok2-whole",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-13"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Grok-2-mini",
+   "score": 54.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-10-13-23-58-44--grok2mini-whole@54.9",
+   "extra": {
+    "pass_rate_1": 40.6,
+    "pass_rate_2": 54.9,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 32.1,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openrouter/x-ai/grok-2-mini",
+    "dirname": "2024-10-13-23-58-44--grok2mini-whole",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-13"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Llama-3.1-Nemotron-70B-Instruct-HF",
+   "score": 54.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-10-16-15-55-37--nemotron-glhf-whole3@54.9",
+   "extra": {
+    "pass_rate_1": 36.8,
+    "pass_rate_2": 54.9,
+    "percent_cases_well_formed": 99.2,
+    "seconds_per_case": 64.9,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "(via glhf.chat)",
+    "dirname": "2024-10-16-15-55-37--nemotron-glhf-whole3",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-16"
+  },
+  {
+   "benchmark": "edit",
+   "model": "claude-3-5-sonnet-20241022",
+   "score": 84.2,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-10-22-17-45-28--sonnet-1022-diff-fixed-model-settings@84.2",
+   "extra": {
+    "pass_rate_1": 69.2,
+    "pass_rate_2": 84.2,
+    "percent_cases_well_formed": 99.2,
+    "seconds_per_case": 18.6,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model anthropic/claude-3-5-sonnet-20241022",
+    "dirname": "2024-10-22-17-45-28--sonnet-1022-diff-fixed-model-settings",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-22"
+  },
+  {
+   "benchmark": "edit",
+   "model": "claude-3-5-haiku-20241022",
+   "score": 75.2,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-11-04-19-19-32--haiku35-diff-ex-as-sys-false@75.2",
+   "extra": {
+    "pass_rate_1": 61.7,
+    "pass_rate_2": 75.2,
+    "percent_cases_well_formed": 95.5,
+    "seconds_per_case": 18.4,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model anthropic/claude-3-5-haiku-20241022",
+    "dirname": "2024-11-04-19-19-32--haiku35-diff-ex-as-sys-false",
+    "versions": "0.61.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-04"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/Qwen2.5.1-Coder-7B-Instruct-GGUF:Q8_0-32k",
+   "score": 63.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-11-07-06-15-36--Qwen2.5.1-Coder-7B-Instruct-GGUF:Q8_0-32k-whole@63.9",
+   "extra": {
+    "pass_rate_1": 52.6,
+    "pass_rate_2": 63.9,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 18.2,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/Qwen2.5.1-Coder-7B-Instruct-GGUF:Q8_0-32k",
+    "dirname": "2024-11-07-06-15-36--Qwen2.5.1-Coder-7B-Instruct-GGUF:Q8_0-32k-whole",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-07"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Qwen2.5-Coder-0.5B-Instruct",
+   "score": 14.3,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-10-29-00-29-09--Qwen2.5-Coder-0.5B-Instruct@14.3",
+   "extra": {
+    "pass_rate_1": 14.3,
+    "pass_rate_2": 14.3,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 16.0,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openai/Qwen2.5-Coder-0.5B-Instruct",
+    "dirname": "2024-10-29-00-29-09--Qwen2.5-Coder-0.5B-Instruct",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-29"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Qwen2.5-Coder-1.5B-Instruct",
+   "score": 31.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-11-11-19-37-01--Qwen2.5-Coder-1.5B-Instruct@31.6",
+   "extra": {
+    "pass_rate_1": 28.6,
+    "pass_rate_2": 31.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 27.4,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openai/Qwen2.5-Coder-1.5B-Instruct",
+    "dirname": "2024-11-11-19-37-01--Qwen2.5-Coder-1.5B-Instruct",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-11"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Qwen2.5-Coder-3B-Instruct",
+   "score": 39.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-11-04-02-25-32--Qwen2.5-Coder-3B-Instruct@39.1",
+   "extra": {
+    "pass_rate_1": 33.8,
+    "pass_rate_2": 39.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 18.7,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openai/Qwen2.5-Coder-3B-Instruct",
+    "dirname": "2024-11-04-02-25-32--Qwen2.5-Coder-3B-Instruct",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-04"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Qwen2.5-Coder-7B-Instruct",
+   "score": 57.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-10-16-16-20-59--Qwen2.5-Coder-7B-Instruct@57.9",
+   "extra": {
+    "pass_rate_1": 51.9,
+    "pass_rate_2": 57.9,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 10.5,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openai/Qwen2.5-Coder-7B-Instruct",
+    "dirname": "2024-10-16-16-20-59--Qwen2.5-Coder-7B-Instruct",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-16"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Qwen2.5-Coder-14B-Instruct",
+   "score": 69.2,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-10-29-11-53-39--Qwen2.5-Coder-14B-Instruct@69.2",
+   "extra": {
+    "pass_rate_1": 58.6,
+    "pass_rate_2": 69.2,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 18.3,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openai/Qwen2.5-Coder-14B-Instruct",
+    "dirname": "2024-10-29-11-53-39--Qwen2.5-Coder-14B-Instruct",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-10-29"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Qwen2.5-Coder-32B-Instruct",
+   "score": 71.4,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-11-09-11-09-15--Qwen2.5-Coder-32B-Instruct@71.4",
+   "extra": {
+    "pass_rate_1": 59.4,
+    "pass_rate_2": 71.4,
+    "percent_cases_well_formed": 94.7,
+    "seconds_per_case": 22.5,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model openai/hf:Qwen/Qwen2.5-Coder-32B-Instruct --openai-api-base https://glhf.chat/api/openai/v1",
+    "dirname": "2024-11-09-11-09-15--Qwen2.5-Coder-32B-Instruct",
+    "versions": "0.59.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-09"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Mistral Large (2411)",
+   "score": 65.4,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-11-20-14-57-11--mistral-2411-direct-diff@65.4",
+   "extra": {
+    "pass_rate_1": 46.6,
+    "pass_rate_2": 65.4,
+    "percent_cases_well_formed": 96.2,
+    "seconds_per_case": 24.9,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model mistral/mistral-large-latest",
+    "dirname": "2024-11-20-14-57-11--mistral-2411-direct-diff",
+    "versions": "0.63.3.dev",
+    "total_cost_usd": 3.2334
+   },
+   "evaluation_date": "2024-11-20"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gpt-4o-2024-11-20",
+   "score": 71.4,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-11-20-19-28-30--gpt-4o-2024-11-20@71.4",
+   "extra": {
+    "pass_rate_1": 58.6,
+    "pass_rate_2": 71.4,
+    "percent_cases_well_formed": 99.2,
+    "seconds_per_case": 6.0,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model openai/gpt-4o-2024-11-20",
+    "dirname": "2024-11-20-19-28-30--gpt-4o-2024-11-20",
+    "versions": "0.63.3.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-20"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/qwen2.5:32b-instruct-q8_0",
+   "score": 58.6,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-09-20-21-47-17--qwen2.5-32b-instruct-q8_0-whole@58.6",
+   "extra": {
+    "pass_rate_1": 46.6,
+    "pass_rate_2": 58.6,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 1763.7,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/qwen2.5:32b-instruct-q8_0",
+    "dirname": "2024-09-20-21-47-17--qwen2.5-32b-instruct-q8_0-whole",
+    "versions": "0.56.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-09-20"
+  },
+  {
+   "benchmark": "edit",
+   "model": "openrouter/qwen/qwen-2.5-coder-32b-instruct",
+   "score": 65.4,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-11-20-15-17-37--qwen25-32b-or-diff@65.4",
+   "extra": {
+    "pass_rate_1": 49.6,
+    "pass_rate_2": 65.4,
+    "percent_cases_well_formed": 84.2,
+    "seconds_per_case": 40.7,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model openrouter/qwen/qwen-2.5-coder-32b-instruct",
+    "dirname": "2024-11-20-15-17-37--qwen25-32b-or-diff",
+    "versions": "0.63.3.dev",
+    "total_cost_usd": 0.1497
+   },
+   "evaluation_date": "2024-11-20"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-exp-1121",
+   "score": 57.9,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-11-21-17-46-36--gemini-exp-1121-diff@57.9",
+   "extra": {
+    "pass_rate_1": 46.6,
+    "pass_rate_2": 57.9,
+    "percent_cases_well_formed": 83.5,
+    "seconds_per_case": 60.3,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model gemini/gemini-exp-1121",
+    "dirname": "2024-11-21-17-46-36--gemini-exp-1121-diff",
+    "versions": "0.63.3.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-21"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-exp-1114",
+   "score": 60.9,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-11-15-20-33-31--gemini-exp-1114-diff@60.9",
+   "extra": {
+    "pass_rate_1": 50.4,
+    "pass_rate_2": 60.9,
+    "percent_cases_well_formed": 85.7,
+    "seconds_per_case": 38.6,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model gemini/gemini-exp-1114",
+    "dirname": "2024-11-15-20-33-31--gemini-exp-1114-diff",
+    "versions": "0.63.2.dev"
+   },
+   "evaluation_date": "2024-11-15"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/qwen2.5-coder:14b",
+   "score": 61.7,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-11-27-07-41-51--qwen2.5-coder-14b-whole-1@61.7",
+   "extra": {
+    "pass_rate_1": 53.4,
+    "pass_rate_2": 61.7,
+    "percent_cases_well_formed": 98.5,
+    "seconds_per_case": 58.0,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/qwen2.5-coder:14b",
+    "dirname": "2024-11-27-07-41-51--qwen2.5-coder-14b-whole-1",
+    "versions": "0.65.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-27"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/qwen2.5-coder:32b",
+   "score": 72.9,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-11-28-07-42-56--qwen2.5-coder-32b-whole-4@72.9",
+   "extra": {
+    "pass_rate_1": 58.6,
+    "pass_rate_2": 72.9,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 147.5,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/qwen2.5-coder:32b",
+    "dirname": "2024-11-28-07-42-56--qwen2.5-coder-32b-whole-4",
+    "versions": "0.65.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-28"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/tulu3",
+   "score": 26.3,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-11-28-13-14-00--tulu3-whole-2@26.3",
+   "extra": {
+    "pass_rate_1": 21.8,
+    "pass_rate_2": 26.3,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 35.8,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/tulu3",
+    "dirname": "2024-11-28-13-14-00--tulu3-whole-2",
+    "versions": "0.65.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-28"
+  },
+  {
+   "benchmark": "edit",
+   "model": "ollama/granite3-dense:8b",
+   "score": 20.3,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-11-28-14-41-46--granite3-dense-8b-whole-1@20.3",
+   "extra": {
+    "pass_rate_1": 17.3,
+    "pass_rate_2": 20.3,
+    "percent_cases_well_formed": 78.9,
+    "seconds_per_case": 38.1,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model ollama/granite3-dense:8b",
+    "dirname": "2024-11-28-14-41-46--granite3-dense-8b-whole-1",
+    "versions": "0.65.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-11-28"
+  },
+  {
+   "benchmark": "edit",
+   "model": "Nova Pro",
+   "score": 54.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-12-04-13-53-03--nova-whole@54.1",
+   "extra": {
+    "pass_rate_1": 44.4,
+    "pass_rate_2": 54.1,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 8.7,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model bedrock/us.amazon.nova-pro-v1:0",
+    "dirname": "2024-12-04-13-53-03--nova-whole",
+    "versions": "0.66.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-12-04"
+  },
+  {
+   "benchmark": "edit",
+   "model": "llama-3.3-70b-instruct",
+   "score": 59.4,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-12-06-18-27-47--llama33-diff@59.4",
+   "extra": {
+    "pass_rate_1": 42.1,
+    "pass_rate_2": 59.4,
+    "percent_cases_well_formed": 88.7,
+    "seconds_per_case": 20.2,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model openrouter/meta-llama/llama-3.3-70b-instruct",
+    "dirname": "2024-12-06-18-27-47--llama33-diff",
+    "versions": "0.67.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-12-06"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-exp-1206 (diff)",
+   "score": 69.2,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-12-06-21-35-50--gemini-exp-1206-diff@69.2",
+   "extra": {
+    "pass_rate_1": 55.6,
+    "pass_rate_2": 69.2,
+    "percent_cases_well_formed": 84.2,
+    "seconds_per_case": 32.1,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model gemini/gemini-exp-1206",
+    "dirname": "2024-12-06-21-35-50--gemini-exp-1206-diff",
+    "versions": "0.67.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-12-06"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-exp-1206 (whole)",
+   "score": 80.5,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-12-08-21-39-06--gemini-exp-1206-whole@80.5",
+   "extra": {
+    "pass_rate_1": 60.9,
+    "pass_rate_2": 80.5,
+    "percent_cases_well_formed": 100.0,
+    "seconds_per_case": 64.2,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model gemini/gemini-exp-1206",
+    "dirname": "2024-12-08-21-39-06--gemini-exp-1206-whole",
+    "versions": "0.67.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-12-08"
+  },
+  {
+   "benchmark": "edit",
+   "model": "DeepSeek-V2.5-1210",
+   "score": 72.2,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-12-10-14-45-21--deepseek-1210-diff@72.2",
+   "extra": {
+    "pass_rate_1": 58.6,
+    "pass_rate_2": 72.2,
+    "percent_cases_well_formed": 99.2,
+    "seconds_per_case": 32.7,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model deepseek/deepseek-chat",
+    "dirname": "2024-12-10-14-45-21--deepseek-1210-diff",
+    "versions": "0.67.1.dev",
+    "total_cost_usd": 0.1106
+   },
+   "evaluation_date": "2024-12-10"
+  },
+  {
+   "benchmark": "edit",
+   "model": "yi-lightning",
+   "score": 65.4,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-12-11-00-37-08--yi-test@65.4",
+   "extra": {
+    "pass_rate_1": 49.6,
+    "pass_rate_2": 65.4,
+    "percent_cases_well_formed": 97.0,
+    "seconds_per_case": 57.8,
+    "test_cases": 133,
+    "edit_format": "whole",
+    "command": "aider --model openai/yi-lightning",
+    "dirname": "2024-12-11-00-37-08--yi-test",
+    "versions": "0.67.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-12-11"
+  },
+  {
+   "benchmark": "edit",
+   "model": "gemini-2.0-flash-exp",
+   "score": 69.9,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-12-11-21-07-00--gemini-2-flash-diff@69.9",
+   "extra": {
+    "pass_rate_1": 56.4,
+    "pass_rate_2": 69.9,
+    "percent_cases_well_formed": 97.0,
+    "seconds_per_case": 7.3,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model gemini/gemini-2.0-flash-exp",
+    "dirname": "2024-12-11-21-07-00--gemini-2-flash-diff",
+    "versions": "0.68.1.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-12-11"
+  },
+  {
+   "benchmark": "edit",
+   "model": "o1",
+   "score": 84.2,
+   "evaluation_method": "aider, edit format 'diff', 2 attempts",
+   "external_id": "2024-12-18-01-50-08--o1@84.2",
+   "extra": {
+    "pass_rate_1": 65.4,
+    "pass_rate_2": 84.2,
+    "percent_cases_well_formed": 99.2,
+    "seconds_per_case": 29.9,
+    "test_cases": 133,
+    "edit_format": "diff",
+    "command": "aider --model openrouter/openai/o1",
+    "dirname": "2024-12-18-01-50-08--o1",
+    "versions": "0.69.2.dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-12-18"
+  },
+  {
+   "benchmark": "edit",
+   "model": "o1-mini-2024-09-12",
+   "score": 27.1,
+   "evaluation_method": "aider, edit format 'whole', 2 attempts",
+   "external_id": "2024-12-21-22-06-01--polyglot-o1-mini-whole@27.1",
+   "extra": {
+    "pass_rate_1": 8.9,
+    "pass_rate_2": 27.1,
+    "percent_cases_well_formed": 95.6,
+    "seconds_per_case": 34.3,
+    "test_cases": 225,
+    "edit_format": "whole",
+    "command": "aider --model o1-mini",
+    "dirname": "2024-12-21-22-06-01--polyglot-o1-mini-whole",
+    "versions": "0.69.2.dev",
+    "total_cost_usd": 17.627
+   },
+   "evaluation_date": "2024-12-21"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "gemini/gemini-1.5-pro-latest",
+   "score": 49.4,
+   "evaluation_method": "aider, edit format 'diff-fenced', 1 attempt",
+   "external_id": "2024-05-04-23-27-02--refac-gemini@49.4",
+   "extra": {
+    "pass_rate_1": 49.4,
+    "percent_cases_well_formed": 7.9,
+    "seconds_per_case": 55.7,
+    "test_cases": 89,
+    "edit_format": "diff-fenced",
+    "command": "aider --model gemini/gemini-1.5-pro-latest",
+    "dirname": "2024-05-04-23-27-02--refac-gemini",
+    "versions": "0.31.2-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-05-04"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "claude-3-opus-20240229",
+   "score": 72.3,
+   "evaluation_method": "aider, edit format 'diff', 1 attempt",
+   "external_id": "2024-05-04-17-45-53--refac-opus@72.3",
+   "extra": {
+    "pass_rate_1": 72.3,
+    "percent_cases_well_formed": 79.5,
+    "seconds_per_case": 67.8,
+    "test_cases": 83,
+    "edit_format": "diff",
+    "command": "aider --opus",
+    "dirname": "2024-05-04-17-45-53--refac-opus",
+    "versions": "0.31.2-dev",
+    "total_cost_usd": 27.9176
+   },
+   "evaluation_date": "2024-05-04"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "gpt-4-turbo-2024-04-09 (udiff)",
+   "score": 34.1,
+   "evaluation_method": "aider, edit format 'udiff', 1 attempt",
+   "external_id": "2024-04-09-21-49-54--refac-gpt-4-turbo-2024-04-09@34.1",
+   "extra": {
+    "pass_rate_1": 34.1,
+    "percent_cases_well_formed": 30.7,
+    "seconds_per_case": 42.4,
+    "test_cases": 88,
+    "edit_format": "udiff",
+    "command": "aider --gpt-4-turbo",
+    "dirname": "2024-04-09-21-49-54--refac-gpt-4-turbo-2024-04-09",
+    "versions": "0.27.1-dev",
+    "total_cost_usd": 19.6556
+   },
+   "evaluation_date": "2024-04-09"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "gpt-4-0125-preview",
+   "score": 33.7,
+   "evaluation_method": "aider, edit format 'udiff', 1 attempt",
+   "external_id": "2024-05-08-22-25-41--may-refac-gpt-4-0125-preview-ex-sys@33.7",
+   "extra": {
+    "pass_rate_1": 33.7,
+    "percent_cases_well_formed": 47.2,
+    "seconds_per_case": 56.6,
+    "test_cases": 89,
+    "edit_format": "udiff",
+    "command": "aider --model gpt-4-0125-preview",
+    "dirname": "2024-05-08-22-25-41--may-refac-gpt-4-0125-preview-ex-sys",
+    "versions": "0.33.1-dev",
+    "total_cost_usd": 20.327
+   },
+   "evaluation_date": "2024-05-08"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "gpt-4-1106-preview",
+   "score": 50.6,
+   "evaluation_method": "aider, edit format 'udiff', 1 attempt",
+   "external_id": "2024-05-08-21-24-16--may-refac-gpt-4-1106-preview@50.6",
+   "extra": {
+    "pass_rate_1": 50.6,
+    "percent_cases_well_formed": 39.3,
+    "seconds_per_case": 61.8,
+    "test_cases": 89,
+    "edit_format": "udiff",
+    "command": "aider --model gpt-4-1106-preview",
+    "dirname": "2024-05-08-21-24-16--may-refac-gpt-4-1106-preview",
+    "versions": "0.33.1-dev",
+    "total_cost_usd": 18.3844
+   },
+   "evaluation_date": "2024-05-08"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "gpt-4o",
+   "score": 62.9,
+   "evaluation_method": "aider, edit format 'diff', 1 attempt",
+   "external_id": "2024-05-13-17-42-22--refac-gpt-4o-diff@62.9",
+   "extra": {
+    "pass_rate_1": 62.9,
+    "percent_cases_well_formed": 53.9,
+    "seconds_per_case": 27.8,
+    "test_cases": 89,
+    "edit_format": "diff",
+    "command": "aider",
+    "dirname": "2024-05-13-17-42-22--refac-gpt-4o-diff",
+    "versions": "0.34.1-dev",
+    "total_cost_usd": 0.0
+   },
+   "evaluation_date": "2024-05-13"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "gpt-4-turbo-2024-04-09 (diff)",
+   "score": 21.4,
+   "evaluation_method": "aider, edit format 'diff', 1 attempt",
+   "external_id": "2024-04-10-13-26-18--refac-gpt-4-turbo-2024-04-09-diff@21.4",
+   "extra": {
+    "pass_rate_1": 21.4,
+    "percent_cases_well_formed": 6.8,
+    "seconds_per_case": 67.8,
+    "test_cases": 88,
+    "edit_format": "diff",
+    "command": "aider --model gpt-4-turbo-2024-04-09",
+    "dirname": "2024-04-10-13-26-18--refac-gpt-4-turbo-2024-04-09-diff",
+    "versions": "0.28.1-dev",
+    "total_cost_usd": 20.4889
+   },
+   "evaluation_date": "2024-04-10"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "claude-3.5-sonnet-20240620",
+   "score": 64.0,
+   "evaluation_method": "aider, edit format 'diff', 1 attempt",
+   "external_id": "2024-07-01-18-30-33--refac-claude-3.5-sonnet-diff-not-lazy@64.0",
+   "extra": {
+    "pass_rate_1": 64.0,
+    "percent_cases_well_formed": 76.4,
+    "seconds_per_case": 42.8,
+    "test_cases": 89,
+    "edit_format": "diff",
+    "command": "aider --sonnet",
+    "dirname": "2024-07-01-18-30-33--refac-claude-3.5-sonnet-diff-not-lazy",
+    "versions": "0.40.7-dev",
+    "total_cost_usd": 11.5242
+   },
+   "evaluation_date": "2024-07-01"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "DeepSeek Coder V2 0724 (deprecated)",
+   "score": 32.6,
+   "evaluation_method": "aider, edit format 'diff', 1 attempt",
+   "external_id": "2024-07-24-07-49-39--refac-deepseek-coder-v2-0724@32.6",
+   "extra": {
+    "pass_rate_1": 32.6,
+    "percent_cases_well_formed": 59.6,
+    "seconds_per_case": 85.0,
+    "test_cases": 89,
+    "edit_format": "diff",
+    "command": "aider --model deepseek/deepseek-coder",
+    "dirname": "2024-07-24-07-49-39--refac-deepseek-coder-v2-0724",
+    "versions": "0.45.2-dev",
+    "total_cost_usd": 0.4148
+   },
+   "evaluation_date": "2024-07-24"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "gpt-4o-2024-08-06",
+   "score": 49.4,
+   "evaluation_method": "aider, edit format 'diff', 1 attempt",
+   "external_id": "2024-08-06-18-44-03--refac-gpt-4o-2024-08-06-diff@49.4",
+   "extra": {
+    "pass_rate_1": 49.4,
+    "percent_cases_well_formed": 89.9,
+    "seconds_per_case": 16.9,
+    "test_cases": 89,
+    "edit_format": "diff",
+    "command": "aider --model openai/gpt-4o-2024-08-06",
+    "dirname": "2024-08-06-18-44-03--refac-gpt-4o-2024-08-06-diff",
+    "versions": "0.48.1-dev",
+    "total_cost_usd": 4.0873
+   },
+   "evaluation_date": "2024-08-06"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "DeepSeek Chat V2.5",
+   "score": 31.5,
+   "evaluation_method": "aider, edit format 'diff', 1 attempt",
+   "external_id": "2024-09-05-15-19-05--refac-deepseek-v2.5-no-shell@31.5",
+   "extra": {
+    "pass_rate_1": 31.5,
+    "percent_cases_well_formed": 67.4,
+    "seconds_per_case": 225.4,
+    "test_cases": 89,
+    "edit_format": "diff",
+    "command": "aider --deepseek",
+    "dirname": "2024-09-05-15-19-05--refac-deepseek-v2.5-no-shell",
+    "versions": "0.55.1.dev",
+    "total_cost_usd": 1.0338
+   },
+   "evaluation_date": "2024-09-05"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "claude-3-5-sonnet-20241022",
+   "score": 92.1,
+   "evaluation_method": "aider, edit format 'diff', 1 attempt",
+   "external_id": "2024-10-22-19-57-27--refac-openrouter-sonnet-1022@92.1",
+   "extra": {
+    "pass_rate_1": 92.1,
+    "percent_cases_well_formed": 91.0,
+    "seconds_per_case": 32.5,
+    "test_cases": 89,
+    "edit_format": "diff",
+    "command": "aider --sonnet",
+    "dirname": "2024-10-22-19-57-27--refac-openrouter-sonnet-1022",
+    "versions": "0.60.1.dev",
+    "total_cost_usd": 8.4644
+   },
+   "evaluation_date": "2024-10-22"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "o1-mini",
+   "score": 44.9,
+   "evaluation_method": "aider, edit format 'diff', 1 attempt",
+   "external_id": "2024-10-22-20-03-10--refac-o1mini@44.9",
+   "extra": {
+    "pass_rate_1": 44.9,
+    "percent_cases_well_formed": 29.2,
+    "seconds_per_case": 115.3,
+    "test_cases": 89,
+    "edit_format": "diff",
+    "command": "aider --model o1-mini",
+    "dirname": "2024-10-22-20-03-10--refac-o1mini",
+    "versions": "0.60.1.dev",
+    "total_cost_usd": 29.0492
+   },
+   "evaluation_date": "2024-10-22"
+  },
+  {
+   "benchmark": "refactor",
+   "model": "o1-preview",
+   "score": 75.3,
+   "evaluation_method": "aider, edit format 'diff', 1 attempt",
+   "external_id": "2024-10-22-20-26-36--refac-o1preview@75.3",
+   "extra": {
+    "pass_rate_1": 75.3,
+    "percent_cases_well_formed": 57.3,
+    "seconds_per_case": 231.7,
+    "test_cases": 89,
+    "edit_format": "diff",
+    "command": "aider --model o1-preview",
+    "dirname": "2024-10-22-20-26-36--refac-o1preview",
+    "versions": "0.60.1.dev",
+    "total_cost_usd": 120.985
+   },
+   "evaluation_date": "2024-10-22"
+  }
+ ]
+}

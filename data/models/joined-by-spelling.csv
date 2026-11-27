@@ -1,4 +1,15 @@
 kept,joined
+Llama 3.1 405B Instruct | llama-31-405b-instruct | Llama-3.1-405B-Instruct,b-instruct-llama#31.405
+llama-3.1-70b-instruct | Llama 3.1 Instruct 70B | Llama 3.1 70B Instruct | llama-31-70b-instruct | Llama-3.1-70B-Instruct,b-instruct-llama#31.70
+llama-3.1-8b-instruct | Llama 3.1 Instruct 8B | Llama 3.1 8B Instruct | llama-31-8b-instruct | Llama-3.1-8B-Instruct,b-instruct-llama#31.8
+Llama 3.2 1B Instruct | llama-32-1b-instruct,b-instruct-llama#32.1
+Llama 3.2 3B Instruct | llama-32-3b-instruct,b-instruct-llama#32.3
+llama-3.3-70b-instruct | Llama 3.3 Instruct 70B | Llama 3.3 70B Instruct | llama-33-70b-instruct | Llama-3.3-70B-Instruct,b-instruct-llama#33.70
+qwen1.5-110b-chat | Qwen1.5-110B-Chat | qwen15-110b-chat,b-chat-qwen#15.110
+Qwen1.5-32B-Chat | qwen15-32b-chat,b-chat-qwen#15.32
+Qwen1.5-72B-Chat | qwen15-72b-chat,b-chat-qwen#15.72
+Qwen1.5-7B-Chat | qwen15-7b-chat,b-chat-qwen#15.7
+qwen-2.5-72b-instruct | Qwen2.5 Instruct 72B | Qwen2.5-72B-Instruct | qwen25-72b-instruct,b-instruct-qwen#25.72
 DeepSeek V3 0324 | DeepSeek-V3 0324 | DeepSeek-V3-03-24 | Deepseek-V3-0324,deepseek#3.03.24
 Hunyuan Turbos | Hunyuan TurboS | HunyuanTurboS,hunyuanturbos
 Deepseek-V2-Chat | deepseekv2-chat,chat-deepseekv#2

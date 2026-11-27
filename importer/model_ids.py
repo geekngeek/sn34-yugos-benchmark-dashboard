@@ -271,6 +271,8 @@ VENDOR_SLUGS = {
     "lmsys": "lmsys", "databricks": "databricks", "tii": "tii", "openbmb": "openbmb", "snowflake": "snowflake",
     "stability ai": "stability-ai", "openchat": "openchat", "nexusflow": "nexusflow", "nous research": "nous-research",
     "rwkv": "rwkv", "laion": "laion", "prime intellect": "prime-intellect", "stanford": "stanford", "uc berkeley": "berkeley",
+    # one maker, several spellings across sources: one ID prefix (the spellings themselves are kept on the rows)
+    "thinking machines lab": "thinking-machines-lab", "thinking machines": "thinking-machines-lab", "thinky": "thinking-machines-lab",
 }
 
 

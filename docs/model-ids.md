@@ -73,3 +73,10 @@ The importer resolves every name through `aliases.csv`. A name that isn't there 
 - the review list
 
 With `--old-db <database>` (restored from a backup) it also compares every result with an older matching.
+
+## Stable IDs (2026-11-27)
+
+`scripts/build_model_registry.py` keeps a model's ID once it has one: when the names in a model's group were already
+in the previous `data/models/aliases.csv`, the group keeps that ID (a Yugos link still wins). New data with other
+spellings (e.g. LMArena's `inception-ai` outnumbering `Inception`) can therefore no longer rename an existing model;
+only new models get new IDs. After the sub-benchmark import of 2026-11-27, 0 existing names changed ID.

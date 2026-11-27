@@ -1,0 +1,241 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "τ^τ-bench (hyper-tau-bench, Sierra)",
+  "site": "https://sierra-research.github.io/hyper-tau-bench/",
+  "publisher": "Sierra Research",
+  "description": "Agent-building benchmark: a coding harness + builder model builds a customer-service agent, which is scored on 53 τ tasks.",
+  "license": "MIT (https://github.com/sierra-research/hyper-tau-bench)",
+  "attribution": "τ^τ-bench (hyper-tau-bench), Sierra Research (https://sierra-research.github.io/hyper-tau-bench/).",
+  "retrieved_from": [
+   "https://github.com/sierra-research/hyper-tau-bench/blob/main/web/leaderboard/public/hyper-submissions/manifest.json",
+   "https://github.com/sierra-research/hyper-tau-bench/blob/main/web/leaderboard/public/hyper-submissions/google-arc_gemini-3.8-flash/submission.json",
+   "https://github.com/sierra-research/hyper-tau-bench/blob/main/web/leaderboard/public/hyper-submissions/codex_gpt-5.6-sol/submission.json",
+   "https://github.com/sierra-research/hyper-tau-bench/blob/main/web/leaderboard/public/hyper-submissions/codex_gpt-5.6-terra/submission.json",
+   "https://github.com/sierra-research/hyper-tau-bench/blob/main/web/leaderboard/public/hyper-submissions/claude-code_claude-opus-5/submission.json",
+   "https://github.com/sierra-research/hyper-tau-bench/blob/main/web/leaderboard/public/hyper-submissions/claude-code_claude-sonnet-5/submission.json",
+   "https://github.com/sierra-research/hyper-tau-bench/blob/main/web/leaderboard/public/hyper-submissions/kimi-code_kimi-k3/submission.json",
+   "https://github.com/sierra-research/hyper-tau-bench/blob/main/web/leaderboard/public/hyper-submissions/opencode_kimi-k3/submission.json"
+  ],
+  "notes": [
+   "Board version: release-v1 · 53 tasks. Score = overall mean (%) over all 53 tasks; per-domain scores (airline/retail/telecom 6 tasks each, banking 35) in extra.",
+   "Model = builder model; harness in evaluation_method/extra. cost_per_task_usd is the BUILD cost per task (build_cost_usd), not a serving cost.",
+   "The board's 'Human performance' reference row (82.2%) is not a model and is not included."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "overall",
+   "name": "τ^τ-bench (hyper-tau-bench)",
+   "version": "release-v1 · 53 tasks",
+   "area": "agentic",
+   "sub_area": "agent building",
+   "unit": "percent",
+   "total_tasks": 53,
+   "description": "Mean score (%) over 53 tasks of the agent built by harness + builder model.",
+   "url": "https://sierra-research.github.io/hyper-tau-bench/"
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "overall",
+   "model": "Gemini 3.8 Flash",
+   "reasoning_effort": "high",
+   "score": 52.2,
+   "evaluation_date": "2026-10-26",
+   "evaluation_method": "Agent built with Google Arc harness",
+   "external_id": "hyper-tau:google-arc_gemini-3.8-flash",
+   "extra": {
+    "harness": "Google Arc",
+    "submission": "google-arc_gemini-3.8-flash",
+    "submitting_organization": "Google Applied AI",
+    "domain_scores": {
+     "airline": 75.7,
+     "retail": 87.3,
+     "telecom": 82.4,
+     "banking": 36.9
+    },
+    "build_time_min_per_task": 58.4,
+    "serve_credit_ratio": 0.54,
+    "agent_build_cost_per_task_usd": 31.2
+   }
+  },
+  {
+   "benchmark": "overall",
+   "model": "GPT-5.6-sol",
+   "reasoning_effort": "xhigh",
+   "score": 22.0,
+   "evaluation_date": "2026-08-31",
+   "evaluation_method": "Agent built with Codex harness",
+   "external_id": "hyper-tau:codex_gpt-5.6-sol",
+   "extra": {
+    "harness": "Codex",
+    "submission": "codex_gpt-5.6-sol",
+    "submitting_organization": "τ-bench team",
+    "baseline": true,
+    "domain_scores": {
+     "airline": 49.8,
+     "retail": 59.2,
+     "telecom": 32.9,
+     "banking": 9.0
+    },
+    "build_time_min_per_task": 47.9,
+    "serve_credit_ratio": 0.45,
+    "agent_build_cost_per_task_usd": 18.2
+   }
+  },
+  {
+   "benchmark": "overall",
+   "model": "GPT-5.6-terra",
+   "reasoning_effort": "xhigh",
+   "score": 18.89,
+   "evaluation_date": "2026-09-01",
+   "evaluation_method": "Agent built with Codex harness",
+   "external_id": "hyper-tau:codex_gpt-5.6-terra",
+   "extra": {
+    "harness": "Codex",
+    "submission": "codex_gpt-5.6-terra",
+    "submitting_organization": "τ-bench team",
+    "baseline": true,
+    "scorer_version": "1.0.2",
+    "domain_scores": {
+     "airline": 44.5,
+     "retail": 46.6,
+     "telecom": 27.2,
+     "banking": 8.32
+    },
+    "release_v1_scores": {
+     "overall": 18.0,
+     "airline": 44.5,
+     "retail": 46.6,
+     "telecom": 27.2,
+     "banking": 6.9
+    },
+    "build_time_min_per_task": 30.0,
+    "serve_credit_ratio": 0.38,
+    "agent_build_cost_per_task_usd": 7.0
+   }
+  },
+  {
+   "benchmark": "overall",
+   "model": "Claude Opus 5",
+   "reasoning_effort": "max",
+   "score": 27.61,
+   "evaluation_date": "2026-08-31",
+   "evaluation_method": "Agent built with Claude Code harness",
+   "external_id": "hyper-tau:claude-code_claude-opus-5",
+   "extra": {
+    "harness": "Claude Code",
+    "submission": "claude-code_claude-opus-5",
+    "submitting_organization": "τ-bench team",
+    "baseline": true,
+    "scorer_version": "1.0.2",
+    "domain_scores": {
+     "airline": 55.9,
+     "retail": 72.8,
+     "telecom": 48.2,
+     "banking": 11.49
+    },
+    "release_v1_scores": {
+     "overall": 23.9,
+     "airline": 55.9,
+     "retail": 72.8,
+     "telecom": 48.2,
+     "banking": 5.9
+    },
+    "build_time_min_per_task": 216.3,
+    "serve_credit_ratio": 0.58,
+    "agent_build_cost_per_task_usd": 42.0
+   }
+  },
+  {
+   "benchmark": "overall",
+   "model": "Claude Sonnet 5",
+   "reasoning_effort": "max",
+   "score": 15.9,
+   "evaluation_date": "2026-09-02",
+   "evaluation_method": "Agent built with Claude Code harness",
+   "external_id": "hyper-tau:claude-code_claude-sonnet-5",
+   "extra": {
+    "harness": "Claude Code",
+    "submission": "claude-code_claude-sonnet-5",
+    "submitting_organization": "τ-bench team",
+    "baseline": true,
+    "scorer_version": "1.0.2",
+    "domain_scores": {
+     "airline": 41.9,
+     "retail": 50.2,
+     "telecom": 21.1,
+     "banking": 4.69
+    },
+    "release_v1_scores": {
+     "overall": 14.9,
+     "airline": 41.9,
+     "retail": 50.2,
+     "telecom": 21.1,
+     "banking": 3.2
+    },
+    "build_time_min_per_task": 235.5,
+    "serve_credit_ratio": 0.76,
+    "agent_build_cost_per_task_usd": 30.0
+   }
+  },
+  {
+   "benchmark": "overall",
+   "model": "Kimi K3",
+   "reasoning_effort": "max",
+   "score": 17.66,
+   "evaluation_date": "2026-08-31",
+   "evaluation_method": "Agent built with Kimi Code harness",
+   "external_id": "hyper-tau:kimi-code_kimi-k3",
+   "extra": {
+    "harness": "Kimi Code",
+    "submission": "kimi-code_kimi-k3",
+    "submitting_organization": "τ-bench team",
+    "baseline": true,
+    "scorer_version": "1.0.2",
+    "domain_scores": {
+     "airline": 42.3,
+     "retail": 49.1,
+     "telecom": 24.9,
+     "banking": 6.8
+    },
+    "release_v1_scores": {
+     "overall": 16.1,
+     "airline": 42.3,
+     "retail": 49.1,
+     "telecom": 24.9,
+     "banking": 4.4
+    },
+    "build_time_min_per_task": 205.7,
+    "serve_credit_ratio": 0.72,
+    "agent_build_cost_per_task_usd": 13.5
+   }
+  },
+  {
+   "benchmark": "overall",
+   "model": "Kimi K3",
+   "reasoning_effort": "max",
+   "score": 17.9,
+   "evaluation_date": "2026-09-02",
+   "evaluation_method": "Agent built with OpenCode harness",
+   "external_id": "hyper-tau:opencode_kimi-k3",
+   "extra": {
+    "harness": "OpenCode",
+    "submission": "opencode_kimi-k3",
+    "submitting_organization": "τ-bench team",
+    "baseline": true,
+    "domain_scores": {
+     "airline": 43.8,
+     "retail": 52.1,
+     "telecom": 27.6,
+     "banking": 6.0
+    },
+    "build_time_min_per_task": 360.3,
+    "serve_credit_ratio": 0.61,
+    "agent_build_cost_per_task_usd": 15.1
+   }
+  }
+ ]
+}

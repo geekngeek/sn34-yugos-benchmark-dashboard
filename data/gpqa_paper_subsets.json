@@ -1,0 +1,356 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "GPQA (paper)",
+  "site": "https://arxiv.org/abs/2311.12022",
+  "publisher": "David Rein et al. (NYU)",
+  "description": "Baseline accuracies on the GPQA Main (448) and Extended (546) sets from the GPQA paper (arXiv:2311.12022v1, Tables 5-6).",
+  "license": "CC BY 4.0 (https://arxiv.org/abs/2311.12022)",
+  "attribution": "Rein et al., GPQA: A Graduate-Level Google-Proof Q&A Benchmark, arXiv:2311.12022 (https://arxiv.org/abs/2311.12022).",
+  "retrieved_from": [
+   "https://arxiv.org/html/2311.12022"
+  ],
+  "notes": [
+   "One row per prompting method and model (evaluation_method). All of Table 6, plus Table 5's \"GPT-4 with search (backoff to CoT on abstention)\" row, which differs from Table 6's plain \"with search\" row.",
+   "Human validator rows (expert 65.4/72.5*, non-expert 33.9/30.5* on Extended/Main) are not models and were left out.",
+   "Not comparable with the DB's GPQA 2023 baselines (564-question pre-release set) or GPQA Diamond."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "main",
+   "name": "GPQA",
+   "version": "Main set (448 questions, paper baselines)",
+   "area": "reasoning",
+   "sub_area": "graduate science QA",
+   "unit": "percent",
+   "total_tasks": 448,
+   "description": "Accuracy (%) on the GPQA main set, paper baselines.",
+   "url": "https://arxiv.org/html/2311.12022#S4",
+   "metric": "accuracy"
+  },
+  {
+   "key": "extended",
+   "name": "GPQA",
+   "version": "Extended set (546 questions, paper baselines)",
+   "area": "reasoning",
+   "sub_area": "graduate science QA",
+   "unit": "percent",
+   "total_tasks": 546,
+   "description": "Accuracy (%) on the GPQA extended set, paper baselines.",
+   "url": "https://arxiv.org/html/2311.12022#S4",
+   "metric": "accuracy"
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "extended",
+   "model": "Llama-2-70B-chat",
+   "score": 28.9,
+   "evaluation_method": "Zero-Shot (closed-book)",
+   "external_id": "gpqa-paper:extended:Zero-Shot:Llama-2-70B-chat",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "Llama-2-70B-chat",
+   "score": 27.6,
+   "evaluation_method": "Zero-Shot (closed-book)",
+   "external_id": "gpqa-paper:main:Zero-Shot:Llama-2-70B-chat",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "Llama-2-70B-chat",
+   "score": 28.4,
+   "evaluation_method": "Few-Shot (closed-book)",
+   "external_id": "gpqa-paper:extended:Few-Shot:Llama-2-70B-chat",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "Llama-2-70B-chat",
+   "score": 26.9,
+   "evaluation_method": "Few-Shot (closed-book)",
+   "external_id": "gpqa-paper:main:Few-Shot:Llama-2-70B-chat",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "Llama-2-70B-chat",
+   "score": 28.9,
+   "evaluation_method": "Zero-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:extended:Zero-Shot CoT:Llama-2-70B-chat",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "Llama-2-70B-chat",
+   "score": 28.5,
+   "evaluation_method": "Zero-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:main:Zero-Shot CoT:Llama-2-70B-chat",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "Llama-2-70B-chat",
+   "score": 30.4,
+   "evaluation_method": "Few-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:extended:Few-Shot CoT:Llama-2-70B-chat",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "Llama-2-70B-chat",
+   "score": 29.1,
+   "evaluation_method": "Few-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:main:Few-Shot CoT:Llama-2-70B-chat",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "GPT-3.5-turbo-16k",
+   "score": 30.0,
+   "evaluation_method": "Zero-Shot (closed-book)",
+   "external_id": "gpqa-paper:extended:Zero-Shot:GPT-3.5-turbo-16k",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "GPT-3.5-turbo-16k",
+   "score": 29.8,
+   "evaluation_method": "Zero-Shot (closed-book)",
+   "external_id": "gpqa-paper:main:Zero-Shot:GPT-3.5-turbo-16k",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "GPT-3.5-turbo-16k",
+   "score": 29.7,
+   "evaluation_method": "Few-Shot (closed-book)",
+   "external_id": "gpqa-paper:extended:Few-Shot:GPT-3.5-turbo-16k",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "GPT-3.5-turbo-16k",
+   "score": 28.9,
+   "evaluation_method": "Few-Shot (closed-book)",
+   "external_id": "gpqa-paper:main:Few-Shot:GPT-3.5-turbo-16k",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "GPT-3.5-turbo-16k",
+   "score": 28.4,
+   "evaluation_method": "Zero-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:extended:Zero-Shot CoT:GPT-3.5-turbo-16k",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "GPT-3.5-turbo-16k",
+   "score": 28.9,
+   "evaluation_method": "Zero-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:main:Zero-Shot CoT:GPT-3.5-turbo-16k",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "GPT-3.5-turbo-16k",
+   "score": 28.2,
+   "evaluation_method": "Few-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:extended:Few-Shot CoT:GPT-3.5-turbo-16k",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "GPT-3.5-turbo-16k",
+   "score": 28.0,
+   "evaluation_method": "Few-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:main:Few-Shot CoT:GPT-3.5-turbo-16k",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "GPT-4",
+   "score": 31.3,
+   "evaluation_method": "Zero-Shot (closed-book)",
+   "external_id": "gpqa-paper:extended:Zero-Shot:GPT-4",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "GPT-4",
+   "score": 32.1,
+   "evaluation_method": "Zero-Shot (closed-book)",
+   "external_id": "gpqa-paper:main:Zero-Shot:GPT-4",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "GPT-4",
+   "score": 38.1,
+   "evaluation_method": "Few-Shot (closed-book)",
+   "external_id": "gpqa-paper:extended:Few-Shot:GPT-4",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "GPT-4",
+   "score": 38.1,
+   "evaluation_method": "Few-Shot (closed-book)",
+   "external_id": "gpqa-paper:main:Few-Shot:GPT-4",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "GPT-4",
+   "score": 38.1,
+   "evaluation_method": "Zero-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:extended:Zero-Shot CoT:GPT-4",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "GPT-4",
+   "score": 39.5,
+   "evaluation_method": "Zero-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:main:Zero-Shot CoT:GPT-4",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Zero-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "GPT-4",
+   "score": 38.7,
+   "evaluation_method": "Few-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:extended:Few-Shot CoT:GPT-4",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "GPT-4",
+   "score": 39.7,
+   "evaluation_method": "Few-Shot CoT (closed-book)",
+   "external_id": "gpqa-paper:main:Few-Shot CoT:GPT-4",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "Few-Shot CoT"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "GPT-4",
+   "score": 28.2,
+   "evaluation_method": "with search",
+   "external_id": "gpqa-paper:extended:with search:GPT-4",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "with search"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "GPT-4",
+   "score": 28.7,
+   "evaluation_method": "with search",
+   "external_id": "gpqa-paper:main:with search:GPT-4",
+   "extra": {
+    "paper_table": "Table 6",
+    "method": "with search"
+   }
+  },
+  {
+   "benchmark": "extended",
+   "model": "GPT-4",
+   "score": 39.4,
+   "evaluation_method": "with search (backoff to CoT on abstention)",
+   "external_id": "gpqa-paper:extended:with search (backoff to CoT on abstention):GPT-4",
+   "extra": {
+    "paper_table": "Table 5",
+    "method": "with search (backoff to CoT on abstention)"
+   }
+  },
+  {
+   "benchmark": "main",
+   "model": "GPT-4",
+   "score": 41.0,
+   "evaluation_method": "with search (backoff to CoT on abstention)",
+   "external_id": "gpqa-paper:main:with search (backoff to CoT on abstention):GPT-4",
+   "extra": {
+    "paper_table": "Table 5",
+    "method": "with search (backoff to CoT on abstention)"
+   }
+  }
+ ]
+}

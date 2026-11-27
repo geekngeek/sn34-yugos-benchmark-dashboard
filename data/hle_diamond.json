@@ -1,0 +1,3166 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "HLE-Diamond (official, lastexam.ai)",
+  "site": "https://lastexam.ai/blog/hle-diamond",
+  "publisher": "Center for AI Safety and Scale AI",
+  "description": "HLE-Diamond results published by the Humanity's Last Exam team: the lastexam.ai results chart (HLE-Diamond toggle) and the HLE-Diamond release post (2026-09-22).",
+  "license": "Dataset cais/hle-diamond and repo centerforaisafety/hle: MIT (https://github.com/centerforaisafety/hle). lastexam.ai states no separate terms for its results; results are facts, credited.",
+  "attribution": "Humanity's Last Exam / HLE-Diamond, Center for AI Safety & Scale AI (https://lastexam.ai/blog/hle-diamond).",
+  "retrieved_from": [
+   "https://lastexam.ai/",
+   "https://lastexam.ai/_next/static/chunks/app/page-61b35e73b8f04961.js",
+   "https://lastexam.ai/blog/hle-diamond",
+   "https://lastexam.ai/_next/static/chunks/app/blog/hle-diamond/page-1e1d80f9327fb7ee.js",
+   "https://github.com/centerforaisafety/hle/blob/main/docs/evaluation-with-tools.md"
+  ],
+  "notes": [
+   "Score = accuracy (%) on the 1,000 HLE-Diamond questions (500 reasoning + 500 knowledge), no tools unless stated.",
+   "'diamond' = all 69 models with an HLE-Diamond score in the model data the lastexam.ai results chart ships with (its live source dashboard.safe.ai/api/models answered 403, so the bundled snapshot was used). Effort taken from the model id suffix where it has one.",
+   "The release post's own tables (25 models) are kept separately: 'reasoning high' (128k output cap, the default view) and 'highest reasoning setting' (the post's 'See reasoning max' view; per-model effort/cap from the model id). Post and chart values differ slightly for a few models (e.g. Kimi K3 21.7 vs 21.8, DeepSeek V4 Pro 13.4 vs DeepSeek 4 Pro 9.41).",
+   "GLM 5.3 was evaluated on the text-only subset (post footnote).",
+   "With-tools runs: web search/fetch + Python sandbox with a contamination blocklist, reasoning high; harness versions from the official evaluation-with-tools doc.",
+   "Mean output tokens per model (thinking included) are in extra where the post publishes them."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "diamond",
+   "name": "HLE-Diamond",
+   "version": "No tools (lastexam.ai chart)",
+   "area": "knowledge",
+   "sub_area": "expert multi-discipline QA",
+   "unit": "percent",
+   "description": "HLE-Diamond accuracy (%) without tools, as shown in the lastexam.ai results chart.",
+   "url": "https://lastexam.ai/",
+   "metric": "accuracy",
+   "total_tasks": 1000
+  },
+  {
+   "key": "diamond_high",
+   "name": "HLE-Diamond",
+   "version": "No tools, reasoning high (release post)",
+   "area": "knowledge",
+   "sub_area": "expert multi-discipline QA",
+   "unit": "percent",
+   "description": "HLE-Diamond accuracy (%) without tools at reasoning high, 128k output cap.",
+   "url": "https://lastexam.ai/blog/hle-diamond",
+   "metric": "accuracy",
+   "total_tasks": 1000
+  },
+  {
+   "key": "diamond_max",
+   "name": "HLE-Diamond",
+   "version": "No tools, highest reasoning (release post)",
+   "area": "knowledge",
+   "sub_area": "expert multi-discipline QA",
+   "unit": "percent",
+   "description": "HLE-Diamond accuracy (%) without tools at the highest reasoning setting available, capped at 256k output where allowed.",
+   "url": "https://lastexam.ai/blog/hle-diamond",
+   "metric": "accuracy",
+   "total_tasks": 1000
+  },
+  {
+   "key": "reasoning_high",
+   "name": "HLE-Diamond",
+   "version": "Reasoning partition, reasoning high",
+   "area": "knowledge",
+   "sub_area": "reasoning",
+   "unit": "percent",
+   "description": "Accuracy (%) on the 500 reasoning questions of HLE-Diamond, no tools, reasoning high.",
+   "url": "https://lastexam.ai/blog/hle-diamond",
+   "metric": "accuracy",
+   "total_tasks": 500
+  },
+  {
+   "key": "knowledge_high",
+   "name": "HLE-Diamond",
+   "version": "Knowledge partition, reasoning high",
+   "area": "knowledge",
+   "sub_area": "expert knowledge",
+   "unit": "percent",
+   "description": "Accuracy (%) on the 500 knowledge questions of HLE-Diamond, no tools, reasoning high.",
+   "url": "https://lastexam.ai/blog/hle-diamond",
+   "metric": "accuracy",
+   "total_tasks": 500
+  },
+  {
+   "key": "reasoning_max",
+   "name": "HLE-Diamond",
+   "version": "Reasoning partition, highest reasoning",
+   "area": "knowledge",
+   "sub_area": "reasoning",
+   "unit": "percent",
+   "description": "Accuracy (%) on the 500 reasoning questions, no tools, highest reasoning setting.",
+   "url": "https://lastexam.ai/blog/hle-diamond",
+   "metric": "accuracy",
+   "total_tasks": 500
+  },
+  {
+   "key": "knowledge_max",
+   "name": "HLE-Diamond",
+   "version": "Knowledge partition, highest reasoning",
+   "area": "knowledge",
+   "sub_area": "expert knowledge",
+   "unit": "percent",
+   "description": "Accuracy (%) on the 500 knowledge questions, no tools, highest reasoning setting.",
+   "url": "https://lastexam.ai/blog/hle-diamond",
+   "metric": "accuracy",
+   "total_tasks": 500
+  },
+  {
+   "key": "tools",
+   "name": "HLE-Diamond",
+   "version": "With tools (web + code), reasoning high",
+   "area": "agentic",
+   "sub_area": "tool-augmented expert QA",
+   "unit": "percent",
+   "description": "HLE-Diamond accuracy (%) with web search/fetch and Python tools, reasoning high.",
+   "url": "https://lastexam.ai/blog/hle-diamond",
+   "metric": "accuracy",
+   "total_tasks": 1000
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 4 Neon",
+   "developer": "Google",
+   "score": 65.2,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-4-neon-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-4-neon-high",
+    "release_date": "2026-11-18",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-4-neon/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 4 Hydrogen",
+   "developer": "Google",
+   "score": 52.6,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-4-hydrogen-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-4-hydrogen-high",
+    "release_date": "2026-11-12",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Haiku 5.5",
+   "developer": "Anthropic",
+   "score": 20.8,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:claude-haiku-5-5-high:hle_diamond",
+   "extra": {
+    "model_id": "claude-haiku-5-5-high",
+    "release_date": "2026-10-07",
+    "model_card_url": "https://www.anthropic.com/news/claude-haiku-5-5"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 3.1 Pro",
+   "developer": "Google",
+   "score": 31.8,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-3.1-pro-preview-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-3.1-pro-preview-high",
+    "release_date": "2026-02-19",
+    "model_card_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Sonnet 4.6",
+   "developer": "Anthropic",
+   "score": 7.3,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:sonnet-4-6-adaptive-64k:hle_diamond",
+   "extra": {
+    "model_id": "sonnet-4-6-adaptive-64k",
+    "release_date": "2026-02-17",
+    "model_card_url": "https://www.anthropic.com/news/claude-sonnet-4-6"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Opus 4.6",
+   "developer": "Anthropic",
+   "score": 13.43,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:opus-4-6-adaptive-64k:hle_diamond",
+   "extra": {
+    "model_id": "opus-4-6-adaptive-64k",
+    "release_date": "2026-02-05",
+    "model_card_url": "https://www.anthropic.com/news/claude-opus-4-6"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Opus 4.8",
+   "developer": "Anthropic",
+   "score": 23.1,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:opus-4-8-high:hle_diamond",
+   "extra": {
+    "model_id": "opus-4-8-high",
+    "release_date": "2026-05-30",
+    "model_card_url": "https://www.anthropic.com/news/claude-opus-4-8"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Opus 4.7",
+   "developer": "Anthropic",
+   "score": 20.4,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:opus-4-7-adaptive-64k:hle_diamond",
+   "extra": {
+    "model_id": "opus-4-7-adaptive-64k",
+    "release_date": "2026-04-16",
+    "model_card_url": "https://www.anthropic.com/news/claude-opus-4-7"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Kimi K2.5",
+   "developer": "Moonshot",
+   "score": 9.89,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:kimi-k2.5-thinking:hle_diamond",
+   "extra": {
+    "model_id": "kimi-k2.5-thinking",
+    "release_date": "2026-01-29",
+    "model_card_url": "https://www.kimi.com/blog/kimi-k2-5.html"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Kimi K3.1 Pro",
+   "developer": "Moonshot",
+   "score": 29.5,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:kimi-k3.1-pro-high:hle_diamond",
+   "extra": {
+    "model_id": "kimi-k3.1-pro-high",
+    "release_date": "2026-10-23",
+    "model_card_url": ""
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Kimi K3",
+   "developer": "Moonshot",
+   "score": 21.8,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:kimi-k3-high:hle_diamond",
+   "extra": {
+    "model_id": "kimi-k3-high",
+    "release_date": "2026-07-16",
+    "model_card_url": "https://platform.kimi.ai/docs/guide/kimi-k3-quickstart"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Kimi K2.6",
+   "developer": "Moonshot",
+   "score": 12.44,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:kimi-k2.6-64k:hle_diamond",
+   "extra": {
+    "model_id": "kimi-k2.6-64k",
+    "release_date": "2026-04-20",
+    "model_card_url": "https://www.kimi.com/blog/kimi-k2-6"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 4 Carbon",
+   "developer": "Google",
+   "score": 63.6,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-4-carbon-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-4-carbon-high",
+    "release_date": "2026-10-28",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-4-carbon/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 4 Argon",
+   "developer": "Google",
+   "score": 56.9,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-4-argon-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-4-argon-high",
+    "release_date": "2026-10-13",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-4-argon/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 3.8 Flash",
+   "developer": "Google",
+   "score": 33.3,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-3.8-flash-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-3.8-flash-high",
+    "release_date": "2026-09-02",
+    "model_card_url": ""
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 3.7 Flash",
+   "developer": "Google",
+   "score": 31.18,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-3.7-flash-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-3.7-flash-high",
+    "release_date": "2026-08-01",
+    "model_card_url": ""
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 3.5 Flash",
+   "developer": "Google",
+   "score": 25.7,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-3.5-flash:hle_diamond",
+   "extra": {
+    "model_id": "gemini-3.5-flash",
+    "release_date": "2026-05-20",
+    "model_card_url": ""
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 3 Flash",
+   "developer": "Google",
+   "score": 18.24,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-3-flash-preview-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-3-flash-preview-high",
+    "release_date": "2025-12-17",
+    "model_card_url": "https://blog.google/products/gemini/gemini-3-flash"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 3 Pro",
+   "developer": "Google",
+   "score": 20.23,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-3-pro-preview-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-3-pro-preview-high",
+    "release_date": "2025-11-12",
+    "model_card_url": "https://blog.google/products/gemini/gemini-3"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Opus 4.5",
+   "developer": "Anthropic",
+   "score": 5.47,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:opus-4-5-thinking-32k:hle_diamond",
+   "extra": {
+    "model_id": "opus-4-5-thinking-32k",
+    "release_date": "2025-11-24",
+    "model_card_url": "https://www.anthropic.com/news/claude-opus-4-5"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-5.2",
+   "developer": "OpenAI",
+   "score": 10.12,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-5.2-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-5.2-high",
+    "release_date": "2025-12-11",
+    "model_card_url": "https://openai.com/index/introducing-gpt-5-2/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-5.1",
+   "developer": "OpenAI",
+   "score": 6.3,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-5.1-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-5.1-high",
+    "release_date": "2025-11-12",
+    "model_card_url": "https://openai.com/index/gpt-5-1"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Kimi K2",
+   "developer": "Moonshot",
+   "score": 6.13,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:kimi-k2-thinking:hle_diamond",
+   "extra": {
+    "model_id": "kimi-k2-thinking",
+    "release_date": "2025-11-06",
+    "model_card_url": "https://moonshotai.github.io/Kimi-K2/thinking.html"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-5",
+   "developer": "OpenAI",
+   "score": 7.13,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-5-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-5-high",
+    "release_date": "2025-08-07",
+    "model_card_url": "https://openai.com/index/introducing-gpt-5/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Sonnet 4.5",
+   "developer": "Anthropic",
+   "score": 4.48,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:sonnet-4-5-thinking-32k:hle_diamond",
+   "extra": {
+    "model_id": "sonnet-4-5-thinking-32k",
+    "release_date": "2025-09-29",
+    "model_card_url": "https://www.anthropic.com/news/claude-sonnet-4-5"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Grok 4",
+   "developer": "xAI",
+   "score": 11.11,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:grok-4:hle_diamond",
+   "extra": {
+    "model_id": "grok-4",
+    "release_date": "2025-07-09",
+    "model_card_url": "https://x.ai/news/grok-4"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Grok 4.3",
+   "developer": "xAI",
+   "score": 14.43,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:grok-4-3:hle_diamond",
+   "extra": {
+    "model_id": "grok-4-3",
+    "release_date": "2026-04-17",
+    "model_card_url": "https://docs.x.ai/developers/models/grok-4.3"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Grok 4.2",
+   "developer": "xAI",
+   "score": 11.77,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:grok-4-2:hle_diamond",
+   "extra": {
+    "model_id": "grok-4-2",
+    "release_date": "2026-03-09",
+    "model_card_url": "https://docs.x.ai/developers/models"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Grok 4.1 Fast",
+   "developer": "xAI",
+   "score": 5.31,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:grok-4.1-fast-reasoning:hle_diamond",
+   "extra": {
+    "model_id": "grok-4.1-fast-reasoning",
+    "release_date": "2025-11-19",
+    "model_card_url": "https://x.ai/news/grok-4-1-fast"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Grok 4 Fast",
+   "developer": "xAI",
+   "score": 4.81,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:grok-4-fast-reasoning:hle_diamond",
+   "extra": {
+    "model_id": "grok-4-fast-reasoning",
+    "release_date": "2025-09-19",
+    "model_card_url": "https://x.ai/news/grok-4-fast"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 2.5 Pro",
+   "developer": "Google",
+   "score": 8.13,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-2-5-pro-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-2-5-pro-high",
+    "release_date": "2025-06-17",
+    "model_card_url": "https://arxiv.org/abs/2507.06261"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-5-mini",
+   "developer": "OpenAI",
+   "score": 5.31,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-5-mini-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-5-mini-high",
+    "release_date": "2025-08-07",
+    "model_card_url": "https://openai.com/index/introducing-gpt-5/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-5.4-mini",
+   "developer": "OpenAI",
+   "score": 6.63,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-5.4-mini-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-5.4-mini-high",
+    "release_date": "2026-03-17",
+    "model_card_url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Gemini 2.5 Flash",
+   "developer": "Google",
+   "score": 4.48,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gemini-2-5-flash-high:hle_diamond",
+   "extra": {
+    "model_id": "gemini-2-5-flash-high",
+    "release_date": "2025-06-17",
+    "model_card_url": "https://arxiv.org/abs/2507.06261"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "DeepSeek 4 Pro",
+   "developer": "DeepSeek",
+   "score": 9.41,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:deepseek-v4-pro:hle_diamond",
+   "extra": {
+    "model_id": "deepseek-v4-pro",
+    "release_date": "2026-04-24",
+    "model_card_url": "https://api-docs.deepseek.com/news/news260424"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "DeepSeek 3.2",
+   "developer": "DeepSeek",
+   "score": 7.88,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:deepseek-v3.2-thinking:hle_diamond",
+   "extra": {
+    "model_id": "deepseek-v3.2-thinking",
+    "release_date": "2025-12-01",
+    "model_card_url": "https://api-docs.deepseek.com/news/news251201"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Haiku 4.5",
+   "developer": "Anthropic",
+   "score": 4.48,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:haiku-4-5-thinking-32k:hle_diamond",
+   "extra": {
+    "model_id": "haiku-4-5-thinking-32k",
+    "release_date": "2025-10-15",
+    "model_card_url": "https://www.anthropic.com/news/claude-haiku-4-5"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "o3",
+   "developer": "OpenAI",
+   "score": 6.63,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:o3-high:hle_diamond",
+   "extra": {
+    "model_id": "o3-high",
+    "release_date": "2025-04-16",
+    "model_card_url": "https://openai.com/index/introducing-o3-and-o4-mini"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "o3-mini",
+   "developer": "OpenAI",
+   "score": 3.72,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:o3-mini-high:hle_diamond",
+   "extra": {
+    "model_id": "o3-mini-high",
+    "release_date": "2025-01-31",
+    "model_card_url": "https://openai.com/index/openai-o3-mini/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "o4-mini",
+   "developer": "OpenAI",
+   "score": 4.81,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:o4-mini-high:hle_diamond",
+   "extra": {
+    "model_id": "o4-mini-high",
+    "release_date": "2025-04-16",
+    "model_card_url": null
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "DeepSeek R1",
+   "developer": "DeepSeek",
+   "score": 4.38,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:deepseek-r1:hle_diamond",
+   "extra": {
+    "model_id": "deepseek-r1",
+    "release_date": "2025-01-20",
+    "model_card_url": "https://arxiv.org/abs/2501.12948"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Sonnet 4",
+   "developer": "Anthropic",
+   "score": 2.82,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:sonnet-4-thinking-16k:hle_diamond",
+   "extra": {
+    "model_id": "sonnet-4-thinking-16k",
+    "release_date": "2025-05-22",
+    "model_card_url": "https://www.anthropic.com/news/claude-4"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Sonnet 3.7",
+   "developer": "Anthropic",
+   "score": 2.99,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:sonnet-3-7-thinking-16k:hle_diamond",
+   "extra": {
+    "model_id": "sonnet-3-7-thinking-16k",
+    "release_date": "2025-02-24",
+    "model_card_url": "https://www.anthropic.com/news/claude-3-7-sonnet"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "o1",
+   "developer": "OpenAI",
+   "score": 2.99,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:o1:hle_diamond",
+   "extra": {
+    "model_id": "o1",
+    "release_date": "2024-12-05",
+    "model_card_url": "https://openai.com/index/openai-o1-system-card"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-4o",
+   "developer": "OpenAI",
+   "score": 1.16,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-4o-2024-11-20:hle_diamond",
+   "extra": {
+    "model_id": "gpt-4o-2024-11-20",
+    "release_date": "2024-11-20",
+    "model_card_url": "https://openai.com/index/hello-gpt-4o"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-5.4",
+   "developer": "OpenAI",
+   "score": 21.06,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-5.4-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-5.4-high",
+    "release_date": "2026-03-03",
+    "model_card_url": "https://openai.com/index/introducing-gpt-5-4/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-5.5",
+   "developer": "OpenAI",
+   "score": 27.9,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-5.5-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-5.5-high",
+    "release_date": "2026-04-23",
+    "model_card_url": "https://openai.com/index/introducing-gpt-5-5/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GLM 5.1",
+   "developer": "Zhipu",
+   "score": 6.56,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:glm-5.1:hle_diamond",
+   "extra": {
+    "model_id": "glm-5.1",
+    "release_date": "2026-04-06",
+    "model_card_url": "https://z.ai/blog/glm-5.1"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Opus 5",
+   "developer": "Anthropic",
+   "score": 38.1,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:claude-opus-5-high:hle_diamond",
+   "extra": {
+    "model_id": "claude-opus-5-high",
+    "release_date": "2026-07-24",
+    "model_card_url": "https://www.anthropic.com/news/claude-opus-5"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Fable 5",
+   "developer": "Anthropic",
+   "score": 45.6,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:claude-fable-5-high:hle_diamond",
+   "extra": {
+    "model_id": "claude-fable-5-high",
+    "release_date": "2026-06-09",
+    "model_card_url": "https://www.anthropic.com/news/claude-fable-5"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-6 Astra",
+   "developer": "OpenAI",
+   "score": 59.9,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-6-astra-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-6-astra-high",
+    "release_date": "2026-09-03",
+    "model_card_url": ""
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-5.6 Sol",
+   "developer": "OpenAI",
+   "score": 30.4,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-5.6-sol-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-5.6-sol-high",
+    "release_date": "2026-07-09",
+    "model_card_url": "https://openai.com/index/gpt-5-6/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-5.6 Terra",
+   "developer": "OpenAI",
+   "score": 15.92,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-5.6-terra-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-5.6-terra-high",
+    "release_date": "2026-07-09",
+    "model_card_url": "https://openai.com/index/gpt-5-6/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-5.6 Luna",
+   "developer": "OpenAI",
+   "score": 15.59,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-5.6-luna-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-5.6-luna-high",
+    "release_date": "2026-07-09",
+    "model_card_url": "https://openai.com/index/gpt-5-6/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Muse Spark 1.3",
+   "developer": "Meta AI",
+   "score": 24.6,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:muse-spark-1.3-high:hle_diamond",
+   "extra": {
+    "model_id": "muse-spark-1.3-high",
+    "release_date": "2026-09-04",
+    "model_card_url": ""
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Muse Spark 1.1",
+   "developer": "Meta AI",
+   "score": 31.34,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:muse-spark-1.1-high:hle_diamond",
+   "extra": {
+    "model_id": "muse-spark-1.1-high",
+    "release_date": "2026-07-09",
+    "model_card_url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GLM 5.2",
+   "developer": "Zhipu",
+   "score": 22.32,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:glm-5.2:hle_diamond",
+   "extra": {
+    "model_id": "glm-5.2",
+    "release_date": "2026-06-16",
+    "model_card_url": "https://z.ai/blog/glm-5.2"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Grok 4.6",
+   "developer": "xAI",
+   "score": 19.57,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:grok-4.6:hle_diamond",
+   "extra": {
+    "model_id": "grok-4.6",
+    "release_date": "2026-08-12",
+    "model_card_url": ""
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Grok 4.5",
+   "developer": "xAI",
+   "score": 18.41,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:grok-4.5:hle_diamond",
+   "extra": {
+    "model_id": "grok-4.5",
+    "release_date": "2026-07-08",
+    "model_card_url": "https://x.ai/news/grok-4-5"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GLM 5.3",
+   "developer": "Zhipu",
+   "score": 22.7,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:glm-5.3:hle_diamond",
+   "extra": {
+    "model_id": "glm-5.3",
+    "release_date": "2026-08-14",
+    "model_card_url": "https://z.ai/blog/glm-5.3"
+   }
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Fable 5.2",
+   "developer": "Anthropic",
+   "score": 74.3,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:claude-fable-5-2-high:hle_diamond",
+   "extra": {
+    "model_id": "claude-fable-5-2-high",
+    "release_date": "2026-11-09",
+    "model_card_url": "https://www.anthropic.com/news/claude-fable-5-2"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Fable 5.1",
+   "developer": "Anthropic",
+   "score": 51.6,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:claude-fable-5-1-high:hle_diamond",
+   "extra": {
+    "model_id": "claude-fable-5-1-high",
+    "release_date": "2026-09-01",
+    "model_card_url": "https://www.anthropic.com/news/claude-fable-5-1"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Opus 5.5",
+   "developer": "Anthropic",
+   "score": 54.6,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:claude-opus-5-5-high:hle_diamond",
+   "extra": {
+    "model_id": "claude-opus-5-5-high",
+    "release_date": "2026-09-22",
+    "model_card_url": "https://www.anthropic.com/claude-opus-5-5"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-6.1 Sol",
+   "developer": "OpenAI",
+   "score": 53.2,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-6.1-sol-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-6.1-sol-high",
+    "release_date": "2026-09-29",
+    "model_card_url": "https://openai.com/index/introducing-gpt-6-1-sol/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-6.2 Astra",
+   "developer": "OpenAI",
+   "score": 66.6,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-6.2-astra-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-6.2-astra-high",
+    "release_date": "2026-11-17",
+    "model_card_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "GPT-6.2 Sol",
+   "developer": "OpenAI",
+   "score": 58.3,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:gpt-6.2-sol-high:hle_diamond",
+   "extra": {
+    "model_id": "gpt-6.2-sol-high",
+    "release_date": "2026-11-17",
+    "model_card_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Muse Wonder",
+   "developer": "Meta AI",
+   "score": 34.7,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:muse-wonder-high:hle_diamond",
+   "extra": {
+    "model_id": "muse-wonder-high",
+    "release_date": "2026-10-12",
+    "model_card_url": "https://research.meta.ai/blog/muse-wonder"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Muse Spark Open",
+   "developer": "Meta AI",
+   "score": 24.9,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:muse-spark-open-high:hle_diamond",
+   "extra": {
+    "model_id": "muse-spark-open-high",
+    "release_date": "2026-10-15",
+    "model_card_url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B"
+   },
+   "reasoning_effort": "high"
+  },
+  {
+   "benchmark": "diamond",
+   "model": "Grok 4.7",
+   "developer": "xAI",
+   "score": 22.8,
+   "evaluation_method": "No tools; lastexam.ai results chart (HLE-Diamond toggle)",
+   "external_id": "lastexam:grok-4-7:hle_diamond",
+   "extra": {
+    "model_id": "grok-4-7",
+    "release_date": "2026-09-21",
+    "model_card_url": "https://x.ai/news/grok-4-7"
+   }
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Claude Fable 5.2",
+   "score": 74.3,
+   "external_id": "hle-diamond-post:diamond_high:claude-fable-5-2-high-128k",
+   "extra": {
+    "model_id": "claude-fable-5-2-high-128k",
+    "release_date": "2026-11-09",
+    "mean_output_tokens": 8831.4,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. thinking) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Claude Fable 5.2",
+   "score": 79.4,
+   "external_id": "hle-diamond-post:reasoning_high:claude-fable-5-2-high-128k",
+   "extra": {
+    "model_id": "claude-fable-5-2-high-128k",
+    "release_date": "2026-11-09"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Claude Fable 5.2",
+   "score": 69.2,
+   "external_id": "hle-diamond-post:knowledge_high:claude-fable-5-2-high-128k",
+   "extra": {
+    "model_id": "claude-fable-5-2-high-128k",
+    "release_date": "2026-11-09"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "GPT-6.2 Astra",
+   "score": 66.6,
+   "external_id": "hle-diamond-post:diamond_high:gpt-6.2-astra-high-128k",
+   "extra": {
+    "model_id": "gpt-6.2-astra-high-128k",
+    "release_date": "2026-11-17",
+    "mean_output_tokens": 3345.9,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. reasoning) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "GPT-6.2 Astra",
+   "score": 78.8,
+   "external_id": "hle-diamond-post:reasoning_high:gpt-6.2-astra-high-128k",
+   "extra": {
+    "model_id": "gpt-6.2-astra-high-128k",
+    "release_date": "2026-11-17"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "GPT-6.2 Astra",
+   "score": 54.4,
+   "external_id": "hle-diamond-post:knowledge_high:gpt-6.2-astra-high-128k",
+   "extra": {
+    "model_id": "gpt-6.2-astra-high-128k",
+    "release_date": "2026-11-17"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "GPT-6 Astra",
+   "score": 59.9,
+   "external_id": "hle-diamond-post:diamond_high:gpt-6-astra-high-128k",
+   "extra": {
+    "model_id": "gpt-6-astra-high-128k",
+    "release_date": "2026-09-03",
+    "mean_output_tokens": 5171.7,
+    "token_count_questions": 999,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. reasoning) per answered request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "GPT-6 Astra",
+   "score": 74.2,
+   "external_id": "hle-diamond-post:reasoning_high:gpt-6-astra-high-128k",
+   "extra": {
+    "model_id": "gpt-6-astra-high-128k",
+    "release_date": "2026-09-03"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "GPT-6 Astra",
+   "score": 45.6,
+   "external_id": "hle-diamond-post:knowledge_high:gpt-6-astra-high-128k",
+   "extra": {
+    "model_id": "gpt-6-astra-high-128k",
+    "release_date": "2026-09-03"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "GPT-6.2 Sol",
+   "score": 58.3,
+   "external_id": "hle-diamond-post:diamond_high:gpt-6.2-sol-high-128k",
+   "extra": {
+    "model_id": "gpt-6.2-sol-high-128k",
+    "release_date": "2026-11-17",
+    "mean_output_tokens": 3730.2,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. reasoning) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "GPT-6.2 Sol",
+   "score": 69,
+   "external_id": "hle-diamond-post:reasoning_high:gpt-6.2-sol-high-128k",
+   "extra": {
+    "model_id": "gpt-6.2-sol-high-128k",
+    "release_date": "2026-11-17"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "GPT-6.2 Sol",
+   "score": 47.6,
+   "external_id": "hle-diamond-post:knowledge_high:gpt-6.2-sol-high-128k",
+   "extra": {
+    "model_id": "gpt-6.2-sol-high-128k",
+    "release_date": "2026-11-17"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Gemini 4 Carbon",
+   "score": 63.6,
+   "external_id": "hle-diamond-post:diamond_high:gemini-4-carbon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-carbon-high-128k",
+    "release_date": "2026-10-28",
+    "mean_output_tokens": 59163.5,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions on the native Google GenAI client (long-decode continuation); mean output tokens (incl. thinking) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Gemini 4 Carbon",
+   "score": 72,
+   "external_id": "hle-diamond-post:reasoning_high:gemini-4-carbon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-carbon-high-128k",
+    "release_date": "2026-10-28"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Gemini 4 Carbon",
+   "score": 55.2,
+   "external_id": "hle-diamond-post:knowledge_high:gemini-4-carbon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-carbon-high-128k",
+    "release_date": "2026-10-28"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Gemini 4 Argon",
+   "score": 56.9,
+   "external_id": "hle-diamond-post:diamond_high:gemini-4-argon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-argon-high-128k",
+    "release_date": "2026-10-13",
+    "mean_output_tokens": 26086.5,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions on the native Google GenAI client (long-decode continuation); mean output tokens (incl. thinking) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Gemini 4 Argon",
+   "score": 61.8,
+   "external_id": "hle-diamond-post:reasoning_high:gemini-4-argon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-argon-high-128k",
+    "release_date": "2026-10-13"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Gemini 4 Argon",
+   "score": 52,
+   "external_id": "hle-diamond-post:knowledge_high:gemini-4-argon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-argon-high-128k",
+    "release_date": "2026-10-13"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Claude Opus 5.5",
+   "score": 54.6,
+   "external_id": "hle-diamond-post:diamond_high:claude-opus-5-5-high-128k",
+   "extra": {
+    "model_id": "claude-opus-5-5-high-128k",
+    "release_date": "2026-09-22",
+    "mean_output_tokens": 9614.2,
+    "token_count_questions": 988,
+    "token_scope": "Prior high-effort batch; aggregate tokens per attempted question, including retries. Not a matched subset of the 1,000 questions."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Claude Opus 5.5",
+   "score": 62.4,
+   "external_id": "hle-diamond-post:reasoning_high:claude-opus-5-5-high-128k",
+   "extra": {
+    "model_id": "claude-opus-5-5-high-128k",
+    "release_date": "2026-09-22"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Claude Opus 5.5",
+   "score": 46.8,
+   "external_id": "hle-diamond-post:knowledge_high:claude-opus-5-5-high-128k",
+   "extra": {
+    "model_id": "claude-opus-5-5-high-128k",
+    "release_date": "2026-09-22"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "GPT-6.1 Sol",
+   "score": 53.2,
+   "external_id": "hle-diamond-post:diamond_high:gpt-6.1-sol-high-128k",
+   "extra": {
+    "model_id": "gpt-6.1-sol-high-128k",
+    "release_date": "2026-09-29",
+    "mean_output_tokens": 4491.6,
+    "token_count_questions": 1000,
+    "token_scope": "Per-question output tokens (thinking included) over the 1,000 questions, high effort."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "GPT-6.1 Sol",
+   "score": 67.4,
+   "external_id": "hle-diamond-post:reasoning_high:gpt-6.1-sol-high-128k",
+   "extra": {
+    "model_id": "gpt-6.1-sol-high-128k",
+    "release_date": "2026-09-29"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "GPT-6.1 Sol",
+   "score": 39,
+   "external_id": "hle-diamond-post:knowledge_high:gpt-6.1-sol-high-128k",
+   "extra": {
+    "model_id": "gpt-6.1-sol-high-128k",
+    "release_date": "2026-09-29"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Claude Fable 5.1",
+   "score": 51.6,
+   "external_id": "hle-diamond-post:diamond_high:claude-fable-5-1-high-128k",
+   "extra": {
+    "model_id": "claude-fable-5-1-high-128k",
+    "release_date": "2026-09-01",
+    "mean_output_tokens": 14816.8,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. reasoning) per answered request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Claude Fable 5.1",
+   "score": 61.8,
+   "external_id": "hle-diamond-post:reasoning_high:claude-fable-5-1-high-128k",
+   "extra": {
+    "model_id": "claude-fable-5-1-high-128k",
+    "release_date": "2026-09-01"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Claude Fable 5.1",
+   "score": 41.4,
+   "external_id": "hle-diamond-post:knowledge_high:claude-fable-5-1-high-128k",
+   "extra": {
+    "model_id": "claude-fable-5-1-high-128k",
+    "release_date": "2026-09-01"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Claude Opus 5",
+   "score": 38.1,
+   "external_id": "hle-diamond-post:diamond_high:claude-opus-5-high-128k",
+   "extra": {
+    "model_id": "claude-opus-5-high-128k",
+    "release_date": "2026-07-24",
+    "mean_output_tokens": 19656.3,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. reasoning) per answered request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Claude Opus 5",
+   "score": 46,
+   "external_id": "hle-diamond-post:reasoning_high:claude-opus-5-high-128k",
+   "extra": {
+    "model_id": "claude-opus-5-high-128k",
+    "release_date": "2026-07-24"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Claude Opus 5",
+   "score": 30.2,
+   "external_id": "hle-diamond-post:knowledge_high:claude-opus-5-high-128k",
+   "extra": {
+    "model_id": "claude-opus-5-high-128k",
+    "release_date": "2026-07-24"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Muse Wonder",
+   "score": 34.7,
+   "external_id": "hle-diamond-post:diamond_high:muse-wonder-high-128k",
+   "extra": {
+    "model_id": "muse-wonder-high-128k",
+    "release_date": "2026-10-12",
+    "mean_output_tokens": 16124.6,
+    "token_count_questions": 991,
+    "token_scope": "Per-question output tokens (thinking included) over the 1,000 questions, high effort."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Muse Wonder",
+   "score": 43.2,
+   "external_id": "hle-diamond-post:reasoning_high:muse-wonder-high-128k",
+   "extra": {
+    "model_id": "muse-wonder-high-128k",
+    "release_date": "2026-10-12"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Muse Wonder",
+   "score": 26.2,
+   "external_id": "hle-diamond-post:knowledge_high:muse-wonder-high-128k",
+   "extra": {
+    "model_id": "muse-wonder-high-128k",
+    "release_date": "2026-10-12"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Gemini 3.8 Flash",
+   "score": 33.3,
+   "external_id": "hle-diamond-post:diamond_high:gemini-3.8-flash-high-128k",
+   "extra": {
+    "model_id": "gemini-3.8-flash-high-128k",
+    "release_date": "2026-09-02",
+    "mean_output_tokens": 26074.4,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. reasoning) per answered request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Gemini 3.8 Flash",
+   "score": 36.6,
+   "external_id": "hle-diamond-post:reasoning_high:gemini-3.8-flash-high-128k",
+   "extra": {
+    "model_id": "gemini-3.8-flash-high-128k",
+    "release_date": "2026-09-02"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Gemini 3.8 Flash",
+   "score": 30,
+   "external_id": "hle-diamond-post:knowledge_high:gemini-3.8-flash-high-128k",
+   "extra": {
+    "model_id": "gemini-3.8-flash-high-128k",
+    "release_date": "2026-09-02"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Claude Sonnet 5.5",
+   "score": 33.1,
+   "external_id": "hle-diamond-post:diamond_high:claude-sonnet-5-5-high-128k",
+   "extra": {
+    "model_id": "claude-sonnet-5-5-high-128k",
+    "release_date": "2026-09-28",
+    "mean_output_tokens": 8583.8,
+    "token_count_questions": 1000,
+    "token_scope": "Per-question output tokens (thinking included) over the 1,000 questions, high effort."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Claude Sonnet 5.5",
+   "score": 42.4,
+   "external_id": "hle-diamond-post:reasoning_high:claude-sonnet-5-5-high-128k",
+   "extra": {
+    "model_id": "claude-sonnet-5-5-high-128k",
+    "release_date": "2026-09-28"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Claude Sonnet 5.5",
+   "score": 23.8,
+   "external_id": "hle-diamond-post:knowledge_high:claude-sonnet-5-5-high-128k",
+   "extra": {
+    "model_id": "claude-sonnet-5-5-high-128k",
+    "release_date": "2026-09-28"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "GPT-6 Sol",
+   "score": 32.8,
+   "external_id": "hle-diamond-post:diamond_high:gpt-6-sol-high-128k",
+   "extra": {
+    "model_id": "gpt-6-sol-high-128k",
+    "release_date": "2026-09-22",
+    "mean_output_tokens": 4597.1,
+    "token_count_questions": 988,
+    "token_scope": "Prior high-effort batch; aggregate tokens per attempted question, including retries. Not a matched subset of the 1,000 questions."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "GPT-6 Sol",
+   "score": 42.2,
+   "external_id": "hle-diamond-post:reasoning_high:gpt-6-sol-high-128k",
+   "extra": {
+    "model_id": "gpt-6-sol-high-128k",
+    "release_date": "2026-09-22"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "GPT-6 Sol",
+   "score": 23.4,
+   "external_id": "hle-diamond-post:knowledge_high:gpt-6-sol-high-128k",
+   "extra": {
+    "model_id": "gpt-6-sol-high-128k",
+    "release_date": "2026-09-22"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "GPT-5.6 Sol",
+   "score": 30.4,
+   "external_id": "hle-diamond-post:diamond_high:gpt-5.6-sol-high",
+   "extra": {
+    "model_id": "gpt-5.6-sol-high",
+    "release_date": "2026-07-09",
+    "mean_output_tokens": 5912.2,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. reasoning) per answered request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "GPT-5.6 Sol",
+   "score": 37.2,
+   "external_id": "hle-diamond-post:reasoning_high:gpt-5.6-sol-high",
+   "extra": {
+    "model_id": "gpt-5.6-sol-high",
+    "release_date": "2026-07-09"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "GPT-5.6 Sol",
+   "score": 23.6,
+   "external_id": "hle-diamond-post:knowledge_high:gpt-5.6-sol-high",
+   "extra": {
+    "model_id": "gpt-5.6-sol-high",
+    "release_date": "2026-07-09"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Kimi K3.1 Pro",
+   "score": 29.5,
+   "external_id": "hle-diamond-post:diamond_high:kimi-k3.1-pro-high-128k",
+   "extra": {
+    "model_id": "kimi-k3.1-pro-high-128k",
+    "release_date": "2026-10-23",
+    "mean_output_tokens": 9799.6,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions via OpenRouter (Moonshot provider); mean output tokens (incl. reasoning) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Kimi K3.1 Pro",
+   "score": 33.6,
+   "external_id": "hle-diamond-post:reasoning_high:kimi-k3.1-pro-high-128k",
+   "extra": {
+    "model_id": "kimi-k3.1-pro-high-128k",
+    "release_date": "2026-10-23"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Kimi K3.1 Pro",
+   "score": 25.4,
+   "external_id": "hle-diamond-post:knowledge_high:kimi-k3.1-pro-high-128k",
+   "extra": {
+    "model_id": "kimi-k3.1-pro-high-128k",
+    "release_date": "2026-10-23"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Muse Spark Open",
+   "score": 24.9,
+   "external_id": "hle-diamond-post:diamond_high:muse-spark-open-high-128k",
+   "extra": {
+    "model_id": "muse-spark-open-high-128k",
+    "release_date": "2026-10-15",
+    "mean_output_tokens": 19691,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions via OpenRouter (Together, Fireworks); mean output tokens (incl. reasoning) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Muse Spark Open",
+   "score": 28,
+   "external_id": "hle-diamond-post:reasoning_high:muse-spark-open-high-128k",
+   "extra": {
+    "model_id": "muse-spark-open-high-128k",
+    "release_date": "2026-10-15"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Muse Spark Open",
+   "score": 21.8,
+   "external_id": "hle-diamond-post:knowledge_high:muse-spark-open-high-128k",
+   "extra": {
+    "model_id": "muse-spark-open-high-128k",
+    "release_date": "2026-10-15"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Muse Spark 1.3",
+   "score": 24.6,
+   "external_id": "hle-diamond-post:diamond_high:muse-spark-1.3-high-128k",
+   "extra": {
+    "model_id": "muse-spark-1.3-high-128k",
+    "release_date": "2026-09-04",
+    "mean_output_tokens": 21303.7,
+    "token_count_questions": 981,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. reasoning) per answered request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Muse Spark 1.3",
+   "score": 30,
+   "external_id": "hle-diamond-post:reasoning_high:muse-spark-1.3-high-128k",
+   "extra": {
+    "model_id": "muse-spark-1.3-high-128k",
+    "release_date": "2026-09-04"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Muse Spark 1.3",
+   "score": 19.2,
+   "external_id": "hle-diamond-post:knowledge_high:muse-spark-1.3-high-128k",
+   "extra": {
+    "model_id": "muse-spark-1.3-high-128k",
+    "release_date": "2026-09-04"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Grok 4.7",
+   "score": 22.8,
+   "external_id": "hle-diamond-post:diamond_high:grok-4-7-high",
+   "extra": {
+    "model_id": "grok-4-7-high",
+    "release_date": "2026-09-21",
+    "mean_output_tokens": 43244.4,
+    "token_count_questions": 44,
+    "token_scope": "Prior high-effort batch; aggregate tokens per attempted question, including retries. Not a matched subset of the 1,000 questions."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Grok 4.7",
+   "score": 31.2,
+   "external_id": "hle-diamond-post:reasoning_high:grok-4-7-high",
+   "extra": {
+    "model_id": "grok-4-7-high",
+    "release_date": "2026-09-21"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Grok 4.7",
+   "score": 14.4,
+   "external_id": "hle-diamond-post:knowledge_high:grok-4-7-high",
+   "extra": {
+    "model_id": "grok-4-7-high",
+    "release_date": "2026-09-21"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "GLM 5.3",
+   "score": 22.3,
+   "external_id": "hle-diamond-post:diamond_high:glm-5.3-high-128k",
+   "extra": {
+    "model_id": "glm-5.3-high-128k",
+    "release_date": "2026-08-14",
+    "text_only_subset": true,
+    "note": "Evaluated on the text-only subset of questions (per the post).",
+    "mean_output_tokens": 44310.7,
+    "token_count_questions": 728,
+    "token_scope": "Full high-effort run over the 728 text-only HLE-Diamond questions; mean output tokens (incl. reasoning) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "GLM 5.3",
+   "score": 29.7,
+   "external_id": "hle-diamond-post:reasoning_high:glm-5.3-high-128k",
+   "extra": {
+    "model_id": "glm-5.3-high-128k",
+    "release_date": "2026-08-14",
+    "text_only_subset": true,
+    "note": "Evaluated on the text-only subset of questions (per the post)."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "GLM 5.3",
+   "score": 15.5,
+   "external_id": "hle-diamond-post:knowledge_high:glm-5.3-high-128k",
+   "extra": {
+    "model_id": "glm-5.3-high-128k",
+    "release_date": "2026-08-14",
+    "text_only_subset": true,
+    "note": "Evaluated on the text-only subset of questions (per the post)."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Kimi K3",
+   "score": 21.7,
+   "external_id": "hle-diamond-post:diamond_high:kimi-k3-high-64k",
+   "extra": {
+    "model_id": "kimi-k3-high-64k",
+    "release_date": "2026-07-16",
+    "mean_output_tokens": 13075.1,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. reasoning) per answered request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Kimi K3",
+   "score": 24.4,
+   "external_id": "hle-diamond-post:reasoning_high:kimi-k3-high-64k",
+   "extra": {
+    "model_id": "kimi-k3-high-64k",
+    "release_date": "2026-07-16"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Kimi K3",
+   "score": 19,
+   "external_id": "hle-diamond-post:knowledge_high:kimi-k3-high-64k",
+   "extra": {
+    "model_id": "kimi-k3-high-64k",
+    "release_date": "2026-07-16"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "DeepSeek V4 Pro",
+   "score": 13.4,
+   "external_id": "hle-diamond-post:diamond_high:deepseek-v4-pro-high",
+   "extra": {
+    "model_id": "deepseek-v4-pro-high",
+    "mean_output_tokens": 34682.8,
+    "token_count_questions": 728,
+    "token_scope": "Full high-effort run over the 728 text-only HLE-Diamond questions via OpenRouter; mean output tokens (incl. reasoning) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "DeepSeek V4 Pro",
+   "score": 14.4,
+   "external_id": "hle-diamond-post:reasoning_high:deepseek-v4-pro-high",
+   "extra": {
+    "model_id": "deepseek-v4-pro-high"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "DeepSeek V4 Pro",
+   "score": 12.4,
+   "external_id": "hle-diamond-post:knowledge_high:deepseek-v4-pro-high",
+   "extra": {
+    "model_id": "deepseek-v4-pro-high"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Gemini 4 Neon",
+   "score": 65.2,
+   "external_id": "hle-diamond-post:diamond_high:gemini-4-neon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-neon-high-128k",
+    "release_date": "2026-11-18",
+    "mean_output_tokens": 38263.9,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions on the native Google GenAI client (long-decode continuation); mean output tokens (incl. thinking) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Gemini 4 Neon",
+   "score": 76.4,
+   "external_id": "hle-diamond-post:reasoning_high:gemini-4-neon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-neon-high-128k",
+    "release_date": "2026-11-18"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Gemini 4 Neon",
+   "score": 54,
+   "external_id": "hle-diamond-post:knowledge_high:gemini-4-neon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-neon-high-128k",
+    "release_date": "2026-11-18"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Gemini 4 Hydrogen",
+   "score": 52.6,
+   "external_id": "hle-diamond-post:diamond_high:gemini-4-hydrogen-high-128k",
+   "extra": {
+    "model_id": "gemini-4-hydrogen-high-128k",
+    "release_date": "2026-11-12",
+    "mean_output_tokens": 32836.8,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions on the native Google GenAI client (long-decode continuation); mean output tokens (incl. thinking) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Gemini 4 Hydrogen",
+   "score": 62.6,
+   "external_id": "hle-diamond-post:reasoning_high:gemini-4-hydrogen-high-128k",
+   "extra": {
+    "model_id": "gemini-4-hydrogen-high-128k",
+    "release_date": "2026-11-12"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Gemini 4 Hydrogen",
+   "score": 42.6,
+   "external_id": "hle-diamond-post:knowledge_high:gemini-4-hydrogen-high-128k",
+   "extra": {
+    "model_id": "gemini-4-hydrogen-high-128k",
+    "release_date": "2026-11-12"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_high",
+   "model": "Claude Haiku 5.5",
+   "score": 20.8,
+   "external_id": "hle-diamond-post:diamond_high:claude-haiku-5-5-high-128k",
+   "extra": {
+    "model_id": "claude-haiku-5-5-high-128k",
+    "release_date": "2026-10-07",
+    "mean_output_tokens": 18339.4,
+    "token_count_questions": 1000,
+    "token_scope": "Full high-effort run over the 1,000 HLE-Diamond questions; mean output tokens (incl. thinking) per request."
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "reasoning_high",
+   "model": "Claude Haiku 5.5",
+   "score": 31.6,
+   "external_id": "hle-diamond-post:reasoning_high:claude-haiku-5-5-high-128k",
+   "extra": {
+    "model_id": "claude-haiku-5-5-high-128k",
+    "release_date": "2026-10-07"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "knowledge_high",
+   "model": "Claude Haiku 5.5",
+   "score": 10,
+   "external_id": "hle-diamond-post:knowledge_high:claude-haiku-5-5-high-128k",
+   "extra": {
+    "model_id": "claude-haiku-5-5-high-128k",
+    "release_date": "2026-10-07"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, reasoning high, 128k output cap"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Claude Fable 5.2",
+   "score": 77.9,
+   "external_id": "hle-diamond-post:diamond_max:claude-fable-5-2-max-128k",
+   "extra": {
+    "model_id": "claude-fable-5-2-max-128k",
+    "release_date": "2026-11-09",
+    "output_cap": "128k",
+    "mean_output_tokens": 35481.3,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Claude Fable 5.2",
+   "score": 81.2,
+   "external_id": "hle-diamond-post:reasoning_max:claude-fable-5-2-max-128k",
+   "extra": {
+    "model_id": "claude-fable-5-2-max-128k",
+    "release_date": "2026-11-09",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Claude Fable 5.2",
+   "score": 74.6,
+   "external_id": "hle-diamond-post:knowledge_max:claude-fable-5-2-max-128k",
+   "extra": {
+    "model_id": "claude-fable-5-2-max-128k",
+    "release_date": "2026-11-09",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "GPT-6.2 Astra",
+   "score": 72.3,
+   "external_id": "hle-diamond-post:diamond_max:gpt-6.2-astra-max-128k",
+   "extra": {
+    "model_id": "gpt-6.2-astra-max-128k",
+    "release_date": "2026-11-17",
+    "output_cap": "128k",
+    "mean_output_tokens": 15369.3,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "GPT-6.2 Astra",
+   "score": 86.0,
+   "external_id": "hle-diamond-post:reasoning_max:gpt-6.2-astra-max-128k",
+   "extra": {
+    "model_id": "gpt-6.2-astra-max-128k",
+    "release_date": "2026-11-17",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "GPT-6.2 Astra",
+   "score": 58.6,
+   "external_id": "hle-diamond-post:knowledge_max:gpt-6.2-astra-max-128k",
+   "extra": {
+    "model_id": "gpt-6.2-astra-max-128k",
+    "release_date": "2026-11-17",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Gemini 4 Neon",
+   "score": 68.4,
+   "external_id": "hle-diamond-post:diamond_max:gemini-4-neon-xhigh-256k",
+   "extra": {
+    "model_id": "gemini-4-neon-xhigh-256k",
+    "release_date": "2026-11-18",
+    "output_cap": "256k",
+    "mean_output_tokens": 89674.5,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Gemini 4 Neon",
+   "score": 78.8,
+   "external_id": "hle-diamond-post:reasoning_max:gemini-4-neon-xhigh-256k",
+   "extra": {
+    "model_id": "gemini-4-neon-xhigh-256k",
+    "release_date": "2026-11-18",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Gemini 4 Neon",
+   "score": 58.0,
+   "external_id": "hle-diamond-post:knowledge_max:gemini-4-neon-xhigh-256k",
+   "extra": {
+    "model_id": "gemini-4-neon-xhigh-256k",
+    "release_date": "2026-11-18",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "GPT-6 Astra",
+   "score": 65.8,
+   "external_id": "hle-diamond-post:diamond_max:gpt-6-astra-max-128k",
+   "extra": {
+    "model_id": "gpt-6-astra-max-128k",
+    "release_date": "2026-09-03",
+    "output_cap": "128k",
+    "mean_output_tokens": 11693.1,
+    "token_count_questions": 994
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "GPT-6 Astra",
+   "score": 80.8,
+   "external_id": "hle-diamond-post:reasoning_max:gpt-6-astra-max-128k",
+   "extra": {
+    "model_id": "gpt-6-astra-max-128k",
+    "release_date": "2026-09-03",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "GPT-6 Astra",
+   "score": 50.8,
+   "external_id": "hle-diamond-post:knowledge_max:gpt-6-astra-max-128k",
+   "extra": {
+    "model_id": "gpt-6-astra-max-128k",
+    "release_date": "2026-09-03",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Gemini 4 Carbon",
+   "score": 63.6,
+   "external_id": "hle-diamond-post:diamond_max:gemini-4-carbon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-carbon-high-128k",
+    "release_date": "2026-10-28",
+    "output_cap": "128k",
+    "mean_output_tokens": 59163.5,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Gemini 4 Carbon",
+   "score": 72.0,
+   "external_id": "hle-diamond-post:reasoning_max:gemini-4-carbon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-carbon-high-128k",
+    "release_date": "2026-10-28",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Gemini 4 Carbon",
+   "score": 55.2,
+   "external_id": "hle-diamond-post:knowledge_max:gemini-4-carbon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-carbon-high-128k",
+    "release_date": "2026-10-28",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "GPT-6.2 Sol",
+   "score": 62.7,
+   "external_id": "hle-diamond-post:diamond_max:gpt-6.2-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-6.2-sol-max-128k",
+    "release_date": "2026-11-17",
+    "output_cap": "128k",
+    "mean_output_tokens": 13671.4,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "GPT-6.2 Sol",
+   "score": 77.6,
+   "external_id": "hle-diamond-post:reasoning_max:gpt-6.2-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-6.2-sol-max-128k",
+    "release_date": "2026-11-17",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "GPT-6.2 Sol",
+   "score": 47.8,
+   "external_id": "hle-diamond-post:knowledge_max:gpt-6.2-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-6.2-sol-max-128k",
+    "release_date": "2026-11-17",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Claude Opus 5.5",
+   "score": 60.9,
+   "external_id": "hle-diamond-post:diamond_max:claude-opus-5-5-max-128k",
+   "extra": {
+    "model_id": "claude-opus-5-5-max-128k",
+    "release_date": "2026-09-22",
+    "output_cap": "128k",
+    "mean_output_tokens": 46944.6,
+    "token_count_questions": 990
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Claude Opus 5.5",
+   "score": 68.6,
+   "external_id": "hle-diamond-post:reasoning_max:claude-opus-5-5-max-128k",
+   "extra": {
+    "model_id": "claude-opus-5-5-max-128k",
+    "release_date": "2026-09-22",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Claude Opus 5.5",
+   "score": 53.2,
+   "external_id": "hle-diamond-post:knowledge_max:claude-opus-5-5-max-128k",
+   "extra": {
+    "model_id": "claude-opus-5-5-max-128k",
+    "release_date": "2026-09-22",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "GPT-6.1 Sol",
+   "score": 61.3,
+   "external_id": "hle-diamond-post:diamond_max:gpt-6.1-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-6.1-sol-max-128k",
+    "release_date": "2026-09-29",
+    "output_cap": "128k",
+    "mean_output_tokens": 12383.2,
+    "token_count_questions": 991
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "GPT-6.1 Sol",
+   "score": 75.4,
+   "external_id": "hle-diamond-post:reasoning_max:gpt-6.1-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-6.1-sol-max-128k",
+    "release_date": "2026-09-29",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "GPT-6.1 Sol",
+   "score": 47.2,
+   "external_id": "hle-diamond-post:knowledge_max:gpt-6.1-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-6.1-sol-max-128k",
+    "release_date": "2026-09-29",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Gemini 4 Argon",
+   "score": 56.9,
+   "external_id": "hle-diamond-post:diamond_max:gemini-4-argon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-argon-high-128k",
+    "release_date": "2026-10-13",
+    "output_cap": "128k",
+    "mean_output_tokens": 26086.5,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Gemini 4 Argon",
+   "score": 61.8,
+   "external_id": "hle-diamond-post:reasoning_max:gemini-4-argon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-argon-high-128k",
+    "release_date": "2026-10-13",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Gemini 4 Argon",
+   "score": 52.0,
+   "external_id": "hle-diamond-post:knowledge_max:gemini-4-argon-high-128k",
+   "extra": {
+    "model_id": "gemini-4-argon-high-128k",
+    "release_date": "2026-10-13",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Gemini 4 Hydrogen",
+   "score": 56.4,
+   "external_id": "hle-diamond-post:diamond_max:gemini-4-hydrogen-xhigh-256k",
+   "extra": {
+    "model_id": "gemini-4-hydrogen-xhigh-256k",
+    "release_date": "2026-11-12",
+    "output_cap": "256k",
+    "mean_output_tokens": 99027.4,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Gemini 4 Hydrogen",
+   "score": 67.4,
+   "external_id": "hle-diamond-post:reasoning_max:gemini-4-hydrogen-xhigh-256k",
+   "extra": {
+    "model_id": "gemini-4-hydrogen-xhigh-256k",
+    "release_date": "2026-11-12",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Gemini 4 Hydrogen",
+   "score": 45.4,
+   "external_id": "hle-diamond-post:knowledge_max:gemini-4-hydrogen-xhigh-256k",
+   "extra": {
+    "model_id": "gemini-4-hydrogen-xhigh-256k",
+    "release_date": "2026-11-12",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Claude Fable 5.1",
+   "score": 55.1,
+   "external_id": "hle-diamond-post:diamond_max:claude-fable-5-1-max-128k",
+   "extra": {
+    "model_id": "claude-fable-5-1-max-128k",
+    "release_date": "2026-09-01",
+    "output_cap": "128k",
+    "mean_output_tokens": 41757.8,
+    "token_count_questions": 993
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Claude Fable 5.1",
+   "score": 62.6,
+   "external_id": "hle-diamond-post:reasoning_max:claude-fable-5-1-max-128k",
+   "extra": {
+    "model_id": "claude-fable-5-1-max-128k",
+    "release_date": "2026-09-01",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Claude Fable 5.1",
+   "score": 47.6,
+   "external_id": "hle-diamond-post:knowledge_max:claude-fable-5-1-max-128k",
+   "extra": {
+    "model_id": "claude-fable-5-1-max-128k",
+    "release_date": "2026-09-01",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Claude Sonnet 5.5",
+   "score": 43.3,
+   "external_id": "hle-diamond-post:diamond_max:claude-sonnet-5-5-max-128k",
+   "extra": {
+    "model_id": "claude-sonnet-5-5-max-128k",
+    "release_date": "2026-09-28",
+    "output_cap": "128k",
+    "mean_output_tokens": 66769.7,
+    "token_count_questions": 991
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Claude Sonnet 5.5",
+   "score": 54.0,
+   "external_id": "hle-diamond-post:reasoning_max:claude-sonnet-5-5-max-128k",
+   "extra": {
+    "model_id": "claude-sonnet-5-5-max-128k",
+    "release_date": "2026-09-28",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Claude Sonnet 5.5",
+   "score": 32.6,
+   "external_id": "hle-diamond-post:knowledge_max:claude-sonnet-5-5-max-128k",
+   "extra": {
+    "model_id": "claude-sonnet-5-5-max-128k",
+    "release_date": "2026-09-28",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "GPT-6 Sol",
+   "score": 43.2,
+   "external_id": "hle-diamond-post:diamond_max:gpt-6-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-6-sol-max-128k",
+    "release_date": "2026-09-22",
+    "output_cap": "128k",
+    "mean_output_tokens": 20511.6,
+    "token_count_questions": 995
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "GPT-6 Sol",
+   "score": 57.2,
+   "external_id": "hle-diamond-post:reasoning_max:gpt-6-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-6-sol-max-128k",
+    "release_date": "2026-09-22",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "GPT-6 Sol",
+   "score": 29.2,
+   "external_id": "hle-diamond-post:knowledge_max:gpt-6-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-6-sol-max-128k",
+    "release_date": "2026-09-22",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "GPT-5.6 Sol",
+   "score": 41.0,
+   "external_id": "hle-diamond-post:diamond_max:gpt-5.6-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-5.6-sol-max-128k",
+    "release_date": "2026-07-09",
+    "output_cap": "128k",
+    "mean_output_tokens": 20037.2,
+    "token_count_questions": 996
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "GPT-5.6 Sol",
+   "score": 53.2,
+   "external_id": "hle-diamond-post:reasoning_max:gpt-5.6-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-5.6-sol-max-128k",
+    "release_date": "2026-07-09",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "GPT-5.6 Sol",
+   "score": 28.8,
+   "external_id": "hle-diamond-post:knowledge_max:gpt-5.6-sol-max-128k",
+   "extra": {
+    "model_id": "gpt-5.6-sol-max-128k",
+    "release_date": "2026-07-09",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Muse Wonder",
+   "score": 40.6,
+   "external_id": "hle-diamond-post:diamond_max:muse-wonder-max-256k",
+   "extra": {
+    "model_id": "muse-wonder-max-256k",
+    "release_date": "2026-10-12",
+    "output_cap": "256k",
+    "mean_output_tokens": 40112.2,
+    "token_count_questions": 982
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Muse Wonder",
+   "score": 51.4,
+   "external_id": "hle-diamond-post:reasoning_max:muse-wonder-max-256k",
+   "extra": {
+    "model_id": "muse-wonder-max-256k",
+    "release_date": "2026-10-12",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Muse Wonder",
+   "score": 29.8,
+   "external_id": "hle-diamond-post:knowledge_max:muse-wonder-max-256k",
+   "extra": {
+    "model_id": "muse-wonder-max-256k",
+    "release_date": "2026-10-12",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Claude Opus 5",
+   "score": 40.5,
+   "external_id": "hle-diamond-post:diamond_max:claude-opus-5-max-128k",
+   "extra": {
+    "model_id": "claude-opus-5-max-128k",
+    "release_date": "2026-07-24",
+    "output_cap": "128k",
+    "mean_output_tokens": 34063.1,
+    "token_count_questions": 994
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Claude Opus 5",
+   "score": 46.2,
+   "external_id": "hle-diamond-post:reasoning_max:claude-opus-5-max-128k",
+   "extra": {
+    "model_id": "claude-opus-5-max-128k",
+    "release_date": "2026-07-24",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Claude Opus 5",
+   "score": 34.8,
+   "external_id": "hle-diamond-post:knowledge_max:claude-opus-5-max-128k",
+   "extra": {
+    "model_id": "claude-opus-5-max-128k",
+    "release_date": "2026-07-24",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Kimi K3.1 Pro",
+   "score": 38.7,
+   "external_id": "hle-diamond-post:diamond_max:kimi-k3.1-pro-max-256k",
+   "extra": {
+    "model_id": "kimi-k3.1-pro-max-256k",
+    "release_date": "2026-10-23",
+    "output_cap": "256k",
+    "mean_output_tokens": 37724.7,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Kimi K3.1 Pro",
+   "score": 47.0,
+   "external_id": "hle-diamond-post:reasoning_max:kimi-k3.1-pro-max-256k",
+   "extra": {
+    "model_id": "kimi-k3.1-pro-max-256k",
+    "release_date": "2026-10-23",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Kimi K3.1 Pro",
+   "score": 30.4,
+   "external_id": "hle-diamond-post:knowledge_max:kimi-k3.1-pro-max-256k",
+   "extra": {
+    "model_id": "kimi-k3.1-pro-max-256k",
+    "release_date": "2026-10-23",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Muse Spark 1.3",
+   "score": 34.6,
+   "external_id": "hle-diamond-post:diamond_max:muse-spark-1.3-max-256k",
+   "extra": {
+    "model_id": "muse-spark-1.3-max-256k",
+    "release_date": "2026-09-04",
+    "output_cap": "256k",
+    "mean_output_tokens": 32818.3,
+    "token_count_questions": 967
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Muse Spark 1.3",
+   "score": 44.2,
+   "external_id": "hle-diamond-post:reasoning_max:muse-spark-1.3-max-256k",
+   "extra": {
+    "model_id": "muse-spark-1.3-max-256k",
+    "release_date": "2026-09-04",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Muse Spark 1.3",
+   "score": 25.0,
+   "external_id": "hle-diamond-post:knowledge_max:muse-spark-1.3-max-256k",
+   "extra": {
+    "model_id": "muse-spark-1.3-max-256k",
+    "release_date": "2026-09-04",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Gemini 3.8 Flash",
+   "score": 33.3,
+   "external_id": "hle-diamond-post:diamond_max:gemini-3.8-flash-high-128k",
+   "extra": {
+    "model_id": "gemini-3.8-flash-high-128k",
+    "release_date": "2026-09-02",
+    "output_cap": "128k",
+    "mean_output_tokens": 26074.4,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Gemini 3.8 Flash",
+   "score": 36.6,
+   "external_id": "hle-diamond-post:reasoning_max:gemini-3.8-flash-high-128k",
+   "extra": {
+    "model_id": "gemini-3.8-flash-high-128k",
+    "release_date": "2026-09-02",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Gemini 3.8 Flash",
+   "score": 30.0,
+   "external_id": "hle-diamond-post:knowledge_max:gemini-3.8-flash-high-128k",
+   "extra": {
+    "model_id": "gemini-3.8-flash-high-128k",
+    "release_date": "2026-09-02",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "high",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Kimi K3",
+   "score": 28.3,
+   "external_id": "hle-diamond-post:diamond_max:kimi-k3-max-256k",
+   "extra": {
+    "model_id": "kimi-k3-max-256k",
+    "release_date": "2026-07-16",
+    "output_cap": "256k",
+    "mean_output_tokens": 26854.8,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Kimi K3",
+   "score": 32.6,
+   "external_id": "hle-diamond-post:reasoning_max:kimi-k3-max-256k",
+   "extra": {
+    "model_id": "kimi-k3-max-256k",
+    "release_date": "2026-07-16",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Kimi K3",
+   "score": 24.0,
+   "external_id": "hle-diamond-post:knowledge_max:kimi-k3-max-256k",
+   "extra": {
+    "model_id": "kimi-k3-max-256k",
+    "release_date": "2026-07-16",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Muse Spark Open",
+   "score": 28.2,
+   "external_id": "hle-diamond-post:diamond_max:muse-spark-open-xhigh-256k",
+   "extra": {
+    "model_id": "muse-spark-open-xhigh-256k",
+    "release_date": "2026-10-15",
+    "output_cap": "256k",
+    "mean_output_tokens": 22779.1,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Muse Spark Open",
+   "score": 32.4,
+   "external_id": "hle-diamond-post:reasoning_max:muse-spark-open-xhigh-256k",
+   "extra": {
+    "model_id": "muse-spark-open-xhigh-256k",
+    "release_date": "2026-10-15",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Muse Spark Open",
+   "score": 24.0,
+   "external_id": "hle-diamond-post:knowledge_max:muse-spark-open-xhigh-256k",
+   "extra": {
+    "model_id": "muse-spark-open-xhigh-256k",
+    "release_date": "2026-10-15",
+    "output_cap": "256k"
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "GLM 5.3",
+   "score": 25.1,
+   "external_id": "hle-diamond-post:diamond_max:glm-5.3-max-128k",
+   "extra": {
+    "model_id": "glm-5.3-max-128k",
+    "release_date": "2026-08-14",
+    "text_only_subset": true,
+    "note": "Evaluated on the text-only subset of questions (per the post).",
+    "output_cap": "128k",
+    "mean_output_tokens": 47012.3,
+    "token_count_questions": 728
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "GLM 5.3",
+   "score": 35.2,
+   "external_id": "hle-diamond-post:reasoning_max:glm-5.3-max-128k",
+   "extra": {
+    "model_id": "glm-5.3-max-128k",
+    "release_date": "2026-08-14",
+    "text_only_subset": true,
+    "note": "Evaluated on the text-only subset of questions (per the post).",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "GLM 5.3",
+   "score": 16.0,
+   "external_id": "hle-diamond-post:knowledge_max:glm-5.3-max-128k",
+   "extra": {
+    "model_id": "glm-5.3-max-128k",
+    "release_date": "2026-08-14",
+    "text_only_subset": true,
+    "note": "Evaluated on the text-only subset of questions (per the post).",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Grok 4.7",
+   "score": 25.0,
+   "external_id": "hle-diamond-post:diamond_max:grok-4-7-xhigh",
+   "extra": {
+    "model_id": "grok-4-7-xhigh",
+    "release_date": "2026-09-21",
+    "output_cap": "no cap",
+    "mean_output_tokens": 57365.8,
+    "token_count_questions": 999
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Grok 4.7",
+   "score": 33.8,
+   "external_id": "hle-diamond-post:reasoning_max:grok-4-7-xhigh",
+   "extra": {
+    "model_id": "grok-4-7-xhigh",
+    "release_date": "2026-09-21",
+    "output_cap": "no cap"
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Grok 4.7",
+   "score": 16.2,
+   "external_id": "hle-diamond-post:knowledge_max:grok-4-7-xhigh",
+   "extra": {
+    "model_id": "grok-4-7-xhigh",
+    "release_date": "2026-09-21",
+    "output_cap": "no cap"
+   },
+   "reasoning_effort": "xhigh",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "Claude Haiku 5.5",
+   "score": 19.4,
+   "external_id": "hle-diamond-post:diamond_max:claude-haiku-5-5-max-128k",
+   "extra": {
+    "model_id": "claude-haiku-5-5-max-128k",
+    "release_date": "2026-10-07",
+    "output_cap": "128k",
+    "mean_output_tokens": 80214.1,
+    "token_count_questions": 1000
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "Claude Haiku 5.5",
+   "score": 28.2,
+   "external_id": "hle-diamond-post:reasoning_max:claude-haiku-5-5-max-128k",
+   "extra": {
+    "model_id": "claude-haiku-5-5-max-128k",
+    "release_date": "2026-10-07",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "Claude Haiku 5.5",
+   "score": 10.6,
+   "external_id": "hle-diamond-post:knowledge_max:claude-haiku-5-5-max-128k",
+   "extra": {
+    "model_id": "claude-haiku-5-5-max-128k",
+    "release_date": "2026-10-07",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "diamond_max",
+   "model": "DeepSeek V4 Pro",
+   "score": 16.6,
+   "external_id": "hle-diamond-post:diamond_max:deepseek-v4-pro-max-128k",
+   "extra": {
+    "model_id": "deepseek-v4-pro-max-128k",
+    "output_cap": "128k",
+    "mean_output_tokens": 35296.4,
+    "token_count_questions": 880
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "reasoning_max",
+   "model": "DeepSeek V4 Pro",
+   "score": 20.4,
+   "external_id": "hle-diamond-post:reasoning_max:deepseek-v4-pro-max-128k",
+   "extra": {
+    "model_id": "deepseek-v4-pro-max-128k",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "knowledge_max",
+   "model": "DeepSeek V4 Pro",
+   "score": 12.8,
+   "external_id": "hle-diamond-post:knowledge_max:deepseek-v4-pro-max-128k",
+   "extra": {
+    "model_id": "deepseek-v4-pro-max-128k",
+    "output_cap": "128k"
+   },
+   "reasoning_effort": "max",
+   "evaluation_method": "No tools, highest reasoning setting available, output cap up to 256k"
+  },
+  {
+   "benchmark": "tools",
+   "model": "GPT-6 Astra",
+   "reasoning_effort": "high",
+   "score": 82.9,
+   "evaluation_method": "With tools (web search/fetch + Python), reasoning high; harness Codex CLI 0.155.1",
+   "external_id": "hle-diamond-post:tools:GPT-6 Astra",
+   "extra": {
+    "without_tools_score": 59.9,
+    "harness": "Codex CLI 0.155.1"
+   }
+  },
+  {
+   "benchmark": "tools",
+   "model": "Claude Opus 5.5",
+   "reasoning_effort": "high",
+   "score": 73.9,
+   "evaluation_method": "With tools (web search/fetch + Python), reasoning high; harness Claude Code 2.1.280",
+   "external_id": "hle-diamond-post:tools:Claude Opus 5.5",
+   "extra": {
+    "without_tools_score": 54.6,
+    "harness": "Claude Code 2.1.280"
+   }
+  },
+  {
+   "benchmark": "tools",
+   "model": "GPT-6.1 Sol",
+   "reasoning_effort": "high",
+   "score": 69.1,
+   "evaluation_method": "With tools (web search/fetch + Python), reasoning high",
+   "external_id": "hle-diamond-post:tools:GPT-6.1 Sol",
+   "extra": {
+    "without_tools_score": 53.2
+   }
+  },
+  {
+   "benchmark": "tools",
+   "model": "Claude Fable 5.1",
+   "reasoning_effort": "high",
+   "score": 72.3,
+   "evaluation_method": "With tools (web search/fetch + Python), reasoning high; harness Claude Code 2.1.278",
+   "external_id": "hle-diamond-post:tools:Claude Fable 5.1",
+   "extra": {
+    "without_tools_score": 51.6,
+    "harness": "Claude Code 2.1.278"
+   }
+  },
+  {
+   "benchmark": "tools",
+   "model": "Claude Opus 5",
+   "reasoning_effort": "high",
+   "score": 68.9,
+   "evaluation_method": "With tools (web search/fetch + Python), reasoning high; harness Claude Code 2.1.278",
+   "external_id": "hle-diamond-post:tools:Claude Opus 5",
+   "extra": {
+    "without_tools_score": 38.1,
+    "harness": "Claude Code 2.1.278"
+   }
+  },
+  {
+   "benchmark": "tools",
+   "model": "GPT-6 Sol",
+   "reasoning_effort": "high",
+   "score": 65.0,
+   "evaluation_method": "With tools (web search/fetch + Python), reasoning high; harness Codex CLI 0.155.1",
+   "external_id": "hle-diamond-post:tools:GPT-6 Sol",
+   "extra": {
+    "without_tools_score": 32.8,
+    "harness": "Codex CLI 0.155.1"
+   }
+  },
+  {
+   "benchmark": "tools",
+   "model": "GPT-5.6 Sol",
+   "reasoning_effort": "high",
+   "score": 56.6,
+   "evaluation_method": "With tools (web search/fetch + Python), reasoning high; harness Codex CLI 0.155.1",
+   "external_id": "hle-diamond-post:tools:GPT-5.6 Sol",
+   "extra": {
+    "without_tools_score": 30.4,
+    "harness": "Codex CLI 0.155.1"
+   }
+  },
+  {
+   "benchmark": "tools",
+   "model": "Muse Spark 1.3",
+   "reasoning_effort": "high",
+   "score": 55.4,
+   "evaluation_method": "With tools (web search/fetch + Python), reasoning high; harness Muse Code 1.3.0",
+   "external_id": "hle-diamond-post:tools:Muse Spark 1.3",
+   "extra": {
+    "without_tools_score": 24.6,
+    "harness": "Muse Code 1.3.0"
+   }
+  }
+ ]
+}

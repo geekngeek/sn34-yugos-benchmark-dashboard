@@ -160,6 +160,15 @@ def main() -> None:
         yrows.append({"yugos_model": m["model"], "vendor": m["vendor"], "link": how or "none", "group": target, "note": note})
 
     # ---- 4. model IDs per group --------------------------------------------------------------------------
+    # IDs are stable: a model whose names already had an ID (previous aliases.csv) keeps it, so new data with
+    # other spellings (more rows of "inception-ai" than "Inception") cannot rename it. New models get a new ID.
+    previous: dict[str, collections.Counter] = {}
+    prev_path = OUT / "aliases.csv"
+    if prev_path.exists():
+        for p_row in csv.DictReader(prev_path.open(newline="", encoding="utf-8")):
+            a = aliases.get((p_row["source"], p_row["raw_name"]))
+            if a and not p_row.get("override"):          # an override's target is not the group's own ID
+                previous.setdefault(a["group"], collections.Counter())[p_row["model_id"]] += int(p_row.get("results") or 0) + 1
     group_id: dict[str, str] = {}
     collisions: dict[str, str] = {}
     for root in sorted(groups):
@@ -175,6 +184,10 @@ def main() -> None:
             mid = f"{vendor_slug(label if yv == 'Other' else yv)}/{yp.base if yp.snapshot else links[root]['model']}"
         else:
             mid = model_id(label, display)
+        if root in previous and root not in links:   # a Yugos link names the model on purpose: it wins
+            kept = previous[root].most_common(1)[0][0]
+            if kept not in group_id.values():
+                mid = kept
         if mid in group_id.values():         # two different models would get one ID: keep them apart
             n = 2
             while f"{mid}-{n}" in group_id.values():

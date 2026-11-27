@@ -1,0 +1,316 @@
+{
+ "format": "benchmark-results/v1",
+ "source": {
+  "name": "τ³-Voice multilingual (Sierra)",
+  "site": "https://taubench.com/leaderboard?benchmark=voice",
+  "publisher": "Sierra Research",
+  "description": "Multilingual voice leaderboard (voice-v2 packages: six languages, airline/retail/telecom; plus separately scored τ-Entity intake packages).",
+  "license": "MIT (https://github.com/sierra-research/tau2-bench); submission packages in the official public S3 bucket listed by the leaderboard manifest.",
+  "attribution": "τ-bench / τ³-Voice, Sierra Research (https://taubench.com, https://github.com/sierra-research/tau2-bench).",
+  "retrieved_from": [
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/manifest.json",
+   "https://github.com/sierra-research/tau2-bench/blob/main/web/leaderboard/src/data/voiceV2Rows.js",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gpt-live-1_openai_2026-10-20/benchmark-submission.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gpt-live-1_openai_2026-10-20/benchmark-metadata.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/grok-voice-think-fast-2-0_xai_2026-10-20/benchmark-submission.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/grok-voice-think-fast-2-0_xai_2026-10-20/benchmark-metadata.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gemini-3-8-live-extended-thinking_google_2026-10-07/benchmark-submission.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gemini-3-8-live-extended-thinking_google_2026-10-07/benchmark-metadata.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/ava-zero_avartha_2026-11-19/benchmark-submission.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/ava-zero_avartha_2026-11-19/benchmark-metadata.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/phonic-1_phonic_2026-10-29/benchmark-submission.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/phonic-1_phonic_2026-10-29/benchmark-metadata.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gpt-live-1_openai_2026-10-20_entity/benchmark-submission.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gpt-live-1_openai_2026-10-20_entity/benchmark-metadata.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gpt-live-1_openai_2026-10-20_entity/benchmark-pass3.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/grok-voice-think-fast-2-0_xai_2026-10-20_entity/benchmark-submission.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/grok-voice-think-fast-2-0_xai_2026-10-20_entity/benchmark-metadata.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/grok-voice-think-fast-2-0_xai_2026-10-20_entity/benchmark-pass3.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gemini-3-8-live-extended-thinking_google_2026-10-07_entity/benchmark-submission.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gemini-3-8-live-extended-thinking_google_2026-10-07_entity/benchmark-metadata.json",
+   "https://sierra-tau-bench-public.s3.us-west-2.amazonaws.com/submissions/gemini-3-8-live-extended-thinking_google_2026-10-07_entity/benchmark-pass3.json"
+  ],
+  "notes": [
+   "Overall = summary.score of each voice-v2 package (task completion pass@1 over 6 languages x 3 domains, each cell weighted equally), shown x100 as the leaderboard does. Per-language and per-domain scores in extra.",
+   "Intake = crossed pass^3 from benchmark-pass3.json (a task passes only if it passes under regular, heavy channel noise and heavy speech-effect conditions), x100. Pooled pass@1 in extra.",
+   "Only these 5 (overall) and 3 (intake) packages exist on the board. Multilingual banking packages exist too but are not part of this batch."
+  ],
+  "collected_at": "2026-11-27T00:00:00+00:00"
+ },
+ "benchmarks": [
+  {
+   "key": "overall",
+   "name": "τ³-Voice",
+   "version": "Multilingual overall (voice-v2)",
+   "area": "agentic",
+   "sub_area": "voice agents (customer service)",
+   "unit": "percent",
+   "description": "Task completion pass@1 (%) over six languages and the airline, retail and telecom domains.",
+   "url": "https://taubench.com/leaderboard?benchmark=voice"
+  },
+  {
+   "key": "intake",
+   "name": "τ³-Voice",
+   "version": "Intake (τ-Entity), crossed pass^3",
+   "area": "agentic",
+   "sub_area": "voice agents (entity intake)",
+   "unit": "percent",
+   "description": "Share (%) of intake tasks passed under all three voice conditions (crossed pass^3).",
+   "url": "https://taubench.com/leaderboard?benchmark=voice&domain=intake"
+  }
+ ],
+ "results": [
+  {
+   "benchmark": "overall",
+   "model": "gpt-live-1",
+   "developer": "OpenAI",
+   "evaluation_date": "2026-10-20",
+   "evaluation_method": "τ³-Voice voice-v2 (standard submission by Sierra)",
+   "score": 79.912578,
+   "external_id": "gpt-live-1_openai_2026-10-20:overall",
+   "extra": {
+    "submission": "gpt-live-1_openai_2026-10-20",
+    "submission_type": "standard",
+    "submitting_organization": "Sierra",
+    "agent_provider": "openai_live",
+    "agent_model": "gpt-live-1",
+    "notes": "Agent openai_live gpt-live-1 with the gpt-6-astra backend at medium reasoning effort, marin voice, provider-owned prompt templates. Frozen 2026-10-02 voice-v2 release calls (six languages, one trial per task, regular speech complexity), packaged from the saved export with the historical adapter. Caller simulator openai/gpt-5.5 (reasoning low).",
+    "scored_trials": 891,
+    "expected_trials": 900,
+    "error_trials": 9,
+    "by_language_pct": {
+     "en": 84.666667,
+     "es": 84.0,
+     "pt": 79.333333,
+     "hi": 79.904762,
+     "zh": 80.237374,
+     "ko": 71.333333
+    },
+    "by_domain_pct": {
+     "airline": 83.333333,
+     "retail": 72.861111,
+     "telecom": 83.54329
+    }
+   }
+  },
+  {
+   "benchmark": "overall",
+   "model": "grok-voice-think-fast-2.0",
+   "developer": "xAI",
+   "evaluation_date": "2026-10-20",
+   "evaluation_method": "τ³-Voice voice-v2 (standard submission by Sierra)",
+   "score": 71.369615,
+   "external_id": "grok-voice-think-fast-2-0_xai_2026-10-20:overall",
+   "extra": {
+    "submission": "grok-voice-think-fast-2-0_xai_2026-10-20",
+    "submission_type": "standard",
+    "submitting_organization": "Sierra",
+    "agent_provider": "xai",
+    "agent_model": "grok-voice-think-fast-2.0",
+    "notes": "Agent xai grok-voice-think-fast-2.0 at high reasoning effort. Frozen 2026-10-02 voice-v2 release calls (six languages, one trial per task, regular speech complexity), packaged from the saved export with the historical adapter. Caller simulator openai/gpt-5.5 (reasoning low).",
+    "scored_trials": 898,
+    "expected_trials": 900,
+    "error_trials": 2,
+    "by_language_pct": {
+     "en": 76.0,
+     "es": 76.0,
+     "pt": 66.666667,
+     "hi": 73.333333,
+     "zh": 74.217687,
+     "ko": 62.0
+    },
+    "by_domain_pct": {
+     "airline": 63.877551,
+     "retail": 61.231293,
+     "telecom": 89.0
+    }
+   }
+  },
+  {
+   "benchmark": "overall",
+   "model": "gemini-3.8-live-extended-thinking",
+   "developer": "Google",
+   "evaluation_date": "2026-10-07",
+   "evaluation_method": "τ³-Voice voice-v2 (standard submission by Sierra)",
+   "score": 68.507937,
+   "external_id": "gemini-3-8-live-extended-thinking_google_2026-10-07:overall",
+   "extra": {
+    "submission": "gemini-3-8-live-extended-thinking_google_2026-10-07",
+    "submission_type": "standard",
+    "submitting_organization": "Sierra",
+    "agent_provider": "gemini",
+    "agent_model": "gemini-3.8-live-extended-thinking",
+    "notes": "Agent gemini-3.8-live-extended-thinking at high thinking. Supersedes the 2026-10-09 draft of this entry: includes the later English telecom rerun and recovered infrastructure calls. Frozen 2026-10-02 voice-v2 release calls (six languages, one trial per task, regular speech complexity), packaged from the saved export with the historical adapter. Caller simulator openai/gpt-5.5 (reasoning low).",
+    "scored_trials": 898,
+    "expected_trials": 900,
+    "error_trials": 2,
+    "by_language_pct": {
+     "en": 81.333333,
+     "es": 74.666667,
+     "pt": 76.666667,
+     "hi": 77.333333,
+     "zh": 60.29932,
+     "ko": 40.748299
+    },
+    "by_domain_pct": {
+     "airline": 62.52381,
+     "retail": 58.333333,
+     "telecom": 84.666667
+    }
+   }
+  },
+  {
+   "benchmark": "overall",
+   "model": "Ava Zero",
+   "developer": "Avartha",
+   "evaluation_date": "2026-11-19",
+   "evaluation_method": "τ³-Voice voice-v2 (standard submission by Avartha)",
+   "score": 87.333333,
+   "external_id": "ava-zero_avartha_2026-11-19:overall",
+   "extra": {
+    "submission": "ava-zero_avartha_2026-11-19",
+    "submission_type": "standard",
+    "submitting_organization": "Avartha",
+    "agent_provider": "avartha_pipecat",
+    "agent_model": "avartha",
+    "notes": "Standard Ava Zero evaluation through the avartha_pipecat adapter against a hosted Ava Zero agent on the Avartha Platform over WebRTC. We use GLM 5.3 as the frontend and DeepSeek v4.1 Flash 1017 as the backend worker at Max reasoning. voice-v2 frame (six languages, one trial per task, regular speech complexity), seed 300. Caller simulator openai/gpt-5.5 (reasoning low) with caller voices created by setup_voices.",
+    "scored_trials": 900,
+    "expected_trials": 900,
+    "error_trials": 0,
+    "by_language_pct": {
+     "en": 85.333333,
+     "es": 86.666667,
+     "pt": 86.0,
+     "hi": 88.666667,
+     "zh": 89.333333,
+     "ko": 88.0
+    },
+    "by_domain_pct": {
+     "airline": 84.0,
+     "retail": 85.333333,
+     "telecom": 92.666667
+    }
+   }
+  },
+  {
+   "benchmark": "overall",
+   "model": "phonic-1",
+   "developer": "Phonic",
+   "evaluation_date": "2026-10-29",
+   "evaluation_method": "τ³-Voice voice-v2 (standard submission by Phonic)",
+   "score": 83.222222,
+   "external_id": "phonic-1_phonic_2026-10-29:overall",
+   "extra": {
+    "submission": "phonic-1_phonic_2026-10-29",
+    "submission_type": "standard",
+    "submitting_organization": "Phonic",
+    "agent_provider": "phonic",
+    "agent_model": "phonic-1",
+    "notes": "Phonic phonic-1 (intelligence level: high), full-duplex audio-native evaluation through the phonic adapter. voice-v2 frame (six languages, one trial per task, regular speech complexity). Caller simulator openai/gpt-5.5 (reasoning low). User-side voices are our own ElevenLabs voices, created with the same settings as tau2's setup_voices script; not Sierra-managed submission voices.",
+    "scored_trials": 900,
+    "expected_trials": 900,
+    "error_trials": 0,
+    "by_language_pct": {
+     "en": 85.333333,
+     "es": 90.666667,
+     "pt": 89.333333,
+     "hi": 78.666667,
+     "zh": 90.666667,
+     "ko": 64.666667
+    },
+    "by_domain_pct": {
+     "airline": 81.666667,
+     "retail": 70.666667,
+     "telecom": 97.333333
+    }
+   }
+  },
+  {
+   "benchmark": "intake",
+   "model": "gpt-live-1",
+   "developer": "OpenAI",
+   "evaluation_date": "2026-10-20",
+   "evaluation_method": "τ³-Voice voice-v2-entity (standard submission by Sierra)",
+   "score": 34.0,
+   "external_id": "gpt-live-1_openai_2026-10-20_entity:intake_pass3",
+   "extra": {
+    "submission": "gpt-live-1_openai_2026-10-20_entity",
+    "submission_type": "standard",
+    "submitting_organization": "Sierra",
+    "agent_provider": "openai_live",
+    "agent_model": "gpt-live-1",
+    "notes": "Agent openai_live gpt-live-1 with the gpt-6-astra backend at medium reasoning effort, marin voice, provider-owned prompt templates. Frozen 2026-10-02 voice-v2 release calls (six languages, one trial per task, regular speech complexity), packaged from the saved export with the historical adapter. Caller simulator openai/gpt-5.5 (reasoning low).",
+    "scored_trials": 1200,
+    "expected_trials": 1200,
+    "error_trials": 0,
+    "pass1_pooled_pct": 60.333333,
+    "pass3_by_language_pct": {
+     "en": 47.5,
+     "es": 40.5,
+     "pt": 46.0,
+     "hi": 37.0,
+     "zh": 24.5,
+     "ko": 8.5
+    }
+   }
+  },
+  {
+   "benchmark": "intake",
+   "model": "grok-voice-think-fast-2.0",
+   "developer": "xAI",
+   "evaluation_date": "2026-10-20",
+   "evaluation_method": "τ³-Voice voice-v2-entity (standard submission by Sierra)",
+   "score": 24.0,
+   "external_id": "grok-voice-think-fast-2-0_xai_2026-10-20_entity:intake_pass3",
+   "extra": {
+    "submission": "grok-voice-think-fast-2-0_xai_2026-10-20_entity",
+    "submission_type": "standard",
+    "submitting_organization": "Sierra",
+    "agent_provider": "xai",
+    "agent_model": "grok-voice-think-fast-2.0",
+    "notes": "Agent xai grok-voice-think-fast-2.0 at high reasoning effort. Frozen 2026-10-02 voice-v2 release calls (six languages, one trial per task, regular speech complexity), packaged from the saved export with the historical adapter. Caller simulator openai/gpt-5.5 (reasoning low).",
+    "scored_trials": 1200,
+    "expected_trials": 1200,
+    "error_trials": 0,
+    "pass1_pooled_pct": 44.166667,
+    "pass3_by_language_pct": {
+     "en": 29.0,
+     "es": 31.5,
+     "pt": 34.5,
+     "hi": 27.5,
+     "zh": 15.5,
+     "ko": 6.0
+    }
+   }
+  },
+  {
+   "benchmark": "intake",
+   "model": "gemini-3.8-live-extended-thinking",
+   "developer": "Google",
+   "evaluation_date": "2026-10-07",
+   "evaluation_method": "τ³-Voice voice-v2-entity (standard submission by Sierra)",
+   "score": 19.5,
+   "external_id": "gemini-3-8-live-extended-thinking_google_2026-10-07_entity:intake_pass3",
+   "extra": {
+    "submission": "gemini-3-8-live-extended-thinking_google_2026-10-07_entity",
+    "submission_type": "standard",
+    "submitting_organization": "Sierra",
+    "agent_provider": "gemini",
+    "agent_model": "gemini-3.8-live-extended-thinking",
+    "notes": "Agent gemini-3.8-live-extended-thinking at high thinking. Supersedes the 2026-10-09 draft of this entry: includes the later English telecom rerun and recovered infrastructure calls. Frozen 2026-10-02 voice-v2 release calls (six languages, one trial per task, regular speech complexity), packaged from the saved export with the historical adapter. Caller simulator openai/gpt-5.5 (reasoning low).",
+    "scored_trials": 1200,
+    "expected_trials": 1200,
+    "error_trials": 0,
+    "pass1_pooled_pct": 43.75,
+    "pass3_by_language_pct": {
+     "en": 17.0,
+     "es": 28.0,
+     "pt": 25.5,
+     "hi": 30.5,
+     "zh": 12.5,
+     "ko": 3.5
+    }
+   }
+  }
+ ]
+}
