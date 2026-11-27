@@ -3,14 +3,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent, type PointerEvent as ReactPointerEvent } from "react";
 
 /**
- * A column a table offers. `width` is its default size in px. A `fixed` column keeps its px width;
- * the others are flexible: they share the space left over in proportion to their widths, so the
- * table always fits its container and follows it when the window or a side panel changes size.
- * No column gets narrower than `min` px (the table scrolls sideways instead).
+ * A column a table offers. `width` is its default size in px. Until the user resizes a column, the table
+ * fits its container: a `fixed` column keeps its px width and the flexible ones share what is left, following
+ * the window or a side panel. The first resize freezes every column at its current px size; from then on a
+ * drag changes only the grabbed column and the table scrolls sideways when wider than its box ("Reset columns"
+ * goes back to fitting). No column gets narrower than `min` px.
  */
 export interface ColDef { key: string; width: number; min?: number; fixed?: boolean }
 /** what the server keeps per table (lib/uiLayout.ts) */
-export interface SavedLayout { order?: string[]; widths?: Record<string, number> }
+export interface SavedLayout { order?: string[]; widths?: Record<string, number>; px?: boolean }
 
 const SAVE_DELAY = 400;
 
@@ -43,12 +44,14 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
 
   const [order, setOrder] = useState<string[]>(initialOrder);
   const [widths, setWidths] = useState<Record<string, number>>(() => ({ ...(saved?.widths ?? {}) }));
+  // true once the user has resized a column: widths are plain px and no longer stretch to fit the box
+  const [pxMode, setPxMode] = useState(saved?.px === true);
   const [drag, setDrag] = useState<string | null>(null);
   const [drop, setDrop] = useState<{ key: string; side: "before" | "after" } | null>(null);
   const resizing = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const latest = useRef({ order, widths });
-  latest.current = { order, widths };
+  const latest = useRef({ order, widths, px: pxMode });
+  latest.current = { order, widths, px: pxMode };
 
   const send = useCallback(() => {
     timer.current = null;
@@ -89,6 +92,7 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
   // actual px per column: fixed ones as saved, flexible ones share what is left (whole px, remainder to the last)
   const px = useMemo(() => {
     const out: Record<string, number> = {};
+    if (pxMode) { for (const c of cols) out[c.key] = Math.max(minOf(c.key), raw(c.key)); return out; }
     const flex = cols.filter((c) => !c.fixed);
     const fixedSum = cols.filter((c) => c.fixed).reduce((s, c) => s + raw(c.key), 0);
     const weight = flex.reduce((s, c) => s + raw(c.key), 0);
@@ -102,11 +106,11 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
     }
     return out;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cols.map((c) => c.key).join(), widths, box, reserve]);
+  }, [cols.map((c) => c.key).join(), widths, box, reserve, pxMode]);
 
   const width = (key: string) => px[key] ?? raw(key);
   const total = cols.reduce((s, c) => s + width(c.key), 0);
-  const customised = order.join() !== defs.map((d) => d.key).join() || Object.keys(widths).length > 0;
+  const customised = pxMode || order.join() !== defs.map((d) => d.key).join() || Object.keys(widths).length > 0;
 
   const move = (from: string, to: string, side: "before" | "after") => {
     if (from === to) return;
@@ -121,6 +125,7 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
   const reset = () => {
     setOrder(defs.map((d) => d.key));
     setWidths({});
+    setPxMode(false);
     if (timer.current) { clearTimeout(timer.current); timer.current = null; }
     fetch("/api/ui-layout", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id, reset: true }) })
       .catch(() => undefined);
@@ -163,36 +168,24 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
       onClick={(e) => e.stopPropagation()}
       onDoubleClick={(e) => {
         e.stopPropagation();
-        setWidths((w) => { const n = { ...w }; delete n[key]; return n; });
+        // its default size; in fitting mode the others share the rest as before, frozen ones stay put
+        setWidths((w) => { const n = { ...w }; if (pxMode) n[key] = byKey.get(key)?.width ?? 100; else delete n[key]; return n; });
         persist();
       }}
       onPointerDown={(e: ReactPointerEvent<HTMLSpanElement>) => {
         e.preventDefault(); e.stopPropagation();
         resizing.current = true;
-        const startX = e.clientX;
-        const col = byKey.get(key)!;
-        // a flexible column grows into its flexible neighbour (right, or left for the last one), so the table keeps fitting
-        const flex = cols.filter((c) => !c.fixed);
-        const at = flex.findIndex((c) => c.key === key);
-        const other = col.fixed || box === null ? undefined : (flex[at + 1] ?? flex[at - 1]);
-        const a = { key, px: width(key), w: raw(key), min: minOf(key) };
-        const b = other && { key: other.key, px: width(other.key), w: raw(other.key), min: minOf(other.key) };
+        const startX = e.clientX, start = width(key), min = minOf(key);
+        // first resize: freeze every column at the size it has on screen now, so only the grabbed one moves
+        if (!pxMode) {
+          setWidths(Object.fromEntries(cols.map((c) => [c.key, width(c.key)])));
+          setPxMode(true);
+        }
         const el = e.currentTarget;
         el.setPointerCapture(e.pointerId);
         document.body.classList.add("col-resizing");
         const onMove = (ev: PointerEvent) => {
-          let dx = ev.clientX - startX;
-          if (!b) {   // fixed column (or not measured yet): plain px
-            setWidths((w) => ({ ...w, [key]: Math.max(a.min, Math.round(a.w + dx)) }));
-            return;
-          }
-          // the column grows by dx and its neighbour gives up the same, each kept at or above its minimum
-          dx = Math.min(Math.max(dx, a.min - a.px), b.px - b.min);
-          setWidths((w) => ({
-            ...w,
-            [a.key]: Math.max(1, Math.round((a.w * (a.px + dx)) / a.px)),
-            [b.key]: Math.max(1, Math.round((b.w * (b.px - dx)) / b.px)),
-          }));
+          setWidths((w) => ({ ...w, [key]: Math.max(min, Math.round(start + ev.clientX - startX)) }));
         };
         const onUp = () => {
           resizing.current = false;

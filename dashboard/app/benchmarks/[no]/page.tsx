@@ -156,7 +156,6 @@ export default async function BenchmarkDetailPage({ params, searchParams }: { pa
           <p className="bd-tags">
             {parentNo ? <span className="chip">Sub-benchmark of {parent?.name ?? parentNo}</span> : <span className="chip">Benchmark · {kids.length} sub-benchmarks</span>}
             {row.category && <span className="chip">{row.category}</span>}
-            {/^yes$/i.test(row.yugos) && <span className="bl-yes">Used by Yugos</span>}
             {/^https?:\/\//.test(row.url) && <a href={row.url} target="_blank" rel="noreferrer">{row.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")} ↗</a>}
           </p>
         </div>

@@ -19,7 +19,7 @@
 body.col-resizing, body.col-resizing * { cursor: col-resize !important; user-select: none !important; }
 
 /* tables sized by their <colgroup>: cells keep to their column and cut long text with "…" */
-table.cl { table-layout: fixed; min-width: 100%; }
+table.cl { table-layout: fixed; }   /* no min-width: a frozen layout narrower than the box must not stretch its columns */
 table.cl > thead > tr > th, table.cl > tbody > tr > td { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .col-reset { font-size: 12px; }
@@ -31,6 +31,7 @@ table.cl > thead > tr > th, table.cl > tbody > tr > td { overflow: hidden; text-
 /* Benchmark list (CSS-grid rows): column widths come from the saved layout */
 .bl-grid .bl-row { grid-template-columns: var(--bl-cols); width: max-content; min-width: 100%; }
 .bl-grid .bl-head > .col-head { overflow: visible; }
+.bl-grid .bl-head > .col-head > .col-label { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* Benchmark list: Category / Reports filter row */
 .bl-filters { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; }

@@ -75,3 +75,9 @@
 .ds-filters .bl-fit { flex-direction: row; align-items: center; }
 .bl-fitlist { margin: 0; padding-left: 16px; display: grid; gap: 3px; }
 .mx-ov { color: #c98500; font-size: 10px; margin-left: 3px; cursor: help; }
+
+/* Live overlap column of the Benchmark list: ◆ + the live Yugos sets a row shares questions with */
+.c-live { display: flex; align-items: center; gap: 3px; overflow: hidden; white-space: nowrap; cursor: help; }
+.c-live.faint { opacity: .6; }
+.live-mark { color: #c98500; font-size: 11px; flex-shrink: 0; }
+.live-set { font-size: 10.5px; font-weight: 600; color: var(--mx-warn-ink); background: var(--mx-warn-bg); border-radius: 4px; padding: 0 5px; flex-shrink: 0; }

@@ -31,6 +31,7 @@ export interface TreeItem {
   children: TreeItem[];
   match?: MatchInfo | null;   // Yugos match of a sub-benchmark (lib/yugosMatch.ts)
   fit?: MatchTriple | null;   // its 3 category scores; for a parent, the best of its sub-benchmarks
+  live?: string[];            // live Yugos sets it shares questions with (ids); for a parent, those of its sub-benchmarks
 }
 
 interface Ranked { name: string; score: string }
@@ -49,7 +50,6 @@ function parseTop(text: string): Ranked[] | null {
 }
 
 const shortUrl = (u: string) => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
-const yes = (v: string) => v.trim().toLowerCase() === "yes";
 
 /**
  * The benchmark list as a compact tree: one line per benchmark, sub-benchmarks indented under
@@ -58,26 +58,26 @@ const yes = (v: string) => v.trim().toLowerCase() === "yes";
  */
 // tree columns: default order and widths (px); dragged and resized by the user, saved on the server
 const TREE_COLS: ColDef[] = [
-  { key: "no", width: 46, min: 30, fixed: true }, { key: "name", width: 270, min: 120 }, { key: "yugos", width: 60, min: 40, fixed: true }, { key: "difficulty", width: 92, min: 80, fixed: true },
-  { key: "fit", width: 150, min: 136, fixed: true }, { key: "category", width: 110 }, { key: "focus", width: 220 }, { key: "top", width: 300 },
+  { key: "no", width: 46, min: 30, fixed: true }, { key: "name", width: 270, min: 120 }, { key: "difficulty", width: 92, min: 80, fixed: true },
+  { key: "fit", width: 150, min: 136, fixed: true }, { key: "live", width: 130, min: 70 }, { key: "category", width: 110 }, { key: "focus", width: 220 }, { key: "top", width: 300 },
   { key: "reports", width: 300 }, { key: "link", width: 28, min: 22, fixed: true }, { key: "notes", width: 28, min: 22, fixed: true },
 ];
 const TREE_HEADS: Record<string, { label: string; cls?: string; title?: string; aria?: string }> = {
-  no: { label: "No", cls: "c-no" }, name: { label: "Benchmark" }, yugos: { label: "Yugos", cls: "c-yug", title: "Used by Yugos" },
+  no: { label: "No", cls: "c-no" }, name: { label: "Benchmark" },
   difficulty: { label: "Difficulty", title: "Difficulty level 1-5 from published scores (hover a row's stars for details)" },
   fit: { label: "Yugos fit", title: "How well the questions could stand in for Yugos's questions: bars for chat · math & code · agentic, with the best %. On a benchmark row: its best sub-benchmark. Click a row for the breakdown." },
+  live: { label: "Live overlap", title: "◆ Shares questions with these live Yugos sets: remove those questions before use, never test on them. Hover a row for the reason." },
   category: { label: "Category" }, focus: { label: "Focus" }, top: { label: "Top ranked" },
   reports: { label: "Reports", title: "Parameters the benchmark reports besides its score" },
   link: { label: "", cls: "c-ico", aria: "Link" }, notes: { label: "", cls: "c-ico", aria: "Notes" },
 };
 
-export function BenchmarkTree({ items, expandAll = false, initialView = "tree", layout, query: initialQuery, matchTargets = null }: { items: TreeItem[]; expandAll?: boolean; initialView?: "tree" | "params"; layout?: SavedLayout; query?: Query; matchTargets?: MatchTargets | null }) {
+export function BenchmarkTree({ items, expandAll = false, initialView = "tree", layout, query: initialQuery, matchTargets = null, liveSets = {} }: { items: TreeItem[]; expandAll?: boolean; initialView?: "tree" | "params"; layout?: SavedLayout; query?: Query; matchTargets?: MatchTargets | null; liveSets?: Record<string, string> }) {
   const cl = useColumnLayout("benchmark-list", TREE_COLS, layout);
   const [tree, setTree] = useState(items);
   const [open, setOpen] = useState<Set<string>>(() => new Set(expandAll ? items.filter((p) => p.children.length).map((p) => p.no) : []));
   // every filter and the view start from the URL (?q=&yugos=1&notes=1&cat=…&param=…&site=1&view=params) and are written back to it
   const [query, setQuery] = useState(() => qOne(initialQuery, "q"));
-  const [onlyYugos, setOnlyYugos] = useState(() => qFlag(initialQuery, "yugos"));
   const [onlyNoted, setOnlyNoted] = useState(() => qFlag(initialQuery, "notes"));
   // filters on the benchmark (parent) rows; a parent that passes keeps its sub-benchmarks
   const [cats, setCats] = useState<string[]>(() => qMany(initialQuery, "cat"));      // sub-benchmarks in any of these categories
@@ -135,7 +135,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   const narrowed = cats.length > 0 || params.length > 0 || levels.length > 0 || fitCat !== "" || noOverlap;
   const levelCounts = useMemo(() => [0, 1, 2, 3, 4, 5].map((L) => tree.reduce((n, p) => n + p.children.filter((c) =>
     (c.difficulty.kind === "firm" || c.difficulty.kind === "range") && L >= c.difficulty.lo && L <= c.difficulty.hi).length, 0)), [tree]);
-  useQuerySync({ q: query.trim(), yugos: onlyYugos, notes: onlyNoted, cat: cats, diff: levels.map(String), param: params, site: onSiteOnly && params.length > 0,
+  useQuerySync({ q: query.trim(), notes: onlyNoted, cat: cats, diff: levels.map(String), param: params, site: onSiteOnly && params.length > 0,
                  fit: fitCat || null, fitmin: fitCat ? String(fitMin) : null, nolive: noOverlap,
                  view: view === "params" ? "params" : null });
 
@@ -143,7 +143,6 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   const visible = useMemo(() => {
     const rows: { item: TreeItem; depth: number; parent?: TreeItem; shownKids: number }[] = [];
     for (const p of tree) {
-      if (onlyYugos && !yes(p.yugos)) continue;
       // a benchmark stays when it reports the chosen parameters itself (its overall table) or a sub-benchmark does
       let base = params.length ? p.children.filter((c) => subPasses(c, p)) : p.children;
       if (subFiltered) base = base.filter(kidOk);
@@ -155,7 +154,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
       if (filtering ? kids.length > 0 : open.has(p.no)) for (const c of kids) rows.push({ item: c, depth: 1, parent: p, shownKids: 0 });
     }
     return rows;
-  }, [tree, open, q, onlyYugos, onlyNoted, cats, levels, params, onSiteOnly, topicsOf, fitCat, fitMin, noOverlap]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [tree, open, q, onlyNoted, cats, levels, params, onSiteOnly, topicsOf, fitCat, fitMin, noOverlap]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const byNo = useMemo(() => {
     const m = new Map<string, { item: TreeItem; parent?: TreeItem }>();
@@ -247,7 +246,6 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
         </div>
         <input ref={searchRef} type="search" className="bl-search" placeholder="Search names, models, notes…  ( / )"
                value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search the benchmark list" />
-        <label className="bl-toggle"><input type="checkbox" checked={onlyYugos} onChange={(e) => setOnlyYugos(e.target.checked)} /> Yugos only</label>
         <label className="bl-toggle"><input type="checkbox" checked={onlyNoted} onChange={(e) => setOnlyNoted(e.target.checked)} /> With my notes</label>
         <span className="muted small">{tree.length} benchmarks · {subTotal} sub-benchmarks</span>
         {!panel && <button type="button" className="button bl-showpanel" onClick={() => setPanel(true)}
@@ -318,7 +316,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
               const hp = cl.head(key);
               return (
                 <span key={key} role="columnheader" {...hp} className={`${hp.className}${h.cls ? ` ${h.cls}` : ""}`}
-                      title={h.title} aria-label={h.aria}>{h.label}{cl.grip(key)}</span>
+                      title={h.title} aria-label={h.aria}><span className="col-label">{h.label}</span>{cl.grip(key)}</span>
               );
             })}
           </div>
@@ -340,9 +338,15 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
               ),
               fit: () => (
                   <span key="fit" className="c-fit">
-                    {i.fit ? <MatchBars t={i.fit} faint={depth === 0} overlap={!!i.match?.live_overlap}
+                    {i.fit ? <MatchBars t={i.fit} faint={depth === 0}
                                         title={`${depth === 0 ? "Best sub-benchmark per category — " : ""}${MATCH_CATS.map((k) => `${CAT_LABEL[k]} ${pct(i.fit![k])}`).join(" · ")}${i.match ? ` · stands in for the ${i.match.best.part} part of ${CAT_LABEL[i.match.best.category]}` : ""}`} />
                            : depth === 1 ? <span className="muted small" title="Not assessed yet">—</span> : null}
+                  </span>
+              ),
+              live: () => (
+                  <span key="live" className={`c-live${depth === 0 ? " faint" : ""}`}
+                        title={i.live?.length ? `${depth === 0 ? "Its sub-benchmarks share questions with: " : "Shares questions with live Yugos "}${i.live.map((id) => `${id} (${liveSets[id] ?? id})`).join(", ")}${depth === 1 && i.match?.overlap ? `\n\n${i.match.overlap}` : ""}` : undefined}>
+                    {i.live?.length ? <><span className="live-mark" aria-label="Overlaps live Yugos sets">◆</span>{i.live.map((id) => <span key={id} className="live-set">{id}</span>)}</> : null}
                   </span>
               ),
               name: () => (
@@ -361,9 +365,6 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
                       <span className="bl-count">{filtering && shownKids !== i.children.length ? `${shownKids}/` : ""}{i.children.length}</span>
                     )}
                   </span>
-              ),
-              yugos: () => (
-                  <span key="yugos" className="c-yug">{yes(i.yugos) ? <span className="bl-yes">Yes</span> : depth === 0 && i.yugos ? <span className="muted">No</span> : null}</span>
               ),
               category: () => (
                   <span key="category" className="c-cat" data-tip>{i.category}</span>
@@ -478,7 +479,6 @@ function Details({ item, parent, onSaved, onPick, onClose, width, onResize, matc
       <h2 className="bl-title">{item.name}</h2>
       <div className="row small">
         {item.category && <span className="chip">{item.category}</span>}
-        {yes(item.yugos) && <span className="bl-yes">Used by Yugos</span>}
         {item.children.length > 0 && <span className="muted">{item.children.length} sub-benchmarks</span>}
       </div>
       {/^https?:\/\//.test(item.url) && (

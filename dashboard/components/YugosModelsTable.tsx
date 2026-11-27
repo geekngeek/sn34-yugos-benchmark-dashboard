@@ -384,7 +384,7 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
         if (m.results && m.model_uuid) {
           return (
             <td key="results" className="num" title={`${m.model_id}: ${m.results} results in ${m.benchmarks} benchmarks${how}`}>
-              <a href={`/?model_id=${m.model_uuid}`}>{m.results.toLocaleString("en-US")}</a>
+              {m.results.toLocaleString("en-US")}
               <span className="subtle"> · {m.benchmarks}b</span>
             </td>
           );

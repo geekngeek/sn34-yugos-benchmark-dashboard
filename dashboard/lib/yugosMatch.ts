@@ -79,3 +79,9 @@ export const FACTOR_INFO: { key: "T" | "I" | "A" | "Dm" | "L" | "F" | "D"; label
 ];
 
 export const LEVEL_SHORT = ["L1", "L2", "L3", "L4", "L5"];
+
+/** the live Yugos sets an overlap note names, by id ("hle", "mmlu_pro"), in the given order */
+export function liveSetsIn(note: string | null | undefined, liveIds: string[]): string[] {
+  if (!note) return [];
+  return liveIds.filter((id) => new RegExp(`(?<![\\w-])${id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\w-])`).test(note));
+}
