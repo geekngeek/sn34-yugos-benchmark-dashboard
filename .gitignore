@@ -18,5 +18,6 @@ dashboard/next-env.d.ts
 backups/
 logs/
 
-# scraped Artificial Analysis pages: never imported (AA terms), keep out of the repo
+# scraped Artificial Analysis pages and their converted file (scripts/convert_aa_scraped.py): AA terms forbid redistribution, keep out of the repo
 data/artificial-analysis/
+data/artificial-analysis-scraped.json

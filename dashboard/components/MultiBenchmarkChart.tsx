@@ -510,7 +510,8 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
           <p className="empty">No points have both {mx.short.toLowerCase()} and {my.short.toLowerCase()} for the chosen models and benchmarks. Pick other axes or models.</p>
         ) : solo ? (
           <>
-            <div className="mc-panel-title"><ShapeIcon i={seriesIdx.get(solo.id) ?? 0} color={seriesColor(solo)} /> {solo.root && <span className="mc-key-root">{solo.root}</span>}<b>{solo.label}</b>
+            <div className="mc-panel-title"><ShapeIcon i={seriesIdx.get(solo.id) ?? 0} color={seriesColor(solo)} />
+              <span className="mc-panel-name" title={[solo.root, solo.label].filter(Boolean).join(" · ")}>{solo.root && <span className="mc-key-root">{solo.root}</span>}<b>{solo.label}</b></span>
               {solo.difficulty.kind !== "none" && <Stars d={solo.difficulty} span={solo.span} />}</div>
             {(() => {
               const pts = usable.filter((p) => p.benchmark_id === solo.id);
@@ -531,8 +532,9 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
               const dom = { x: autoDomain(pts.map((p) => val(p, x)!), logX), y: fitAll.y };
               return (
                 <div key={s.id} className="mc-panel">
-                  <div className="mc-panel-title small"><ShapeIcon i={seriesIdx.get(s.id) ?? 0} color={seriesColor(s)} /> {s.root && <span className="mc-key-root">{s.root}</span>}<b>{s.label}</b>
-                    {s.difficulty.kind !== "none" && <Stars d={s.difficulty} span={s.span} />} <span className="muted">{pts.length}</span>
+                  <div className="mc-panel-title small"><ShapeIcon i={seriesIdx.get(s.id) ?? 0} color={seriesColor(s)} />
+                    <span className="mc-panel-name" title={[s.root, s.label].filter(Boolean).join(" · ")}>{s.root && <span className="mc-key-root">{s.root}</span>}<b>{s.label}</b></span>
+                    {s.difficulty.kind !== "none" && <Stars d={s.difficulty} span={s.span} />} <span className="muted mc-panel-n">{pts.length}</span>
                     <button type="button" className="mc-panel-fs" aria-label={`Open ${s.label} full screen`} title="Open this chart full screen (wheel zooms, drag pans)"
                             onClick={() => { setFocus(s.id); setView(null); setFull(true); root.current?.requestFullscreen?.().catch(() => undefined); }}>
                       <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>

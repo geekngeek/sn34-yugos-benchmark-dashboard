@@ -13,6 +13,7 @@ const TABS = [
 /** top navigation between the app's pages */
 export function Tabs() {
   const path = usePathname();
+  if (path === "/login") return null;
   return (
     <nav className="tabs" aria-label="Pages">
       <div className="tabs-inner">
@@ -24,6 +25,10 @@ export function Tabs() {
             </Link>
           );
         })}
+        <button type="button" className="tab tab-logout" title="Sign out"
+                onClick={async () => { await fetch("/api/auth/logout", { method: "POST" }); location.replace("/login"); }}>
+          Sign out
+        </button>
       </div>
     </nav>
   );

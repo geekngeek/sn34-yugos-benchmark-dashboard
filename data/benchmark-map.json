@@ -984,6 +984,13 @@
      "version": "v5",
      "results": 155,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "Artificial Analysis Finance & Accounting Index",
+     "version": "scraped",
+     "results": 167,
+     "method": "override"
     }
    ]
   },
@@ -999,6 +1006,13 @@
      "version": null,
      "results": 24,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Briefcase",
+     "version": "scraped",
+     "results": 291,
+     "method": "override"
     }
    ]
   },
@@ -1009,11 +1023,11 @@
    "name": "AutomationBench-AA",
    "benchmarks": [
     {
-     "source": "BenchLM",
-     "name": "AA AutomationBench",
-     "version": null,
-     "results": 24,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-AutomationBench",
+     "version": "scraped",
+     "results": 286,
+     "method": "override"
     }
    ]
   },
@@ -1028,6 +1042,13 @@
      "name": "GDP.pdf",
      "version": null,
      "results": 23,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-GDP.pdf",
+     "version": "scraped",
+     "results": 286,
      "method": "override"
     }
    ]
@@ -1044,6 +1065,13 @@
      "version": null,
      "results": 3,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-FrontierCode 2.0",
+     "version": "scraped",
+     "results": 157,
+     "method": "override"
     }
    ]
   },
@@ -1052,14 +1080,30 @@
    "kind": "sub",
    "parent": "2",
    "name": "Terminal-Bench 4.1",
-   "benchmarks": []
+   "benchmarks": [
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Terminal-Bench 4.1",
+     "version": "scraped",
+     "results": 282,
+     "method": "override"
+    }
+   ]
   },
   "2.7": {
    "no": "2.7",
    "kind": "sub",
    "parent": "2",
    "name": "Terminal-Bench-Science 0.1",
-   "benchmarks": []
+   "benchmarks": [
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Terminal-Bench Science",
+     "version": "scraped",
+     "results": 171,
+     "method": "override"
+    }
+   ]
   },
   "2.8": {
    "no": "2.8",
@@ -1072,6 +1116,13 @@
      "name": "CritPt v2 (Hard)",
      "version": null,
      "results": 1,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-CRITPt Agentic Hard",
+     "version": "scraped",
+     "results": 161,
      "method": "override"
     }
    ]
@@ -1088,6 +1139,13 @@
      "version": null,
      "results": 169,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Omniscience Index",
+     "version": "scraped",
+     "results": 100,
+     "method": "override"
     }
    ]
   },
@@ -1102,6 +1160,13 @@
      "name": "HLE-Diamond",
      "version": "No tools, reasoning high (release post)",
      "results": 25,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-HLE-Diamond",
+     "version": "scraped",
+     "results": 198,
      "method": "override"
     }
    ]
@@ -1158,11 +1223,11 @@
    "name": "Healthcare & Medical Index",
    "benchmarks": [
     {
-     "source": "Artificial Analysis",
+     "source": "Artificial Analysis (scraped)",
      "name": "Artificial Analysis Healthcare & Medical Index",
-     "version": null,
+     "version": "scraped",
      "results": 122,
-     "method": "name"
+     "method": "override"
     }
    ]
   },
@@ -1173,11 +1238,11 @@
    "name": "Legal Index",
    "benchmarks": [
     {
-     "source": "Artificial Analysis",
-     "name": "Artificial Analysis Legal Index",
-     "version": null,
-     "results": 167,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "Artificial Analysis Engineering Index",
+     "version": "scraped",
+     "results": 155,
+     "method": "override"
     }
    ]
   },
@@ -1188,11 +1253,11 @@
    "name": "Strategy & Ops Index",
    "benchmarks": [
     {
-     "source": "Artificial Analysis",
-     "name": "Artificial Analysis Strategy & Ops Index",
-     "version": null,
-     "results": 171,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "Artificial Analysis Economics Index",
+     "version": "scraped",
+     "results": 167,
+     "method": "override"
     }
    ]
   },
@@ -1207,6 +1272,13 @@
      "name": "AA Cyber Index",
      "version": null,
      "results": 21,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Cyber Index",
+     "version": "scraped",
+     "results": 36,
      "method": "override"
     }
    ]
@@ -1223,6 +1295,13 @@
      "version": null,
      "results": 21,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "CWE-Bench-AA",
+     "version": "scraped",
+     "results": 36,
+     "method": "override"
     }
    ]
   },
@@ -1238,6 +1317,13 @@
      "version": null,
      "results": 21,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "DeepsecBench-AA",
+     "version": "scraped",
+     "results": 38,
+     "method": "override"
     }
    ]
   },
@@ -1252,6 +1338,13 @@
      "name": "CyberGym-E2E-AA",
      "version": null,
      "results": 21,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "CyberGym-E2E-AA",
+     "version": "scraped",
+     "results": 36,
      "method": "override"
     }
    ]
@@ -1346,6 +1439,13 @@
      "version": null,
      "results": 8,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Openness Index",
+     "version": "scraped",
+     "results": 354,
+     "method": "override"
     }
    ]
   },
@@ -1354,7 +1454,15 @@
    "kind": "sub",
    "parent": "2",
    "name": "AA-3D",
-   "benchmarks": []
+   "benchmarks": [
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-3D",
+     "version": "scraped",
+     "results": 30,
+     "method": "override"
+    }
+   ]
   },
   "2.33": {
    "no": "2.33",
@@ -1368,6 +1476,13 @@
      "version": null,
      "results": 29,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "APEX-Agents-AA",
+     "version": "scraped",
+     "results": 34,
+     "method": "override"
     }
    ]
   },
@@ -1378,11 +1493,11 @@
    "name": "AA-AnalystAgent",
    "benchmarks": [
     {
-     "source": "BenchLM",
+     "source": "Artificial Analysis (scraped)",
      "name": "AA-AnalystAgent",
-     "version": null,
-     "results": 26,
-     "method": "name"
+     "version": "scraped",
+     "results": 65,
+     "method": "override"
     }
    ]
   },
@@ -1398,6 +1513,13 @@
      "version": null,
      "results": 10,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Harvey LAB",
+     "version": "scraped",
+     "results": 48,
+     "method": "override"
     }
    ]
   },
@@ -1408,11 +1530,11 @@
    "name": "EnterpriseOps-Gym-AA",
    "benchmarks": [
     {
-     "source": "BenchLM",
-     "name": "AA EnterpriseOps-Gym",
-     "version": null,
-     "results": 23,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-EnterpriseOps-Gym",
+     "version": "scraped",
+     "results": 63,
+     "method": "override"
     }
    ]
   },
@@ -1430,11 +1552,11 @@
    "name": "GPQA Diamond",
    "benchmarks": [
     {
-     "source": "BenchLM",
+     "source": "Artificial Analysis (scraped)",
      "name": "AA-GPQA Diamond",
-     "version": null,
-     "results": 193,
-     "method": "name"
+     "version": "scraped",
+     "results": 617,
+     "method": "override"
     }
    ]
   },
@@ -1445,11 +1567,11 @@
    "name": "ITBench-AA",
    "benchmarks": [
     {
-     "source": "BenchLM",
-     "name": "AA ITBench",
-     "version": null,
-     "results": 24,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-ITBench SRE",
+     "version": "scraped",
+     "results": 45,
+     "method": "override"
     }
    ]
   },
@@ -1460,11 +1582,11 @@
    "name": "MMMU-Pro",
    "benchmarks": [
     {
-     "source": "BenchLM",
+     "source": "Artificial Analysis (scraped)",
      "name": "AA-MMMU-Pro",
-     "version": null,
-     "results": 109,
-     "method": "name"
+     "version": "scraped",
+     "results": 312,
+     "method": "override"
     }
    ]
   },
@@ -1475,11 +1597,11 @@
    "name": "IFBench",
    "benchmarks": [
     {
-     "source": "BenchLM",
+     "source": "Artificial Analysis (scraped)",
      "name": "AA-IFBench",
-     "version": null,
-     "results": 140,
-     "method": "name"
+     "version": "scraped",
+     "results": 451,
+     "method": "override"
     }
    ]
   },
@@ -1495,6 +1617,13 @@
      "version": null,
      "results": 24,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "MLCR-AA Overall",
+     "version": "scraped",
+     "results": 204,
+     "method": "override"
     }
    ]
   },
@@ -1503,7 +1632,15 @@
    "kind": "sub",
    "parent": "2",
    "name": "Code2Video-AA",
-   "benchmarks": []
+   "benchmarks": [
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Code2Video",
+     "version": "scraped",
+     "results": 29,
+     "method": "override"
+    }
+   ]
   },
   "2.44": {
    "no": "2.44",
@@ -1517,6 +1654,13 @@
      "version": null,
      "results": 6,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-HealthBench Professional",
+     "version": "scraped",
+     "results": 19,
+     "method": "override"
     }
    ]
   },
@@ -1525,7 +1669,15 @@
    "kind": "sub",
    "parent": "2",
    "name": "VIALS-AA",
-   "benchmarks": []
+   "benchmarks": [
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-VIALS",
+     "version": "scraped",
+     "results": 23,
+     "method": "override"
+    }
+   ]
   },
   "2.46": {
    "no": "2.46",
@@ -1538,6 +1690,13 @@
      "name": "MKA",
      "version": null,
      "results": 22,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-MKA",
+     "version": "scraped",
+     "results": 26,
      "method": "override"
     }
    ]
@@ -1554,7 +1713,15 @@
    "kind": "sub",
    "parent": "2",
    "name": "GDPval-AA v2.1",
-   "benchmarks": []
+   "benchmarks": [
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "GDPval-AA",
+     "version": "scraped",
+     "results": 320,
+     "method": "override"
+    }
+   ]
   },
   "2.49": {
    "no": "2.49",
@@ -1578,11 +1745,11 @@
    "name": "Terminal-Bench 2.1",
    "benchmarks": [
     {
-     "source": "BenchLM",
-     "name": "AA Terminal-Bench 2.1",
-     "version": null,
-     "results": 20,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Terminal-Bench 2.1",
+     "version": "scraped",
+     "results": 243,
+     "method": "override"
     }
    ]
   },
@@ -1593,11 +1760,11 @@
    "name": "Terminal-Bench 4.0",
    "benchmarks": [
     {
-     "source": "BenchLM",
-     "name": "AA Terminal-Bench 4.0",
-     "version": null,
-     "results": 23,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Terminal-Bench 4.0",
+     "version": "scraped",
+     "results": 283,
+     "method": "override"
     }
    ]
   },
@@ -1606,7 +1773,15 @@
    "kind": "sub",
    "parent": "2",
    "name": "FrontierCode 1.1",
-   "benchmarks": []
+   "benchmarks": [
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-FrontierCode 1.1",
+     "version": "scraped",
+     "results": 83,
+     "method": "override"
+    }
+   ]
   },
   "2.53": {
    "no": "2.53",
@@ -1620,6 +1795,13 @@
      "version": null,
      "results": 211,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-LCR",
+     "version": "scraped",
+     "results": 597,
+     "method": "override"
     }
    ]
   },
@@ -1630,11 +1812,11 @@
    "name": "SciCode",
    "benchmarks": [
     {
-     "source": "BenchLM",
+     "source": "Artificial Analysis (scraped)",
      "name": "AA-SciCode",
-     "version": null,
-     "results": 113,
-     "method": "name"
+     "version": "scraped",
+     "results": 253,
+     "method": "override"
     }
    ]
   },
@@ -1649,6 +1831,13 @@
      "name": "AA-HLE",
      "version": null,
      "results": 216,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-HLE",
+     "version": "scraped",
+     "results": 686,
      "method": "override"
     }
    ]
@@ -1665,6 +1854,13 @@
      "version": null,
      "results": 207,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-CRITPt",
+     "version": "scraped",
+     "results": 602,
+     "method": "override"
     }
    ]
   },
@@ -1679,6 +1875,13 @@
      "name": "Terminal-Bench Hard",
      "version": null,
      "results": 22,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Terminal-Bench Hard",
+     "version": "scraped",
+     "results": 432,
      "method": "override"
     }
    ]
@@ -1697,11 +1900,11 @@
    "name": "MMLU-Pro",
    "benchmarks": [
     {
-     "source": "BenchLM",
-     "name": "AA MMLU-Pro",
-     "version": null,
-     "results": 13,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-MMLU-Pro",
+     "version": "scraped",
+     "results": 349,
+     "method": "override"
     }
    ]
   },
@@ -1712,11 +1915,11 @@
    "name": "LiveCodeBench",
    "benchmarks": [
     {
-     "source": "BenchLM",
-     "name": "AA LiveCodeBench",
-     "version": null,
-     "results": 12,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-LiveCodeBench",
+     "version": "scraped",
+     "results": 343,
+     "method": "override"
     }
    ]
   },
@@ -1727,11 +1930,11 @@
    "name": "MATH-500",
    "benchmarks": [
     {
-     "source": "BenchLM",
-     "name": "AA MATH-500",
-     "version": null,
-     "results": 9,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-MATH-500",
+     "version": "scraped",
+     "results": 202,
+     "method": "override"
     }
    ]
   },
@@ -1742,11 +1945,11 @@
    "name": "AIME 2025",
    "benchmarks": [
     {
-     "source": "BenchLM",
-     "name": "AA AIME 2025",
-     "version": null,
-     "results": 11,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-AIME 2025",
+     "version": "scraped",
+     "results": 270,
+     "method": "override"
     }
    ]
   },
@@ -1757,11 +1960,11 @@
    "name": "Global-MMLU-Lite",
    "benchmarks": [
     {
-     "source": "BenchLM",
-     "name": "AA Global-MMLU-Lite",
-     "version": null,
-     "results": 15,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-Global-MMLU-Lite",
+     "version": "scraped",
+     "results": 120,
+     "method": "override"
     }
    ]
   },
@@ -2088,6 +2291,13 @@
      "name": "HLE-Diamond",
      "version": "No tools (lastexam.ai chart)",
      "results": 69,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-HLE-Diamond",
+     "version": "scraped",
+     "results": 198,
      "method": "override"
     }
    ]
@@ -2682,6 +2892,13 @@
      "version": null,
      "results": 88,
      "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-GPQA Diamond",
+     "version": "scraped",
+     "results": 617,
+     "method": "override"
     }
    ]
   },
@@ -3196,18 +3413,11 @@
    "name": "AIME 2025",
    "benchmarks": [
     {
-     "source": "MathArena (ETH Zurich)",
-     "name": "AIME",
-     "version": "2025 (MathArena)",
-     "results": 66,
-     "method": "name"
-    },
-    {
-     "source": "BenchLM",
-     "name": "AIME 2025",
-     "version": null,
-     "results": 49,
-     "method": "name"
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-AIME 2025",
+     "version": "scraped",
+     "results": 270,
+     "method": "override"
     }
    ]
   },
@@ -4118,7 +4328,15 @@
    "kind": "sub",
    "parent": "16",
    "name": "τ²-bench — Overall",
-   "benchmarks": []
+   "benchmarks": [
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-τ²-Bench",
+     "version": "scraped",
+     "results": 440,
+     "method": "override"
+    }
+   ]
   },
   "16.4": {
    "no": "16.4",
@@ -4759,6 +4977,13 @@
      "name": "MMMU-Pro",
      "version": null,
      "results": 59,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-MMMU-Pro",
+     "version": "scraped",
+     "results": 312,
      "method": "override"
     }
    ]
@@ -5602,6 +5827,13 @@
      "name": "HealthBench",
      "version": "overall (paper, May 2025)",
      "results": 9,
+     "method": "override"
+    },
+    {
+     "source": "Artificial Analysis (scraped)",
+     "name": "AA-HealthBench",
+     "version": "scraped",
+     "results": 29,
      "method": "override"
     }
    ]
