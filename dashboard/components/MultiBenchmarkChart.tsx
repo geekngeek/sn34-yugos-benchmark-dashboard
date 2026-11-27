@@ -182,6 +182,10 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
   }, [pinned]);
   const [keyHover, setKeyHover] = useState<string | null>(null);     // "s:<series id>" or a colour-key id
   const [full, setFull] = useState(false);
+  // "One per benchmark": a small chart's ⛶ icon opens just that benchmark full screen (zoom and pan as in one chart)
+  const [focus, setFocus] = useState<string | null>(null);
+  const solo = layout === "grid" && full && focus ? data.series.find((s) => s.id === focus) ?? null : null;
+  const oneView = layout === "one" || !!solo;
   const [fullH, setFullH] = useState(700);
   const [view, setView] = useState<{ x: Dom; y: Dom } | null>(null);
   const drag = useRef<{ px: number; py: number; x: Dom; y: Dom; moved: boolean } | null>(null);
@@ -294,13 +298,13 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
   useEffect(() => { setPinned(null); }, [view, W, full, hidden]);
 
   // ---- full screen, whiteboard style (one chart only) ----
-  const exitFull = useCallback(() => { setFull(false); setView(null); if (document.fullscreenElement) document.exitFullscreen().catch(() => undefined); }, []);
+  const exitFull = useCallback(() => { setFull(false); setFocus(null); setView(null); if (document.fullscreenElement) document.exitFullscreen().catch(() => undefined); }, []);
   useEffect(() => {
     if (!full) return;
     const size = () => setFullH(Math.max(320, window.innerHeight - (root.current?.querySelector(".mc-plot")?.getBoundingClientRect().top ?? 160) - 44));
     size();
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") exitFull(); };
-    const onFs = () => { if (!document.fullscreenElement) { setFull(false); setView(null); } };
+    const onFs = () => { if (!document.fullscreenElement) { setFull(false); setFocus(null); setView(null); } };
     window.addEventListener("resize", size); window.addEventListener("keydown", onKey); document.addEventListener("fullscreenchange", onFs);
     const prev = document.body.style.overflow; document.body.style.overflow = "hidden";
     const t = setTimeout(size, 120);
@@ -316,7 +320,7 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
   }, [Hc]);
   useEffect(() => {
     const el = box.current;
-    if (!full || layout !== "one" || !el) return;
+    if (!full || !oneView || !el) return;
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const d = domsRef.current;
@@ -327,8 +331,8 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
     };
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
-  }, [full, layout, zoomAt]);
-  const pointer = full && layout === "one" ? {
+  }, [full, oneView, zoomAt]);
+  const pointer = full && oneView ? {
     onPointerDown: (e: React.PointerEvent) => {
       const d = domsRef.current;
       if (e.button !== 0 || !d) return;
@@ -431,7 +435,7 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
                   title={layout === "one" ? "Open the chart full screen: wheel zooms, drag pans" : "Open the charts full screen"}>⛶ Full screen</button>
         ) : (
           <span className="tc-zoom" role="group" aria-label="Zoom">
-            {layout === "one" && <>
+            {oneView && <>
               <button type="button" className="button" onClick={() => zoomAt((M.left + W - M.right) / 2, (M.top + Hc - M.bottom) / 2, 0.7)} title="Zoom in (wheel up)">+</button>
               <button type="button" className="button" onClick={() => zoomAt((M.left + W - M.right) / 2, (M.top + Hc - M.bottom) / 2, 1 / 0.7)} title="Zoom out (wheel down)">−</button>
               <button type="button" className="button" onClick={() => setView(null)} disabled={!view} title="Fit every point (double-click)">Reset view</button>
@@ -504,6 +508,17 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
           <p className="empty">No models chosen. Open “0 of {data.configs.length} models” to choose some.</p>
         ) : !usableAll.length || !fitAll ? (
           <p className="empty">No points have both {mx.short.toLowerCase()} and {my.short.toLowerCase()} for the chosen models and benchmarks. Pick other axes or models.</p>
+        ) : solo ? (
+          <>
+            <div className="mc-panel-title"><ShapeIcon i={seriesIdx.get(solo.id) ?? 0} color={seriesColor(solo)} /> {solo.root && <span className="mc-key-root">{solo.root}</span>}<b>{solo.label}</b>
+              {solo.difficulty.kind !== "none" && <Stars d={solo.difficulty} span={solo.span} />}</div>
+            {(() => {
+              const pts = usable.filter((p) => p.benchmark_id === solo.id);
+              const own = { x: autoDomain(pts.map((p) => val(p, x)!), logX), y: fitAll.y };
+              return <Plot {...plotProps} pts={pts} W={W} Hh={Hc - 24} m={M} id="one" dom={view ?? own} labelsMax={showLabels ? 1 : 0} domsRef={domsRef}
+                           pointer={pointer} onDoubleClick={() => setView(null)} />;
+            })()}
+          </>
         ) : layout === "one" ? (
           <Plot {...plotProps} pts={usable} W={W} Hh={Hc} m={M} id="one" dom={view ?? fitAll} labelsMax={showLabels ? 1 : 0} domsRef={domsRef}
                 pointer={pointer} onDoubleClick={() => full && setView(null)} />
@@ -517,7 +532,11 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
               return (
                 <div key={s.id} className="mc-panel">
                   <div className="mc-panel-title small"><ShapeIcon i={seriesIdx.get(s.id) ?? 0} color={seriesColor(s)} /> {s.root && <span className="mc-key-root">{s.root}</span>}<b>{s.label}</b>
-                    {s.difficulty.kind !== "none" && <Stars d={s.difficulty} span={s.span} />} <span className="muted">{pts.length}</span></div>
+                    {s.difficulty.kind !== "none" && <Stars d={s.difficulty} span={s.span} />} <span className="muted">{pts.length}</span>
+                    <button type="button" className="mc-panel-fs" aria-label={`Open ${s.label} full screen`} title="Open this chart full screen (wheel zooms, drag pans)"
+                            onClick={() => { setFocus(s.id); setView(null); setFull(true); root.current?.requestFullscreen?.().catch(() => undefined); }}>
+                      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </button></div>
                   <Plot {...plotProps} pts={pts} W={panelW} Hh={ph} m={GM} id={s.id} dom={dom} labelsMax={showLabels ? 1 : 0} small />
                 </div>
               );
@@ -533,7 +552,7 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
         {y === "quality" && " Quality is the comparable 0–100 score (Elo and other scales converted as on the Results page)."}
         {notComparable.length > 0 && ` Not on a 0–100 scale, so left out of Quality: ${notComparable.map((s) => s.label).join(", ")}.`}
         {data.unlinked.length > 0 && <> {data.unlinked.length} of the filtered rows have no results in our database (<span title={data.unlinked.map((u) => `${u.no} ${u.name}`).join("\n")}>hover for the list</span>).</>}
-        {full && layout === "one" && " Wheel or pinch to zoom · drag to pan · Shift+wheel scrolls sideways · double-click to fit · Esc to leave."}
+        {full && oneView && " Wheel or pinch to zoom · drag to pan · Shift+wheel scrolls sideways · double-click to fit · Esc to leave."}
       </p>
     </div>
   );

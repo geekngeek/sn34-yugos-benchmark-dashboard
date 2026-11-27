@@ -290,3 +290,8 @@ table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
 .tc-effort-halo { fill: none; stroke: var(--surface); stroke-width: 6.5; stroke-linejoin: round; stroke-linecap: round; opacity: .9; }
 .tc-line.hl.tc-effort, .tc-hl .tc-line.hl { stroke-width: 3.75; }
 .mp-foot > button:disabled { opacity: .45; cursor: not-allowed; }
+/* "One per benchmark": the small full-screen icon in each chart's title */
+.mc-panel-title { position: relative; }
+button.mc-panel-fs { all: unset; margin-left: auto; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 6px; color: var(--muted); cursor: pointer; flex-shrink: 0; }
+button.mc-panel-fs:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent); }
+button.mc-panel-fs:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
