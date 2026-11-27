@@ -6,6 +6,7 @@ import { parseDifficulty, spanOf, type Difficulty } from "@/lib/difficulty";
 import type { ChartPoint } from "@/lib/chartMetrics";
 import type { MultiChartData, Series } from "@/lib/multiChart";
 import { readModelLinks, readState } from "@/lib/yugosModels";
+import { readArchive } from "@/lib/archive";
 import { readSubMatches } from "@/lib/yugosMatchData";
 import { MATCH_CATS, tripleOf, type MatchTriple } from "@/lib/yugosMatch";
 
@@ -74,11 +75,11 @@ export async function POST(req: Request) {
   }
   const ids = [...series.keys()];
 
-  const [configs, yugosState, yugosLinks, customColors] = await Promise.all([
+  const [configs, yugosState, yugosLinks, customColors, archivedModels] = await Promise.all([
     configsFor(ids),
-    readState(), readModelLinks(), readChartColors(),
+    readState(), readModelLinks(), readChartColors(), readArchive("yugos-models"),
   ]);
-  const out = new Set(yugosState.excluded);
+  const out = new Set([...yugosState.excluded, ...Object.keys(archivedModels)]);   // archived models are never selected
   const yugos = [...new Set(Object.entries(yugosLinks).filter(([m]) => !out.has(m)).map(([, l]) => l.modelId).filter(Boolean))];
   const ySet = new Set(yugos);
   const fromYugos = configs.filter((c) => ySet.has(c.model_key)).map((c) => c.config);

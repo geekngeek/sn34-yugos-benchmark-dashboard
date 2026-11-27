@@ -3,6 +3,7 @@ import { YugosModelsTable } from "@/components/YugosModelsTable";
 import { readCatalog, readModelLinks, readState } from "@/lib/yugosModels";
 import { api, type ModelCoverage } from "@/lib/api";
 import { readLayout } from "@/lib/uiLayout";
+import { readArchive } from "@/lib/archive";
 import "./yugos-models.css";
 
 export const metadata: Metadata = { title: "Yugos models · LLM Benchmark Results" };
@@ -11,8 +12,8 @@ export const dynamic = "force-dynamic";   // re-read the catalog and saved notes
 /** Every model the Yugos router may pick (the live world card), with the user's notes and watch list. */
 export default async function YugosModelsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const sp = await searchParams;   // view state (filters, view, grouping, sort) lives in the URL
-  const [catalog, state, layout, links, coverage] = await Promise.all([
-    readCatalog(), readState(), readLayout("yugos-models"), readModelLinks(),
+  const [catalog, state, layout, links, archived, coverage] = await Promise.all([
+    readCatalog(), readState(), readLayout("yugos-models"), readModelLinks(), readArchive("yugos-models"),
     api.models().catch((): ModelCoverage[] => []),      // API down: the page still works, without coverage
   ]);
   // each Yugos model's project model ID (registry) and how much benchmark data it has (database)
@@ -36,7 +37,7 @@ export default async function YugosModelsPage({ searchParams }: { searchParams: 
           </p>
         </div>
       </header>
-      <YugosModelsTable query={sp} layout={layout} models={models} initialNotes={state.notes} initialExcluded={state.excluded} sourceNotes={catalog.notes} />
+      <YugosModelsTable archived={archived} query={sp} layout={layout} models={models} initialNotes={state.notes} initialExcluded={state.excluded} sourceNotes={catalog.notes} />
     </main>
   );
 }

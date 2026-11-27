@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } fro
 import type { MultiChartData, Series } from "@/lib/multiChart";
 import { ModelPicker } from "@/components/ModelPicker";
 import { Stars } from "@/components/Stars";
+import { ArchiveButton } from "@/components/Archive";
 import { difficultyText } from "@/lib/difficulty";
 import { LAB_ORDER, LAB_SLOT, LOW, LOW_LABEL } from "@/components/TradeoffChart";
 import { AXIS_ORDER, METRICS, defaultAxes, value, type ChartPoint, type MetricKey } from "@/lib/chartMetrics";
@@ -74,7 +75,10 @@ function ShapeIcon({ i, color }: { i: number; color: string }) {
   return <svg width="14" height="14" aria-hidden="true" className="mc-icon"><Shape shape={shapeOf(i)} x={7} y={7} r={4.6} className="tc-dot" style={{ ["--c" as string]: color, strokeWidth: 1 }} /></svg>;
 }
 
-export function MultiBenchmarkChart({ candidates, scopeNote, query, filterBar }: { candidates: Candidate[]; scopeNote: string; query?: Query; filterBar?: ReactNode }) {
+export function MultiBenchmarkChart({ candidates, scopeNote, query, filterBar, onArchive }: {
+  candidates: Candidate[]; scopeNote: string; query?: Query; filterBar?: ReactNode;
+  onArchive?: (nos: string[]) => void;   // archive the list rows a panel stands for (the list asks to confirm)
+}) {
   // settings: from the URL, written back once something is drawn
   const [x, setX] = useState<MetricKey | null>(() => ((AXIS_ORDER as string[]).includes(qOne(query, "mcx")) ? qOne(query, "mcx") as MetricKey : null));
   const [y, setY] = useState<MetricKey>(() => ((AXIS_ORDER as string[]).includes(qOne(query, "mcy")) ? qOne(query, "mcy") as MetricKey : "quality"));
@@ -151,7 +155,7 @@ export function MultiBenchmarkChart({ candidates, scopeNote, query, filterBar }:
       {filterBar && <div className="mc-filterbar">{filterBar}</div>}
       {error && <p className="empty">{error}</p>}
       {data && (
-        <Chart data={data} x={x} y={y} lx={lx} ly={ly} colorBy={colorBy} lines={lines} layout={layout} hidden={hidden} grey={grey} devOff={devOff}
+        <Chart onArchive={onArchive ? (nos) => { const on = new Set(candidates.map((c) => c.no)); onArchive(nos.filter((n) => on.has(n))); } : undefined} data={data} x={x} y={y} lx={lx} ly={ly} colorBy={colorBy} lines={lines} layout={layout} hidden={hidden} grey={grey} devOff={devOff}
                custom={custom} setCustom={setCustom} busy={loading}
                showLabels={showLabels} outline={outline} set={{ setX, setY, setLx, setLy, setColorBy, setLines, setLayout, setHidden, setGrey, setShowLabels, setOutline, setDevOff }}
                picker={data.configs.length > 0 && (
@@ -170,7 +174,8 @@ interface Setters {
 }
 interface Hover { p: ChartPoint; px: number; py: number; panel: string }
 
-function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey, devOff, custom, setCustom, busy, set, picker, showLabels, outline }: {
+function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey, devOff, custom, setCustom, busy, set, picker, showLabels, outline, onArchive }: {
+  onArchive?: (nos: string[]) => void;
   data: MultiChartData; x: MetricKey | null; y: MetricKey; lx: string; ly: string; colorBy: ColorBy; lines: Set<LineKind>;
   layout: "one" | "grid"; hidden: Set<string>; grey: string[]; devOff: string[]; custom: Record<string, string>; showLabels: boolean; outline: boolean;
   setCustom: (f: (c: Record<string, string>) => Record<string, string>) => void; busy: boolean; set: Setters; picker: ReactNode;
@@ -565,7 +570,9 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
                     <button type="button" className="mc-panel-fs" aria-label={`Open ${s.label} full screen`} title="Open this chart full screen (wheel zooms, drag pans)"
                             onClick={() => { setFocus(s.id); setView(null); setFull(true); root.current?.requestFullscreen?.().catch(() => undefined); }}>
                       <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </button></div>
+                    </button>
+                    {onArchive && !full && <ArchiveButton label={s.label} className="mc-panel-arc"
+                      onClick={() => { onArchive(s.nos); }} />}</div>
                   <Plot {...plotProps} pts={pts} W={panelW} Hh={ph} m={GM} id={s.id} dom={dom} labelsMax={showLabels ? 1 : 0} small />
                 </div>
               );

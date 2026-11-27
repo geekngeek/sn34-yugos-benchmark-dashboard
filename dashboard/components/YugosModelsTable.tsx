@@ -6,6 +6,7 @@ import type { YugosModel } from "@/lib/yugosModels";
 import { ColumnsMenu, DensityToggle, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { qFlag, qOne, useQuerySync, type Query } from "@/lib/urlState";
 import { FilterButton, FilterChips, FilterPop, type Chip } from "@/components/FilterPop";
+import { ArchiveButton, ArchivedTable, ArchiveSwitch, useArchive, type ArchiveMap } from "@/components/Archive";
 
 type SortKey = "model" | "vendor" | "line" | "released" | "in" | "out" | "cheapest" | "providers" | "expires" | "results";
 type View = "table" | "tree";
@@ -101,8 +102,9 @@ function compare(a: YugosModel, b: YugosModel, key: SortKey, dir: 1 | -1) {
   return (x < y ? -1 : 1) * dir;
 }
 
-export function YugosModelsTable({ models, initialNotes, initialExcluded, sourceNotes, layout, query: initialQuery }: {
+export function YugosModelsTable({ models: allModels, initialNotes, initialExcluded, sourceNotes, layout, query: initialQuery, archived = {} }: {
   models: YugosModel[];
+  archived?: ArchiveMap;
   layout?: SavedLayout;
   query?: Query;
   initialNotes: Record<string, string>;
@@ -111,6 +113,10 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
 }) {
   const [notes, setNotes] = useState(initialNotes);
   const [excluded, setExcluded] = useState(() => new Set(initialExcluded));
+  // archived models leave the page and its counts; archiving also takes a model out of the selection (the server does the same)
+  const arc = useArchive("yugos-models", archived, (ids) => setExcluded((s) => new Set([...s, ...ids])));
+  const [archView, setArchView] = useState(() => qFlag(initialQuery, "archived"));
+  const models = useMemo(() => allModels.filter((m) => !arc.map[m.model]), [allModels, arc.map]);
   const [draft, setDraft] = useState<Set<string> | null>(null);   // non-null = edit (selection) mode
   const [history, setHistory] = useState<Set<string>[]>([]);       // undo steps inside edit mode
   // filters, view, grouping and sort start from the URL and are written back to it (see useQuerySync below)
@@ -144,7 +150,7 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
   const editing = draft !== null;
   useQuerySync({
     q: query.trim(), vendor, newest: onlyNewest, noutil: hideUtility, notes: onlyNoted,
-    show: showExcluded ? "all" : null,
+    show: showExcluded ? "all" : null, archived: archView,
     view: view === "table" ? "table" : null, group: groupBy === "vendor" ? null : groupBy,
     sort: sort.key === "released" && sort.dir === -1 ? null : sort.key,
     dir: sort.key === "released" && sort.dir === -1 ? null : sort.dir === 1 ? "asc" : "desc",
@@ -225,7 +231,7 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [view, sections, expanded, q],
   );
-  const watched = models.length - out.size;
+  const watched = models.filter((m) => !out.has(m.model)).length;
 
   // --- edit (selection) mode -------------------------------------------------------------
   const change = (next: Set<string>) => { setHistory((h) => [...h.slice(-49), draft!]); setDraft(next); };
@@ -251,7 +257,7 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
   const cancelEdit = () => { setDraft(null); setHistory([]); };
   const undo = () => { if (history.length) { setDraft(history[history.length - 1]); setHistory((h) => h.slice(0, -1)); } };
   const saveEdit = async () => {
-    const next = draft!;
+    const next = new Set([...draft!, ...Object.keys(arc.map)]);   // archived models always stay out of the selection
     setStatus("Saving…");
     const res = await fetch("/api/yugos-models", {
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ excluded: [...next] }),
@@ -260,7 +266,7 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
     setExcluded(new Set(next));
     setDraft(null);
     setHistory([]);
-    setStatus(`Saved · watching ${models.length - next.size} of ${models.length}`);
+    setStatus(`Saved · watching ${models.filter((m) => !next.has(m.model)).length} of ${models.length}`);
   };
 
   useEffect(() => {
@@ -392,6 +398,8 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
                     {fresh && <span className="ym-tag new" title={`Released in the last ${NEW_DAYS} days`}>new</span>}
                     {m.kind !== "llm" && <span className="ym-tag util" title="Utility / vision model">{m.kind.split("/")[0]}</span>}
                   </span>
+                  {!editing && <ArchiveButton label={m.model} onClick={() => arc.ask([{ id: m.model, label: m.model }],
+                    left ? undefined : "It is selected now: archiving also takes it out of the selection (a restored model comes back unselected).")} />}
                 </span>
               </td>
       ),
@@ -501,15 +509,16 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
     <div className={`ym${editing ? " editing" : ""}`}>
       <div className="ym-bar">
         <div className="ym-count">
-          <strong>{watched}</strong> of {models.length} models selected
-          {!editing && (
+          {!editing && <ArchiveSwitch on={archView} count={arc.count} onChange={setArchView} noun="models" />}
+          {!archView && <><strong>{watched}</strong> of {models.length} models selected</>}
+          {!editing && !archView && (
             <span className="seg" role="group" aria-label="Which models to show">
               <button type="button" className={!showExcluded ? "on" : ""} aria-pressed={!showExcluded} onClick={() => setShow(false)}>Selected</button>
               <button type="button" className={showExcluded ? "on" : ""} aria-pressed={showExcluded} onClick={() => setShow(true)}>All</button>
             </span>
           )}
         </div>
-        <div className="ym-actions">
+        {!archView && <div className="ym-actions">
           {status && <span className="ym-status" role="status">{status}</span>}
           {!editing && <button type="button" className="button" onClick={download} title="Download the rows on screen as CSV">Download CSV</button>}
           {!editing
@@ -517,10 +526,16 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
             : <>
                 <button type="button" className="button" onClick={undo} disabled={!history.length} title="Undo (Ctrl+Z)">Undo</button>
                 <button type="button" className="button" onClick={cancelEdit} title="Discard changes (Esc)">Cancel</button>
-                <button type="button" className="button primary" onClick={saveEdit}>Save · {models.length - draft!.size} selected</button>
+                <button type="button" className="button primary" onClick={saveEdit}>Save · {models.filter((m) => !draft!.has(m.model)).length} selected</button>
               </>}
-        </div>
+        </div>}
       </div>
+      {arc.toast}{arc.dialog}
+      {archView ? (
+        <ArchivedTable map={arc.map} noun="models" detailLabel="Vendor · line" onRestore={(ids) => arc.restore(ids)}
+          rows={allModels.map((m) => ({ id: m.model, label: m.model, search: `${m.vendor} ${m.line}`,
+            detail: <>{m.vendor} · {m.line}{m.released ? <span className="muted"> · released {m.released}</span> : null}</> }))} />
+      ) : <>
 
       {editing && (
         <div className="ym-editbar" role="toolbar" aria-label="Selection tools">
@@ -653,12 +668,13 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
           </tbody>
         </table>
       </div>
+      </>}
       <ul className="ym-foot subtle small">
         {sourceNotes.map((n) => <li key={n}>{n}</li>)}
         <li>Selected models have dark names; models left out are grey. “newest” marks the newest model in its product line. In Tree view each newest model opens to its parents; a green “−76% / −67%” tag shows how much less a parent costs per input / output token than the newest model, and “3 cheaper” marks a newest model with that many cheaper older models nested under it. ↑ goes to the parent model, ↓ to its successor. The Providers count opens every listing with its own price.</li>
         <li>Results: benchmark results for the model (and how many benchmarks), linked to the Results page. Each Yugos
           name is matched to the project model ID by data/models (hover a model or its count to see the ID and how it matched).</li>
-        <li>Notes and the selection are saved on the server and shared by everyone who opens this dashboard.</li>
+        <li>Notes, the selection and archived models are saved on the server and shared by everyone who opens this dashboard. Archiving a model (its box button) takes it off this page and out of the selection; restore it under Archived.</li>
       </ul>
     </div>
   );

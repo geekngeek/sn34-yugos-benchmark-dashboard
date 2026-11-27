@@ -6,6 +6,7 @@ import { LevelBar, MatchDetail } from "@/components/Match";
 import { DatasetMatchChart, datasetSize, type YMetric } from "@/components/DatasetMatchChart";
 import { ColumnsMenu, DensityToggle, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { FilterButton, FilterChips, FilterPop, type Chip } from "@/components/FilterPop";
+import { ArchiveButton, ArchivedTable, ArchiveSwitch, useArchive, type ArchiveMap } from "@/components/Archive";
 import { qFlag, qOne, useQuerySync, type Query } from "@/lib/urlState";
 import { CAT_LABEL, CAT_SHORT, MATCH_CATS, pct, type DatasetMatch, type MatchCat, type MatchTargets } from "@/lib/yugosMatch";
 
@@ -42,7 +43,11 @@ function YesTag({ v }: { v?: string | null }) {
   return <span className={`tag${k === "yes" ? " ok" : k === "partial" ? " info" : ""}`}>{YES[k] ?? k}</span>;
 }
 
-export function DatasetsTable({ data, targets, layout, query }: { data: DatasetMatch[]; targets: MatchTargets | null; layout?: SavedLayout; query?: Query }) {
+export function DatasetsTable({ data: allData, targets, layout, query, archived = {} }: { data: DatasetMatch[]; targets: MatchTargets | null; layout?: SavedLayout; query?: Query; archived?: ArchiveMap }) {
+  // archived datasets leave the table, picks, chart and counts; they wait under "Archived"
+  const arc = useArchive("datasets", archived);
+  const [archView, setArchView] = useState(() => qFlag(query, "archived"));
+  const data = useMemo(() => allData.filter((d) => !arc.map[d.id]), [allData, arc.map]);
   const cl = useColumnLayout("datasets", COLS, layout);
   const [q, setQ] = useState(() => qOne(query, "q"));
   const [fit, setFit] = useState<"" | MatchCat>(() => (MATCH_CATS.includes(qOne(query, "fit") as MatchCat) ? qOne(query, "fit") as MatchCat : ""));
@@ -58,7 +63,7 @@ export function DatasetsTable({ data, targets, layout, query }: { data: DatasetM
   const [open, setOpen] = useState<string | null>(() => qOne(query, "open") || null);
   useQuerySync({ q: q.trim(), fit: fit || null, fitmin: fit && fitMin ? String(fitMin) : null, public: onlyPublic, results: onlyResults, nolive: hideLive,
                  group: groupBy === "best" ? null : groupBy, y: yMetric === "best" ? null : yMetric,
-                 sort: sort.key === "best" && sort.dir === -1 ? null : sort.key, dir: sort.key === "best" && sort.dir === -1 ? null : sort.dir === 1 ? "asc" : "desc", open });
+                 archived: archView, sort: sort.key === "best" && sort.dir === -1 ? null : sort.key, dir: sort.key === "best" && sort.dir === -1 ? null : sort.dir === 1 ? "asc" : "desc", open });
 
   const filtered = useMemo(() => {
     const t = q.trim().toLowerCase();
@@ -133,6 +138,7 @@ export function DatasetsTable({ data, targets, layout, query }: { data: DatasetM
     switch (key) {
       case "name": return (
         <td key={key} className="ds-name" data-tip>
+          <ArchiveButton label={d.name} className="ds-arc" onClick={() => arc.ask([{ id: d.id, label: d.name }])} />
           <span className="rb-caret" aria-hidden="true">{open === d.id ? "▾" : "▸"}</span> {d.name}
           {d.hf && <span className="muted small"> · {d.hf}</span>}
         </td>);
@@ -159,6 +165,8 @@ export function DatasetsTable({ data, targets, layout, query }: { data: DatasetM
   return (
     <div className="ds">
       <div className="rb-filters ds-filters">
+        <ArchiveSwitch on={archView} count={arc.count} onChange={setArchView} noun="datasets" />
+        {archView ? null : <>
         <input type="search" className="rb-search" placeholder="Search name, id, summary, licence…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search datasets" />
         <span className="bl-total"><b>{filtered.length}</b> of {data.length} datasets</span>
         <span className="bl-viewopts">
@@ -170,7 +178,14 @@ export function DatasetsTable({ data, targets, layout, query }: { data: DatasetM
           <ColumnsMenu layout={cl} labels={Object.fromEntries(Object.entries(HEADS).map(([k, h]) => [k, h.label]))} />
           <DensityToggle />
         </span>
+        </>}
       </div>
+      {arc.toast}{arc.dialog}
+      {archView ? (
+        <ArchivedTable map={arc.map} noun="datasets" detailLabel="What it is" onRestore={(ids) => arc.restore(ids)}
+          rows={allData.map((d) => ({ id: d.id, label: d.name, search: `${d.hf ?? ""} ${d.summary ?? ""}`,
+            detail: <span className="ds-arc-sum">{d.hf && <span className="muted">{d.hf} · </span>}{d.summary}</span> }))} />
+      ) : <>
       <FilterChips chips={chips} onClearAll={clearAll} />
       {pop && popups[pop] && <FilterPop anchor={pop} onClose={() => setPop(null)}>{popups[pop]()}</FilterPop>}
 
@@ -280,6 +295,7 @@ export function DatasetsTable({ data, targets, layout, query }: { data: DatasetM
       </div>
       </HoverTip>
       <p className="small muted">Sorted by {HEADS[sort.key].label.toLowerCase()} · match = task fit × weighted mean of turns, answer, domain, difficulty, freshness and length.</p>
+      </>}
     </div>
   );
 }

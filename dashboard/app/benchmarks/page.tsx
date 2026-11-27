@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BenchmarkTree, type TreeItem } from "@/components/BenchmarkTree";
 import { readLayout } from "@/lib/uiLayout";
+import { readArchive } from "@/lib/archive";
 import { LIST_FILE, MY_NOTES, readList } from "@/lib/benchmarkList";
 import { parseMetrics } from "@/lib/metrics";
 import { parseDifficulty, spanOf } from "@/lib/difficulty";
@@ -22,7 +23,7 @@ export default async function BenchmarkListPage({ searchParams }: { searchParams
   const sp = await searchParams;
   const expandAll = sp.expand === "all";              // /benchmarks?expand=all opens every group
   const initialView = sp.view === "params" ? "params" : sp.view === "flat" ? "flat" : "tree";   // /benchmarks?view=params opens the parameters grid
-  const [{ header, rows }, layout, matches, datasets, map] = await Promise.all([readList(), readLayout("benchmark-list"), readSubMatches(), readDatasetMatches(), readBenchmarkMap()]);
+  const [{ header, rows }, layout, matches, datasets, map, archived] = await Promise.all([readList(), readLayout("benchmark-list"), readSubMatches(), readDatasetMatches(), readBenchmarkMap(), readArchive("benchmark-list")]);
   // live Yugos sets (data/yugos-match/datasets.json): id -> name, for the Live overlap column
   const liveSets = Object.fromEntries((datasets?.datasets ?? []).filter((d) => d.yugos === "live").map((d) => [d.id, d.name]));
   const liveIds = Object.keys(liveSets);
@@ -79,7 +80,7 @@ export default async function BenchmarkListPage({ searchParams }: { searchParams
           <span aria-hidden="true">⬇</span> Download CSV
         </a>
       </header>
-      <BenchmarkTree items={items} expandAll={expandAll} initialView={initialView} layout={layout} query={sp} matchTargets={matches?.targets ?? null} liveSets={liveSets} />
+      <BenchmarkTree archived={archived} items={items} expandAll={expandAll} initialView={initialView} layout={layout} query={sp} matchTargets={matches?.targets ?? null} liveSets={liveSets} />
     </main>
   );
 }
