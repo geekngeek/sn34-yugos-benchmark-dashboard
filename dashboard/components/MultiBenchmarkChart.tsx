@@ -10,6 +10,7 @@ import { AXIS_ORDER, METRICS, defaultAxes, value, type ChartPoint, type MetricKe
 import { autoDomain, scale, zoomDom, type Dom } from "@/lib/chartScale";
 import { placeLabels, type LabelIn } from "@/lib/labelPlace";
 import { keyClick, keyClickHint } from "@/lib/keyToggle";
+import { MatchBars } from "@/components/Match";
 import { qOne, useQuerySync, type Query } from "@/lib/urlState";
 
 /**
@@ -73,7 +74,7 @@ function ShapeIcon({ i, color }: { i: number; color: string }) {
   return <svg width="14" height="14" aria-hidden="true" className="mc-icon"><Shape shape={shapeOf(i)} x={7} y={7} r={4.6} className="tc-dot" style={{ ["--c" as string]: color, strokeWidth: 1 }} /></svg>;
 }
 
-export function MultiBenchmarkChart({ candidates, scopeNote, query }: { candidates: Candidate[]; scopeNote: string; query?: Query }) {
+export function MultiBenchmarkChart({ candidates, scopeNote, query, filterBar }: { candidates: Candidate[]; scopeNote: string; query?: Query; filterBar?: ReactNode }) {
   // settings: from the URL, written back once something is drawn
   const [x, setX] = useState<MetricKey | null>(() => ((AXIS_ORDER as string[]).includes(qOne(query, "mcx")) ? qOne(query, "mcx") as MetricKey : null));
   const [y, setY] = useState<MetricKey>(() => ((AXIS_ORDER as string[]).includes(qOne(query, "mcy")) ? qOne(query, "mcy") as MetricKey : "quality"));
@@ -86,6 +87,8 @@ export function MultiBenchmarkChart({ candidates, scopeNote, query }: { candidat
   const [outline, setOutline] = useState(() => qOne(query, "mcoutline") !== "0");        // labels outlined in the developer's colour
   const [hidden, setHidden] = useState<Set<string>>(() => new Set(qOne(query, "mchide").split(",").filter(Boolean)));
   const [grey, setGrey] = useState<string[]>(() => qOne(query, "mcgrey").split(",").filter(Boolean));
+  // developers greyed out in the outline key (when the dots are coloured by something else), as on a benchmark's page
+  const [devOff, setDevOff] = useState<string[]>(() => qOne(query, "mcdev").split(",").filter(Boolean));
   const [models, setModels] = useState<string[] | null>(() => (qOne(query, "mcmodels") ? qOne(query, "mcmodels").split(",").filter(Boolean) : null));
 
   const [data, setData] = useState<MultiChartData | null>(null);
@@ -115,10 +118,17 @@ export function MultiBenchmarkChart({ candidates, scopeNote, query }: { candidat
   useQuerySync({
     mc: drawn, mcx: drawn && x ? x : null, mcy: drawn && y !== "quality" ? y : null, mclx: drawn ? lx : null, mcly: drawn ? ly : null,
     mccolor: drawn && colorBy !== "benchmark" ? colorBy : null, mclines: drawn && [...lines].sort().join(",") !== "curves,spread" ? [...lines].join(",") || "none" : null,
-    mclayout: drawn && layout === "grid" ? "grid" : null, mclabels: drawn && showLabels ? "1" : null, mcoutline: drawn && !outline ? "0" : null, mchide: drawn ? [...hidden].join(",") : null, mcgrey: drawn ? grey.join(",") : null,
+    mclayout: drawn && layout === "grid" ? "grid" : null, mclabels: drawn && showLabels ? "1" : null, mcoutline: drawn && !outline ? "0" : null, mchide: drawn ? [...hidden].join(",") : null, mcgrey: drawn ? grey.join(",") : null, mcdev: drawn ? devOff.join(",") : null,
     mcmodels: drawn && models ? models.join(",") || "none" : null,
   });
-  const stale = drawnNos !== null && drawnNos.join("|") !== candidates.map((c) => c.no).join("|");
+  // once drawn, the chart follows the list: a change of filters or order redraws it after a short pause
+  const wantKey = candidates.map((c) => c.no).join("|");
+  const stale = drawnNos !== null && drawnNos.join("|") !== wantKey;
+  useEffect(() => {
+    if (!stale || !candidates.length) return;
+    const t = setTimeout(() => fetchData(candidates.map((c) => c.no), models), 450);
+    return () => clearTimeout(t);
+  }, [wantKey, stale]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section className="card mc" aria-labelledby="mc-title">
@@ -127,22 +137,23 @@ export function MultiBenchmarkChart({ candidates, scopeNote, query }: { candidat
           <h2 id="mc-title">Combined chart</h2>
           <p className="muted small">
             {candidates.length
-              ? <>The current filters leave <b>{candidates.length}</b> {scopeNote}. Draw puts every one of them in one chart: each benchmark keeps its own score, nothing is averaged.</>
+              ? <>The current filters leave <b>{candidates.length}</b> {scopeNote}. {drawn ? "The chart follows the filters and order below as you change them" : "Draw puts every one of them in one chart"}: each benchmark keeps its own score, nothing is averaged.</>
               : "The current filters leave no benchmarks."}
           </p>
         </div>
         <div className="mc-draw">
-          {stale && <span className="small mc-stale">The filters changed since the last draw.</span>}
+          {stale && candidates.length > 0 && <span className="small mc-stale">Updating…</span>}
           <button type="button" className="button primary" onClick={draw} disabled={!candidates.length || loading}>
             {loading ? "Loading…" : drawn ? "Redraw" : "Draw"}
           </button>
         </div>
       </div>
+      {filterBar && <div className="mc-filterbar">{filterBar}</div>}
       {error && <p className="empty">{error}</p>}
       {data && (
-        <Chart data={data} x={x} y={y} lx={lx} ly={ly} colorBy={colorBy} lines={lines} layout={layout} hidden={hidden} grey={grey}
+        <Chart data={data} x={x} y={y} lx={lx} ly={ly} colorBy={colorBy} lines={lines} layout={layout} hidden={hidden} grey={grey} devOff={devOff}
                custom={custom} setCustom={setCustom} busy={loading}
-               showLabels={showLabels} outline={outline} set={{ setX, setY, setLx, setLy, setColorBy, setLines, setLayout, setHidden, setGrey, setShowLabels, setOutline }}
+               showLabels={showLabels} outline={outline} set={{ setX, setY, setLx, setLy, setColorBy, setLines, setLayout, setHidden, setGrey, setShowLabels, setOutline, setDevOff }}
                picker={data.configs.length > 0 && (
                  <ModelPicker configs={data.configs} selected={data.selected} defaults={data.defaults} defaultNote={data.defaultNote}
                               yugos={data.yugos} onApply={pickModels} />
@@ -155,13 +166,13 @@ export function MultiBenchmarkChart({ candidates, scopeNote, query }: { candidat
 interface Setters {
   setX: (v: MetricKey | null) => void; setY: (v: MetricKey) => void; setLx: (v: string) => void; setLy: (v: string) => void;
   setColorBy: (v: ColorBy) => void; setLines: (v: Set<LineKind>) => void; setLayout: (v: "one" | "grid") => void;
-  setHidden: (v: Set<string>) => void; setGrey: (v: string[]) => void; setShowLabels: (v: boolean) => void; setOutline: (v: boolean) => void;
+  setHidden: (v: Set<string>) => void; setGrey: (v: string[]) => void; setShowLabels: (v: boolean) => void; setOutline: (v: boolean) => void; setDevOff: (v: string[]) => void;
 }
 interface Hover { p: ChartPoint; px: number; py: number; panel: string }
 
-function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey, custom, setCustom, busy, set, picker, showLabels, outline }: {
+function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey, devOff, custom, setCustom, busy, set, picker, showLabels, outline }: {
   data: MultiChartData; x: MetricKey | null; y: MetricKey; lx: string; ly: string; colorBy: ColorBy; lines: Set<LineKind>;
-  layout: "one" | "grid"; hidden: Set<string>; grey: string[]; custom: Record<string, string>; showLabels: boolean; outline: boolean;
+  layout: "one" | "grid"; hidden: Set<string>; grey: string[]; devOff: string[]; custom: Record<string, string>; showLabels: boolean; outline: boolean;
   setCustom: (f: (c: Record<string, string>) => Record<string, string>) => void; busy: boolean; set: Setters; picker: ReactNode;
 }) {
   const root = useRef<HTMLDivElement>(null);
@@ -222,7 +233,10 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
     const vx = val(p, x), vy = val(p, y);
     return vx !== null && vy !== null && (!logX || vx > 0) && (!logY || vy > 0);
   });
-  const usable = usableAll.filter((p) => !hidden.has(p.benchmark_id));
+  // a developer switched off in the developer key is filtered out; axis limits still come from every drawn point
+  const devOn = (p: ChartPoint) => colorBy === "developer" || !devOff.includes(LAB_SLOT[p.provider] || custom[p.provider] ? p.provider : "Other");
+  const shownBench = usableAll.filter((p) => !hidden.has(p.benchmark_id));
+  const usable = shownBench.filter(devOn);
   const notComparable = y === "quality" ? data.series.filter((s) => !hidden.has(s.id) && all.some((p) => p.benchmark_id === s.id) && all.every((p) => p.benchmark_id !== s.id || p.sort_score === null)) : [];
 
   // ---- colours ----
@@ -242,18 +256,19 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
     if (colorBy === "effort") return k.startsWith("r") ? `var(--tc-r${k.slice(1)})` : "var(--tc-other)";
     return "var(--tc-c1)";
   };
+  const devOffSet = new Set(colorBy === "developer" ? [] : devOff);
   const colorOf = (p: ChartPoint) => colorOfKey(keyOf(p));
   /** a developer's colour (the label border); the dots' own colour when they are coloured by developer */
   const devKey = (p: ChartPoint) => (LAB_SLOT[p.provider] || custom[p.provider] ? p.provider : "Other");
   const devColorOfKey = (k: string) => custom[k] ?? (LAB_SLOT[k] ? `var(--tc-c${LAB_SLOT[k]})` : "var(--tc-other)");
-  const devColor = (p: ChartPoint) => (colorBy === "developer" ? colorOf(p) : devColorOfKey(devKey(p)));
+  const devColor = (p: ChartPoint) => (colorBy === "developer" ? colorOf(p) : devOffSet.has(devKey(p)) ? "var(--tc-other)" : devColorOfKey(devKey(p)));
   const devLegend = useMemo(() => {
     if (colorBy === "developer") return [];
     const n = new Map<string, number>();
-    for (const p of usable) n.set(devKey(p), (n.get(devKey(p)) ?? 0) + 1);
+    for (const p of shownBench) n.set(devKey(p), (n.get(devKey(p)) ?? 0) + 1);
     return [...LAB_ORDER, ...Object.keys(custom).filter((d) => !LAB_SLOT[d]).sort((a, b) => a.localeCompare(b)), "Other"].filter((d) => n.has(d));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [usable, colorBy, custom]);
+  }, [shownBench, colorBy, custom]);
   const seriesColor = (s: Series) => (colorBy === "benchmark" ? colorOfKey(`s:${s.id}`) : "var(--tc-ink2)");
   const colorKeys = useMemo(() => {
     if (colorBy === "benchmark" || colorBy === "none") return [];
@@ -284,7 +299,7 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
 
   // ---- emphasis: hovering a point lifts its configuration everywhere; hovering a key entry lifts its points ----
   const lit = (p: ChartPoint) => em ? p.config === em.p.config
-    : keyHover ? (keyHover.startsWith("s:") ? p.benchmark_id === keyHover.slice(2) : keyOf(p) === keyHover) : true;
+    : keyHover ? (keyHover.startsWith("s:") ? p.benchmark_id === keyHover.slice(2) : keyHover.startsWith("d:") ? devKey(p) === keyHover.slice(2) : keyOf(p) === keyHover) : true;
 
   // size, dot size and axis limits come from every drawn point, hidden benchmarks included: hiding or showing
   // benchmarks then only adds or removes dots, and everything else stays exactly where it was
@@ -459,6 +474,7 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
                       title={`${about}\n${na ? `Not drawn: ${whyNot(s.id)}. Pick other axes to see it.` : keyClickHint(seriesIds, [...hidden], s.id, { on: "show it again", off: "hide it" })}`}>
                 {s.root && <span className="mc-key-root">{s.root}</span>}{s.label}
                 {s.difficulty.kind !== "none" && <span className="mc-key-stars"><Stars d={s.difficulty} span={s.span} /></span>}
+                {s.fit && <span className="mc-key-fit"><MatchBars t={s.fit} /></span>}
                 <span className="tc-key-n">{na ? "–" : cnt}</span>
               </button>
             </span>
@@ -469,8 +485,18 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
 
       {devLegend.length > 0 && (
         <div className="mc-devkey small" aria-label="Label outlines">
-          <span className="muted">Label outline = developer:</span>
-          {devLegend.map((d) => <span key={d} className="mc-devchip" style={{ ["--dev" as string]: devColorOfKey(d) }}>{d}</span>)}
+          <span className="muted">Developers:</span>
+          {devLegend.map((d) => {
+            const off = devOffSet.has(d);
+            return (
+              <button key={d} type="button" className={`mc-devchip${off ? " off" : ""}`} aria-pressed={!off}
+                      style={{ ["--dev" as string]: off ? "var(--tc-other)" : devColorOfKey(d) }}
+                      onMouseEnter={() => !off && setKeyHover(`d:${d}`)} onMouseLeave={() => setKeyHover(null)}
+                      onClick={() => set.setDevOff(keyClick(devLegend, devOff, d))}
+                      title={keyClickHint(devLegend, devOff, d, { on: "show its models again", off: "hide its models" })}>{d}</button>
+            );
+          })}
+          {devOff.some((d) => devLegend.includes(d)) && <button type="button" className="link tc-key-reset" onClick={() => set.setDevOff([])}>Show all</button>}
         </div>
       )}
       {colorKeys.length > 0 && (
@@ -513,7 +539,7 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
           <>
             <div className="mc-panel-title"><ShapeIcon i={seriesIdx.get(solo.id) ?? 0} color={seriesColor(solo)} />
               <span className="mc-panel-name" title={[solo.root, solo.label].filter(Boolean).join(" · ")}>{solo.root && <span className="mc-key-root">{solo.root}</span>}<b>{solo.label}</b></span>
-              {solo.difficulty.kind !== "none" && <Stars d={solo.difficulty} span={solo.span} />}</div>
+              {solo.difficulty.kind !== "none" && <Stars d={solo.difficulty} span={solo.span} />}{solo.fit && <span className="mc-key-fit"><MatchBars t={solo.fit} /></span>}</div>
             {(() => {
               const pts = usable.filter((p) => p.benchmark_id === solo.id);
               const own = { x: autoDomain(pts.map((p) => val(p, x)!), logX), y: fitAll.y };
@@ -535,7 +561,7 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
                 <div key={s.id} className="mc-panel">
                   <div className="mc-panel-title small"><ShapeIcon i={seriesIdx.get(s.id) ?? 0} color={seriesColor(s)} />
                     <span className="mc-panel-name" title={[s.root, s.label].filter(Boolean).join(" · ")}>{s.root && <span className="mc-key-root">{s.root}</span>}<b>{s.label}</b></span>
-                    {s.difficulty.kind !== "none" && <Stars d={s.difficulty} span={s.span} />} <span className="muted mc-panel-n">{pts.length}</span>
+                    {s.difficulty.kind !== "none" && <Stars d={s.difficulty} span={s.span} />}{s.fit && <span className="mc-key-fit"><MatchBars t={s.fit} /></span>} <span className="muted mc-panel-n">{pts.length}</span>
                     <button type="button" className="mc-panel-fs" aria-label={`Open ${s.label} full screen`} title="Open this chart full screen (wheel zooms, drag pans)"
                             onClick={() => { setFocus(s.id); setView(null); setFull(true); root.current?.requestFullscreen?.().catch(() => undefined); }}>
                       <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>

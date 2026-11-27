@@ -2,6 +2,7 @@
 import type { ModelConfig } from "@/lib/api";
 import type { ChartPoint } from "@/lib/chartMetrics";
 import type { Difficulty } from "@/lib/difficulty";
+import type { MatchTriple } from "@/lib/yugosMatch";
 
 /** one database benchmark in the combined chart, with the Benchmark list rows it stands for */
 export interface Series {
@@ -10,6 +11,7 @@ export interface Series {
   root: string | null;        // its parent benchmark's name when that row is a sub-benchmark
   difficulty: Difficulty;     // the row's level (a benchmark's overall table: the span of its sub-benchmarks, span = true)
   span: boolean;
+  fit: MatchTriple | null;    // Yugos fit of the row (a benchmark: the best of its sub-benchmarks per category), as on the Benchmark list
   db: string;                 // database name · version
   nos: string[];              // Benchmark list rows (No) that link to it
   results: number;

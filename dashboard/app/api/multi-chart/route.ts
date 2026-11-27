@@ -6,6 +6,8 @@ import { parseDifficulty, spanOf, type Difficulty } from "@/lib/difficulty";
 import type { ChartPoint } from "@/lib/chartMetrics";
 import type { MultiChartData, Series } from "@/lib/multiChart";
 import { readModelLinks, readState } from "@/lib/yugosModels";
+import { readSubMatches } from "@/lib/yugosMatchData";
+import { MATCH_CATS, tripleOf, type MatchTriple } from "@/lib/yugosMatch";
 
 /**
  * POST {nos: ["5", "12.3", …], models: null | ["<config>", …]} -> what the combined chart of the Benchmark list
@@ -19,9 +21,16 @@ export async function POST(req: Request) {
   const nos = Array.isArray(body.nos) ? body.nos.filter((n): n is string => typeof n === "string").slice(0, 400) : [];
   const models = Array.isArray(body.models) ? body.models.filter((c): c is string => typeof c === "string") : null;
 
-  const [rows, map, dbList, csv] = await Promise.all([
-    readListRows(), readBenchmarkMap(), api.benchmarks().catch((): BenchmarkInfo[] => []), readList(),
+  const [rows, map, dbList, csv, matches] = await Promise.all([
+    readListRows(), readBenchmarkMap(), api.benchmarks().catch((): BenchmarkInfo[] => []), readList(), readSubMatches(),
   ]);
+  // Yugos fit per row, as the Benchmark list shows it: a sub-benchmark's own, a benchmark's best sub-benchmark per category
+  const fitOf = (no: string): MatchTriple | null => {
+    const own = matches?.rows[no];
+    if (parentOf(no)) return own ? tripleOf(own) : null;
+    const kids = Object.keys(matches?.rows ?? {}).filter((k) => parentOf(k) === no).map((k) => tripleOf(matches!.rows[k]));
+    return kids.length ? Object.fromEntries(MATCH_CATS.map((c) => [c, Math.max(...kids.map((t) => t[c]))])) as MatchTriple : null;
+  };
   // difficulty per row, as the Benchmark list shows it (a benchmark: the span of its sub-benchmarks' levels)
   const col = (n: string) => csv.header.findIndex((h) => h.trim().toLowerCase() === n.toLowerCase());
   const dCol = col("Difficulty"), ddCol = col("Difficulty detail");
@@ -51,7 +60,7 @@ export async function POST(req: Request) {
       const b = info(r)!;
       const s = series.get(b.id);
       if (s) { if (!s.nos.includes(no)) s.nos.push(no); continue; }
-      series.set(b.id, { id: b.id, label: nameOf.get(no) ?? b.benchmark_name, root: parentOf(no) ? nameOf.get(parentOf(no)!) ?? null : null, ...levelOf(no), db: [b.benchmark_name, b.benchmark_version].filter(Boolean).join(" · "),
+      series.set(b.id, { id: b.id, label: nameOf.get(no) ?? b.benchmark_name, root: parentOf(no) ? nameOf.get(parentOf(no)!) ?? null : null, ...levelOf(no), fit: fitOf(no), db: [b.benchmark_name, b.benchmark_version].filter(Boolean).join(" · "),
                          nos: [no], results: b.result_count, sources: b.sources });
     }
   }

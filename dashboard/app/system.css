@@ -278,3 +278,50 @@ html .ds-pick .link { font-size: 14px; }
 html .ds-chartbar { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; }
 html .ds-yugcell { display: inline-flex; gap: 4px; align-items: center; }
 html .ds-filters { margin-bottom: 0; }
+
+/* combined chart: developer chips toggle like the benchmark keys */
+html .mc-devkey { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 4px 0 8px; font-size: 13px; }
+html button.mc-devchip { min-height: 0; height: 26px; padding: 0 10px; border-radius: 999px; border: 1px solid var(--control); background: var(--surface);
+  font-size: 13px; color: var(--ink); display: inline-flex; align-items: center; gap: 6px; }
+html button.mc-devchip::before { content: ""; width: 10px; height: 10px; border-radius: 3px; border: 2px solid var(--dev); background: color-mix(in srgb, var(--dev) 25%, transparent); }
+html button.mc-devchip.off { border-style: dashed; color: var(--muted); opacity: .6; }
+html button.mc-devchip:hover { background: var(--surface-2); }
+html button.mc-devchip { text-shadow: none; }
+
+/* two-handle range slider (components/RangeSlider.tsx): both inputs share one track; only the handles take the pointer */
+html .rs { display: flex; flex-direction: column; gap: 10px; padding: 4px 2px 2px; }
+html .rs-track { position: relative; height: 22px; }
+html .rs-track::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 4px; border-radius: 2px; background: var(--control); }
+html .rs-fill { position: absolute; top: 9px; height: 4px; border-radius: 2px; background: var(--accent); }
+html .rs-track input[type="range"] { position: absolute; inset: 0; width: 100%; height: 22px; margin: 0; background: none; pointer-events: none;
+  appearance: none; -webkit-appearance: none; accent-color: var(--accent); }
+html .rs-track input[type="range"]::-webkit-slider-thumb { pointer-events: auto; -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--surface); border: 2px solid var(--accent); cursor: grab; box-shadow: 0 1px 3px rgba(0, 0, 0, .2); }
+html .rs-track input[type="range"]::-moz-range-thumb { pointer-events: auto; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--surface); border: 2px solid var(--accent); cursor: grab; }
+html .rs-track input[type="range"]::-webkit-slider-runnable-track { background: none; }
+html .rs-track input[type="range"]::-moz-range-track { background: none; }
+html .rs-nums { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; color: var(--ink-2); }
+html .rs-nums label { display: inline-flex; align-items: center; gap: 4px; }
+html .rs-nums input[type="number"] { width: 62px; height: 30px; padding: 0 6px; font-size: 13px; }
+
+/* combined chart: the list's filters and order, pinned at the top while the chart is in view */
+html .mc-filterbar { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 12px 0;
+  padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, .06); }
+html .mcf-lab { font-size: 12px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+html button.mcf-btn { min-height: 0; height: 30px; padding: 0 10px; font-size: 13px; border-radius: 8px; }
+html button.mcf-btn.on { background: var(--accent-wash); border-color: var(--accent-line); color: var(--accent); }
+html .mc-filterbar select { height: 30px; width: auto; font-size: 13px; padding: 0 8px; }
+html .mcf-chips { display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-left: 4px; }
+html .mcf-chips .bl-chip { height: 28px; }
+
+/* Yugos fit next to the stars on the combined chart's keys and small-chart titles */
+html .mc-key-fit { display: inline-flex; align-items: center; margin-left: 2px; flex: none; }
+html .mc-key-fit .mx-bars { gap: 2px; }
+html .mc-key-fit .mx-bar { width: 14px; }
+html .mc-key-fit .mx-track { height: 6px; }
+html .mc-key-fit .mx-val { font-size: 12px; font-weight: 600; }
+html .mc-key-fit .mx-val::before { width: 7px; height: 7px; }
+html .mc-key-fit .mx-bars { width: auto; }
+html .mc-key-fit .mx-bar { flex: 0 0 14px; }
+html .tc-key-n { margin-left: 8px; padding-left: 8px; border-left: 1px solid var(--line); color: var(--muted); font-weight: 500; }

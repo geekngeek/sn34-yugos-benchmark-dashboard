@@ -9,6 +9,7 @@ import { TOPICS, TOPIC_LABEL, parentTopics, subTopics } from "@/lib/benchmarkTop
 import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
 import { MultiBenchmarkChart } from "@/components/MultiBenchmarkChart";
 import { FilterPop } from "@/components/FilterPop";
+import { RangeSlider } from "@/components/RangeSlider";
 import { ColumnsMenu, DensityToggle, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { METRIC_INFO, METRIC_KEYS, reportedKeys, type MetricKey, type Metrics } from "@/lib/metrics";
 import { MatchBars, MatchDetail } from "@/components/Match";
@@ -82,6 +83,8 @@ const COL_LABELS: Record<string, string> = {
 };
 
 type SortKey = "no" | "name" | "difficulty" | "fit" | "category" | "data";
+/** the filters the combined chart's bar offers (the same popups as the column headers) */
+const CHART_FILTERS = ["name", "difficulty", "fit", "live", "data", "reports"] as const;
 /** sortable columns and the direction a first click sorts them (names A–Z; levels, fit and data highest first) */
 const SORTS: Record<SortKey, { first: 1 | -1 }> = {
   no: { first: 1 }, name: { first: 1 }, difficulty: { first: -1 }, fit: { first: -1 }, category: { first: 1 }, data: { first: -1 },
@@ -115,7 +118,9 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   const [params, setParams] = useState<string[]>(() => qMany(initialQuery, "param")); // benchmark must report all of these parameters
   // Yugos fit (?fit=chat&fitmin=50): sub-benchmarks whose match for that category (or their best one, "any") is at least fitmin %
   const [fitCat, setFitCat] = useState<"" | MatchCat | "any">(() => { const v = qOne(initialQuery, "fit"); return (["chat", "math_code", "agentic", "any"].includes(v) ? v : "") as "" | MatchCat | "any"; });
-  const [fitMin, setFitMin] = useState<number>(() => Number(qOne(initialQuery, "fitmin")) || 50);
+  // the fit range in % (?fitmin=50&fitmax=80); a sub-benchmark passes when its fit for the chosen category is inside it
+  const [fitMin, setFitMin] = useState<number>(() => { const v = Number(qOne(initialQuery, "fitmin")); return Number.isFinite(v) && qOne(initialQuery, "fitmin") !== "" ? Math.min(100, Math.max(0, v)) : 50; });
+  const [fitMax, setFitMax] = useState<number>(() => { const v = Number(qOne(initialQuery, "fitmax")); return Number.isFinite(v) && qOne(initialQuery, "fitmax") !== "" ? Math.min(100, Math.max(0, v)) : 100; });
   // live-set overlap: "" all, "none" no overlap, "any" some overlap, else the chosen live sets (?live=hle&live=mmlu_pro); old ?nolive=1 = none
   const [live, setLive] = useState<string[]>(() => { const v = qMany(initialQuery, "live"); return v.length ? v : qFlag(initialQuery, "nolive") ? ["none"] : []; });
   const [dataMode, setDataMode] = useState<"" | "has" | "none">(() => { const v = qOne(initialQuery, "data"); return v === "has" || v === "none" ? v : ""; });
@@ -157,7 +162,8 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   }, [tree]);
   const rated = (c: TreeItem) => c.difficulty.kind === "firm" || c.difficulty.kind === "range";
   const levelOk = (c: TreeItem) => !levels.length || levels.some((L) => L === 0 ? !rated(c) : rated(c) && L >= c.difficulty.lo && L <= c.difficulty.hi);   // "2-3" counts for 2 and for 3
-  const fitOk = (c: TreeItem) => !fitCat || (!!c.fit && (fitCat === "any" ? Math.max(...MATCH_CATS.map((k) => c.fit![k])) : c.fit[fitCat]) * 100 >= fitMin);
+  const fitPct = (c: TreeItem, cat: MatchCat | "any") => (c.fit ? Math.round((cat === "any" ? Math.max(...MATCH_CATS.map((k) => c.fit![k])) : c.fit[cat]) * 100) : null);
+  const fitOk = (c: TreeItem) => { if (!fitCat) return true; const v = fitPct(c, fitCat); return v !== null && v >= fitMin && v <= fitMax; };
   const liveOk = (c: TreeItem) => !live.length || (live[0] === "none" ? !c.live?.length : live[0] === "any" ? !!c.live?.length : live.some((s) => c.live?.includes(s)));
   const dataOk = (c: TreeItem) => !dataMode || (dataMode === "has" ? (c.data ?? 0) > 0 : !(c.data ?? 0));
   const kidOk = (c: TreeItem) => (!cats.length || (topicsOf.get(c.no) ?? []).some((t) => cats.includes(t))) && levelOk(c) && fitOk(c) && liveOk(c) && dataOk(c);
@@ -170,7 +176,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   const passes = (p: TreeItem) => !params.length || metricsOk(p.metrics);
   const subPasses = (c: TreeItem, p: TreeItem) => !params.length || metricsOk(ownMetrics(c) ?? p.metrics);
   useQuerySync({ q: query.trim(), notes: onlyNoted, cat: cats, diff: levels.map(String), param: params, site: onSiteOnly && params.length > 0,
-                 fit: fitCat || null, fitmin: fitCat ? String(fitMin) : null, live, nolive: null, data: dataMode || null,
+                 fit: fitCat || null, fitmin: fitCat ? String(fitMin) : null, fitmax: fitCat && fitMax < 100 ? String(fitMax) : null, live, nolive: null, data: dataMode || null,
                  sort: sort?.key ?? null, dir: sort ? (sort.dir === 1 ? "asc" : "desc") : null,
                  view: view === "tree" ? null : view });
 
@@ -207,7 +213,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
       out.push({ p, kids: sort ? [...kids].sort(bySort) : kids });
     }
     return sort ? out.sort((a, b) => bySort(a.p, b.p)) : out;
-  }, [tree, q, onlyNoted, cats, levels, params, onSiteOnly, topicsOf, fitCat, fitMin, live, dataMode, sort, bySort]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [tree, q, onlyNoted, cats, levels, params, onSiteOnly, topicsOf, fitCat, fitMin, fitMax, live, dataMode, sort, bySort]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // rows on screen: the tree (parents, open ones with their sub-benchmarks) or one flat, globally sorted list
   const visible = useMemo(() => {
@@ -271,15 +277,18 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   // the combined chart below the list draws what the filters leave: the matching sub-benchmarks while a filter is on
   // (a benchmark matched by its own text with no sub-benchmark shown stands for itself), else every listed benchmark's overall table
   const chartRows = useMemo(() => {
-    const out: { no: string; name: string }[] = [];
+    const items: TreeItem[] = [];
     for (const { p, kids } of groups) {
-      if (!filtering) { out.push({ no: p.no, name: p.name }); continue; }
-      if (!kids.length) out.push({ no: p.no, name: p.name });
-      for (const c of kids) out.push({ no: c.no, name: c.name });
+      if (!filtering) { items.push(p); continue; }
+      if (!kids.length) items.push(p);
+      items.push(...kids);
     }
+    // the chart lists its benchmarks in the list's order: with a sort, across every sub-benchmark (as the flat view)
+    if (sort) items.sort(bySort);
+    const out = items.map((i) => ({ no: i.no, name: i.name }));
     return { rows: out, note: filtering ? (out.some((o) => !o.no.includes(".")) ? "sub-benchmarks and benchmarks" : "sub-benchmarks")
                                         : "benchmarks (each one's overall table)" };
-  }, [groups, filtering]);
+  }, [groups, filtering, sort, bySort]);
   const subTotal = allSubs.length;
   const shownSubs = groups.reduce((n, g) => n + g.kids.length, 0);
 
@@ -334,7 +343,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   if (q) chips.push({ key: "q", col: "", label: `Search: “${query.trim()}”`, clear: () => setQuery("") });
   if (onlyNoted) chips.push({ key: "notes", col: "", label: "With my notes", clear: () => setOnlyNoted(false) });
   if (levels.length) chips.push({ key: "diff", col: "difficulty", label: `Difficulty: ${levels.map(levelName).join(", ")}`, clear: () => setLevels([]) });
-  if (fitCat) chips.push({ key: "fit", col: "fit", label: `Yugos fit: ${fitCat === "any" ? "best of three" : CAT_LABEL[fitCat]} ≥ ${fitMin}%`, clear: () => setFitCat("") });
+  if (fitCat) chips.push({ key: "fit", col: "fit", label: `Yugos fit: ${fitCat === "any" ? "best of three" : CAT_LABEL[fitCat]} ${fitMax < 100 ? `${fitMin}–${fitMax}%` : `≥ ${fitMin}%`}`, clear: () => setFitCat("") });
   if (live.length) chips.push({ key: "live", col: "live", label: `Live overlap: ${live[0] === "none" ? "none" : live[0] === "any" ? "any" : live.join(", ")}`, clear: () => setLive([]) });
   if (cats.length) chips.push({ key: "cat", col: "name", label: `Topic: ${cats.map((c) => TOPIC_LABEL[c] ?? c).join(", ")}`, clear: () => setCats([]) });
   if (params.length) chips.push({ key: "param", col: "reports", label: `Reports: ${params.map((k) => METRIC_INFO[k as MetricKey]?.title ?? k).join(" + ")}${onSiteOnly ? " (on site)" : ""}`, clear: () => { setParams([]); setOnSiteOnly(false); } });
@@ -359,10 +368,11 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
           <input type="radio" name="hf-fit" checked={fitCat === k} onChange={() => setFitCat(k)} />
           {k === "" ? "Any" : k === "any" ? "Best of the three" : CAT_LABEL[k]}
         </label>))}
-      {fitCat && <label className="hf-opt">At least
-        <select value={fitMin} onChange={(e) => setFitMin(Number(e.target.value))}>
-          {[30, 50, 60, 70, 80].map((v) => <option key={v} value={v}>{v}%</option>)}
-        </select></label>}
+      {fitCat && <>
+        <p className="hf-sub">Fit range</p>
+        <RangeSlider label="Yugos fit range" min={fitMin} max={fitMax} onChange={(a, b) => { setFitMin(a); setFitMax(b); }} />
+        <p className="hf-note"><b>{allSubs.filter((c) => { const v = fitPct(c, fitCat); return v !== null && v >= fitMin && v <= fitMax; }).length}</b> of {subTotal} sub-benchmarks in this range</p>
+      </>}
       <p className="hf-note">Sorting this column uses the category chosen here.</p>
     </>),
     live: () => (<>
@@ -598,14 +608,40 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
           })}
         </div>
         )}
-        {pop && popups[pop] && view !== "params" && <FilterPop anchor={pop} onClose={() => setPop(null)}>{popups[pop]()}</FilterPop>}
+        {pop && popups[pop.split("@")[0]] && (view !== "params" || pop.endsWith("@chart")) &&
+          <FilterPop anchor={pop} onClose={() => setPop(null)}>{popups[pop.split("@")[0]]()}</FilterPop>}
 
         {panel && current && <Details key={current.item.no} item={current.item} parent={current.parent} onClose={() => setPanel(false)} matchTargets={matchTargets}
                              width={panelW} onResize={resizePanel}
                              onSaved={(note) => updateNote(current.item.no, note)}
                              onPick={(no) => { setSelected(no); if (byNo.get(no)?.parent) toggle(byNo.get(no)!.parent!.no, true); }} />}
       </div>
-      <MultiBenchmarkChart candidates={chartRows.rows} scopeNote={chartRows.note} query={initialQuery} />
+      <MultiBenchmarkChart candidates={chartRows.rows} scopeNote={chartRows.note} query={initialQuery} filterBar={
+        <>
+          <span className="mcf-lab">Filter</span>
+          {CHART_FILTERS.map((k) => (
+            <button key={k} type="button" className={`mcf-btn${activeCols.has(k) ? " on" : ""}`} data-pop={`${k}@chart`} aria-expanded={pop === `${k}@chart`}
+                    onClick={() => setPop((p) => (p === `${k}@chart` ? null : `${k}@chart`))}>
+              {k === "name" ? "Topic" : TREE_HEADS[k].label} ▾
+            </button>))}
+          <span className="mcf-lab">Order by</span>
+          <select aria-label="Order the benchmarks by" value={sort?.key ?? ""}
+                  onChange={(e) => { const k = e.target.value as SortKey; setSort(k ? { key: k, dir: SORTS[k].first } : null); }}>
+            <option value="">List order</option>
+            {(Object.keys(SORTS) as SortKey[]).map((k) => <option key={k} value={k}>{TREE_HEADS[k].label}</option>)}
+          </select>
+          {sort && <button type="button" className="mcf-btn" title="Reverse the order" onClick={() => setSort({ ...sort, dir: (-sort.dir) as 1 | -1 })}>{sort.dir === 1 ? "▲ low → high" : "▼ high → low"}</button>}
+          <span className="mcf-chips">
+            {chips.map((c) => (
+              <span key={c.key} className="bl-chip">
+                <button type="button" className="bl-chip-label" data-pop={c.col ? `${c.col}~chip` : undefined}
+                        onClick={() => { if (c.col) setPop(`${c.col}@chart`); }}>{c.label}</button>
+                <button type="button" className="bl-chip-x" aria-label={`Remove ${c.label}`} onClick={c.clear}>×</button>
+              </span>))}
+            {chips.length > 0 && <button type="button" className="link" onClick={clearAll}>Clear all</button>}
+          </span>
+        </>
+      } />
     </HoverTip>
   );
 }

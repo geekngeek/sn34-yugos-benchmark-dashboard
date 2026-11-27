@@ -11,10 +11,14 @@ export function FilterPop({ anchor, onClose, children }: { anchor: string; onClo
   useEffect(() => {
     const W = 270;
     const place = () => {
-      const head = document.querySelector(`[data-pop="${CSS.escape(anchor)}"]`)?.closest("[role=columnheader], th");
+      const el = document.querySelector(`[data-pop="${CSS.escape(anchor)}"]`);
+      const head = el?.closest("[role=columnheader], th") ?? el;
       if (!head) { close.current(); return; }
       const r = head.getBoundingClientRect();
-      setPos({ left: Math.max(8, Math.min(r.left, window.innerWidth - W - 8)), top: Math.max(8, r.bottom + 4) });
+      const h = ref.current?.offsetHeight ?? 320;
+      // below the anchor when it fits, else above it
+      const top = r.bottom + 4 + h <= window.innerHeight - 8 ? r.bottom + 4 : Math.max(8, r.top - 4 - h);
+      setPos({ left: Math.max(8, Math.min(r.left, window.innerWidth - W - 8)), top });
     };
     place();
     const down = (e: MouseEvent) => {
