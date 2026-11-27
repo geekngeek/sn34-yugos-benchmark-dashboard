@@ -467,8 +467,8 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
         <span className="mc-picker">{picker}</span>
       </div>
 
-      {/* benchmarks: shape (and colour) of each; hover highlights, click hides */}
-      <div className="tc-key mc-key" role="group" aria-label="Benchmarks" onMouseLeave={() => setKeyHover(null)}>
+      {/* benchmarks: shape (and colour) of each; hover highlights, click hides. Not when one benchmark's chart is open full screen. */}
+      {!solo && <div className="tc-key mc-key" role="group" aria-label="Benchmarks" onMouseLeave={() => setKeyHover(null)}>
         {keyOrder.map(({ s, i }) => {
           const cnt = drawable.get(s.id) ?? 0, na = cnt === 0, off = !na && hidden.has(s.id);
           const about = `${s.root ? `${s.root} › ` : ""}${s.label}\nDifficulty: ${difficultyText(s.difficulty)}${s.span ? " (range of its sub-benchmarks)" : ""}\n${s.db} · ${s.sources.join(", ")} · Benchmark list ${s.nos.join(", ")}`;
@@ -486,7 +486,7 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
           );
         })}
         {seriesIds.some((id) => hidden.has(id)) && <button type="button" className="link tc-key-reset" onClick={() => set.setHidden(new Set())}>Show all</button>}
-      </div>
+      </div>}
 
       {devLegend.length > 0 && (
         <div className="mc-devkey small" aria-label="Label outlines">

@@ -174,7 +174,9 @@ for bdef in BENCHMARKS:
             "benchmark": key,
             "model": m["name"],
             "developer": m.get("creator", {}).get("name", ""),
-            "score": score if isinstance(score, (int, float)) else float(score),
+            # AA publishes percentages as 0-1 fractions; every other source in the database stores
+            # "percent" as 0-100, so convert here (otherwise 80% reads as 0.8%)
+            "score": round(float(score) * 100, 4) if bdef[4] == "percent" else (score if isinstance(score, (int, float)) else float(score)),
         }
         eff = effort_label(m)
         if eff:
@@ -226,9 +228,9 @@ doc = {
         "notes": [
             "Scores are as reported by Artificial Analysis, which runs its own evaluations.",
             "This data was scraped from their website; their terms forbid scraping.",
-            "Percentage scores are stored as 0-1 fractions."
+            "AA publishes percentages as 0-1 fractions; they are stored here as 0-100 percent, like every other source."
         ],
-        "collected_at": fetched_at
+        "collected_at": fetched_at.replace("Z", "+00:00"),   # the importer (Python 3.10) can't read a trailing Z
     },
     "benchmarks": [],
     "results": []
@@ -242,7 +244,7 @@ for bdef, results in active:
         "version": version,
         "area": area,
         "unit": unit,
-        "description": bdef[7],
+        "description": bdef[8],
         "url": "https://artificialanalysis.ai/leaderboards/terminal"
     }
     if bdef[6]:  # lower_is_better

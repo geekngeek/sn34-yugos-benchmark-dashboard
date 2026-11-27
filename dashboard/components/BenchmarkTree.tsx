@@ -83,13 +83,17 @@ const COL_LABELS: Record<string, string> = {
   category: "Category", focus: "Focus", top: "Top ranked", reports: "Reports",
 };
 
-type SortKey = "no" | "name" | "difficulty" | "fit" | "category" | "data";
+type SortKey = "no" | "name" | "difficulty" | "fit" | "fit_chat" | "fit_math_code" | "fit_agentic" | "category" | "data";
 /** the filters the combined chart's bar offers (the same popups as the column headers) */
 const CHART_FILTERS = ["name", "difficulty", "fit", "live", "data", "reports"] as const;
 /** sortable columns and the direction a first click sorts them (names A–Z; levels, fit and data highest first) */
 const SORTS: Record<SortKey, { first: 1 | -1 }> = {
-  no: { first: 1 }, name: { first: 1 }, difficulty: { first: -1 }, fit: { first: -1 }, category: { first: 1 }, data: { first: -1 },
+  no: { first: 1 }, name: { first: 1 }, difficulty: { first: -1 }, fit: { first: -1 },
+  fit_chat: { first: -1 }, fit_math_code: { first: -1 }, fit_agentic: { first: -1 }, category: { first: 1 }, data: { first: -1 },
 };
+/** Yugos fit orders: overall = the best of the three categories; or one category's own fit */
+const FIT_SORT: Partial<Record<SortKey, MatchCat>> = { fit_chat: "chat", fit_math_code: "math_code", fit_agentic: "agentic" };
+const sortLabel = (k: SortKey) => (k === "fit" ? "Yugos fit: overall (best of 3)" : FIT_SORT[k] ? `Yugos fit: ${CAT_LABEL[FIT_SORT[k]!]}` : TREE_HEADS[k].label);
 
 /** the text with every match of the search marked */
 function Hl({ text, q }: { text: string; q: string }) {
@@ -220,11 +224,12 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
       case "no": return i.no.split(".").reduce((n, x, k) => n + Number(x) * (k ? 1 / 1000 : 1), 0);
       case "name": return i.name.toLowerCase();
       case "difficulty": return i.difficulty.kind === "firm" || i.difficulty.kind === "range" ? i.difficulty.lo * 10 + i.difficulty.hi : null;
-      case "fit": return i.fit ? Math.max(...(fitCats.length ? fitCats : MATCH_CATS).map((k) => i.fit![k])) : null;
+      case "fit": return i.fit ? Math.max(...MATCH_CATS.map((k) => i.fit![k])) : null;
+      case "fit_chat": case "fit_math_code": case "fit_agentic": return i.fit ? i.fit[FIT_SORT[key]!] : null;
       case "category": return i.category.trim().toLowerCase() || null;
       case "data": return i.data ?? 0;
     }
-  }, [fitCats.join()]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
   const bySort = useCallback((a: TreeItem, b: TreeItem) => {
     if (!sort) return 0;
     const x = sortVal(a, sort.key), y = sortVal(b, sort.key);
@@ -415,7 +420,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
       <p className="hf-note">{fitCats.length
         ? <><b>{allSubs.filter(fitIn).length}</b> of {subTotal} sub-benchmarks have {fitCats.length > 1 ? "any ticked category" : CAT_LABEL[fitCats[0]]} in its range</>
         : "Tick a category to filter by it; each ticked category gets its own range."}</p>
-      <p className="hf-note">Sorting this column uses the best of the ticked categories.</p>
+      <p className="hf-note">Clicking the header sorts by the overall fit (best of the three); “Order by” above the chart also sorts by one category.</p>
     </>),
     live: () => (<>
       <p className="hf-title">Live overlap</p>
@@ -510,7 +515,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
               </span>))}
             {sort && <span className="bl-chip sort">
               <button type="button" className="bl-chip-label" title="Reverse" onClick={() => setSort({ ...sort, dir: (-sort.dir) as 1 | -1 })}>
-                Sort: {TREE_HEADS[sort.key].label}{sort.key === "fit" ? ` (${fitCats.length && fitCats.length < MATCH_CATS.length ? fitCats.map((k) => CAT_LABEL[k]).join(", ") : "best"})` : ""} {sort.dir === 1 ? "▲" : "▼"}
+                Sort: {sortLabel(sort.key)} {sort.dir === 1 ? "▲" : "▼"}
               </button>
               <button type="button" className="bl-chip-x" aria-label="Stop sorting" onClick={() => setSort(null)}>×</button>
             </span>}
@@ -532,7 +537,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
             {cl.cols.map(({ key }) => {
               const h = TREE_HEADS[key];
               const hp = cl.head(key);
-              const sortable = !!SORTS[key as SortKey], sorted = sort?.key === key;
+              const sortable = !!SORTS[key as SortKey], sorted = sort?.key === key || (key === "fit" && !!sort && !!FIT_SORT[sort.key]);
               const on = activeCols.has(key) || sorted;
               return (
                 <span key={key} role="columnheader" {...hp} className={`${hp.className}${h.cls ? ` ${h.cls}` : ""}${on ? " col-on" : ""}`}
@@ -684,7 +689,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
           <select aria-label="Order the benchmarks by" value={sort?.key ?? ""}
                   onChange={(e) => { const k = e.target.value as SortKey; setSort(k ? { key: k, dir: SORTS[k].first } : null); }}>
             <option value="">List order</option>
-            {(Object.keys(SORTS) as SortKey[]).map((k) => <option key={k} value={k}>{TREE_HEADS[k].label}</option>)}
+            {(Object.keys(SORTS) as SortKey[]).map((k) => <option key={k} value={k}>{sortLabel(k)}</option>)}
           </select>
           {sort && <button type="button" className="mcf-btn" title="Reverse the order" onClick={() => setSort({ ...sort, dir: (-sort.dir) as 1 | -1 })}>{sort.dir === 1 ? "▲ low → high" : "▼ high → low"}</button>}
           <span className="mcf-chips">
