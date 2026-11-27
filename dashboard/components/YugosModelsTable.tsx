@@ -3,8 +3,9 @@
 import { Fragment, useEffect, useMemo, useRef, useState, type KeyboardEvent, type MouseEvent } from "react";
 import { NoteCell } from "@/components/NoteCell";
 import type { YugosModel } from "@/lib/yugosModels";
-import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
+import { ColumnsMenu, DensityToggle, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { qFlag, qOne, useQuerySync, type Query } from "@/lib/urlState";
+import { FilterButton, FilterChips, FilterPop, type Chip } from "@/components/FilterPop";
 
 type SortKey = "model" | "vendor" | "line" | "released" | "in" | "out" | "cheapest" | "providers" | "expires" | "results";
 type View = "table" | "tree";
@@ -47,12 +48,12 @@ const trackNote = (m: YugosModel) => m.track.replace(/^(TRACK|drop):\s*/, "");
 
 // columns in their default order and width (px); the user can drag and resize them (saved on the server)
 const COLS: ColDef[] = [
-  { key: "model", width: 460, min: 240 }, { key: "notes", width: 170, min: 60 }, { key: "vendor", width: 110 },
-  { key: "line", width: 160 }, { key: "parent", width: 190 }, { key: "results", width: 120, min: 70, fixed: true },
+  { key: "model", width: 460, min: 240 }, { key: "notes", width: 170, min: 60, hidden: true }, { key: "vendor", width: 140 },
+  { key: "line", width: 160, hidden: true }, { key: "parent", width: 190, hidden: true }, { key: "results", width: 120, min: 70, fixed: true },
   { key: "released", width: 125, min: 80, fixed: true },
   { key: "in", width: 80, min: 50, fixed: true }, { key: "out", width: 85, min: 50, fixed: true }, { key: "cheapest", width: 115, min: 60, fixed: true },
-  { key: "providers", width: 85, min: 50, fixed: true }, { key: "efforts", width: 150 }, { key: "expires", width: 100, min: 70, fixed: true },
-  { key: "reference", width: 115, min: 50 },
+  { key: "providers", width: 95, min: 80, fixed: true }, { key: "efforts", width: 150, hidden: true }, { key: "expires", width: 100, min: 70, fixed: true, hidden: true },
+  { key: "reference", width: 115, min: 50, hidden: true },
 ];
 const HEADS: Record<string, { label: string; sort?: SortKey; cls?: string }> = {
   model: { label: "Model", sort: "model" }, notes: { label: "Notes", cls: "ym-notes-h" }, vendor: { label: "Vendor", sort: "vendor" },
@@ -316,21 +317,51 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
     URL.revokeObjectURL(a.href);
   };
 
+  // filters live in the column headers (▾): Model = newest / utility, Vendor = one vendor, Notes = with notes
+  const [pop, setPop] = useState<string | null>(null);
+  const filterOn: Record<string, boolean> = { model: onlyNewest || hideUtility || onlyNoted, vendor: !!vendor };
+  const popups: Record<string, () => React.ReactNode> = {
+    model: () => (<>
+      <p className="hf-title">Model</p>
+      <label className="hf-opt"><input type="checkbox" checked={onlyNewest} onChange={(e) => setOnlyNewest(e.target.checked)} /> Newest in each line</label>
+      <label className="hf-opt"><input type="checkbox" checked={hideUtility} onChange={(e) => setHideUtility(e.target.checked)} /> Hide utility / vision</label>
+      <label className="hf-opt hf-sep"><input type="checkbox" checked={onlyNoted} onChange={(e) => setOnlyNoted(e.target.checked)} /> Only models with notes</label>
+    </>),
+    vendor: () => (<>
+      <p className="hf-title">Vendor</p>
+      <label className="hf-opt"><input type="radio" name="ym-vendor" checked={!vendor} onChange={() => setVendor("")} /> All vendors<span className="hf-n">{models.length}</span></label>
+      {vendors.map((v) => (
+        <label key={v} className="hf-opt"><input type="radio" name="ym-vendor" checked={vendor === v} onChange={() => setVendor(v)} /> {v}
+          <span className="hf-n">{models.filter((m) => m.vendor === v).length}</span></label>))}
+    </>),
+  };
   const th = (key: string) => {
     const h = HEADS[key];
     const hp = cl.head(key);
+    const sorted = !!h.sort && sort.key === h.sort;
     return (
-      <th key={key} {...hp} className={`${hp.className}${h.cls ? ` ${h.cls}` : ""}`}
-        aria-sort={h.sort && sort.key === h.sort ? (sort.dir === 1 ? "ascending" : "descending") : undefined}>
-        {h.sort ? (
-          <button type="button" className="ym-sort" onClick={() => setSort((s) => ({ key: h.sort!, dir: s.key === h.sort ? (-s.dir as 1 | -1) : h.sort === "released" ? -1 : 1 }))}>
-            {h.label}{sort.key === h.sort ? (sort.dir === 1 ? " ▲" : " ▼") : ""}
-          </button>
-        ) : h.label}
+      <th key={key} {...hp} className={`${hp.className}${h.cls ? ` ${h.cls}` : ""}${sorted || filterOn[key] ? " col-on" : ""}`}
+        aria-sort={sorted ? (sort.dir === 1 ? "ascending" : "descending") : undefined}>
+        <span className="th-in">
+          {h.sort ? (
+            <button type="button" className="ym-sort col-sort" onClick={() => setSort((s) => ({ key: h.sort!, dir: s.key === h.sort ? (-s.dir as 1 | -1) : h.sort === "released" ? -1 : 1 }))}>
+              {h.label}{sorted && <span className="col-arrow">{sort.dir === 1 ? "▲" : "▼"}</span>}
+            </button>
+          ) : <span>{h.label}</span>}
+          {popups[key] && <FilterButton col={key} label={h.label} on={!!filterOn[key]} open={pop === key} onToggle={() => setPop((p) => (p === key ? null : key))} />}
+        </span>
         {cl.grip(key)}
       </th>
     );
   };
+  const chips: Chip[] = [];
+  if (q) chips.push({ key: "q", label: `Search: “${query.trim()}”`, clear: () => setQuery("") });
+  if (vendor) chips.push({ key: "vendor", label: `Vendor: ${vendor}`, clear: () => setVendor(""), open: () => setPop("vendor") });
+  if (onlyNewest) chips.push({ key: "newest", label: "Newest in each line", clear: () => setOnlyNewest(false), open: () => setPop("model") });
+  if (hideUtility) chips.push({ key: "util", label: "Utility / vision hidden", clear: () => setHideUtility(false), open: () => setPop("model") });
+  if (onlyNoted) chips.push({ key: "notes", label: "With notes", clear: () => setOnlyNoted(false), open: () => setPop("model") });
+  const clearAll = () => { setQuery(""); setVendor(""); setOnlyNewest(false); setHideUtility(false); setOnlyNoted(false); };
+
 
   // every row the filters let through, including ones inside closed tree branches
   const visibleNames = filtered.map((m) => m.model);
@@ -472,9 +503,9 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
         <div className="ym-count">
           <strong>{watched}</strong> of {models.length} models selected
           {!editing && (
-            <span className="ym-seg" role="group" aria-label="Which models to show">
-              <button type="button" className={`ym-chip${!showExcluded ? " on" : ""}`} aria-pressed={!showExcluded} onClick={() => setShow(false)}>Show selected</button>
-              <button type="button" className={`ym-chip${showExcluded ? " on" : ""}`} aria-pressed={showExcluded} onClick={() => setShow(true)}>Show all</button>
+            <span className="seg" role="group" aria-label="Which models to show">
+              <button type="button" className={!showExcluded ? "on" : ""} aria-pressed={!showExcluded} onClick={() => setShow(false)}>Selected</button>
+              <button type="button" className={showExcluded ? "on" : ""} aria-pressed={showExcluded} onClick={() => setShow(true)}>All</button>
             </span>
           )}
         </div>
@@ -510,41 +541,33 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
       )}
 
       <div className="ym-filters">
-        <input type="search" className="ym-search" placeholder="Search model, vendor, line, provider, note…" value={query} onChange={(e) => setQuery(e.target.value)} />
-        <select value={vendor} onChange={(e) => setVendor(e.target.value)} aria-label="Vendor">
-          <option value="">All vendors</option>
-          {vendors.map((v) => <option key={v} value={v}>{v}</option>)}
-        </select>
-        <label className="ym-toggle"><input type="checkbox" checked={onlyNewest} onChange={(e) => setOnlyNewest(e.target.checked)} /> Newest in each line</label>
-        <label className="ym-toggle"><input type="checkbox" checked={hideUtility} onChange={(e) => setHideUtility(e.target.checked)} /> Hide utility / vision</label>
-        <label className="ym-toggle"><input type="checkbox" checked={onlyNoted} onChange={(e) => setOnlyNoted(e.target.checked)} /> With notes</label>
-        <span className="ym-group">
-          View
+        <input type="search" className="ym-search" placeholder="Search model, vendor, line, provider, note…" value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search models" />
+        <span className="seg" role="group" aria-label="View">
           {(["table", "tree"] as View[]).map((v) => (
-            <button key={v} type="button" className={`ym-chip${view === v ? " on" : ""}`} aria-pressed={view === v} onClick={() => setView(v)}>
-              {v === "table" ? "Table" : "Tree"}
-            </button>
+            <button key={v} type="button" className={view === v ? "on" : ""} aria-pressed={view === v} onClick={() => setView(v)}>{v === "table" ? "Table" : "Tree"}</button>
           ))}
         </span>
-        <span className="ym-group">
-          Group by
-          {(["none", "vendor", "line"] as GroupBy[]).map((g) => (
-            <button key={g} type="button" className={`ym-chip${groupBy === g ? " on" : ""}`} aria-pressed={groupBy === g} onClick={() => setGroupBy(g)}>
-              {g === "none" ? "None" : g === "vendor" ? "Vendor" : "Product line"}
-            </button>
-          ))}
+        <span className="ym-group"><span className="ctl-lab">Group</span>
+          <span className="seg" role="group" aria-label="Group by">
+            {(["none", "vendor", "line"] as GroupBy[]).map((g) => (
+              <button key={g} type="button" className={groupBy === g ? "on" : ""} aria-pressed={groupBy === g} onClick={() => setGroupBy(g)}>
+                {g === "none" ? "None" : g === "vendor" ? "Vendor" : "Product line"}
+              </button>
+            ))}
+          </span>
         </span>
-        {view === "tree" && (
-          <span className="ym-group">
+        <span className="bl-total"><b>{visibleNames.length}</b> {view === "tree" ? `models · ${tree.length} newest` : "shown"}</span>
+        <span className="bl-viewopts">
+          {view === "tree" && <>
             <button type="button" className="link" onClick={() => setExpanded(new Set(tree.filter((e) => e.nested.length).map((e) => e.top.model)))}>Expand all</button>
             <button type="button" className="link" onClick={() => setExpanded(new Set())} disabled={!expanded.size}>Collapse all</button>
-          </span>
-        )}
-        <ResetColumns layout={cl} />
-        <span className="subtle small">
-          {view === "tree" ? `${tree.length} newest · ${visibleNames.length} models` : `${visibleNames.length} shown`}
+          </>}
+          <ColumnsMenu layout={cl} labels={Object.fromEntries(Object.entries(HEADS).map(([k, h]) => [k, h.label]))} />
+          <DensityToggle />
         </span>
       </div>
+      <FilterChips chips={chips} onClearAll={clearAll} />
+      {pop && popups[pop] && <FilterPop anchor={pop} onClose={() => setPop(null)}>{popups[pop]()}</FilterPop>}
 
       <div className="ym-scroll" ref={cl.root}>
         <table className="grid ym-table cl" style={{ width: cl.total + (editing ? 30 : 0) }}>
@@ -604,7 +627,7 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
                     : undefined;
                   const topTags = cheaperKids.length > 0 && (
                     <span className="ym-tag cheaper-parent" title={`Cheaper child${cheaperKids.length > 1 ? "ren" : ""}: ${cheaperKids.map((x) => x.a.model).join(", ")}`}>
-                      {cheaperKids.length > 1 ? `${cheaperKids.length} cheaper children` : "cheaper child"}
+                      {cheaperKids.length} cheaper
                     </span>
                   );
                   return (
@@ -614,8 +637,8 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
                         const c = cheaperBy(a, top);
                         const tags = <>
                           {(c.in !== null || c.out !== null) && (
-                            <span className="ym-tag cheaper" title={`Cheaper than ${top.model}`}>
-                              cheaper{c.in !== null ? ` · in −${c.in}%` : ""}{c.out !== null ? ` · out −${c.out}%` : ""}
+                            <span className="ym-tag cheaper" title={`Cheaper than ${top.model}: ${[c.in !== null && `input −${c.in}%`, c.out !== null && `output −${c.out}%`].filter(Boolean).join(", ")}`}>
+                              {c.in !== null && c.out !== null ? `−${c.in}% / −${c.out}%` : c.in !== null ? `in −${c.in}%` : `out −${c.out}%`}
                             </span>
                           )}
                         </>;
@@ -632,7 +655,7 @@ export function YugosModelsTable({ models, initialNotes, initialExcluded, source
       </div>
       <ul className="ym-foot subtle small">
         {sourceNotes.map((n) => <li key={n}>{n}</li>)}
-        <li>Selected models have red names. “newest” marks the newest model in its product line. In Tree view each newest model opens to its parents; “cheaper” shows how much less a parent costs per input or output token, and “cheaper child” marks a newest model that has a cheaper child (an older model nested under it). ↑ goes to the parent model, ↓ to its successor. The Providers count opens every listing with its own price.</li>
+        <li>Selected models have dark names; models left out are grey. “newest” marks the newest model in its product line. In Tree view each newest model opens to its parents; a green “−76% / −67%” tag shows how much less a parent costs per input / output token than the newest model, and “3 cheaper” marks a newest model with that many cheaper older models nested under it. ↑ goes to the parent model, ↓ to its successor. The Providers count opens every listing with its own price.</li>
         <li>Results: benchmark results for the model (and how many benchmarks), linked to the Results page. Each Yugos
           name is matched to the project model ID by data/models (hover a model or its count to see the ID and how it matched).</li>
         <li>Notes and the selection are saved on the server and shared by everyone who opens this dashboard.</li>

@@ -4,7 +4,7 @@ import path from "node:path";
 
 const FILE = path.join(process.cwd(), "..", "data", "ui-layout.json");
 
-export interface TableLayout { order?: string[]; widths?: Record<string, number>; px?: boolean; pct?: boolean }   // pct: widths are shares of the box (per mille); px: older frozen px sizes
+export interface TableLayout { order?: string[]; widths?: Record<string, number>; px?: boolean; pct?: boolean; hidden?: string[] }   // pct: widths are shares of the box (per mille); px: older frozen px sizes
 type Store = { tables: Record<string, TableLayout> };
 
 export async function readLayouts(): Promise<Record<string, TableLayout>> {

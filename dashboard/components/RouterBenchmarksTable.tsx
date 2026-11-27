@@ -6,7 +6,8 @@ import { PUBLIC_FIELDS, type PublicStatus } from "@/lib/routerPublicFields";
 import { HoverTip } from "@/components/HoverTip";
 import { NoteCell } from "@/components/NoteCell";
 import { modelMatches, normText, textMatches, tokens } from "@/lib/modelSearch";
-import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
+import { ColumnsMenu, DensityToggle, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
+import { FilterButton, FilterChips, FilterPop, type Chip } from "@/components/FilterPop";
 import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
 
 type SortKey = "num" | "name" | "newest" | "yugos";
@@ -18,9 +19,9 @@ const NEW_LEVELS: Freshness[] = ["Yes", "Partly", "Unknown", "No"];
 
 // columns in their default order and width (px); the user can drag and resize them (saved on the server)
 const COLS: ColDef[] = [
-  { key: "num", width: 46, min: 40, fixed: true }, { key: "name", width: 220, min: 120 }, { key: "note", width: 180, min: 70 }, { key: "public", width: 560, min: 160 },
-  { key: "creators", width: 190, min: 90 }, { key: "scale", width: 300, min: 120 }, { key: "models", width: 260, min: 100 },
-  { key: "focus", width: 220, min: 100 }, { key: "newest", width: 92, min: 70, fixed: true }, { key: "yugos", width: 110, min: 80, fixed: true },
+  { key: "num", width: 46, min: 40, fixed: true }, { key: "name", width: 220, min: 120 }, { key: "note", width: 180, min: 70, hidden: true }, { key: "public", width: 200, min: 150 },
+  { key: "creators", width: 190, min: 90, hidden: true }, { key: "scale", width: 220, min: 120 }, { key: "models", width: 220, min: 100 },
+  { key: "focus", width: 220, min: 100 }, { key: "newest", width: 130, min: 110, fixed: true }, { key: "yugos", width: 120, min: 100, fixed: true },
   { key: "finding", width: 320, min: 120 },
 ];
 const HEADS: Record<string, { label: string; sort?: SortKey; title?: string }> = {
@@ -91,9 +92,9 @@ function PublicTags({ b }: { b: RouterBenchmark }) {
       {PUBLIC_FIELDS.map((f) => {
         const { status, note } = b.public![f];
         return (
-          <span key={f} className={`rb-tag s-${cls(status === "?" ? "unknown" : status)}${note ? " has-note" : ""}`}
-                title={`${f}: ${STATUS_WORD[status]}${note ? ` — ${note}` : ""}`}>
-            <span aria-hidden="true">{STATUS_MARK[status]}</span> {f}
+          <span key={f} className={`rb-pq s-${cls(status === "?" ? "unknown" : status)}${note ? " has-note" : ""}`}
+                title={`${f}: ${STATUS_WORD[status]}${note ? ` — ${note}` : ""}`} aria-label={`${f}: ${STATUS_WORD[status]}`}>
+            {f[0]}
           </span>
         );
       })}
@@ -405,20 +406,64 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
     return c;
   }, [benchmarks]);
 
+  // filters live in the column headers (▾); active ones show as chips above the table
+  const [pop, setPop] = useState<string | null>(null);
+  const filterOn: Record<string, boolean> = { name: !!group || onlyNoted || showArch, yugos: useLv.length > 0, newest: newLv.length > 0, public: pubF.length > 0 };
+  const popups: Record<string, () => ReactNode> = {
+    name: () => (<>
+      <p className="hf-title">Type</p>
+      <label className="hf-opt"><input type="radio" name="rb-type" checked={!group} onChange={() => setGroup("")} /> All types<span className="hf-n">{benchmarks.length}</span></label>
+      {Object.entries(groups).map(([g, label]) => (
+        <label key={g} className="hf-opt"><input type="radio" name="rb-type" checked={group === g} onChange={() => setGroup(g)} /> {g} · {label}
+          <span className="hf-n">{benchmarks.filter((b) => b.group === g).length}</span></label>))}
+      <p className="hf-sub">Your feedback</p>
+      <label className="hf-opt"><input type="checkbox" checked={onlyNoted} onChange={() => setOnlyNoted((v) => !v)} /> With notes<span className="hf-n">{notedCount}</span></label>
+      <label className="hf-opt"><input type="checkbox" checked={showArch} onChange={() => setShowArch((v) => !v)} /> Show archived<span className="hf-n">{archivedCount}</span></label>
+    </>),
+    yugos: () => (<>
+      <p className="hf-title">For Yugos</p>
+      {USE_LEVELS.map((u) => (
+        <label key={u} className="hf-opt"><input type="checkbox" checked={useLv.includes(u)} onChange={() => toggle(useLv, setUseLv, u)} /> {u}<span className="hf-n">{counts[`u:${u}`] ?? 0}</span></label>))}
+    </>),
+    newest: () => (<>
+      <p className="hf-title">Newest models</p>
+      {NEW_LEVELS.map((n) => (
+        <label key={n} className="hf-opt"><input type="checkbox" checked={newLv.includes(n)} onChange={() => toggle(newLv, setNewLv, n)} /> {n}<span className="hf-n">{counts[`n:${n}`] ?? 0}</span></label>))}
+    </>),
+    public: () => (<>
+      <p className="hf-title">Public per question (all of)</p>
+      {PUBLIC_FIELDS.map((f) => (
+        <label key={f} className="hf-opt"><input type="checkbox" checked={pubF.includes(f)} onChange={() => toggle(pubF, setPubF, f)} /> {f}<span className="hf-n">{counts[`p:${f}`] ?? 0}</span></label>))}
+    </>),
+  };
   const th = (key: string) => {
     const h = HEADS[key];
     const hp = cl.head(key);
+    const sorted = !!h.sort && sort.key === h.sort;
     return (
-      <th key={key} {...hp} title={h.title} aria-sort={h.sort && sort.key === h.sort ? (sort.dir === 1 ? "ascending" : "descending") : undefined}>
-        {h.sort ? (
-          <button type="button" className="rb-sort" onClick={() => setSort((s) => ({ key: h.sort!, dir: s.key === h.sort ? (-s.dir as 1 | -1) : 1 }))}>
-            {h.label}{sort.key === h.sort ? (sort.dir === 1 ? " ▲" : " ▼") : ""}
-          </button>
-        ) : h.label}
+      <th key={key} {...hp} title={h.title} className={`${hp.className}${sorted || filterOn[key] ? " col-on" : ""}`}
+          aria-sort={sorted ? (sort.dir === 1 ? "ascending" : "descending") : undefined}>
+        <span className="th-in">
+          {h.sort ? (
+            <button type="button" className="rb-sort col-sort" onClick={() => setSort((s) => ({ key: h.sort!, dir: s.key === h.sort ? (-s.dir as 1 | -1) : 1 }))}>
+              {h.label}{sorted && <span className="col-arrow">{sort.dir === 1 ? "▲" : "▼"}</span>}
+            </button>
+          ) : <span>{h.label}</span>}
+          {popups[key] && <FilterButton col={key} label={h.label} on={!!filterOn[key]} open={pop === key} onToggle={() => setPop((p) => (p === key ? null : key))} />}
+        </span>
         {cl.grip(key)}
       </th>
     );
   };
+  const chips: Chip[] = [];
+  if (q) chips.push({ key: "q", label: `Search: “${q.trim()}”`, clear: () => setQ("") });
+  if (group) chips.push({ key: "group", label: `Type: ${group} · ${groups[group] ?? ""}`, clear: () => setGroup(""), open: () => setPop("name") });
+  if (useLv.length) chips.push({ key: "use", label: `For Yugos: ${useLv.join(", ")}`, clear: () => setUseLv([]), open: () => setPop("yugos") });
+  if (newLv.length) chips.push({ key: "new", label: `Newest models: ${newLv.join(", ")}`, clear: () => setNewLv([]), open: () => setPop("newest") });
+  if (pubF.length) chips.push({ key: "pub", label: `Public: ${pubF.join(" + ")}`, clear: () => setPubF([]), open: () => setPop("public") });
+  if (onlyNoted) chips.push({ key: "noted", label: "With notes", clear: () => setOnlyNoted(false), open: () => setPop("name") });
+  if (showArch) chips.push({ key: "arch", label: "Archived shown", clear: () => setShowArch(false), open: () => setPop("name") });
+  const clearAll = () => { setQ(""); setGroup(""); setUseLv([]); setNewLv([]); setPubF([]); setOnlyNoted(false); setShowArch(false); };
 
   const cell = (b: RouterBenchmark, key: string): ReactNode => {
     switch (key) {
@@ -448,6 +493,7 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
   };
 
   const colCount = cl.cols.length;
+  const openB = open === null ? null : benchmarks.find((b) => b.num === open) ?? null;
   // groups show as headings (and can be collapsed) in the default order: by #, ascending
   const grouped = sort.key === "num" && sort.dir === 1;
   const groupCount: Record<string, number> = {};
@@ -460,69 +506,21 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
 
   return (
     <div className="rb">
-      <div className="rb-bar">
-        <div className="rb-count">
-          <span><strong>{filtered.length}</strong> of {benchmarks.length} benchmarks{!showArch && archivedCount ? <span className="subtle"> · {archivedCount} archived</span> : null}</span>
-          {status && <span className="subtle small" role="status">{status}</span>}
-          {filtersOn && (
-            <button type="button" className="link" onClick={() => { setQ(""); setGroup(""); setUseLv([]); setNewLv([]); setPubF([]); setOnlyNoted(false); }}>Clear filters</button>
-          )}
-        </div>
-        <span className="rb-bar-right">
-          {grouped && shownGroups.length > 1 && (
-            <span className="row small">
-              <button type="button" className="link" disabled={!closed.length} onClick={() => setClosed([])}>Expand all</button>
-              <button type="button" className="link" disabled={shownGroups.every((g) => closed.includes(g))}
-                      onClick={() => setClosed(Object.keys(groups).sort())}>Collapse all</button>
-            </span>
-          )}
-          <ResetColumns layout={cl} />
-        </span>
-      </div>
-
       <div className="rb-filters">
-        <input type="search" className="rb-search" placeholder="Search name, models, finding, full write-up…" value={q} onChange={(e) => setQ(e.target.value)} />
-        <select value={group} onChange={(e) => setGroup(e.target.value)} aria-label="Type">
-          <option value="">All types</option>
-          {Object.entries(groups).map(([g, label]) => <option key={g} value={g}>{g} · {label}</option>)}
-        </select>
-        <span className="rb-group" role="group" aria-label="Useful for Yugos">
-          For Yugos:
-          {USE_LEVELS.map((u) => (
-            <button key={u} type="button" className={`rb-chip${useLv.includes(u) ? " on" : ""}`} aria-pressed={useLv.includes(u)} onClick={() => toggle(useLv, setUseLv, u)}>
-              {u} <span className="rb-n">{counts[`u:${u}`] ?? 0}</span>
-            </button>
-          ))}
-        </span>
-        <span className="rb-group" role="group" aria-label="Has newest models">
-          Newest models:
-          {NEW_LEVELS.map((n) => (
-            <button key={n} type="button" className={`rb-chip${newLv.includes(n) ? " on" : ""}`} aria-pressed={newLv.includes(n)} onClick={() => toggle(newLv, setNewLv, n)}>
-              {n} <span className="rb-n">{counts[`n:${n}`] ?? 0}</span>
-            </button>
-          ))}
-        </span>
-        <span className="rb-group" role="group" aria-label="Fields that must be public per question">
-          Public per question:
-          {PUBLIC_FIELDS.map((f) => (
-            <button key={f} type="button" className={`rb-chip${pubF.includes(f) ? " on" : ""}`} aria-pressed={pubF.includes(f)}
-                    title={`Only benchmarks where ${f} is fully public per question`} onClick={() => toggle(pubF, setPubF, f)}>
-              {f} <span className="rb-n">{counts[`p:${f}`] ?? 0}</span>
-            </button>
-          ))}
-        </span>
-        <span className="rb-group" role="group" aria-label="Your feedback">
-          Feedback:
-          <button type="button" className={`rb-chip${onlyNoted ? " on" : ""}`} aria-pressed={onlyNoted} onClick={() => setOnlyNoted((v) => !v)}
-                  title="Only benchmarks you wrote a note on">
-            With notes <span className="rb-n">{notedCount}</span>
-          </button>
-          <button type="button" className={`rb-chip${showArch ? " on" : ""}`} aria-pressed={showArch} onClick={() => setShowArch((v) => !v)}
-                  title="Also list the benchmarks you archived (shown faded)">
-            Show archived <span className="rb-n">{archivedCount}</span>
-          </button>
+        <input type="search" className="rb-search" placeholder="Search name, models, finding, full write-up…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search router benchmarks" />
+        <span className="bl-total"><b>{filtered.length}</b> of {benchmarks.length} benchmarks{!showArch && archivedCount ? <span className="muted"> · {archivedCount} archived</span> : null}</span>
+        {status && <span className="muted small" role="status">{status}</span>}
+        <span className="bl-viewopts">
+          {grouped && shownGroups.length > 1 && <>
+            <button type="button" className="link" disabled={!closed.length} onClick={() => setClosed([])}>Expand all</button>
+            <button type="button" className="link" disabled={shownGroups.every((g) => closed.includes(g))} onClick={() => setClosed(Object.keys(groups).sort())}>Collapse all</button>
+          </>}
+          <ColumnsMenu layout={cl} labels={Object.fromEntries(Object.entries(HEADS).map(([k, h]) => [k, h.label]))} />
+          <DensityToggle />
         </span>
       </div>
+      <FilterChips chips={chips} onClearAll={clearAll} />
+      {pop && popups[pop] && <FilterPop anchor={pop} onClose={() => setPop(null)}>{popups[pop]()}</FilterPop>}
 
       {modelMode && (
         <p className="small rb-searchnote">
@@ -532,7 +530,8 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
           </button>
         </p>
       )}
-      <HoverTip>
+      <div className={`rb-body${openB ? " with-panel" : ""}`}>
+      <HoverTip className="rb-tablebox">
       <div className="rb-scroll" ref={cl.root}>
         <table className="grid rb-table cl" style={{ width: cl.total }}>
           <colgroup>{cl.cols.map((c) => <col key={c.key} style={{ width: cl.width(c.key) }} />)}</colgroup>
@@ -566,32 +565,6 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
                     onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(isOpen ? null : b.num); } }}>
                     {cl.cols.map((c) => cell(b, c.key))}
                   </tr>
-                  {isOpen && (
-                    <tr className={`rb-detail${zb}`}>
-                      <td colSpan={colCount}>
-                        <div className="rb-detail-inner">
-                          <div className="rb-detail-head">
-                            <span className="subtle small rb-detail-links">
-                              {b.links.map((l, j) => <a key={j} href={l.url} target="_blank" rel="noreferrer">{l.label}</a>)}
-                              <span>Source: {b.file ?? "no write-up file"}</span>
-                            </span>
-                            <span className="row small">
-                              <button type="button" className="link" onClick={() => setArchive(b.name, !archived.has(b.name))}
-                                      title={archived.has(b.name) ? "Put it back in the list" : "Hide it from the list (kept; “Show archived” lists it again)"}>
-                                {archived.has(b.name) ? "Unarchive" : "Archive"}
-                              </button>
-                              <button type="button" className="link" onClick={() => setOpen(null)}>Close</button>
-                            </span>
-                          </div>
-                          {b.detail_md ? (() => {
-                            // the Public section goes right after the write-up's models section
-                            const [before, after] = splitAfterModels(b.detail_md);
-                            return <>{<Markdown text={before} />}<PublicDetail b={b} />{after && <Markdown text={after} />}</>;
-                          })() : <><PublicDetail b={b} /><p className="subtle">No write-up for this benchmark yet.</p></>}
-                        </div>
-                      </td>
-                    </tr>
-                  )}
                   </>}
                 </Fragment>
               );
@@ -600,6 +573,42 @@ export function RouterBenchmarksTable({ query, layout, benchmarks, groups, initi
         </table>
       </div>
       </HoverTip>
+      {openB && (
+        <article className="rb-panel" aria-label={`Write-up: ${openB.name}`}>
+          <div className="rb-panel-head">
+            <div>
+              <p className="muted small rb-detail-links">
+                Router benchmark {openB.num} · {openB.group} · {openB.group_label}
+                {openB.links.map((l, j) => <a key={j} href={l.url} target="_blank" rel="noreferrer">{l.label}</a>)}
+              </p>
+              <h2>{openB.name}</h2>
+            </div>
+            <span className="row">
+              <button type="button" className="button" onClick={() => setArchive(openB.name, !archived.has(openB.name))}
+                      title={archived.has(openB.name) ? "Put it back in the list" : "Hide it from the list (kept; “Show archived” lists it again)"}>
+                {archived.has(openB.name) ? "Unarchive" : "Archive"}
+              </button>
+              <button type="button" className="rb-panel-x" aria-label="Close the write-up" onClick={() => setOpen(null)}>×</button>
+            </span>
+          </div>
+          <p className="row">
+            <span className={`rb-badge u-${cls(openB.yugos)}`} title={openB.yugos_raw}>For Yugos: {openB.yugos}</span>
+            <span className={`rb-badge n-${cls(openB.newest)}`} title={openB.newest_raw}>Newest models: {openB.newest}</span>
+          </p>
+          <div className="rb-panel-note"><span className="bl-field-label">My feedback</span>
+            <NoteCell cls="rb" value={notes[openB.name] ?? ""} onSave={(v) => saveNote(openB.name, v)} label={openB.name} />
+          </div>
+          <div className="rb-detail-inner">
+            {openB.detail_md ? (() => {
+              // the Public section goes right after the write-up's models section
+              const [before, after] = splitAfterModels(openB.detail_md);
+              return <>{<Markdown text={before} />}<PublicDetail b={openB} />{after && <Markdown text={after} />}</>;
+            })() : <><PublicDetail b={openB} /><p className="subtle">No write-up for this benchmark yet.</p></>}
+          </div>
+          <p className="muted small">Source: {openB.file ?? "no write-up file"}</p>
+        </article>
+      )}
+      </div>
     </div>
   );
 }

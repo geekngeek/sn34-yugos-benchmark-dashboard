@@ -8,7 +8,7 @@ const KEY = /^[A-Za-z0-9_-]{1,64}$/;
  * POST {id, reset: true}                          forget it (back to the table's defaults)
  */
 export async function POST(req: Request) {
-  let body: { id?: unknown; order?: unknown; widths?: unknown; reset?: unknown; pct?: unknown };
+  let body: { id?: unknown; order?: unknown; widths?: unknown; reset?: unknown; pct?: unknown; hidden?: unknown };
   try { body = await req.json(); } catch { return Response.json({ error: "invalid JSON" }, { status: 400 }); }
   const { id } = body;
   if (typeof id !== "string" || !ID.test(id)) return Response.json({ error: "bad table id" }, { status: 400 });
@@ -22,6 +22,7 @@ export async function POST(req: Request) {
         widths[k] = body.pct === true ? Math.round(Math.min(1000, Math.max(0.1, v)) * 10) / 10 : Math.round(Math.min(2000, Math.max(16, v)));
     }
   }
-  await saveLayout(id, { order: [...new Set(order)], widths, ...(body.pct === true ? { pct: true } : {}) });
+  const hidden = Array.isArray(body.hidden) ? body.hidden.filter((k): k is string => typeof k === "string" && KEY.test(k)).slice(0, 60) : null;
+  await saveLayout(id, { order: [...new Set(order)], widths, ...(body.pct === true ? { pct: true } : {}), ...(hidden ? { hidden: [...new Set(hidden)] } : {}) });
   return Response.json({ ok: true });
 }

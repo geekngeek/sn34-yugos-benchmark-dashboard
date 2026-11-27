@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { HoverTip } from "@/components/HoverTip";
-import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
+import { ColumnsMenu, DensityToggle, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import type { Result } from "@/lib/types";
 import { benchmarkTitle, effortLabel, formatDate, formatNumber, formatPercent, formatScore, formatUsd } from "@/lib/format";
 
@@ -18,9 +18,9 @@ export interface ResultsColumn {
 
 // default order and widths (px) of the results table's columns
 const DEFS: ColDef[] = [
-  { key: "model", width: 160, min: 80 }, { key: "developer", width: 100 }, { key: "benchmark", width: 240, min: 100 },
-  { key: "area", width: 80 }, { key: "effort", width: 75, fixed: true }, { key: "score", width: 120, min: 60, fixed: true },
-  { key: "accuracy", width: 95, min: 60, fixed: true }, { key: "cost", width: 90, min: 60, fixed: true }, { key: "speed", width: 70, min: 50, fixed: true },
+  { key: "model", width: 220, min: 120 }, { key: "developer", width: 120 }, { key: "benchmark", width: 240, min: 100, hidden: true },
+  { key: "area", width: 90, hidden: true }, { key: "effort", width: 110, min: 80 }, { key: "score", width: 110, min: 80, fixed: true },
+  { key: "accuracy", width: 110, min: 90, fixed: true }, { key: "cost", width: 100, min: 80, fixed: true }, { key: "speed", width: 90, min: 70, fixed: true },
   { key: "date", width: 115, min: 80, fixed: true }, { key: "source", width: 150 },
 ];
 
@@ -74,7 +74,7 @@ export function ResultsTable({ items, columns, layout, layoutId = "results" }: {
 
   return (
     <>
-      <div className="results-cols"><ResetColumns layout={cl} /></div>
+      <div className="results-cols"><ColumnsMenu layout={cl} labels={Object.fromEntries(columns.map((c) => [c.key, c.label]))} /><DensityToggle /></div>
       <HoverTip className="table-wrap">
         <div ref={cl.root} className="cl-fit">
         <table className="grid results cl" style={{ width: cl.total }}>

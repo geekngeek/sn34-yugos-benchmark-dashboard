@@ -12,6 +12,10 @@ import { METRIC_INFO } from "@/lib/metrics";
 import { readLayout } from "@/lib/uiLayout";
 import { readModelLinks, readState } from "@/lib/yugosModels";
 import { readChartColors } from "@/lib/chartColors";
+import { readDatasetMatches, readSubMatches } from "@/lib/yugosMatchData";
+import { CAT_LABEL, MATCH_CATS, liveSetsIn, tripleOf, type MatchTriple } from "@/lib/yugosMatch";
+import { LEVEL_NAMES, parseDifficulty, spanOf } from "@/lib/difficulty";
+import { Stars } from "@/components/Stars";
 import "./detail.css";
 
 export const dynamic = "force-dynamic";
@@ -142,6 +146,18 @@ export default async function BenchmarkDetailPage({ params, searchParams }: { pa
   });
   const withData = subRows.filter((s) => s.results).length;
 
+  // at-a-glance cards: difficulty (a benchmark: the span of its sub-benchmarks), best Yugos fit, live-set overlap
+  const [matches, datasets] = await Promise.all([readSubMatches(), readDatasetMatches()]);
+  const ex = (r: ListRow, k: string) => r.extra.find(([h]) => h.toLowerCase() === k.toLowerCase())?.[1] ?? "";
+  const diffOf = (r: ListRow) => parseDifficulty(ex(r, "Difficulty"), ex(r, "Difficulty detail"));
+  const difficulty = parentNo ? diffOf(row) : spanOf(kids.map(diffOf), diffOf(row));
+  const fitRows = (parentNo ? [row] : kids).map((r) => matches?.rows[r.no]).filter(Boolean);
+  const fit: MatchTriple | null = fitRows.length
+    ? Object.fromEntries(MATCH_CATS.map((k) => [k, Math.max(...fitRows.map((m) => tripleOf(m!)[k]))])) as MatchTriple : null;
+  const bestCat = fit ? MATCH_CATS.reduce((a, k) => (fit[k] > fit[a] ? k : a), MATCH_CATS[0]) : null;
+  const liveIds = (datasets?.datasets ?? []).filter((d) => d.yugos === "live").map((d) => d.id);
+  const live = liveIds.filter((id) => fitRows.some((m) => m!.live_overlap && liveSetsIn(m!.overlap, liveIds).includes(id)));
+
   return (
     <main className="page wide bd">
       <nav className="bd-crumbs small" aria-label="Breadcrumb">
@@ -160,6 +176,25 @@ export default async function BenchmarkDetailPage({ params, searchParams }: { pa
           </p>
         </div>
       </header>
+
+      <div className="bd-stats">
+        {!parentNo && <div className="bd-stat"><span className="bd-stat-k">Sub-benchmarks</span><b>{kids.length}</b><span className="bd-stat-s">{withData} with results</span></div>}
+        <div className="bd-stat"><span className="bd-stat-k">Difficulty</span>
+          {difficulty.kind === "firm" || difficulty.kind === "range"
+            ? <><b className="bd-stat-stars"><Stars d={difficulty} span={!parentNo && kids.length > 0} /></b>
+                <span className="bd-stat-s">{difficulty.lo === difficulty.hi ? `Level ${difficulty.lo} · ${LEVEL_NAMES[difficulty.lo]}` : `Levels ${difficulty.lo}–${difficulty.hi}`}</span></>
+            : <><b className="bd-stat-none">Not rated</b><span className="bd-stat-s">no level yet</span></>}
+        </div>
+        <div className="bd-stat"><span className="bd-stat-k">{parentNo ? "Yugos fit" : "Best Yugos fit"}</span>
+          {fit && bestCat ? <><b>{CAT_LABEL[bestCat]} {Math.round(fit[bestCat] * 100)}</b><span className="bd-stat-s">{parentNo ? "best of the three categories" : "best sub-benchmark"}</span></>
+                          : <><b className="bd-stat-none">Not assessed</b><span className="bd-stat-s">no match score yet</span></>}
+        </div>
+        <div className="bd-stat"><span className="bd-stat-k">Live overlap</span>
+          {live.length ? <><b className="bd-stat-tags">{live.map((id) => <span key={id} className="live-set">{id}</span>)}</b><span className="bd-stat-s">shares questions with a live Yugos set</span></>
+                       : <><b className="bd-stat-none">None</b><span className="bd-stat-s">no live Yugos set</span></>}
+        </div>
+        <div className="bd-stat"><span className="bd-stat-k">Results</span><b>{data ? data.total.toLocaleString("en-US") : "—"}</b><span className="bd-stat-s">in the table below</span></div>
+      </div>
 
       <Details row={row} />
 

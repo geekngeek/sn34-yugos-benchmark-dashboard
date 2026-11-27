@@ -5,18 +5,18 @@ export const METRIC_KEYS = ["quality", "cost", "time", "speed", "tokens", "uncer
 export type MetricKey = (typeof METRIC_KEYS)[number];
 
 export const METRIC_INFO: Record<MetricKey, { short: string; title: string; help: string }> = {
-  quality: { short: "score", title: "Score", help: "The main score and its unit" },
-  cost: { short: "$", title: "Cost", help: "Money: cost per task, total run cost or token prices" },
-  time: { short: "time", title: "Time", help: "Latency, time per task or total run time" },
-  speed: { short: "tok/s", title: "Speed", help: "Output tokens per second" },
-  tokens: { short: "tokens", title: "Tokens", help: "Token usage per task or per run" },
-  uncertainty: { short: "±", title: "±CI", help: "Confidence intervals, ± errors or score ranges" },
-  runs: { short: "runs", title: "Runs", help: "Repeated runs or attempts: pass@k, trials" },
-  effort: { short: "effort", title: "Effort", help: "Separate entries per setting: reasoning effort, tools, agent" },
-  date: { short: "date", title: "Date", help: "Evaluation, submission or release date per entry" },
-  breakdown: { short: "split", title: "Split", help: "Per-category or per-subset scores" },
-  votes: { short: "votes", title: "Votes", help: "Human preference data: votes, battles, win rates" },
-  other: { short: "+", title: "Other", help: "Other per-entry fields" },
+  quality: { short: "Score", title: "Score", help: "The main score and its unit" },
+  cost: { short: "Cost", title: "Cost", help: "Money: cost per task, total run cost or token prices" },
+  time: { short: "Time", title: "Time", help: "Latency, time per task or total run time" },
+  speed: { short: "Tok/s", title: "Speed", help: "Output tokens per second" },
+  tokens: { short: "Tokens", title: "Tokens", help: "Token usage per task or per run" },
+  uncertainty: { short: "±CI", title: "±CI", help: "Confidence intervals, ± errors or score ranges" },
+  runs: { short: "Runs", title: "Runs", help: "Repeated runs or attempts: pass@k, trials" },
+  effort: { short: "Effort", title: "Effort", help: "Separate entries per setting: reasoning effort, tools, agent" },
+  date: { short: "Date", title: "Date", help: "Evaluation, submission or release date per entry" },
+  breakdown: { short: "Split", title: "Split", help: "Per-category or per-subset scores" },
+  votes: { short: "Votes", title: "Votes", help: "Human preference data: votes, battles, win rates" },
+  other: { short: "Other", title: "Other", help: "Other per-entry fields" },
 };
 
 export type Where = "page" | "data" | "paper";

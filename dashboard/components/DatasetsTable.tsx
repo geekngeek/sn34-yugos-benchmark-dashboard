@@ -4,7 +4,8 @@ import { Fragment, useMemo, useState, type ReactNode } from "react";
 import { HoverTip } from "@/components/HoverTip";
 import { LevelBar, MatchDetail } from "@/components/Match";
 import { DatasetMatchChart, datasetSize, type YMetric } from "@/components/DatasetMatchChart";
-import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
+import { ColumnsMenu, DensityToggle, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
+import { FilterButton, FilterChips, FilterPop, type Chip } from "@/components/FilterPop";
 import { qFlag, qOne, useQuerySync, type Query } from "@/lib/urlState";
 import { CAT_LABEL, CAT_SHORT, MATCH_CATS, pct, type DatasetMatch, type MatchCat, type MatchTargets } from "@/lib/yugosMatch";
 
@@ -34,7 +35,12 @@ const HEADS: Record<string, { label: string; sort?: SortKey; title?: string; num
   results: { label: "Per-q results", title: "Are per-model, per-question outcomes public? (very valuable for router training)" },
   licence: { label: "Licence" }, year: { label: "Year", sort: "year", num: true }, summary: { label: "What it is" },
 };
-const YES: Record<string, string> = { yes: "Yes", partial: "Partly", no: "No", unknown: "?" };
+const YES: Record<string, string> = { yes: "Yes", partial: "Partly", no: "No", unknown: "Unknown" };
+/** Yes (green) · Partly (blue) · No / Unknown (grey), the same tags as every page */
+function YesTag({ v }: { v?: string | null }) {
+  const k = v ?? "unknown";
+  return <span className={`tag${k === "yes" ? " ok" : k === "partial" ? " info" : ""}`}>{YES[k] ?? k}</span>;
+}
 
 export function DatasetsTable({ data, targets, layout, query }: { data: DatasetMatch[]; targets: MatchTargets | null; layout?: SavedLayout; query?: Query }) {
   const cl = useColumnLayout("datasets", COLS, layout);
@@ -70,21 +76,58 @@ export function DatasetsTable({ data, targets, layout, query }: { data: DatasetM
   const colCount = cl.cols.length;
   const filtersOn = !!(q || fit || onlyPublic || onlyResults || hideLive);
 
+  // filters live in the column headers (▾); active ones show as chips above the table
+  const [pop, setPop] = useState<string | null>(null);
+  const filterOn: Record<string, boolean> = { best: !!fit, public: onlyPublic, results: onlyResults, yugos: hideLive };
+  const yesCount = (k: "questions_public" | "per_question_results", vals: string[]) => data.filter((d) => vals.includes(d[k] ?? "")).length;
+  const popups: Record<string, () => ReactNode> = {
+    best: () => (<>
+      <p className="hf-title">Fits a Yugos category</p>
+      <label className="hf-opt"><input type="radio" name="ds-fit" checked={!fit} onChange={() => setFit("")} /> Any category</label>
+      {MATCH_CATS.map((c) => (
+        <label key={c} className="hf-opt"><input type="radio" name="ds-fit" checked={fit === c} onChange={() => { setFit(c); if (!fitMin) setFitMin(50); }} /> {CAT_LABEL[c]}</label>))}
+      {fit && <label className="hf-opt">At least
+        <select value={fitMin} onChange={(e) => setFitMin(Number(e.target.value))}>{[0, 30, 50, 60, 70, 80].map((v) => <option key={v} value={v}>{v}%</option>)}</select></label>}
+    </>),
+    public: () => (<>
+      <p className="hf-title">Download</p>
+      <label className="hf-opt"><input type="checkbox" checked={onlyPublic} onChange={(e) => setOnlyPublic(e.target.checked)} /> Questions downloadable<span className="hf-n">{yesCount("questions_public", ["yes", "partial"])}</span></label>
+    </>),
+    results: () => (<>
+      <p className="hf-title">Per-question results</p>
+      <label className="hf-opt"><input type="checkbox" checked={onlyResults} onChange={(e) => setOnlyResults(e.target.checked)} /> Has per-question results<span className="hf-n">{yesCount("per_question_results", ["yes"])}</span></label>
+    </>),
+    yugos: () => (<>
+      <p className="hf-title">Yugos</p>
+      <label className="hf-opt"><input type="checkbox" checked={hideLive} onChange={(e) => setHideLive(e.target.checked)} /> No live-set overlap<span className="hf-n">{data.filter((d) => d.yugos !== "live" && !d.live_overlap).length}</span></label>
+    </>),
+  };
   const th = (key: string) => {
     const h = HEADS[key];
     const hp = cl.head(key);
+    const sorted = !!h.sort && sort.key === h.sort;
     return (
-      <th key={key} {...hp} title={h.title} className={`${hp.className ?? ""}${h.num ? " num" : ""}`}
-          aria-sort={h.sort && sort.key === h.sort ? (sort.dir === 1 ? "ascending" : "descending") : undefined}>
-        {h.sort ? (
-          <button type="button" className="rb-sort" onClick={() => setSort((s) => ({ key: h.sort!, dir: s.key === h.sort ? (-s.dir as 1 | -1) : (h.sort === "name" ? 1 : -1) }))}>
-            {h.label}{sort.key === h.sort ? (sort.dir === 1 ? " ▲" : " ▼") : ""}
-          </button>
-        ) : h.label}
+      <th key={key} {...hp} title={h.title} className={`${hp.className ?? ""}${h.num ? " num" : ""}${sorted || filterOn[key] ? " col-on" : ""}`}
+          aria-sort={sorted ? (sort.dir === 1 ? "ascending" : "descending") : undefined}>
+        <span className="th-in">
+          {h.sort ? (
+            <button type="button" className="rb-sort col-sort" onClick={() => setSort((s) => ({ key: h.sort!, dir: s.key === h.sort ? (-s.dir as 1 | -1) : (h.sort === "name" ? 1 : -1) }))}>
+              {h.label}{sorted && <span className="col-arrow">{sort.dir === 1 ? "▲" : "▼"}</span>}
+            </button>
+          ) : <span>{h.label}</span>}
+          {popups[key] && <FilterButton col={key} label={h.label} on={!!filterOn[key]} open={pop === key} onToggle={() => setPop((p) => (p === key ? null : key))} />}
+        </span>
         {cl.grip(key)}
       </th>
     );
   };
+  const chips: Chip[] = [];
+  if (q) chips.push({ key: "q", label: `Search: “${q.trim()}”`, clear: () => setQ("") });
+  if (fit) chips.push({ key: "fit", label: `Fits ${CAT_LABEL[fit]}${fitMin ? ` ≥ ${fitMin}%` : ""}`, clear: () => { setFit(""); setFitMin(0); }, open: () => setPop("best") });
+  if (onlyPublic) chips.push({ key: "public", label: "Questions downloadable", clear: () => setOnlyPublic(false), open: () => setPop("public") });
+  if (onlyResults) chips.push({ key: "results", label: "Has per-question results", clear: () => setOnlyResults(false), open: () => setPop("results") });
+  if (hideLive) chips.push({ key: "nolive", label: "No live-set overlap", clear: () => setHideLive(false), open: () => setPop("yugos") });
+  const clearAll = () => { setQ(""); setFit(""); setFitMin(0); setOnlyPublic(false); setOnlyResults(false); setHideLive(false); };
 
   const cell = (d: DatasetMatch, key: string): ReactNode => {
     switch (key) {
@@ -93,8 +136,8 @@ export function DatasetsTable({ data, targets, layout, query }: { data: DatasetM
           <span className="rb-caret" aria-hidden="true">{open === d.id ? "▾" : "▸"}</span> {d.name}
           {d.hf && <span className="muted small"> · {d.hf}</span>}
         </td>);
-      case "yugos": return <td key={key}>{d.yugos ? <span className={`ds-yug ${d.yugos}`}>{d.yugos === "live" ? "Live set" : "Catalog"}</span> : null}
-        {d.live_overlap && d.yugos !== "live" && <span className="mx-ov" title={d.overlap ?? "Shares questions with a live Yugos set"}> ◆</span>}</td>;
+      case "yugos": return <td key={key}><span className="ds-yugcell">{d.yugos ? <span className={`tag ${d.yugos === "live" ? "warn" : ""}`}>{d.yugos === "live" ? "Live set" : "Catalog"}</span> : null}
+        {d.live_overlap && d.yugos !== "live" && <span className="tag warn" title={d.overlap ?? "Shares questions with a live Yugos set"}>◆</span>}</span></td>;
       case "chat": case "math_code": case "agentic": {
         const c = key as MatchCat; const v = d.match[c].match;
         return <td key={key} className={`num ds-pct${d.best.category === c ? " top" : ""}`}>
@@ -103,8 +146,8 @@ export function DatasetsTable({ data, targets, layout, query }: { data: DatasetM
       case "best": return <td key={key} data-tip><span className={`mx-dot mx-${d.best.category}`} /> {CAT_SHORT[d.best.category]}, {d.best.part}{d.best.part === "private" ? " (hidden)" : ""}</td>;
       case "levels": return <td key={key}><LevelBar levels={d.levels} small /></td>;
       case "size": { const n = datasetSize(d); return <td key={key} className="num">{n ? n.toLocaleString("en-US") : <span className="muted">?</span>}</td>; }
-      case "public": return <td key={key} className={`ds-yn ${d.questions_public ?? "unknown"}`}>{YES[d.questions_public ?? "unknown"] ?? d.questions_public}</td>;
-      case "results": return <td key={key} className={`ds-yn ${d.per_question_results ?? "unknown"}`}>{YES[d.per_question_results ?? "unknown"] ?? d.per_question_results}</td>;
+      case "public": return <td key={key}><YesTag v={d.questions_public} /></td>;
+      case "results": return <td key={key}><YesTag v={d.per_question_results} /></td>;
       case "licence": return <td key={key} data-tip>{d.licence ?? d.hub?.licence ?? <span className="muted">—</span>}</td>;
       case "year": return <td key={key} className="num">{d.release_year ?? (d.hub?.created ? d.hub.created.slice(0, 4) : "")}</td>;
       case "summary": return <td key={key} className="rb-clip" data-tip>{d.summary}</td>;
@@ -117,29 +160,19 @@ export function DatasetsTable({ data, targets, layout, query }: { data: DatasetM
     <div className="ds">
       <div className="rb-filters ds-filters">
         <input type="search" className="rb-search" placeholder="Search name, id, summary, licence…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search datasets" />
-        <span className="bl-fit">
-          <label htmlFor="ds-fit" className="small">Fits</label>
-          <select id="ds-fit" value={fit} onChange={(e) => { setFit(e.target.value as "" | MatchCat); if (!fitMin) setFitMin(50); }}>
-            <option value="">Any category</option>
-            {MATCH_CATS.map((c) => <option key={c} value={c}>{CAT_LABEL[c]}</option>)}
-          </select>
-          {fit && <select aria-label="Minimum match" value={fitMin} onChange={(e) => setFitMin(Number(e.target.value))}>
-            {[0, 30, 50, 60, 70, 80].map((v) => <option key={v} value={v}>≥ {v}%</option>)}
-          </select>}
+        <span className="bl-total"><b>{filtered.length}</b> of {data.length} datasets</span>
+        <span className="bl-viewopts">
+          <span className="ym-group"><span className="ctl-lab">Group</span>
+            <select aria-label="Group by" value={groupBy} onChange={(e) => setGroupBy(e.target.value as GroupBy)} style={{ width: "auto" }}>
+              <option value="best">Best category</option><option value="kind">Kind of data</option><option value="none">None</option>
+            </select>
+          </span>
+          <ColumnsMenu layout={cl} labels={Object.fromEntries(Object.entries(HEADS).map(([k, h]) => [k, h.label]))} />
+          <DensityToggle />
         </span>
-        <label className="bl-toggle"><input type="checkbox" checked={onlyPublic} onChange={(e) => setOnlyPublic(e.target.checked)} /> Questions downloadable</label>
-        <label className="bl-toggle"><input type="checkbox" checked={onlyResults} onChange={(e) => setOnlyResults(e.target.checked)} /> Has per-question results</label>
-        <label className="bl-toggle"><input type="checkbox" checked={hideLive} onChange={(e) => setHideLive(e.target.checked)} /> No live-set overlap</label>
-        <span className="bl-fit">
-          <label htmlFor="ds-group" className="small">Group by</label>
-          <select id="ds-group" value={groupBy} onChange={(e) => setGroupBy(e.target.value as GroupBy)}>
-            <option value="best">Best category</option><option value="kind">Kind of data</option><option value="none">None</option>
-          </select>
-        </span>
-        <span className="small muted">{filtered.length} of {data.length} datasets</span>
-        {filtersOn && <button type="button" className="link" onClick={() => { setQ(""); setFit(""); setFitMin(0); setOnlyPublic(false); setOnlyResults(false); setHideLive(false); }}>Clear filters</button>}
-        <ResetColumns layout={cl} />
       </div>
+      <FilterChips chips={chips} onClearAll={clearAll} />
+      {pop && popups[pop] && <FilterPop anchor={pop} onClose={() => setPop(null)}>{popups[pop]()}</FilterPop>}
 
       <div className="ds-picks" aria-label="Top picks per category">
         {MATCH_CATS.map((c) => {
@@ -163,13 +196,15 @@ export function DatasetsTable({ data, targets, layout, query }: { data: DatasetM
         })}
       </div>
 
-      <div className="ds-chartbar small">
-        <span>Chart height:</span>
-        {(["best", ...MATCH_CATS] as YMetric[]).map((m) => (
-          <button key={m} type="button" className={`rb-chip${yMetric === m ? " on" : ""}`} aria-pressed={yMetric === m} onClick={() => setYMetric(m)}>
-            {m === "best" ? "Best match" : CAT_LABEL[m]}
-          </button>
-        ))}
+      <div className="ds-chartbar">
+        <span className="ctl-lab">Chart height</span>
+        <span className="seg" role="group" aria-label="Chart height">
+          {(["best", ...MATCH_CATS] as YMetric[]).map((m) => (
+            <button key={m} type="button" className={yMetric === m ? "on" : ""} aria-pressed={yMetric === m} onClick={() => setYMetric(m)}>
+              {m === "best" ? "Best match" : CAT_LABEL[m]}
+            </button>
+          ))}
+        </span>
       </div>
       <DatasetMatchChart data={filtered} y={yMetric} selected={open} onSelect={(id) => { setOpen(id); requestAnimationFrame(() => document.getElementById(`ds-${id}`)?.scrollIntoView({ block: "center", behavior: "smooth" })); }} />
 

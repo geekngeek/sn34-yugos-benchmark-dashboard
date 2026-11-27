@@ -11,9 +11,9 @@ import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent, type
  * other column alone ("Reset columns" goes back to fitting). No column gets narrower than `min` px (on a screen
  * too narrow for all the minimums the table scrolls sideways).
  */
-export interface ColDef { key: string; width: number; min?: number; fixed?: boolean }
+export interface ColDef { key: string; width: number; min?: number; fixed?: boolean; hidden?: boolean; label?: string }   // hidden: off until the Columns menu turns it on
 /** what the server keeps per table (lib/uiLayout.ts) */
-export interface SavedLayout { order?: string[]; widths?: Record<string, number>; px?: boolean; pct?: boolean }
+export interface SavedLayout { order?: string[]; widths?: Record<string, number>; px?: boolean; pct?: boolean; hidden?: string[] }
 
 const SAVE_DELAY = 400;
 
@@ -45,6 +45,9 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
   }, []);
 
   const [order, setOrder] = useState<string[]>(initialOrder);
+  // columns switched off in the Columns menu (saved); a table's default-hidden columns start off
+  const defaultHidden = useMemo(() => defs.filter((d) => d.hidden).map((d) => d.key), [defs]);
+  const [hidden, setHidden] = useState<string[]>(() => (saved?.hidden ?? defaultHidden).filter((k) => byKey.has(k)));
   const [widths, setWidths] = useState<Record<string, number>>(() => ({ ...(saved?.widths ?? {}) }));
   // true once the user has resized a column: widths are each column's share of the box, in per mille
   const [pctMode, setPctMode] = useState(saved?.pct === true || saved?.px === true);
@@ -54,8 +57,8 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
   const [drop, setDrop] = useState<{ key: string; side: "before" | "after" } | null>(null);
   const resizing = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const latest = useRef({ order, widths, pct: pctMode });
-  latest.current = { order, widths, pct: pctMode };
+  const latest = useRef({ order, widths, pct: pctMode, hidden });
+  latest.current = { order, widths, pct: pctMode, hidden };
 
   const send = useCallback(() => {
     timer.current = null;
@@ -91,7 +94,8 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
   const minOf = (key: string) => byKey.get(key)?.min ?? 40;
   /** saved size: px for a fixed column, a weight (px at the default scale) for a flexible one */
   const raw = (key: string) => widths[key] ?? byKey.get(key)?.width ?? 100;
-  const cols = order.map((k) => byKey.get(k)!).filter(Boolean);
+  const all = order.map((k) => byKey.get(k)!).filter(Boolean);
+  const cols = all.filter((c) => !hidden.includes(c.key));
 
   // actual px per column: fixed ones as saved, flexible ones share what is left (whole px, remainder to the last)
   const px = useMemo(() => {
@@ -147,7 +151,7 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
 
   const width = (key: string) => px[key] ?? raw(key);
   const total = cols.reduce((s, c) => s + width(c.key), 0);
-  const customised = pctMode || order.join() !== defs.map((d) => d.key).join() || Object.keys(widths).length > 0;
+  const customised = pctMode || hidden.join() !== defaultHidden.join() || order.join() !== defs.map((d) => d.key).join() || Object.keys(widths).length > 0;
 
   const move = (from: string, to: string, side: "before" | "after") => {
     if (from === to) return;
@@ -163,6 +167,7 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
     setOrder(defs.map((d) => d.key));
     setWidths({});
     setPctMode(false);
+    setHidden(defaultHidden);
     legacyPx.current = false;
     if (timer.current) { clearTimeout(timer.current); timer.current = null; }
     fetch("/api/ui-layout", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id, reset: true }) })
@@ -261,7 +266,13 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
     );
   };
 
-  return { cols, width, total, head, grip, reset, customised, root };
+  /** show or hide a column (Columns menu); at least one column always stays */
+  const toggleColumn = (key: string) => {
+    setHidden((h) => (h.includes(key) ? h.filter((k) => k !== key) : cols.length > 1 ? [...h, key] : h));
+    persist();
+  };
+
+  return { cols, all, hidden, toggleColumn, width, total, head, grip, reset, customised, root };
 }
 
 /** a small "Reset columns" link, shown only when the layout differs from the default */
@@ -270,6 +281,61 @@ export function ResetColumns({ layout }: { layout: { customised: boolean; reset:
   return (
     <button type="button" className="link col-reset" onClick={layout.reset} title="Put the columns back in their default order and widths">
       Reset columns
+    </button>
+  );
+}
+
+type LayoutForMenu = { all: ColDef[]; hidden: string[]; toggleColumn: (key: string) => void; customised: boolean; reset: () => void };
+
+/** "Columns · 7 of 11": tick columns on or off; Reset columns puts order, widths and visibility back */
+export function ColumnsMenu({ layout, labels }: { layout: LayoutForMenu; labels: Record<string, string> }) {
+  const [open, setOpen] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const down = (e: MouseEvent) => { if (!box.current?.contains(e.target as Node)) setOpen(false); };
+    const key = (e: { key: string }) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", down); document.addEventListener("keydown", key);
+    return () => { document.removeEventListener("mousedown", down); document.removeEventListener("keydown", key); };
+  }, [open]);
+  const named = layout.all.filter((c) => labels[c.key]);
+  const shown = named.filter((c) => !layout.hidden.includes(c.key)).length;
+  return (
+    <div className="cols-menu" ref={box}>
+      <button type="button" className="button" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
+        Columns · {shown} of {named.length}
+      </button>
+      {open && (
+        <div className="cols-pop" role="menu">
+          {named.map((c) => (
+            <label key={c.key} className="cols-opt">
+              <input type="checkbox" checked={!layout.hidden.includes(c.key)} onChange={() => layout.toggleColumn(c.key)} />
+              {labels[c.key]}
+            </label>
+          ))}
+          <p className="cols-note">Hidden columns still show in the details panel.</p>
+          {layout.customised && <button type="button" className="link" onClick={() => { layout.reset(); setOpen(false); }}>Reset columns</button>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** Comfortable (40px rows) / Compact (32px rows) for every table; remembered in this browser */
+export function DensityToggle() {
+  const [compact, setCompact] = useState(false);
+  useEffect(() => {
+    const on = localStorage.getItem("density") === "compact";
+    setCompact(on); document.body.classList.toggle("compact", on);
+  }, []);
+  const flip = () => {
+    const on = !compact;
+    setCompact(on); document.body.classList.toggle("compact", on);
+    localStorage.setItem("density", on ? "compact" : "comfortable");
+  };
+  return (
+    <button type="button" className="button" onClick={flip} title="Row height for every table">
+      {compact ? "Compact" : "Comfortable"}
     </button>
   );
 }

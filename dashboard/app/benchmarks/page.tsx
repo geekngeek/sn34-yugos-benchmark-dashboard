@@ -73,7 +73,7 @@ export default async function BenchmarkListPage({ searchParams }: { searchParams
       <header className="page-head row spread">
         <div>
           <h1>Benchmark list</h1>
-          <p className="muted small">{items.length} benchmarks · click a row for details and notes</p>
+          <p className="page-lead">The team’s benchmarks and their sub-benchmarks: how hard they are, how well they fit Yugos, and what data we hold. Click a row for details and notes.</p>
         </div>
         <a className="button" href={`/${LIST_FILE}`} download="LLM_Benchmarks.csv">
           <span aria-hidden="true">⬇</span> Download CSV

@@ -22,23 +22,17 @@
    "order": [
     "no",
     "name",
-    "yugos",
     "difficulty",
+    "fit",
+    "live",
+    "data",
     "category",
     "focus",
     "top",
     "reports",
     "link",
     "notes"
-   ],
-   "widths": {
-    "name": 299,
-    "reports": 252,
-    "top": 356,
-    "no": 32,
-    "focus": 152,
-    "category": 129
-   }
+   ]
   },
   "yugos-models": {
    "order": [
@@ -58,35 +52,63 @@
     "reference"
    ],
    "widths": {
-    "model": 541,
-    "notes": 89,
-    "efforts": 183,
-    "reference": 84,
-    "expires": 81,
-    "providers": 113,
-    "cheapest": 104
-   }
+    "model": 157.2,
+    "notes": 35.3,
+    "vendor": 43.5,
+    "line": 56.6,
+    "parent": 73.4,
+    "results": 63.1,
+    "released": 89.7,
+    "in": 62.5,
+    "out": 74.5,
+    "cheapest": 70.1,
+    "providers": 70.7,
+    "efforts": 78.3,
+    "expires": 71.2,
+    "reference": 53.8
+   },
+   "pct": true,
+   "hidden": [
+    "notes",
+    "line",
+    "parent",
+    "efforts",
+    "expires",
+    "reference"
+   ]
   },
-  "router-benchmarks": {
+  "datasets": {
    "order": [
-    "num",
     "name",
-    "public",
-    "creators",
-    "scale",
-    "models",
-    "focus",
-    "newest",
     "yugos",
-    "finding"
+    "chat",
+    "math_code",
+    "agentic",
+    "best",
+    "levels",
+    "size",
+    "public",
+    "results",
+    "licence",
+    "year",
+    "summary"
    ],
    "widths": {
-    "creators": 297,
-    "scale": 180,
-    "models": 150,
-    "focus": 150,
-    "num": 46
-   }
+    "name": 149.9,
+    "yugos": 63.6,
+    "chat": 35.9,
+    "math_code": 35.9,
+    "agentic": 35.9,
+    "best": 106.5,
+    "levels": 78.2,
+    "size": 45.6,
+    "public": 42.4,
+    "results": 42.4,
+    "licence": 78.2,
+    "year": 29.3,
+    "summary": 256.4
+   },
+   "pct": true
   }
  }
 }

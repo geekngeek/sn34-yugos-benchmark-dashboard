@@ -9,7 +9,7 @@ export interface Box { x0: number; y0: number; x1: number; y1: number }
 export interface LabelOut { key: string; text: string; tx: number; ty: number; box: Box; leader: [number, number, number, number] | null;
   crowded: boolean }   // no free gap was found: it overlaps something (drawn faint)
 
-const H0 = 13;                    // label box height (11px text); a boxed label passes its own
+const H0 = 15;                    // label box height (12px text); a boxed label passes its own
 const RINGS = [3, 10, 20, 34, 52, 76, 104];
 // direction -> where the box sits relative to the dot, at distance d
 const DIRS: ((px: number, py: number, d: number, w: number, H: number) => Box)[] = [
@@ -24,13 +24,13 @@ const DIRS: ((px: number, py: number, d: number, w: number, H: number) => Box)[]
 ];
 
 let ctx: CanvasRenderingContext2D | null | undefined;
-/** the text's width at 11px in the page's font (an estimate on the server) */
+/** the text's width at 12px in the page's font (an estimate on the server) */
 export function textWidth(text: string): number {
   if (ctx === undefined) {
     ctx = typeof document === "undefined" ? null : document.createElement("canvas").getContext("2d");
-    if (ctx) ctx.font = `11px ${getComputedStyle(document.body).fontFamily || "sans-serif"}`;
+    if (ctx) ctx.font = `12px ${getComputedStyle(document.body).fontFamily || "sans-serif"}`;
   }
-  return ctx ? ctx.measureText(text).width + 2 : text.length * 6.2;
+  return ctx ? ctx.measureText(text).width + 2 : text.length * 6.8;
 }
 
 const CELL = 48;

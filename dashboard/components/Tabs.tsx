@@ -17,6 +17,7 @@ export function Tabs() {
   return (
     <nav className="tabs" aria-label="Pages">
       <div className="tabs-inner">
+        <span className="tabs-brand">Yugos benchmarks</span>
         {TABS.map((t) => {
           const on = path.startsWith(t.href);
           return (

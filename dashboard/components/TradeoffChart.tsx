@@ -309,16 +309,16 @@ export function TradeoffChart({ points, x, y, logX, logY, colorBy = "developer",
   return (
     <div ref={root} className={`tc${pending ? " busy" : ""}${full ? " full" : ""}${dragging ? " dragging" : ""}`}>
       <div className="tc-controls" role="group" aria-label="Chart axes">
-        <label>Y axis <select value={y} onChange={(e) => setParam({ y: e.target.value === "quality" ? null : e.target.value, logy: null })}>{options(y)}</select></label>
-        <label className="tc-log"><input type="checkbox" checked={logY} onChange={(e) => setParam({ logy: e.target.checked === METRICS[y].log ? null : e.target.checked ? "1" : "0" })} /> log</label>
-        <label>X axis <select value={x} onChange={(e) => setParam({ x: e.target.value, logx: null })}>{options(x)}</select></label>
-        <label className="tc-log"><input type="checkbox" checked={logX} onChange={(e) => setParam({ logx: e.target.checked === METRICS[x].log ? null : e.target.checked ? "1" : "0" })} /> log</label>
-        <label className="tc-log" title="Off: labels appear only on the model you hover"><input type="checkbox" checked={showLabels}
-          onChange={(e) => setParam({ labels: e.target.checked ? null : "0" })} /> Labels</label>
-        <label>Colour by <select value={colorBy} onChange={(e) => setParam({ color: e.target.value === "developer" ? null : e.target.value, grey: null })}>
+        <span className="ctl-grp"><span className="ctl-lab">Y</span><select aria-label="Y axis" value={y} onChange={(e) => setParam({ y: e.target.value === "quality" ? null : e.target.value, logy: null })}>{options(y)}</select>
+          <label className="sw"><input type="checkbox" checked={logY} onChange={(e) => setParam({ logy: e.target.checked === METRICS[y].log ? null : e.target.checked ? "1" : "0" })} /> log</label></span>
+        <span className="ctl-grp"><span className="ctl-lab">X</span><select aria-label="X axis" value={x} onChange={(e) => setParam({ x: e.target.value, logx: null })}>{options(x)}</select>
+          <label className="sw"><input type="checkbox" checked={logX} onChange={(e) => setParam({ logx: e.target.checked === METRICS[x].log ? null : e.target.checked ? "1" : "0" })} /> log</label></span>
+        <span className="ctl-grp"><span className="ctl-lab">Colour</span><select aria-label="Colour by" value={colorBy} onChange={(e) => setParam({ color: e.target.value === "developer" ? null : e.target.value, grey: null })}>
           <option value="developer">Developer</option><option value="yugos">Yugos availability</option>
           <option value="effort">Effort level</option><option value="none">One colour</option>
-        </select></label>
+        </select></span>
+        <span className="ctl-grp"><span className="ctl-lab">Show</span><label className="sw" title="Off: labels appear only on the model you hover"><input type="checkbox" checked={showLabels}
+          onChange={(e) => setParam({ labels: e.target.checked ? null : "0" })} /> Labels</label></span>
         {!full ? (
           <button type="button" className="button tc-fs" onClick={enterFull} title="Open the chart full screen: wheel zooms, drag pans">⛶ Full screen</button>
         ) : (

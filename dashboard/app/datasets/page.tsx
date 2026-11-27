@@ -17,7 +17,7 @@ export default async function DatasetsPage({ searchParams }: { searchParams: Pro
     <main className="page wide">
       <header className="rb-header">
         <h1>Datasets</h1>
-        <p className="subtle small">
+        <p className="page-lead">
           Public datasets that could give the Yugos router more training data. Each gets three match scores: how far its questions behave like
           Yugos&apos;s chat, math &amp; code and agentic questions (task, turns, answer and grading, domain, difficulty, freshness, length).
           Method: <code>docs/yugos-match.md</code>{file?.built_at ? ` · built ${file.built_at.slice(0, 10)}` : ""}.

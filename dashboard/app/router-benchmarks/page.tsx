@@ -15,7 +15,7 @@ export default async function RouterBenchmarksPage({ searchParams }: { searchPar
     <main className="page wide">
       <header className="rb-header">
         <h1>Router benchmarks</h1>
-        <p className="subtle small">
+        <p className="page-lead">
           Benchmarks and data sets for testing LLM routers (which model and effort to pick per question), with how useful each one is for the
           Yugos router. Research of {catalog.research_date || "—"}; click a row for the full write-up.
         </p>

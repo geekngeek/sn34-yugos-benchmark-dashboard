@@ -40,7 +40,7 @@ button.rb-sort:focus-visible { outline: 2px solid var(--accent); }
   border-top: 2px solid color-mix(in srgb, var(--ink) 45%, transparent);
   padding-top: 7px; padding-bottom: 7px; font-size: 13px; color: var(--ink); text-transform: none;
 }
-.rb-table tbody tr.rb-grouprow strong { font-size: 13.5px; }
+.rb-table tbody tr.rb-grouprow strong { font-size: 14px; }
 .rb-table tbody tr.rb-gap > td {
   height: 18px; padding: 0 !important; background: var(--page) !important;
   border-left: 0 !important; border-right: 0 !important; box-shadow: none !important;
@@ -75,17 +75,17 @@ table.cl > tbody > tr.rb-detail > td { white-space: normal; overflow: visible; }
 .rb-detail-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 6px; }
 
 /* rendered research write-up */
-.rb-md { font-size: 13.5px; line-height: 1.55; }
+.rb-md { font-size: 14px; line-height: 1.55; }
 .rb-md h2 { font-size: 18px; margin: 6px 0 8px; }
 .rb-md h3 { font-size: 15px; margin: 16px 0 6px; }
-.rb-md h4, .rb-md h5 { font-size: 13.5px; margin: 12px 0 4px; }
+.rb-md h4, .rb-md h5 { font-size: 14px; margin: 12px 0 4px; }
 .rb-md p { margin: 6px 0; }
 .rb-md ul, .rb-md ol { margin: 4px 0 6px; padding-left: 22px; }
 .rb-md li { margin: 2px 0; }
 .rb-md code { font-size: 12px; padding: 0 4px; border-radius: 4px; background: var(--accent-wash); }
 .rb-md pre { font-size: 12px; padding: 10px 12px; border-radius: var(--radius); background: var(--accent-wash); overflow-x: auto; }
 .rb-md-tablewrap { overflow-x: auto; margin: 8px 0; }
-.rb-md-table { border-collapse: collapse; font-size: 12.5px; }
+.rb-md-table { border-collapse: collapse; font-size: 13px; }
 .rb-md-table th, .rb-md-table td { border: 1px solid var(--line); padding: 4px 8px; text-align: left; white-space: normal; vertical-align: top; }
 .rb-md-table th { background: var(--accent-wash); }
 
@@ -101,7 +101,7 @@ table.cl > tbody > tr.rb-detail > td { white-space: normal; overflow: visible; }
 /* public-per-question tags (✓ yes, ◐ partly, ✕ no, ? not stated) and licence */
 .rb-tags { display: inline-flex; gap: 4px; flex-wrap: nowrap; }
 .rb-tag {
-  display: inline-block; padding: 0 7px; border-radius: 999px; font-size: 11.5px; line-height: 19px;
+  display: inline-block; padding: 0 7px; border-radius: 999px; font-size: 12px; line-height: 19px;
   border: 1px solid var(--line); color: var(--ink-2); background: var(--surface); white-space: nowrap;
 }
 .rb-tag.has-note { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
@@ -148,9 +148,9 @@ table.cl > tbody > tr.rb-detail > td { white-space: normal; overflow: visible; }
    a section of the write-up (after its models section), styled like the other sections */
 .rb-pubd { white-space: normal; }
 .rb-pubd p { max-width: 900px; }
-.rb-pubd-table { border-collapse: collapse; font-size: 12.5px; margin: 8px 0; width: 100%; }
+.rb-pubd-table { border-collapse: collapse; font-size: 13px; margin: 8px 0; width: 100%; }
 .rb-pubd-table th, .rb-pubd-table td { border: 1px solid var(--line); padding: 4px 8px; text-align: left; vertical-align: top; white-space: normal; }
-.rb-pubd-table thead th { background: var(--accent-wash); font-weight: 600; color: var(--ink); font-size: 12.5px; }
+.rb-pubd-table thead th { background: var(--accent-wash); font-weight: 600; color: var(--ink); font-size: 13px; }
 .rb-pubd-table tbody th { font-weight: 600; white-space: nowrap; }
 .rb-pubd-table td:nth-child(2) { width: 34%; }
 .rb-pubd-note { display: block; margin-top: 2px; color: var(--ink-2); }
@@ -164,13 +164,13 @@ button.rb-group-toggle:focus-visible { outline: 2px solid var(--accent); outline
 
 /* feedback note (components/NoteCell.tsx with cls="rb") */
 /* the cell clips a long note with "…"; hovering it shows the whole note (components/HoverTip.tsx) */
-button.rb-note { all: unset; display: inline; cursor: text; font-size: 12.5px; color: var(--ink); white-space: nowrap; }
+button.rb-note { all: unset; display: inline; cursor: text; font-size: 13px; color: var(--ink); white-space: nowrap; }
 .hovertip button.rb-note { white-space: pre-wrap; }
 button.rb-note.empty { color: var(--muted); opacity: 0.35; }
 tr:hover button.rb-note.empty, button.rb-note.empty:focus-visible { opacity: 1; }
 button.rb-note:focus-visible { outline: 2px solid var(--accent); }
 .rb-note-input {
-  width: 100%; font: inherit; font-size: 12.5px; padding: 4px 6px; border: 1px solid var(--accent); border-radius: 6px;
+  width: 100%; font: inherit; font-size: 13px; padding: 4px 6px; border: 1px solid var(--accent); border-radius: 6px;
   background: var(--surface); color: var(--ink); resize: vertical; white-space: pre-wrap;
 }
 table.cl > tbody > tr > td.rb-notecell:focus-within { overflow: visible; }
@@ -178,7 +178,7 @@ table.cl > tbody > tr > td.rb-notecell:focus-within { overflow: visible; }
 .rb-row.rb-is-archived > td { opacity: 0.55; }
 .rb-row.rb-is-archived > td.rb-notecell { opacity: 1; }
 .rb-archived-tag {
-  margin-left: 6px; padding: 0 6px; border-radius: 999px; font-size: 11px; font-weight: 500; line-height: 17px;
+  margin-left: 6px; padding: 0 6px; border-radius: 999px; font-size: 12px; font-weight: 500; line-height: 17px;
   border: 1px dashed var(--line); color: var(--muted);
 }
 

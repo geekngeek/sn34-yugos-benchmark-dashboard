@@ -10,7 +10,7 @@
 .dsc-wrap svg { display: block; width: 100%; height: auto; }
 .dsc-grid { stroke: var(--line); stroke-width: 1; }
 .dsc-sep { stroke: var(--line); stroke-dasharray: 3 3; }
-.dsc-tick { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.dsc-tick { fill: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 .dsc-axis { fill: var(--muted); font-size: 12px; }
 .dsc-dot { stroke: var(--surface); stroke-width: 2; cursor: pointer; }
 .dsc-dot.mx-chat { fill: var(--cat-chat); } .dsc-dot.mx-math_code { fill: var(--cat-math_code); } .dsc-dot.mx-agentic { fill: var(--cat-agentic); }
@@ -18,7 +18,7 @@
 .dsc-dot.live.mx-chat { stroke: var(--cat-chat); } .dsc-dot.live.mx-math_code { stroke: var(--cat-math_code); } .dsc-dot.live.mx-agentic { stroke: var(--cat-agentic); }
 .dsc-dot.sel { stroke: var(--ink); stroke-width: 2.5; }
 .dsc-dot:hover { stroke: var(--ink); }
-.dsc-label text { fill: var(--ink); font-size: 11px; }
+.dsc-label text { fill: var(--ink); font-size: 12px; }
 .dsc-label text.crowded { opacity: 0.4; }
 .dsc-leader { stroke: var(--muted); stroke-width: 0.8; }
 .dsc-tip { position: absolute; transform: translate(12px, -50%); pointer-events: none; background: var(--surface); border: 1px solid var(--border);
@@ -27,7 +27,7 @@
 
 /* table */
 .ds-table td.ds-name { font-weight: 500; }
-.ds-yug { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 999px; border: 1px solid var(--border); white-space: nowrap; }
+.ds-yug { display: inline-block; font-size: 12px; padding: 1px 6px; border-radius: 999px; border: 1px solid var(--border); white-space: nowrap; }
 .ds-yug.live { background: var(--mx-warn-bg); color: var(--mx-warn-ink); border-color: transparent; }
 .ds-yug.catalog { color: var(--muted); }
 .ds-pct { position: relative; }

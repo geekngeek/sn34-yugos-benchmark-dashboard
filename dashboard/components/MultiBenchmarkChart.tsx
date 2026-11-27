@@ -82,7 +82,7 @@ export function MultiBenchmarkChart({ candidates, scopeNote, query }: { candidat
   const [colorBy, setColorBy] = useState<ColorBy>(() => (["benchmark", "developer", "yugos", "effort", "none"].includes(qOne(query, "mccolor")) ? qOne(query, "mccolor") : "benchmark") as ColorBy);
   const [lines, setLines] = useState<Set<LineKind>>(() => new Set((qOne(query, "mclines") || "spread,curves").split(",").filter((l): l is LineKind => ["spread", "curves", "efforts"].includes(l))));
   const [layout, setLayout] = useState<"one" | "grid">(() => (qOne(query, "mclayout") === "grid" ? "grid" : "one"));
-  const [showLabels, setShowLabels] = useState(() => qOne(query, "mclabels") !== "0");   // off: labels only on the hovered model
+  const [showLabels, setShowLabels] = useState(() => qOne(query, "mclabels") === "1");   // off by default: labels only on frontiers and the hovered model
   const [outline, setOutline] = useState(() => qOne(query, "mcoutline") !== "0");        // labels outlined in the developer's colour
   const [hidden, setHidden] = useState<Set<string>>(() => new Set(qOne(query, "mchide").split(",").filter(Boolean)));
   const [grey, setGrey] = useState<string[]>(() => qOne(query, "mcgrey").split(",").filter(Boolean));
@@ -115,7 +115,7 @@ export function MultiBenchmarkChart({ candidates, scopeNote, query }: { candidat
   useQuerySync({
     mc: drawn, mcx: drawn && x ? x : null, mcy: drawn && y !== "quality" ? y : null, mclx: drawn ? lx : null, mcly: drawn ? ly : null,
     mccolor: drawn && colorBy !== "benchmark" ? colorBy : null, mclines: drawn && [...lines].sort().join(",") !== "curves,spread" ? [...lines].join(",") || "none" : null,
-    mclayout: drawn && layout === "grid" ? "grid" : null, mclabels: drawn && !showLabels ? "0" : null, mcoutline: drawn && !outline ? "0" : null, mchide: drawn ? [...hidden].join(",") : null, mcgrey: drawn ? grey.join(",") : null,
+    mclayout: drawn && layout === "grid" ? "grid" : null, mclabels: drawn && showLabels ? "1" : null, mcoutline: drawn && !outline ? "0" : null, mchide: drawn ? [...hidden].join(",") : null, mcgrey: drawn ? grey.join(",") : null,
     mcmodels: drawn && models ? models.join(",") || "none" : null,
   });
   const stale = drawnNos !== null && drawnNos.join("|") !== candidates.map((c) => c.no).join("|");
@@ -408,28 +408,29 @@ function Chart({ data, x: xSet, y, lx, ly, colorBy, lines, layout, hidden, grey,
   return (
     <div ref={root} className={`tc mc-body${busy ? " busy" : ""}${full ? " full" : ""}${dragging ? " dragging" : ""}`}>
       <div className="tc-controls" role="group" aria-label="Chart settings">
-        <label>Y axis <select value={y} onChange={(e) => { set.setY(e.target.value as MetricKey); set.setLy(""); }}>{options(y)}</select></label>
-        <label className="tc-log"><input type="checkbox" checked={logY} onChange={(e) => set.setLy(e.target.checked === METRICS[y].log ? "" : e.target.checked ? "1" : "0")} /> log</label>
-        <label>X axis <select value={x} onChange={(e) => { set.setX(e.target.value as MetricKey); set.setLx(""); }}>{options(x)}</select></label>
-        <label className="tc-log"><input type="checkbox" checked={logX} onChange={(e) => set.setLx(e.target.checked === METRICS[x].log ? "" : e.target.checked ? "1" : "0")} /> log</label>
-        <label>Colour by <select value={colorBy} onChange={(e) => { set.setColorBy(e.target.value as ColorBy); set.setGrey([]); }}>
+        <span className="ctl-grp"><span className="ctl-lab">Y</span><select aria-label="Y axis" value={y} onChange={(e) => { set.setY(e.target.value as MetricKey); set.setLy(""); }}>{options(y)}</select>
+          <label className="sw"><input type="checkbox" checked={logY} onChange={(e) => set.setLy(e.target.checked === METRICS[y].log ? "" : e.target.checked ? "1" : "0")} /> log</label></span>
+        <span className="ctl-grp"><span className="ctl-lab">X</span><select aria-label="X axis" value={x} onChange={(e) => { set.setX(e.target.value as MetricKey); set.setLx(""); }}>{options(x)}</select>
+          <label className="sw"><input type="checkbox" checked={logX} onChange={(e) => set.setLx(e.target.checked === METRICS[x].log ? "" : e.target.checked ? "1" : "0")} /> log</label></span>
+        <span className="ctl-grp"><span className="ctl-lab">Colour</span><select aria-label="Colour by" value={colorBy} onChange={(e) => { set.setColorBy(e.target.value as ColorBy); set.setGrey([]); }}>
           <option value="benchmark">Benchmark</option><option value="developer">Developer</option><option value="yugos">Yugos availability</option>
           <option value="effort">Effort level</option><option value="none">One colour</option>
-        </select></label>
-        <label className="tc-log" title="Off: labels appear only on the benchmark frontiers and on the model you hover"><input type="checkbox" checked={showLabels} onChange={(e) => set.setShowLabels(e.target.checked)} /> Labels</label>
-        <label className="tc-log" title="Outline each label in its developer's colour"><input type="checkbox" checked={outline} onChange={(e) => set.setOutline(e.target.checked)} /> Developer outline</label>
-        <span className="mc-lines" role="group" aria-label="Lines">
-          <span className="muted">Lines</span>
-          <label title="Join one model configuration's points on the different benchmarks (its spread: best to worst)"><input type="checkbox" checked={lines.has("spread")} onChange={() => toggleLine("spread")} /> model across benchmarks</label>
-          <label title={FRONTIER_X[x] ? "Each benchmark's frontier: the best score reached so far, going from cheaper (or faster) to dearer (or slower)" : "Frontiers need a price, time, token or speed X axis"}>
-            <input type="checkbox" checked={lines.has("curves")} disabled={!FRONTIER_X[x]} onChange={() => toggleLine("curves")} /> benchmark frontier</label>
-          <label title="Join a model's effort levels (low → max) on each benchmark"><input type="checkbox" checked={lines.has("efforts")} onChange={() => toggleLine("efforts")} /> efforts</label>
+        </select></span>
+        <span className="ctl-grp" role="group" aria-label="Lines"><span className="ctl-lab">Lines</span>
+          <label className="sw" title="Join one model configuration's points on the different benchmarks (its spread: best to worst)"><input type="checkbox" checked={lines.has("spread")} onChange={() => toggleLine("spread")} /> Model across benchmarks</label>
+          <label className="sw" title={FRONTIER_X[x] ? "Each benchmark's frontier: the best score reached so far, going from cheaper (or faster) to dearer (or slower)" : "Frontiers need a price, time, token or speed X axis"}>
+            <input type="checkbox" checked={lines.has("curves")} disabled={!FRONTIER_X[x]} onChange={() => toggleLine("curves")} /> Frontier</label>
+          <label className="sw" title="Join a model's effort levels (low → max) on each benchmark"><input type="checkbox" checked={lines.has("efforts")} onChange={() => toggleLine("efforts")} /> Efforts</label>
         </span>
+        <span className="ctl-grp"><span className="ctl-lab">Show</span>
+          <label className="sw" title="Off: labels appear only on the benchmark frontiers and on the model you hover"><input type="checkbox" checked={showLabels} onChange={(e) => set.setShowLabels(e.target.checked)} /> All labels</label>
+          <label className="sw" title="Outline each label in its developer's colour"><input type="checkbox" checked={outline} onChange={(e) => set.setOutline(e.target.checked)} /> Developer outline</label></span>
+        <span className="ctl-grp">
         <span className="bl-seg mc-seg" role="tablist" aria-label="Layout">
           <button type="button" role="tab" aria-selected={layout === "one"} className={layout === "one" ? "on" : ""} onClick={() => set.setLayout("one")}>One chart</button>
           <button type="button" role="tab" aria-selected={layout === "grid"} className={layout === "grid" ? "on" : ""} onClick={() => set.setLayout("grid")}
                   title="Small multiples: one chart per benchmark, same Y scale">One per benchmark</button>
-        </span>
+        </span></span>
         {!full ? (
           <button type="button" className="button tc-fs" onClick={() => { setFull(true); root.current?.requestFullscreen?.().catch(() => undefined); }}
                   title={layout === "one" ? "Open the chart full screen: wheel zooms, drag pans" : "Open the charts full screen"}>⛶ Full screen</button>

@@ -8,7 +8,8 @@ import { difficultyText, LEVEL_HELP, LEVEL_NAMES, type Difficulty } from "@/lib/
 import { TOPICS, TOPIC_LABEL, parentTopics, subTopics } from "@/lib/benchmarkTopics";
 import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
 import { MultiBenchmarkChart } from "@/components/MultiBenchmarkChart";
-import { ResetColumns, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
+import { FilterPop } from "@/components/FilterPop";
+import { ColumnsMenu, DensityToggle, useColumnLayout, type ColDef, type SavedLayout } from "@/lib/columnLayout";
 import { METRIC_INFO, METRIC_KEYS, reportedKeys, type MetricKey, type Metrics } from "@/lib/metrics";
 import { MatchBars, MatchDetail } from "@/components/Match";
 import { CAT_LABEL, MATCH_CATS, pct, type MatchCat, type MatchInfo, type MatchTargets, type MatchTriple } from "@/lib/yugosMatch";
@@ -59,9 +60,9 @@ const shortUrl = (u: string) => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\
  */
 // tree columns: default order and widths (px); dragged and resized by the user, saved on the server
 const TREE_COLS: ColDef[] = [
-  { key: "no", width: 46, min: 30, fixed: true }, { key: "name", width: 270, min: 120 }, { key: "difficulty", width: 92, min: 80, fixed: true },
-  { key: "fit", width: 150, min: 136, fixed: true }, { key: "live", width: 130, min: 70 }, { key: "data", width: 70, min: 52, fixed: true }, { key: "category", width: 110 }, { key: "focus", width: 220 }, { key: "top", width: 300 },
-  { key: "reports", width: 300 }, { key: "link", width: 28, min: 22, fixed: true }, { key: "notes", width: 28, min: 22, fixed: true },
+  { key: "no", width: 56, min: 44, fixed: true }, { key: "name", width: 340, min: 180 }, { key: "difficulty", width: 124, min: 110, fixed: true },
+  { key: "fit", width: 184, min: 170, fixed: true }, { key: "live", width: 150, min: 90 }, { key: "data", width: 84, min: 70, fixed: true }, { key: "category", width: 110, hidden: true }, { key: "focus", width: 220 }, { key: "top", width: 300, hidden: true },
+  { key: "reports", width: 230 }, { key: "link", width: 28, min: 22, fixed: true }, { key: "notes", width: 28, min: 22, fixed: true },
 ];
 const TREE_HEADS: Record<string, { label: string; cls?: string; title?: string; aria?: string }> = {
   no: { label: "No", cls: "c-no" }, name: { label: "Benchmark" },
@@ -72,6 +73,12 @@ const TREE_HEADS: Record<string, { label: string; cls?: string; title?: string; 
   reports: { label: "Reports", title: "Parameters the benchmark reports besides its score" },
   data: { label: "Data", cls: "c-data", title: "Results we hold in our database. On a benchmark row: how many of its sub-benchmarks have any." },
   link: { label: "", cls: "c-ico", aria: "Link" }, notes: { label: "", cls: "c-ico", aria: "Notes" },
+};
+
+/** names in the Columns menu (the link and notes icon columns are always on) */
+const COL_LABELS: Record<string, string> = {
+  no: "No", name: "Benchmark", difficulty: "Difficulty", fit: "Yugos fit", live: "Live overlap", data: "Data",
+  category: "Category", focus: "Focus", top: "Top ranked", reports: "Reports",
 };
 
 type SortKey = "no" | "name" | "difficulty" | "fit" | "category" | "data";
@@ -92,44 +99,6 @@ function Hl({ text, q }: { text: string; q: string }) {
   }
   out.push(text.slice(i));
   return <>{out}</>;
-}
-
-/** a column's filter popup, under its header; closes on a click outside, Escape, or the header's ▾ again */
-function FilterPop({ anchor, onClose, children }: { anchor: string; onClose: () => void; children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const close = useRef(onClose);
-  close.current = onClose;
-  const [pos, setPos] = useState<{ left: number; top: number } | null>(null);
-  useEffect(() => {
-    const W = 270;
-    const place = () => {
-      const head = document.querySelector(`[data-pop="${CSS.escape(anchor)}"]`)?.closest("[role=columnheader]");
-      if (!head) { close.current(); return; }
-      const r = head.getBoundingClientRect();
-      setPos({ left: Math.max(8, Math.min(r.left, window.innerWidth - W - 8)), top: Math.max(8, r.bottom + 4) });
-    };
-    place();
-    const down = (e: MouseEvent) => {
-      const t = e.target as Element;
-      if (ref.current?.contains(t) || t.closest?.(`[data-pop="${CSS.escape(anchor)}"]`)) return;
-      close.current();
-    };
-    const key = (e: { key: string }) => { if (e.key === "Escape") close.current(); };
-    window.addEventListener("resize", place);
-    window.addEventListener("scroll", place, true);
-    document.addEventListener("mousedown", down);
-    document.addEventListener("keydown", key);
-    return () => {
-      window.removeEventListener("resize", place);
-      window.removeEventListener("scroll", place, true);
-      document.removeEventListener("mousedown", down);
-      document.removeEventListener("keydown", key);
-    };
-  }, [anchor]);
-  return (
-    <div ref={ref} className="hf-pop" role="dialog" aria-label="Column filter"
-         style={pos ? { left: pos.left, top: pos.top } : { visibility: "hidden" }}>{children}</div>
-  );
 }
 
 export function BenchmarkTree({ items, expandAll = false, initialView = "tree", layout, query: initialQuery, matchTargets = null, liveSets = {} }: { items: TreeItem[]; expandAll?: boolean; initialView?: "tree" | "flat" | "params"; layout?: SavedLayout; query?: Query; matchTargets?: MatchTargets | null; liveSets?: Record<string, string> }) {
@@ -367,7 +336,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   if (levels.length) chips.push({ key: "diff", col: "difficulty", label: `Difficulty: ${levels.map(levelName).join(", ")}`, clear: () => setLevels([]) });
   if (fitCat) chips.push({ key: "fit", col: "fit", label: `Yugos fit: ${fitCat === "any" ? "best of three" : CAT_LABEL[fitCat]} ≥ ${fitMin}%`, clear: () => setFitCat("") });
   if (live.length) chips.push({ key: "live", col: "live", label: `Live overlap: ${live[0] === "none" ? "none" : live[0] === "any" ? "any" : live.join(", ")}`, clear: () => setLive([]) });
-  if (cats.length) chips.push({ key: "cat", col: "category", label: `Topic: ${cats.map((c) => TOPIC_LABEL[c] ?? c).join(", ")}`, clear: () => setCats([]) });
+  if (cats.length) chips.push({ key: "cat", col: "name", label: `Topic: ${cats.map((c) => TOPIC_LABEL[c] ?? c).join(", ")}`, clear: () => setCats([]) });
   if (params.length) chips.push({ key: "param", col: "reports", label: `Reports: ${params.map((k) => METRIC_INFO[k as MetricKey]?.title ?? k).join(" + ")}${onSiteOnly ? " (on site)" : ""}`, clear: () => { setParams([]); setOnSiteOnly(false); } });
   if (dataMode) chips.push({ key: "data", col: "data", label: dataMode === "has" ? "Has data" : "No data", clear: () => setDataMode("") });
   const activeCols = new Set(chips.map((c) => c.col));
@@ -409,7 +378,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
           <span className="live-set">{s}</span><span className="hf-n">{liveCounts.get(s)}</span>
         </label>))}
     </>),
-    category: () => (<>
+    name: () => (<>
       <p className="hf-title">Topic</p>
       {catOptions.map((o) => (
         <label key={o.value} className="hf-opt" title={o.title}>
@@ -456,7 +425,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
         </span>
         {!panel && <button type="button" className="button bl-showpanel" onClick={() => setPanel(true)}
                            title="Show the details panel (or click a row)">◧ Details</button>}
-        {view !== "params" && <ResetColumns layout={cl} />}
+        {view !== "params" && <span className="bl-viewopts"><ColumnsMenu layout={cl} labels={COL_LABELS} /><DensityToggle /></span>}
         {view === "tree" && <span className="row bl-expand">
           <button type="button" className="link" disabled={filtering || open.size === parentsWithKids.length}
                   onClick={() => setOpen(new Set(parentsWithKids))}>Expand all</button>
@@ -483,13 +452,10 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
             </span>}
             <button type="button" className="link" onClick={clearAll}>Clear all</button>
           </>}
+        {view !== "params" && <span className="bl-chips-legend">
+          Reports: <span className="bl-tag">Cost</span> on the site · <span className="bl-tag faint">Cost</span> only in a data file or the paper
+        </span>}
       </div>
-      {view === "params" ? null : (
-        <p className="bl-legend small">
-          <span className="bl-tag t-cost">$</span> Reports: solid tag = on the site.
-          <span className="bl-legsep" /><span className="bl-tag t-cost faint">$</span> dashed = official, but only in a data file or the paper.
-        </p>
-      )}
 
       <div className={`bl-body${panel ? "" : " full"}`} style={{ "--bl-panel-w": `${panelW}px` } as React.CSSProperties}>
         {view === "params" ? (

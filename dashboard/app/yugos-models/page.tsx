@@ -28,7 +28,7 @@ export default async function YugosModelsPage({ searchParams }: { searchParams: 
       <header className="ym-header">
         <div>
           <h1>Yugos models</h1>
-          <p className="subtle small">
+          <p className="page-lead">
             Every model on the Yugos{" "}
             <a href={catalog.world_card.url} target="_blank" rel="noreferrer">world card</a>
             {catalog.world_card.synced_at ? <> (synced {catalog.world_card.synced_at.slice(0, 10)})</> : null}
