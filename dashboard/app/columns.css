@@ -299,3 +299,60 @@ table.grid:not(.ym-table):not(.rb-table) > tbody > tr:nth-child(even) > td,
 button.mc-panel-fs { all: unset; margin-left: auto; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 6px; color: var(--muted); cursor: pointer; flex-shrink: 0; }
 button.mc-panel-fs:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent); }
 button.mc-panel-fs:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Benchmark list: sort and filter from the column headers, active filters as chips */
+.bl-grid .bl-head > .col-head { display: flex; align-items: center; gap: 2px; }
+.bl-grid .bl-head > .col-head > .col-label { flex: 0 1 auto; }
+button.col-sort { all: unset; cursor: pointer; display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border-radius: 3px; }
+button.col-sort:hover { color: var(--ink); }
+button.col-sort:focus-visible, button.col-filter:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.col-arrow { margin-left: 3px; color: var(--accent); font-size: 9px; }
+button.col-filter { all: unset; flex: none; cursor: pointer; width: 15px; height: 15px; display: inline-grid; place-items: center; border-radius: 3px;
+  font-size: 10px; color: var(--muted); }
+button.col-filter:hover { background: var(--line); color: var(--ink); }
+button.col-filter.on { background: var(--accent); color: #fff; }
+.bl-head > .col-head.col-on { background: var(--accent-wash); color: var(--ink); }
+
+.bl-total { font-size: 12.5px; color: var(--ink-2); }
+.bl-total b { color: var(--ink); font-weight: 600; }
+.bl-chips { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-height: 26px; margin: 8px 0 4px; }
+.bl-chip { display: inline-flex; align-items: center; border-radius: 999px; background: var(--accent-wash); color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); font-size: 12px; font-weight: 500; overflow: hidden; }
+.bl-chip.sort { background: var(--surface-2); color: var(--ink); border-color: var(--border); }
+.bl-chip button { all: unset; cursor: pointer; padding: 2px 4px 2px 10px; }
+.bl-chip button.bl-chip-x { padding: 2px 9px 2px 4px; font-size: 14px; line-height: 1; opacity: .7; }
+.bl-chip button:hover { text-decoration: underline; }
+.bl-chip button.bl-chip-x:hover { opacity: 1; text-decoration: none; }
+.bl-chip button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.hf-icon { display: inline-grid; place-items: center; width: 14px; height: 14px; border-radius: 3px; background: var(--line); font-size: 9px; }
+
+.hf-pop { position: fixed; z-index: 50; width: 270px; max-height: min(60vh, 460px); overflow: auto; padding: 10px 12px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+  font-size: 12.5px; text-transform: none; letter-spacing: 0; color: var(--ink); }
+.hf-title { margin: 0 0 6px; font-weight: 600; font-size: 12px; }
+.hf-sub { margin: 8px 0 2px; font-size: 11px; color: var(--muted); }
+.hf-note { margin: 8px 0 0; font-size: 11px; color: var(--muted); }
+.hf-opt { display: flex; align-items: center; gap: 7px; padding: 3px 2px; border-radius: 4px; cursor: pointer; }
+.hf-opt:hover { background: var(--accent-wash); }
+.hf-opt select { margin-left: auto; font-size: 12px; }
+.hf-opt.hf-sep { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 7px; }
+.hf-n { margin-left: auto; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+mark.bl-hl { background: #fde68a; color: inherit; border-radius: 2px; padding: 0 1px; }
+@media (prefers-color-scheme: dark) { mark.bl-hl { background: #6b5310; } }
+.bl-parent { color: var(--muted); font-size: 11px; margin-left: 5px; }
+.bl-row.flatrow { background: var(--surface); }
+.c-data { text-align: right; font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.c-data.none { color: var(--muted); }
+.c-data.faint { color: var(--muted); }
+
+/* tag cells (Live overlap, Reports): tags that don't fit are hidden behind a "+N" badge; the hover copy shows them all */
+.ft:not(.hovertip) { display: flex; align-items: center; flex-wrap: nowrap; overflow: hidden; position: relative; }
+.ft > .ft-tag, .ft > .ft-lead, .ft > .ft-more { flex: none; display: inline-flex; }
+.ft > .ft-tag.ft-over { position: absolute; visibility: hidden; pointer-events: none; left: 0; top: 0; }
+.ft-more { font-size: 10.5px; font-weight: 600; color: var(--ink-2); background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: 999px; padding: 0 5px; line-height: 15px; font-variant-numeric: tabular-nums; }
+.hovertip.ft { display: flex !important; flex-wrap: wrap; align-items: center; gap: 3px; }
+.hovertip.ft > .ft-tag.ft-over { position: static; visibility: visible; }
+.hovertip.ft > .ft-more { display: none; }
+.hovertip.ft.faint, .hovertip.hovertip.faint { opacity: 1; }   /* a faded cell (benchmark rows) still opens as a solid copy */

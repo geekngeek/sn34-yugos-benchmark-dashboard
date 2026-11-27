@@ -1,11 +1,10 @@
 "use client";
 
-import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
+import { Fragment, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import Link from "next/link";
 import { HoverTip } from "@/components/HoverTip";
 import { Stars } from "@/components/Stars";
 import { difficultyText, LEVEL_HELP, LEVEL_NAMES, type Difficulty } from "@/lib/difficulty";
-import { MultiSelect } from "@/components/MultiSelect";
 import { TOPICS, TOPIC_LABEL, parentTopics, subTopics } from "@/lib/benchmarkTopics";
 import { qFlag, qMany, qOne, useQuerySync, type Query } from "@/lib/urlState";
 import { MultiBenchmarkChart } from "@/components/MultiBenchmarkChart";
@@ -32,6 +31,8 @@ export interface TreeItem {
   match?: MatchInfo | null;   // Yugos match of a sub-benchmark (lib/yugosMatch.ts)
   fit?: MatchTriple | null;   // its 3 category scores; for a parent, the best of its sub-benchmarks
   live?: string[];            // live Yugos sets it shares questions with (ids); for a parent, those of its sub-benchmarks
+  data?: number;              // results in our database; for a parent, the total of its sub-benchmarks
+  dataFrom?: string[];        // where they come from: "name · version (source): n"
 }
 
 interface Ranked { name: string; score: string }
@@ -59,7 +60,7 @@ const shortUrl = (u: string) => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\
 // tree columns: default order and widths (px); dragged and resized by the user, saved on the server
 const TREE_COLS: ColDef[] = [
   { key: "no", width: 46, min: 30, fixed: true }, { key: "name", width: 270, min: 120 }, { key: "difficulty", width: 92, min: 80, fixed: true },
-  { key: "fit", width: 150, min: 136, fixed: true }, { key: "live", width: 130, min: 70 }, { key: "category", width: 110 }, { key: "focus", width: 220 }, { key: "top", width: 300 },
+  { key: "fit", width: 150, min: 136, fixed: true }, { key: "live", width: 130, min: 70 }, { key: "data", width: 70, min: 52, fixed: true }, { key: "category", width: 110 }, { key: "focus", width: 220 }, { key: "top", width: 300 },
   { key: "reports", width: 300 }, { key: "link", width: 28, min: 22, fixed: true }, { key: "notes", width: 28, min: 22, fixed: true },
 ];
 const TREE_HEADS: Record<string, { label: string; cls?: string; title?: string; aria?: string }> = {
@@ -69,28 +70,94 @@ const TREE_HEADS: Record<string, { label: string; cls?: string; title?: string; 
   live: { label: "Live overlap", title: "◆ Shares questions with these live Yugos sets: remove those questions before use, never test on them. Hover a row for the reason." },
   category: { label: "Category" }, focus: { label: "Focus" }, top: { label: "Top ranked" },
   reports: { label: "Reports", title: "Parameters the benchmark reports besides its score" },
+  data: { label: "Data", cls: "c-data", title: "Results we hold in our database. On a benchmark row: how many of its sub-benchmarks have any." },
   link: { label: "", cls: "c-ico", aria: "Link" }, notes: { label: "", cls: "c-ico", aria: "Notes" },
 };
 
-export function BenchmarkTree({ items, expandAll = false, initialView = "tree", layout, query: initialQuery, matchTargets = null, liveSets = {} }: { items: TreeItem[]; expandAll?: boolean; initialView?: "tree" | "params"; layout?: SavedLayout; query?: Query; matchTargets?: MatchTargets | null; liveSets?: Record<string, string> }) {
+type SortKey = "no" | "name" | "difficulty" | "fit" | "category" | "data";
+/** sortable columns and the direction a first click sorts them (names A–Z; levels, fit and data highest first) */
+const SORTS: Record<SortKey, { first: 1 | -1 }> = {
+  no: { first: 1 }, name: { first: 1 }, difficulty: { first: -1 }, fit: { first: -1 }, category: { first: 1 }, data: { first: -1 },
+};
+
+/** the text with every match of the search marked */
+function Hl({ text, q }: { text: string; q: string }) {
+  if (!q || !text) return <>{text}</>;
+  const lower = text.toLowerCase(), out: React.ReactNode[] = [];
+  let i = 0, k: number;
+  while ((k = lower.indexOf(q, i)) >= 0) {
+    if (k > i) out.push(text.slice(i, k));
+    out.push(<mark key={k} className="bl-hl">{text.slice(k, k + q.length)}</mark>);
+    i = k + q.length;
+  }
+  out.push(text.slice(i));
+  return <>{out}</>;
+}
+
+/** a column's filter popup, under its header; closes on a click outside, Escape, or the header's ▾ again */
+function FilterPop({ anchor, onClose, children }: { anchor: string; onClose: () => void; children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const close = useRef(onClose);
+  close.current = onClose;
+  const [pos, setPos] = useState<{ left: number; top: number } | null>(null);
+  useEffect(() => {
+    const W = 270;
+    const place = () => {
+      const head = document.querySelector(`[data-pop="${CSS.escape(anchor)}"]`)?.closest("[role=columnheader]");
+      if (!head) { close.current(); return; }
+      const r = head.getBoundingClientRect();
+      setPos({ left: Math.max(8, Math.min(r.left, window.innerWidth - W - 8)), top: Math.max(8, r.bottom + 4) });
+    };
+    place();
+    const down = (e: MouseEvent) => {
+      const t = e.target as Element;
+      if (ref.current?.contains(t) || t.closest?.(`[data-pop="${CSS.escape(anchor)}"]`)) return;
+      close.current();
+    };
+    const key = (e: { key: string }) => { if (e.key === "Escape") close.current(); };
+    window.addEventListener("resize", place);
+    window.addEventListener("scroll", place, true);
+    document.addEventListener("mousedown", down);
+    document.addEventListener("keydown", key);
+    return () => {
+      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", place, true);
+      document.removeEventListener("mousedown", down);
+      document.removeEventListener("keydown", key);
+    };
+  }, [anchor]);
+  return (
+    <div ref={ref} className="hf-pop" role="dialog" aria-label="Column filter"
+         style={pos ? { left: pos.left, top: pos.top } : { visibility: "hidden" }}>{children}</div>
+  );
+}
+
+export function BenchmarkTree({ items, expandAll = false, initialView = "tree", layout, query: initialQuery, matchTargets = null, liveSets = {} }: { items: TreeItem[]; expandAll?: boolean; initialView?: "tree" | "flat" | "params"; layout?: SavedLayout; query?: Query; matchTargets?: MatchTargets | null; liveSets?: Record<string, string> }) {
   const cl = useColumnLayout("benchmark-list", TREE_COLS, layout);
   const [tree, setTree] = useState(items);
   const [open, setOpen] = useState<Set<string>>(() => new Set(expandAll ? items.filter((p) => p.children.length).map((p) => p.no) : []));
-  // every filter and the view start from the URL (?q=&yugos=1&notes=1&cat=…&param=…&site=1&view=params) and are written back to it
+  // every filter, the sort and the view start from the URL and are written back to it:
+  // ?q= &notes=1 &cat= &diff= (0 = not rated) &param= &site=1 &fit= &fitmin= &live=none|any|<set>… &data=has|none &sort= &dir= &view=flat|params
   const [query, setQuery] = useState(() => qOne(initialQuery, "q"));
   const [onlyNoted, setOnlyNoted] = useState(() => qFlag(initialQuery, "notes"));
-  // filters on the benchmark (parent) rows; a parent that passes keeps its sub-benchmarks
-  const [cats, setCats] = useState<string[]>(() => qMany(initialQuery, "cat"));      // sub-benchmarks in any of these categories
-  // difficulty levels 1..5 (?diff=3&diff=4): sub-benchmarks whose level (or range of levels) includes a checked one
-  const [levels, setLevels] = useState<number[]>(() => qMany(initialQuery, "diff").map(Number).filter((n) => n >= 1 && n <= 5));
+  const [cats, setCats] = useState<string[]>(() => qMany(initialQuery, "cat"));      // sub-benchmarks in any of these topics
+  // difficulty levels (?diff=3&diff=4): sub-benchmarks whose level (or range of levels) includes a checked one; 0 = not rated
+  const [levels, setLevels] = useState<number[]>(() => qMany(initialQuery, "diff").map(Number).filter((n) => n >= 0 && n <= 5));
   const [params, setParams] = useState<string[]>(() => qMany(initialQuery, "param")); // benchmark must report all of these parameters
   // Yugos fit (?fit=chat&fitmin=50): sub-benchmarks whose match for that category (or their best one, "any") is at least fitmin %
   const [fitCat, setFitCat] = useState<"" | MatchCat | "any">(() => { const v = qOne(initialQuery, "fit"); return (["chat", "math_code", "agentic", "any"].includes(v) ? v : "") as "" | MatchCat | "any"; });
   const [fitMin, setFitMin] = useState<number>(() => Number(qOne(initialQuery, "fitmin")) || 50);
-  const [noOverlap, setNoOverlap] = useState(() => qFlag(initialQuery, "nolive"));   // hide sub-benchmarks that share questions with a live Yugos set
+  // live-set overlap: "" all, "none" no overlap, "any" some overlap, else the chosen live sets (?live=hle&live=mmlu_pro); old ?nolive=1 = none
+  const [live, setLive] = useState<string[]>(() => { const v = qMany(initialQuery, "live"); return v.length ? v : qFlag(initialQuery, "nolive") ? ["none"] : []; });
+  const [dataMode, setDataMode] = useState<"" | "has" | "none">(() => { const v = qOne(initialQuery, "data"); return v === "has" || v === "none" ? v : ""; });
   const [onSiteOnly, setOnSiteOnly] = useState(() => qFlag(initialQuery, "site"));    // …shown on the benchmark's own page
+  const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 } | null>(() => {
+    const k = qOne(initialQuery, "sort") as SortKey;
+    return SORTS[k] ? { key: k, dir: qOne(initialQuery, "dir") === "asc" ? 1 : qOne(initialQuery, "dir") === "desc" ? -1 : SORTS[k].first } : null;
+  });
+  const [pop, setPop] = useState<string | null>(null);    // the column whose filter popup is open
   const [selected, setSelected] = useState<string>(items[0]?.no ?? "");
-  const [view, setView] = useState<"tree" | "params">(initialView);
+  const [view, setView] = useState<"tree" | "flat" | "params">(initialView);
   // details panel: closed gives the table the full width; remembered between visits
   const [panel, setPanelState] = useState(true);
   useEffect(() => { if (localStorage.getItem("bl-panel") === "closed") setPanelState(false); }, []);
@@ -108,7 +175,8 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
 
   const q = query.trim().toLowerCase();
   const textFiltering = q !== "" || onlyNoted;
-  const filtering = textFiltering || cats.length > 0 || levels.length > 0 || params.length > 0 || fitCat !== "" || noOverlap;   // filtered rows show their matching sub-benchmarks, open
+  const subFiltered = cats.length > 0 || levels.length > 0 || fitCat !== "" || live.length > 0 || dataMode !== "";
+  const filtering = textFiltering || subFiltered || params.length > 0;   // filtered rows show their matching sub-benchmarks, open
   const text = (i: TreeItem) => [i.name, i.category, i.focus, i.top, i.yugosUse, i.notes, i.myNotes, i.url,
     ...i.metrics.params.map((m) => `${m.key} ${METRIC_INFO[m.key].title} ${m.label} ${m.detail}`)].join(" ").toLowerCase();
   const match = (i: TreeItem) => (!q || text(i).includes(q)) && (!onlyNoted || i.myNotes.trim() !== "");
@@ -118,12 +186,12 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     for (const p of tree) for (const c of p.children) m.set(c.no, subTopics(c, p).topics);
     return m;
   }, [tree]);
-  // Category filters sub-benchmarks by their own category; Reports filters the benchmark (parent) itself
-  const levelOk = (c: TreeItem) => !levels.length || ((c.difficulty.kind === "firm" || c.difficulty.kind === "range")
-    && levels.some((L) => L >= c.difficulty.lo && L <= c.difficulty.hi));      // "2-3" counts for 2 and for 3
-  const fitOk = (c: TreeItem) => !(noOverlap && c.match?.live_overlap) && (!fitCat || (!!c.fit && (fitCat === "any" ? Math.max(...MATCH_CATS.map((k) => c.fit![k])) : c.fit[fitCat]) * 100 >= fitMin));
-  const kidOk = (c: TreeItem) => (!cats.length || (topicsOf.get(c.no) ?? []).some((t) => cats.includes(t))) && levelOk(c) && fitOk(c);
-  const subFiltered = cats.length > 0 || levels.length > 0 || fitCat !== "" || noOverlap;
+  const rated = (c: TreeItem) => c.difficulty.kind === "firm" || c.difficulty.kind === "range";
+  const levelOk = (c: TreeItem) => !levels.length || levels.some((L) => L === 0 ? !rated(c) : rated(c) && L >= c.difficulty.lo && L <= c.difficulty.hi);   // "2-3" counts for 2 and for 3
+  const fitOk = (c: TreeItem) => !fitCat || (!!c.fit && (fitCat === "any" ? Math.max(...MATCH_CATS.map((k) => c.fit![k])) : c.fit[fitCat]) * 100 >= fitMin);
+  const liveOk = (c: TreeItem) => !live.length || (live[0] === "none" ? !c.live?.length : live[0] === "any" ? !!c.live?.length : live.some((s) => c.live?.includes(s)));
+  const dataOk = (c: TreeItem) => !dataMode || (dataMode === "has" ? (c.data ?? 0) > 0 : !(c.data ?? 0));
+  const kidOk = (c: TreeItem) => (!cats.length || (topicsOf.get(c.no) ?? []).some((t) => cats.includes(t))) && levelOk(c) && fitOk(c) && liveOk(c) && dataOk(c);
   // Reports: a benchmark passes on what it reports itself; a sub-benchmark on what its own table reports (its
   // researched "Metrics detail"), or its parent's while it has none of its own
   const metricsOk = (m: Metrics) => {
@@ -132,29 +200,63 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
   };
   const passes = (p: TreeItem) => !params.length || metricsOk(p.metrics);
   const subPasses = (c: TreeItem, p: TreeItem) => !params.length || metricsOk(ownMetrics(c) ?? p.metrics);
-  const narrowed = cats.length > 0 || params.length > 0 || levels.length > 0 || fitCat !== "" || noOverlap;
-  const levelCounts = useMemo(() => [0, 1, 2, 3, 4, 5].map((L) => tree.reduce((n, p) => n + p.children.filter((c) =>
-    (c.difficulty.kind === "firm" || c.difficulty.kind === "range") && L >= c.difficulty.lo && L <= c.difficulty.hi).length, 0)), [tree]);
   useQuerySync({ q: query.trim(), notes: onlyNoted, cat: cats, diff: levels.map(String), param: params, site: onSiteOnly && params.length > 0,
-                 fit: fitCat || null, fitmin: fitCat ? String(fitMin) : null, nolive: noOverlap,
-                 view: view === "params" ? "params" : null });
+                 fit: fitCat || null, fitmin: fitCat ? String(fitMin) : null, live, nolive: null, data: dataMode || null,
+                 sort: sort?.key ?? null, dir: sort ? (sort.dir === 1 ? "asc" : "desc") : null,
+                 view: view === "tree" ? null : view });
 
-  // visible rows in order; while filtering, parents with matching children are shown open
-  const visible = useMemo(() => {
-    const rows: { item: TreeItem; depth: number; parent?: TreeItem; shownKids: number }[] = [];
+  // the value a row sorts by (null sorts last either way); Yugos fit uses the filtered category, else the best of the three
+  const sortVal = useCallback((i: TreeItem, key: SortKey): number | string | null => {
+    switch (key) {
+      case "no": return i.no.split(".").reduce((n, x, k) => n + Number(x) * (k ? 1 / 1000 : 1), 0);
+      case "name": return i.name.toLowerCase();
+      case "difficulty": return i.difficulty.kind === "firm" || i.difficulty.kind === "range" ? i.difficulty.lo * 10 + i.difficulty.hi : null;
+      case "fit": return i.fit ? (fitCat && fitCat !== "any" ? i.fit[fitCat] : Math.max(...MATCH_CATS.map((k) => i.fit![k]))) : null;
+      case "category": return i.category.trim().toLowerCase() || null;
+      case "data": return i.data ?? 0;
+    }
+  }, [fitCat]);
+  const bySort = useCallback((a: TreeItem, b: TreeItem) => {
+    if (!sort) return 0;
+    const x = sortVal(a, sort.key), y = sortVal(b, sort.key);
+    if (x === null || y === null) return x === y ? 0 : x === null ? 1 : -1;
+    return (typeof x === "string" ? x.localeCompare(y as string) : x - (y as number)) * sort.dir;
+  }, [sort, sortVal]);
+
+  // the filter result, view-independent: each benchmark that stays, with the sub-benchmarks that pass, sorted
+  const groups = useMemo(() => {
+    const out: { p: TreeItem; kids: TreeItem[] }[] = [];
     for (const p of tree) {
       // a benchmark stays when it reports the chosen parameters itself (its overall table) or a sub-benchmark does
       let base = params.length ? p.children.filter((c) => subPasses(c, p)) : p.children;
       if (subFiltered) base = base.filter(kidOk);
       if (subFiltered && base.length === 0) continue;
       if (params.length && !passes(p) && base.length === 0) continue;
-      const kids = textFiltering ? (match(p) && !onlyNoted && q ? base : base.filter(match)) : base;
+      // searching keeps the sub-benchmarks that match themselves; all of them only when the search names the benchmark
+      const kids = textFiltering ? (q && !onlyNoted && p.name.toLowerCase().includes(q) ? base : base.filter(match)) : base;
       if (textFiltering && !match(p) && kids.length === 0) continue;
+      out.push({ p, kids: sort ? [...kids].sort(bySort) : kids });
+    }
+    return sort ? out.sort((a, b) => bySort(a.p, b.p)) : out;
+  }, [tree, q, onlyNoted, cats, levels, params, onSiteOnly, topicsOf, fitCat, fitMin, live, dataMode, sort, bySort]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // rows on screen: the tree (parents, open ones with their sub-benchmarks) or one flat, globally sorted list
+  const visible = useMemo(() => {
+    const rows: { item: TreeItem; depth: number; parent?: TreeItem; shownKids: number }[] = [];
+    if (view === "flat") {
+      for (const { p, kids } of groups) {
+        if (!p.children.length) rows.push({ item: p, depth: 0, shownKids: 0 });
+        for (const c of kids) rows.push({ item: c, depth: 1, parent: p, shownKids: 0 });
+      }
+      if (sort) rows.sort((a, b) => bySort(a.item, b.item));
+      return rows;
+    }
+    for (const { p, kids } of groups) {
       rows.push({ item: p, depth: 0, shownKids: kids.length });
       if (filtering ? kids.length > 0 : open.has(p.no)) for (const c of kids) rows.push({ item: c, depth: 1, parent: p, shownKids: 0 });
     }
     return rows;
-  }, [tree, open, q, onlyNoted, cats, levels, params, onSiteOnly, topicsOf, fitCat, fitMin, noOverlap]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [groups, view, open, filtering, sort, bySort]);
 
   const byNo = useMemo(() => {
     const m = new Map<string, { item: TreeItem; parent?: TreeItem }>();
@@ -169,6 +271,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     return n;
   });
   const parentsWithKids = tree.filter((p) => p.children.length).map((p) => p.no);
+  const allSubs = useMemo(() => tree.flatMap((p) => p.children), [tree]);
   // topics with how many sub-benchmarks (in how many benchmarks) have each
   const catOptions = useMemo(() => {
     const n = new Map<string, { subs: number; in: Set<string> }>();
@@ -179,30 +282,37 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     }
     return TOPICS.filter((t) => n.has(t.id)).map((t) => {
       const e = n.get(t.id)!;
-      return { value: t.id, label: t.label, hint: `${e.subs} · ${e.in.size} bench`,
-               title: `${t.label}: ${e.subs} sub-benchmarks in ${e.in.size} benchmarks (${[...e.in].slice(0, 6).join(", ")}${e.in.size > 6 ? ", …" : ""})` };
+      return { value: t.id, label: t.label, n: e.subs, title: `${t.label}: ${e.subs} sub-benchmarks in ${e.in.size} benchmarks (${[...e.in].slice(0, 6).join(", ")}${e.in.size > 6 ? ", …" : ""})` };
     });
   }, [tree, topicsOf]);
   const paramOptions = useMemo(() => METRIC_KEYS.map((k: MetricKey) => {
     const all = tree.filter((p) => reportedKeys(p.metrics).some((r) => r.key === k)).length;
     const page = tree.filter((p) => reportedKeys(p.metrics).some((r) => r.key === k && r.where === "page")).length;
-    return { value: k, label: METRIC_INFO[k].title, hint: `${all} · ${page} on site`, title: `${METRIC_INFO[k].help}: ${all} benchmarks report it, ${page} on the site itself`, all };
-  }).filter((o) => o.all > 0), [tree]);
-  const shownParents = visible.filter((r) => r.depth === 0).length;
-  // the combined chart below the list draws what the filters leave: the matching sub-benchmarks while a topic,
-  // difficulty or text filter is on (a benchmark matched by its own text with no sub-benchmark shown stands for
-  // itself), else every listed benchmark's overall table
+    return { value: k, label: METRIC_INFO[k].title, n: all, title: `${METRIC_INFO[k].help}: ${all} benchmarks report it, ${page} on the site itself` };
+  }).filter((o) => o.n > 0), [tree]);
+  const levelCounts = useMemo(() => [0, 1, 2, 3, 4, 5].map((L) => allSubs.filter((c) => L === 0 ? !rated(c) : rated(c) && L >= c.difficulty.lo && L <= c.difficulty.hi).length), [allSubs]); // eslint-disable-line react-hooks/exhaustive-deps
+  const liveCounts = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const c of allSubs) for (const s of c.live ?? []) m.set(s, (m.get(s) ?? 0) + 1);
+    return m;
+  }, [allSubs]);
+  const overlapping = allSubs.filter((c) => c.live?.length).length;
+  const withData = allSubs.filter((c) => (c.data ?? 0) > 0).length;
+
+  // the combined chart below the list draws what the filters leave: the matching sub-benchmarks while a filter is on
+  // (a benchmark matched by its own text with no sub-benchmark shown stands for itself), else every listed benchmark's overall table
   const chartRows = useMemo(() => {
-    const sub = subFiltered || textFiltering || params.length > 0;
     const out: { no: string; name: string }[] = [];
-    for (const r of visible) {
-      if (!sub) { if (r.depth === 0) out.push({ no: r.item.no, name: r.item.name }); continue; }
-      if (r.depth === 1 || r.shownKids === 0) out.push({ no: r.item.no, name: r.item.name });
+    for (const { p, kids } of groups) {
+      if (!filtering) { out.push({ no: p.no, name: p.name }); continue; }
+      if (!kids.length) out.push({ no: p.no, name: p.name });
+      for (const c of kids) out.push({ no: c.no, name: c.name });
     }
-    return { rows: out, note: sub ? (out.some((o) => !o.no.includes(".")) ? "sub-benchmarks and benchmarks" : "sub-benchmarks")
-                                  : "benchmarks (each one's overall table)" };
-  }, [visible, subFiltered, textFiltering, params.length]);
-  const subTotal = tree.reduce((n, p) => n + p.children.length, 0);
+    return { rows: out, note: filtering ? (out.some((o) => !o.no.includes(".")) ? "sub-benchmarks and benchmarks" : "sub-benchmarks")
+                                        : "benchmarks (each one's overall table)" };
+  }, [groups, filtering]);
+  const subTotal = allSubs.length;
+  const shownSubs = groups.reduce((n, g) => n + g.kids.length, 0);
 
   // keep the selected row in view when moving with the keyboard
   useEffect(() => {
@@ -216,6 +326,8 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
       e.preventDefault();
       const next = visible[Math.min(visible.length - 1, Math.max(0, at + (e.key === "ArrowDown" ? 1 : -1)))];
       if (next) setSelected(next.item.no);
+    } else if (view === "flat") {
+      if (e.key === "/") { e.preventDefault(); searchRef.current?.focus(); }
     } else if (e.key === "ArrowRight" && row) {
       e.preventDefault();
       if (row.depth === 0 && row.item.children.length) {
@@ -237,20 +349,114 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
     setTree((t) => t.map((p) => p.no === no ? { ...p, myNotes: note }
       : { ...p, children: p.children.map((c) => (c.no === no ? { ...c, myNotes: note } : c)) }));
 
+  // header click: sort by that column (its natural direction first), click again to reverse, a third time to stop.
+  // A sort from the tree switches to the flat list, where it runs across every sub-benchmark.
+  const sortBy = (key: string) => {
+    if (!SORTS[key as SortKey]) return;
+    const k = key as SortKey;
+    setSort((s) => !s || s.key !== k ? { key: k, dir: SORTS[k].first } : s.dir === SORTS[k].first ? { key: k, dir: (-s.dir) as 1 | -1 } : null);
+    if (view === "tree" && (!sort || sort.key !== k)) setView("flat");
+  };
+  const clearAll = () => { setQuery(""); setOnlyNoted(false); setCats([]); setParams([]); setOnSiteOnly(false); setLevels([]); setFitCat(""); setLive([]); setDataMode(""); setSort(null); };
+
+  // what each active filter (and the sort) says in the chip bar, and the column it belongs to
+  const levelName = (L: number) => (L === 0 ? "not rated" : String(L));
+  const chips: { key: string; col: string; label: string; clear: () => void }[] = [];
+  if (q) chips.push({ key: "q", col: "", label: `Search: “${query.trim()}”`, clear: () => setQuery("") });
+  if (onlyNoted) chips.push({ key: "notes", col: "", label: "With my notes", clear: () => setOnlyNoted(false) });
+  if (levels.length) chips.push({ key: "diff", col: "difficulty", label: `Difficulty: ${levels.map(levelName).join(", ")}`, clear: () => setLevels([]) });
+  if (fitCat) chips.push({ key: "fit", col: "fit", label: `Yugos fit: ${fitCat === "any" ? "best of three" : CAT_LABEL[fitCat]} ≥ ${fitMin}%`, clear: () => setFitCat("") });
+  if (live.length) chips.push({ key: "live", col: "live", label: `Live overlap: ${live[0] === "none" ? "none" : live[0] === "any" ? "any" : live.join(", ")}`, clear: () => setLive([]) });
+  if (cats.length) chips.push({ key: "cat", col: "category", label: `Topic: ${cats.map((c) => TOPIC_LABEL[c] ?? c).join(", ")}`, clear: () => setCats([]) });
+  if (params.length) chips.push({ key: "param", col: "reports", label: `Reports: ${params.map((k) => METRIC_INFO[k as MetricKey]?.title ?? k).join(" + ")}${onSiteOnly ? " (on site)" : ""}`, clear: () => { setParams([]); setOnSiteOnly(false); } });
+  if (dataMode) chips.push({ key: "data", col: "data", label: dataMode === "has" ? "Has data" : "No data", clear: () => setDataMode("") });
+  const activeCols = new Set(chips.map((c) => c.col));
+
+  // the filter popup of each filterable column
+  const popups: Record<string, () => React.ReactNode> = {
+    difficulty: () => (<>
+      <p className="hf-title">Difficulty</p>
+      {[1, 2, 3, 4, 5, 0].map((L) => (
+        <label key={L} className="hf-opt" title={L ? LEVEL_HELP[L] : "No level researched yet"}>
+          <input type="checkbox" checked={levels.includes(L)} onChange={(e) => setLevels((v) => e.target.checked ? [...v, L].sort() : v.filter((x) => x !== L))} />
+          {L ? `${L} · ${LEVEL_NAMES[L]}` : "Not rated"}<span className="hf-n">{levelCounts[L]}</span>
+        </label>))}
+      <p className="hf-note">A range such as 2–3 counts for each level it covers.</p>
+    </>),
+    fit: () => (<>
+      <p className="hf-title">Yugos fit</p>
+      {(["", "any", ...MATCH_CATS] as const).map((k) => (
+        <label key={k || "all"} className="hf-opt">
+          <input type="radio" name="hf-fit" checked={fitCat === k} onChange={() => setFitCat(k)} />
+          {k === "" ? "Any" : k === "any" ? "Best of the three" : CAT_LABEL[k]}
+        </label>))}
+      {fitCat && <label className="hf-opt">At least
+        <select value={fitMin} onChange={(e) => setFitMin(Number(e.target.value))}>
+          {[30, 50, 60, 70, 80].map((v) => <option key={v} value={v}>{v}%</option>)}
+        </select></label>}
+      <p className="hf-note">Sorting this column uses the category chosen here.</p>
+    </>),
+    live: () => (<>
+      <p className="hf-title">Live overlap</p>
+      <label className="hf-opt"><input type="radio" name="hf-live" checked={!live.length} onChange={() => setLive([])} /> All</label>
+      <label className="hf-opt"><input type="radio" name="hf-live" checked={live[0] === "none"} onChange={() => setLive(["none"])} /> No overlap<span className="hf-n">{subTotal - overlapping}</span></label>
+      <label className="hf-opt"><input type="radio" name="hf-live" checked={live[0] === "any"} onChange={() => setLive(["any"])} /> Any overlap<span className="hf-n">{overlapping}</span></label>
+      <p className="hf-sub">Overlaps with</p>
+      {Object.keys(liveSets).filter((s) => liveCounts.has(s)).map((s) => (
+        <label key={s} className="hf-opt" title={liveSets[s]}>
+          <input type="checkbox" checked={live.includes(s)}
+                 onChange={(e) => setLive((v) => { const sets = v.filter((x) => x !== "none" && x !== "any"); return e.target.checked ? [...sets, s] : sets.filter((x) => x !== s); })} />
+          <span className="live-set">{s}</span><span className="hf-n">{liveCounts.get(s)}</span>
+        </label>))}
+    </>),
+    category: () => (<>
+      <p className="hf-title">Topic</p>
+      {catOptions.map((o) => (
+        <label key={o.value} className="hf-opt" title={o.title}>
+          <input type="checkbox" checked={cats.includes(o.value)} onChange={(e) => setCats((v) => e.target.checked ? [...v, o.value] : v.filter((x) => x !== o.value))} />
+          {o.label}<span className="hf-n">{o.n}</span>
+        </label>))}
+    </>),
+    reports: () => (<>
+      <p className="hf-title">Reports (all of)</p>
+      {paramOptions.map((o) => (
+        <label key={o.value} className="hf-opt" title={o.title}>
+          <input type="checkbox" checked={params.includes(o.value)} onChange={(e) => setParams((v) => e.target.checked ? [...v, o.value] : v.filter((x) => x !== o.value))} />
+          {o.label}<span className="hf-n">{o.n}</span>
+        </label>))}
+      <label className="hf-opt hf-sep" title="Count a parameter only when the benchmark's own page shows it (not just its data file or paper)">
+        <input type="checkbox" checked={onSiteOnly} disabled={!params.length} onChange={(e) => setOnSiteOnly(e.target.checked)} /> Shown on the site only
+      </label>
+    </>),
+    data: () => (<>
+      <p className="hf-title">Data in our database</p>
+      <label className="hf-opt"><input type="radio" name="hf-data" checked={!dataMode} onChange={() => setDataMode("")} /> All</label>
+      <label className="hf-opt"><input type="radio" name="hf-data" checked={dataMode === "has"} onChange={() => setDataMode("has")} /> Has results<span className="hf-n">{withData}</span></label>
+      <label className="hf-opt"><input type="radio" name="hf-data" checked={dataMode === "none"} onChange={() => setDataMode("none")} /> No results<span className="hf-n">{subTotal - withData}</span></label>
+    </>),
+  };
+
   return (
     <HoverTip className="bl">
       <div className="bl-tools">
         <div className="bl-seg" role="tablist" aria-label="View">
-          <button type="button" role="tab" aria-selected={view === "tree"} className={view === "tree" ? "on" : ""} onClick={() => setView("tree")}>Tree</button>
+          <button type="button" role="tab" aria-selected={view === "tree"} className={view === "tree" ? "on" : ""} onClick={() => setView("tree")}
+                  title="Benchmarks with their sub-benchmarks folded underneath">Tree</button>
+          <button type="button" role="tab" aria-selected={view === "flat"} className={view === "flat" ? "on" : ""} onClick={() => setView("flat")}
+                  title="Every sub-benchmark on its own row, so a sort runs across all of them">Flat</button>
           <button type="button" role="tab" aria-selected={view === "params"} className={view === "params" ? "on" : ""} onClick={() => setView("params")}>Parameters</button>
         </div>
         <input ref={searchRef} type="search" className="bl-search" placeholder="Search names, models, notes…  ( / )"
                value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search the benchmark list" />
         <label className="bl-toggle"><input type="checkbox" checked={onlyNoted} onChange={(e) => setOnlyNoted(e.target.checked)} /> With my notes</label>
-        <span className="muted small">{tree.length} benchmarks · {subTotal} sub-benchmarks</span>
+        <span className="bl-total" aria-live="polite">
+          {filtering
+            ? <><b>{shownSubs}</b> of {subTotal} sub-benchmarks <span className="muted">in {groups.length} of {tree.length} benchmarks</span></>
+            : <><b>{tree.length}</b> benchmarks · <b>{subTotal}</b> sub-benchmarks</>}
+        </span>
         {!panel && <button type="button" className="button bl-showpanel" onClick={() => setPanel(true)}
                            title="Show the details panel (or click a row)">◧ Details</button>}
-        {view === "tree" && <ResetColumns layout={cl} />}
+        {view !== "params" && <ResetColumns layout={cl} />}
         {view === "tree" && <span className="row bl-expand">
           <button type="button" className="link" disabled={filtering || open.size === parentsWithKids.length}
                   onClick={() => setOpen(new Set(parentsWithKids))}>Expand all</button>
@@ -259,73 +465,68 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
         </span>}
       </div>
 
-      <p className="bl-legend small">
-        {view === "params" ? (
-          <><b>●</b> On the site: read it off the leaderboard.
-            <span className="bl-legsep" /><b>○</b> Official, but only in a data file or the paper: download or read it to get it.
-            <span className="bl-legsep" /><b className="m-no">·</b> Not reported.</>
-        ) : (
-          <><span className="bl-tag t-cost">$</span> Reports: solid tag = on the site.
-            <span className="bl-legsep" /><span className="bl-tag t-cost faint">$</span> dashed = official, but only in a data file or the paper.</>
-        )}
-      </p>
-      <div className="bl-filters" role="group" aria-label="Filter benchmarks">
-        <MultiSelect id="bl-category" label="Sub-benchmark category" allLabel="All categories" options={catOptions} selected={cats.filter((c) => TOPIC_LABEL[c])}
-                     onChange={(v) => setCats(v)} />
-        <MultiSelect id="bl-params" label="Reports (all of)" allLabel="Any parameters" options={paramOptions} selected={params}
-                     onChange={(v) => setParams(v)} />
-        <label className="bl-toggle" title="Count a parameter only when the benchmark's own page shows it (not just its data file or paper)">
-          <input type="checkbox" checked={onSiteOnly} onChange={(e) => setOnSiteOnly(e.target.checked)} disabled={!params.length} /> Shown on the site only
-        </label>
-        <MultiSelect id="bl-diff" label="Difficulty" allLabel="Any difficulty" listAll
-                     options={[1, 2, 3, 4, 5].map((L) => ({ value: String(L), label: `${L} · ${LEVEL_NAMES[L]}`, short: `${L} ${LEVEL_NAMES[L]}`,
-                       hint: `${levelCounts[L]}`, title: `${LEVEL_HELP[L]} (a range such as 2-3 counts for each level it covers)` }))}
-                     selected={levels.map(String)} onChange={(v) => setLevels(v.map(Number).sort())} />
-        <div className="bl-fit" title="Keep sub-benchmarks whose Yugos match for this category is at least the chosen %">
-          <label htmlFor="bl-fit" className="bl-fit-label">Yugos fit</label>
-          <span className="bl-fit-row">
-            <select id="bl-fit" value={fitCat} onChange={(e) => setFitCat(e.target.value as "" | MatchCat | "any")}>
-              <option value="">Any</option>
-              <option value="any">Best of the three</option>
-              {MATCH_CATS.map((k) => <option key={k} value={k}>{CAT_LABEL[k]}</option>)}
-            </select>
-            {fitCat && <select aria-label="Minimum match" value={fitMin} onChange={(e) => setFitMin(Number(e.target.value))}>
-              {[30, 50, 60, 70, 80].map((v) => <option key={v} value={v}>≥ {v}%</option>)}
-            </select>}
-            <label className="bl-toggle" title="Hide sub-benchmarks marked ◆: they share questions with a live Yugos set">
-              <input type="checkbox" checked={noOverlap} onChange={(e) => setNoOverlap(e.target.checked)} /> No live-set overlap
-            </label>
-          </span>
-        </div>
-        {narrowed && <>
-          <span className="small">{shownParents} of {tree.length} benchmarks</span>
-          <button type="button" className="link" onClick={() => { setCats([]); setParams([]); setOnSiteOnly(false); setLevels([]); setFitCat(""); setNoOverlap(false); }}>Clear filters</button>
-        </>}
+      <div className="bl-chips" role="group" aria-label="Active filters and sort">
+        {chips.length === 0 && !sort
+          ? <span className="muted small">No filters. Click a column name to sort, or its <span className="hf-icon" aria-hidden="true">▾</span> to filter.</span>
+          : <>
+            {chips.map((c) => (
+              <span key={c.key} className="bl-chip">
+                <button type="button" className="bl-chip-label" title={c.col ? "Change this filter" : undefined}
+                        onClick={() => { if (c.col) { if (view === "params") setView("tree"); setPop(c.col); } }}>{c.label}</button>
+                <button type="button" className="bl-chip-x" aria-label={`Remove ${c.label}`} onClick={c.clear}>×</button>
+              </span>))}
+            {sort && <span className="bl-chip sort">
+              <button type="button" className="bl-chip-label" title="Reverse" onClick={() => setSort({ ...sort, dir: (-sort.dir) as 1 | -1 })}>
+                Sort: {TREE_HEADS[sort.key].label}{sort.key === "fit" ? ` (${fitCat && fitCat !== "any" ? CAT_LABEL[fitCat] : "best"})` : ""} {sort.dir === 1 ? "▲" : "▼"}
+              </button>
+              <button type="button" className="bl-chip-x" aria-label="Stop sorting" onClick={() => setSort(null)}>×</button>
+            </span>}
+            <button type="button" className="link" onClick={clearAll}>Clear all</button>
+          </>}
       </div>
+      {view === "params" ? null : (
+        <p className="bl-legend small">
+          <span className="bl-tag t-cost">$</span> Reports: solid tag = on the site.
+          <span className="bl-legsep" /><span className="bl-tag t-cost faint">$</span> dashed = official, but only in a data file or the paper.
+        </p>
+      )}
 
       <div className={`bl-body${panel ? "" : " full"}`} style={{ "--bl-panel-w": `${panelW}px` } as React.CSSProperties}>
         {view === "params" ? (
           <ParamsGrid items={visible.filter((r) => r.depth === 0).map((r) => r.item)} selected={selected} onSelect={(no) => { setSelected(no); setPanel(true); }} onOpen={() => setPanel(true)} />
         ) : (
-        <div className="bl-grid" role="treegrid" aria-label="Benchmarks" tabIndex={0} ref={gridRef} onKeyDown={onKey}
+        <div className={`bl-grid${view === "flat" ? " flat" : ""}`} role={view === "flat" ? "grid" : "treegrid"} aria-label="Benchmarks" tabIndex={0} ref={gridRef} onKeyDown={onKey}
              style={{ ["--bl-cols" as string]: cl.cols.map((c) => `${cl.width(c.key)}px`).join(" ") }}
              aria-activedescendant={selected ? `bl-${selected}` : undefined}>
           <div className="bl-row bl-head" role="row">
             {cl.cols.map(({ key }) => {
               const h = TREE_HEADS[key];
               const hp = cl.head(key);
+              const sortable = !!SORTS[key as SortKey], sorted = sort?.key === key;
+              const on = activeCols.has(key) || sorted;
               return (
-                <span key={key} role="columnheader" {...hp} className={`${hp.className}${h.cls ? ` ${h.cls}` : ""}`}
-                      title={h.title} aria-label={h.aria}><span className="col-label">{h.label}</span>{cl.grip(key)}</span>
+                <span key={key} role="columnheader" {...hp} className={`${hp.className}${h.cls ? ` ${h.cls}` : ""}${on ? " col-on" : ""}`}
+                      title={h.title} aria-label={h.aria} aria-sort={sorted ? (sort!.dir === 1 ? "ascending" : "descending") : undefined}>
+                  {sortable
+                    ? <button type="button" className="col-label col-sort" onClick={() => sortBy(key)} title={`${h.title ? `${h.title}\n\n` : ""}Click to sort`}>
+                        {h.label}{sorted && <span className="col-arrow">{sort!.dir === 1 ? "▲" : "▼"}</span>}
+                      </button>
+                    : <span className="col-label">{h.label}</span>}
+                  {popups[key] && <button type="button" className={`col-filter${activeCols.has(key) ? " on" : ""}`} draggable={false}
+                                          aria-label={`Filter ${h.label}`} aria-expanded={pop === key} data-pop={key}
+                                          onClick={(e) => { e.stopPropagation(); setPop((p) => (p === key ? null : key)); }}>▾</button>}
+                  {cl.grip(key)}
+                </span>
               );
             })}
           </div>
           {visible.length === 0 && <div className="bl-empty muted">
             {onlyNoted && !tree.some((p) => p.myNotes.trim() || p.children.some((c) => c.myNotes.trim()))
               ? "No benchmark has a note of yours yet: select a row and write one under My notes in the details panel."
-              : "No matches. Clear a filter to see more."}</div>}
-          {visible.map(({ item: i, depth, shownKids }, vi) => {
-            const isOpen = depth === 0 && (filtering ? shownKids > 0 : open.has(i.no));
+              : <>No matches. <button type="button" className="link" onClick={clearAll}>Clear all filters</button></>}</div>}
+          {visible.map(({ item: i, depth, shownKids, parent }, vi) => {
+            const flat = view === "flat";
+            const isOpen = !flat && depth === 0 && (filtering ? shownKids > 0 : open.has(i.no));
             const ranked = parseTop(i.top);
             const cells: Record<string, () => React.ReactNode> = {
               difficulty: () => (
@@ -344,14 +545,27 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
                   </span>
               ),
               live: () => (
-                  <span key="live" className={`c-live${depth === 0 ? " faint" : ""}`}
-                        title={i.live?.length ? `${depth === 0 ? "Its sub-benchmarks share questions with: " : "Shares questions with live Yugos "}${i.live.map((id) => `${id} (${liveSets[id] ?? id})`).join(", ")}${depth === 1 && i.match?.overlap ? `\n\n${i.match.overlap}` : ""}` : undefined}>
-                    {i.live?.length ? <><span className="live-mark" aria-label="Overlaps live Yugos sets">◆</span>{i.live.map((id) => <span key={id} className="live-set">{id}</span>)}</> : null}
-                  </span>
+                  <FitTags key="live" className={`c-live${depth === 0 && i.children.length ? " faint" : ""}`} tip sig={(i.live ?? []).join()}
+                           title={i.live?.length ? `${depth === 0 && i.children.length ? "Its sub-benchmarks share questions with: " : "Shares questions with live Yugos "}${i.live.map((id) => `${id} (${liveSets[id] ?? id})`).join(", ")}${depth === 1 && i.match?.overlap ? `\n\n${i.match.overlap}` : ""}` : undefined}
+                           lead={i.live?.length ? <span className="live-mark" aria-label="Overlaps live Yugos sets">◆</span> : null}
+                           tags={(i.live ?? []).map((id) => <span key={id} className="live-set">{id}</span>)} />
               ),
+              data: () => {
+                const kidsWith = i.children.filter((c) => (c.data ?? 0) > 0).length;
+                return depth === 0 && i.children.length ? (
+                  <span key="data" className="c-data faint num" title={`${kidsWith} of ${i.children.length} sub-benchmarks have results in our database (${(i.data ?? 0).toLocaleString("en-US")} results)`}>
+                    {kidsWith}/{i.children.length}
+                  </span>
+                ) : (
+                  <span key="data" className={`c-data num${i.data ? "" : " none"}`}
+                        title={i.data ? `${i.data.toLocaleString("en-US")} results in our database:\n${(i.dataFrom ?? []).join("\n")}` : "No results in our database"}>
+                    {i.data ? i.data.toLocaleString("en-US") : "—"}
+                  </span>
+                );
+              },
               name: () => (
                   <span key="name" className="c-name">
-                    {depth === 0 ? (
+                    {flat ? null : depth === 0 ? (
                       i.children.length ? (
                         <button type="button" className="bl-caret" aria-label={isOpen ? "Collapse" : "Expand"} disabled={filtering}
                                 onClick={(e) => { e.stopPropagation(); setSelected(i.no); toggle(i.no); }}>{isOpen ? "▾" : "▸"}</button>
@@ -359,33 +573,39 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
                     ) : <span className="bl-guide" aria-hidden="true" />}
                     <span className="bl-label" data-tip>
                       <Link href={`/benchmarks/${encodeURIComponent(i.no)}`} className="bl-name-link"
-                            onClick={(e) => e.stopPropagation()} title={`Open ${i.name}`}>{i.name}</Link>
+                            onClick={(e) => e.stopPropagation()} title={`Open ${i.name}${flat && parent ? ` (${parent.name})` : ""}`}><Hl text={i.name} q={q} /></Link>
+                      {flat && parent && <span className="bl-parent">· {parent.name}</span>}
                     </span>
-                    {depth === 0 && i.children.length > 0 && (
+                    {!flat && depth === 0 && i.children.length > 0 && (
                       <span className="bl-count">{filtering && shownKids !== i.children.length ? `${shownKids}/` : ""}{i.children.length}</span>
                     )}
                   </span>
               ),
               category: () => (
-                  <span key="category" className="c-cat" data-tip>{i.category}</span>
+                  <span key="category" className="c-cat" data-tip><Hl text={i.category} q={q} /></span>
               ),
               focus: () => (
-                  <span key="focus" className="c-focus" data-tip>{i.focus}</span>
+                  <span key="focus" className="c-focus" data-tip><Hl text={i.focus} q={q} /></span>
               ),
               top: () => (
                   <span key="top" className="c-top" data-tip>
                     {ranked ? ranked.map((r, k) => (
                       <Fragment key={k}>
                         {k > 0 && <span className="bl-sep">·</span>}
-                        <span className={k === 0 ? "bl-first" : undefined}>{r.name}</span>
+                        <span className={k === 0 ? "bl-first" : undefined}><Hl text={r.name} q={q} /></span>
                         {r.score && <span className="bl-score">{r.score}</span>}
                       </Fragment>
-                    )) : <span className="muted">{i.top.replace(/\s*\n\s*/g, " ")}</span>}
+                    )) : <span className="muted"><Hl text={i.top.replace(/\s*\n\s*/g, " ")} q={q} /></span>}
                   </span>
               ),
-              reports: () => (
-                  <span key="reports" className="c-rep" data-tip>{(depth === 0 || ownMetrics(i)) && <ReportTags item={i} />}</span>
-              ),
+              reports: () => {
+                const show = depth === 0 || !!ownMetrics(i);
+                const keys = show && i.metrics.params.length ? reportTagKeys(i) : [];
+                return show && i.metrics.params.length && !keys.length
+                  ? <span key="reports" className="c-rep" data-tip><span className="muted">score only</span></span>
+                  : <FitTags key="reports" className="c-rep" tip sig={keys.map((k) => k.key + k.where).join()}
+                             tags={keys.map(({ key, where }) => <span key={key} className={`bl-tag t-${key}${where === "page" ? "" : " faint"}`}>{METRIC_INFO[key].short}</span>)} />;
+              },
               link: () => (
                   <span key="link" className="c-ico">
                     {/^https?:\/\//.test(i.url) && (
@@ -402,9 +622,9 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
               ),
             };
             return (
-              <div key={i.no} id={`bl-${i.no}`} data-no={i.no} role="row" aria-level={depth + 1}
-                   aria-expanded={depth === 0 && i.children.length ? isOpen : undefined} aria-selected={selected === i.no}
-                   className={`bl-row ${depth ? "sub" : "parent"}${selected === i.no ? " sel" : ""}${isOpen ? " open" : ""}${vi % 2 ? " zb" : ""}`}
+              <div key={i.no} id={`bl-${i.no}`} data-no={i.no} role="row" aria-level={flat ? undefined : depth + 1}
+                   aria-expanded={!flat && depth === 0 && i.children.length ? isOpen : undefined} aria-selected={selected === i.no}
+                   className={`bl-row ${depth && !flat ? "sub" : flat ? "flatrow" : "parent"}${selected === i.no ? " sel" : ""}${isOpen ? " open" : ""}${vi % 2 ? " zb" : ""}`}
                    onClick={() => { setSelected(i.no); setPanel(true); }}>
                 {cl.cols.map((c) => cells[c.key]())}
               </div>
@@ -412,6 +632,7 @@ export function BenchmarkTree({ items, expandAll = false, initialView = "tree", 
           })}
         </div>
         )}
+        {pop && popups[pop] && view !== "params" && <FilterPop anchor={pop} onClose={() => setPop(null)}>{popups[pop]()}</FilterPop>}
 
         {panel && current && <Details key={current.item.no} item={current.item} parent={current.parent} onClose={() => setPanel(false)} matchTargets={matchTargets}
                              width={panelW} onResize={resizePanel}
@@ -565,8 +786,58 @@ const WHERE_TEXT = { page: "shown on the page", data: "in the official data file
 const ownMetrics = (i: TreeItem): Metrics | null => (i.metrics.params.length || i.metrics.notReported.length ? i.metrics : null);
 
 /** compact tags for the parameters a benchmark reports (its score is always reported, so not shown) */
+/** the parameters a row's Reports tags show (score and "other" are left out) */
+const reportTagKeys = (item: TreeItem) => reportedKeys(item.metrics).filter((k) => k.key !== "quality" && k.key !== "other");
+
+/**
+ * A cell of tags on one line: as many as fit are shown, the rest become a "+N" badge. Each tag's width is
+ * measured once, and the cell re-counts whenever it is resized (column drag, window, side panel). With `tip`,
+ * hovering the cell shows every tag (HoverTip copies the cell; the hidden ones are visible in that copy).
+ */
+function FitTags({ className, tags, sig, lead, title, tip }: {
+  className: string; tags: React.ReactNode[]; sig: string; lead?: React.ReactNode; title?: string; tip?: boolean;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [shown, setShown] = useState(tags.length);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const MORE = 28;   // room for the "+N" badge
+    // hidden tags stay measurable (out of the flow, invisible), so every count uses the tags' real widths
+    const fit = () => {
+      const cs = getComputedStyle(el);
+      const gap = parseFloat(cs.columnGap) || 0;
+      const avail = el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      const widths = [...el.querySelectorAll<HTMLElement>(":scope > .ft-tag")].map((t) => t.getBoundingClientRect().width);
+      const leadEl = el.querySelector<HTMLElement>(":scope > .ft-lead");
+      let used = leadEl ? leadEl.getBoundingClientRect().width : 0, k = 0;
+      for (; k < widths.length; k++) {
+        const next = used + (used > 0 ? gap : 0) + widths[k];
+        if (next > avail + 0.5) break;
+        used = next;
+      }
+      while (k < widths.length && k > 0 && used + gap + MORE > avail) { k--; used -= widths[k] + gap; }
+      setShown(k);
+    };
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(el);
+    document.fonts?.ready.then(fit).catch(() => undefined);
+    return () => ro.disconnect();
+  }, [sig]); // eslint-disable-line react-hooks/exhaustive-deps
+  const hidden = tags.length - shown;
+  return (
+    <span ref={ref} className={`${className} ft`} title={title}
+          {...(tip ? { "data-tip": hidden > 0 ? "always" : "" } : {})}>
+      {lead && <span className="ft-lead">{lead}</span>}
+      {tags.map((t, k) => <span key={k} className={`ft-tag${k >= shown ? " ft-over" : ""}`}>{t}</span>)}
+      {hidden > 0 && <span className="ft-more" aria-label={`${hidden} more`}>+{hidden}</span>}
+    </span>
+  );
+}
+
 function ReportTags({ item }: { item: TreeItem }) {
-  const keys = reportedKeys(item.metrics).filter((k) => k.key !== "quality" && k.key !== "other");
+  const keys = reportTagKeys(item);
   if (!item.metrics.params.length) return null;
   return (
     <>

@@ -4,11 +4,11 @@ const ID = /^[a-z0-9-]{1,64}$/;
 const KEY = /^[A-Za-z0-9_-]{1,64}$/;
 
 /**
- * POST {id, order: string[], widths: {key: px}, px?: true}  save a table's column layout (px: sizes frozen by a resize)
+ * POST {id, order: string[], widths: {key: n}, pct?: true}  save a table's column layout (pct: n = share of the table's box in per mille, else px)
  * POST {id, reset: true}                          forget it (back to the table's defaults)
  */
 export async function POST(req: Request) {
-  let body: { id?: unknown; order?: unknown; widths?: unknown; reset?: unknown; px?: unknown };
+  let body: { id?: unknown; order?: unknown; widths?: unknown; reset?: unknown; pct?: unknown };
   try { body = await req.json(); } catch { return Response.json({ error: "invalid JSON" }, { status: 400 }); }
   const { id } = body;
   if (typeof id !== "string" || !ID.test(id)) return Response.json({ error: "bad table id" }, { status: 400 });
@@ -18,9 +18,10 @@ export async function POST(req: Request) {
   const widths: Record<string, number> = {};
   if (body.widths && typeof body.widths === "object") {
     for (const [k, v] of Object.entries(body.widths as Record<string, unknown>).slice(0, 60)) {
-      if (KEY.test(k) && typeof v === "number" && Number.isFinite(v)) widths[k] = Math.round(Math.min(2000, Math.max(16, v)));
+      if (KEY.test(k) && typeof v === "number" && Number.isFinite(v))
+        widths[k] = body.pct === true ? Math.round(Math.min(1000, Math.max(0.1, v)) * 10) / 10 : Math.round(Math.min(2000, Math.max(16, v)));
     }
   }
-  await saveLayout(id, { order: [...new Set(order)], widths, ...(body.px === true ? { px: true } : {}) });
+  await saveLayout(id, { order: [...new Set(order)], widths, ...(body.pct === true ? { pct: true } : {}) });
   return Response.json({ ok: true });
 }

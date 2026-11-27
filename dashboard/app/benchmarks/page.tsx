@@ -5,6 +5,7 @@ import { LIST_FILE, MY_NOTES, readList } from "@/lib/benchmarkList";
 import { parseMetrics } from "@/lib/metrics";
 import { parseDifficulty, spanOf } from "@/lib/difficulty";
 import { readDatasetMatches, readSubMatches } from "@/lib/yugosMatchData";
+import { readBenchmarkMap } from "@/lib/benchmarkMap";
 import { liveSetsIn, MATCH_CATS, tripleOf } from "@/lib/yugosMatch";
 
 export const metadata: Metadata = { title: "Benchmark list · LLM Benchmark Results" };
@@ -20,8 +21,8 @@ const KNOWN = ["No", "Yugos", "Name", "Category", "URL", "Focus", "Top Ranked Mo
 export default async function BenchmarkListPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const sp = await searchParams;
   const expandAll = sp.expand === "all";              // /benchmarks?expand=all opens every group
-  const initialView = sp.view === "params" ? "params" : "tree";   // /benchmarks?view=params opens the parameters grid
-  const [{ header, rows }, layout, matches, datasets] = await Promise.all([readList(), readLayout("benchmark-list"), readSubMatches(), readDatasetMatches()]);
+  const initialView = sp.view === "params" ? "params" : sp.view === "flat" ? "flat" : "tree";   // /benchmarks?view=params opens the parameters grid
+  const [{ header, rows }, layout, matches, datasets, map] = await Promise.all([readList(), readLayout("benchmark-list"), readSubMatches(), readDatasetMatches(), readBenchmarkMap()]);
   // live Yugos sets (data/yugos-match/datasets.json): id -> name, for the Live overlap column
   const liveSets = Object.fromEntries((datasets?.datasets ?? []).filter((d) => d.yugos === "live").map((d) => [d.id, d.name]));
   const liveIds = Object.keys(liveSets);
@@ -51,6 +52,18 @@ export default async function BenchmarkListPage({ searchParams }: { searchParams
       if (m) { c.match = m; c.fit = tripleOf(m); c.live = m.live_overlap ? liveSetsIn(m.overlap, liveIds) : []; }
     }
     p.live = liveIds.filter((id) => p.children.some((c) => c.live?.includes(id)));
+    // results in our database (data/benchmark-map.json): a sub-benchmark's linked benchmarks; a benchmark: its sub-benchmarks' total
+    for (const c of p.children) {
+      const refs = map[c.no]?.benchmarks ?? [];
+      c.data = refs.reduce((n, r) => n + r.results, 0);
+      c.dataFrom = refs.map((r) => `${[r.name, r.version].filter(Boolean).join(" · ")} (${r.source}): ${r.results}`);
+    }
+    p.data = p.children.reduce((n, c) => n + (c.data ?? 0), 0);
+    if (!p.children.length) {
+      const refs = map[p.no]?.benchmarks ?? [];
+      p.data = refs.reduce((n, r) => n + r.results, 0);
+      p.dataFrom = refs.map((r) => `${[r.name, r.version].filter(Boolean).join(" · ")} (${r.source}): ${r.results}`);
+    }
     const scored = p.children.filter((c) => c.fit);
     if (scored.length) p.fit = Object.fromEntries(MATCH_CATS.map((k) => [k, Math.max(...scored.map((c) => c.fit![k]))])) as typeof p.fit;
   }

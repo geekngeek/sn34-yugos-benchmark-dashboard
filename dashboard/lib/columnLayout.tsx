@@ -5,13 +5,15 @@ import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent, type
 /**
  * A column a table offers. `width` is its default size in px. Until the user resizes a column, the table
  * fits its container: a `fixed` column keeps its px width and the flexible ones share what is left, following
- * the window or a side panel. The first resize freezes every column at its current px size; from then on a
- * drag changes only the grabbed column and the table scrolls sideways when wider than its box ("Reset columns"
- * goes back to fitting). No column gets narrower than `min` px.
+ * the window or a side panel. The first resize turns every column into its share of the box (per mille, `pct`
+ * in the saved layout). Shares always add up to the whole width, so the table keeps filling its box and scales
+ * with the screen; dragging the edge between two columns moves width from one to the other and leaves every
+ * other column alone ("Reset columns" goes back to fitting). No column gets narrower than `min` px (on a screen
+ * too narrow for all the minimums the table scrolls sideways).
  */
 export interface ColDef { key: string; width: number; min?: number; fixed?: boolean }
 /** what the server keeps per table (lib/uiLayout.ts) */
-export interface SavedLayout { order?: string[]; widths?: Record<string, number>; px?: boolean }
+export interface SavedLayout { order?: string[]; widths?: Record<string, number>; px?: boolean; pct?: boolean }
 
 const SAVE_DELAY = 400;
 
@@ -44,14 +46,16 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
 
   const [order, setOrder] = useState<string[]>(initialOrder);
   const [widths, setWidths] = useState<Record<string, number>>(() => ({ ...(saved?.widths ?? {}) }));
-  // true once the user has resized a column: widths are plain px and no longer stretch to fit the box
-  const [pxMode, setPxMode] = useState(saved?.px === true);
+  // true once the user has resized a column: widths are each column's share of the box, in per mille
+  const [pctMode, setPctMode] = useState(saved?.pct === true || saved?.px === true);
+  // a layout saved as plain px (an earlier version): turned into shares once the box is measured
+  const legacyPx = useRef(saved?.px === true && saved?.pct !== true);
   const [drag, setDrag] = useState<string | null>(null);
   const [drop, setDrop] = useState<{ key: string; side: "before" | "after" } | null>(null);
   const resizing = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const latest = useRef({ order, widths, px: pxMode });
-  latest.current = { order, widths, px: pxMode };
+  const latest = useRef({ order, widths, pct: pctMode });
+  latest.current = { order, widths, pct: pctMode };
 
   const send = useCallback(() => {
     timer.current = null;
@@ -92,7 +96,31 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
   // actual px per column: fixed ones as saved, flexible ones share what is left (whole px, remainder to the last)
   const px = useMemo(() => {
     const out: Record<string, number> = {};
-    if (pxMode) { for (const c of cols) out[c.key] = Math.max(minOf(c.key), raw(c.key)); return out; }
+    if (pctMode) {
+      const avail = box === null || legacyPx.current ? null : box - reserve;
+      // a column without a saved share (added later) gets its default share: its default width over all defaults
+      const defTotal = defs.reduce((n, d) => n + d.width, 0);
+      const share = (k: string) => widths[k] ?? ((byKey.get(k)?.width ?? 100) * 1000) / defTotal;
+      if (avail === null) { for (const c of cols) out[c.key] = Math.max(minOf(c.key), raw(c.key)); return out; }
+      // the shares fill the whole box: a column whose share would be under its minimum gets the minimum, and the
+      // others split what is left in proportion to their shares (repeated until no one is under); leftovers of
+      // rounding go to the widest column. Only when the minimums alone are wider than the box does the table overflow.
+      const atMin = new Set<string>();
+      for (;;) {
+        const rest = avail - cols.filter((c) => atMin.has(c.key)).reduce((n, c) => n + minOf(c.key), 0);
+        const free = cols.filter((c) => !atMin.has(c.key));
+        const sum = free.reduce((n, c) => n + share(c.key), 0);
+        const under = free.filter((c) => rest <= 0 || !sum || (rest * share(c.key)) / sum < minOf(c.key));
+        if (under.length && free.length > under.length) { under.forEach((c) => atMin.add(c.key)); continue; }
+        if (under.length) under.forEach((c) => atMin.add(c.key));
+        for (const c of cols) out[c.key] = atMin.has(c.key) ? minOf(c.key) : Math.round((rest * share(c.key)) / sum);
+        break;
+      }
+      const used = cols.reduce((n, c) => n + out[c.key], 0);
+      const widest = cols.filter((c) => !atMin.has(c.key)).sort((x, y) => out[y.key] - out[x.key])[0];
+      if (widest && used !== avail && out[widest.key] + avail - used >= minOf(widest.key)) out[widest.key] += avail - used;
+      return out;
+    }
     const flex = cols.filter((c) => !c.fixed);
     const fixedSum = cols.filter((c) => c.fixed).reduce((s, c) => s + raw(c.key), 0);
     const weight = flex.reduce((s, c) => s + raw(c.key), 0);
@@ -106,11 +134,20 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
     }
     return out;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cols.map((c) => c.key).join(), widths, box, reserve, pxMode]);
+  }, [cols.map((c) => c.key).join(), widths, box, reserve, pctMode]);
+
+  // an old px layout becomes shares of the box it was measured in, so the sizes look the same and then follow the screen
+  useEffect(() => {
+    if (!legacyPx.current || box === null || box - reserve <= 0) return;
+    legacyPx.current = false;
+    const avail = box - reserve;
+    setWidths((w) => Object.fromEntries(Object.entries(w).map(([k, v]) => [k, (v * 1000) / avail])));
+    persist();
+  }, [box, reserve, persist]);
 
   const width = (key: string) => px[key] ?? raw(key);
   const total = cols.reduce((s, c) => s + width(c.key), 0);
-  const customised = pxMode || order.join() !== defs.map((d) => d.key).join() || Object.keys(widths).length > 0;
+  const customised = pctMode || order.join() !== defs.map((d) => d.key).join() || Object.keys(widths).length > 0;
 
   const move = (from: string, to: string, side: "before" | "after") => {
     if (from === to) return;
@@ -125,7 +162,8 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
   const reset = () => {
     setOrder(defs.map((d) => d.key));
     setWidths({});
-    setPxMode(false);
+    setPctMode(false);
+    legacyPx.current = false;
     if (timer.current) { clearTimeout(timer.current); timer.current = null; }
     fetch("/api/ui-layout", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id, reset: true }) })
       .catch(() => undefined);
@@ -161,31 +199,52 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
     onDragEnd: () => { setDrag(null); setDrop(null); },
   });
 
-  /** the resize handle on a header's right edge; double-click puts the default width back */
-  const grip = (key: string) => (
+  /** the shares of every column as they are on screen now (per mille of the box) */
+  const sharesNow = (avail: number) => Object.fromEntries(cols.map((c) => [c.key, (width(c.key) * 1000) / avail]));
+
+  /**
+   * the resize handle on a header's right edge: it moves the border between this column and the next one, so
+   * those two change and the total stays the same; double-click gives this column its default share back
+   * (taken from or given to the next one). The last column has none: its right edge is the table's.
+   */
+  const grip = (key: string) => {
+    const at = cols.findIndex((c) => c.key === key);
+    const next = cols[at + 1];
+    if (!next) return null;
+    return (
     <span className="col-grip" role="separator" aria-orientation="vertical" aria-label="Resize column" title="Drag to resize · double-click to reset"
       draggable={false}
       onClick={(e) => e.stopPropagation()}
       onDoubleClick={(e) => {
         e.stopPropagation();
-        // its default size; in fitting mode the others share the rest as before, frozen ones stay put
-        setWidths((w) => { const n = { ...w }; if (pxMode) n[key] = byKey.get(key)?.width ?? 100; else delete n[key]; return n; });
+        if (!pctMode) { setWidths((w) => { const n = { ...w }; delete n[key]; return n; }); persist(); return; }
+        const avail = box === null ? null : box - reserve;
+        if (!avail || avail <= 0) return;
+        const defTotal = defs.reduce((s, d) => s + d.width, 0);
+        const a = width(key), b = width(next.key);
+        const want = ((byKey.get(key)?.width ?? 100) / defTotal) * avail;
+        const dx = Math.min(Math.max(want - a, minOf(key) - a), b - minOf(next.key));
+        setWidths({ ...sharesNow(avail), [key]: ((a + dx) * 1000) / avail, [next.key]: ((b - dx) * 1000) / avail });
         persist();
       }}
       onPointerDown={(e: ReactPointerEvent<HTMLSpanElement>) => {
         e.preventDefault(); e.stopPropagation();
         resizing.current = true;
-        const startX = e.clientX, start = width(key), min = minOf(key);
-        // first resize: freeze every column at the size it has on screen now, so only the grabbed one moves
-        if (!pxMode) {
-          setWidths(Object.fromEntries(cols.map((c) => [c.key, width(c.key)])));
-          setPxMode(true);
-        }
+        const avail = box === null ? null : box - reserve;
+        if (!avail || avail <= 0) { resizing.current = false; return; }
+        // every column starts from the share it has on screen now; only this one and the next one then change
+        const startX = e.clientX, a = width(key), b = width(next.key), minA = minOf(key), minB = minOf(next.key);
+        const base = sharesNow(avail);
+        setWidths(base);
+        setPctMode(true);
+        legacyPx.current = false;
         const el = e.currentTarget;
         el.setPointerCapture(e.pointerId);
         document.body.classList.add("col-resizing");
         const onMove = (ev: PointerEvent) => {
-          setWidths((w) => ({ ...w, [key]: Math.max(min, Math.round(start + ev.clientX - startX)) }));
+          // the border moves by dx: this column grows, the next one shrinks by the same, both kept at or above their minimum
+          const dx = Math.min(Math.max(ev.clientX - startX, minA - a), b - minB);
+          setWidths({ ...base, [key]: ((a + dx) * 1000) / avail, [next.key]: ((b - dx) * 1000) / avail });
         };
         const onUp = () => {
           resizing.current = false;
@@ -199,7 +258,8 @@ export function useColumnLayout(id: string, defs: ColDef[], saved?: SavedLayout,
         el.addEventListener("pointerup", onUp);
         el.addEventListener("pointercancel", onUp);
       }} />
-  );
+    );
+  };
 
   return { cols, width, total, head, grip, reset, customised, root };
 }
